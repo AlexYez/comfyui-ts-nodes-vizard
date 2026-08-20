@@ -43,6 +43,16 @@ python tools/frontend_inventory.py --source-root ../ComfyUI_frontend-1.48.7 --fr
 
 `release-gate` — отдельный read-only барьер для stable-релиза. Он возвращает ненулевой код и печатает все причины, если backend или frontend inventory покрыт не полностью, fingerprints или lifecycle расходятся, core/frontend-статьи и связанные рецепты не одобрены, примеры повреждены либо отсутствует явное человеческое одобрение выпуска. `--frontend-inventory` использует `content/schemas/frontend-inventory.schema.v1.json`, исключает `dev_only`, сверяет `frontendVersion` с целью в `update-manifest.json` и обязателен для успешного stable-gate. Альфа-каталог с `humanApproval.state = "pending"` обязан не пройти эту команду; это не влияет на `ci`.
 
+Очередь человеческого ревью для локальных нод печатается без изменения файлов:
+
+```text
+python tools/review_queue.py
+python tools/review_queue.py --article-id core.ksampler-advanced
+python tools/review_queue.py --format json
+```
+
+Отчёт показывает runtime-статус, редакционное состояние, research checks, незакрытые ограничения и связанные рецепты. Он не переводит материалы в `approved` и не подменяет решение ответственного редактора.
+
 `snapshot-report` строит детерминированный JSON/Markdown для pinned raw `/object_info`. Исходный snapshot не меняется и не фильтруется. Исключение `dev_only` и тестовых типов применяется только в отчёте; raw count, user server count, flags, пересечения и список node IDs остаются проверяемыми тестами.
 
 В составе `ci` собранный `content/generated/catalog.json` валидируется по `content/schemas/compiled-catalog.schema.v1.json`. Контракт закрывает article manifest, runtime identity, lifecycle, совместимость, связи, assets, источники и редакторские поля. Дополнительные поля разрешены только внутри расширяемых объектов workflow и пользовательских `settings` фрагмента.
