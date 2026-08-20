@@ -2042,7 +2042,7 @@ def command_release_gate(args: argparse.Namespace) -> int:
     return 0
 
 
-def command_ci(_: argparse.Namespace) -> int:
+def command_ci(args: argparse.Namespace) -> int:
     errors = validate_catalog()
     if errors:
         print_errors(errors)
@@ -2061,6 +2061,14 @@ def command_ci(_: argparse.Namespace) -> int:
         top_level_dir=str(ROOT),
     )
     result = unittest.TextTestRunner(verbosity=2).run(suite)
+    if args.fail_on_skip and result.skipped:
+        print_errors(
+            [
+                f"qualification test skipped: {test.id()}: {reason}"
+                for test, reason in result.skipped
+            ]
+        )
+        return 1
     return 0 if result.wasSuccessful() else 1
 
 
@@ -2123,6 +2131,11 @@ def parser() -> argparse.ArgumentParser:
     release_gate.set_defaults(func=command_release_gate)
 
     ci = commands.add_parser("ci", help="run validate, generated check and self-tests")
+    ci.add_argument(
+        "--fail-on-skip",
+        action="store_true",
+        help="treat every skipped qualification test as a failure",
+    )
     ci.set_defaults(func=command_ci)
     return root
 

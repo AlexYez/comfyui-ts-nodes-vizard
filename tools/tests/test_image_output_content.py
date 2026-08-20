@@ -13,6 +13,7 @@ import unittest
 import zipfile
 import zlib
 from collections import Counter, defaultdict
+from fractions import Fraction
 from pathlib import Path
 from typing import Any, Iterator
 
@@ -186,6 +187,7 @@ def extract_advanced_helpers() -> dict[str, Any]:
         "_HLG_C",
         "_PNG_SIGNATURE",
         "_CHROMATICITIES",
+        "_FORMAT_SPECS",
     }
     functions = {
         "srgb_to_linear",
@@ -195,6 +197,7 @@ def extract_advanced_helpers() -> dict[str, Any]:
         "inject_png_metadata",
         "_pack_chromaticities",
         "_exr_attribute",
+        "_encode_image",
     }
     body: list[ast.stmt] = []
     for node in tree.body:
@@ -212,9 +215,11 @@ def extract_advanced_helpers() -> dict[str, Any]:
             body.append(node)
     namespace: dict[str, Any] = {
         "torch": torch,
+        "np": np,
         "json": json,
         "struct": struct,
         "zlib": zlib,
+        "Fraction": Fraction,
     }
     exec(
         compile(ast.Module(body=body, type_ignores=[]), str(path), "exec"),
@@ -542,8 +547,11 @@ class ImageOutputContentTests(unittest.TestCase):
             self.assertEqual(expected_pixels[:2], decoded_pixels[:2])
             self.assertEqual(0, decoded_pixels[2][3])
 
-    def test_pinned_color_and_png_metadata_helpers_execute_without_pyav(self) -> None:
+    def test_pinned_color_png_metadata_and_codec_helpers_execute(self) -> None:
+        import av
+
         helpers = extract_advanced_helpers()
+        helpers["_encode_image"].__globals__["av"] = av
         srgb = torch.tensor([[[0.0, 0.04045, 0.5, 0.25]]], dtype=torch.float32)
         srgb_linear = helpers["srgb_to_linear"](srgb)
         self.assertAlmostEqual(0.0, float(srgb_linear[0, 0, 0]), places=7)
@@ -570,13 +578,28 @@ class ImageOutputContentTests(unittest.TestCase):
 
         requirements = (SOURCE / "requirements.txt").read_text(encoding="utf-8")
         self.assertIn("av>=16.0.0", requirements)
-        try:
-            import av  # type: ignore  # noqa: F401
-        except ModuleNotFoundError:
-            self.assertIsNone(__import__("importlib.util").util.find_spec("av"))
-        else:
-            self.skipTest(
-                "PyAV is available: this environment can add a separate pinned _encode_image codec test; current evidence remains limited to helpers."
+        rgb = torch.tensor(
+            [[[0.0, 0.5, 1.0], [1.25, -0.25, 0.25]]], dtype=torch.float32
+        )
+        png8 = helpers["_encode_image"](rgb, "png", "8-bit", "sRGB")
+        self.assertTrue(png8.startswith(b"\x89PNG\r\n\x1a\n"))
+        with Image.open(io.BytesIO(png8)) as decoded:
+            self.assertEqual((2, 1), decoded.size)
+            self.assertEqual((0, 127, 255), decoded.convert("RGB").getpixel((0, 0)))
+            self.assertEqual((255, 0, 63), decoded.convert("RGB").getpixel((1, 0)))
+
+        png16 = helpers["_encode_image"](rgb, "png", "16-bit", "sRGB")
+        self.assertTrue(png16.startswith(b"\x89PNG\r\n\x1a\n"))
+        exr = helpers["_encode_image"](rgb, "exr", "32-bit float", "linear")
+        self.assertTrue(exr.startswith(b"\x76\x2f\x31\x01"))
+        self.assertGreater(len(exr), 100)
+
+        with self.assertRaisesRegex(ValueError, "supported channel counts"):
+            helpers["_encode_image"](
+                torch.zeros((1, 1, 2), dtype=torch.float32),
+                "png",
+                "8-bit",
+                "sRGB",
             )
 
 

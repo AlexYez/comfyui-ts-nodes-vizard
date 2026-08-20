@@ -403,6 +403,7 @@ class ClipVisionUnclipGligenContentTests(unittest.TestCase):
             cwd=catalog.ROOT,
             env={**os.environ, "PYTHONUTF8": "1"},
             text=True,
+            encoding="utf-8",
             capture_output=True,
             timeout=120,
             check=False,

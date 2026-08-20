@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import importlib.metadata
 import json
 import os
 import re
@@ -140,12 +141,11 @@ SYNTHETIC_PROBE = Path(__file__).with_name("deprecated_audio_synthetic_probe.py"
 FRONTEND_SOURCE = catalog.ROOT / ".frontend-source-1.48.7"
 FRONTEND_COMMIT = "6d6af63c00f132cd25dc29307fc56bd2c094fa22"
 
-FRONTEND_SITE = (
-    Path(os.environ.get("TEMP", ""))
-    / "nodes-wizard-comfyui-v0.32.0-venv"
-    / "Lib"
-    / "site-packages"
-)
+try:
+    _frontend_distribution = importlib.metadata.distribution("comfyui-frontend-package")
+    FRONTEND_SITE = Path(_frontend_distribution.locate_file(""))
+except importlib.metadata.PackageNotFoundError:
+    FRONTEND_SITE = Path("__missing_frontend_site__")
 FRONTEND_PACKAGE = FRONTEND_SITE / "comfyui_frontend_package"
 FRONTEND_DIST_INFO = FRONTEND_SITE / "comfyui_frontend_package-1.48.7.dist-info"
 FRONTEND_CORE_MAP = (

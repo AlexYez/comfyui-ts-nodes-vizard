@@ -308,7 +308,15 @@ class PrimitiveNodesContentTests(unittest.TestCase):
         python = next((candidate for candidate in candidates if candidate.exists()), None)
         if python is None:
             self.skipTest("no Python interpreter for primitive probe")
-        result = subprocess.run([str(python), "-X", "utf8", str(PROBE), str(SOURCE)], cwd=catalog.ROOT, text=True, capture_output=True, timeout=60, check=False)
+        result = subprocess.run(
+            [str(python), "-X", "utf8", str(PROBE), str(SOURCE)],
+            cwd=catalog.ROOT,
+            text=True,
+            encoding="utf-8",
+            capture_output=True,
+            timeout=60,
+            check=False,
+        )
         if result.returncode != 0:
             self.fail(result.stderr or result.stdout)
         payload = json.loads(result.stdout.strip().splitlines()[-1])

@@ -16,7 +16,7 @@ concurrency:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -35,8 +35,25 @@ jobs:
       - name: Install frontend dependencies
         run: npm ci
 
+      - name: Install pinned ComfyUI qualification dependencies
+        run: |
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision torchaudio
+          python -m pip install -r .github/requirements-content-ci.txt
+
+      - name: Fetch pinned qualification evidence
+        shell: bash
+        run: |
+          git clone --depth 1 --branch v0.32.0 https://github.com/Comfy-Org/ComfyUI.git .comfyui-source-0.32.0
+          test "$(git -C .comfyui-source-0.32.0 rev-parse HEAD)" = "c2bcbecd82ec5ae66594340b395c24ef0217b238"
+          git init .frontend-source-1.48.7
+          git -C .frontend-source-1.48.7 remote add origin https://github.com/Comfy-Org/ComfyUI_frontend.git
+          git -C .frontend-source-1.48.7 fetch --depth 1 origin 6d6af63c00f132cd25dc29307fc56bd2c094fa22
+          git -C .frontend-source-1.48.7 checkout --detach FETCH_HEAD
+          mkdir -p .upstream-cache
+          python -m pip download --no-deps --dest .upstream-cache comfyui-embedded-docs==0.5.9 comfyui-workflow-templates-json==0.1.42
+
       - name: Validate catalog and run Python self-tests
-        run: python tools/catalog.py ci
+        run: python tools/catalog.py ci --fail-on-skip
 
       - name: Test packaging contract
         run: python -m unittest discover -s tests -v
