@@ -146,6 +146,24 @@ class LatentArithmeticContentTests(unittest.TestCase):
             self.assertEqual("draft", recipe["editorial"]["state"])
             fragment = catalog.load_json(path.parent / recipe["fragment"]["path"])
             self.assertEqual([], catalog.json_schema_errors(fragment, fragment_schema))
+            recipe_body = (path.parent / recipe["body"]).read_text(encoding="utf-8")
+            prose_without_code = re.sub(
+                r"`[^`]+`|https?://\S+", "", recipe_body
+            ).casefold()
+            for untranslated in (
+                " workflow",
+                " fragment",
+                " runtime",
+                " pinned",
+                " batch",
+                " broadcasting",
+                " center crop",
+                " bilinear resize",
+                " repeat",
+                " truncate",
+                " source-derived",
+            ):
+                self.assertNotIn(untranslated, prose_without_code, recipe_id)
             self.assertEqual(
                 EXPECTED_FRAGMENT_NODES[recipe_id],
                 [(node["classType"], node["settings"]) for node in fragment["nodes"]],
