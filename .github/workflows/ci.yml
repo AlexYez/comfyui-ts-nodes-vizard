@@ -43,9 +43,10 @@ jobs:
       - name: Fetch pinned qualification evidence
         shell: bash
         run: |
-          git clone --depth 1 --branch v0.32.0 https://github.com/Comfy-Org/ComfyUI.git .comfyui-source-0.32.0
+          git -c core.autocrlf=true clone --depth 1 --branch v0.32.0 https://github.com/Comfy-Org/ComfyUI.git .comfyui-source-0.32.0
           test "$(git -C .comfyui-source-0.32.0 rev-parse HEAD)" = "c2bcbecd82ec5ae66594340b395c24ef0217b238"
           git init .frontend-source-1.48.7
+          git -C .frontend-source-1.48.7 config core.autocrlf true
           git -C .frontend-source-1.48.7 remote add origin https://github.com/Comfy-Org/ComfyUI_frontend.git
           git -C .frontend-source-1.48.7 fetch --depth 1 origin 6d6af63c00f132cd25dc29307fc56bd2c094fa22
           git -C .frontend-source-1.48.7 checkout --detach FETCH_HEAD
@@ -53,6 +54,8 @@ jobs:
           python -m pip download --no-deps --dest .upstream-cache comfyui-embedded-docs==0.5.9 comfyui-workflow-templates-json==0.1.42
 
       - name: Validate catalog and run Python self-tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/.github/qualification:${{ github.workspace }}/.comfyui-source-0.32.0
         run: python tools/catalog.py ci --fail-on-skip
 
       - name: Test packaging contract
