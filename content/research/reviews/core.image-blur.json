@@ -20,7 +20,9 @@
     "embeddedDocs": [
       {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ImageBlur/ru.md", "assessment": "Верно описывает назначение и параметры, но не фиксирует нормализованное ядро, reflect padding, поканальную grouped convolution и ограничение радиуса размером кадра."}
     ],
-    "workflows": []
+    "workflows": [
+      {"id": "image_qwen_image_instantx_inpainting_controlnet", "role": "Два вложенных графа содержат ImageBlur с blur_radius 31 и sigma 1 в модельно-специфичной масочной ветви."}
+    ]
   },
   "checks": {
     "implementationRead": true,
@@ -32,7 +34,7 @@
     "factsRecheckedAfterEditing": true
   },
   "knownGaps": [
-    "Exhaustive scan официальных workflow templates JSON 0.1.42 не нашёл ImageBlur; пример основан на точной реализации и честно не объявлен официальным.",
+    "Официальные случаи используют blur_radius 31 и sigma 1; редакционный Blur-Canny фрагмент с радиусом 2 не выдаётся за их копию.",
     "Свёртка исполнена на синтетическом impulse IMAGE, но полный Blur-Canny fragment ещё не запускался в живом графе.",
     "Человеческое редакционное утверждение не выполнено."
   ],
