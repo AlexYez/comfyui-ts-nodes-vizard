@@ -188,6 +188,19 @@ class AudioEditingContentTests(unittest.TestCase):
             recipe_body = (path.parent / recipe["body"]).read_text(encoding="utf-8")
             self.assertIsNone(cliché.search(recipe_body), recipe_id)
             self.assertNotIn("\ufffd", recipe_body)
+            prose_without_code = re.sub(r"`[^`]+`|https?://\S+", "", recipe_body)
+            for untranslated in (
+                " subgraph",
+                " workflow",
+                " video-разбор",
+                " formula gain",
+                " template census",
+                " tensor-вызов",
+                " mono-сигнал",
+                " stereo",
+                " editorial fragment",
+            ):
+                self.assertNotIn(untranslated, prose_without_code.casefold(), recipe_id)
         self.assertEqual([], errors)
 
     def test_exact_runtime_fingerprints_ports_settings_and_fragments(self) -> None:
