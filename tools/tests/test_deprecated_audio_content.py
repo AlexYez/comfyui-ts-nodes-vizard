@@ -465,6 +465,24 @@ class DeprecatedAudioContentTests(unittest.TestCase):
             self.assertIn(
                 "human approval pending", recipe["editorial"]["reviewedBy"]
             )
+            recipe_body = (path.parent / recipe["body"]).read_text(encoding="utf-8")
+            prose_without_code = re.sub(
+                r"`[^`]+`|https?://\S+", "", recipe_body
+            ).casefold()
+            for untranslated in (
+                " saver",
+                " official workflow bundle",
+                " fragment",
+                " runtime-",
+                " writer helper",
+                " dynamic format",
+                " prefix",
+                " legacy",
+                " encoder-прогон",
+                " resample",
+                " migration-",
+            ):
+                self.assertNotIn(untranslated, prose_without_code, recipe_id)
 
             fragment_path = path.parent / recipe["fragment"]["path"]
             fragment = catalog.load_json(fragment_path)

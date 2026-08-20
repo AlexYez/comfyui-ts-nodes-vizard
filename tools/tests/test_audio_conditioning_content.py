@@ -272,6 +272,23 @@ class AudioConditioningContentTests(unittest.TestCase):
             fragment = catalog.load_json(fragment_path)
             self.assertEqual([], catalog.json_schema_errors(fragment, schemas["fragment"]))
             catalog.validate_fragment(fragment_path, fragment, errors)
+            recipe_body = (path.parent / recipe["body"]).read_text(encoding="utf-8")
+            prose_without_code = re.sub(
+                r"`[^`]+`|https?://\S+", "", recipe_body
+            ).casefold()
+            for untranslated in (
+                " metadata",
+                " conditioning-",
+                " fragment",
+                " workflow",
+                " official",
+                " unit-level",
+                " tensor helpers",
+                " weights",
+                " sample rate",
+                " synthetic execution",
+            ):
+                self.assertNotIn(untranslated, prose_without_code, recipe_id)
             self.assertEqual(
                 EXPECTED_FRAGMENT_NODES[recipe_id],
                 [
