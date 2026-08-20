@@ -18,22 +18,22 @@
   "artifacts": [
     {
       "path": "generated/catalog.json",
-      "sha256": "66d4fdd3ee7dd7b01179c4ecaac492d7efa97aa0aae6fc1548c880419bef4acc",
-      "size": 11409738,
+      "sha256": "df8f9f6ffe439d6c6332dfb30bb48a42016e572e41939359599160cafb361ac5",
+      "size": 11409741,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog.json",
       "contentType": "application/json"
     },
     {
       "path": "generated/search-index.json",
-      "sha256": "3da9a79cd5846f7426d304e1999a0ce828a0f659ec0ef0d8ee8963c47e8c45b0",
-      "size": 5626561,
+      "sha256": "000e7ee0bbbdae02e725f3fbfcde47f8f949ddfadf8ab39778d65ad995a57add",
+      "size": 5626564,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/search-index.json",
       "contentType": "application/json"
     },
     {
       "path": "generated/catalog-bundle.zip",
-      "sha256": "6ce55c03d7aec0e3cbe4c3b2b3290bd3e5f107be19c6e00c3bf1af74c8d366c8",
-      "size": 3491537,
+      "sha256": "16bc64174bd3cd3921a13da888d9c9fe5fabdbbec300cf342104c0d1987cf83f",
+      "size": 3491545,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog-bundle.zip",
       "contentType": "application/zip"
     }

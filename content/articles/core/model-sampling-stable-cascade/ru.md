@@ -66,7 +66,7 @@ Sampling-класс вычисляет ряд для совместимости 
 
 Embedded docs 0.5.9 описывают входы и общий custom shift, но не сообщают о базовом fallback 1, цикле на 10 000 точек, формуле log-SNR, clamp и вырожденном нуле. Эти детали взяты из закреплённой реализации и подтверждены probe.
 
-## Источники
+### Источники
 
 - [ModelSamplingStableCascade в ComfyUI v0.32.0](https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L91-L118)
 - [StableCascadeSampling mathematics](https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L349-L398)

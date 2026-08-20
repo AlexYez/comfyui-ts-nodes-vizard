@@ -68,7 +68,7 @@ Stable Audio в закреплённом source задаёт `sigma_max = 500` �
 
 Embedded docs 0.5.9 верно перечисляют default 500/0,03 и общий V-сценарий, но не предупреждают о нуле, обратных границах, численной погрешности и том, что Stable Audio уже получает этот sampling автоматически. Эти детали сверены с source и probe.
 
-## Источники
+### Источники
 
 - [ModelSamplingContinuousV в ComfyUI v0.32.0](https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L242-L276)
 - [Непрерывная V sampling-математика](https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L226-L278)

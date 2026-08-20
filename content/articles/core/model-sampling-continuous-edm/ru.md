@@ -68,7 +68,7 @@
 
 В embedded docs wheel 0.5.9 отдельной директории `ModelSamplingContinuousEDM` нет. Поэтому статья опирается на runtime, исходник patch-ноды, базовые sampling-классы и официальную detection-логику SDXL Playground. Отсутствие документации не заменено догадками.
 
-## Источники
+### Источники
 
 - [ModelSamplingContinuousEDM в ComfyUI v0.32.0](https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L197-L240)
 - [Continuous EDM и V sampling mathematics](https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L226-L278)
