@@ -200,6 +200,22 @@ class AudioModelLoadersContentTests(unittest.TestCase):
             body = (path.parent / recipe["body"]).read_text(encoding="utf-8")
             self.assertIsNone(cliche.search(body), recipe_id)
             self.assertNotIn("\ufffd", body)
+            prose_without_code = re.sub(r"`[^`]+`|https?://\S+", "", body).casefold()
+            for untranslated in (
+                " official ",
+                " template",
+                " prompt-",
+                " fragment",
+                " preset",
+                " consumer",
+                " workflow",
+                " runtime",
+                " end-to-end",
+                " encode",
+                " decode",
+                " loader",
+            ):
+                self.assertNotIn(untranslated, prose_without_code, recipe_id)
         self.assertEqual([], errors)
 
     def test_exact_runtime_fingerprints_ports_settings_and_fragment_types(self) -> None:

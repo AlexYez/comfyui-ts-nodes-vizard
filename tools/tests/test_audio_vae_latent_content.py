@@ -197,6 +197,21 @@ class AudioVaeLatentContentTests(unittest.TestCase):
             recipe_body = (path.parent / recipe["body"]).read_text(encoding="utf-8")
             self.assertIsNone(cliche.search(recipe_body), recipe_id)
             self.assertNotIn("\ufffd", recipe_body)
+            prose_without_code = re.sub(r"`[^`]+`|https?://\S+", "", recipe_body).casefold()
+            for untranslated in (
+                " workflow",
+                " fragment",
+                " source-derived",
+                " exact-",
+                " fake-",
+                " tiled decode",
+                " defaults",
+                " audio latent",
+                " image batch",
+                " optional-",
+                " subgraph",
+            ):
+                self.assertNotIn(untranslated, prose_without_code, recipe_id)
         self.assertEqual([], errors)
 
     def test_exact_runtime_fingerprints_ports_settings_and_fragment_types(self) -> None:
