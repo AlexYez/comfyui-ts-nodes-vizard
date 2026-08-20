@@ -245,10 +245,21 @@ class HookWeightCreationContentTests(unittest.TestCase):
                 )
 
         replacements = catalog.load_json(REPLACEMENTS)
-        serialized = json.dumps(replacements, ensure_ascii=False)
+        replacement_ids: set[str] = set()
+
+        def collect_replacement_ids(value: Any) -> None:
+            if isinstance(value, dict):
+                for key, item in value.items():
+                    if key in {"old_node_id", "new_node_id"} and isinstance(item, str):
+                        replacement_ids.add(item)
+                    collect_replacement_ids(item)
+            elif isinstance(value, list):
+                for item in value:
+                    collect_replacement_ids(item)
+
+        collect_replacement_ids(replacements)
         for class_type in TARGET_TYPES:
-            self.assertNotIn(class_type, replacements)
-            self.assertNotIn(f'"new_node_id": "{class_type}"', serialized)
+            self.assertNotIn(class_type, replacement_ids)
 
     def test_fragments_are_typed_complete_and_fail_closed(self) -> None:
         inventory = catalog.load_json(INVENTORY)
@@ -333,6 +344,8 @@ class HookWeightCreationContentTests(unittest.TestCase):
             SOURCE / "comfy_extras" / "nodes_hooks.py": "06218a53653b8b856fa9296d18ffce3d0fd05706a9b731112e44bc82f432e375",
             SOURCE / "comfy" / "hooks.py": "d9364d1e9d6f1b9cd6a0f09767a9ec8007b0577f9e2d245c403b4d325f909c65",
             SOURCE / "comfy" / "lora.py": "4efd82adbd4e70f8fc29a9bf1cf2827ca211e7a15297187236b7b3119acd8d03",
+            SOURCE / "comfy" / "model_patcher.py": "0a0e1991b4bea80dc6f5785ba7d6b2d76929c976a6c156a08387a0567c9ebf04",
+            SOURCE / "comfy" / "sd.py": "51e72a263e8bd77812aefcebcf3cfaf9fda57150d763897b6d8b4890d7fee207",
         }
         for path, digest in expected_hashes.items():
             self.assertTrue(path.exists(), path)
@@ -372,11 +385,26 @@ class HookWeightCreationContentTests(unittest.TestCase):
 
         lora = (SOURCE / "comfy" / "lora.py").read_text(encoding="utf-8")
         for marker in (
+            'elif patch_type == "set":',
+            "weight.copy_(v[0])",
             'elif patch_type == "model_as_lora":',
             "comfy.model_management.cast_to_device(original_weights[key][0][0]",
             "weight += function(strength * comfy.model_management.cast_to_device(diff_weight",
         ):
             self.assertIn(marker, lora)
+
+        patcher = (SOURCE / "comfy" / "model_patcher.py").read_text(encoding="utf-8")
+        for marker in (
+            "def add_hook_patches(self, hook: comfy.hooks.WeightHook, patches, strength_patch=1.0, strength_model=1.0):",
+            "if key in model_sd:",
+            "current_patches.append((strength_patch, patches[k], strength_model, offset, function))",
+            "new_patch[0] *= hook.strength",
+        ):
+            self.assertIn(marker, patcher)
+
+        sd = (SOURCE / "comfy" / "sd.py").read_text(encoding="utf-8")
+        self.assertIn("trying to load it as a diffusion model only", sd)
+        self.assertIn("return (diffusion_model, None, VAE(sd={}), None)", sd)
 
     def test_embedded_docs_integrity_exact_members_and_known_gaps(self) -> None:
         self.assertTrue(DOCS_WHEEL.exists(), DOCS_WHEEL)
@@ -487,6 +515,7 @@ class HookWeightCreationContentTests(unittest.TestCase):
         model = payload["modelAsLora"]
         self.assertTrue(model["loaderRequestedVaeAndClip"])
         self.assertTrue(model["sameCheckpointLoadedOnce"])
+        self.assertTrue(model["changedPathReloaded"])
         self.assertTrue(model["zeroStillLoaded"])
         self.assertTrue(model["modelOnlyZeroStillLoads"])
         self.assertTrue(model["samplingKeysRemoved"])
@@ -497,12 +526,37 @@ class HookWeightCreationContentTests(unittest.TestCase):
         self.assertEqual(0.0, model["modelOnlyClipStrength"])
         self.assertTrue(model["modelOnlyStillStoresClipPatches"])
         self.assertTrue(model["targetTensorSharedAcrossCalls"])
+        self.assertTrue(model["clipMayBeAbsent"])
+        self.assertTrue(model["vaeNotCached"])
+        self.assertEqual([0.0, 0.0], model["zeroStrengths"])
+        self.assertEqual([1.0, 0.5], model["secondStrengths"])
 
         formula = payload["modelAsLoraFormula"]
         self.assertEqual([1.0, 3.0], formula["strength0"])
         self.assertEqual([3.0, 2.0], formula["strengthHalf"])
         self.assertEqual([5.0, 1.0], formula["strength1"])
         self.assertEqual([-3.0, 5.0], formula["strengthNegative"])
+        self.assertEqual([15.0, 11.0], formula["keepsExistingPatch"])
+        self.assertEqual([5.0, 5.0], formula["broadcastShape"])
+        self.assertEqual("RuntimeError", formula["incompatibleShapeError"])
+
+        raw = payload["rawLoraPatchSemantics"]
+        self.assertEqual([1.0, 3.0], raw["diffStrength0"])
+        self.assertEqual([-1.0, 4.0], raw["diffStrengthNegative"])
+        self.assertEqual([9.0, 8.0], raw["setStrength0"])
+        self.assertEqual([11.0, 7.0], raw["setThenDiff"])
+        self.assertEqual([9.0, 8.0], raw["diffThenSet"])
+
+        registration = payload["exactRegistration"]
+        self.assertEqual([False, False], registration["loadLoraLogMissingFlags"])
+        self.assertTrue(registration["missingTargetKeyFiltered"])
+        self.assertEqual(["base.weight"], registration["registeredKeys"])
+        self.assertEqual([True, True], registration["priorThenNew"])
+        self.assertTrue(registration["cloneSharesWeightDictionary"])
+        self.assertTrue(registration["duplicateHookRefRemoved"])
+        self.assertEqual([0.8, 0.15], registration["combinedStrengths"])
+        self.assertEqual(0.15, registration["effectiveTargetStrength"])
+        self.assertEqual([9.0, 8.0], registration["zeroSetStillApplies"])
 
 
 if __name__ == "__main__":
