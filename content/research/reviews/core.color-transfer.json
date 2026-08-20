@@ -10,9 +10,9 @@
     "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
     "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L668-L888", "path": "comfy_extras/nodes_post_processing.py", "lines": "668-888"}],
     "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ColorTransfer/ru.md", "assessment": "Подробно перечисляет динамические варианты, но статья дополнительно сверяет точные Reinhard/MKL/histogram формулы, ref-batch clamping, RGB contract и экстраполяцию strength."}],
-    "workflows": []
+    "workflows": [{"id": "api_bfl_flux_2_pro_edit", "role": "Два ColorTransfer используют reinhard_lab, per_frame и strength=1 перед сохранением результата; оба находятся в официальных графах семейства Flux 2 Pro Edit."}]
   },
   "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
-  "knownGaps": ["Exhaustive scan official workflow templates JSON 0.1.42 не нашёл ColorTransfer; пример основан на реализации.", "Девять method/source_stats combinations исполнены на synthetic RGB target/ref; полный fragment ещё не запускался.", "Человеческое редакционное утверждение не выполнено."],
+  "knownGaps": ["Полный просмотр 512 JSON-файлов нашёл два ColorTransfer с настройками reinhard_lab/per_frame/1; рецепт Wizard использует uniform и потому основан на реализации, а не копирует эти узлы.", "Девять сочетаний method/source_stats исполнены на синтетических RGB-целях и референсах; полный фрагмент ещё не запускался.", "Человеческое редакционное утверждение не выполнено."],
   "updatedAt": "2026-08-13"
 }

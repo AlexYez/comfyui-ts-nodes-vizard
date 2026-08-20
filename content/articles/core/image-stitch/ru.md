@@ -76,7 +76,7 @@ Lanczos resize, padding, выравнивание batch и итоговый `tor
 
 Runtime fingerprint: `sha256:eda709cd60535e4ab0fa4dae964e9c55d197a65e15ae777c6c90aa854bba47b0`.
 
-## Связанные ноды и источники
+### Связанные ноды и источники
 
 `ImageCompositeMasked` накладывает изображения с перекрытием. `PreviewImage` помогает проверить порядок и padding до отправки в модель или API.
 
