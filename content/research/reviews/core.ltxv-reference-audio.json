@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-reference-audio",
+  "node": {
+    "classType": "LTXVReferenceAudio",
+    "pythonModule": "comfy_extras.nodes_lt",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L855-L937",
+        "path": "comfy_extras/nodes_lt.py",
+        "lines": "855-937"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/node_helpers.py#L9-L23",
+        "path": "node_helpers.py",
+        "lines": "9-23"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVReferenceAudio/en.md",
+        "assessment": "SHA-256 ac369baab718f09fed875d7d56384b34890731abe57036f25f82e0bc0ff54c03. Назначение, около пяти секунд и диапазоны описаны верно; token reshape, sigma gate и сохранение ref_audio при scale 0 не раскрыты."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVReferenceAudio/ru.md",
+        "assessment": "SHA-256 33328a9ef11372de1f80b1bc85b1a4a7a869cf3cd3d915643d2131134aa587f5. Первый output ошибочно подписан positive при типе MODEL; вводная переводческого шаблона не использована."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-ltxv-reference-census",
+        "role": "Полный census нашёл один exact NodeId: video_ltx2_3_id_lora, subgraph 98ee9e5b..., node 349, mode 0, widgets [3,0,1]."
+      },
+      {
+        "id": "video-ltx2-3-id-lora-reference-topology",
+        "role": "Проверены входы от LoraLoaderModelOnly, двух CLIPTextEncode, внешнего AUDIO и LTXVAudioVAELoader; outputs идут в LTXVConditioning и CFGGuider."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact-method probe проверяет resample, token shape, conditioning copy, sigma gate и post-CFG arithmetic на stub model; реальная ID-LoRA не загружалась.",
+    "Качество переноса голоса и рекомендация около пяти секунд не измерялись в этой автоматизированной проверке.",
+    "Человеческое утверждение статьи и рецепта ещё не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

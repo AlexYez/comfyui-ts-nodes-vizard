@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.ltxv-context-windows", "node": {"classType": "LTXVContextWindows", "pythonModule": "comfy_extras.nodes_context_windows", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"}, "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {"runtimeInventory": "runtime/comfyui-0.32.0.object-info.json", "sourceLocations": [
+    {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_context_windows.py#L107-L149", "path": "comfy_extras/nodes_context_windows.py", "lines": "107-149"},
+    {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/context_windows.py#L341-L1067", "path": "comfy/context_windows.py", "lines": "341-1067"}],
+    "embeddedDocs": [{"locale": "en", "archivePath": "comfyui_embedded_docs/docs/LTXVContextWindows/en.md", "assessment": "SHA-256 886743edc3f5efe750118eb851d3c08184aa6474bd31f6bad7fe557dd98a5f24; сверено с точным пересчётом."}, {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/LTXVContextWindows/ru.md", "assessment": "SHA-256 0cc73c440c5c93393ab562c4601026c190b6a91c5c36c9ae2d884ed9a5647b22; exact имена входов сохранены по runtime."}],
+    "workflows": [{"id": "workflow-templates-0142-zero-census", "role": "В 8120 узлах корневых графов и подграфов точных LTXVContextWindows нет."}, {"id": "exact-source-ltxv-conversion", "role": "Проверены преобразования 145→19 и 40→5, dim=2, conditioning и latent retain [0], унаследованный causal fix."}]},
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Официальных случаев ноды не найдено; рецепт основан на исходнике.", "Реальные веса LTXV и полный граф не запускались.", "Человеческое утверждение ожидается."], "updatedAt": "2026-08-20"
+}

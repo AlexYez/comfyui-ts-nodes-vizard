@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.conditioning-set-mask",
+  "node": { "classType": "ConditioningSetMask", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L245-L270",
+        "path": "nodes.py",
+        "lines": "245-270"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/node_helpers.py#L9-L23",
+        "path": "node_helpers.py",
+        "lines": "9-23"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L33-L80",
+        "path": "comfy/samplers.py",
+        "lines": "33-80"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L738-L809",
+        "path": "comfy/samplers.py",
+        "lines": "738-809"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ConditioningSetMask/en.md",
+        "assessment": "Документ помечен как AI-generated. Названия входов совпадают, но фраза о непосредственном изменении conditioning скрывает фактическую механику: embedding не меняется, нода добавляет mask metadata для sampler. Статья опирается на исходник."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 JSON-файлов целиком, включая definitions.subgraphs[*].nodes; вхождений ConditioningSetMask, widget values и topology neighbors нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment проверен структурно, но mask metadata не проходила полный sampling-run с закреплённой моделью.",
+    "Official workflow templates JSON 0.1.42 не содержит ноду, поэтому реальные widget values, source mask и соседняя топология официальным case не подтверждены.",
+    "Режим mask bounds не проверялся для видео- или иного многомерного latent; в исходнике на этом участке оставлен TODO для dim != 2."
+  ],
+  "updatedAt": "2026-08-13"
+}

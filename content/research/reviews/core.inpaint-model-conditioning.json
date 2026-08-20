@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.inpaint-model-conditioning",
+  "node": {
+    "classType": "InpaintModelConditioning",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/nodes.py#L450-L499",
+        "path": "nodes.py",
+        "lines": "450-499"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/InpaintModelConditioning/ru.md",
+        "assessment": "Назначение обозначено верно лишь в общих чертах; утверждения о загрузке checkpoint, style model и ControlNet не соответствуют реализации этой ноды и в статью не перенесены."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "flux_fill_outpaint_example",
+        "role": "ImagePadForOutpaint подаёт IMAGE и MASK; модифицированные conditioning и LATENT идут в KSampler, noise_mask выключен."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Фрагмент повторяет официальный граф, но не исполнен локально с весами Flux Fill и ae.safetensors.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

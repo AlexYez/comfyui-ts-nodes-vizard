@@ -1,0 +1,17 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-empty-image-conditioning-inplace",
+  "title": "LTXV empty latent с image conditioning",
+  "externalInputs": [
+    {"id": "vae", "type": "VAE", "to": "inplace", "input": "vae"},
+    {"id": "image", "type": "IMAGE", "to": "inplace", "input": "image"}
+  ],
+  "nodes": [
+    {"ref": "empty", "classType": "EmptyLTXVLatentVideo", "role": "Создать нулевой LTXV latent", "settings": {"width": 768, "height": 512, "length": 97, "batch_size": 1}},
+    {"ref": "inplace", "classType": "LTXVImgToVideoInplace", "role": "Записать IMAGE в начальные latent positions", "settings": {"strength": 0.7, "bypass": false}}
+  ],
+  "connections": [
+    {"from": "empty", "output": "LATENT", "to": "inplace", "input": "latent"}
+  ]
+}

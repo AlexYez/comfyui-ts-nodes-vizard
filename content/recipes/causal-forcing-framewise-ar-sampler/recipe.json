@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.causal-forcing-framewise-ar-sampler",
+  "locale": "ru",
+  "title": "Causal Forcing: покадровый AR sampler",
+  "summary": "Сохраняет официальный fragment SamplerARVideo(num_frame_per_block=1) → SamplerCustomAdvanced из Causal Forcing image-to-video subgraph.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.sampler-ar-video", "core.sampler-custom-advanced"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Causal-WAN checkpoint, обученный для framewise-режима",
+    "Пятиосевой LATENT и MODEL из ARVideoI2V либо совместимого T2V setup"
+  ],
+  "fragment": {
+    "id": "fragment.causal-forcing-framewise-ar-sampler",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime and exact official Causal Forcing subgraph review; model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SamplerARVideo in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_ar_video.py#L44-L73",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: video_causal_forcing_i2v",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

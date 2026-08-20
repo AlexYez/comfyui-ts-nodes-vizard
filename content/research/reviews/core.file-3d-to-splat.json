@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.file-3d-to-splat",
+  "node": {"classType": "File3DToSplat", "pythonModule": "comfy_extras.nodes_gaussian_splat", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L194-L406",
+        "path": "comfy_extras/nodes_gaussian_splat.py",
+        "lines": "194-406"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L514-L551",
+        "path": "comfy_extras/nodes_gaussian_splat.py",
+        "lines": "514-551"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_util/geometry_types.py#L14-L120",
+        "path": "comfy_api/latest/_util/geometry_types.py",
+        "lines": "14-120"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/File3DToSplat/en.md",
+        "assessment": "Подтверждает formats и full-SH distinction; не раскрывает metadata precedence, parser versions, defaults или binary-only PLY."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/File3DToSplat/ru.md",
+        "assessment": "Общая формулировка autodetect уточнена по source: распознавание content вызывается только без известного format metadata."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и всех recursive subgraphs File3DToSplat встречается 0 раз; fragment source-derived."
+      },
+      {
+        "id": "synthetic-exact-source-ply-splat-ksplat-spz-probe",
+        "role": "Exact parsers подтвердили shapes/dtypes, full/base SH, raw detection, known-format precedence, empty bytes edge case и invalid-content errors."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official wheel 0.1.42 не содержит File3DToSplat; inspect fragment построен по source/runtime.",
+    "Synthetic corpus не заменяет fuzzing внешних PLY/KSPLAT/SPZ variants и повреждённых headers.",
+    "Полный downstream render, измерения RAM на больших файлах и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-14"
+}

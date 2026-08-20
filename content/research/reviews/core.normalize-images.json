@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.normalize-images",
+  "node": {"classType": "NormalizeImages", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L579-L746",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "579-746"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1052-L1080",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1052-1080"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/NormalizeImages/en.md",
+        "assessment": "Справка помечена как AI-generated. Она подтверждает (image-mean)/std и диапазоны элементов управления, но не описывает отсутствие clamp, общий скаляр каналов и неточно называет порт image; SHA-256: b7b21e81a12d2ed2604962d9b8765bbd2a971d487d8378bfc25d37913e326dce."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/NormalizeImages/ru.md",
+        "assessment": "Русский AI-generated перевод локализует системные имена mean/std и не уточняет, что статистика входа не вычисляется; SHA-256: f72da964c874de7dbf1667d7444998b6ec5d7194dbc3fd486e2befb4171c5117."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 файлов JSON, 496 корневых графов и 272 подграфа; NormalizeImages отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-adjust-dedup-probe",
+        "role": "Точный класс с mean/std 0.5 сохранил форму и float32, совпал с формулой и вернул диапазон -1.5…1.5 без clamp."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Фрагмент не импортировался на холст и не проверен с контрактом конкретной следующей ноды или модели.",
+    "Официальные шаблоны графов не подтверждают ни одного потребителя NormalizeImages.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

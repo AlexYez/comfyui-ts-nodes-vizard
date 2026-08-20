@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.image-scale-total-pixels-inspect",
+  "locale": "ru",
+  "title": "Привести изображение к 1 MP с шагом 16",
+  "summary": "Повторяет официальную ветку: загрузить IMAGE, подобрать стороны под 1 × 1024² пикселей с округлением к 16 и прочитать фактический размер.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": [
+    "core.image-scale-to-total-pixels",
+    "core.load-image"
+  ],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Встроенная нода GetImageSize из comfy_extras.nodes_images",
+    "Изображение в input-каталоге ComfyUI"
+  ],
+  "fragment": {
+    "id": "fragment.image-scale-total-pixels-inspect",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source and official-workflow trace; fragment schema validated, execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ImageScaleToTotalPixels implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_post_processing.py#L222-L254",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: image_joyai_image_edit",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

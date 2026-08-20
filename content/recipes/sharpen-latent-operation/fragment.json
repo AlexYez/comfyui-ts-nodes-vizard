@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.sharpen-latent-operation", "title": "4D latent sharpen",
+  "externalInputs": [{"id": "samples", "type": "LATENT", "to": "apply", "input": "samples"}],
+  "nodes": [
+    {"ref": "operation", "classType": "LatentOperationSharpen", "role": "Создать sharpen callable", "settings": {"sharpen_radius": 9, "sigma": 1.0, "alpha": 0.1}},
+    {"ref": "apply", "classType": "LatentApplyOperation", "role": "Применить к samples", "settings": {}}
+  ],
+  "connections": [{"from": "operation", "output": "LATENT_OPERATION", "to": "apply", "input": "operation"}]
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.polyexponential-scheduler",
+  "node": {"classType": "PolyexponentialScheduler", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L90-L110",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "90-110"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L19-L42",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "19-42"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/PolyexponentialScheduler/en.md",
+        "assessment": "SHA-256 c435b0caaa82ee5521c1efdf276fc4bf849a7634240548fc4ad4913553bce486. AI-generated текст верно называет полином в log sigma, но не приводит формулу, направление, конечный ноль и rho=0; детали подтверждены source/probe."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/PolyexponentialScheduler/ru.md",
+        "assessment": "SHA-256 07456968a829f088e4e0ec0bedbe0aa3b22b465c297bdc3679e96d8ec0fd6c9a. Перевод локализует runtime-ключи и не описывает математические ограничения; использован как вторичная справка."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-polyexponential-scheduler-zero-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; полный просмотр 512 JSON, 496 root и 272 subgraph не нашёл ни одного exact PolyexponentialScheduler."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Функция из pinned source исполнена без модели для rho 0, 1 и 2; sampler и модельная совместимость явных границ не проверялись.",
+    "В official wheel 0.1.42 нет PolyexponentialScheduler, поэтому fragment source-derived и использует runtime defaults.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.create-hook-lora-model-only",
+  "node": {"classType": "CreateHookLoraModelOnly", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L338-L359",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "338-359"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L289-L337",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "289-337"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L131-L189",
+        "path": "comfy/hooks.py",
+        "lines": "131-189"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L287-L340",
+        "path": "comfy/hooks.py",
+        "lines": "287-340"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L37-L95",
+        "path": "comfy/lora.py",
+        "lines": "37-95"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L501",
+        "path": "comfy/lora.py",
+        "lines": "438-501"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L1537-L1581",
+        "path": "comfy/model_patcher.py",
+        "lines": "1537-1581"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/CreateHookLoraModelOnly/en.md",
+        "assessment": "SHA-256 b95a14f8c89308f25ce241dd87bf2a368b869e1b6ffa228d04b1a190dbd55e71. Верно описывает вариант только для модели, но не объясняет унаследованную нулевую ветвь и хранение целого словаря LoRA."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/CreateHookLoraModelOnly/ru.md",
+        "assessment": "SHA-256 a57b20d617649445cfc3310d5938dea3b82d1a8faaf7a1165549d1fd8586a0f9. Переводит системные имена портов; точный контракт и делегирование с strength_clip=0 проверены по runtime и исходнику."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-create-hook-lora-model-only-zero-census",
+        "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл CreateHookLoraModelOnly."
+      },
+      {
+        "id": "hook-weight-creation-exact-source-probe",
+        "role": "Зафиксированные методы MO, HookGroup, WeightHook, регистрации, load_lora и общего расчёта подтвердили strength_clip=0, возврат прежней группы без чтения файла при strength_model=0, тихую фильтрацию ключей и особое поведение set_weight при регистрации на цели."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального графа с CreateHookLoraModelOnly в пакете 0.1.42 нет; рецепт основан на исходнике.",
+    "Тестовые словари подтвердили ветвления, но настоящий файл LoRA и полный граф не запускались.",
+    "Не проверено, насколько выбранная LoRA зависит от CLIP-части обучения.",
+    "Человеческое редакционное утверждение пока не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.stable-cascade-stage-c-img2img",
+  "locale": "ru",
+  "title": "Собрать Stable Cascade img2img через Stage C",
+  "summary": "Повторяет точную sampling-ветвь официального image-to-image примера: VAE-кодирование с compression 32, denoise 0.6 на Stage C и полная Stage B.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.stable-cascade-stage-c-vae-encode", "core.stable-cascade-stage-b-conditioning", "core.ksampler"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "IMAGE и VAE из checkpoint Stable Cascade Stage C",
+    "Совместимые MODEL Stage C и MODEL Stage B",
+    "Positive и negative CONDITIONING Stable Cascade"
+  ],
+  "fragment": {"id": "fragment.stable-cascade-stage-c-img2img", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/docs, exact official ComfyUI_examples image-to-image topology/widgets, exact-source tensor probe and Russian editorial pass; full model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Official Stable Cascade image-to-image workflow at pinned ComfyUI_examples commit",
+      "url": "https://github.com/comfyanonymous/ComfyUI_examples/blob/f9431bb000ce792094ff345446e22cac1ea6cef3/stable_cascade/stable_cascade__image_to_image.png",
+      "publisher": "comfyanonymous",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "StableCascade_StageC_VAEEncode in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable_cascade.py#L56-L88",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.create-hook-keyframes-from-floats",
+  "node": {"classType": "CreateHookKeyframesFromFloats", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L549-L600", "path": "comfy_extras/nodes_hooks.py", "lines": "549-600"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L540-L596", "path": "comfy/hooks.py", "lines": "540-596"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L446-L539", "path": "comfy/hooks.py", "lines": "446-539"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/CreateHookKeyframesFromFloats/en.md", "assessment": "SHA-256 5f6005e0a19c680c44cd5c77757df699d5443d09afe345536c015a4c9d3193d7. Верно описывает число или список, линейную сетку и гарантию первой точки; не раскрывает пустой и обратный случаи."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/CreateHookKeyframesFromFloats/ru.md", "assessment": "SHA-256 29e2d55f79412baffcc556a864644e1516acecaa6f61782cffd868650dcb9848. Переводит порты и имя выхода, поэтому точные `floats_strength`, `prev_hook_kf` и `HOOK_KF` взяты из runtime."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-create-hook-keyframes-from-floats-zero-census", "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл CreateHookKeyframesFromFloats."},
+      {"id": "hook-keyframe-scheduling-exact-source-probe", "role": "Точные методы подтвердили список [0,2;0,4;0,8] на сетке 0,1/0,5/0,9, скаляр только в start_percent, пустой список как отдельную копию прежней группы и разворот значений; ограничения Iterable+len и отсутствие core-источника FLOATS сверены отдельно."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Официального графа с CreateHookKeyframesFromFloats в пакете 0.1.42 нет; рецепт основан на исходнике.",
+    "Синтетическая проверка использовала Python-список и скаляр; в чистом core-каталоге 0.32.0 нет пользовательского выхода FLOATS, поэтому полный локальный граф без сторонней ноды не собирается.",
+    "Не проверялась реакция разных сэмплеров на очень длинные и плотные последовательности.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

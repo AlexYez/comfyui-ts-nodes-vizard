@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.hunyuan3d-v2-multiview-official",
+  "title": "Hunyuan3D v2: передний и задний ракурсы → сетка",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "model_sampling", "input": "model"},
+    {"id": "clip_vision_front", "type": "CLIP_VISION", "to": "encode_front", "input": "clip_vision"},
+    {"id": "image_front", "type": "IMAGE", "to": "encode_front", "input": "image"},
+    {"id": "clip_vision_back", "type": "CLIP_VISION", "to": "encode_back", "input": "clip_vision"},
+    {"id": "image_back", "type": "IMAGE", "to": "encode_back", "input": "image"},
+    {"id": "vae", "type": "VAE", "to": "decode", "input": "vae"}
+  ],
+  "nodes": [
+    {"ref": "encode_front", "classType": "CLIPVisionEncode", "role": "Закодировать передний ракурс без центральной обрезки", "settings": {"crop": "none"}},
+    {"ref": "encode_back", "classType": "CLIPVisionEncode", "role": "Закодировать задний ракурс без центральной обрезки", "settings": {"crop": "none"}},
+    {"ref": "conditioning", "classType": "Hunyuan3Dv2ConditioningMultiView", "role": "Пометить ракурсы позициями front и back и объединить токены", "settings": {}},
+    {"ref": "empty", "classType": "EmptyLatentHunyuan3Dv2", "role": "Создать нулевой латент Hunyuan3D v2", "settings": {"resolution": 3072, "batch_size": 1}},
+    {"ref": "model_sampling", "classType": "ModelSamplingAuraFlow", "role": "Применить сдвиг модели из официального шаблона", "settings": {"shift": 1.0000000000000002}},
+    {
+      "ref": "sample",
+      "classType": "KSampler",
+      "role": "Получить латент геометрии по двум ракурсам",
+      "settings": {"seed": 502126049100058, "steps": 20, "cfg": 7.5, "sampler_name": "euler", "scheduler": "normal", "denoise": 1.0}
+    },
+    {"ref": "decode", "classType": "VAEDecodeHunyuan3D", "role": "Декодировать латент в объёмное поле", "settings": {"num_chunks": 8000, "octree_resolution": 256}},
+    {"ref": "mesh", "classType": "VoxelToMesh", "role": "Построить полигональную сетку из поля", "settings": {"algorithm": "surface net", "threshold": 0.6}}
+  ],
+  "connections": [
+    {"from": "encode_front", "output": "CLIP_VISION_OUTPUT", "to": "conditioning", "input": "front"},
+    {"from": "encode_back", "output": "CLIP_VISION_OUTPUT", "to": "conditioning", "input": "back"},
+    {"from": "conditioning", "output": "positive", "to": "sample", "input": "positive"},
+    {"from": "conditioning", "output": "negative", "to": "sample", "input": "negative"},
+    {"from": "empty", "output": "LATENT", "to": "sample", "input": "latent_image"},
+    {"from": "model_sampling", "output": "MODEL", "to": "sample", "input": "model"},
+    {"from": "sample", "output": "LATENT", "to": "decode", "input": "samples"},
+    {"from": "decode", "output": "VOXEL", "to": "mesh", "input": "voxel"}
+  ]
+}

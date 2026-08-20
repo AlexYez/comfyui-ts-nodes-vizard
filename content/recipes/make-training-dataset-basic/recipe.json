@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.make-training-dataset-basic",
+  "locale": "ru",
+  "title": "Кодировать список изображений и подписей",
+  "summary": "Однонодовый fragment передаёт внешние IMAGE, VAE, CLIP и STRING в MakeTrainingDataset; до запуска нужно проверить внешние длины и соответствие подписей.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.make-training-dataset"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Список IMAGE",
+    "Совместимые VAE и CLIP",
+    "Ноль, одна или столько же подписей, сколько внешних IMAGE"
+  ],
+  "fragment": {
+    "id": "fragment.make-training-dataset-basic",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, full workflow census, isolated synthetic tensor execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "MakeTrainingDataset in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1843-L1928",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.advanced-sampling-external-vae",
+  "locale": "ru",
+  "title": "Двухэтапное сэмплирование с отдельным VAE",
+  "summary": "Один txt2img-граф связывает два CLIP conditioning, пустой latent, два согласованных участка KSamplerAdvanced и внешний VAE для декодирования.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": [
+    "core.clip-text-encode",
+    "core.empty-latent-image",
+    "core.ksampler-advanced",
+    "core.vae-loader"
+  ],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Checkpoint с MODEL и совместимым CLIP",
+    "Отдельный VAE, совместимый с latent format checkpoint",
+    "Достаточно памяти для выбранного разрешения и двух sampling-участков"
+  ],
+  "fragment": {
+    "id": "fragment.advanced-sampling-external-vae",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "workflow": {
+    "id": "workflow.advanced-sampling-external-vae",
+    "path": "../../workflows/advanced-sampling-external-vae.workflow.json",
+    "format": "comfyui-workflow/0.4"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, workflow and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "KSamplerAdvanced implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1568-L1654",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "CLIPTextEncode, VAELoader and EmptyLatentImage implementations in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

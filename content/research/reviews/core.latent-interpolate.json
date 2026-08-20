@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.latent-interpolate",
+  "node": {"classType": "LatentInterpolate", "pythonModule": "comfy_extras.nodes_latent", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L97-L134",
+        "path": "comfy_extras/nodes_latent.py",
+        "lines": "97-134"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L10-L16",
+        "path": "comfy_extras/nodes_latent.py",
+        "lines": "10-16"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LatentInterpolate/en.md",
+        "assessment": "AI-generated docs описывает ratio 0 как samples1 и ratio 1 как samples2; pinned code делает обратное. Формула нормализованного direction/magnitude и batch broadcasting в docs отсутствуют."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LatentInterpolate/ru.md",
+        "assessment": "Повторяет неверную ориентацию концов ratio. Использовано как свидетельство расхождения, но не как источник runtime semantics."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON-файлов, root nodes и definitions.subgraphs[*].nodes; вхождений LatentInterpolate нет."
+      },
+      {
+        "id": "synthetic-exact-source-latent-interpolate",
+        "role": "Batch-1 векторы [3,0] и [0,4] подтвердили endpoints ratio 0/1, norm-aware midpoint и zero для противоположных направлений; metadata второго входа отброшены."
+      },
+      {
+        "id": "synthetic-exact-source-latent-interpolate-batch-broadcast",
+        "role": "Для C=4 batch 2/3/5 вызвал размерную RuntimeError; batch 4 выполнился, но ratio 1 не восстановил samples1 из-за совмещения нормы [B,H,W] с channel axis."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальных workflow-кейсов LatentInterpolate в 0.1.42 нет; recipe является source-derived и ограничен batch 1.",
+    "Batch broadcasting defect подтверждён exact-source tensor probe, но не прослежен через реальный VAE/sampler; исправление в будущей версии потребует новой проверки.",
+    "Fragment не исполнялся в ComfyUI frontend и не утверждён человеком."
+  ],
+  "updatedAt": "2026-08-13"
+}

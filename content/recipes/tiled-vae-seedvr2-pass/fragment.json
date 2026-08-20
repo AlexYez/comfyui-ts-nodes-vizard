@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.tiled-vae-seedvr2-pass",
+  "title": "SeedVR2: плиточное VAE-кодирование, сэмплирование и декодирование",
+  "externalInputs": [
+    {"id": "pixels", "type": "IMAGE", "to": "encode", "input": "pixels"},
+    {"id": "encode_vae", "type": "VAE", "to": "encode", "input": "vae"},
+    {"id": "model", "type": "MODEL", "to": "sample", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "sample", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "sample", "input": "negative"},
+    {"id": "decode_vae", "type": "VAE", "to": "decode", "input": "vae"}
+  ],
+  "nodes": [
+    {"ref": "encode", "classType": "VAEEncodeTiled", "role": "Закодировать подготовленное изображение плитками", "settings": {"tile_size": 512, "overlap": 128, "temporal_size": 4096, "temporal_overlap": 8}},
+    {"ref": "sample", "classType": "KSampler", "role": "Повторить настройки официального графа SeedVR2 для изображения", "settings": {"seed": 959948902156062, "steps": 1, "cfg": 1.0, "sampler_name": "euler", "scheduler": "simple", "denoise": 1.0}},
+    {"ref": "decode", "classType": "VAEDecodeTiled", "role": "Декодировать результат с теми же пространственными плитками", "settings": {"tile_size": 512, "overlap": 128, "temporal_size": 4096, "temporal_overlap": 8}}
+  ],
+  "connections": [
+    {"from": "encode", "output": "LATENT", "to": "sample", "input": "latent_image"},
+    {"from": "sample", "output": "LATENT", "to": "decode", "input": "samples"}
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.multigpu-work-units",
+  "node": {"classType": "MultiGPU_WorkUnits", "pythonModule": "comfy_extras.nodes_multigpu", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_multigpu.py#L20-L48",
+        "path": "comfy_extras/nodes_multigpu.py",
+        "lines": "20-48"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/multigpu.py#L125-L195",
+        "path": "comfy/multigpu.py",
+        "lines": "125-195"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L358-L545",
+        "path": "comfy/samplers.py",
+        "lines": "358-545,1240-1269"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/MultiGPU_WorkUnits/en.md",
+        "assessment": "Raw SHA-256 c08011627a9cdaebb7a7b27312af74a2b73912cbee7c695b66ba42d71df12807. AI-generated page gives a homogeneous Ampere+ support policy and an unproven 1.95x figure; code enforces neither GPU identity nor speedup."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/MultiGPU_WorkUnits/ru.md",
+        "assessment": "Raw SHA-256 aeb1b8ac151cef7de279b0d18b8573af8ed9be5ac981597fea73783c6ac61be1. AI-generated translation repeats the strict CFG>1 wording; scheduler source is described instead through actual conditioning work-unit count."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-zero-census",
+        "role": "All 512 JSON parsed: 496 root graphs with 4083 nodes and 272 subgraphs with 4037 nodes. MultiGPU_WorkUnits has 0 direct, raw and recursive scalar occurrences; EN/RU indices have no ID or display-name title."
+      },
+      {
+        "id": "embedded-docs-0.5.9-mutable-sample-link-audit",
+        "role": "The page links a main-branch Wan sample JSON, but that JSON is absent from the pinned docs wheel; only four image assets are bundled, so the mutable link is not treated as a pinned executable case."
+      },
+      {
+        "id": "isolated-exact-source-multigpu-device-probe",
+        "role": "Exact clone, device-routing and node execute definitions ran on synthetic patchers/devices without CUDA allocation; max_gpus, extra selection, pruning and no-extra behavior were checked."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "No target occurrence exists in official workflow wheel 0.1.42; the fragment is source-derived.",
+    "The embedded-docs sample workflow URL is mutable and its JSON is not included in the pinned 0.5.9 artifact.",
+    "No real dual-GPU sample, VRAM measurement, speed benchmark or output-equivalence run was executed.",
+    "The isolated probe validates control flow with synthetic devices, not CUDA kernels or transfers.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

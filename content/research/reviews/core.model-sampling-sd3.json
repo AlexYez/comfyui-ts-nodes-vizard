@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-sampling-sd3",
+  "node": {"classType": "ModelSamplingSD3", "pythonModule": "comfy_extras.nodes_model_advanced", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L119-L147",
+        "path": "comfy_extras/nodes_model_advanced.py",
+        "lines": "119-147"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L279-L327",
+        "path": "comfy/model_sampling.py",
+        "lines": "279-327"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L86-L103",
+        "path": "comfy/model_sampling.py",
+        "lines": "86-103"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ModelSamplingSD3/en.md",
+        "assessment": "SHA-256 3de9a3e46047841589657d07530f7ddbc091ee0d6d26d777127cb73545735c6b. Сгенерированный ИИ документ верно перечисляет порты и смысл клонирования, но не раскрывает multiplier 1000, CONST, noise_scale и NaN при нулевом shift."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ModelSamplingSD3/ru.md",
+        "assessment": "SHA-256 68cdf566dab9a97deb281f9f24c8cfdce342b37fd0df1ccc3bf7daef92458e33. Перевод локализует runtime keys и содержит вводную фразу переводчика; использован только как вторичный ориентир."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-model-sampling-sd3-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3: 82 точных совпадения = 46 в корневых графах + 36 в подграфах, 50 файлов, 23 UUID корневых графов; режимы 0×71/4×11; значения виджета 2/3/5/6/7/8 с вариантами после сериализации чисел с плавающей точкой."
+      },
+      {
+        "id": "hunyuan_video_text_to_video",
+        "role": "Граф b07dba9f-f409-47a6-84bb-a6639b2a70da: UNETLoader #12 → ModelSamplingSD3 #67 [7] → BasicGuider #22; отдельная связь #190 ведёт исходный MODEL в BasicScheduler #17 [simple,20,1]."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Точный метод patch и базовая математика исполнены на подставном MODEL и тензорах CPU; реальные SD3, Hunyuan Video и следующий sampler не запускались.",
+    "Рецепт сохраняет только официальную ветвь guider; отдельная ветвь scheduler без патча описана, но не включена во фрагмент.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.flux2-scheduler",
+  "node": {"classType": "Flux2Scheduler", "pythonModule": "comfy_extras.nodes_flux", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_flux.py#L184-L233",
+        "path": "comfy_extras/nodes_flux.py",
+        "lines": "184-233"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/Flux2Scheduler/en.md",
+        "assessment": "Описывает steps и dimensions, но не показывает width*height/256, Python round, empirical mu branches, threshold discontinuity или NaN boundary."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Flux2Scheduler/ru.md",
+        "assessment": "Общий перевод не различает base/distilled cases и не раскрывает внутреннюю численную формулу."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Найдены 17 Flux2Scheduler в 11 файлах: 16 subgraph и один root; widgets — девять 20/1024/1024, шесть 4/1024/1024, два 20/1248/832."
+      },
+      {
+        "id": "official-flux2-dynamic-dimensions-topology",
+        "role": "Во всех случаях SIGMAS идут в SamplerCustomAdvanced; image-edit cases получают width/height от GetImageSize, text-to-image — от primitives или graph boundary."
+      },
+      {
+        "id": "synthetic-exact-source-flux2-scheduler",
+        "role": "AST-extracted functions подтвердили steps + 1, area orientation invariance, steps-dependent mu до 4300, discontinuity 4300→4301, independence from steps above threshold и all-NaN output at 16384²."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment повторяет root GetImageSize → Flux2Scheduler topology, но не содержит модель и SamplerCustomAdvanced ветку.",
+    "Flux.2/Klein weights не запускались; probe проверяет только scheduler mathematics и крайние float32 значения.",
+    "Практический безопасный предел resolution ниже runtime max зависит от модели и требует человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-13"
+}

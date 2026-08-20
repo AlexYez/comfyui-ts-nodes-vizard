@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.create-video-with-audio",
+  "title": "IMAGE и AUDIO → VIDEO",
+  "externalInputs": [
+    {
+      "id": "frames",
+      "type": "IMAGE",
+      "to": "create_video",
+      "input": "images"
+    },
+    {
+      "id": "audio",
+      "type": "AUDIO",
+      "to": "create_video",
+      "input": "audio"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "create_video",
+      "classType": "CreateVideo",
+      "role": "Упаковать кадры, звук и частоту в объект VIDEO",
+      "settings": {
+        "fps": 24,
+        "bit_depth": 8
+      }
+    }
+  ],
+  "connections": []
+}

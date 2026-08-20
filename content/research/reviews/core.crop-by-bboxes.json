@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.crop-by-bboxes",
+  "node": {"classType": "CropByBBoxes", "pythonModule": "comfy_extras.nodes_sdpose", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sdpose.py#L672-L770", "path": "comfy_extras/nodes_sdpose.py", "lines": "672-770"}],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/CropByBBoxes/ru.md", "assessment": "Параметры resize и padding перечислены, но union нескольких рамок, повтор последнего frame-list, пропуск пустых frame-lists, возврат исходника и fallback crop требуют source-level уточнения."}],
+    "workflows": []
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Exhaustive scan of 496 official workflow graphs found no CropByBBoxes node.", "Stretch, pad, multiple frames, empty input and invalid-box fallback were executed on synthetic tensors; the full PrimitiveBoundingBox-to-PreviewImage fragment was not executed.", "No detector-specific BOUNDING_BOX producer was included because list-shape contracts vary by producer.", "Human approval is pending."],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.audio-concat",
+  "node": {
+    "classType": "AudioConcat",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L578-L644",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "578-644"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/AudioConcat/en.md",
+        "assessment": "Подтверждает назначение, direction и согласование частоты/каналов; точные правила mono repeat, metadata loss и None взяты из реализации."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/AudioConcat/ru.md",
+        "assessment": "Использована для сверки пользовательской терминологии; порядок after/before перепроверен по коду и официальному workflow."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON: одно активное корневое вхождение AudioConcat, subgraph-вхождений нет; RebatchAudio и AudioFromBatch отсутствуют."
+      },
+      {
+        "id": "video_wan2_1_infinitetalk#4795b4f0-7caa-4281-9a43-86d1770433f4/node-113",
+        "role": "LoadAudio № 24 и № 90 подключены к AudioConcat № 113 с direction after; общий AUDIO разветвляется в CreateVideo № 138 и № 140."
+      },
+      {
+        "id": "synthetic-pinned-class-audio-concat",
+        "role": "Точный class helper запущен на двух mono waveform 16 кГц: подтверждены stereo repeat, временная ось, after/before и удаление дополнительных полей."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не исполнялся с реальными аудиофайлами; resample-ветка с разными sample rate подтверждена кодом, а не end-to-end прослушиванием.",
+    "AudioConcat — scoped replacement отсутствующей четвёртой ноды редакционной партии, не alias и не Node Replacement API; RebatchAudio и AudioFromBatch в baseline нет.",
+    "Переход без кроссфейда не проходил субъективное прослушивание; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.canny",
+  "node": {"classType": "Canny", "pythonModule": "comfy_extras.nodes_canny", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_canny.py#L1-L45", "path": "comfy_extras/nodes_canny.py", "lines": "1-45"},
+      {"url": "https://github.com/kornia/kornia/blob/v0.8.3/kornia/filters/canny.py", "path": "installed kornia 0.8.3: kornia/filters/canny.py", "lines": "canny function"}
+    ],
+    "embeddedDocs": [
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/Canny/ru.md", "assessment": "Полезно объясняет двойной порог, но содержит переводной вводный шум и не фиксирует точный Kornia path, RGB/RGBA contract, three-channel repeat и взаимную проверку порогов."}
+    ],
+    "workflows": [
+      {"id": "flux_canny_model_example", "role": "LoadImage → Canny 0.15/0.3; карта идёт в PreviewImage и InstructPixToPixConditioning."},
+      {"id": "sd3.5_large_canny_controlnet_example", "role": "ImageScale 1024 × 1024 → Canny 0.3/0.6 → ControlNetApplyAdvanced и PreviewImage."},
+      {"id": "image_anima_lllite_any_control_to_image", "role": "Canny 0.17/0.45 → ImageInvert для control path."},
+      {"id": "video_ltx2_canny_to_video", "role": "ImageScaleBy 0.5 → Canny 0.4/0.8 → PreviewImage и две video-control ветки."}
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Все двенадцать Canny-вхождений в official templates 0.1.42 исследованы; в ledger перечислены четыре репрезентативных topology, остальные значения сведены в статье.",
+    "Canny и Blur-Canny пути исполнены на синтетических IMAGE; полный fragment и конкретная control-модель ещё не запускались.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

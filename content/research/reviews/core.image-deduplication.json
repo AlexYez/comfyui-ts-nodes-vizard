@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-deduplication",
+  "node": {"classType": "ImageDeduplication", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L649-L746",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "649-746"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1555-L1625",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1555-1625"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ImageDeduplication/en.md",
+        "assessment": "Справка помечена как AI-generated. Она подтверждает перцептивный хеш и порог, но не раскрывает усреднённый хеш 8x8, перевод в серый, включительное >=, сохранение первого элемента, дискретное сходство и пределы коллизий; SHA-256: 913d66854380b73bab08be1ffd102d7916d1eb05bcf22fab89021b0a1dedea01."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ImageDeduplication/ru.md",
+        "assessment": "Русский AI-generated перевод локализует системные имена и формулирует порог как строгое превышение, хотя код использует >=; SHA-256: f93ef2a3a23838b8eb92025f71a53b2d23d433ca352fcb09f99d1589541028b8."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 файлов JSON, 496 корневых графов и 272 подграфа; ImageDeduplication отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-adjust-dedup-probe",
+        "role": "Проверены точный дубликат, граница одного бита 0.984375 с включительным >=, исходный порог 0.95, пороги 0/1, пустой список, разворачивание пакета, недопустимый 3D-вход и коллизия чёрного с белым."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Фрагмент не импортировался на холст; точный алгоритм проверен только на синтетических тензорах без визуальной разметки реального набора.",
+    "Качество порога 0.95 на предметных наборах и доля ложных совпадений требуют человеческой проверки.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

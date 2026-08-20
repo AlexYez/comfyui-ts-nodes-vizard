@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.combine-two-hooks-for-conditioning",
+  "title": "HOOKS A + B → CombineHooks2 → ConditioningSetProperties",
+  "externalInputs": [
+    {"id": "hooks-a", "type": "HOOKS", "to": "combine", "input": "hooks_A"},
+    {"id": "hooks-b", "type": "HOOKS", "to": "combine", "input": "hooks_B"},
+    {"id": "conditioning", "type": "CONDITIONING", "to": "set-properties", "input": "cond_NEW"}
+  ],
+  "nodes": [
+    {
+      "ref": "combine",
+      "classType": "CombineHooks2",
+      "role": "Собрать две группы hooks в порядке A → B",
+      "settings": {}
+    },
+    {
+      "ref": "set-properties",
+      "classType": "ConditioningSetProperties",
+      "role": "Записать объединённую HookGroup в metadata CONDITIONING",
+      "settings": {"strength": 1.0, "set_cond_area": "default"}
+    }
+  ],
+  "connections": [
+    {"from": "combine", "output": "HOOKS", "to": "set-properties", "input": "hooks"}
+  ]
+}

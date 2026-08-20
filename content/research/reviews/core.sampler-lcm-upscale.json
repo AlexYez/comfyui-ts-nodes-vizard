@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sampler-lcm-upscale",
+  "node": {
+    "classType": "SamplerLCMUpscale",
+    "pythonModule": "comfy_extras.nodes_advanced_samplers",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_advanced_samplers.py#L13-L62",
+        "path": "comfy_extras/nodes_advanced_samplers.py",
+        "lines": "13-62"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L1069-L1101",
+        "path": "comfy/utils.py",
+        "lines": "1069-1101"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerLCMUpscale/en.md",
+        "assessment": "AI-generated документ перечисляет методы, но недоказанно обещает сохранение качества и помечает два runtime-required advanced input как необязательные."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerLCMUpscale/ru.md",
+        "assessment": "AI-generated перевод локализует runtime-имена портов и не описывает расчёт стадий, форму tensor и порядок renoise; эти факты взяты из source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Прочитаны 512 JSON, 496 root-графов и 272 subgraph: SamplerLCMUpscale отсутствует полностью."
+      },
+      {
+        "id": "utility_pid_latent_upscale_dit:9ae6082b-c7f4-433c-9971-7a8f65a3ea65",
+        "role": "Соседний official latent-upscale case использует KSamplerSelect(lcm), PiD conditioning и SamplerCustom; он явно не считается примером SamplerLCMUpscale."
+      },
+      {
+        "id": "isolated-pinned-lcm-upscale-constructor-and-shape-probe",
+        "role": "Safe exact-source probe подтвердил options, auto/explicit stage arithmetic, targets from original shape and denoise→resize→renoise order без model weights."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся с diffusion model.",
+    "Official bundle не содержит ни одного case специализированной ноды.",
+    "Заявленные настройки 2×, auto и bislerp не проходили визуальную или VRAM-проверку.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

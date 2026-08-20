@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.preview-point-cloud-source",
+  "locale": "ru",
+  "title": "Открыть point-cloud PLY во встроенном viewer",
+  "summary": "Source-derived fragment подключает облако точек PLY к PreviewPointCloud и показывает его при viewport 1024 × 1024.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.preview-point-cloud"],
+  "requirements": [
+    "ComfyUI 0.32.0 и frontend 1.48.7",
+    "Point-cloud File3D в формате PLY",
+    "Рабочий WebGL viewer в браузере"
+  ],
+  "fragment": {"id": "fragment.preview-point-cloud-source", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned backend/frontend/runtime/docs review and exact-source temp-file probe; official wheel has no PreviewPointCloud case, browser rendering and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "PreviewPointCloud backend in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_load_3d.py#L262-L319",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "PointCloudModelAdapter in frontend 1.48.7",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d/PointCloudModelAdapter.ts#L1-L173",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

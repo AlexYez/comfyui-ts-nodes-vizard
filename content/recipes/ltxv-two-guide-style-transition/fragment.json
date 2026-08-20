@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-two-guide-style-transition",
+  "title": "Первый и последний LTXV guide",
+  "externalInputs": [
+    {"id": "first_image", "type": "IMAGE", "to": "preprocess_first", "input": "image"},
+    {"id": "last_image", "type": "IMAGE", "to": "preprocess_last", "input": "image"},
+    {"id": "positive", "type": "CONDITIONING", "to": "guide_first", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "guide_first", "input": "negative"},
+    {"id": "vae_first", "type": "VAE", "to": "guide_first", "input": "vae"},
+    {"id": "vae_last", "type": "VAE", "to": "guide_last", "input": "vae"},
+    {"id": "latent", "type": "LATENT", "to": "guide_first", "input": "latent"}
+  ],
+  "nodes": [
+    {"ref": "preprocess_first", "classType": "LTXVPreprocess", "role": "Добавить codec artifacts к первому референсу", "settings": {"img_compression": 25}},
+    {"ref": "preprocess_last", "classType": "LTXVPreprocess", "role": "Добавить codec artifacts к последнему референсу", "settings": {"img_compression": 25}},
+    {"ref": "guide_first", "classType": "LTXVAddGuide", "role": "Добавить референс начала", "settings": {"frame_idx": 0, "strength": 0.7}},
+    {"ref": "guide_last", "classType": "LTXVAddGuide", "role": "Добавить референс конца", "settings": {"frame_idx": -1, "strength": 0.7}}
+  ],
+  "connections": [
+    {"from": "preprocess_first", "output": "output_image", "to": "guide_first", "input": "image"},
+    {"from": "preprocess_last", "output": "output_image", "to": "guide_last", "input": "image"},
+    {"from": "guide_first", "output": "positive", "to": "guide_last", "input": "positive"},
+    {"from": "guide_first", "output": "negative", "to": "guide_last", "input": "negative"},
+    {"from": "guide_first", "output": "latent", "to": "guide_last", "input": "latent"}
+  ]
+}

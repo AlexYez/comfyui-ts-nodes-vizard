@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.timed-conditioning-window",
+  "title": "Окно conditioning от 0,0 до 0,5",
+  "externalInputs": [
+    { "id": "conditioning", "type": "CONDITIONING", "to": "set_range", "input": "conditioning" }
+  ],
+  "nodes": [
+    {
+      "ref": "set_range",
+      "classType": "ConditioningSetTimestepRange",
+      "role": "Ограничить conditioning первой половиной нормализованного denoising",
+      "settings": { "start": 0.0, "end": 0.5 }
+    }
+  ],
+  "connections": []
+}

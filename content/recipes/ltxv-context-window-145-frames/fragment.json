@@ -1,0 +1,6 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.ltxv-context-window-145-frames", "title": "Окно LTXV на 145 кадров",
+  "externalInputs": [{"id": "model", "type": "MODEL", "to": "context", "input": "model"}],
+  "nodes": [{"ref": "context", "classType": "LTXVContextWindows", "role": "Применить исходные настройки LTXV и удержать первый кадр", "settings": {"context_length": 145, "context_overlap": 40, "context_schedule": "standard_uniform", "context_stride": 1, "closed_loop": false, "fuse_method": "pyramid", "freenoise": true, "retain_first_frame": true, "split_conds_to_windows": false}}],
+  "connections": []
+}

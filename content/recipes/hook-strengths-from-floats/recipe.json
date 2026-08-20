@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.hook-strengths-from-floats",
+  "locale": "ru",
+  "title": "Назначить хукам внешний список сил",
+  "summary": "Распределяет входной FLOATS по диапазону 0–100% и назначает полученное расписание внешним HOOKS.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.create-hook-keyframes-from-floats"],
+  "requirements": ["ComfyUI 0.32.0", "Внешние FLOATS", "Внешняя группа HOOKS", "Потребитель HOOKS после фрагмента"],
+  "fragment": {"id": "fragment.hook-strengths-from-floats", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная проверка исходника, списка, скаляра, пустого входа, `/object_info` и соединений; модель и полный граф не запускались, редактор пока не проверил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "CreateHookKeyframesFromFloats в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L549-L600",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "HookKeyframeGroup и линейная сетка в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L446-L596",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

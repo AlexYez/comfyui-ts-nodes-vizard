@@ -1,0 +1,25 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.deduplicate-images-default-threshold",
+  "title": "ImageDeduplication с порогом 0,95",
+  "externalInputs": [
+    {
+      "id": "images",
+      "type": "IMAGE",
+      "to": "deduplicate",
+      "input": "images"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "deduplicate",
+      "classType": "ImageDeduplication",
+      "role": "Сохранить первые элементы групп с похожим усреднённым хешем",
+      "settings": {
+        "similarity_threshold": 0.95
+      }
+    }
+  ],
+  "connections": []
+}

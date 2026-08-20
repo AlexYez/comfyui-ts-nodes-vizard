@@ -1,0 +1,75 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.pair-conditioning-set-properties-and-combine",
+  "node": {"classType": "PairConditioningSetPropertiesAndCombine", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L51-L84",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "51-84"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L743-L771",
+        "path": "comfy/hooks.py",
+        "lines": "743-771"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L33-L116",
+        "path": "comfy/samplers.py",
+        "lines": "33-116"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L738-L809",
+        "path": "comfy/samplers.py",
+        "lines": "738-809"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/PairConditioningSetPropertiesAndCombine/en.md",
+        "assessment": "SHA-256 3cd96610d2abab710c0253638b89c6b0417ee46e6b48e51543ee7b491e87751d. Порты перечислены верно, но слово blend скрывает фактическое добавление списков без числового смешивания."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/PairConditioningSetPropertiesAndCombine/ru.md",
+        "assessment": "SHA-256 07625c1a736087c6710dcc6f933404d1c82e64d5b259bdd983375db6e9b949e8. Перевод не уточняет, что свойства применяются только к NEW-ветвям и strength зависит от маски."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 файлов JSON, 496 корневых графов, 272 подграфа и 8120 нод. PairConditioningSetPropertiesAndCombine не найден."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Полный фрагмент с моделью не исполнялся; exampleExecuted остаётся false.",
+    "Проверка выполнила порядок, перезапись маски и времени, mask_strength и mask bounds на синтетических тензорах, но не итоговое влияние на изображение.",
+    "Официальных случаев в шаблонах 0.1.42 нет; значения 0,25 и default выбраны редакционно.",
+    "Несовместимые формы условий из разных кодировщиков не испытывались.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

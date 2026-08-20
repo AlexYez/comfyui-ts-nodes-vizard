@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.shared-widget-value",
+  "locale": "ru",
+  "title": "Управлять шириной двух latent-нод",
+  "summary": "Соединяет одну PrimitiveNode с widget-входами width двух EmptyLatentImage, чтобы менять оба совместимых значения в одном месте.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["frontend.primitive-node"],
+  "requirements": ["ComfyUI 0.32.0", "ComfyUI frontend 1.48.7"],
+  "fragment": {
+    "id": "fragment.shared-widget-value",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "workflow": {
+    "id": "workflow.frontend-utilities-lab",
+    "path": "../../workflows/frontend-utilities-lab.workflow.json",
+    "format": "comfyui-workflow/0.4"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated technical and editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "PrimitiveNode implementation in ComfyUI frontend 1.48.7",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/widgetInputs.ts#L31-L235",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official SDXL simple workflow template",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/sdxl_simple_example.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

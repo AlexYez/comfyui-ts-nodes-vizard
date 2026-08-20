@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.hunyuan3d-v2-conditioning",
+  "node": {"classType": "Hunyuan3Dv2Conditioning", "pythonModule": "comfy_extras.nodes_hunyuan3d", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan3d.py#L33-L55", "path": "comfy_extras/nodes_hunyuan3d.py", "lines": "33-55"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/clip_vision.py#L58-L80", "path": "comfy/clip_vision.py", "lines": "58-80"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/Hunyuan3Dv2Conditioning/en.md", "assessment": "Верно указывает last_hidden_state и нулевой negative; не объясняет ссылочную передачу positive, игнорирование image_embeds и пустые metadata."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/Hunyuan3Dv2Conditioning/ru.md", "assessment": "Смысл сохранён, но системное имя входа переведено; Wizard использует точный runtime class/input contract."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-census", "role": "Просмотрены 512 JSON, 496 root и 768 root/subgraph графов; найдено два прямых экземпляра, оба root/mode0/widgets[]."},
+      {"id": "3d_hunyuan3d-v2.1", "role": "CLIPVisionEncode node13 crop center → Conditioning node6 → positive/negative KSampler node7 [30,5,euler,normal,1]."},
+      {"id": "3d_hunyuan3d_image_to_model", "role": "CLIPVisionEncode node51 crop none → Conditioning node80 → positive/negative KSampler node3 [20,8,euler,normal,1]."},
+      {"id": "synthetic-exact-source-hunyuan3dv2-conditioning", "role": "На tensor [2,3,8] positive сохранил исходную identity и пустой metadata; negative совпал по форме/dtype, заполнен нулями; image_embeds не использован."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Настоящий CLIP Vision и Hunyuan3D checkpoint не загружались; выполнен точный метод на синтетическом объекте.",
+    "Качество результата для crop center и none не сравнивалось.",
+    "Человеческое утверждение статьи и рецепта ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

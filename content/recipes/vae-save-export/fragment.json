@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.vae-save-export",
+  "title": "Внешний VAE → safetensors в output/vae",
+  "externalInputs": [
+    {"id": "vae", "type": "VAE", "to": "save", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "VAESave",
+      "role": "Извлечь state dict first-stage модели и записать его в нумерованный файл",
+      "settings": {"filename_prefix": "vae/wizard-vae"}
+    }
+  ],
+  "connections": []
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.porter-duff-src-over-preview",
+  "locale": "ru",
+  "title": "Наложить source через SRC_OVER и проверить alpha",
+  "summary": "Соединяет два IMAGE и две MASK в PorterDuffImageComposite, показывает итоговый цвет и отдельно итоговую прозрачность.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.porter-duff-image-composite", "core.preview-image", "core.mask-preview"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Два IMAGE с одинаковым числом каналов", "Две MASK в соглашении ComfyUI: 0 непрозрачно, 1 прозрачно"],
+  "fragment": {"id": "fragment.porter-duff-src-over-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source/runtime and tensor review; full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "Porter-Duff implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_compositing.py#L1-L162", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

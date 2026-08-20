@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.multiline-string-to-number", "title": "Строка 1 в ComfyNumberConvert",
+  "externalInputs": [],
+  "nodes": [
+    {"ref": "text", "classType": "PrimitiveStringMultiline", "role": "Хранить исходную строку", "settings": {"value": "1"}},
+    {"ref": "convert", "classType": "ComfyNumberConvert", "role": "Разобрать строку как число", "settings": {}}
+  ],
+  "connections": [{"from": "text", "output": "STRING", "to": "convert", "input": "value"}]
+}

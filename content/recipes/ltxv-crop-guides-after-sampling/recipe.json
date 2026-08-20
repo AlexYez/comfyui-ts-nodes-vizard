@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-crop-guides-after-sampling",
+  "locale": "ru",
+  "title": "Удалить LTXV guide positions после sampling",
+  "summary": "Подключает matched positive, negative и sampled video LATENT к LTXVCropGuides перед VAE decode или второй spatial stage.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-crop-guides"],
+  "requirements": ["ComfyUI 0.32.0", "conditioning после LTXVAddGuide", "video LATENT после sampling или LTXVSeparateAVLatent"],
+  "fragment": {"id": "fragment.ltxv-crop-guides-after-sampling", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact official post-sampling placement, runtime type validation, source review and Russian editorial pass; full sampling and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [
+    {"title": "LTXVCropGuides implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L499-L540", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"},
+    {"title": "Official LTX 2.3 first-last-frame template", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_ltx2_3_flf2v.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}
+  ]
+}

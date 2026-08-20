@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-latent",
+  "node": {"classType": "SaveLatent", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L502-L554",
+        "path": "nodes.py",
+        "lines": "502-554"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L169-L173",
+        "path": "comfy/utils.py",
+        "lines": "169-173"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L520-L566",
+        "path": "folder_paths.py",
+        "lines": "520-566"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveLatent/en.md",
+        "assessment": "AI-generated файл подтверждает prefix и hidden metadata, но фраза preserving latent data structure скрывает, что на диск попадает только samples tensor и marker; LATENT passthrough output также не описан."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveLatent/ru.md",
+        "assessment": "Использован как вторичный обзор назначения; точные runtime-порты, output-node behavior, file keys и потеря noise_mask/batch_index проверены по коду."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON и все 496 графов с subgraphs; вхождений SaveLatent нет."
+      },
+      {
+        "id": "isolated-exact-source-save-latent-file-probe",
+        "role": "Exact-source SaveLatent, save_torch_file и path helpers выполнены в TemporaryDirectory через минимальный совместимый safetensors-кодек: подтверждены contiguous float16 payload, два keys, JSON metadata, disable_metadata, нумерованный output, passthrough исходного dict и блокировка ../escape."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса SaveLatent в 0.1.42 нет; recipe является source-derived.",
+    "Файловая ветвь выполнена с совместимым тестовым safetensors-кодеком, поскольку production-пакет safetensors не установлен в тестовом Python; вызов exact source и формат ключей проверены, но не полный ComfyUI process.",
+    "Fragment не запускался из интерфейса, поведение на исчерпании диска и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

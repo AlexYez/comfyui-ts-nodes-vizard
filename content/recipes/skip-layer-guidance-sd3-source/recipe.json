@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.skip-layer-guidance-sd3-source",
+  "locale": "ru",
+  "title": "Source-derived SkipLayerGuidanceSD3 перед KSampler",
+  "summary": "Runtime-valid fragment ставит ModelSamplingSD3 до SD3 SLG, использует defaults слоёв и окна и подключает patched MODEL к обычному KSampler.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.skip-layer-guidance-sd3"],
+  "requirements": ["ComfyUI 0.32.0", "Совместимый SD3 MMDiT MODEL", "Positive и negative CONDITIONING", "LATENT"],
+  "fragment": {"id": "fragment.skip-layer-guidance-sd3-source", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema review and full official-workflow absence check; model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SkipLayerGuidanceSD3 in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sd3.py#L169-L199",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates 0.1.42: exhaustive absence census",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

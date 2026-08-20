@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-audio",
+  "node": {
+    "classType": "LoadAudio",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L323-L390",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "323-390"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L343-L370",
+        "path": "folder_paths.py",
+        "lines": "343-370"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LoadAudio/en.md",
+        "assessment": "AI-generated документ подтверждает input directory и AUDIO output. Он не описывает выбор первого аудиопотока, форму [1,C,T], dtype conversion и SHA-256 всего файла."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON и 272 subgraph: 23 LoadAudio в 20 файлах, все в root; 18 mode Always, четыре Bypass, один Never; 22 MP3-имени и одно WAV."
+      },
+      {
+        "id": "video-humo#428ebf59-f870-43e5-b3a9-ad0c0b7b33f4/node-58",
+        "role": "LoadAudio с video_humo_input_audio.wav разветвляется в CreateVideo.audio и AudioEncoderEncode.audio."
+      },
+      {
+        "id": "isolated-pinned-load-audio-file-probe",
+        "role": "Штатный LoadAudio прочитал созданный штатным saver stereo FLAC как [1,2,800] при 8000 Гц; fingerprint совпал с SHA-256 файла."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment LoadAudio → PreviewAudio отсутствует в official bundle и не исполнялся как импортированный fragment; проверены те же pinned classes в изолированном temp-каталоге.",
+    "Тестовый файл был FLAC; полный набор поддерживаемых контейнеров зависит от PyAV/FFmpeg окружения и не перебирался.",
+    "Многопоточные контейнеры проверены по source-контракту streams.audio[0], но отдельный такой файл не создавался.",
+    "Прослушивание и человеческое редакционное одобрение ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

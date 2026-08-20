@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltx-euler-ancestral-zero-eta",
+  "title": "SamplerEulerAncestral(eta 0) → SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "algorithm",
+      "classType": "SamplerEulerAncestral",
+      "role": "Создать Euler ancestral без ancestral renoise",
+      "settings": {"eta": 0.0, "s_noise": 1.0}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Исполнить LTX custom sampling",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "algorithm", "output": "SAMPLER", "to": "sample", "input": "sampler"}
+  ]
+}

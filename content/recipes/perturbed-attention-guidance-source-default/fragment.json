@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.perturbed-attention-guidance-source-default",
+  "title": "PAG со scale 3.0 из runtime-схемы",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "pag", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "pag",
+      "classType": "PerturbedAttentionGuidance",
+      "role": "Добавить post-CFG PAG через value-only attention в middle block 0",
+      "settings": {"scale": 3.0}
+    }
+  ],
+  "connections": []
+}

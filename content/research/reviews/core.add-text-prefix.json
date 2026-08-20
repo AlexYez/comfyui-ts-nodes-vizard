@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.add-text-prefix",
+  "node": {"classType": "AddTextPrefix", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L777-L932",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "777-932"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1494-L1506",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1494-1506"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L39-L59",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "39-59"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L243-L341",
+        "path": "execution.py",
+        "lines": "243-341"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/AddTextPrefix/en.md",
+        "assessment": "Case-sensitive lookup found the exact AI-generated member. It records deprecation and Concatenate Text, but calls the exact texts port text, labels runtime-required prefix optional, and omits experimental/runtime-deprecated and nested-output contracts; raw SHA-256: b95c3b6b1772a92576932e15ccdb49a3d51b10f92952560b4069ca4f1743c40d."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/AddTextPrefix/ru.md",
+        "assessment": "Case-sensitive lookup found the exact member. RU adds a translation preamble, drops DEPRECATED, uses text instead of texts and translates prefix as a port identifier; required/default and output-wrapper conflicts are absent. Raw SHA-256: 85882ea3506ef16368a8a09dde05894fbd54adde7f4286b3b9e9004d98ea4fc9."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-case-sensitive-root-subgraph-scan",
+        "role": "Проверены 512 JSON, 496 root workflows, 4083 root nodes, 272 subgraphs и 4037 subgraph nodes; AddTextPrefix отсутствует и в raw case-sensitive, и в exact type census."
+      },
+      {
+        "id": "isolated-pinned-dataset-text-affix-merge-probe",
+        "role": "Точный класс подтвердил prefix + text, пустой префикс, разворачивание одноэлементного параметра, parity со StringConcatenate и вложенный результат после merge_result_data."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-примера нет; фрагмент, построенный по исходнику с prefix = dataset:, не импортировался и не выполнялся на canvas.",
+    "Node Replacement API не связывает AddTextPrefix со StringConcatenate, хотя исходник называет Concatenate Text преемником.",
+    "Живое интерфейсное поведение deprecated-конфликта и вложенного выхода требует человеческой проверки.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-empty-latent-schedule",
+  "title": "Legacy LTXV latent и тридцатишаговое расписание",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "latent",
+      "classType": "EmptyLTXVLatentVideo",
+      "role": "Создать latent формы из официального text-to-video workflow",
+      "settings": {"width": 768, "height": 512, "length": 97, "batch_size": 1}
+    },
+    {
+      "ref": "scheduler",
+      "classType": "LTXVScheduler",
+      "role": "Рассчитать shift по 4992 токенам и растянуть хвост к 0.1",
+      "settings": {"steps": 30, "max_shift": 2.05, "base_shift": 0.95, "stretch": true, "terminal": 0.1}
+    }
+  ],
+  "connections": [
+    {"from": "latent", "output": "LATENT", "to": "scheduler", "input": "latent"}
+  ]
+}

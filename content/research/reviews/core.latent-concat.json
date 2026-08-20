@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.latent-concat",
+  "node": {
+    "classType": "LatentConcat",
+    "pythonModule": "comfy_extras.nodes_latent",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L136-L174",
+        "path": "comfy_extras/nodes_latent.py",
+        "lines": "136-174"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L859-L865",
+        "path": "comfy/utils.py",
+        "lines": "859-865"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LatentConcat/ru.md",
+        "assessment": "Верно описывает оси, порядок и приведение batch второго входа, но переводит системные имена и не оговаривает 4D t как канал, требования к остальным измерениям и перенос metadata только от samples1."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LatentConcat/en.md",
+        "assessment": "Использован как вторичное описание назначения. Точный алгоритм repeat/truncate и shallow-copy проверен по исходнику."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "video_wan2_2_14B_s2v",
+        "role": "Полный root+subgraph census 512 JSON: два root и шесть subgraph вхождений. Активная root-связка KSampler/subgraph output 87 → LatentCut 94 (t,0,1) и LatentConcat 95; Cut → samples1, полный latent → samples2, результат → VAEDecode."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact-source tensor probe выполнил concat, batch-приведение и 4D t-ветку, но полный recipe с sampler, моделью и VAE не запускался.",
+    "Официальный census подтверждает одну template-семью Wan S2V; x/y production-кейсы в пакете 0.1.42 не обнаружены.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}
+

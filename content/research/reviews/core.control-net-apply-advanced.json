@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.control-net-apply-advanced",
+  "node": {"classType": "ControlNetApplyAdvanced", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L928-L976",
+        "path": "nodes.py",
+        "lines": "928-976"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/controlnet.py#L83-L229",
+        "path": "comfy/controlnet.py",
+        "lines": "83-229"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/controlnet.py#L269-L286",
+        "path": "comfy/controlnet.py",
+        "lines": "269-286"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L1050-L1073",
+        "path": "comfy/samplers.py",
+        "lines": "1050-1073"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ControlnetApplyAdvanced/en.md",
+        "assessment": "Каталог отличается от classType регистром буквы n. AI-generated текст перечисляет основные порты, но пропускает optional VAE и не объясняет copy, previous_controlnet и control_apply_to_uncond; эти факты взяты из source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "sd3.5_large_canny_controlnet_example",
+        "role": "Workflow 5c7e191b-b600-4ec5-9100-b8135c0fd76c: ControlNetLoader №46 + Canny №47 + positive/negative + VAE → ControlNetApplyAdvanced №51 [0.66,0,1] → KSampler №3."
+      },
+      {
+        "id": "workflow-templates-0142-control-net-apply-advanced-census",
+        "role": "Полный census 496 root + 272 subgraph: пять exact instances, root 3/subgraph 2, все mode 0 и с VAE; strength 1 ×3, 0.66 ×1, 0.7000000000000002 ×1, диапазон 0–1 у всех."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Точный метод apply_controlnet выполнен только на синтетических conditioning и fake ControlNet для проверки copy, shared chain и flags; настоящие веса и sampling не запускались.",
+    "В wheel 0.1.42 нет цепочки из двух ControlNetApplyAdvanced; recipe.chain-two-controlnets-advanced — source-derived fragment с учебными диапазонами.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-13"
+}

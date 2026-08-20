@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.resize-image-mask-1280x720", "locale": "ru",
+  "title": "Подготовить кадр 1280 × 720 с центральной обрезкой", "summary": "Повторяет проверенную настройку официальных LTX-2 workflow: IMAGE приводится к 1280 × 720 через lanczos и center crop, затем открывается preview.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.resize-image-mask-node", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Входной IMAGE"],
+  "fragment": {"id": "fragment.resize-image-mask-1280x720", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source/runtime/official workflow and Russian editorial review; full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "ResizeImageMaskNode implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L250-L514", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"},
+    {"title": "Official workflow templates JSON 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

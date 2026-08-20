@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.multigpu-cfg-split",
+  "locale": "ru",
+  "title": "Назначить primary GPU и включить MultiGPU CFG Split",
+  "summary": "Направляет внешний MODEL на gpu:0, затем создаёт до одной дополнительной deepclone-копии для распределения conditioning-работы между двумя устройствами.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.select-model-device", "core.multigpu-work-units"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Не менее двух доступных GPU для фактического параллелизма",
+    "MODEL от loader с cached_patcher_init support",
+    "Достаточно памяти для полной копии модели на каждом выбранном GPU"
+  ],
+  "fragment": {"id": "fragment.multigpu-cfg-split", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime review and Russian editorial pass; fragment schema and isolated source logic validated, real multi-GPU execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SelectModelDevice and MultiGPU_WorkUnits in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_multigpu.py#L20-L231",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Multi-GPU deepclone creation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/multigpu.py#L125-L195",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

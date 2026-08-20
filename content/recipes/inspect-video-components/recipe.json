@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.inspect-video-components",
+  "locale": "ru",
+  "title": "Разобрать VIDEO и собрать новый объект из компонентов",
+  "summary": "GetVideoComponents извлекает кадры, звук, fps и bit depth, после чего CreateVideo собирает эти четыре выхода в новый VIDEO.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.get-video-components", "core.create-video"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Готовый объект VIDEO",
+    "Достаточно памяти для всех декодированных кадров, если VIDEO связан с файлом",
+    "Отсутствие требования сохранить отдельный альфа-канал"
+  ],
+  "fragment": {
+    "id": "fragment.inspect-video-components",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка исходного кода и официального SeedVR2 workflow; редактор пока не проверил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "GetVideoComponents and CreateVideo in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video.py#L152-L217",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official SeedVR2 video upscale workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/utility_seedvr2_3b_int8_upscale_video.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.mask-conversions", "locale": "ru",
+  "title": "Проверка каналов, порога и инверсии", "summary": "Извлекает red-канал IMAGE и показывает рядом исходную, инвертированную и бинарную маски по официальной диагностической схеме.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.image-to-mask", "core.invert-mask", "core.mask-to-image", "core.threshold-mask"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Любой IMAGE для проверки"],
+  "fragment": {"id": "fragment.mask-conversions", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Official workflow topology and schema review; execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "ComfyUI mask node implementations in v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_mask.py", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"},
+    {"title": "Official basic_mask_operations_and_compositing workflow in templates 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

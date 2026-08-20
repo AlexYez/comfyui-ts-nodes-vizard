@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-empty-av-sample-and-split",
+  "title": "LTXV: пустой аудиопоток и совместный sampler",
+  "externalInputs": [
+    {"id": "video_latent", "type": "LATENT", "to": "concat", "input": "video_latent"},
+    {"id": "audio_vae", "type": "VAE", "to": "empty_audio", "input": "audio_vae"},
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sampler", "type": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"}
+  ],
+  "nodes": [
+    {
+      "ref": "empty_audio",
+      "classType": "LTXVEmptyLatentAudio",
+      "role": "Создать пустой LTXV audio latent для 97 кадров при 25 кадрах/с",
+      "settings": {"frames_number": 97, "frame_rate": 25.0, "batch_size": 1}
+    },
+    {
+      "ref": "concat",
+      "classType": "LTXVConcatAVLatent",
+      "role": "Собрать video и audio в joint AV latent",
+      "settings": {}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Выполнить совместный sampling двух nested-потоков",
+      "settings": {}
+    },
+    {
+      "ref": "separate",
+      "classType": "LTXVSeparateAVLatent",
+      "role": "Вернуть отдельные video_latent и audio_latent",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "empty_audio", "output": "Latent", "to": "concat", "input": "audio_latent"},
+    {"from": "concat", "output": "latent", "to": "sample", "input": "latent_image"},
+    {"from": "sample", "output": "output", "to": "separate", "input": "av_latent"}
+  ]
+}

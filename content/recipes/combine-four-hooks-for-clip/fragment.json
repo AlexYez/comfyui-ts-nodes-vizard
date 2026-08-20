@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.combine-four-hooks-for-clip",
+  "title": "HOOKS A–D → CombineHooks4 → SetClipHooks → CLIPTextEncode",
+  "externalInputs": [
+    {"id": "hooks-a", "type": "HOOKS", "to": "combine", "input": "hooks_A"},
+    {"id": "hooks-b", "type": "HOOKS", "to": "combine", "input": "hooks_B"},
+    {"id": "hooks-c", "type": "HOOKS", "to": "combine", "input": "hooks_C"},
+    {"id": "hooks-d", "type": "HOOKS", "to": "combine", "input": "hooks_D"},
+    {"id": "clip", "type": "CLIP", "to": "set-clip", "input": "clip"}
+  ],
+  "nodes": [
+    {
+      "ref": "combine",
+      "classType": "CombineHooks4",
+      "role": "Собрать подключённые группы в порядке A–D",
+      "settings": {}
+    },
+    {
+      "ref": "set-clip",
+      "classType": "SetClipHooks",
+      "role": "Применить группу к CLIP и перенести её в CONDITIONING",
+      "settings": {"apply_to_conds": true, "schedule_clip": false}
+    },
+    {
+      "ref": "encode",
+      "classType": "CLIPTextEncode",
+      "role": "Закодировать проверочный промпт",
+      "settings": {"text": "описание сцены"}
+    }
+  ],
+  "connections": [
+    {"from": "combine", "output": "HOOKS", "to": "set-clip", "input": "hooks"},
+    {"from": "set-clip", "output": "CLIP", "to": "encode", "input": "clip"}
+  ]
+}

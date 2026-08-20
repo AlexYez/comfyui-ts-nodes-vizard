@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.subtract-two-latents",
+  "title": "Базовый LATENT − второй LATENT",
+  "externalInputs": [
+    {"id": "base", "type": "LATENT", "to": "subtract", "input": "samples1"},
+    {"id": "subtrahend", "type": "LATENT", "to": "subtract", "input": "samples2"}
+  ],
+  "nodes": [
+    {"ref": "subtract", "classType": "LatentSubtract", "role": "Поэлементно вычесть samples2 из samples1", "settings": {}}
+  ],
+  "connections": []
+}

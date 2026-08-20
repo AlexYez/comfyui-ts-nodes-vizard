@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.sharpen-preview",
+  "locale": "ru",
+  "title": "Умеренно повысить резкость перед сохранением",
+  "summary": "Применяет малое ядро Sharpen с alpha 0.5, показывает результат и сохраняет ту же ветку с отдельным filename prefix.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.image-sharpen", "core.preview-image", "core.save-image"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Внешний IMAGE больше 1 × 1 пикселя"
+  ],
+  "fragment": {
+    "id": "fragment.sharpen-preview",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source and schema review; sharpen tensor path tested, full fragment execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ImageSharpen implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L180-L220",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-dual-cfg-guider",
+  "node": {
+    "classType": "LTXVDualCFGGuider",
+    "pythonModule": "comfy_extras.nodes_lt",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L1053-L1120",
+        "path": "comfy_extras/nodes_lt.py",
+        "lines": "1053-1120"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L592-L627",
+        "path": "comfy/samplers.py",
+        "lines": "592-627"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L1374-L1394",
+        "path": "comfy/utils.py",
+        "lines": "1374-1394"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "Просмотрены 512 JSON, 496 root и 768 root/subgraph графов; найдено пять exact subgraph instances: один video_ltx2_5_flf2v и по два video_ltx2_5_i2v/video_ltx2_5_t2v."
+      },
+      {
+        "id": "official-ltx2.5-dual-cfg-local-topology",
+        "role": "Все пять instances имеют widgets [1,1], получают MODEL от UNETLoader, conditioning от LTXV branches и передают GUIDER в SamplerCustomAdvanced."
+      },
+      {
+        "id": "synthetic-exact-source-ltxv-dual-cfg-probe",
+        "role": "Точный guider на packed synthetic nested tensor подтвердил video boundary как product(shape[1:]) первой части, audio_cfg для всего хвоста, equal-scale и flat fallbacks, а также disable_cfg1_optimization для unequal path."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В embedded docs 0.5.9 нет страницы exact NodeId ни для en, ни для ru.",
+    "Official cases используют равные [1,1] и потому подтверждают topology, но не исполняют unequal dual-scale branch.",
+    "Синтетическая проба не запускала LTX‑2.5 weights и полный fragment; качество и performance не измерялись.",
+    "Человеческое утверждение статьи и рецепта ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

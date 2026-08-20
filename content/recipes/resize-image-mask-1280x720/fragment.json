@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.resize-image-mask-1280x720", "title": "IMAGE в 1280 × 720 через center crop",
+  "externalInputs": [{"id": "source_image", "type": "IMAGE", "to": "resize", "input": "input"}],
+  "nodes": [
+    {"ref": "resize", "classType": "ResizeImageMaskNode", "role": "Привести IMAGE к целевому кадру", "settings": {"resize_type": {"resize_type": "scale dimensions", "width": 1280, "height": 720, "crop": "center"}, "scale_method": "lanczos"}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Проверить геометрию после обрезки", "settings": {}}
+  ],
+  "connections": [{"from": "resize", "output": "resized", "to": "preview", "input": "images"}]
+}

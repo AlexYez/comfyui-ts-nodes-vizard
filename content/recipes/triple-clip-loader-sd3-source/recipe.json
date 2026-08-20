@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.triple-clip-loader-sd3-source",
+  "locale": "ru",
+  "title": "Собрать SD3 CLIP из трёх локальных энкодеров",
+  "summary": "Source-derived fragment добавляет TripleCLIPLoader и помечает три позиции для CLIP-L, CLIP-G и T5-XXL без фиктивного полного workflow.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.triple-clip-loader"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Совместимый CLIP-L в models/text_encoders",
+    "Совместимый CLIP-G в models/text_encoders",
+    "Совместимый T5-XXL в models/text_encoders"
+  ],
+  "fragment": {"id": "fragment.triple-clip-loader-sd3-source", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/docs review and exact-source path-order probe; real weights and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "TripleCLIPLoader in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sd3.py#L11-L37",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42 recursive census",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

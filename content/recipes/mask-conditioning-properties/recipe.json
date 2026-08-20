@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.mask-conditioning-properties",
+  "locale": "ru",
+  "title": "Маска и свойства conditioning",
+  "summary": "ConditioningSetProperties добавляет к внешнему CONDITIONING mask, mask_strength 0,8 и ограничение area по границам маски.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.conditioning-set-properties", "core.conditioning-set-mask"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Совместимые значения CONDITIONING и MASK",
+    "Граф sampling, в котором будет использован выход",
+    "Повторная проверка experimental-контракта после обновления ComfyUI"
+  ],
+  "fragment": {
+    "id": "fragment.mask-conditioning-properties",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ConditioningSetProperties in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L86-L116",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Mask and hooks conditioning helpers in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L672-L756",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

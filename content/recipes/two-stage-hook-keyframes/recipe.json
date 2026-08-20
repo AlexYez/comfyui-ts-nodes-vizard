@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.two-stage-hook-keyframes",
+  "locale": "ru",
+  "title": "Двухступенчатая сила хука",
+  "summary": "Создаёт начальную силу 1 при 0% и отключение при 50%, затем назначает это расписание внешней группе HOOKS.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.set-hook-keyframes", "core.create-hook-keyframe"],
+  "requirements": ["ComfyUI 0.32.0", "Внешняя группа HOOKS", "Потребитель HOOKS после фрагмента", "Проверка соответствия процентов схеме сэмплирования"],
+  "fragment": {"id": "fragment.two-stage-hook-keyframes", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная проверка исходника, `/object_info`, сортировки и соединений; модель и полный граф не запускались, редактор пока не проверил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "CreateHookKeyframe и SetHookKeyframes в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L446-L499",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "HookKeyframeGroup в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L426-L539",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

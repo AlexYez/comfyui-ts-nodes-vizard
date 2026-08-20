@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.clip-text-encode",
+  "node": { "classType": "CLIPTextEncode", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L56-L77",
+        "path": "nodes.py",
+        "lines": "56-77"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L318-L390",
+        "path": "comfy/sd.py",
+        "lines": "318-390"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ClipTextEncode/en.md",
+        "assessment": "Названия входов и выхода совпадают по смыслу. Документ помечен как AI-generated и переносит свойства tokenizer/frontend на саму ноду; синтаксис embeddings, весов и dynamic prompt не использован без проверки реализации. Путь отличается регистром от runtime ID CLIPTextEncode."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "sdxlturbo_example",
+        "role": "Workflow bf11bf13-0fba-4b6b-9a8d-1680bf10cb09: CLIPTextEncode № 6 и № 7 подают positive и negative conditioning в SamplerCustom № 13."
+      },
+      {
+        "id": "audio_stable_audio_example",
+        "role": "Workflow 5fa61cc8-29d9-4deb-9f90-02d3c00b63b3: две CLIPTextEncode получают CLIP от CLIPLoader и управляют audio KSampler."
+      },
+      {
+        "id": "text_to_video_wan",
+        "role": "Workflow 21720dda-bf84-4f0a-8469-a681c80e302e: положительный и отрицательный текст кодируются Wan text encoder перед video KSampler."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Общий workflow содержит placeholder checkpoint и VAE; prompt encoding и inference с model weights не выполнялись.",
+    "Синтаксис dynamic prompt, embeddings и весов не проверялся end-to-end для всех tokenizer-архитектур и поэтому описан только как внешняя по отношению к классу возможность."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-video-mp4-auto",
+  "locale": "ru",
+  "title": "Сохранить готовый VIDEO в MP4 с auto",
+  "summary": "Минимальный фрагмент подключает внешний VIDEO к SaveVideo и оставляет формат и кодек в автоматическом режиме.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.save-video"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Готовый объект VIDEO",
+    "Права записи и достаточно места в output/video",
+    "Совместимый поток либо доступный кодировщик H.264 при необходимости перекодирования"
+  ],
+  "fragment": {
+    "id": "fragment.save-video-mp4-auto",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка исходного кода и официального SeedVR2 workflow; редактор пока не проверил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SaveVideo in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video.py#L75-L149",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official SeedVR2 video upscale workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/utility_seedvr2_3b_int8_upscale_video.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

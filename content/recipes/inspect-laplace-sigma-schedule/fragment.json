@@ -1,0 +1,16 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.inspect-laplace-sigma-schedule",
+  "title": "Пять точек Laplace-кривой",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "laplace",
+      "classType": "LaplaceScheduler",
+      "role": "Построить короткий список с видимыми границами и центральной точкой",
+      "settings": {"steps": 5, "sigma_max": 14.614642, "sigma_min": 0.0291675, "mu": 0.0, "beta": 0.5}
+    }
+  ],
+  "connections": []
+}

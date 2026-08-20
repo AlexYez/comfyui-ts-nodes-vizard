@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.set-properties-on-conditioning-pair",
+  "locale": "ru",
+  "title": "Задать маску и время для пары условий",
+  "summary": "Записывает одну маску с силой 0,65 и один диапазон времени в положительную и отрицательную ветви.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.pair-conditioning-set-properties"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Согласованная пара CONDITIONING",
+    "MASK и TIMESTEPS_RANGE подходящей формы",
+    "Необязательная группа HOOKS, если она нужна графу"
+  ],
+  "fragment": {
+    "id": "fragment.set-properties-on-conditioning-pair",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка закреплённых исходников и серверной схемы; ветви маски, mask bounds, времени и HOOKS проверены на синтетических данных, полный граф не исполнялся, human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "PairConditioningSetProperties в ComfyUI 0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L18-L49",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Порядок применения свойств условий",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L672-L756",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Сила маски в семплере",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L33-L116",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Подготовка mask bounds в семплере",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L738-L809",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

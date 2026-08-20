@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.preview-3d-advanced",
+  "node": {
+    "classType": "Preview3DAdvanced",
+    "pythonModule": "comfy_extras.nodes_load_3d",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_load_3d.py#L132-L190",
+        "path": "comfy_extras/nodes_load_3d.py",
+        "lines": "132-190"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d.ts#L688-L892",
+        "path": "src/extensions/core/load3d.ts",
+        "lines": "688-892"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d/nodeTypes.ts#L1-L26",
+        "path": "src/extensions/core/load3d/nodeTypes.ts",
+        "lines": "1-26"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/Preview3DAdvanced/en.md",
+        "assessment": "SHA-256 d19b7655b7552960fdcf9cbd4f951353897449fdbbbf7c11167b8b54c8a77ba6. Описывает временный просмотр и сквозные выходы; точные runtime-типы уточнены по /object_info."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Preview3DAdvanced/ru.md",
+        "assessment": "SHA-256 28d1e796742bf6bbbd6b6d03379e966cc3b474441f69605c871c375d232d80fc. Используется для назначения, но не заменяет проверку кода и runtime-ключей."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-preview-3d-advanced-zero-census",
+        "role": "Пакет SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3: 512 JSON, 496 корневых графов и 272 подграфа; Preview3DAdvanced и его сырое имя отсутствуют."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Временное копирование, сквозные выходы и приоритет явной камеры проверены на синтетическом FILE_3D; WebGL и живая сериализация окна не запускались.",
+    "Официальных случаев нет; рецепт основан на точной схеме и коде, а его полный запуск не отмечен выполненным.",
+    "Самостоятельная активация этого типа как единственной 3D-ноды не проверена в браузере; закреплённый список триггеров ленивой загрузки его не содержит.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

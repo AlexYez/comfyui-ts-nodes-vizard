@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.duplicate-first-video-latent-frame",
+  "title": "Sampled video LATENT → первый кадр → временная конкатенация",
+  "externalInputs": [
+    {
+      "id": "video_for_cut",
+      "type": "LATENT",
+      "to": "cut_first",
+      "input": "samples"
+    },
+    {
+      "id": "video_full",
+      "type": "LATENT",
+      "to": "prepend_first",
+      "input": "samples2"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "cut_first",
+      "classType": "LatentCut",
+      "role": "Вырезать первый latent-кадр пятиосевой последовательности",
+      "settings": {
+        "dim": "t",
+        "index": 0,
+        "amount": 1
+      }
+    },
+    {
+      "ref": "prepend_first",
+      "classType": "LatentConcat",
+      "role": "Поставить вырезанный кадр перед полной последовательностью",
+      "settings": {
+        "dim": "t"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "cut_first",
+      "output": "LATENT",
+      "to": "prepend_first",
+      "input": "samples1"
+    }
+  ]
+}
+

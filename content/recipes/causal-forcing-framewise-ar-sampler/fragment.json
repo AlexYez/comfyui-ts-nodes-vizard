@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.causal-forcing-framewise-ar-sampler",
+  "title": "SamplerARVideo framewise → SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "video-latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "algorithm",
+      "classType": "SamplerARVideo",
+      "role": "Создать покадровый AR video sampler",
+      "settings": {"num_frame_per_block": 1}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Исполнить Causal Forcing custom sampling",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "algorithm", "output": "SAMPLER", "to": "sample", "input": "sampler"}
+  ]
+}

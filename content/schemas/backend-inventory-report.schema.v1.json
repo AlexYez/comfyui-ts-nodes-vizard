@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nodes-wizard.local/schemas/backend-inventory-report.schema.v1.json",
+  "title": "Derived ComfyUI backend inventory report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema", "schemaVersion", "inventoryId", "source", "snapshot", "counts",
+    "rawFlags", "userServerFlags", "userServerFlagCombinations",
+    "userServerFlagOverlaps", "excluded", "pythonModules", "userServerNodeIds"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": "1.0" },
+    "inventoryId": { "type": "string" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "tag", "commit", "backendVersion"],
+      "properties": {
+        "repository": { "type": "string" },
+        "tag": { "type": "string" },
+        "commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "backendVersion": { "type": "string" }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "size"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "size": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rawNodeCount", "userServerNodeCount", "excludedNodeCount", "devOnlyNodeCount", "testNodeCount", "pythonModuleCount"],
+      "properties": {
+        "rawNodeCount": { "type": "integer", "minimum": 0 },
+        "userServerNodeCount": { "type": "integer", "minimum": 0 },
+        "excludedNodeCount": { "type": "integer", "minimum": 0 },
+        "devOnlyNodeCount": { "type": "integer", "minimum": 0 },
+        "testNodeCount": { "type": "integer", "minimum": 0 },
+        "pythonModuleCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "rawFlags": { "$ref": "#/$defs/flags" },
+    "userServerFlags": { "$ref": "#/$defs/flags" },
+    "userServerFlagCombinations": { "$ref": "#/$defs/countMap" },
+    "userServerFlagOverlaps": { "$ref": "#/$defs/countMap" },
+    "excluded": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["devOnlyNodeIds", "testNodeIds", "unionNodeIds"],
+      "properties": {
+        "devOnlyNodeIds": { "$ref": "#/$defs/stringArray" },
+        "testNodeIds": { "$ref": "#/$defs/stringArray" },
+        "unionNodeIds": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "pythonModules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["module", "nodeCount"],
+        "properties": {
+          "module": { "type": "string" },
+          "nodeCount": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "userServerNodeIds": { "$ref": "#/$defs/stringArray" }
+  },
+  "$defs": {
+    "flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["api", "experimental", "deprecated", "devOnly"],
+      "properties": {
+        "api": { "type": "integer", "minimum": 0 },
+        "experimental": { "type": "integer", "minimum": 0 },
+        "deprecated": { "type": "integer", "minimum": 0 },
+        "devOnly": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "countMap": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

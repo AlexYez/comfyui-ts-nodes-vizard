@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.random-crop-preview", "title": "Случайный crop 512 × 512 с seed 42",
+  "externalInputs": [{"id": "source_image", "type": "IMAGE", "to": "random_crop", "input": "images"}],
+  "nodes": [
+    {"ref": "random_crop", "classType": "RandomCropImages", "role": "Выбрать воспроизводимое окно", "settings": {"width": 512, "height": 512, "seed": 42}},
+    {"ref": "preview_crop", "classType": "PreviewImage", "role": "Проверить выбранный участок", "settings": {}}
+  ],
+  "connections": [{"from": "random_crop", "output": "images", "to": "preview_crop", "input": "images"}]
+}

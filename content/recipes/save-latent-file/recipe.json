@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-latent-file",
+  "locale": "ru",
+  "title": "Сохранить внешний LATENT в output/latents",
+  "summary": "Подключает внешний LATENT к SaveLatent и записывает его samples в нумерованный .latent-файл с prefix latents/wizard-session.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.save-latent"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "LATENT, для которого отдельно известны модель и VAE",
+    "Свободное место в output-каталоге"
+  ],
+  "fragment": {"id": "fragment.save-latent-file", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "SaveLatent implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L502-L554",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Pinned embedded documentation 0.5.9: SaveLatent",
+      "url": "https://github.com/Comfy-Org/embedded-docs/blob/1d258cf6e374d60d138a2bfcd273c7e11f750ef9/comfyui_embedded_docs/docs/SaveLatent/en.md",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

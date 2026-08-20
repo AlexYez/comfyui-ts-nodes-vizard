@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.transform-splat-yaw-90", "locale": "ru",
+  "title": "Повернуть Gaussian Splat на 90° вокруг Y", "summary": "TransformSplat меняет только rotate_y; translate остаётся 0, scale — 1.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.transform-splat"], "requirements": ["ComfyUI 0.32.0", "Внешний SPLAT"],
+  "fragment": {"id": "fragment.transform-splat-yaw-90", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated pinned source/runtime schema and exact transform helper review; full render and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "TransformSplat in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L1090-L1142", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

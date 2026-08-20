@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-from-batch",
+  "node": {
+    "classType": "ImageFromBatch",
+    "pythonModule": "comfy_extras.nodes_images",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L136-L162",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "136-162"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ImageFromBatch/ru.md",
+        "assessment": "Объясняет batch_index и length. Точные negative-index, однократное прибавление размера, clamp и сокращение length у правой границы подтверждены исходником."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ImageFromBatch/en.md",
+        "assessment": "Использовано только как вторичная документация; отсутствие wrap, padding и repeat выведено непосредственно из реализации среза."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "api_vidu_video_extension",
+        "role": "Workflow 7391bf14-015f-4b3b-ae72-ff93d79479c4: GetVideoComponents → ImageFromBatch № 5 с сохранёнными [0, 1]; GetImageSize.batch_size подключён к batch_index, поэтому clamp выбирает последний кадр для ViduExtendVideoNode.end_frame."
+      },
+      {
+        "id": "template_seedance2_0_viral_videos_character_swap",
+        "role": "Workflow f002ee1a-4648-4bf4-aaa2-edc8adc2940d: корневая нода № 27 с [0, 1] выбирает первый кадр для OpenAIGPTImageNodeV2."
+      },
+      {
+        "id": "video_ltx2_canny_to_video",
+        "role": "Workflow ea8e5878-e1db-4610-ac18-2ba62d6bde18: корневая нода № 152 с [0, 121], length подключён от PrimitiveInt."
+      },
+      {
+        "id": "video_ltx2_depth_to_video",
+        "role": "Тот же UUID и корневая топология № 152 с [0, 121]; учтён как отдельный файл официального wheel."
+      },
+      {
+        "id": "video_wan2_2_14B_s2v",
+        "role": "Workflow ea7ba43e-ab56-40d4-a298-423f5bfe4462: активная корневая нода № 96 с [0, 4096] и bypassed № 155."
+      },
+      {
+        "id": "video_wan21_scail2_character_replacement",
+        "role": "Workflow 5e3b2cd8-2119-4be4-87d6-b524515abe69: subgraph № 253 использует [-1, 1], № 251 — [5, 4096]."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment структурно проверен, но не исполнен на реальном video-бэтче.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

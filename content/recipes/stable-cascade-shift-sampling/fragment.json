@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.stable-cascade-shift-sampling",
+  "title": "Stable Cascade shift 2 → BasicScheduler",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "patch", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "patch",
+      "classType": "ModelSamplingStableCascade",
+      "role": "Поставить Cascade sampling с log-SNR shift 2",
+      "settings": {"shift": 2.0}
+    },
+    {
+      "ref": "schedule",
+      "classType": "BasicScheduler",
+      "role": "Построить SIGMAS для той же Cascade-stage модели",
+      "settings": {"scheduler": "simple", "steps": 20, "denoise": 1.0}
+    }
+  ],
+  "connections": [
+    {"from": "patch", "output": "MODEL", "to": "schedule", "input": "model"}
+  ]
+}

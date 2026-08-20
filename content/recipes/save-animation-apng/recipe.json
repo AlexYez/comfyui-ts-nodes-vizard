@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-animation-apng",
+  "locale": "ru",
+  "title": "Сохранить RGBA-бэтч как APNG с 12 FPS",
+  "summary": "Передаёт внешний IMAGE-бэтч в SaveAnimatedPNG, записывает один 8-битный APNG с 12 FPS и compress level 4, затем продолжает исходный IMAGE в PreviewImage.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.save-animated-png", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "RGB или RGBA IMAGE-бэтч с одинаковым размером кадров"],
+  "fragment": {"id": "fragment.save-animation-apng", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned-source review; source-derived fragment and local Pillow RGBA APNG encoding passed, full ComfyUI execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "SaveAnimatedPNG in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L236-L267",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Animated PNG helper in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_ui.py#L76-L235",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

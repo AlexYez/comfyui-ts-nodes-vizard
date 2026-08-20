@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.encode-audio-ace-latent",
+  "locale": "ru",
+  "title": "Закодировать AUDIO для ACE-Step editing",
+  "summary": "VAEEncodeAudio получает waveform и VAE, повторяя центральный encode-узел официального ACE-Step music-to-music workflow.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.vae-encode-audio"],
+  "requirements": ["ComfyUI 0.32.0", "Непустой AUDIO", "Совместимый audio VAE из выбранного checkpoint"],
+  "fragment": {"id": "fragment.encode-audio-ace-latent", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source, runtime, exact ACE workflow topology, fake-VAE execution and Russian editorial pass; human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [
+    {"title": "VAEEncodeAudio in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L66-L96", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"},
+    {"title": "Official ACE-Step music-to-music editing workflow", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/audio_ace_step_1_m2m_editing.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}
+  ]
+}

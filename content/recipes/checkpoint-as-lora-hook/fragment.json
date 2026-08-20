@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.checkpoint-as-lora-hook",
+  "title": "Checkpoint → model_as_lora HOOKS → CLIP и CONDITIONING",
+  "externalInputs": [
+    {"id": "clip", "type": "CLIP", "to": "set-clip", "input": "clip"}
+  ],
+  "nodes": [
+    {
+      "ref": "create-hook",
+      "classType": "CreateHookModelAsLora",
+      "role": "Загрузить совместимый checkpoint и создать патчи модели и CLIP",
+      "settings": {"ckpt_name": "SELECT_CHECKPOINT", "strength_model": 1.0, "strength_clip": 1.0}
+    },
+    {
+      "ref": "set-clip",
+      "classType": "SetClipHooks",
+      "role": "Применить checkpoint-хук к базовому CLIP",
+      "settings": {"apply_to_conds": false, "schedule_clip": false}
+    },
+    {
+      "ref": "encode",
+      "classType": "CLIPTextEncode",
+      "role": "Закодировать промпт с целевыми CLIP-патчами",
+      "settings": {"text": "описание сцены с checkpoint-хуком"}
+    },
+    {
+      "ref": "attach",
+      "classType": "ConditioningSetProperties",
+      "role": "Прикрепить модельную часть хука к conditioning",
+      "settings": {"strength": 1.0, "set_cond_area": "default"}
+    }
+  ],
+  "connections": [
+    {"from": "create-hook", "output": "HOOKS", "to": "set-clip", "input": "hooks"},
+    {"from": "create-hook", "output": "HOOKS", "to": "attach", "input": "hooks"},
+    {"from": "set-clip", "output": "CLIP", "to": "encode", "input": "clip"},
+    {"from": "encode", "output": "CONDITIONING", "to": "attach", "input": "cond_NEW"}
+  ]
+}

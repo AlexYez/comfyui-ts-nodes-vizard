@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.interpolate-latents-midpoint",
+  "title": "Два batch-1 LATENT → norm-aware midpoint",
+  "externalInputs": [
+    {"id": "first", "type": "LATENT", "to": "interpolate", "input": "samples1"},
+    {"id": "second", "type": "LATENT", "to": "interpolate", "input": "samples2"}
+  ],
+  "nodes": [
+    {"ref": "interpolate", "classType": "LatentInterpolate", "role": "Смешать направления и величины двух одиночных LATENT", "settings": {"ratio": 0.5}}
+  ],
+  "connections": []
+}

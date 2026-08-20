@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.set-clip-hooks-scheduled-prompt",
+  "locale": "ru",
+  "title": "Закодировать промпт по расписанию CLIP WeightHook",
+  "summary": "SetClipHooks включает кодирование CLIP по расписанию и перенос хуков в CONDITIONING, после чего CLIPTextEncode повторяет кодирование для интервалов WeightHook.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.set-clip-hooks"],
+  "requirements": ["ComfyUI 0.32.0", "Свежий совместимый CLIP", "HOOKS хотя бы с одним совместимым с CLIP WeightHook", "Проверенное расписание ключевых кадров", "Последующий потребитель CONDITIONING"],
+  "fragment": {"id": "fragment.set-clip-hooks-scheduled-prompt", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка runtime и расписания в зафиксированном исходнике; реальный CLIP и LoRA не загружались, редактор пока не проверил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SetClipHooks в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L228-L259",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Расписание WeightHook в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L350-L397",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Кодирование CLIP по расписанию в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L326-L390",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "CLIPTextEncode в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L56-L77",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

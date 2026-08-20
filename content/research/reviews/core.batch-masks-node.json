@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.batch-masks-node",
+  "node": {"classType": "BatchMasksNode", "pythonModule": "comfy_extras.nodes_post_processing", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L537-L609", "path": "comfy_extras/nodes_post_processing.py", "lines": "537-609"}
+    ],
+    "embeddedDocs": [
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/BatchMasksNode/ru.md", "assessment": "Русский файл ошибочно требует две маски. Runtime schema и source задают autogrow min=1, max=50. Английский файл верно упоминает один вход и resize, но не раскрывает center crop и batch внутри каждого входа."}
+    ],
+    "workflows": [
+      {"id": "api_bytedance_seedream_5_0_layer_separation", "role": "Два MASK-выхода ByteDance layer separation подключены к masks.mask0/1; BatchMasksNode №22 передаёт пакет в alpha JoinImageWithAlpha №31 параллельно BatchImagesNode."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Helper и node execute исполнены на MASK batches разной геометрии; полный вставляемый fragment с autogrow-сокетами ещё не запускался через frontend.",
+    "Платная ByteDance API-нода официального кейса не исполнялась; точная сохранённая topology и widgets проверены в wheel 0.1.42.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.wan-animate2-manual-context-window", "locale": "ru", "title": "Ручное окно Wan Animate 2", "summary": "Повторяет точные настройки ContextWindowsManual из двух официальных подграфов Wan Animate 2, но применяет патч напрямую без их выключенного переключателя.", "body": "ru.md", "difficulty": "advanced", "articleIds": ["core.context-windows-manual"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Модель и латент, для которых временная ось находится в dim=2"],
+  "fragment": {"id": "fragment.wan-animate2-manual-context-window", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Automated pinned source/runtime/docs and exact official Wan Animate 2 subgraph review; full model execution and human approval pending", "reviewedAt": "2026-08-20"},
+  "sources": [{"title": "Official workflow templates JSON 0.1.42: video_wan_animate2 subgraphs", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-20"}, {"title": "ContextWindowsManual source in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_context_windows.py#L6-L63", "publisher": "Comfy-Org", "accessedAt": "2026-08-20"}]
+}

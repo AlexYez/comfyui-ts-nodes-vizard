@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.apply-style-model-reference",
+  "locale": "ru",
+  "title": "Добавить Flux Redux-токены одного референса",
+  "summary": "Выделяет из официального Flux Redux workflow совместимую пару SigCLIP и style model, затем добавляет её токены к внешнему Flux CONDITIONING.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.style-model-loader", "core.style-model-apply", "core.clip-vision-encode"],
+  "requirements": [
+    "sigclip_vision_patch14_384.safetensors в models/clip_vision",
+    "flux1-redux-dev.safetensors в models/style_models",
+    "Flux CONDITIONING ширины 4096 и reference IMAGE"
+  ],
+  "fragment": {"id": "fragment.apply-style-model-reference", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned-source and exact official Flux Redux topology review; model execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "Style model load and apply implementations in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1097-L1174",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official Flux Redux workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/flux_redux_model_example.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

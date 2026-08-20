@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.latent-subtract",
+  "node": {"classType": "LatentSubtract", "pythonModule": "comfy_extras.nodes_latent", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L10-L71",
+        "path": "comfy_extras/nodes_latent.py",
+        "lines": "10-71"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L859-L865",
+        "path": "comfy/utils.py",
+        "lines": "859-865"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LatentSubtract/en.md",
+        "assessment": "AI-generated описание верно задаёт порядок samples1 minus samples2, но утверждение об удалении признаков является возможной интерпретацией, а не гарантией кода."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LatentSubtract/ru.md",
+        "assessment": "Использовано как вторичный источник назначения; точные resize, batch и metadata semantics взяты из pinned-реализации."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON-файлов, root nodes и definitions.subgraphs[*].nodes; вхождений LatentSubtract нет."
+      },
+      {
+        "id": "synthetic-exact-source-latent-subtract",
+        "role": "Exact-source класс выполнен на tensor с несовпадающими spatial/batch: подтверждены s1−s2, bilinear resize, cyclic repeat и сохранение только metadata samples1."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальных workflow-кейсов LatentSubtract в 0.1.42 нет; recipe является source-derived.",
+    "Fragment не выполнялся с реальным VAE или sampler; synthetic probe проверяет tensor contract, а не визуальное удаление признаков.",
+    "Совместимость латентных пространств разных моделей требует отдельной квалификации; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

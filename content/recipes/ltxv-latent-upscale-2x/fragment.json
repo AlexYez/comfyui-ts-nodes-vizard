@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-latent-upscale-2x",
+  "title": "LTX 2.5 spatial latent upscaler ×2",
+  "externalInputs": [
+    {"id": "samples", "type": "LATENT", "to": "upscale", "input": "samples"},
+    {"id": "vae", "type": "VAE", "to": "upscale", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "loader",
+      "classType": "LatentUpscaleModelLoader",
+      "role": "Загрузить spatial upscaler из официальной LTX 2.5 ветви",
+      "settings": {"model_name": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors"}
+    },
+    {
+      "ref": "upscale",
+      "classType": "LTXVLatentUpsampler",
+      "role": "Удвоить высоту и ширину совместимого LTX-видеолатента",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "loader", "output": "LATENT_UPSCALE_MODEL", "to": "upscale", "input": "upscale_model"}
+  ]
+}

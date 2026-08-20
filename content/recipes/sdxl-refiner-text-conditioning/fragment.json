@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.sdxl-refiner-text-conditioning",
+  "title": "SDXL Refiner CLIP — текст и aesthetic score — CONDITIONING",
+  "externalInputs": [{"id": "refiner_clip", "type": "CLIP", "to": "encode", "input": "clip"}],
+  "nodes": [{"ref": "encode", "classType": "CLIPTextEncodeSDXLRefiner", "role": "Закодировать текст и добавить размер и aesthetic_score", "settings": {"ascore": 6.0, "width": 1024, "height": 1024, "text": "fine natural detail, coherent lighting"}}],
+  "connections": []
+}

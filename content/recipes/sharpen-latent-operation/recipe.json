@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.sharpen-latent-operation", "locale": "ru",
+  "title": "Применить LatentOperationSharpen к 4D LATENT", "summary": "Sharpen radius 9, sigma 1, alpha 0.1 передаётся в LatentApplyOperation; fragment предназначен для A/B с image latent.", "body": "ru.md", "difficulty": "intermediate",
+  "articleIds": ["core.latent-apply-operation", "core.latent-operation-sharpen"], "requirements": ["ComfyUI 0.32.0", "Внешний 4D LATENT", "Spatial H и W больше radius"],
+  "fragment": {"id": "fragment.sharpen-latent-operation", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated pinned source/runtime schema and exact tensor branch review; no official direct case, full diffusion and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "LatentApplyOperation and LatentOperationSharpen in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L317-L447", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.epsilon-scaling-source-default",
+  "title": "Epsilon Scaling с runtime default 1.005",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "epsilon", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "epsilon",
+      "classType": "Epsilon Scaling",
+      "role": "Равномерно масштабировать post-CFG predicted noise",
+      "settings": {"scaling_factor": 1.005}
+    }
+  ],
+  "connections": []
+}

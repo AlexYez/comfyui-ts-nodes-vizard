@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.image-scale-total-pixels-inspect",
+  "title": "LoadImage — 1 MP с шагом 16 — GetImageSize",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "load",
+      "classType": "LoadImage",
+      "role": "Загрузить исходное изображение",
+      "settings": {
+        "image": "выберите входной файл"
+      }
+    },
+    {
+      "ref": "scale",
+      "classType": "ImageScaleToTotalPixels",
+      "role": "Подобрать стороны под 1 MP и округлить их к 16",
+      "settings": {
+        "upscale_method": "nearest-exact",
+        "megapixels": 1.0,
+        "resolution_steps": 16
+      }
+    },
+    {
+      "ref": "size",
+      "classType": "GetImageSize",
+      "role": "Вернуть фактические width, height и batch_size",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "load",
+      "output": "IMAGE",
+      "to": "scale",
+      "input": "image"
+    },
+    {
+      "from": "scale",
+      "output": "IMAGE",
+      "to": "size",
+      "input": "image"
+    }
+  ]
+}

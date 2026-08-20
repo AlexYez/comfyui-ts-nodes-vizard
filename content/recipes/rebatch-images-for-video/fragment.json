@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.rebatch-images-for-video",
+  "title": "IMAGE list → Rebatch 4096 → CreateVideo 30 fps",
+  "externalInputs": [
+    {
+      "id": "images",
+      "type": "IMAGE",
+      "to": "rebatch",
+      "input": "images"
+    },
+    {
+      "id": "audio",
+      "type": "AUDIO",
+      "to": "video",
+      "input": "audio"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "rebatch",
+      "classType": "RebatchImages",
+      "role": "Собрать доступные кадры list-потока в крупные IMAGE-батчи",
+      "settings": {
+        "batch_size": 4096
+      }
+    },
+    {
+      "ref": "video",
+      "classType": "CreateVideo",
+      "role": "Создать VIDEO с параметрами официального Wan Dancer участка",
+      "settings": {
+        "fps": 30.0,
+        "bit_depth": 8
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "rebatch",
+      "output": "IMAGE",
+      "to": "video",
+      "input": "images"
+    }
+  ]
+}

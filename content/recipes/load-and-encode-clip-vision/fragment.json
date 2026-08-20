@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-and-encode-clip-vision",
+  "title": "clip_vision_g → center-cropped image embedding",
+  "externalInputs": [
+    {"id": "reference_image", "type": "IMAGE", "to": "encode", "input": "image"}
+  ],
+  "nodes": [
+    {
+      "ref": "vision_loader",
+      "classType": "CLIPVisionLoader",
+      "role": "Загрузить CLIP Vision G как в официальном SDXL Revision template",
+      "settings": {"clip_name": "clip_vision_g.safetensors"}
+    },
+    {
+      "ref": "encode",
+      "classType": "CLIPVisionEncode",
+      "role": "Закодировать внешний референс с center crop",
+      "settings": {"crop": "center"}
+    }
+  ],
+  "connections": [
+    {"from": "vision_loader", "output": "CLIP_VISION", "to": "encode", "input": "clip_vision"}
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.stable-zero123-conditioning-basic",
+  "locale": "ru",
+  "title": "Подготовить один ракурс Stable Zero123",
+  "summary": "Вставляет только StableZero123_Conditioning с базовым углом 0° и размером 256 × 256; sampler и checkpoint намеренно остаются за границами фрагмента.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.stable-zero123-conditioning"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Один IMAGE с опорным объектом",
+    "Совместимые CLIP_VISION и VAE из Stable Zero123 checkpoint",
+    "MODEL и настройки sampler, проверенные для выбранного Stable Zero123 checkpoint"
+  ],
+  "fragment": {"id": "fragment.stable-zero123-conditioning-basic", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned runtime/source validation, exact-source synthetic probe and Russian editorial pass; full fragment execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "StableZero123_Conditioning in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable3d.py#L25-L61",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

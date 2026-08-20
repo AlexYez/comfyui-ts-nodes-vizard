@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-two-guide-style-transition",
+  "locale": "ru",
+  "title": "Два LTXV guide для перехода от первого референса к последнему",
+  "summary": "Пропускает два IMAGE через LTXVPreprocess с CRF 25 и последовательно добавляет guides в позиции 0 и -1 со strength 0,7.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-preprocess", "core.ltxv-add-guide"],
+  "requirements": ["ComfyUI 0.32.0", "два reference IMAGE", "совместимый LTXV VAE", "positive/negative conditioning и video LATENT"],
+  "fragment": {"id": "fragment.ltxv-two-guide-style-transition", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact official LTX 2.3 style-transition topology and comparison with the LTX 2.5 CRF 18 variant, runtime type validation, source review and Russian editorial pass; full VAE/sampling and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [
+    {"title": "LTXV preprocessing and guide implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L250-L496", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"},
+    {"title": "Official LTX 2.3 first-last-frame template", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_ltx2_3_flf2v.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}
+  ]
+}

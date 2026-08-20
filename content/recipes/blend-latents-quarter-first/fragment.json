@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.blend-latents-quarter-first",
+  "title": "Два внешних LATENT → LatentBlend 0,25",
+  "externalInputs": [
+    {"id": "first", "type": "LATENT", "to": "blend", "input": "samples1"},
+    {"id": "second", "type": "LATENT", "to": "blend", "input": "samples2"}
+  ],
+  "nodes": [
+    {
+      "ref": "blend",
+      "classType": "LatentBlend",
+      "role": "Смешать 25% первого tensor и 75% второго",
+      "settings": {"blend_factor": 0.25}
+    }
+  ],
+  "connections": []
+}

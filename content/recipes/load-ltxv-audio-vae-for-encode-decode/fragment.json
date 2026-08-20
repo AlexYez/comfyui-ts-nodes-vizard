@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-ltxv-audio-vae-for-encode-decode",
+  "title": "LTX Audio VAE в обе стороны",
+  "externalInputs": [
+    {"id": "source_audio", "type": "AUDIO", "to": "encode", "input": "audio"},
+    {"id": "sampled_audio_latent", "type": "LATENT", "to": "decode", "input": "samples"}
+  ],
+  "nodes": [
+    {
+      "ref": "loader",
+      "classType": "LTXVAudioVAELoader",
+      "role": "Загрузить audio VAE из официального LTX 2.3 checkpoint",
+      "settings": {"ckpt_name": "ltx-2.3-22b-dev-fp8.safetensors"}
+    },
+    {
+      "ref": "encode",
+      "classType": "LTXVAudioVAEEncode",
+      "role": "Кодировать исходный AUDIO",
+      "settings": {}
+    },
+    {
+      "ref": "decode",
+      "classType": "LTXVAudioVAEDecode",
+      "role": "Декодировать LTX audio latent",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "loader", "output": "Audio VAE", "to": "encode", "input": "audio_vae"},
+    {"from": "loader", "output": "Audio VAE", "to": "decode", "input": "audio_vae"}
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.pair-conditioning-set-properties",
+  "node": {"classType": "PairConditioningSetProperties", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L18-L49",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "18-49"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L672-L756",
+        "path": "comfy/hooks.py",
+        "lines": "672-756"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/node_helpers.py#L9-L23",
+        "path": "node_helpers.py",
+        "lines": "9-23"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L33-L116",
+        "path": "comfy/samplers.py",
+        "lines": "33-116"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L738-L809",
+        "path": "comfy/samplers.py",
+        "lines": "738-809"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L859-L882",
+        "path": "comfy/samplers.py",
+        "lines": "859-882"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/PairConditioningSetProperties/en.md",
+        "assessment": "SHA-256 4b08da12bf0ce5eede66f8f719513e1771290b0a31979388be288641dbc9df94. Порты верны; strength ошибочно описан как общий множитель, хотя он используется только как mask_strength при наличии маски."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/PairConditioningSetProperties/ru.md",
+        "assessment": "SHA-256 994da9c5cd47c9714570166a5716e7f415e734268657124020765fbdf05994f9. Имена портов переведены и потому не совпадают с сервером; зависимость strength от MASK не раскрыта."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 файлов JSON, 496 корневых графов, 272 подграфа и 8120 нод. PairConditioningSetProperties не найден."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Полный фрагмент с настоящими CONDITIONING, MASK, HOOKS, TIMESTEPS_RANGE и моделью не исполнялся.",
+    "Проверка выполнила закреплённые помощники свойств, расчёт mask_strength и ветвь mask bounds на синтетических тензорах, но не запускала модель.",
+    "Официальных примеров в пакете 0.1.42 нет; strength 0,65 выбран для редакционного примера.",
+    "Влияние mask bounds и разных групп HOOKS на память и скорость не измерялось.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

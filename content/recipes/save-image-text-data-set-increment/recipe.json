@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-image-text-data-set-increment",
+  "locale": "ru",
+  "title": "Сохранить пары PNG–TXT без перезаписи имён",
+  "summary": "SaveImageTextDataSetToFolder получает внешние списки IMAGE и STRING и записывает общие базовые имена в режиме increment.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.save-image-text-data-set-to-folder"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Списки IMAGE и STRING одинаковой длины и порядка",
+    "Права записи в output",
+    "Проверка числа PNG и TXT после сохранения"
+  ],
+  "fragment": {
+    "id": "fragment.save-image-text-data-set-increment",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, full workflow census, isolated temp-directory execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SaveImageTextDataSetToFolder in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L497-L556",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.markdown-workflow-note",
+  "title": "Памятка с модельным путём и условием запуска",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "guide",
+      "classType": "MarkdownNote",
+      "role": "Хранить воспроизводимую инструкцию рядом с графом",
+      "settings": {
+        "text": "## Перед запуском\n\n- положите `model.safetensors` в `ComfyUI/models/checkpoints`;\n- выберите модель в loader-ноде;\n- оставьте ширину кратной 64."
+      }
+    }
+  ],
+  "connections": []
+}

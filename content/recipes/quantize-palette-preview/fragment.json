@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.quantize-palette-preview",
+  "title": "RGB IMAGE — восемь цветов Bayer-4 — preview",
+  "externalInputs": [{"id": "source_rgb", "type": "IMAGE", "to": "quantize", "input": "image"}],
+  "nodes": [
+    {"ref": "quantize", "classType": "ImageQuantize", "role": "Построить отдельную восьмицветную палитру для каждого кадра", "settings": {"colors": 8, "dither": "bayer-4"}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Оценить палитру и регулярный узор", "settings": {}}
+  ],
+  "connections": [{"from": "quantize", "output": "IMAGE", "to": "preview", "input": "images"}]
+}

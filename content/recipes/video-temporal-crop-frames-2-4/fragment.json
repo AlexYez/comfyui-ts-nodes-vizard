@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.video-temporal-crop-frames-2-4",
+  "title": "VideoTemporalCrop: четыре кадра с индекса 2",
+  "externalInputs": [
+    {
+      "id": "video",
+      "type": "VIDEO",
+      "to": "crop",
+      "input": "video"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "crop",
+      "classType": "VideoTemporalCrop",
+      "role": "Задать ленивое окно из четырёх кадров",
+      "settings": {
+        "start_frame": 2,
+        "length": 4
+      }
+    }
+  ],
+  "connections": []
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.transfer-clip-weight-delta",
+  "locale": "ru",
+  "title": "Перенести разность весов CLIP на target",
+  "summary": "Строит delta = tuned − base через CLIPMergeSubtract и добавляет её к target через CLIPMergeAdd; все три encoder должны иметь совместимые ключи и формы.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.clip-merge-subtract", "core.clip-merge-add"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Tuned и base CLIP одной линии обучения",
+    "Совместимый target CLIP и контрольный набор prompt"
+  ],
+  "fragment": {"id": "fragment.transfer-clip-weight-delta", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs and exhaustive zero-case workflow review; exact subtract/add algebra probe passed, full delta transfer and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "CLIPSubtract and CLIPAdd implementations in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L93-L135",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

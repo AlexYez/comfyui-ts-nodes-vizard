@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.control-net-apply",
+  "node": {"classType": "ControlNetApply", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L897-L976",
+        "path": "nodes.py",
+        "lines": "897-976"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/controlnet.py#L82-L124",
+        "path": "comfy/controlnet.py",
+        "lines": "82-124"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_replacements.py#L6-L93",
+        "path": "comfy_extras/nodes_replacements.py",
+        "lines": "6-93"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ControlnetApply/en.md",
+        "assessment": "Заголовок отмечает deprecated, но таблица описывает Advanced: positive, negative, VAE, start_percent и end_percent отсутствуют в legacy runtime."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ControlnetApply/ru.md",
+        "assessment": "Локализация повторяет несовпадающую сигнатуру Advanced и внешнюю рекомендацию custom preprocessors; точный legacy-контракт взят из source и object_info."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON и definitions.subgraphs[*].nodes: ControlNetApply не найден; ControlNetApplyAdvanced встречается 5 раз в 5 файлах, 3 root и 2 subgraph."
+      },
+      {
+        "id": "official-controlnet-advanced-comparison-census",
+        "role": "У Advanced подтверждены пары outputs в KSampler, оба conditioning-входа, полный диапазон 0–1 и strengths 0.66, 0.7 или 1; это сравнительный материал, не формальная replacement-связь."
+      },
+      {
+        "id": "node-replacement-api-v032-controlnet-audit",
+        "role": "В runtime snapshot и built-in registry нет old_node_id ControlNetApply; ControlNet-раздел регистрирует только T2IAdapterLoader → ControlNetLoader."
+      },
+      {
+        "id": "synthetic-exact-source-controlnet-apply",
+        "role": "AST-extracted legacy и Advanced классы выполнены с recording control objects: подтверждены BHWC→BCHW view, legacy copy per entry/True flag/conditional previous link и Advanced cache per previous control/range/VAE/False flag."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального legacy workflow-case в пакете 0.1.42 нет; recipe является source-derived диагностическим фрагментом.",
+    "Настоящие ControlNet weights, preprocessor, sampler propagation и визуальная эквивалентность ручной миграции не проверялись.",
+    "ControlNetApplyAdvanced не помечен formal replacement и не добавлен в replacedBy; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

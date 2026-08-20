@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.load-3d-render-passes",
+  "locale": "ru",
+  "title": "Load3D: отдельно проверить цвет, маску и нормали",
+  "summary": "Открывает локальную 3D-модель в Load3D с окном 1024 × 1024 и раздельно показывает цвет, маску и карту нормалей; MASK предварительно преобразуется через MaskToImage.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.load-3d"],
+  "requirements": [
+    "ComfyUI 0.32.0 и интерфейс 1.48.7 с доступным WebGL",
+    "Проверенная модель и все её локальные ресурсы в input/3d",
+    "Достаточно видеопамяти для окна 1024 × 1024"
+  ],
+  "fragment": {"id": "fragment.load-3d-render-passes", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная сверка /object_info, закреплённых серверных и клиентских исходников и официальных случаев Load3D; схема проверена, WebGL, модель и весь фрагмент не исполнялись, ручной проверки не было",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Load3D backend in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_load_3d.py#L15-L84",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Load3D frontend capture path",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d.ts#L376-L473",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Pinned official workflow templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/tree/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.model-save-export",
+  "title": "Внешний MODEL → model-only safetensors",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "save", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "ModelSave",
+      "role": "Записать diffusion state dict без CLIP и VAE",
+      "settings": {"filename_prefix": "diffusion_models/wizard-model"}
+    }
+  ],
+  "connections": []
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.control-net-apply-sd3",
+  "node": {"classType": "ControlNetApplySD3", "pythonModule": "comfy_extras.nodes_sd3", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sd3.py#L112-L166",
+        "path": "comfy_extras/nodes_sd3.py",
+        "lines": "112-166"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/controlnet.py#L103-L123",
+        "path": "comfy/controlnet.py",
+        "lines": "103-123"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L928-L976",
+        "path": "nodes.py",
+        "lines": "928-976"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ControlNetApplySD3/en.md",
+        "assessment": "Верно отмечает deprecated и перечисляет параметры, но не раскрывает shallow copy, previous chain cache, NCHW hint и zero-strength identity return."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ControlNetApplySD3/ru.md",
+        "assessment": "Передаёт общее назначение, но переводит runtime IDs, использует служебное вступление и не различает практическую альтернативу от formal replacement."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root и 768 root/subgraph graphs найдено 0 ControlNetApplySD3; source-derived fragment не объявлен official case."
+      },
+      {
+        "id": "comfyui-0.32.0-node-replacements-audit",
+        "role": "Exact runtime replacement snapshot не содержит old_node_id или new_node_id ControlNetApplySD3; replacedBy оставлен null."
+      },
+      {
+        "id": "sd3.5_large_canny_controlnet_example-modern-comparison",
+        "role": "Exact official case использует ControlNetApplyAdvanced strength 0.66, range 0…1 с positive, zeroed negative, ControlNet, Canny IMAGE и VAE; это migration evidence, не кейс deprecated-ноды."
+      },
+      {
+        "id": "synthetic-exact-source-control-net-apply-sd3-probe",
+        "role": "Exact class probe подтвердил NHWC→NCHW, shallow metadata copies, previous-chain cache across positive/negative, false apply-to-uncond, VAE/range forwarding и identity return при strength 0."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Probe исполнил exact apply method на tensor и fake ControlNet, но не VAE encode, ControlNet inference или полный sampling fragment.",
+    "Визуальная эквивалентность ручной миграции в ControlNetApplyAdvanced с реальными SD3 weights не проверена.",
+    "Историческая first-seen версия, платформенная квалификация и человеческое утверждение текста ожидаются."
+  ],
+  "updatedAt": "2026-08-14"
+}

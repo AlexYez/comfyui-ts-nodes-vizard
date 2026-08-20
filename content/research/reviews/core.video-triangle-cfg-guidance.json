@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.video-triangle-cfg-guidance",
+  "node": {"classType": "VideoTriangleCFGGuidance", "pythonModule": "comfy_extras.nodes_video_model", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video_model.py#L83-L108",
+        "path": "comfy_extras/nodes_video_model.py",
+        "lines": "83-108"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L592-L627",
+        "path": "comfy/samplers.py",
+        "lines": "592-627"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VideoTriangleCFGGuidance/en.md",
+        "assessment": "AI-generated документ перечисляет порты, но описывает oscillating wave и улучшение quality без подтверждения; source реализует один triangle по axis 0."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/VideoTriangleCFGGuidance/ru.md",
+        "assessment": "Перевод повторяет недоказанное обещание качества и не описывает чётный batch, N=1/2 и overwrite семантику."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON, 496 root workflow graphs и 272 definitions.subgraphs: прямых VideoTriangleCFGGuidance и строковых упоминаний exact ID нет."
+      },
+      {
+        "id": "source-derived-video-triangle-fragment",
+        "role": "Fragment следует runtime ports и source formula; KSampler topology взята как соседняя форма, но не обозначена официальным triangle case."
+      },
+      {
+        "id": "isolated-pinned-video-cfg-probe",
+        "role": "Exact-source tensor probe проверяет odd/even/N=1 triangle coefficients, перевёрнутый min/cfg и регистрацию cfg function без весов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Прямой официальный workflow case отсутствует в bundle 0.1.42.",
+    "Source-derived fragment не импортировался и не выполнялся в ComfyUI.",
+    "Video tensors и weights не загружались; формула проверена изолированно.",
+    "Утверждения embedded docs об улучшении consistency и quality не подтверждены benchmark или source.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

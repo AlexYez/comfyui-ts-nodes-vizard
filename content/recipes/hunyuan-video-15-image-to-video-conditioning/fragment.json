@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.hunyuan-video-15-image-to-video-conditioning",
+  "title": "Hunyuan Video 1.5 I2V → CFGGuider и SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "positive", "type": "CONDITIONING", "to": "prepare", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "prepare", "input": "negative"},
+    {"id": "vae", "type": "VAE", "to": "prepare", "input": "vae"},
+    {"id": "start_image", "type": "IMAGE", "to": "prepare", "input": "start_image"},
+    {"id": "clip_vision", "type": "CLIP_VISION_OUTPUT", "to": "prepare", "input": "clip_vision_output"},
+    {"id": "model", "type": "MODEL", "to": "guide", "input": "model"},
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "sampler", "type": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"}
+  ],
+  "nodes": [
+    {
+      "ref": "prepare",
+      "classType": "HunyuanVideo15ImageToVideo",
+      "role": "Закодировать стартовый кадр и подготовить два условия с 32-канальным латентом",
+      "settings": {"width": 1280, "height": 720, "length": 121, "batch_size": 1}
+    },
+    {
+      "ref": "guide",
+      "classType": "CFGGuider",
+      "role": "Собрать CFGGuider из совместимой модели и двух условий",
+      "settings": {}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Сэмплировать подготовленный видеолатент",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "prepare", "output": "positive", "to": "guide", "input": "positive"},
+    {"from": "prepare", "output": "negative", "to": "guide", "input": "negative"},
+    {"from": "guide", "output": "GUIDER", "to": "sample", "input": "guider"},
+    {"from": "prepare", "output": "latent", "to": "sample", "input": "latent_image"}
+  ]
+}

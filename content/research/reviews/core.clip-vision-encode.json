@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.clip-vision-encode",
+  "node": {"classType": "CLIPVisionEncode", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1078-L1095",
+        "path": "nodes.py",
+        "lines": "1078-1095"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/clip_vision.py#L30-L83",
+        "path": "comfy/clip_vision.py",
+        "lines": "30-83"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/clip_model.py#L6-L53",
+        "path": "comfy/clip_model.py",
+        "lines": "6-53"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ClipVisionEncode/en.md",
+        "assessment": "Перечисляет порты и основные поля результата, но не объясняет, что none растягивает обычный вход в квадрат, и не упоминает image_sizes или условное all_hidden_states."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ClipVisionEncode/ru.md",
+        "assessment": "Повторяет неполное описание crop и переводит имена runtime-портов; технические детали сверены по pinned source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON-файлов и 496 корневых workflow-графов, включая definitions.subgraphs[*].nodes: 42 CLIPVisionEncode в 24 файлах, 23 root и 19 subgraph; crop center — 13, none — 29."
+      },
+      {
+        "id": "official-clip-vision-topology-census",
+        "role": "Соседи включают CLIPVisionLoader и ImageOnlyCheckpointLoader на входе, а также StyleModelApply, unCLIPConditioning, Wan, Hunyuan video и Hunyuan3D conditioning на выходе."
+      },
+      {
+        "id": "synthetic-exact-source-clip-vision-dispatch",
+        "role": "AST-extracted exact CLIPVisionEncode выполнен с фиктивным encoder: center передал crop=True, none — crop=False, входной tensor и объект результата не копировались wrapper-классом."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Ни один реальный CLIP, SigLIP или SigLIP2 checkpoint в рамках редакционной проверки не загружался.",
+    "Exact-source probe проверяет dispatch crop, но не полный preprocess, model forward и downstream-совместимость.",
+    "Fragment-only recipe не исполнен в ComfyUI; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

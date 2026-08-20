@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-scale-by",
+  "node": {
+    "classType": "ImageScaleBy",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/nodes.py#L1911-L1930",
+        "path": "nodes.py",
+        "lines": "1911-1930"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy/utils.py#L1059-L1101",
+        "path": "comfy/utils.py",
+        "lines": "1059-1101"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_replacements.py#L43-L55",
+        "path": "comfy_extras/nodes_replacements.py",
+        "lines": "43-55"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ImageScaleBy/ru.md",
+        "assessment": "Объясняет коэффициент и методы, но создаёт впечатление только увеличения; не фиксирует уменьшение при scale_by < 1, отдельное округление сторон, риск нулевого размера, отсутствие crop и правило Node Replacement API."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "utility_interpolation_image_upscale",
+        "role": "LoadImage проходит через ImageScaleBy с lanczos и scale_by 2 к SaveImage и ImageCompare."
+      },
+      {
+        "id": "utility-topaz_landscape_upscaler",
+        "role": "ImageScaleBy использует nearest-exact и коэффициент 4 перед GetImageSize."
+      },
+      {
+        "id": "utility_topaz_illustration_upscale",
+        "role": "ImageScaleBy использует lanczos и коэффициент 4 перед GetImageSize."
+      },
+      {
+        "id": "video_ltx2_canny_to_video",
+        "role": "Мигрированная связка ResizeImageMaskNode → ImageScaleBy использует lanczos и коэффициент 0.5 перед контрольным препроцессором."
+      },
+      {
+        "id": "video_ltx2_depth_to_video",
+        "role": "ResizeImageMaskNode передаёт IMAGE в ImageScaleBy с lanczos и коэффициентом 0.5 перед depth-веткой."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment структурно проверен, но не исполнен в ComfyUI с реальным изображением.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

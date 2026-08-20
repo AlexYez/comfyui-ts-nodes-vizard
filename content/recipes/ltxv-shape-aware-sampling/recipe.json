@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-shape-aware-sampling",
+  "locale": "ru",
+  "title": "LTXV: построить sampling по форме latent",
+  "summary": "Передаёт внешний LATENT в ModelSamplingLTXV со значениями 2,05/0,95 по умолчанию и строит simple/20/1 SIGMAS через BasicScheduler на изменённом MODEL.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-sampling-ltxv"],
+  "requirements": [
+    "Совместимый LTXV MODEL",
+    "LATENT той же формы, которая пойдёт в sampling",
+    "Отдельно собранные guider, sampler и noise"
+  ],
+  "fragment": {"id": "fragment.ltxv-shape-aware-sampling", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная проверка закреплённых исходников, runtime-инвентаря, полного подсчёта с нулевым результатом и точечная проверка метода; официальная топология отсутствует, модели и фрагмент не исполнялись, ручной редакторской проверки не было",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelSamplingLTXV implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L567-L610",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "BasicScheduler implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L17-L45",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltx-euler-ancestral-zero-eta",
+  "locale": "ru",
+  "title": "LTX: Euler ancestral без повторного зашумления",
+  "summary": "Официальная LTX-связка SamplerEulerAncestral с eta 0 и s_noise 1 перед SamplerCustomAdvanced.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.sampler-euler-ancestral", "core.sampler-custom-advanced"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "LTX-совместимые NOISE, GUIDER, SIGMAS и LATENT",
+    "Расписание и guider из одного LTX pipeline"
+  ],
+  "fragment": {
+    "id": "fragment.ltx-euler-ancestral-zero-eta",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime and exact official LTX root/subgraph topology review with Russian editorial pass; model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SamplerEulerAncestral in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L494-L522",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: LTX 2.3 and 2.5",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

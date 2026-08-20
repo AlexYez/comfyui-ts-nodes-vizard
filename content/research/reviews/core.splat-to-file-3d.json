@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.splat-to-file-3d",
+  "node": {"classType": "SplatToFile3D", "pythonModule": "comfy_extras.nodes_gaussian_splat", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L55-L193",
+        "path": "comfy_extras/nodes_gaussian_splat.py",
+        "lines": "55-193"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L473-L512",
+        "path": "comfy_extras/nodes_gaussian_splat.py",
+        "lines": "473-512"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SplatToFile3D/en.md",
+        "assessment": "Верно различает full-SH PLY, base-color KSPLAT/SPZ и single-item batch; не раскрывает binary layouts, quantization и counts slicing."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SplatToFile3D/ru.md",
+        "assessment": "Сохраняет format roles, но смешивает локализованное имя widget с exact key; статья использует runtime key format."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "3d_triposplat_image_to_gaussian_splat.json:root:92-to-51",
+        "role": "Единственный exact case: subgraph SPLAT output → SplatToFile3D widget spz → SaveGLB, filename prefix 3d/ComfyUI_TripoSplat."
+      },
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "Exhaustive 512 JSON / 496 root / recursive census дал ровно один SplatToFile3D и зафиксировал exact topology/widgets."
+      },
+      {
+        "id": "synthetic-exact-source-ply-ksplat-spz-roundtrip",
+        "role": "Exact writers/readers подтвердили layouts, batch-first/counts semantics, SH preservation/loss, quantization, empty/error branches и byte sizes."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Format round-trip исполнен на synthetic SPLAT, но полный TripoSplat generator workflow с model weights не запускался.",
+    "Probe не измерял memory/time на больших splat files и не проверял внешние viewers разных версий.",
+    "Визуальный контроль потери higher-order SH и человеческое утверждение статьи ожидаются."
+  ],
+  "updatedAt": "2026-08-14"
+}

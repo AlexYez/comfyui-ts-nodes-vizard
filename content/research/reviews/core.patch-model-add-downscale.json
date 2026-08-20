@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.patch-model-add-downscale",
+  "node": {"classType": "PatchModelAddDownscale", "pythonModule": "comfy_extras.nodes_model_downscale", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_downscale.py#L6-L53", "path": "comfy_extras/nodes_model_downscale.py", "lines": "6-53"}],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/PatchModelAddDownscale/en.md", "assessment": "SHA-256 43c2c403df710b6e4066c7b08bbf9ef34ebc7dc333f376c36afe0e62be5797a9. Fields match; performance/quality language is not evidenced and height-only output check is omitted."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/PatchModelAddDownscale/ru.md", "assessment": "SHA-256 052e55d54eb2831116ac0506dbddabdf38f2a786c893b6f620cc471bd851656f. Renames socket fields and marks required schema inputs as optional."}
+    ],
+    "workflows": [{"id": "workflow-templates-json-0.1.42-patch-model-add-downscale-census", "role": "Exhaustive 512 JSON/496 root/272 subgraph census: zero exact PatchModelAddDownscale occurrences."}]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Exact-source hook probe covers sigma/block gates, after-skip selection, resize sizing and height-only output condition with fakes; no real MODEL sampling or benchmark was run.", "The recipe is source-derived because no official workflow case exists.", "Human approval pending."],
+  "updatedAt": "2026-08-14"
+}

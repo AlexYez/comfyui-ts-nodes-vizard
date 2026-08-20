@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.batch-images-node",
+  "node": {"classType": "BatchImagesNode", "pythonModule": "comfy_extras.nodes_post_processing", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L514-L588",
+        "path": "comfy_extras/nodes_post_processing.py",
+        "lines": "514-588"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/BatchImagesNode/ru.md",
+        "assessment": "Верно описывает единый IMAGE-бэтч и динамические слоты, но ошибочно требует минимум два входа; runtime/source задают min=1. Не раскрывает channel padding и center-resize."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/BatchImagesNode/en.md",
+        "assessment": "Использовано только как вторичное AI-generated описание; утверждение 2–50 исправлено по TemplatePrefix min=1 max=50 в закреплённом source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "api_bfl_flux2_max_sofa_swap",
+        "role": "Workflow 649f68f7-fb15-4740-973f-97235ae353be: LoadImage № 2, 3 и 10 → BatchImagesNode № 15 inputs images.image0..2 → Flux2MaxImageNode № 1; images.image3 — свободный autogrow-slot."
+      },
+      {
+        "id": "template_sferro21_product_ad.app",
+        "role": "Workflow e3b19d2a-39d4-45cb-a3b9-8fdf9816c983: два LoadImage № 1 и 2 → BatchImagesNode № 3 → GeminiImage2Node № 4."
+      },
+      {
+        "id": "workflow-templates-0142-exhaustive-batch-images-node",
+        "role": "Полный recursive scan 512 JSON: 55 exact BatchImagesNode в 43 файлах, root 37, subgraph 18, 31 distinct workflow UUID; mode 0 × 44, mode 4 × 11; подключённых входов от 1 до 7, у каждого один свободный хвостовой слот; widgets_values=[] у 47, поле отсутствует у 8."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Синтетически проверены только same-size конкатенация и RGB→RGBA padding; живой common_upscale внутри ComfyUI не запускался.",
+    "Fragment структурно проверен, но не открыт и не исполнен в ComfyUI.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

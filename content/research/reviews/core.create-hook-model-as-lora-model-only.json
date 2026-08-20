@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.create-hook-model-as-lora-model-only",
+  "node": {"classType": "CreateHookModelAsLoraModelOnly", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L416-L438",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "416-438"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L361-L415",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "361-415"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L609-L638",
+        "path": "comfy/hooks.py",
+        "lines": "609-638"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L501",
+        "path": "comfy/lora.py",
+        "lines": "438-501"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/CreateHookModelAsLoraModelOnly/en.md",
+        "assessment": "SHA-256 5324233f52698cb7e43bfbdabdcc2ea641df69a3b0c7f97568e52360fdde9798. Правильно описывает нулевое влияние на CLIP, но не говорит, что его веса всё равно загружаются и сохраняются в словаре патчей."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/CreateHookModelAsLoraModelOnly/ru.md",
+        "assessment": "SHA-256 afb22ab3b940856939ab88425d805f1822399bc89672f2546d8f1c43866d6fc2. Описывает модельный вариант, но переводит имена портов и не раскрывает стоимость нулевой ветви; точный контракт взят из runtime и исходника."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-create-hook-model-as-lora-model-only-zero-census",
+        "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл CreateHookModelAsLoraModelOnly."
+      },
+      {
+        "id": "hook-weight-creation-exact-source-probe",
+        "role": "Точный метод MO подтвердил делегирование с strength_clip=0, загрузку checkpoint при strength_model=0, сохранение словаря CLIP-патчей и отсутствие model_sampling в модельном словаре."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального графа с CreateHookModelAsLoraModelOnly в пакете 0.1.42 нет; рецепт основан на исходнике.",
+    "Тестовый загрузчик и малые тензоры подтвердили ветвления, но настоящий checkpoint и полный граф не запускались.",
+    "Не измерена реальная память CLIP-словаря и поведение при выгрузке на нескольких устройствах.",
+    "Совместимость выбранного checkpoint с базовой моделью не проверена.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.shared-widget-value",
+  "title": "Одна ширина для двух EmptyLatentImage",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "width",
+      "classType": "PrimitiveNode",
+      "role": "Хранить общее целое значение ширины",
+      "settings": { "value": 512, "control_after_generate": "fixed", "widget": "width", "type": "INT" }
+    },
+    {
+      "ref": "latent_a",
+      "classType": "EmptyLatentImage",
+      "role": "Создать первый LATENT с общей шириной",
+      "settings": { "height": 512, "batch_size": 1 }
+    },
+    {
+      "ref": "latent_b",
+      "classType": "EmptyLatentImage",
+      "role": "Создать второй LATENT с той же шириной",
+      "settings": { "height": 768, "batch_size": 1 }
+    }
+  ],
+  "connections": [
+    { "from": "width", "output": "INT", "to": "latent_a", "input": "width" },
+    { "from": "width", "output": "INT", "to": "latent_b", "input": "width" }
+  ]
+}

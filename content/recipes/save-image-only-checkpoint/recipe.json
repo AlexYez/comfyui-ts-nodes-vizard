@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-image-only-checkpoint",
+  "locale": "ru",
+  "title": "Сохранить MODEL, CLIP_VISION и VAE в одну контрольную точку",
+  "summary": "Подключает внешний совместимый комплект к ImageOnlyCheckpointSave и пишет нумерованный файл safetensors в output/checkpoints.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.image-only-checkpoint-save"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Совместимые MODEL, CLIP_VISION и VAE",
+    "Достаточно оперативной памяти и места в выходном каталоге",
+    "План отдельной пробной загрузки результата"
+  ],
+  "fragment": {"id": "fragment.save-image-only-checkpoint", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка подкласса, общей функции сохранения и схемы; схема фрагмента и передача аргументов проверены без весов, официального примера и полного исполнения нет, редактор пока не проверил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ImageOnlyCheckpointSave в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video_model.py#L110-L123",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Общая функция сохранения контрольной точки в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L170-L227",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальный пакет шаблонов рабочих процессов 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

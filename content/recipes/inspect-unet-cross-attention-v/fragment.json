@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.inspect-unet-cross-attention-v",
+  "title": "MODEL → UNetCrossAttentionMultiply с v = 0,9",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "cross-attention", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "cross-attention",
+      "classType": "UNetCrossAttentionMultiply",
+      "role": "Изменить только проекции v в слоях attn2",
+      "settings": {"q": 1.0, "k": 1.0, "v": 0.9, "out": 1.0}
+    }
+  ],
+  "connections": []
+}

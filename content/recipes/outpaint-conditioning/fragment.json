@@ -1,0 +1,151 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.outpaint-conditioning",
+  "title": "ImagePadForOutpaint — InpaintModelConditioning — KSampler",
+  "externalInputs": [
+    {
+      "id": "model",
+      "type": "MODEL",
+      "to": "sampler",
+      "input": "model"
+    },
+    {
+      "id": "positive",
+      "type": "CONDITIONING",
+      "to": "conditioning",
+      "input": "positive"
+    },
+    {
+      "id": "negative",
+      "type": "CONDITIONING",
+      "to": "conditioning",
+      "input": "negative"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "load",
+      "classType": "LoadImage",
+      "role": "Загрузить исходное изображение",
+      "settings": {
+        "image": "выберите исходное изображение"
+      }
+    },
+    {
+      "ref": "vae",
+      "classType": "VAELoader",
+      "role": "Загрузить AE из официальной Flux Fill цепочки",
+      "settings": {
+        "vae_name": "ae.safetensors"
+      }
+    },
+    {
+      "ref": "pad",
+      "classType": "ImagePadForOutpaint",
+      "role": "Добавить поля и построить outpaint MASK",
+      "settings": {
+        "left": 400,
+        "top": 0,
+        "right": 400,
+        "bottom": 400,
+        "feathering": 24
+      }
+    },
+    {
+      "ref": "conditioning",
+      "classType": "InpaintModelConditioning",
+      "role": "Добавить masked concat-данные к Flux conditioning",
+      "settings": {
+        "noise_mask": false
+      }
+    },
+    {
+      "ref": "sampler",
+      "classType": "KSampler",
+      "role": "Дорисовать расширенные области",
+      "settings": {
+        "seed": 42,
+        "steps": 20,
+        "cfg": 1.0,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "denoise": 1.0
+      }
+    },
+    {
+      "ref": "decode",
+      "classType": "VAEDecode",
+      "role": "Декодировать результат тем же AE",
+      "settings": {}
+    },
+    {
+      "ref": "preview",
+      "classType": "PreviewImage",
+      "role": "Показать результат во временном каталоге",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "load",
+      "output": "IMAGE",
+      "to": "pad",
+      "input": "image"
+    },
+    {
+      "from": "pad",
+      "output": "IMAGE",
+      "to": "conditioning",
+      "input": "pixels"
+    },
+    {
+      "from": "pad",
+      "output": "MASK",
+      "to": "conditioning",
+      "input": "mask"
+    },
+    {
+      "from": "vae",
+      "output": "VAE",
+      "to": "conditioning",
+      "input": "vae"
+    },
+    {
+      "from": "conditioning",
+      "output": "positive",
+      "to": "sampler",
+      "input": "positive"
+    },
+    {
+      "from": "conditioning",
+      "output": "negative",
+      "to": "sampler",
+      "input": "negative"
+    },
+    {
+      "from": "conditioning",
+      "output": "latent",
+      "to": "sampler",
+      "input": "latent_image"
+    },
+    {
+      "from": "sampler",
+      "output": "LATENT",
+      "to": "decode",
+      "input": "samples"
+    },
+    {
+      "from": "vae",
+      "output": "VAE",
+      "to": "decode",
+      "input": "vae"
+    },
+    {
+      "from": "decode",
+      "output": "IMAGE",
+      "to": "preview",
+      "input": "images"
+    }
+  ]
+}

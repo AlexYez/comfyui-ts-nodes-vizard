@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.sharpen-preview",
+  "title": "IMAGE — умеренная резкость — preview и save",
+  "externalInputs": [
+    {"id": "source_image", "type": "IMAGE", "to": "sharpen", "input": "image"}
+  ],
+  "nodes": [
+    {
+      "ref": "sharpen",
+      "classType": "ImageSharpen",
+      "role": "Усилить локальный контраст малым ядром",
+      "settings": {"sharpen_radius": 1, "sigma": 1.0, "alpha": 0.5}
+    },
+    {
+      "ref": "preview",
+      "classType": "PreviewImage",
+      "role": "Проверить ореолы и clipping до сохранения",
+      "settings": {}
+    },
+    {
+      "ref": "save",
+      "classType": "SaveImage",
+      "role": "Сохранить обработанное изображение отдельно",
+      "settings": {"filename_prefix": "NodesWizard_sharpen"}
+    }
+  ],
+  "connections": [
+    {"from": "sharpen", "output": "IMAGE", "to": "preview", "input": "images"},
+    {"from": "sharpen", "output": "IMAGE", "to": "save", "input": "images"}
+  ]
+}

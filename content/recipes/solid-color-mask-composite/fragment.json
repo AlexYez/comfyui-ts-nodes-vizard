@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.solid-color-mask-composite",
+  "title": "Чёрный destination и красный source по внешней MASK",
+  "externalInputs": [
+    {
+      "id": "mask",
+      "type": "MASK",
+      "to": "composite",
+      "input": "mask"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "black",
+      "classType": "EmptyImage",
+      "role": "Создать чёрный destination 1024 × 1024",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "batch_size": 1,
+        "color": 0
+      }
+    },
+    {
+      "ref": "red",
+      "classType": "EmptyImage",
+      "role": "Создать красный source из packed color 0xFF0000",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "batch_size": 1,
+        "color": 16711680
+      }
+    },
+    {
+      "ref": "composite",
+      "classType": "ImageCompositeMasked",
+      "role": "Наложить красный source на чёрный destination по MASK",
+      "settings": {
+        "x": 0,
+        "y": 0,
+        "resize_source": false
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "black",
+      "output": "IMAGE",
+      "to": "composite",
+      "input": "destination"
+    },
+    {
+      "from": "red",
+      "output": "IMAGE",
+      "to": "composite",
+      "input": "source"
+    }
+  ]
+}

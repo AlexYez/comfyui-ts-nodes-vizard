@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.image-scale-preview",
+  "locale": "ru",
+  "title": "Подготовить кадр 832 × 480 с center crop",
+  "summary": "Короткая официальная связка: загрузить IMAGE, привести его к кадру 832 × 480 методом lanczos с обрезкой по центру и проверить результат в preview.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": [
+    "core.image-scale",
+    "core.load-image",
+    "core.preview-image"
+  ],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Изображение в input-каталоге ComfyUI"
+  ],
+  "fragment": {
+    "id": "fragment.image-scale-preview",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source and official-workflow trace; fragment schema validated, execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ImageScale and common_upscale implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/nodes.py#L1879-L1909",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: video_wanmove_480p",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-training-dataset-basic",
+  "title": "LoadTrainingDataset с обязательным ручным выбором",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "load",
+      "classType": "LoadTrainingDataset",
+      "role": "Загрузить проверенный набор после ручного выбора каталога",
+      "settings": {
+        "folder_name": "SELECT_SAVED_DATASET"
+      }
+    }
+  ],
+  "connections": []
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.hunyuan-video-sd3-shift-guider",
+  "locale": "ru",
+  "title": "Hunyuan Video: SD3 shift 7 перед BasicGuider",
+  "summary": "Повторяет подтверждённую guide-ветвь официального Hunyuan Video: внешний MODEL проходит через ModelSamplingSD3 с shift 7 и поступает в BasicGuider.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-sampling-sd3"],
+  "requirements": [
+    "MODEL, для которого официальный граф задаёт SD3 flow shift 7",
+    "CONDITIONING для BasicGuider",
+    "Отдельно собранные scheduler, sampler, noise и latent"
+  ],
+  "fragment": {"id": "fragment.hunyuan-video-sd3-shift-guider", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная сверка закреплённых исходников, runtime-инвентаря и точной топологии официального графа Hunyuan Video; веса и фрагмент не исполнялись, ручной редакторской проверки не было",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelSamplingSD3 implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L119-L147",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальный граф Hunyuan Video",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/hunyuan_video_text_to_video.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

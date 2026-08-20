@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.video-percentage-conditioning-area",
+  "title": "Spatial-temporal percentage-area",
+  "externalInputs": [
+    { "id": "conditioning", "type": "CONDITIONING", "to": "video_area", "input": "conditioning" }
+  ],
+  "nodes": [
+    {
+      "ref": "video_area",
+      "classType": "ConditioningSetAreaPercentageVideo",
+      "role": "Записать трёхмерную percentage-area и strength",
+      "settings": {
+        "width": 0.5,
+        "height": 0.6,
+        "temporal": 0.4,
+        "x": 0.25,
+        "y": 0.2,
+        "z": 0.1,
+        "strength": 0.9
+      }
+    }
+  ],
+  "connections": []
+}

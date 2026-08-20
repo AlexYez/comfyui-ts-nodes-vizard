@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nodes-wizard.local/schemas/backend-inventory-metadata.schema.v1.json",
+  "title": "Pinned ComfyUI backend inventory metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema", "schemaVersion", "inventoryId", "source", "capture", "snapshot",
+    "replacements", "embeddedDocs"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": "1.0" },
+    "inventoryId": { "type": "string", "pattern": "^comfyui\\.backend\\." },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "tag", "commit", "backendVersion", "localCheckout"],
+      "properties": {
+        "repository": { "type": "string", "pattern": "^https://github\\.com/Comfy-Org/ComfyUI$" },
+        "tag": { "type": "string" },
+        "commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "backendVersion": { "type": "string" },
+        "localCheckout": { "type": "string" }
+      }
+    },
+    "capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capturedAt", "endpoint", "systemStatsEndpoint", "customNodes", "builtinApiNodes",
+        "device", "launchArguments", "pythonVersion", "pytorchVersion", "torchaudioVersion",
+        "requiredPackages", "nodeClassMappingCount", "endpointNodeCount", "importEvidence"
+      ],
+      "properties": {
+        "capturedAt": { "type": "string", "format": "date-time" },
+        "endpoint": { "const": "/object_info" },
+        "systemStatsEndpoint": { "const": "/system_stats" },
+        "customNodes": { "const": "disabled" },
+        "builtinApiNodes": { "const": "enabled" },
+        "device": { "const": "cpu" },
+        "launchArguments": { "type": "array", "items": { "type": "string" } },
+        "pythonVersion": { "type": "string" },
+        "pytorchVersion": { "type": "string" },
+        "torchaudioVersion": { "type": "string" },
+        "requiredPackages": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "nodeClassMappingCount": { "type": "integer", "minimum": 1 },
+        "endpointNodeCount": { "type": "integer", "minimum": 1 },
+        "importEvidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["quickTestExitCode", "customNodeLog", "builtinImportFailureWarnings", "nodeInfoFailureCount"],
+          "properties": {
+            "quickTestExitCode": { "const": 0 },
+            "customNodeLog": { "const": "Skipping loading of custom nodes" },
+            "builtinImportFailureWarnings": { "const": 0 },
+            "nodeInfoFailureCount": { "const": 0 }
+          }
+        }
+      }
+    },
+    "snapshot": { "$ref": "#/$defs/artifact" },
+    "replacements": { "$ref": "#/$defs/artifact" },
+    "embeddedDocs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["package", "version", "repository", "requirementsSource", "documentPattern", "accessCommand", "englishDocumentCount", "vendored"],
+      "properties": {
+        "package": { "const": "comfyui-embedded-docs" },
+        "version": { "type": "string" },
+        "repository": { "type": "string", "pattern": "^https://github\\.com/Comfy-Org/embedded-docs$" },
+        "requirementsSource": { "type": "string", "pattern": "^https://" },
+        "documentPattern": { "type": "string" },
+        "accessCommand": { "type": "string" },
+        "englishDocumentCount": { "type": "integer", "minimum": 1 },
+        "vendored": { "const": false }
+      }
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "size", "format"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "size": { "type": "integer", "minimum": 1 },
+        "format": { "type": "string" }
+      }
+    }
+  }
+}

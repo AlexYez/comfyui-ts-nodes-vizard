@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.multiline-string-to-number", "locale": "ru",
+  "title": "Преобразовать многострочный STRING в число", "summary": "Точная начальная пара official basic_datatype_conversion: PrimitiveStringMultiline со строкой 1 подаётся в ComfyNumberConvert.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.primitive-string-multiline"], "requirements": ["ComfyUI 0.32.0", "ComfyNumberConvert из чистой установки"],
+  "fragment": {"id": "fragment.multiline-string-to-number", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact topology/widget from pinned basic_datatype_conversion; full workflow and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "Official basic_datatype_conversion workflow in templates 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.split-sigma-schedule-two-stage",
+  "title": "Восемь шагов, граница после четырёх переходов",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "scheduler", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "scheduler",
+      "classType": "BasicScheduler",
+      "role": "Построить официальное simple-расписание на восемь шагов",
+      "settings": {"scheduler": "simple", "steps": 8, "denoise": 1.0}
+    },
+    {
+      "ref": "split",
+      "classType": "SplitSigmas",
+      "role": "Оставить четыре перехода первой стадии и общую границу",
+      "settings": {"step": 4}
+    }
+  ],
+  "connections": [
+    {"from": "scheduler", "output": "SIGMAS", "to": "split", "input": "sigmas"}
+  ]
+}

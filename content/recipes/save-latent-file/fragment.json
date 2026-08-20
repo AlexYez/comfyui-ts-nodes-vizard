@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.save-latent-file",
+  "title": "Внешний LATENT → .latent в output",
+  "externalInputs": [
+    {"id": "latent", "type": "LATENT", "to": "save", "input": "samples"}
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "SaveLatent",
+      "role": "Сохранить численные samples и вернуть исходный LATENT в выход",
+      "settings": {"filename_prefix": "latents/wizard-session"}
+    }
+  ],
+  "connections": []
+}

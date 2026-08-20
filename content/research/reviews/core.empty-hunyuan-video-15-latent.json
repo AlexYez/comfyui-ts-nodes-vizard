@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.empty-hunyuan-video-15-latent",
+  "node": {"classType": "EmptyHunyuanVideo15Latent", "pythonModule": "comfy_extras.nodes_hunyuan", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L67-L80",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "67-80"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L83-L130",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "83-130"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L1047-L1069",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "1047-1069"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/EmptyHunyuanVideo15Latent/en.md",
+        "assessment": "SHA-256 18be381776da62e24ddd1de6eabb364c7149e8faca8e45f1b648070da1db9d08. Формула и форма верны; batch_size ошибочно помечен optional, а ограничения памяти и floor-деление не раскрыты."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/EmptyHunyuanVideo15Latent/ru.md",
+        "assessment": "SHA-256 3eb7f60a20635ca2df181efe627f0ce0e654cdbb1fa142c2464623d7c48c1115. Передаёт общую форму, но переводит имена входов и называет latent-временную ось кадрами."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "video-hunyuan-video-15-720p-t2v-node-124",
+        "role": "Официальный root workflow ecc20583-98c5-4707-83f4-631b49a2bf0b: node 124, widgets [1280,720,121,1], mode 0, link 318 в SamplerCustomAdvanced node 127. Member SHA-256 b52ab35cd7f5253288d32ca2d18329607a0e5fb265886e234bae7b75deff8cfe."
+      },
+      {
+        "id": "workflow-templates-0142-empty-hunyuan-15-census",
+        "role": "Полный обход нашёл два экземпляра: один root Hunyuan Video 1.5 и один subgraph Capybara T2I; одинаковый root UUID в двух файлах не использован как глобальный ключ."
+      },
+      {
+        "id": "hunyuan-text-latent-exact-source-probe",
+        "role": "AST-извлечённый класс на CPU подтвердил нули, 32 канала, формы по умолчанию и при граничных длинах, floor-деление и downscale_ratio_spacial 16."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Выполнено только создание малых синтетических тензоров; sampler, VAE и модель Hunyuan Video 1.5 не запускались.",
+    "Capybara-вхождение с length 1 учтено в census, но не представлено как видео-пример Hunyuan Video 1.5.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

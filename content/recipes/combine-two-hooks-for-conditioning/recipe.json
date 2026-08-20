@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.combine-two-hooks-for-conditioning",
+  "locale": "ru",
+  "title": "Объединить две группы HOOKS для CONDITIONING",
+  "summary": "CombineHooks2 собирает две внешние HookGroup, а ConditioningSetProperties прикрепляет результат к готовому CONDITIONING без маски и временного диапазона.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.combine-hooks-2"],
+  "requirements": ["ComfyUI 0.32.0", "Две совместимые группы HOOKS", "Внешний CONDITIONING", "Последующий сэмплер, использующий результат"],
+  "fragment": {"id": "fragment.combine-two-hooks-for-conditioning", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка runtime и зафиксированного исходника; полный граф с моделью не исполнялся, редактор пока не проверил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "CombineHooks2 в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L624-L648",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "HookGroup и combine_all_hooks в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L287-L423",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "ConditioningSetProperties в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L86-L116",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

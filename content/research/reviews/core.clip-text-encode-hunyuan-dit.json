@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.clip-text-encode-hunyuan-dit",
+  "node": {"classType": "CLIPTextEncodeHunyuanDiT", "pythonModule": "comfy_extras.nodes_hunyuan", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L14-L38",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "14-38"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/text_encoders/hydit.py#L9-L81",
+        "path": "comfy/text_encoders/hydit.py",
+        "lines": "9-81"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/services/nodeHelpService.ts#L46-L56",
+        "path": "src/services/nodeHelpService.ts",
+        "lines": "46-56"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ClipTextEncodeHunyuanDit/en.md",
+        "assessment": "SHA-256 1ef0f3912db5b29c3c920ee6a17e9c96a405c8f3737c416751b98c356cb836ff. Описывает два энкодера, но каталог не совпадает по регистру и написанию с точным NodeId; замена ключа mt5xl и маски не раскрыты."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ClipTextEncodeHunyuanDit/ru.md",
+        "assessment": "SHA-256 ff01700224c04a96ab6f89c4b1d1b395f82b1560b8c0eaeb575b583c4f8d0c87. Содержит перевод общего назначения; точного каталога CLIPTextEncodeHunyuanDiT в wheel нет."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-clip-text-encode-hunyuan-dit-census",
+        "role": "Полный рекурсивный обход 512 JSON, 496 корневых графов и 272 подграфов не нашёл ни одного точного NodeId среди 8120 нод; строковых совпадений также нет."
+      },
+      {
+        "id": "hunyuan-text-latent-exact-source-probe",
+        "role": "AST-извлечение точного класса с тестовым CLIP подтвердило два вызова tokenize, сохранение hydit_clip из bert и замену mt5xl из второго текста."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Точный NodeId отсутствует в официальном пакете workflow 0.1.42, поэтому рецепт построен по исходнику.",
+    "Реальные веса HunyuanDiT и влияние разных формулировок на изображение не проверялись.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.wan-vace-lora",
+  "title": "Wan VACE 14B: diffusion model и UMT5 через LoRA",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "diffusion_model",
+      "classType": "UNETLoader",
+      "role": "Загрузить diffusion-модель Wan VACE 14B",
+      "settings": {
+        "unet_name": "wan2.1_vace_14B_fp16.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "ref": "text_encoder",
+      "classType": "CLIPLoader",
+      "role": "Загрузить UMT5 в режиме Wan",
+      "settings": {
+        "clip_name": "umt5_xxl_fp16.safetensors",
+        "type": "wan",
+        "device": "default"
+      }
+    },
+    {
+      "ref": "lora",
+      "classType": "LoraLoader",
+      "role": "Наложить CausVid LoRA на MODEL и CLIP",
+      "settings": {
+        "lora_name": "Wan21_CausVid_14B_T2V_lora_rank32.safetensors",
+        "strength_model": 0.7,
+        "strength_clip": 1.0
+      }
+    }
+  ],
+  "connections": [
+    { "from": "diffusion_model", "output": "MODEL", "to": "lora", "input": "model" },
+    { "from": "text_encoder", "output": "CLIP", "to": "lora", "input": "clip" }
+  ]
+}

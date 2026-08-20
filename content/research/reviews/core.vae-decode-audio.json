@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.vae-decode-audio",
+  "node": {
+    "classType": "VAEDecodeAudio",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L98-L133",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "98-133"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VAEDecodeAudio/en.md",
+        "assessment": "Документ помечен как AI-generated и верно описывает decode и normalization, но упрощает sample-rate fallback: исходник сначала читает VAE audio_sample_rate_output/audio_sample_rate и только затем 44 100, а samples metadata имеет высший приоритет."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 JSON и все subgraphs: 16 экземпляров в 16 файлах, 11 root и 5 subgraph, у всех widgets_values []."
+      },
+      {
+        "id": "5fa61cc8-29d9-4deb-9f90-02d3c00b63b3",
+        "role": "audio_stable_audio_example: KSampler #3 + VAE CheckpointLoaderSimple #4 → VAEDecodeAudio #12 → SaveAudioMP3 #19."
+      },
+      {
+        "id": "88ac5dad-efd7-40bb-84fe-fbaefdee1fa9",
+        "role": "ACE-Step 1/1.5 templates: KSampler output and VAE loader/checkpoint feed decoder, then AUDIO goes to SaveAudioMP3."
+      },
+      {
+        "id": "e3f2b845-8f2c-4b5a-9caf-eac1029d3e7e",
+        "role": "Minimax H3 video templates: SamplerCustomAdvanced + VAELoader → VAEDecodeAudio → CreateVideo."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Safe stub-VAE unit check подтвердил movedim, std scaling и sample-rate precedence; реальный VAE decode не выполнялся.",
+    "Официальная topology перенесена, но Stable Audio checkpoint, VAE weights, waveform и save не запускались.",
+    "Audio quality, peaks, channels, duration и отсутствие NaN требуют отдельного реального decode и измерений.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-13"
+}

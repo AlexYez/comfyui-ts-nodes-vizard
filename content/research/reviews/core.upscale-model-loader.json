@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.upscale-model-loader",
+  "node": {
+    "classType": "UpscaleModelLoader",
+    "pythonModule": "comfy_extras.nodes_upscale_model",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_upscale_model.py#L20-L49",
+        "path": "comfy_extras/nodes_upscale_model.py",
+        "lines": "20-49"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/folder_paths.py#L5-L43",
+        "path": "folder_paths.py",
+        "lines": "5-43"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/UpscaleModelLoader/ru.md",
+        "assessment": "Верно указывает каталог upscale_models и дополнительные пути, но переводит системный model_name, не описывает Spandrel, проверку ImageModelDescriptor, prefix replacement, коэффициент модели, eval и load/offload patcher."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "utility-gan_upscaler",
+        "role": "Верхнеуровневая пара UpscaleModelLoader → ImageUpscaleWithModel использует RealESRGAN_x4plus.safetensors для кадров видео."
+      },
+      {
+        "id": "template_rob_realistic_2k_images_quick_variations",
+        "role": "В subgraph Image Upscale(Z-image-Turbo) загрузчик RealESRGAN x4 связан с модельным апскейлером."
+      },
+      {
+        "id": "templates_rob_realistic_2k_images_quick_variations.app",
+        "role": "App-вариант содержит ту же пару и то же имя RealESRGAN_x4plus.safetensors внутри subgraph."
+      },
+      {
+        "id": "utility_z_image_turbo_2k_upscaler.app",
+        "role": "App-subgraph получает model_name снаружи, хранит RealESRGAN x4 в widgets и передаёт UPSCALE_MODEL в ImageUpscaleWithModel."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment структурно проверен, но RealESRGAN_x4plus.safetensors не загружался и видео не обрабатывалось.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

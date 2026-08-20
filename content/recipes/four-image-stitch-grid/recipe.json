@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.four-image-stitch-grid", "locale": "ru",
+  "title": "Собрать четыре изображения в сетку 2 × 2", "summary": "Две пары изображений сшивает вправо, затем соединяет готовые строки вниз по топологии официального utility_image_stitch.", "body": "ru.md", "difficulty": "intermediate",
+  "articleIds": ["core.image-stitch", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Четыре внешних IMAGE"],
+  "fragment": {"id": "fragment.four-image-stitch-grid", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Official utility workflow topology and schema review; image execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "ImageStitch implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_images.py#L269-L441", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"},
+    {"title": "Official utility_image_stitch workflow in templates 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

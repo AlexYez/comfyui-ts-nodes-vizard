@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.shuffle-image-text-dataset",
+  "node": {"classType": "ShuffleImageTextDataset", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1147-L1190",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1147-1190"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ShuffleImageTextDataset/en.md",
+        "assessment": "Справка помечена как AI-generated. Она рекомендует равные длины, но не сообщает об отсутствии проверки: короткий texts вызывает IndexError, длинный хвост отбрасывается. Также опущены модуль seed, forceInput и списочные флаги; SHA-256: c2a02290c0bf389c1288feccebbf3d45a7d29b24c616dd9217085988d2142555."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ShuffleImageTextDataset/ru.md",
+        "assessment": "Русская AI-generated версия не добавляет проверку длин и местами переводит системные обозначения. Точное поведение подтверждено исходником и прогоном; SHA-256: 336180438d02658a8e3a1dd4124239364c6817939ecbf794528e4effb0143508."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 файлов JSON, 496 корневых графов и 272 подграфа; ShuffleImageTextDataset отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-shuffle-merge-probe",
+        "role": "Seed 23 дал порядок 7,4,5,2,1,0,6,3 и сохранил пары; проверены повтор, модульная коллизия, IndexError при коротком texts, отбрасывание длинного хвоста и TypeError для прямого скалярного seed."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Фрагмент не импортировался на холст и не проверен на реальном наборе изображений с подписями.",
+    "Доля ошибок исходных пар и удобство диагностики разных длин требуют человеческой проверки интерфейса.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

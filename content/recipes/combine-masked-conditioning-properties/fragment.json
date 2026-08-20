@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.combine-masked-conditioning-properties",
+  "title": "Базовый cond и обработанный cond_NEW",
+  "externalInputs": [
+    { "id": "base", "type": "CONDITIONING", "to": "set_properties_combine", "input": "cond" },
+    { "id": "new", "type": "CONDITIONING", "to": "set_properties_combine", "input": "cond_NEW" },
+    { "id": "mask", "type": "MASK", "to": "set_properties_combine", "input": "mask" }
+  ],
+  "nodes": [
+    {
+      "ref": "set_properties_combine",
+      "classType": "ConditioningSetPropertiesAndCombine",
+      "role": "Ограничить новую ветвь маской и добавить её после базовой",
+      "settings": { "strength": 0.65, "set_cond_area": "mask bounds" }
+    }
+  ],
+  "connections": []
+}

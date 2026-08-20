@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.stable-cascade-official-two-stage",
+  "locale": "ru",
+  "title": "Провести Stable Cascade через Stage C и Stage B",
+  "summary": "Повторяет точную четырёхнодовую ветвь официального text-to-image примера: парные пустые latent, sampling Stage C, перенос prior в conditioning и sampling Stage B.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.stable-cascade-empty-latent-image", "core.stable-cascade-stage-b-conditioning", "core.ksampler"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "MODEL Stage C и MODEL Stage B из совместимой пары Stable Cascade",
+    "CONDITIONING от CLIP Stage C для positive и negative",
+    "VAE Stage B для декодирования результата после fragment"
+  ],
+  "fragment": {"id": "fragment.stable-cascade-official-two-stage", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/docs, exact official ComfyUI_examples topology and widgets, exact-source tensor probe and Russian editorial pass; full model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Official Stable Cascade text-to-image workflow at pinned ComfyUI_examples commit",
+      "url": "https://github.com/comfyanonymous/ComfyUI_examples/blob/f9431bb000ce792094ff345446e22cac1ea6cef3/stable_cascade/stable_cascade__text_to_image.png",
+      "publisher": "comfyanonymous",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Stable Cascade nodes in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable_cascade.py#L27-L148",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.latent-composite",
+  "node": {"classType": "LatentComposite", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1432-L1474",
+        "path": "nodes.py",
+        "lines": "1432-1474"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LatentComposite/en.md",
+        "assessment": "AI-generated файл верно называет samples_to/samples_from и координаты, но ошибочно описывает feather как boolean resize-флаг; реализация принимает INT и строит edge mask."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LatentComposite/ru.md",
+        "assessment": "Локализация повторяет ошибку про resize и переводит имена портов; exact runtime IDs, деление на 8, crop, broadcasting и metadata взяты из кода."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON, из них 496 workflow-графов; root nodes и definitions.subgraphs[*].nodes не содержат LatentComposite."
+      },
+      {
+        "id": "synthetic-exact-source-latent-composite",
+        "role": "AST-extracted exact-source класс выполнен на hard paste, right/bottom crop, source batch 1 → destination batch 2, feather 16, far-out x и metadata; подтверждены clone destination, corner factor 0.25 и RuntimeError за границей."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса LatentComposite в пакете 0.1.42 нет; fragment является source-derived.",
+    "Tensor-ветви проверены без VAE и модели; полный composite → decode → preview fragment не исполнялся.",
+    "Визуальное качество feather на реальном совместимом latent и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

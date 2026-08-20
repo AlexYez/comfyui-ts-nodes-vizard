@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.stable-cascade-stage-c-img2img",
+  "title": "Stable Cascade img2img: VAE encode → две стадии",
+  "externalInputs": [
+    {"id": "image", "type": "IMAGE", "to": "encode", "input": "image"},
+    {"id": "vae_stage_c", "type": "VAE", "to": "encode", "input": "vae"},
+    {"id": "model_stage_c", "type": "MODEL", "to": "sample_c", "input": "model"},
+    {"id": "positive_stage_c", "type": "CONDITIONING", "to": "sample_c", "input": "positive"},
+    {"id": "negative_stage_c", "type": "CONDITIONING", "to": "sample_c", "input": "negative"},
+    {"id": "positive_stage_b", "type": "CONDITIONING", "to": "prepare_b", "input": "conditioning"},
+    {"id": "model_stage_b", "type": "MODEL", "to": "sample_b", "input": "model"},
+    {"id": "negative_stage_b", "type": "CONDITIONING", "to": "sample_b", "input": "negative"}
+  ],
+  "nodes": [
+    {
+      "ref": "encode",
+      "classType": "StableCascade_StageC_VAEEncode",
+      "role": "Сжать исходное изображение в prior Stage C и создать пустой latent Stage B",
+      "settings": {"compression": 32}
+    },
+    {
+      "ref": "sample_c",
+      "classType": "KSampler",
+      "role": "Изменить закодированный prior на Stage C",
+      "settings": {
+        "seed": 321653652654528,
+        "steps": 20,
+        "cfg": 4.0,
+        "sampler_name": "euler_ancestral",
+        "scheduler": "simple",
+        "denoise": 0.6
+      }
+    },
+    {
+      "ref": "prepare_b",
+      "classType": "StableCascade_StageB_Conditioning",
+      "role": "Добавить результат Stage C в positive conditioning Stage B",
+      "settings": {}
+    },
+    {
+      "ref": "sample_b",
+      "classType": "KSampler",
+      "role": "Восстановить детализированный latent Stage B",
+      "settings": {
+        "seed": 980291192346449,
+        "steps": 10,
+        "cfg": 1.1,
+        "sampler_name": "euler_ancestral",
+        "scheduler": "simple",
+        "denoise": 1.0
+      }
+    }
+  ],
+  "connections": [
+    {"from": "encode", "output": "stage_c", "to": "sample_c", "input": "latent_image"},
+    {"from": "encode", "output": "stage_b", "to": "sample_b", "input": "latent_image"},
+    {"from": "sample_c", "output": "LATENT", "to": "prepare_b", "input": "stage_c"},
+    {"from": "prepare_b", "output": "CONDITIONING", "to": "sample_b", "input": "positive"}
+  ]
+}

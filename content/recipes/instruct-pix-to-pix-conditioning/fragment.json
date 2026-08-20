@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.instruct-pix-to-pix-conditioning",
+  "title": "Image-edit inputs — InstructPixToPix conditioning — KSampler",
+  "externalInputs": [
+    {"id": "positive", "type": "CONDITIONING", "to": "condition", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "condition", "input": "negative"},
+    {"id": "vae", "type": "VAE", "to": "condition", "input": "vae"},
+    {"id": "input_image", "type": "IMAGE", "to": "condition", "input": "pixels"},
+    {"id": "compatible_model", "type": "MODEL", "to": "sample", "input": "model"}
+  ],
+  "nodes": [
+    {"ref": "condition", "classType": "InstructPixToPixConditioning", "role": "Закодировать изображение и добавить concat_latent_image к обеим ветвям", "settings": {}},
+    {"ref": "sample", "classType": "KSampler", "role": "Выполнить sampling с подготовленными условиями и нулевым latent", "settings": {"seed": 42, "steps": 20, "cfg": 1.0, "sampler_name": "euler", "scheduler": "normal", "denoise": 1.0}}
+  ],
+  "connections": [
+    {"from": "condition", "output": "positive", "to": "sample", "input": "positive"},
+    {"from": "condition", "output": "negative", "to": "sample", "input": "negative"},
+    {"from": "condition", "output": "latent", "to": "sample", "input": "latent_image"}
+  ]
+}

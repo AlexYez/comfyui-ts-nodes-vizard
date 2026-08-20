@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-stg-source",
+  "locale": "ru",
+  "title": "Поставить LTXV STG на блок 29 перед guider",
+  "summary": "Source-derived fragment применяет default STG block 29 на полном интервале sampling и передаёт cloned MODEL в LTXV Dual CFG Guider.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-spatio-temporal-guidance", "core.ltxv-dual-cfg-guider"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "LTXV-AV MODEL с существующим transformer block 29",
+    "Positive и negative CONDITIONING",
+    "Проверка результата и стоимости дополнительного model pass"
+  ],
+  "fragment": {"id": "fragment.ltxv-stg-source", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime, exact full workflow absence census, model-free callback/parser probe and Russian editorial pass; full LTXV-AV execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "LTXV Spatio-Temporal Guidance in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L940-L991",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

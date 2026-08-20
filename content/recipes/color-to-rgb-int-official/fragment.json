@@ -1,0 +1,1 @@
+{"$schema":"../../schemas/recipe-fragment.schema.v1.json","schemaVersion":"1.0","fragmentId":"fragment.color-to-rgb-int-official","title":"Цвет #0a9299 в RGB-число","externalInputs":[],"nodes":[{"ref":"color","classType":"ColorToRGBInt","role":"Преобразовать цвет","settings":{"color":"#0a9299"}}],"connections":[]}

@@ -1,0 +1,25 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.sa-solver-custom-sampling",
+  "title": "SamplerSASolver → SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "model_for_tau", "type": "MODEL", "to": "algorithm", "input": "model"},
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "algorithm",
+      "classType": "SamplerSASolver",
+      "role": "Построить модельно-зависимый SA-Solver",
+      "settings": {"eta": 1.0, "sde_start_percent": 0.2, "sde_end_percent": 0.8, "s_noise": 1.0, "predictor_order": 3, "corrector_order": 4, "use_pece": false, "simple_order_2": false}
+    },
+    {"ref": "sample", "classType": "SamplerCustomAdvanced", "role": "Исполнить Stochastic Adams sampling", "settings": {}}
+  ],
+  "connections": [
+    {"from": "algorithm", "output": "SAMPLER", "to": "sample", "input": "sampler"}
+  ]
+}

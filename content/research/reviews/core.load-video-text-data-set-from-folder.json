@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-video-text-data-set-from-folder",
+  "node": {
+    "classType": "LoadVideoTextDataSetFromFolder",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L46-L55",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "46-55"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L327-L392",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "327-392"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L118-L145",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "118-145"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LoadVideoTextDataSetFromFolder/en.md",
+        "assessment": "AI-generated справка подтверждает шесть форматов, TXT-пары, пустую подпись и kohya repeat-префикс, но не раскрывает один уровень обхода, блочный порядок повтора, 0_, UTF-8 strip, сортировку, отложенную проверку видео и experimental-статус; SHA-256 файла в wheel: 10572ed6274b73a43e0ad198ebbaa46a65d3125b082003d8b5268fb8ceaa11e3."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LoadVideoTextDataSetFromFolder/ru.md",
+        "assessment": "Русская AI-generated версия переводит folder как папка и также не уточняет точную глубину, порядок и обработку текста; SHA-256 файла в wheel: 15add77a90901f60dbd54cb66021e6585e326fac86c6eebb72f861ae6af07ce9."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON, 496 корневых workflow, 272 subgraph и 8120 узлов; LoadVideoTextDataSetFromFolder отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-video-load-sample-crop-probe",
+        "role": "Точный класс во временном input вернул порядок a,c,a,c,b,d для 2_class, сохранил параллельные подписи, подставил пустой текст, применил strip, проигнорировал второй вложенный уровень и отбросил 0_skip."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; fragment с локальным folder не импортировался в canvas.",
+    "Синтетическая проверка покрыла порядок путей и текстов, но не декодирование реальных пользовательских роликов.",
+    "Поведение имён TXT с иным регистром зависит от файловой системы и требует платформенной проверки интерфейса.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

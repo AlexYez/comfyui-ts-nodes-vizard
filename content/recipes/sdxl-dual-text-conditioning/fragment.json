@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.sdxl-dual-text-conditioning",
+  "title": "SDXL CLIP — два текста — CONDITIONING",
+  "externalInputs": [{"id": "sdxl_clip", "type": "CLIP", "to": "encode", "input": "clip"}],
+  "nodes": [{"ref": "encode", "classType": "CLIPTextEncodeSDXL", "role": "Закодировать потоки G и L и добавить размерные поля SDXL", "settings": {"width": 1024, "height": 1024, "crop_w": 0, "crop_h": 0, "target_width": 1024, "target_height": 1024, "text_g": "a quiet forest clearing at dawn", "text_l": "quiet forest, dawn light"}}],
+  "connections": []
+}

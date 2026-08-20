@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.merge-sd3-2b-block-map",
+  "title": "SD3 2B: последний joint-блок и final_layer",
+  "externalInputs": [
+    {"id": "model1", "type": "MODEL", "to": "merge", "input": "model1"},
+    {"id": "model2", "type": "MODEL", "to": "merge", "input": "model2"}
+  ],
+  "nodes": [
+    {
+      "ref": "merge",
+      "classType": "ModelMergeSD3_2B",
+      "role": "Смешать joint_blocks.23 и final_layer",
+      "settings": {
+        "joint_blocks.23.": 0.8,
+        "final_layer.": 0.1
+      }
+    }
+  ],
+  "connections": []
+}

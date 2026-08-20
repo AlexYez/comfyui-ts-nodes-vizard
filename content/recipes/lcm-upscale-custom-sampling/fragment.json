@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.lcm-upscale-custom-sampling",
+  "title": "SamplerLCMUpscale 2× → SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "algorithm",
+      "classType": "SamplerLCMUpscale",
+      "role": "Поэтапно увеличить spatial-размер latent в два раза",
+      "settings": {"scale_ratio": 2.0, "scale_steps": -1, "upscale_method": "bislerp"}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Исполнить custom sampling",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "algorithm", "output": "SAMPLER", "to": "sample", "input": "sampler"}
+  ]
+}

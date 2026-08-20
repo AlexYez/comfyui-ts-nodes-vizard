@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.combine-conditioning-entries",
+  "title": "Два списка как отдельные записи одного CONDITIONING",
+  "externalInputs": [
+    { "id": "conditioning_1", "type": "CONDITIONING", "to": "combine", "input": "conditioning_1" },
+    { "id": "conditioning_2", "type": "CONDITIONING", "to": "combine", "input": "conditioning_2" }
+  ],
+  "nodes": [
+    {
+      "ref": "combine",
+      "classType": "ConditioningCombine",
+      "role": "Добавить записи второго списка после записей первого",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

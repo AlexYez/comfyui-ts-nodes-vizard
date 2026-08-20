@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.vp-scheduler",
+  "node": {"classType": "VPScheduler", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L182-L202",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "182-202"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L45-L49",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "45-49"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VpScheduler/en.md",
+        "assessment": "Описывает VP назначение, но не показывает формулу, steps + 1, terminal zero, eps_s 0/1 и отсутствие model binding."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/VpScheduler/ru.md",
+        "assessment": "Называет beta_min минимальной границей, хотя exact source использует его линейным коэффициентом; это исправлено в статье."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON, 496 корневых графов и все nested nodes; VPScheduler не найден."
+      },
+      {
+        "id": "synthetic-exact-source-vp-scheduler",
+        "role": "AST-extracted node и get_sigmas_vp подтвердили значения defaults при четырёх шагах, steps + 1, one-step, два нуля при eps_s 0, повтор при eps_s 1, all-zero beta и overflow при крайних коэффициентах."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса 0.1.42 нет; fragment строит только расписание по exact runtime defaults.",
+    "VP-список не запускался через SamplerCustomAdvanced с реальной моделью, поэтому визуальное и численное качество denoise не квалифицировано.",
+    "Комментарий TODO рядом с beta_d указывает на возможное будущее изменение defaults; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.basic-scheduler-custom-sampling",
+  "locale": "ru",
+  "title": "Передать модель-зависимые SIGMAS в custom sampler",
+  "summary": "Повторяет официальную связь BasicScheduler → SamplerCustomAdvanced с simple, 20 шагами и denoise 1, оставляя модель и остальные sampling-входы внешними.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.basic-scheduler"],
+  "requirements": [
+    "MODEL после всех ModelSampling-патчей",
+    "GUIDER, построенный из той же sampling-версии MODEL",
+    "NOISE, SAMPLER и LATENT для SamplerCustomAdvanced"
+  ],
+  "fragment": {"id": "fragment.basic-scheduler-custom-sampling", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная проверка pinned source, runtime-схемы и официальной topology; полный sampling и ручная редакторская проверка не выполнены",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "BasicScheduler implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L17-L44",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official Flux Redux custom sampling topology",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/flux_redux_model_example.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

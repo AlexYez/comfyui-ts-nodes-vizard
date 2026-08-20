@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.fresca",
+  "node": {"classType": "FreSca", "pythonModule": "comfy_extras.nodes_fresca", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_fresca.py#L8-L103",
+        "path": "comfy_extras/nodes_fresca.py",
+        "lines": "8-103"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py",
+        "path": "comfy/model_patcher.py",
+        "lines": "pre-CFG patch registration"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/FreSca/en.md",
+        "assessment": "Передаёт назначение scale_low, scale_high и freq_cutoff, но не описывает насыщение прямоугольной маски, обход при одной ветви conditioning и работу по двум последним осям."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/FreSca/ru.md",
+        "assessment": "Сохраняет параметры и экспериментальный контекст; обещания качества не переносились без полного прогона модели."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 корневых графах и всех рекурсивных subgraphs FreSca встречается 0 раз; официальный topology/widgets preset отсутствует."
+      },
+      {
+        "id": "arxiv-2504.02154-fresca-method",
+        "role": "Первичная работа задаёт раздельное масштабирование низких и высоких частот разности предсказаний; точный фиксированный прямоугольный cutoff проверен по pinned-реализации ComfyUI."
+      },
+      {
+        "id": "synthetic-exact-source-fresca-probe",
+        "role": "AST-извлечённый exact-source probe подтвердил ветвление pre-CFG, сохранение дополнительных ветвей, dtype и 5D-формы, насыщение cutoff на чётной сетке и внешний частотный обод на нечётной."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official wheel 0.1.42 не содержит FreSca; fragment построен по исходнику и runtime defaults, а не по официальному workflow.",
+    "Tensor probe не запускал диффузионную модель и не измерял изображения, видео, скорость или память ускорителя.",
+    "Совместимость конкретных моделей, выбор полезного cutoff и человеческое утверждение статьи ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

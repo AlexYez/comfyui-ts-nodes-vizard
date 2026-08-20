@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.fresca-source-default",
+  "title": "FreSca с low 1.0, high 1.25 и cutoff 20",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "fresca", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "fresca",
+      "classType": "FreSca",
+      "role": "Масштабировать low/high частоты conditional-unconditional guidance",
+      "settings": {"scale_low": 1.0, "scale_high": 1.25, "freq_cutoff": 20}
+    }
+  ],
+  "connections": []
+}

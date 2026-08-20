@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-merge-sdxl",
+  "node": {"classType": "ModelMergeSDXL", "pythonModule": "comfy_extras.nodes_model_merging_model_specific", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging_model_specific.py#L29-L53",
+        "path": "comfy_extras/nodes_model_merging_model_specific.py",
+        "lines": "29-53"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L138-L168",
+        "path": "comfy_extras/nodes_model_merging.py",
+        "lines": "138-168"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L842-L889",
+        "path": "comfy/model_patcher.py",
+        "lines": "842-889"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L501",
+        "path": "comfy/lora.py",
+        "lines": "438-501"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ModelMergeSDXL/en.md",
+        "assessment": "SHA-256 683ef9c22f64d4600b67ce318fb8a1a0970278709cb84ca2aececcb09f3155c2. Список полей совпадает, но нет направления коэффициента, обработки несопоставленных ключей и поведения форм."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ModelMergeSDXL/ru.md",
+        "assessment": "SHA-256 e777b01a1254c4b94cb05b9ecd7d1ffb75dbcb01c903ee0c00865ce6995951ff. Переводит model1/model2 и подписывает выход строчным model вместо точного типа MODEL из /object_info."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-model-merge-sdxl-zero-census",
+        "role": "Пакет SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3: 512 JSON, 496 корневых графов, 272 подграфа и 8120 нод; точный тип не встретился ни в одном графе или файле."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Закреплённый исходный код проверен на синтетических CPU-тензорах; реальные checkpoint SDXL и сэмплирование не запускались.",
+    "Официальной топологии и значений виджетов нет; учебный фрагмент основан на /object_info и исходном коде.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

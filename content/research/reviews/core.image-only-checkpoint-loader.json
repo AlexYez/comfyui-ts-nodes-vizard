@@ -1,0 +1,91 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-only-checkpoint-loader",
+  "node": {"classType": "ImageOnlyCheckpointLoader", "pythonModule": "comfy_extras.nodes_video_model", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video_model.py#L10-L23",
+        "path": "comfy_extras/nodes_video_model.py",
+        "lines": "10-23"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L2034-L2049",
+        "path": "comfy/sd.py",
+        "lines": "2034-2049"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L2101-L2201",
+        "path": "comfy/sd.py",
+        "lines": "2101-2201"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/clip_vision.py#L111-L156",
+        "path": "comfy/clip_vision.py",
+        "lines": "111-156"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L395-L468",
+        "path": "folder_paths.py",
+        "lines": "395-468"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ImageOnlyCheckpointLoader/en.md",
+        "assessment": "SHA-256 f63b047f5a7bbe58132136e794188f345482eba420d51baaf938719cfa3ca899. Три выхода и поиск контрольной точки описаны, но примеры Hunyuan3D, форматы, пути ошибок, None и пустые выходы пропущены."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ImageOnlyCheckpointLoader/ru.md",
+        "assessment": "SHA-256 50cfa90dc411b1785d37ddbbc9c64c68c2746af8e7e575811d1ddbc8685c2ed1. Переводит ckpt_name и чрезмерно сужает ноду до генерации видео; точный ключ и область применения сверены по /object_info и официальным графам."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-image-only-loader-census",
+        "role": "Полный обход 512 файлов JSON нашёл 5 точных экземпляров с mode=0 в корневых графах и ни одного в подграфах: один SVD-XT и четыре Hunyuan3D 2.x."
+      },
+      {
+        "id": "txt-to-image-to-video-loader",
+        "role": "Нода 15, svd_xt.safetensors: MODEL → VideoLinearCFGGuidance, CLIP_VISION и VAE → SVD_img2vid_Conditioning, VAE также → финальный VAEDecode."
+      },
+      {
+        "id": "hunyuan3d-v21-loader",
+        "role": "Нода 1, hunyuan_3d_v2.1.safetensors: MODEL → ModelSamplingAuraFlow, CLIP_VISION → CLIPVisionEncode, VAE → VAEDecodeHunyuan3D."
+      },
+      {
+        "id": "image-video-checkpoint-svg-exact-source-probe",
+        "role": "Извлечённый через AST точный загрузчик с тестовыми folder_paths и comfy.sd подтверждает фиксированные флаги, игнорирование формальных аргументов, перестановку кортежа и передачу ошибки пути без чтения весов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Настоящие контрольные точки SVD и Hunyuan3D не загружались; расход памяти, распознавание и качество выходов не измерялись.",
+    "Поведение с None и пустой заготовкой VAE подтверждено чтением общего загрузчика, но не воспроизведено запуском неподходящего многогигабайтного файла.",
+    "Общий фрагмент SVD заканчивается до сэмплера и не является полным рабочим процессом.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

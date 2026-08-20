@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.hunyuan3d-v2-multiview-official",
+  "locale": "ru",
+  "title": "Собрать Hunyuan3D v2 по переднему и заднему ракурсам",
+  "summary": "Повторяет активные ветви переднего и заднего видов из официального 3d_hunyuan3d_multiview_to_model и проводит их через подготовку условий, KSampler и VAE до VoxelToMesh.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.hunyuan3d-v2-conditioning-multiview", "core.empty-latent-hunyuan3d-v2", "core.vae-decode-hunyuan3d"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "совместимые MODEL, CLIP_VISION и VAE многоракурсной Hunyuan3D v2",
+    "согласованные изображения переднего и заднего ракурсов",
+    "один и тот же CLIP_VISION для обеих ветвей"
+  ],
+  "fragment": {"id": "fragment.hunyuan3d-v2-multiview-official", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка закреплённых исходников, серверной схемы и точной топологии активных ветвей переднего и заднего видов из официального 3d_hunyuan3d_multiview_to_model; тензорные методы проверены без весов, полный фрагмент не исполнялся, human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Официальный шаблон 3d_hunyuan3d_multiview_to_model из пакета 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Hunyuan3Dv2ConditioningMultiView в ComfyUI 0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan3d.py#L58-L92",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

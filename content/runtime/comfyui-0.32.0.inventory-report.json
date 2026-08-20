@@ -1,0 +1,1565 @@
+{
+  "$schema": "../schemas/backend-inventory-report.schema.v1.json",
+  "schemaVersion": "1.0",
+  "inventoryId": "comfyui.backend.0.32.0.c2bcbecd",
+  "source": {
+    "repository": "https://github.com/Comfy-Org/ComfyUI",
+    "tag": "v0.32.0",
+    "commit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "backendVersion": "0.32.0"
+  },
+  "snapshot": {
+    "path": "comfyui-0.32.0.object-info.json",
+    "sha256": "ee3818989fc5dfe7e8888a704f64e2c449b4c582cf1ca70417c85fb6b051b700",
+    "size": 1495075
+  },
+  "counts": {
+    "rawNodeCount": 840,
+    "userServerNodeCount": 840,
+    "excludedNodeCount": 0,
+    "devOnlyNodeCount": 0,
+    "testNodeCount": 0,
+    "pythonModuleCount": 166
+  },
+  "rawFlags": {
+    "api": 220,
+    "experimental": 137,
+    "deprecated": 31,
+    "devOnly": 0
+  },
+  "userServerFlags": {
+    "api": 220,
+    "experimental": 137,
+    "deprecated": 31,
+    "devOnly": 0
+  },
+  "userServerFlagCombinations": {
+    "api": 203,
+    "api+deprecated": 17,
+    "deprecated": 12,
+    "experimental": 135,
+    "experimental+deprecated": 2,
+    "standard": 471
+  },
+  "userServerFlagOverlaps": {
+    "api_node+deprecated": 17,
+    "api_node+dev_only": 0,
+    "api_node+experimental": 0,
+    "deprecated+dev_only": 0,
+    "experimental+deprecated": 2,
+    "experimental+dev_only": 0
+  },
+  "excluded": {
+    "devOnlyNodeIds": [],
+    "testNodeIds": [],
+    "unionNodeIds": []
+  },
+  "pythonModules": [
+    {
+      "module": "nodes",
+      "nodeCount": 65
+    },
+    {
+      "module": "comfy_extras.nodes_custom_sampler",
+      "nodeCount": 37
+    },
+    {
+      "module": "comfy_extras.nodes_dataset",
+      "nodeCount": 35
+    },
+    {
+      "module": "comfy_extras.nodes_audio",
+      "nodeCount": 20
+    },
+    {
+      "module": "comfy_extras.nodes_hooks",
+      "nodeCount": 20
+    },
+    {
+      "module": "comfy_api_nodes.nodes_kling",
+      "nodeCount": 19
+    },
+    {
+      "module": "comfy_api_nodes.nodes_recraft",
+      "nodeCount": 18
+    },
+    {
+      "module": "comfy_extras.nodes_images",
+      "nodeCount": 18
+    },
+    {
+      "module": "comfy_extras.nodes_wan",
+      "nodeCount": 18
+    },
+    {
+      "module": "comfy_extras.nodes_lt",
+      "nodeCount": 17
+    },
+    {
+      "module": "comfy_extras.nodes_model_merging_model_specific",
+      "nodeCount": 16
+    },
+    {
+      "module": "comfy_api_nodes.nodes_luma",
+      "nodeCount": 15
+    },
+    {
+      "module": "comfy_extras.nodes_string",
+      "nodeCount": 15
+    },
+    {
+      "module": "comfy_api_nodes.nodes_bytedance",
+      "nodeCount": 14
+    },
+    {
+      "module": "comfy_api_nodes.nodes_wan",
+      "nodeCount": 14
+    },
+    {
+      "module": "comfy_extras.nodes_latent",
+      "nodeCount": 14
+    },
+    {
+      "module": "comfy_api_nodes.nodes_bfl",
+      "nodeCount": 13
+    },
+    {
+      "module": "comfy_api_nodes.nodes_vidu",
+      "nodeCount": 13
+    },
+    {
+      "module": "comfy_extras.nodes_mask",
+      "nodeCount": 13
+    },
+    {
+      "module": "comfy_api_nodes.nodes_tripo",
+      "nodeCount": 12
+    },
+    {
+      "module": "comfy_extras.nodes_hunyuan",
+      "nodeCount": 11
+    },
+    {
+      "module": "comfy_extras.nodes_model_advanced",
+      "nodeCount": 11
+    },
+    {
+      "module": "comfy_extras.nodes_model_merging",
+      "nodeCount": 11
+    },
+    {
+      "module": "comfy_extras.nodes_post_processing",
+      "nodeCount": 10
+    },
+    {
+      "module": "comfy_api_nodes.nodes_elevenlabs",
+      "nodeCount": 8
+    },
+    {
+      "module": "comfy_api_nodes.nodes_gemini",
+      "nodeCount": 8
+    },
+    {
+      "module": "comfy_extras.nodes_flux",
+      "nodeCount": 8
+    },
+    {
+      "module": "comfy_extras.nodes_gaussian_splat",
+      "nodeCount": 8
+    },
+    {
+      "module": "comfy_api_nodes.nodes_grok",
+      "nodeCount": 7
+    },
+    {
+      "module": "comfy_api_nodes.nodes_meshy",
+      "nodeCount": 7
+    },
+    {
+      "module": "comfy_api_nodes.nodes_openai",
+      "nodeCount": 7
+    },
+    {
+      "module": "comfy_api_nodes.nodes_rodin",
+      "nodeCount": 7
+    },
+    {
+      "module": "comfy_api_nodes.nodes_runway",
+      "nodeCount": 7
+    },
+    {
+      "module": "comfy_extras.nodes_model_patch",
+      "nodeCount": 7
+    },
+    {
+      "module": "comfy_api_nodes.nodes_bria",
+      "nodeCount": 6
+    },
+    {
+      "module": "comfy_api_nodes.nodes_hunyuan3d",
+      "nodeCount": 6
+    },
+    {
+      "module": "comfy_api_nodes.nodes_minimax",
+      "nodeCount": 6
+    },
+    {
+      "module": "comfy_extras.nodes_hunyuan3d",
+      "nodeCount": 6
+    },
+    {
+      "module": "comfy_extras.nodes_load_3d",
+      "nodeCount": 6
+    },
+    {
+      "module": "comfy_extras.nodes_video",
+      "nodeCount": 6
+    },
+    {
+      "module": "comfy_extras.nodes_video_model",
+      "nodeCount": 6
+    },
+    {
+      "module": "comfy_extras.nodes_void",
+      "nodeCount": 6
+    },
+    {
+      "module": "comfy_api_nodes.nodes_heygen",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_api_nodes.nodes_ltxv",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_api_nodes.nodes_magnific",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_extras.nodes_ace",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_extras.nodes_logic",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_extras.nodes_lt_audio",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_extras.nodes_moge",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_extras.nodes_primitive",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_extras.nodes_sd3",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_extras.nodes_seedvr",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_extras.nodes_wanmove",
+      "nodeCount": 5
+    },
+    {
+      "module": "comfy_api_nodes.nodes_pixverse",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_api_nodes.nodes_topaz",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_attention_multiply",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_depth_anything_3",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_mediapipe",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_minimax_h3",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_multigpu",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_sam3",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_save_3d",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_sdpose",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_stable_cascade",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_train",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_triposplat",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_extras.nodes_wandancer",
+      "nodeCount": 4
+    },
+    {
+      "module": "comfy_api_nodes.nodes_ideogram",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_api_nodes.nodes_reve",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_api_nodes.nodes_veo2",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_advanced_samplers",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_ar_video",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_compositing",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_compositor",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_context_windows",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_cosmos",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_hidream_o1",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_kandinsky5",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_morphology",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_qwen",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_extras.nodes_stable3d",
+      "nodeCount": 3
+    },
+    {
+      "module": "comfy_api_nodes.nodes_beeble",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_api_nodes.nodes_hitpaw",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_api_nodes.nodes_krea",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_api_nodes.nodes_quiver",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_api_nodes.nodes_qwen",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_api_nodes.nodes_sonilo",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_api_nodes.nodes_sync_so",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_api_nodes.nodes_wavespeed",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_audio_encoder",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_bg_removal",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_cfg",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_chroma_radiance",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_clip_sdxl",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_cond",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_controlnet",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_curve",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_easycache",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_eps",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_frame_interpolation",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_freelunch",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_hidream",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_lora_debug",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_lumina2",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_perpneg",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_photomaker",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_rebatch",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_rtdetr",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_scail",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_slg",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_textgen",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_extras.nodes_upscale_model",
+      "nodeCount": 2
+    },
+    {
+      "module": "comfy_api_nodes.nodes_anthropic",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_api_nodes.nodes_bytedance_llm",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_api_nodes.nodes_openrouter",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_api_nodes.nodes_sora",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_align_your_steps",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_apg",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_bernini",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_boogu",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_bounding_boxes",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_camera_trajectory",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_canny",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_color",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_differential_diffusion",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_edit_model",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_fresca",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_gits",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_glsl",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_hypernetwork",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_hypertile",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_ideogram4",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_image_compare",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_ip2p",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_joyimage",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_json_prompt",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_lora_extract",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_lotus",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_lt_upsampler",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_mage",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_mahiro",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_math",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_mochi",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_model_downscale",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_nag",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_nop",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_number_convert",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_optimalsteps",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_pag",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_painter",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_pid",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_pixart",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_preview_any",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_resolution",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_rope",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_sag",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_sdupscale",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_seed",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_tcfg",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_text",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_text_overlay",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_tomesd",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_toolkit",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_torch_compile",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_webcam",
+      "nodeCount": 1
+    },
+    {
+      "module": "comfy_extras.nodes_zimage",
+      "nodeCount": 1
+    }
+  ],
+  "userServerNodeIds": [
+    "APG",
+    "ARVideoI2V",
+    "AddLayer",
+    "AddNoise",
+    "AddTextPrefix",
+    "AddTextSuffix",
+    "AdjustBrightness",
+    "AdjustContrast",
+    "AlignYourStepsScheduler",
+    "AnimaLLLiteApply",
+    "AudioAdjustVolume",
+    "AudioConcat",
+    "AudioEncoderEncode",
+    "AudioEncoderLoader",
+    "AudioEqualizer3Band",
+    "AudioMerge",
+    "BasicGuider",
+    "BasicScheduler",
+    "BatchImagesNode",
+    "BatchLatentsNode",
+    "BatchMasksNode",
+    "BeebleSwitchXImageEdit",
+    "BeebleSwitchXVideoEdit",
+    "BerniniConditioning",
+    "BetaSamplingScheduler",
+    "BriaImageEditNode",
+    "BriaRemoveImageBackground",
+    "BriaRemoveVideoBackground",
+    "BriaTransparentVideoBackground",
+    "BriaVideoGreenScreen",
+    "BriaVideoReplaceBackground",
+    "BuildJsonPromptIdeogram",
+    "ByteDance2FirstLastFrameNode",
+    "ByteDance2ReferenceNode",
+    "ByteDance2TextToVideoNode",
+    "ByteDanceCreateImageAsset",
+    "ByteDanceCreateVideoAsset",
+    "ByteDanceFirstLastFrameNode",
+    "ByteDanceImageNode",
+    "ByteDanceImageReferenceNode",
+    "ByteDanceImageToVideoNode",
+    "ByteDanceSeedAudio",
+    "ByteDanceSeedNode",
+    "ByteDanceSeedreamLayerSeparationNode",
+    "ByteDanceSeedreamNode",
+    "ByteDanceSeedreamNodeV2",
+    "ByteDanceTextToVideoNode",
+    "CFGGuider",
+    "CFGNorm",
+    "CFGOverride",
+    "CFGZeroStar",
+    "CLIPAttentionMultiply",
+    "CLIPLoader",
+    "CLIPMergeAdd",
+    "CLIPMergeSimple",
+    "CLIPMergeSubtract",
+    "CLIPSave",
+    "CLIPSetLastLayer",
+    "CLIPTextEncode",
+    "CLIPTextEncodeControlnet",
+    "CLIPTextEncodeFlux",
+    "CLIPTextEncodeHiDream",
+    "CLIPTextEncodeHunyuanDiT",
+    "CLIPTextEncodeKandinsky5",
+    "CLIPTextEncodeLumina2",
+    "CLIPTextEncodePixArtAlpha",
+    "CLIPTextEncodeSD3",
+    "CLIPTextEncodeSDXL",
+    "CLIPTextEncodeSDXLRefiner",
+    "CLIPVisionEncode",
+    "CLIPVisionLoader",
+    "Canny",
+    "CaseConverter",
+    "CenterCropImages",
+    "CheckpointLoader",
+    "CheckpointLoaderSimple",
+    "CheckpointSave",
+    "ChromaRadianceOptions",
+    "ClaudeNode",
+    "ColorToRGBInt",
+    "ColorTransfer",
+    "CombineHooks2",
+    "CombineHooks4",
+    "CombineHooks8",
+    "ComfyAndNode",
+    "ComfyMathExpression",
+    "ComfyNotNode",
+    "ComfyNumberConvert",
+    "ComfyOrNode",
+    "ComfySwitchNode",
+    "ConditioningAverage",
+    "ConditioningCombine",
+    "ConditioningConcat",
+    "ConditioningMultiply",
+    "ConditioningSetArea",
+    "ConditioningSetAreaPercentage",
+    "ConditioningSetAreaPercentageVideo",
+    "ConditioningSetAreaStrength",
+    "ConditioningSetDefaultCombine",
+    "ConditioningSetMask",
+    "ConditioningSetProperties",
+    "ConditioningSetPropertiesAndCombine",
+    "ConditioningSetTimestepRange",
+    "ConditioningStableAudio",
+    "ConditioningTimestepsRange",
+    "ConditioningZeroOut",
+    "ContextWindowsManual",
+    "ControlNetApply",
+    "ControlNetApplyAdvanced",
+    "ControlNetApplySD3",
+    "ControlNetInpaintingAliMamaApply",
+    "ControlNetLoader",
+    "ConvertArrayToString",
+    "ConvertDictionaryToString",
+    "CosmosImageToVideoLatent",
+    "CosmosPredict2ImageToVideoLatent",
+    "CreateBoundingBoxes",
+    "CreateCameraInfo",
+    "CreateHookKeyframe",
+    "CreateHookKeyframesFromFloats",
+    "CreateHookKeyframesInterpolated",
+    "CreateHookLora",
+    "CreateHookLoraModelOnly",
+    "CreateHookModelAsLora",
+    "CreateHookModelAsLoraModelOnly",
+    "CreateList",
+    "CreateVideo",
+    "CropByBBoxes",
+    "CropMask",
+    "CurveEditor",
+    "CustomCombo",
+    "DA3GeometryToMesh",
+    "DA3Inference",
+    "DA3Render",
+    "DiffControlNetLoader",
+    "DifferentialDiffusion",
+    "DiffusersLoader",
+    "DisableNoise",
+    "DrawBBoxes",
+    "DualCFGGuider",
+    "DualCLIPLoader",
+    "DualModelGuider",
+    "EasyCache",
+    "ElevenLabsAudioIsolation",
+    "ElevenLabsInstantVoiceClone",
+    "ElevenLabsSpeechToSpeech",
+    "ElevenLabsSpeechToText",
+    "ElevenLabsTextToDialogue",
+    "ElevenLabsTextToSoundEffects",
+    "ElevenLabsTextToSpeech",
+    "ElevenLabsVoiceSelector",
+    "EmptyARVideoLatent",
+    "EmptyAceStep1.5LatentAudio",
+    "EmptyAceStepLatentAudio",
+    "EmptyAudio",
+    "EmptyChromaRadianceLatentImage",
+    "EmptyCosmosLatentVideo",
+    "EmptyFlux2LatentImage",
+    "EmptyHiDreamO1LatentImage",
+    "EmptyHunyuanImageLatent",
+    "EmptyHunyuanLatentVideo",
+    "EmptyHunyuanVideo15Latent",
+    "EmptyImage",
+    "EmptyLTXVLatentVideo",
+    "EmptyLatentAudio",
+    "EmptyLatentHunyuan3Dv2",
+    "EmptyLatentImage",
+    "EmptyMiniMaxH3LatentAV",
+    "EmptyMochiLatentVideo",
+    "EmptyQwenImageLayeredLatentImage",
+    "EmptySD3LatentImage",
+    "Epsilon Scaling",
+    "ExponentialScheduler",
+    "ExtendIntermediateSigmas",
+    "FeatherMask",
+    "File3DToSplat",
+    "FlipSigmas",
+    "Flux2ImageNode",
+    "Flux2MaxImageNode",
+    "Flux2ProImageNode",
+    "Flux2Scheduler",
+    "Flux3ImageToVideoNode",
+    "Flux3TextToVideoNode",
+    "Flux3VideoContinuationNode",
+    "FluxDisableGuidance",
+    "FluxEraseNode",
+    "FluxGuidance",
+    "FluxKVCache",
+    "FluxKontextImageScale",
+    "FluxKontextMaxImageNode",
+    "FluxKontextMultiReferenceLatentMethod",
+    "FluxKontextProImageNode",
+    "FluxProExpandNode",
+    "FluxProFillNode",
+    "FluxProUltraImageNode",
+    "FluxVTONode",
+    "FrameInterpolate",
+    "FrameInterpolationModelLoader",
+    "FreSca",
+    "FreeU",
+    "FreeU_V2",
+    "GITSScheduler",
+    "GLIGENLoader",
+    "GLIGENTextBoxApply",
+    "GLSLShader",
+    "GeminiImage2Node",
+    "GeminiImageNode",
+    "GeminiInputFiles",
+    "GeminiNanoBanana2",
+    "GeminiNanoBanana2V2",
+    "GeminiNode",
+    "GeminiNodeV2",
+    "GeminiVideoOmni",
+    "GenerateTracks",
+    "GetICLoRAParameters",
+    "GetImageSize",
+    "GetSplatCount",
+    "GetVideoComponents",
+    "GrokImageEditNode",
+    "GrokImageEditNodeV2",
+    "GrokImageNode",
+    "GrokVideoEditNode",
+    "GrokVideoExtendNode",
+    "GrokVideoNode",
+    "GrokVideoReferenceNode",
+    "GrowMask",
+    "HappyHorseImageToVideoApi",
+    "HappyHorseReferenceVideoApi",
+    "HappyHorseTextToVideoApi",
+    "HappyHorseVideoEditApi",
+    "HeyGenAvatarVideoNode",
+    "HeyGenCreateAvatarNode",
+    "HeyGenTalkingPhotoNode",
+    "HeyGenTextToSpeechNode",
+    "HeyGenVideoTranslateNode",
+    "HiDreamO1PatchSeamSmoothing",
+    "HiDreamO1ReferenceImages",
+    "HitPawGeneralImageEnhance",
+    "HitPawVideoEnhance",
+    "Hunyuan3Dv2Conditioning",
+    "Hunyuan3Dv2ConditioningMultiView",
+    "HunyuanImageToVideo",
+    "HunyuanRefinerLatent",
+    "HunyuanVideo15ImageToVideo",
+    "HunyuanVideo15LatentUpscaleWithModel",
+    "HunyuanVideo15SuperResolution",
+    "HyperTile",
+    "HypernetworkLoader",
+    "Ideogram4Scheduler",
+    "IdeogramPImage",
+    "IdeogramV3",
+    "IdeogramV4",
+    "ImageAddNoise",
+    "ImageBatch",
+    "ImageBlend",
+    "ImageBlur",
+    "ImageColorToMask",
+    "ImageCompare",
+    "ImageCompositeMasked",
+    "ImageCompositor",
+    "ImageCrop",
+    "ImageCropV2",
+    "ImageDeduplication",
+    "ImageFlip",
+    "ImageFromBatch",
+    "ImageGrid",
+    "ImageHistogram",
+    "ImageInvert",
+    "ImageMergeTileList",
+    "ImageOnlyCheckpointLoader",
+    "ImageOnlyCheckpointSave",
+    "ImagePadForOutpaint",
+    "ImageQuantize",
+    "ImageRGBToYUV",
+    "ImageRotate",
+    "ImageScale",
+    "ImageScaleBy",
+    "ImageScaleToMaxDimension",
+    "ImageScaleToTotalPixels",
+    "ImageSharpen",
+    "ImageStitch",
+    "ImageToMask",
+    "ImageUpscaleWithModel",
+    "ImageYUVToRGB",
+    "InpaintModelConditioning",
+    "InstructPixToPixConditioning",
+    "InvertMask",
+    "JoinAudioChannels",
+    "JoinImageWithAlpha",
+    "JsonExtractString",
+    "KSampler",
+    "KSamplerAdvanced",
+    "KSamplerSelect",
+    "Kandinsky5ImageToVideo",
+    "KarrasScheduler",
+    "KlingAvatarNode",
+    "KlingFirstLastFrameNode",
+    "KlingImage2VideoNode",
+    "KlingImageGenerationNode",
+    "KlingImageToVideoWithAudio",
+    "KlingLipSyncAudioToVideoNode",
+    "KlingLipSyncTextToVideoNode",
+    "KlingMotionControl",
+    "KlingOmniProEditVideoNode",
+    "KlingOmniProFirstLastFrameNode",
+    "KlingOmniProImageNode",
+    "KlingOmniProImageToVideoNode",
+    "KlingOmniProTextToVideoNode",
+    "KlingOmniProVideoToVideoNode",
+    "KlingStartEndFrameNode",
+    "KlingTextToVideoNode",
+    "KlingTextToVideoWithAudio",
+    "KlingVideoExtendNode",
+    "KlingVideoNode",
+    "Krea2ImageNode",
+    "Krea2StyleReferenceNode",
+    "LTXAVTextEncoderLoader",
+    "LTXVAddGuide",
+    "LTXVAudioVAEDecode",
+    "LTXVAudioVAEEncode",
+    "LTXVAudioVAELoader",
+    "LTXVConcatAVLatent",
+    "LTXVConditioning",
+    "LTXVContextWindows",
+    "LTXVCropGuides",
+    "LTXVDualCFGGuider",
+    "LTXVDurationPredictor",
+    "LTXVEmptyLatentAudio",
+    "LTXVImgToVideo",
+    "LTXVImgToVideoInplace",
+    "LTXVLatentUpsampler",
+    "LTXVModalityGuidance",
+    "LTXVPreprocess",
+    "LTXVReferenceAudio",
+    "LTXVScheduler",
+    "LTXVSeparateAVLatent",
+    "LTXVSpatioTemporalGuidance",
+    "LaplaceScheduler",
+    "LatentAdd",
+    "LatentApplyOperation",
+    "LatentApplyOperationCFG",
+    "LatentBatch",
+    "LatentBatchSeedBehavior",
+    "LatentBlend",
+    "LatentComposite",
+    "LatentCompositeMasked",
+    "LatentConcat",
+    "LatentCrop",
+    "LatentCut",
+    "LatentCutToBatch",
+    "LatentFlip",
+    "LatentFromBatch",
+    "LatentInterpolate",
+    "LatentMultiply",
+    "LatentOperationSharpen",
+    "LatentOperationTonemapReinhard",
+    "LatentRotate",
+    "LatentSubtract",
+    "LatentUpscale",
+    "LatentUpscaleBy",
+    "LatentUpscaleModelLoader",
+    "LayersFromBoundingBoxes",
+    "LazyCache",
+    "Load3D",
+    "Load3DAdvanced",
+    "LoadAudio",
+    "LoadBackgroundRemovalModel",
+    "LoadDA3Model",
+    "LoadImage",
+    "LoadImageDataSetFromFolder",
+    "LoadImageMask",
+    "LoadImageOutput",
+    "LoadImageTextDataSetFromFolder",
+    "LoadLatent",
+    "LoadMediaPipeFaceLandmarker",
+    "LoadMoGeModel",
+    "LoadTrainingDataset",
+    "LoadVideo",
+    "LoadVideoDataSetFromFolder",
+    "LoadVideoTextDataSetFromFolder",
+    "LoraLoader",
+    "LoraLoaderBypass",
+    "LoraLoaderBypassModelOnly",
+    "LoraLoaderModelOnly",
+    "LoraModelLoader",
+    "LoraSave",
+    "LossGraphNode",
+    "LotusConditioning",
+    "LtxApi25AudioToVideo",
+    "LtxApi25ImageToVideo",
+    "LtxApi25TextToVideo",
+    "LtxvApiImageToVideo",
+    "LtxvApiTextToVideo",
+    "LumaConceptsNode",
+    "LumaImageEditNode2",
+    "LumaImageModifyNode",
+    "LumaImageNode",
+    "LumaImageNode2",
+    "LumaImageToVideoNode",
+    "LumaRay32ExtendVideoNode",
+    "LumaRay32ImageToVideoNode",
+    "LumaRay32KeyframeNode",
+    "LumaRay32KeyframesToVideoNode",
+    "LumaRay32TextToVideoNode",
+    "LumaRay32VideoEditNode",
+    "LumaRay32VideoReframeNode",
+    "LumaReferenceNode",
+    "LumaVideoNode",
+    "MagnificImageRelightNode",
+    "MagnificImageSkinEnhancerNode",
+    "MagnificImageStyleTransferNode",
+    "MagnificImageUpscalerCreativeNode",
+    "MagnificImageUpscalerPreciseV2Node",
+    "Mahiro",
+    "MakeTrainingDataset",
+    "ManualSigmas",
+    "MaskComposite",
+    "MaskPreview",
+    "MaskToImage",
+    "MediaPipeFaceLandmarker",
+    "MediaPipeFaceMask",
+    "MediaPipeFaceMeshVisualize",
+    "MergeImageLists",
+    "MergeSplat",
+    "MergeTextLists",
+    "MeshyAnimateModelNode",
+    "MeshyImageToModelNode",
+    "MeshyMultiImageToModelNode",
+    "MeshyRefineNode",
+    "MeshyRigModelNode",
+    "MeshyTextToModelNode",
+    "MeshyTextureNode",
+    "MiniMaxH3ImageToVideo",
+    "MiniMaxH3ReferenceToVideo",
+    "MiniMaxH3SigmaShift",
+    "MinimaxHailuo03FirstLastFrameNode",
+    "MinimaxHailuo03ReferenceNode",
+    "MinimaxHailuo03TextToVideoNode",
+    "MinimaxHailuoVideoNode",
+    "MinimaxImageToVideoNode",
+    "MinimaxTextToVideoNode",
+    "MoGeInference",
+    "MoGePanoramaInference",
+    "MoGePointMapToMesh",
+    "MoGeRender",
+    "ModelAttentionBackend",
+    "ModelComputeDtype",
+    "ModelMergeAdd",
+    "ModelMergeAuraflow",
+    "ModelMergeBlocks",
+    "ModelMergeCosmos14B",
+    "ModelMergeCosmos7B",
+    "ModelMergeCosmosPredict2_14B",
+    "ModelMergeCosmosPredict2_2B",
+    "ModelMergeFlux1",
+    "ModelMergeKrea2",
+    "ModelMergeLTXV",
+    "ModelMergeMochiPreview",
+    "ModelMergeQwenImage",
+    "ModelMergeSD1",
+    "ModelMergeSD2",
+    "ModelMergeSD35_Large",
+    "ModelMergeSD3_2B",
+    "ModelMergeSDXL",
+    "ModelMergeSimple",
+    "ModelMergeSubtract",
+    "ModelMergeWAN2_1",
+    "ModelNoiseScale",
+    "ModelPatchLoader",
+    "ModelSamplingAuraFlow",
+    "ModelSamplingContinuousEDM",
+    "ModelSamplingContinuousV",
+    "ModelSamplingDiscrete",
+    "ModelSamplingFlux",
+    "ModelSamplingLTXV",
+    "ModelSamplingSD3",
+    "ModelSamplingStableCascade",
+    "ModelSave",
+    "Morphology",
+    "MultiGPU_WorkUnits",
+    "NAGuidance",
+    "NormalizeImages",
+    "NormalizeVideoLatentStart",
+    "OpenAIChatConfig",
+    "OpenAIChatNode",
+    "OpenAIDalle2",
+    "OpenAIDalle3",
+    "OpenAIGPTImage1",
+    "OpenAIGPTImageNodeV2",
+    "OpenAIInputFiles",
+    "OpenAIVideoSora2",
+    "OpenRouterLLMNode",
+    "OpticalFlowLoader",
+    "OptimalStepsScheduler",
+    "Painter",
+    "PairConditioningCombine",
+    "PairConditioningSetDefaultCombine",
+    "PairConditioningSetProperties",
+    "PairConditioningSetPropertiesAndCombine",
+    "PatchModelAddDownscale",
+    "PerpNeg",
+    "PerpNegGuider",
+    "PerturbedAttentionGuidance",
+    "PhotoMakerEncode",
+    "PhotoMakerLoader",
+    "PiDConditioning",
+    "PixverseImageToVideoNode",
+    "PixverseTemplateNode",
+    "PixverseTextToVideoNode",
+    "PixverseTransitionVideoNode",
+    "PolyexponentialScheduler",
+    "PorterDuffImageComposite",
+    "Preview3D",
+    "Preview3DAdvanced",
+    "PreviewAny",
+    "PreviewAudio",
+    "PreviewGaussianSplat",
+    "PreviewImage",
+    "PreviewPointCloud",
+    "PrimitiveBoolean",
+    "PrimitiveBoundingBox",
+    "PrimitiveFloat",
+    "PrimitiveInt",
+    "PrimitiveString",
+    "PrimitiveStringMultiline",
+    "QuadrupleCLIPLoader",
+    "QuiverImageToSVGNode",
+    "QuiverTextToSVGNode",
+    "QwenImageDiffsynthControlnet",
+    "QwenImageEditApi",
+    "QwenImageTextToImageApi",
+    "RTDETR_detect",
+    "RandomCropImages",
+    "RandomNoise",
+    "RebatchImages",
+    "RebatchLatents",
+    "RecordAudio",
+    "RecraftColorRGB",
+    "RecraftControls",
+    "RecraftCreateStyleNode",
+    "RecraftCreativeUpscaleNode",
+    "RecraftCrispUpscaleNode",
+    "RecraftImageInpaintingNode",
+    "RecraftImageToImageNode",
+    "RecraftRemoveBackgroundNode",
+    "RecraftReplaceBackgroundNode",
+    "RecraftStyleV3DigitalIllustration",
+    "RecraftStyleV3InfiniteStyleLibrary",
+    "RecraftStyleV3LogoRaster",
+    "RecraftStyleV3RealisticImage",
+    "RecraftTextToImageNode",
+    "RecraftTextToVectorNode",
+    "RecraftV4TextToImageNode",
+    "RecraftV4TextToVectorNode",
+    "RecraftVectorizeImageNode",
+    "ReferenceLatent",
+    "ReferenceTimbreAudio",
+    "RegexExtract",
+    "RegexMatch",
+    "RegexReplace",
+    "RemoveBackground",
+    "RenderSplat",
+    "RenormCFG",
+    "RepeatImageBatch",
+    "RepeatLatentBatch",
+    "ReplaceText",
+    "ReplaceVideoLatentFrames",
+    "RescaleCFG",
+    "ResizeAndPadImage",
+    "ResizeImageMaskNode",
+    "ResizeImagesByLongerEdge",
+    "ResizeImagesByShorterEdge",
+    "ResolutionBucket",
+    "ResolutionSelector",
+    "ReveImageCreateNode",
+    "ReveImageEditNode",
+    "ReveImageRemixNode",
+    "Rodin3D_Detail",
+    "Rodin3D_Gen2",
+    "Rodin3D_Gen25_Image",
+    "Rodin3D_Gen25_Text",
+    "Rodin3D_Regular",
+    "Rodin3D_Sketch",
+    "Rodin3D_Smooth",
+    "RunwayAleph2KeyframeNode",
+    "RunwayAleph2PromptImageNode",
+    "RunwayAleph2VideoToVideoNode",
+    "RunwayFirstLastFrameNode",
+    "RunwayImageToVideoNodeGen3a",
+    "RunwayImageToVideoNodeGen4",
+    "RunwayTextToImageNode",
+    "SAM3_Detect",
+    "SAM3_TrackPreview",
+    "SAM3_TrackToMask",
+    "SAM3_VideoTrack",
+    "SCAIL2ColoredMask",
+    "SDPoseDrawKeypoints",
+    "SDPoseFaceBBoxes",
+    "SDPoseKeypointExtractor",
+    "SDTurboScheduler",
+    "SD_4XUpscale_Conditioning",
+    "SUPIRApply",
+    "SV3D_Conditioning",
+    "SVD_img2vid_Conditioning",
+    "SamplerARVideo",
+    "SamplerCustom",
+    "SamplerCustomAdvanced",
+    "SamplerDPMAdaptative",
+    "SamplerDPMPP_2M_SDE",
+    "SamplerDPMPP_2S_Ancestral",
+    "SamplerDPMPP_3M_SDE",
+    "SamplerDPMPP_SDE",
+    "SamplerER_SDE",
+    "SamplerEulerAncestral",
+    "SamplerEulerAncestralCFGPP",
+    "SamplerEulerCFGpp",
+    "SamplerLCM",
+    "SamplerLCMUpscale",
+    "SamplerLMS",
+    "SamplerSASolver",
+    "SamplerSEEDS2",
+    "SamplingPercentToSigma",
+    "Save3DAdvanced",
+    "SaveAnimatedPNG",
+    "SaveAnimatedWEBP",
+    "SaveAudio",
+    "SaveAudioAdvanced",
+    "SaveAudioMP3",
+    "SaveAudioOpus",
+    "SaveGLB",
+    "SaveGaussianSplat",
+    "SaveImage",
+    "SaveImageAdvanced",
+    "SaveImageDataSetToFolder",
+    "SaveImageTextDataSetToFolder",
+    "SaveLatent",
+    "SaveLoRA",
+    "SavePointCloud",
+    "SaveSVGNode",
+    "SaveText",
+    "SaveTrainingDataset",
+    "SaveVideo",
+    "SaveWEBM",
+    "ScaleROPE",
+    "SeedNode",
+    "SeedVR2Conditioning",
+    "SeedVR2PostProcessing",
+    "SeedVR2Preprocess",
+    "SeedVR2TemporalChunk",
+    "SeedVR2TemporalMerge",
+    "SelectCLIPDevice",
+    "SelectModelDevice",
+    "SelectVAEDevice",
+    "SelfAttentionGuidance",
+    "SetClipHooks",
+    "SetFirstSigma",
+    "SetHookKeyframes",
+    "SetLatentNoiseMask",
+    "SetUnionControlNetType",
+    "ShuffleDataset",
+    "ShuffleImageTextDataset",
+    "ShuffleVideoDataset",
+    "ShuffleVideoTextDataset",
+    "SkipLayerGuidanceDiT",
+    "SkipLayerGuidanceDiTSimple",
+    "SkipLayerGuidanceSD3",
+    "SolidMask",
+    "SoniloTextToMusic",
+    "SoniloVideoToMusic",
+    "SplatToFile3D",
+    "SplatToMesh",
+    "SplitAudioChannels",
+    "SplitImageToTileList",
+    "SplitImageWithAlpha",
+    "SplitSigmas",
+    "SplitSigmasDenoise",
+    "StableCascade_EmptyLatentImage",
+    "StableCascade_StageB_Conditioning",
+    "StableCascade_StageC_VAEEncode",
+    "StableCascade_SuperResolutionControlnet",
+    "StableZero123_Conditioning",
+    "StableZero123_Conditioning_Batched",
+    "StringCompare",
+    "StringConcatenate",
+    "StringContains",
+    "StringFormat",
+    "StringLength",
+    "StringReplace",
+    "StringSubstring",
+    "StringTrim",
+    "StripWhitespace",
+    "StyleModelApply",
+    "StyleModelLoader",
+    "SyncLipSyncNode",
+    "SyncTalkingImageNode",
+    "T5TokenizerOptions",
+    "TCFG",
+    "TemporalScoreRescaling",
+    "Tencent3DPartNode",
+    "Tencent3DTextureEditNode",
+    "TencentImageToModelNode",
+    "TencentModelTo3DUVNode",
+    "TencentSmartTopologyNode",
+    "TencentTextToModelNode",
+    "TextEncodeAceStepAudio",
+    "TextEncodeAceStepAudio1.5",
+    "TextEncodeBooguEdit",
+    "TextEncodeHunyuanVideo_ImageToVideo",
+    "TextEncodeJoyImageEdit",
+    "TextEncodeMageFlowEdit",
+    "TextEncodeQwenImageEdit",
+    "TextEncodeQwenImageEditPlus",
+    "TextEncodeZImageOmni",
+    "TextGenerate",
+    "TextGenerateLTX2Prompt",
+    "TextOverlay",
+    "TextToLowercase",
+    "TextToUppercase",
+    "ThresholdMask",
+    "TomePatchModel",
+    "TopazImageEnhance",
+    "TopazImageEnhanceV2",
+    "TopazVideoEnhance",
+    "TopazVideoEnhanceV2",
+    "TorchCompileModel",
+    "TrainLoraNode",
+    "TransformSplat",
+    "TrimAudioDuration",
+    "TrimVideoLatent",
+    "TripleCLIPLoader",
+    "TripoConversionNode",
+    "TripoImageToModelNode",
+    "TripoImportModelNode",
+    "TripoMultiviewToModelNode",
+    "TripoP1ImageToModelNode",
+    "TripoP1MultiviewToModelNode",
+    "TripoP1TextToModelNode",
+    "TripoRefineNode",
+    "TripoRetargetNode",
+    "TripoRigNode",
+    "TripoSplatConditioning",
+    "TripoSplatPreprocessImage",
+    "TripoSplatSamplingPreview",
+    "TripoTextToModelNode",
+    "TripoTextureNode",
+    "TruncateText",
+    "UNETLoader",
+    "UNetCrossAttentionMultiply",
+    "UNetSelfAttentionMultiply",
+    "UNetTemporalAttentionMultiply",
+    "USOStyleReference",
+    "UpscaleModelLoader",
+    "VAEDecode",
+    "VAEDecodeAudio",
+    "VAEDecodeAudioTiled",
+    "VAEDecodeHunyuan3D",
+    "VAEDecodeTiled",
+    "VAEDecodeTripoSplat",
+    "VAEEncode",
+    "VAEEncodeAudio",
+    "VAEEncodeForInpaint",
+    "VAEEncodeTiled",
+    "VAELoader",
+    "VAESave",
+    "VOIDInpaintConditioning",
+    "VOIDQuadmaskPreprocess",
+    "VOIDSampler",
+    "VOIDWarpedNoise",
+    "VOIDWarpedNoiseSource",
+    "VPScheduler",
+    "Veo3FirstLastFrameNode",
+    "Veo3VideoGenerationNode",
+    "VeoVideoGenerationNode",
+    "Video Slice",
+    "VideoFrameSample",
+    "VideoLinearCFGGuidance",
+    "VideoRandomTemporalCrop",
+    "VideoTemporalCrop",
+    "VideoTriangleCFGGuidance",
+    "Vidu2ImageToVideoNode",
+    "Vidu2ReferenceVideoNode",
+    "Vidu2StartEndToVideoNode",
+    "Vidu2TextToVideoNode",
+    "Vidu3ImageToVideoNode",
+    "Vidu3StartEndToVideoNode",
+    "Vidu3TextToVideoNode",
+    "ViduExtendVideoNode",
+    "ViduImageToVideoNode",
+    "ViduMultiFrameVideoNode",
+    "ViduReferenceVideoNode",
+    "ViduStartEndToVideoNode",
+    "ViduTextToVideoNode",
+    "VoxelToMesh",
+    "VoxelToMeshBasic",
+    "Wan22FunControlToVideo",
+    "Wan22ImageToVideoLatent",
+    "Wan2ImageToVideoApi",
+    "Wan2ReferenceVideoApi",
+    "Wan2TextToVideoApi",
+    "Wan2VideoContinuationApi",
+    "Wan2VideoEditApi",
+    "WanAnimate2Cache",
+    "WanAnimate2ToVideo",
+    "WanAnimateToVideo",
+    "WanCameraEmbedding",
+    "WanCameraImageToVideo",
+    "WanContextWindowsManual",
+    "WanDancerEncodeAudio",
+    "WanDancerPadKeyframes",
+    "WanDancerPadKeyframesList",
+    "WanDancerVideo",
+    "WanFirstLastFrameToVideo",
+    "WanFunControlToVideo",
+    "WanFunInpaintToVideo",
+    "WanHuMoImageToVideo",
+    "WanImageToImageApi",
+    "WanImageToVideo",
+    "WanImageToVideoApi",
+    "WanInfiniteTalkToVideo",
+    "WanMoveConcatTrack",
+    "WanMoveTrackToVideo",
+    "WanMoveTracksFromCoords",
+    "WanMoveVisualizeTracks",
+    "WanPhantomSubjectToVideo",
+    "WanReferenceVideoApi",
+    "WanSCAILToVideo",
+    "WanSoundImageToVideo",
+    "WanSoundImageToVideoExtend",
+    "WanTextToImageApi",
+    "WanTextToVideoApi",
+    "WanTrackToVideo",
+    "WanUni3CControlnetApply",
+    "WanVaceToVideo",
+    "WavespeedFlashVSRNode",
+    "WavespeedImageUpscaleNode",
+    "WebcamCapture",
+    "ZImageFunControlnet",
+    "unCLIPCheckpointLoader",
+    "unCLIPConditioning",
+    "wanBlockSwap"
+  ]
+}

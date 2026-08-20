@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.svd-img2vid-conditioning",
+  "node": {"classType": "SVD_img2vid_Conditioning", "pythonModule": "comfy_extras.nodes_video_model", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video_model.py#L26-L57",
+        "path": "comfy_extras/nodes_video_model.py",
+        "lines": "26-57"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L1069-L1101",
+        "path": "comfy/utils.py",
+        "lines": "1069-1101"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/clip_vision.py#L63-L83",
+        "path": "comfy/clip_vision.py",
+        "lines": "63-83"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L535-L580",
+        "path": "comfy/model_base.py",
+        "lines": "535-580"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_replacements.py#L81-L86",
+        "path": "comfy_extras/nodes_replacements.py",
+        "lines": "81-86"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SVD_img2vid_Conditioning/en.md",
+        "assessment": "SHA-256 35ee8b4bc02668ba2ff72b04b8c6e4e88f0765da2faf17ea231a6c8f616713cb. Порты и диапазоны совпадают; ветви исходного и изменённого изображения, fps-1, ошибка RGBA при добавлении шума и риск нехватки памяти не описаны."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SVD_img2vid_Conditioning/ru.md",
+        "assessment": "SHA-256 bf074caa02ca44a637332eb7c64a3d719538762f776af4e9a4876e7791139e6a. Переводит точные имена входов. В пакете документации также есть устаревший каталог SvdImg2vidConditioning, который не является NodeId."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-svd-conditioning-census",
+        "role": "Полный обход 512 файлов JSON нашёл ровно один SVD_img2vid_Conditioning: нода 12 в корневом графе txt_to_image_to_video, mode=0; старый ID с SDV и вхождения в подграфах отсутствуют."
+      },
+      {
+        "id": "txt-to-image-to-video-svd-conditioning",
+        "role": "Точные значения виджетов [1024,576,25,127,6,0]; загрузчик передаёт CLIP_VISION/VAE, предыдущий VAEDecode — IMAGE, три выхода идут в KSampler. Последующий CreateVideo хранит отдельную частоту кадров 10."
+      },
+      {
+        "id": "image-video-checkpoint-svg-exact-source-probe",
+        "role": "Извлечённый через AST точный класс с малыми тензорами PyTorch подтверждает исходное изображение 12×16 для CLIP, центральную обрезку строк 2–9 до цели 8×16 для VAE, структуры positive/negative/latent, случайную ветвь и несовпадение формы RGBA при добавлении шума без модели."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Синтетическая проба проверяет точные тензорные ветви с тестовыми CLIP/VAE, но не запускает контрольную точку SVD или сэмплер.",
+    "Влияние motion_bucket_id и augmentation_level на качество и движение модели не оценивалось.",
+    "Общий фрагмент заканчивается до сэмплирования, декодирования и сохранения видео.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

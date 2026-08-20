@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.combine-two-latent-batches-legacy",
+  "locale": "ru",
+  "title": "Старое объединение двух LATENT-батчей",
+  "summary": "Диагностический fragment для deprecated LatentBatch: два внешних LATENT подключаются к samples1 и samples2 без выдуманного полного workflow.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.latent-batch"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия, где доступен deprecated LatentBatch",
+    "Два LATENT совместимого модельного формата",
+    "Ручная проверка spatial-формы, noise_mask и batch_index"
+  ],
+  "fragment": {
+    "id": "fragment.combine-two-latent-batches-legacy",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source/runtime, deprecation and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "Deprecated LatentBatch in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L259-L287",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Current BatchLatentsNode in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L553-L630",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.flux-dual-text-conditioning", "title": "Flux dual-text conditioning",
+  "externalInputs": [{"id": "dual_clip", "type": "CLIP", "to": "encode", "input": "clip"}],
+  "nodes": [{"ref": "encode", "classType": "CLIPTextEncodeFlux", "role": "Кодировать отдельные CLIP-L и T5XXL prompts", "settings": {"clip_l": "объект, стиль, свет", "t5xxl": "Подробное описание сцены, композиции и нужных деталей.", "guidance": 3.5}}],
+  "connections": []
+}

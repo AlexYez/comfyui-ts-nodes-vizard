@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.z-image-model-only-lora",
+  "title": "Z-Image Turbo с pixel-art model-only LoRA",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "model",
+      "classType": "UNETLoader",
+      "role": "Загрузить Z-Image Turbo diffusion model",
+      "settings": {
+        "unet_name": "z_image_turbo_bf16.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "ref": "lora",
+      "classType": "LoraLoaderModelOnly",
+      "role": "Добавить pixel-art LoRA только к MODEL",
+      "settings": {
+        "lora_name": "pixel_art_style_z_image_turbo.safetensors",
+        "strength_model": 1.0
+      }
+    }
+  ],
+  "connections": [
+    { "from": "model", "output": "MODEL", "to": "lora", "input": "model" }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.gligen-text-box-apply",
+  "node": {
+    "classType": "GLIGENTextBoxApply",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1211-L1240",
+        "path": "nodes.py",
+        "lines": "1211-1240"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/gligen.py#L198-L244",
+        "path": "comfy/gligen.py",
+        "lines": "198-244"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L103-L113",
+        "path": "comfy/samplers.py",
+        "lines": "103-113"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/GligenTextBoxApply/en.md",
+        "assessment": "AI-generated документ правильно описывает pixel-facing x/y/width/height, но не раскрывает //8, tuple order, unprojected pooled embedding, append и 30-object limit."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/GligenTextBoxApply/ru.md",
+        "assessment": "Перевод локализует runtime port names и остаётся общим; exact metadata semantics взята из source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Просмотрены 512 JSON, все root nodes и 272 subgraphs; GLIGENTextBoxApply отсутствует."
+      },
+      {
+        "id": "isolated-pinned-gligen-text-box-metadata-probe",
+        "role": "Exact class подтвердил tokenize/return_pooled=unprojected, tuple order, integer division, copied metadata, tensor identity и append under latest model."
+      },
+      {
+        "id": "pinned-gligen-sampler-static-audit",
+        "role": "Exact set_position и sampler consumer проверены на xyxy normalization, latent shape, max_objs 30 и middle_patch."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В official workflow bundle 0.1.42 нет GLIGENTextBoxApply, поэтому fragment не основан на official topology.",
+    "Metadata probe не запускал CLIP weights, GLIGEN patcher или sampler.",
+    "Fragment не импортировался и не выполнялся end-to-end.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

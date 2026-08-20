@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-image-advanced",
+  "node": {"classType": "SaveImageAdvanced", "pythonModule": "comfy_extras.nodes_images", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L842-L1238", "path": "comfy_extras/nodes_images.py", "lines": "842-1238"}
+    ],
+    "embeddedDocs": [
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/SaveImageAdvanced/ru.md", "assessment": "Верно перечисляет dynamic format, bit depth и color-space branches; source дополнительно проверен для channel counts, clamp, metadata offsets и per-batch filenames."},
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/SaveImageAdvanced/en.md", "assessment": "Использовано как вторичное AI-generated описание; точные transforms и encode behavior взяты из pinned source."}
+    ],
+    "workflows": [
+      {"id": "api_bytedance_seedream_5_0_layer_separation", "role": "Workflow 7d136772-0647-4a55-bd62-7e9c36c41a0b: JoinImageWithAlpha № 31 → SaveImageAdvanced № 23, prefix layers/image_layer, png/8-bit/sRGB."},
+      {"id": "workflow-templates-0142-exhaustive-save-image-advanced", "role": "Recursive scan: 20 exact SaveImageAdvanced, все root/mode 0, 20 files, 13 distinct workflow UUID; все widgets выбирают png/8-bit/sRGB, zero 16-bit PNG and EXR."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "PyAV >=16 отсутствует в рабочем Python; попытка установки истекла по timeout, поэтому `_encode_image` PNG/EXR не исполнялся.",
+    "Из pinned AST выполнены sRGB/HLG transforms и PNG metadata injection; это не заменяет codec/output-directory execution.",
+    "Официальный wheel не содержит 16-bit PNG или EXR case; fragment source-derived и не исполнялся. Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.checkpoint-loader",
+  "node": { "classType": "CheckpointLoader", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L595-L611",
+        "path": "nodes.py",
+        "lines": "595-611"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L2010-L2032",
+        "path": "comfy/sd.py",
+        "lines": "2010-2032"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L24-L27",
+        "path": "folder_paths.py",
+        "lines": "24-27"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/CheckpointLoader/ru.md",
+        "assessment": "Входы, выходы и deprecated-статус верны. Утверждение, что YAML определяет архитектуру, не соответствует 0.32.0: source сначала вызывает guess-config, затем использует только parameterization=v и cond_stage_config.params.layer_idx."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/CheckpointLoader/en.md",
+        "assessment": "English AI-generated text has the same architecture-overstatement as the Russian locale."
+      }
+    ],
+    "workflows": []
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exhaustive scan of 512 workflow JSON found no CheckpointLoader instance, so the fragment is source-derived rather than an official case.",
+    "No matching legacy YAML/checkpoint pair was installed or executed; migration behavior was not measured on weights.",
+    "The baseline Node Replacement API contains no CheckpointLoader mapping; CheckpointLoaderSimple is an editorial alternative, not a declared automatic replacement."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.stable-zero123-conditioning",
+  "node": {
+    "classType": "StableZero123_Conditioning",
+    "pythonModule": "comfy_extras.nodes_stable3d",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable3d.py#L7-L61",
+        "path": "comfy_extras/nodes_stable3d.py",
+        "lines": "7-61"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L612-L640",
+        "path": "comfy/model_base.py",
+        "lines": "612-640"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/clip_model.py#L6-L23",
+        "path": "comfy/clip_model.py",
+        "lines": "6-23"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L1069-L1101",
+        "path": "comfy/utils.py",
+        "lines": "1069-1101"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/StableZero123_Conditioning/en.md",
+        "assessment": "SHA-256 2ea6e68e9b5c5907039042d4f4afbc9c54df3854b7c5abf720bbc2685dd6cbf0. Основные порты и форма latent верны; два пути обработки изображения, ограничение одним init_image и отсутствие batch_index не описаны."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/StableZero123_Conditioning/ru.md",
+        "assessment": "SHA-256 059c377b64b8e1ca8d7505f11f911e534e980d4ea40462457caa3e2eb93fad08. Системные имена портов переведены, а height и elevation оба названы «высота»; точные identifiers и ограничения восстановлены по runtime и коду."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "Просмотрены 512 JSON, 496 root workflow, 4083 root nodes, 272 subgraph и 4037 subgraph nodes; 0 raw-string и 0 node.type вхождений exact ID."
+      },
+      {
+        "id": "synthetic-exact-source-stable3d-conditioning-probe",
+        "role": "Прямой метод с RGBA 1×37×61×4 подтвердил VAE RGB 1×40×56×3, camera vector, positive 1×1×(D+4), negative 1×1×D, latent 3×4×5×7 без batch_index и ошибку формы для двух init images."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В официальном workflow wheel 0.1.42 нет topology или widgets для этой ноды; рецепт составлен только по runtime-схеме и закреплённому исходному коду.",
+    "Проба использовала заглушки CLIP Vision и VAE; совместимый checkpoint Stable Zero123, sampler и decode не запускались.",
+    "Пиковая память и время полного Stable Zero123 прохода не измерялись.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

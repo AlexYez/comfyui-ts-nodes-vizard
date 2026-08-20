@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-image-advanced-png16",
+  "locale": "ru",
+  "title": "Сохранить IMAGE как 16-bit PNG",
+  "summary": "Настраивает source-derived ветку SaveImageAdvanced для PNG 16-bit sRGB и оставляет RGB/RGBA IMAGE внешним; официальный wheel 0.1.42 показывает только 8-bit PNG.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.save-image-advanced"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия с PyAV >= 16", "Одно-, трёх- или четырёхканальный IMAGE-бэтч"],
+  "fragment": {"id": "fragment.save-image-advanced-png16", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned-source and runtime review; source-derived fragment schema and non-codec branches checked, PyAV 16-bit codec execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "SaveImageAdvanced in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L842-L1238",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

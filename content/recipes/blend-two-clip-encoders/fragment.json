@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.blend-two-clip-encoders",
+  "title": "70% clip1 + 30% clip2",
+  "externalInputs": [
+    {"id": "clip_primary", "type": "CLIP", "to": "blend", "input": "clip1"},
+    {"id": "clip_secondary", "type": "CLIP", "to": "blend", "input": "clip2"}
+  ],
+  "nodes": [
+    {"ref": "blend", "classType": "CLIPMergeSimple", "role": "Смешать общие веса совместимых text encoders", "settings": {"ratio": 0.7}}
+  ],
+  "connections": []
+}

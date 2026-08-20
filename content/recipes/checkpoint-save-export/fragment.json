@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.checkpoint-save-export",
+  "title": "Внешние MODEL + CLIP + VAE → checkpoint safetensors",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "save", "input": "model"},
+    {"id": "clip", "type": "CLIP", "to": "save", "input": "clip"},
+    {"id": "vae", "type": "VAE", "to": "save", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "CheckpointSave",
+      "role": "Записать совместимый комплект компонентов одним нумерованным safetensors-файлом",
+      "settings": {"filename_prefix": "checkpoints/wizard-merged"}
+    }
+  ],
+  "connections": []
+}

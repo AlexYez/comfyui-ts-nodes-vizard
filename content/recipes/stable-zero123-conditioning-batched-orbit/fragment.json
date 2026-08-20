@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.stable-zero123-conditioning-batched-orbit",
+  "title": "Stable Zero123: восемь горизонтальных ракурсов",
+  "externalInputs": [
+    {"id": "clip_vision", "type": "CLIP_VISION", "to": "condition", "input": "clip_vision"},
+    {"id": "init_image", "type": "IMAGE", "to": "condition", "input": "init_image"},
+    {"id": "vae", "type": "VAE", "to": "condition", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "condition",
+      "classType": "StableZero123_Conditioning_Batched",
+      "role": "Построить восемь camera embeddings без повторения угла 360°",
+      "settings": {
+        "width": 256,
+        "height": 256,
+        "batch_size": 8,
+        "elevation": 0.0,
+        "azimuth": 0.0,
+        "elevation_batch_increment": 0.0,
+        "azimuth_batch_increment": 45.0
+      }
+    }
+  ],
+  "connections": []
+}

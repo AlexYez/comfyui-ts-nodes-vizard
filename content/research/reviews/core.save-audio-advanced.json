@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-audio-advanced",
+  "node": {
+    "classType": "SaveAudioAdvanced",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L251-L294",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "251-294"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_ui.py#L260-L390",
+        "path": "comfy_api/latest/_ui.py",
+        "lines": "260-390"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L520-L566",
+        "path": "folder_paths.py",
+        "lines": "520-566"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveAudioAdvanced/en.md",
+        "assessment": "AI-generated документ верно перечисляет FLAC, MP3, Opus и quality choices, но пропускает подключаемый AUDIO output, batch-цикл, Opus resample и channel-layout limitation."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON: шесть SaveAudioAdvanced в шести root-файлах, все mode Always и MP3 V0; FLAC, Opus и bitrate-варианты отсутствуют."
+      },
+      {
+        "id": "api-sonilo-v2m#9132f036-0cbe-44bb-9948-c8d1348ec66b/node-728",
+        "role": "SaveAudioAdvanced пишет audio/Sonilo MP3 V0 и единственный в bundle использует AUDIO passthrough во вход extra_audio подграфа Video Audio Merger."
+      },
+      {
+        "id": "isolated-pinned-save-audio-encoders-probe",
+        "role": "Штатный helper исполнил все format/quality варианты: batch 2 дал два FLAC, MP3 сохранил 44100 Гц, Opus пересчитал 44100→48000; mono Opus 320k был отвергнут libopus, stereo 320k прошёл."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment принимает внешний AUDIO и не исполнялся как полный граф; отдельно проверен pinned saver helper с синтетическим waveform.",
+    "Официальные workflow подтверждают только MP3 V0; остальные форматы и quality options подтверждены source/runtime и изолированным прогоном.",
+    "V0, bitrate-варианты и FLAC не проходили субъективное сравнение качества или анализ loudness; отказ mono Opus 320k подтверждён закреплённым окружением, но может зависеть от encoder build.",
+    "Поведение metadata проверено по source, но содержимое container metadata отдельным тестом не сверялось; человеческое одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

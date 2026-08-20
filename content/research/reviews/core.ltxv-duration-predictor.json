@@ -1,0 +1,75 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-duration-predictor",
+  "node": {
+    "classType": "LTXVDurationPredictor",
+    "pythonModule": "comfy_extras.nodes_lt",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L1123-L1174",
+        "path": "comfy_extras/nodes_lt.py",
+        "lines": "1123-1174"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/lightricks/duration_head.py#L25-L81",
+        "path": "comfy/ldm/lightricks/duration_head.py",
+        "lines": "25-81"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_patch.py#L229-L336",
+        "path": "comfy_extras/nodes_model_patch.py",
+        "lines": "229-336"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/lightricks/av_model.py#L583-L600",
+        "path": "comfy/ldm/lightricks/av_model.py",
+        "lines": "583-600"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "Просмотрены 512 JSON, 496 root и 768 root/subgraph графов; exact LTXVDurationPredictor и verified duration-head filename не найдены."
+      },
+      {
+        "id": "synthetic-exact-source-ltxv-duration-predictor-probe",
+        "role": "Точный execute с подклассом настоящего DurationHead подтвердил выбор первого conditioning batch, unprocessed metadata flag, split video/audio tokens, float32 head inputs, raw seconds и conversion 30s→473 frames при defaults."
+      },
+      {
+        "id": "synthetic-exact-duration-head-grid-boundary-probe",
+        "role": "Проверены below/inside/above clamps, tight cap и reversed bounds; tight 0.5…0.5s при 24fps возвращает 12, то есть cap может не принадлежать grid 8k+1."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В embedded docs 0.5.9 нет страницы exact NodeId ни для en, ни для ru.",
+    "Official workflow wheel 0.1.42 не содержит exact case; recipe не закрепляет неизвестный filename model patch.",
+    "Проба использовала синтетический head без checkpoint weights и не выполняла полный downstream video workflow; VRAM и latency не измерялись.",
+    "Человеческое утверждение статьи и рецепта ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

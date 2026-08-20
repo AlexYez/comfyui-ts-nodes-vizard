@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.vae-encode-audio",
+  "node": {
+    "classType": "VAEEncodeAudio",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L66-L95",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "66-95"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VAEEncodeAudio/en.md",
+        "assessment": "Файл SHA-256 468585af70048b163b827e2d335834be57c60b910cef3b70273e097b45cfbfb9 верно описывает назначение и автоматический resample, но не разбирает порядок осей и потерю дополнительных полей AUDIO."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/VAEEncodeAudio/ru.md",
+        "assessment": "Файл SHA-256 286613e48a1aa6a15a1e5ca70520be156f774b7b4515bf6960ba9599bc4f4d2a сверялся с реализацией; технические выводы статьи взяты из кода, а не из перевода."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "audio_ace_step_1_m2m_editing",
+        "role": "Полная перепись 512 JSON-файлов и вложенных subgraph нашла один корневой VAEEncodeAudio: LoadAudio подаёт AUDIO, выход LATENT идёт в KSampler рабочего процесса ACE-Step music-to-music."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Модель-независимый probe проверяет resample 8→16 кГц, перестановку BCT→BTC, форму аргумента fake VAE и samples-only результат; настоящий Audio VAE и полный recipe не запускались.",
+    "Официальный ACE-Step workflow изучен как сохранённый граф, но его checkpoint, sampler и audio VAE не исполнялись в этой проверке.",
+    "Поведение зависит от конкретного VAE: его допустимая форма latent, длина и потребление памяти без весов не измерялись.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-14"
+}

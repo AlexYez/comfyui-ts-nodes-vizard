@@ -1,0 +1,109 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.mask-compose-edge-control",
+  "title": "Составная маска: внешняя растушёвка и изменение контура",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "destination",
+      "classType": "SolidMask",
+      "role": "Создать полутоновое полотно результата",
+      "settings": {
+        "value": 0.5,
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "ref": "source",
+      "classType": "SolidMask",
+      "role": "Создать белый участок для наложения",
+      "settings": {
+        "value": 1.0,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "ref": "composite",
+      "classType": "MaskComposite",
+      "role": "Добавить белую source-маску к основе со смещением",
+      "settings": {
+        "x": 128,
+        "y": 128,
+        "operation": "add"
+      }
+    },
+    {
+      "ref": "feather",
+      "classType": "FeatherMask",
+      "role": "Ослабить составную маску у четырёх внешних краёв",
+      "settings": {
+        "left": 40,
+        "top": 40,
+        "right": 40,
+        "bottom": 40
+      }
+    },
+    {
+      "ref": "grow",
+      "classType": "GrowMask",
+      "role": "Отдельно расширить контур той же составной маски",
+      "settings": {
+        "expand": 16,
+        "tapered_corners": true
+      }
+    },
+    {
+      "ref": "feather_preview",
+      "classType": "MaskPreview",
+      "role": "Показать результат внешней растушёвки",
+      "settings": {}
+    },
+    {
+      "ref": "grow_preview",
+      "classType": "MaskPreview",
+      "role": "Показать результат расширения контура",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "destination",
+      "output": "MASK",
+      "to": "composite",
+      "input": "destination"
+    },
+    {
+      "from": "source",
+      "output": "MASK",
+      "to": "composite",
+      "input": "source"
+    },
+    {
+      "from": "composite",
+      "output": "MASK",
+      "to": "feather",
+      "input": "mask"
+    },
+    {
+      "from": "composite",
+      "output": "MASK",
+      "to": "grow",
+      "input": "mask"
+    },
+    {
+      "from": "feather",
+      "output": "MASK",
+      "to": "feather_preview",
+      "input": "mask"
+    },
+    {
+      "from": "grow",
+      "output": "MASK",
+      "to": "grow_preview",
+      "input": "mask"
+    }
+  ]
+}

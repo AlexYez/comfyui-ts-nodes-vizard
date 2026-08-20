@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.nag-guidance-source-default",
+  "title": "NAG с runtime-значениями 5.0, 0.5 и 1.5",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "nag", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "nag",
+      "classType": "NAGuidance",
+      "role": "Добавить normalized positive-negative attention guidance",
+      "settings": {"nag_scale": 5.0, "nag_alpha": 0.5, "nag_tau": 1.5}
+    }
+  ],
+  "connections": []
+}

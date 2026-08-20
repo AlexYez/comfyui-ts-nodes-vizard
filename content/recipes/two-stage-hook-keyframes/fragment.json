@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.two-stage-hook-keyframes",
+  "title": "HOOKS + две точки силы → SetHookKeyframes",
+  "externalInputs": [
+    {"id": "hooks", "type": "HOOKS", "to": "set-keyframes", "input": "hooks"}
+  ],
+  "nodes": [
+    {
+      "ref": "initial",
+      "classType": "CreateHookKeyframe",
+      "role": "Задать начальный множитель силы",
+      "settings": {"strength_mult": 1.0, "start_percent": 0.0}
+    },
+    {
+      "ref": "disable-half",
+      "classType": "CreateHookKeyframe",
+      "role": "Добавить отключение хука с середины диапазона",
+      "settings": {"strength_mult": 0.0, "start_percent": 0.5}
+    },
+    {
+      "ref": "set-keyframes",
+      "classType": "SetHookKeyframes",
+      "role": "Назначить двухточечное расписание внешним хукам",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "initial", "output": "HOOK_KF", "to": "disable-half", "input": "prev_hook_kf"},
+    {"from": "disable-half", "output": "HOOK_KF", "to": "set-keyframes", "input": "hook_kf"}
+  ]
+}

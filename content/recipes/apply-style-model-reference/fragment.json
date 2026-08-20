@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.apply-style-model-reference",
+  "title": "SigCLIP + Flux Redux — style tokens для CONDITIONING",
+  "externalInputs": [
+    {"id": "reference_image", "type": "IMAGE", "to": "vision_encode", "input": "image"},
+    {"id": "flux_conditioning", "type": "CONDITIONING", "to": "style_apply", "input": "conditioning"}
+  ],
+  "nodes": [
+    {
+      "ref": "vision_loader",
+      "classType": "CLIPVisionLoader",
+      "role": "Загрузить совместимый SigCLIP vision encoder",
+      "settings": {"clip_name": "sigclip_vision_patch14_384.safetensors"}
+    },
+    {
+      "ref": "vision_encode",
+      "classType": "CLIPVisionEncode",
+      "role": "Получить признаки reference IMAGE",
+      "settings": {"crop": "center"}
+    },
+    {
+      "ref": "style_loader",
+      "classType": "StyleModelLoader",
+      "role": "Загрузить Flux Redux projector",
+      "settings": {"style_model_name": "flux1-redux-dev.safetensors"}
+    },
+    {
+      "ref": "style_apply",
+      "classType": "StyleModelApply",
+      "role": "Добавить Redux-токены к Flux CONDITIONING",
+      "settings": {"strength": 1.0, "strength_type": "multiply"}
+    }
+  ],
+  "connections": [
+    {"from": "vision_loader", "output": "CLIP_VISION", "to": "vision_encode", "input": "clip_vision"},
+    {"from": "vision_encode", "output": "CLIP_VISION_OUTPUT", "to": "style_apply", "input": "clip_vision_output"},
+    {"from": "style_loader", "output": "STYLE_MODEL", "to": "style_apply", "input": "style_model"}
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.shuffle-video-text-seed-29",
+  "title": "ShuffleVideoTextDataset с seed 29",
+  "externalInputs": [
+    {
+      "id": "videos",
+      "type": "VIDEO",
+      "to": "shuffle_pairs",
+      "input": "videos"
+    },
+    {
+      "id": "texts",
+      "type": "STRING",
+      "to": "shuffle_pairs",
+      "input": "texts"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "shuffle_pairs",
+      "classType": "ShuffleVideoTextDataset",
+      "role": "Переставить видео и подписи по общим индексам",
+      "settings": {
+        "seed": 29
+      }
+    }
+  ],
+  "connections": []
+}

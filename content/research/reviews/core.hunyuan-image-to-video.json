@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.hunyuan-image-to-video",
+  "node": {"classType": "HunyuanImageToVideo", "pythonModule": "comfy_extras.nodes_hunyuan", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L313-L361",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "313-361"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L1361-L1389",
+        "path": "comfy/model_base.py",
+        "lines": "1361-1389"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/HunyuanImageToVideo/en.md",
+        "assessment": "SHA-256 a1f2d1a442aac9fe736e0d116a0f8a023c0b23bad02c136e968d00aa9e5eba18. Перечисляет три режима, но не различает точные служебные ключи, изменение только positive и отсутствие поля с масштабом латента."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/HunyuanImageToVideo/ru.md",
+        "assessment": "SHA-256 91745b9781c410c8c57be865e8d1c51e15d62f79ba9b861145f3bf6e01eab301. Переводит идентификаторы входов и описывает режимы без точной формы 16-канального латента."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-hunyuan-image-to-video-zero-census",
+        "role": "Во всех 512 JSON, 496 корневых графах и 272 подграфах точный NodeId и сырая строка HunyuanImageToVideo отсутствуют. Старые T2V-шаблоны не считаются доказательством I2V-применения."
+      },
+      {
+        "id": "hunyuan-video-conditioning-exact-source-probe",
+        "role": "Точный класс выполнен для v1 (concat), v2 (replace), custom и без start_image. Подтверждены служебные ключи, noise_mask, guiding_frame_index, ref_latent, формы и нулевые или заполненные участки samples."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-примера с точным NodeId нет; фрагмент выведен только из исходника и типов сокетов.",
+    "Совместимость трёх значений guidance_type с конкретными моделями не проверялась на весах.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

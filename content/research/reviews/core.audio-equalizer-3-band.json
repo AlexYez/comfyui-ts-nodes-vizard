@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.audio-equalizer-3-band",
+  "node": {"classType": "AudioEqualizer3Band", "pythonModule": "comfy_extras.nodes_audio", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L802-L864", "path": "comfy_extras/nodes_audio.py", "lines": "802-864"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/AudioEqualizer3Band/en.md", "assessment": "SHA-256 f0945dd3ff4892c90d85591b5b6a28c3ec38b7a9f2322f967e5986e301e45891; confirms three filter types, ranges and zero-gain skipping."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/AudioEqualizer3Band/ru.md", "assessment": "SHA-256 59ab659419d805ca9811e70d0fd1bcb2f26c6e99e3ee12e7805dc7cda99a8298; secondary terminology reference."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-scan", "role": "No exact AudioEqualizer3Band occurrence in 512 JSON, 496 root graphs and 272 subgraphs."},
+      {"id": "audio-editing-exact-class-probe", "role": "Direct execution checked each real biquad branch, low-mid-high order, zero-gain skipping, clone and empty/None branches, fixed shelf Q, output metadata and finite signal behavior."},
+      {"id": "torchaudio-2.11-filter-dependency-check", "role": "Pinned probe environment reported torchaudio 2.11.0+cpu; biquad calls lfilter with default clamp=True, verified with boosted sine signals."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "No exact official workflow case exists; the mild EQ fragment is explicitly an editorial source-derived preset.",
+    "No user audio was auditioned and no perceptual EQ judgment is claimed.",
+    "Clamp behavior is dependency-version-sensitive and was verified with torchaudio 2.11.0+cpu only.",
+    "The complete fragment was not executed; human editorial approval is pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

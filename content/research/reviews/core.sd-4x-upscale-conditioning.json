@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sd-4x-upscale-conditioning",
+  "node": {"classType": "SD_4XUpscale_Conditioning", "pythonModule": "comfy_extras.nodes_sdupscale", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sdupscale.py#L7-L52", "path": "comfy_extras/nodes_sdupscale.py", "lines": "7-52"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L642-L676", "path": "comfy/model_base.py", "lines": "642-676"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L1069-L1101", "path": "comfy/utils.py", "lines": "1069-1101"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/SD_4XUpscale_Conditioning/en.md", "assessment": "Назначение портов подтверждено. Утверждение о добавлении noise самой нодой уточнено: node сохраняет scalar, а SD_X4Upscaler consumer позже создаёт noise."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/SD_4XUpscale_Conditioning/ru.md", "assessment": "Локализация переводит exact identifiers и не описывает scale_ratio=0 edge. Контракт взят из /object_info и source."}
+    ],
+    "workflows": [
+      {"id": "full-wheel-census-0.1.42", "role": "Полный рекурсивный census 512 JSON, 496 root graphs и 272 subgraphs: SD_4XUpscale_Conditioning отсутствует как node type и как scalar/raw mention."}
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Source-derived fragment не имеет прямого official workflow case в wheel 0.1.42.",
+    "Synthetic probe проверил formulas, normalization path, metadata, CPU zero latent и scale_ratio=0 failure; настоящая SD x4 model не загружалась.",
+    "Параметры sampler и потребление памяти не измерялись end-to-end; human approval pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

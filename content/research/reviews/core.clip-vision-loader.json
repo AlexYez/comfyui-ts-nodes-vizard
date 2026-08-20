@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.clip-vision-loader",
+  "node": {
+    "classType": "CLIPVisionLoader",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1061-L1095",
+        "path": "nodes.py",
+        "lines": "1061-1095"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/clip_vision.py#L22-L163",
+        "path": "comfy/clip_vision.py",
+        "lines": "22-163"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ClipVisionLoader/en.md",
+        "assessment": "AI-generated документ правильно указывает model directory и выход, но не отделяет loader от crop/preprocessing и не перечисляет распознаваемые state-dict signatures."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ClipVisionLoader/ru.md",
+        "assessment": "Перевод локализует имя clip_name и сохраняет слишком общее описание; использован только как вторичный ориентир."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Просмотрены 512 JSON, все root nodes и 272 subgraphs: 25 CLIPVisionLoader в 21 файле и 15 разных top-level UUID, 10 root и 15 subgraph, все mode 0."
+      },
+      {
+        "id": "22fbfe6b-e7d7-4193-8409-8599b5dce771:sdxl_revision_text_prompts",
+        "role": "CLIPVisionLoader #39 с clip_vision_g.safetensors разветвлён на два CLIPVisionEncode с crop center и две последовательные unCLIPConditioning."
+      },
+      {
+        "id": "06010f12-03bc-41ce-86bd-14f321d5a152:flux_redux_model_example",
+        "role": "sigclip_vision_patch14_384.safetensors питает два encode и две последовательные StyleModelApply."
+      },
+      {
+        "id": "isolated-pinned-special-loader-dispatch-probe",
+        "role": "Exact class подтвердил folder group, path resolution, pass-through результата и точную invalid-model ошибку без чтения весов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "Vision weights не загружались; device, dtype и architecture detection проверены по exact source.",
+    "Topology official workflows проверена как сериализованный JSON, а не как успешный model run.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

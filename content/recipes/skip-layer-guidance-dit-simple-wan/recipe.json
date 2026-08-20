@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.skip-layer-guidance-dit-simple-wan",
+  "locale": "ru",
+  "title": "SkipLayerGuidanceDiTSimple в развилке Wan Dancer",
+  "summary": "ModelSamplingSD3 с shift 5 проходит через Simple SLG на double-блоке 9; patched MODEL подаётся в BasicScheduler и CFGGuider по topology официального subgraph.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.skip-layer-guidance-dit-simple"],
+  "requirements": ["ComfyUI 0.32.0", "Совместимый Wan Dancer MODEL", "Positive и negative CONDITIONING", "Остальные входы SamplerCustomAdvanced"],
+  "fragment": {"id": "fragment.skip-layer-guidance-dit-simple-wan", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema and official Wan Dancer topology review; model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SkipLayerGuidanceDiTSimple in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_slg.py#L91-L163",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates 0.1.42: video_wan_dancer",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

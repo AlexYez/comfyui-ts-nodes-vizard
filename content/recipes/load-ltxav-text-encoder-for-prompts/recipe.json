@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.load-ltxav-text-encoder-for-prompts",
+  "locale": "ru",
+  "title": "Загрузить LTXAV text encoder для двух prompt-ветвей",
+  "summary": "Официальная пара Gemma 3 12B FP4 и LTX 2.3 dev FP8 создаёт один CLIP, который разветвляется в positive и negative CLIPTextEncode.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxav-text-encoder-loader", "core.clip-text-encode"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "gemma_3_12B_it_fp4_mixed.safetensors в models/text_encoders",
+    "ltx-2.3-22b-dev-fp8.safetensors в models/checkpoints",
+    "Тексты positive и negative prompt"
+  ],
+  "fragment": {
+    "id": "fragment.load-ltxav-text-encoder-for-prompts",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, exact official loader and dual-CLIPTextEncode topology, argument capture and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "LTXAVTextEncoderLoader in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt_audio.py#L169-L211",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official Image and Speech to Video template",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/template_image_speech_to_video.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

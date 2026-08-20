@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.ltxv-conditioning",
+  "node": {"classType": "LTXVConditioning", "pythonModule": "comfy_extras.nodes_lt", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L543-L564", "path": "comfy_extras/nodes_lt.py", "lines": "543-564"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/node_helpers.py#L9-L23", "path": "node_helpers.py", "lines": "9-23"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/LTXVConditioning/en.md", "assessment": "SHA-256 0a33f5c6ef3c1d9472554bb5f26c724e1cd5d82adb5f2b13340a1f1dfd75fd15. Основное действие и диапазон точны; copy/overwrite semantics и отсутствие output-FPS control не раскрыты."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/LTXVConditioning/ru.md", "assessment": "SHA-256 ae02e5f40d05dc8b39a1af8c64a2824c27ba47d632096ab502434a5951dd8c32. Перевод использован только как справка; системные имена и факты сверены по runtime/source."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-ltxv-conditioning-census", "role": "Full census: 23 instances в 21 files, root2/subgraph21, mode0 22/mode4 1; widgets 25×16 и 24×7."},
+      {"id": "ltxv-image-to-video-conditioning-topology", "role": "Root node69 receives positive/negative from LTXVImgToVideo77, stores 25 fps, outputs both to SamplerCustom72."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Exact-class probe проверяет tensor identity, shallow metadata copy и overwrite без model execution.", "Нода не управляет FPS контейнера; end-to-end sync audio/video не выполнялся.", "Человеческое утверждение статьи и рецепта ещё не выполнено."],
+  "updatedAt": "2026-08-14"
+}

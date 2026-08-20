@@ -1,0 +1,50 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.combine-four-hooks-for-clip",
+  "locale": "ru",
+  "title": "Собрать четыре группы HOOKS перед CLIP-кодированием",
+  "summary": "CombineHooks4 собирает внешние группы A–D, SetClipHooks применяет их к CLIP без кодирования по расписанию, а CLIPTextEncode создаёт CONDITIONING.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.combine-hooks-4"],
+  "requirements": ["ComfyUI 0.32.0", "Хотя бы одна непустая группа HOOKS, всего до четырёх", "Совместимый CLIP", "Проверенные CLIP-патчи", "Последующий потребитель CONDITIONING"],
+  "fragment": {"id": "fragment.combine-four-hooks-for-clip", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка runtime и зафиксированных исходников; реальный CLIP не загружался, редактор пока не проверил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "CombineHooks4 в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L650-L677",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Равенство Hook и объединение HookGroup в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L82-L129",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Объединение HookGroup в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L287-L423",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "SetClipHooks в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L228-L259",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "CLIPTextEncode в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L56-L77",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

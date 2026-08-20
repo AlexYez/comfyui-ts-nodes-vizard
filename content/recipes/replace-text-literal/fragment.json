@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.replace-text-literal",
+  "title": "ReplaceText с тремя внешними строками",
+  "externalInputs": [
+    {"id": "texts", "type": "STRING", "to": "replace_text", "input": "texts"},
+    {"id": "find", "type": "STRING", "to": "replace_text", "input": "find"},
+    {"id": "replace", "type": "STRING", "to": "replace_text", "input": "replace"}
+  ],
+  "nodes": [
+    {
+      "ref": "replace_text",
+      "classType": "ReplaceText",
+      "role": "Заменить все неперекрывающиеся буквальные совпадения",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sampler-euler-ancestral-cfgpp",
+  "node": {"classType": "SamplerEulerAncestralCFGPP", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L514-L535",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "514-535"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L1266-L1307",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "1266-1307"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L68-L75",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "68-75"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerEulerAncestralCFGPP/en.md",
+        "assessment": "SHA-256 1dfe2c256b7b9f0803872fdaee2f4d030feb863c7c6744d624e816a130ffd323. AI-generated текст правильно перечисляет порты, но неточно называет eta регулировкой step size и не раскрывает CFG++ hook, noise_scale и terminal branch; эти факты взяты из source."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerEulerAncestralCFGPP/ru.md",
+        "assessment": "SHA-256 8603b4535f14f3e5de3e537c4daf4e8e5abaeda157a2e7e1dc6d7ab4643fa78a. Перевод содержит неестественные и неточные формулировки про CFG и ancestral; использован только как навигационная справка."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-sampler-euler-ancestral-cfgpp-zero-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3: 512 JSON, 496 root + 272 subgraph, 8120 nodes; exact type total/root/sub/files/UUID = 0/0/0/0/0."
+      },
+      {
+        "id": "template_image_speech_to_video",
+        "role": "Только соседний алгоритмический случай, не exact-нода: workflow dffbe35f-f46a-4e69-8de9-e6e510257dfd, subgraph 98fb87e2-23b5-4ecb-aacc-365912414a12, KSamplerSelect №298 ['euler_ancestral_cfg_pp'] link 652 → SamplerCustomAdvanced №291.sampler."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact node execute проверен с подставной ksampler-фабрикой, а get_ancestral_step — на синтетических scalar; underlying CFG++ loop с моделью не исполнялся.",
+    "В official wheel нет exact-ноды и её eta/s_noise widgets; соседний KSamplerSelect подтверждает только algorithm id и SAMPLER topology.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

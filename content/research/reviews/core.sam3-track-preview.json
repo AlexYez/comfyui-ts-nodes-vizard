@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sam3-track-preview",
+  "node": {
+    "classType": "SAM3_TrackPreview",
+    "pythonModule": "comfy_extras.nodes_sam3",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sam3.py#L315-L470",
+        "path": "comfy_extras/nodes_sam3.py",
+        "lines": "315-470"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SAM3_TrackPreview/en.md",
+        "assessment": "SHA-256 b26a3b61222d0b646caa69ede1dc5cb38e73b6723a6d3ae87140ad78175d660a; интерфейсный выход проверен."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SAM3_TrackPreview/ru.md",
+        "assessment": "SHA-256 6e77d17f286df93dcbc4cabe878a890c49b9e764c392c8202a2863f976973661; подробности кодирования уточнены."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-0142-zero-census",
+        "role": "В 768 официальных графах точных экземпляров нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Кодирование PyAV/H.264 не выполнялось; человеческое утверждение ещё не получено."
+  ],
+  "updatedAt": "2026-08-20"
+}

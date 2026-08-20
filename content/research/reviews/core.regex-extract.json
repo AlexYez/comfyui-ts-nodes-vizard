@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.regex-extract",
+  "node": {
+    "classType": "RegexExtract",
+    "pythonModule": "comfy_extras.nodes_string",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L298-L370",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "298-370"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/RegexExtract/en.md",
+        "assessment": "SHA-256 7a61615ae5166ff9fecefd5b603db142bac6fa5ecb4fa528dca1087fd607f771; modes verified."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/RegexExtract/ru.md",
+        "assessment": "SHA-256 636e5071dfd08d144c33c820160f17ec494ebf287a129a4b2f0330fec31c9422; tuple/group edges clarified."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-0142-regex-extract",
+        "role": "14 exact nodes; separator and --no patterns inspected."
+      },
+      {
+        "id": "exact-source-regex-probe",
+        "role": "Executed four modes, group 0/out-of-range, tuple findall and invalid regex."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Полные графы с языковыми моделями не выполнялись.",
+    "Человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-20"
+}

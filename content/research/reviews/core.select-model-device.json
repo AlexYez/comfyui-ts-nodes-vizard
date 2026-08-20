@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.select-model-device",
+  "node": {"classType": "SelectModelDevice", "pythonModule": "comfy_extras.nodes_multigpu", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_multigpu.py#L51-L231",
+        "path": "comfy_extras/nodes_multigpu.py",
+        "lines": "51-231"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_management.py#L246-L289",
+        "path": "comfy/model_management.py",
+        "lines": "246-289,1151-1176"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L506-L553",
+        "path": "comfy/model_patcher.py",
+        "lines": "506-553"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SelectModelDevice/en.md",
+        "assessment": "Raw SHA-256 32568246a508ea99e541d94e5c2c81d90763242de3f24a190f66ec02a142babf. AI-generated page is broadly aligned, but its gpu:0..gpu:7 table is illustrative rather than a source limit and output label differs from runtime MODEL."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SelectModelDevice/ru.md",
+        "assessment": "Raw SHA-256 f47fdc08471394a3b83241dbe4f24f8da4e44690e172d315d84cb366ca511333. AI-generated translation is secondary evidence; exact identifiers and clone/factory semantics were rechecked in source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-zero-census",
+        "role": "All 512 JSON, 496 roots and 272 subgraphs scanned. SelectModelDevice has 0 direct, raw and recursive scalar occurrences and no EN/RU index title."
+      },
+      {
+        "id": "isolated-exact-source-select-model-device-probe",
+        "role": "Exact helpers and execute method ran on synthetic patchers/devices; clone identity, gpu retarget, default restore, CPU, unavailable fallback, compute dtype and multigpu collision pruning were checked without model weights."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "No target occurrence exists in official workflow wheel 0.1.42; the shared fragment is source-derived.",
+    "No real loader factory, model weights, GPU memory movement or sampling consumer was executed.",
+    "The isolated probe cannot establish device performance or VRAM release timing.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

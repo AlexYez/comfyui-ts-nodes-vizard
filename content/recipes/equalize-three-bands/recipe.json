@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.equalize-three-bands",
+  "locale": "ru",
+  "title": "Мягкая трёхполосная коррекция",
+  "summary": "Source-derived preset слегка поднимает низ и верх, а среднюю полосу ослабляет; результат нужно оценивать на конкретном сигнале.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.audio-equalizer-3-band"],
+  "requirements": ["ComfyUI 0.32.0", "Экспериментальная нода AudioEqualizer3Band", "Вход AUDIO", "Прослушивание до и после обработки"],
+  "fragment": {"id": "fragment.equalize-three-bands", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, dependency behavior, exact-class signal probe and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "AudioEqualizer3Band in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L802-L864",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "TorchAudio functional filtering API 2.11",
+      "url": "https://docs.pytorch.org/audio/2.11.0/functional.html",
+      "publisher": "PyTorch",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

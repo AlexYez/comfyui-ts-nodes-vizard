@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-dual-cfg-official",
+  "locale": "ru",
+  "title": "Подать LTXV Dual CFG Guider в advanced sampler",
+  "summary": "Повторяет точную локальную ветвь пяти официальных LTX-2.5 subgraph: Dual CFG с widgets [1,1] направлен в SamplerCustomAdvanced.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-dual-cfg-guider", "core.sampler-custom-advanced"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "LTXV-AV MODEL и согласованные CONDITIONING",
+    "Nested audio-video LATENT и совместимый NOISE",
+    "SAMPLER и SIGMAS от LTX-2.5 sampling-ветви"
+  ],
+  "fragment": {"id": "fragment.ltxv-dual-cfg-official", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime and exhaustive official workflow topology/widgets review, model-free guider probe and Russian editorial pass; full LTXV-AV execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Official LTX-2.5 text-to-video workflow in templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_ltx2_5_t2v.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "LTXV Dual CFG implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L1053-L1120",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

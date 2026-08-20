@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.load-video-data-set-folder",
+  "locale": "ru",
+  "title": "Прочитать видео из выбранной подпапки",
+  "summary": "Одиночная LoadVideoDataSetFromFolder сортирует прямые MP4, AVI, MOV, WEBM, MKV и FLV и выдаёт ленивый список VIDEO без выдуманного downstream-workflow.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.load-video-data-set-from-folder"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Подпапка внутри input с поддерживаемыми видеофайлами верхнего уровня",
+    "Замена значения 3d на существующую локальную папку",
+    "Проверка декодируемости файлов перед долгой пакетной задачей"
+  ],
+  "fragment": {
+    "id": "fragment.load-video-data-set-folder",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, full workflow census, isolated synthetic temp-directory execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "LoadVideoDataSetFromFolder in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L285-L324",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

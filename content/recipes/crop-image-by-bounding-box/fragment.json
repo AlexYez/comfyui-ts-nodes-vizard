@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.crop-image-by-bounding-box",
+  "title": "PrimitiveBoundingBox управляет ImageCropV2",
+  "externalInputs": [
+    {
+      "id": "image",
+      "type": "IMAGE",
+      "to": "crop",
+      "input": "image"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "box",
+      "classType": "PrimitiveBoundingBox",
+      "role": "Описать прямоугольник от точки 64,64 размером 512 × 512",
+      "settings": {
+        "x": 64,
+        "y": 64,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "ref": "crop",
+      "classType": "ImageCropV2",
+      "role": "Вырезать область crop_region из внешнего IMAGE",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "box",
+      "output": "BOUNDING_BOX",
+      "to": "crop",
+      "input": "crop_region"
+    }
+  ]
+}

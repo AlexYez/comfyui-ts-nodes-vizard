@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.join-audio-channels",
+  "node": {"classType": "JoinAudioChannels", "pythonModule": "comfy_extras.nodes_audio", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L519-L590", "path": "comfy_extras/nodes_audio.py", "lines": "519-590"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/JoinAudioChannels/en.md", "assessment": "SHA-256 b0c5bbabae36b35a006cf51ce5de781b731995998522aef7f44f89a6ce4feebe; confirms mono inputs, rate matching and shorter-duration output."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/JoinAudioChannels/ru.md", "assessment": "SHA-256 df1966e0063a0d7b946445559f15b2a00cb98670c2be8b7c463fa82598665aee; secondary terminology reference."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-scan", "role": "No exact JoinAudioChannels occurrence in the complete 0.1.42 root and subgraph census."},
+      {"id": "audio-editing-exact-class-probe", "role": "Direct class execution checked mono validation, resample to the higher rate, trim to the shorter length, left/right order, empty tensors, None passthrough and metadata loss."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "No exact official template case exists; the catalog recipe is an editorial source-derived composition.",
+    "Resampling was exercised numerically but not evaluated in a listening test.",
+    "The complete recipe was not executed with user media; human approval is pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

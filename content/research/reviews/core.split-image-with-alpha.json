@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.split-image-with-alpha",
+  "node": {"classType": "SplitImageWithAlpha", "pythonModule": "comfy_extras.nodes_compositing", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_compositing.py#L164-L185", "path": "comfy_extras/nodes_compositing.py", "lines": "164-185"}],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/SplitImageWithAlpha/ru.md", "assessment": "Не поясняет mask=1−alpha и RGB fallback mask=0. Эти контракты и поведение дополнительных channels добавлены по коду и exact round-trip."}],
+    "workflows": []
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Exhaustive scan official workflow templates JSON 0.1.42 не нашёл SplitImageWithAlpha; fragment не объявлен официальным.", "RGB fallback и exact RGBA split/join round-trip исполнены на synthetic tensors; full dual-preview fragment ещё не запускался.", "Человеческое редакционное утверждение не выполнено."],
+  "updatedAt": "2026-08-13"
+}

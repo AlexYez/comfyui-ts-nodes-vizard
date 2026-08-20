@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sam3-video-track",
+  "node": {
+    "classType": "SAM3_VideoTrack",
+    "pythonModule": "comfy_extras.nodes_sam3",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sam3.py#L260-L312",
+        "path": "comfy_extras/nodes_sam3.py",
+        "lines": "260-312"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SAM3_VideoTrack/en.md",
+        "assessment": "SHA-256 70314be5f861efd5d37fdbe1b0b277b55243388bd1147a352036e38b110a7d76; параметры проверены."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SAM3_VideoTrack/ru.md",
+        "assessment": "SHA-256 42b933c5f03ec7b7b825be3907b67a7cafab6251d8f59175a59efee65bf99853; значение max_objects=0 уточнено."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-0142-census",
+        "role": "Восемь точных официальных случаев SCAIL-2, во всех значения [0.5,4,1]."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Вызов forward_video не выполнялся; человеческое утверждение ещё не получено."
+  ],
+  "updatedAt": "2026-08-20"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.override-first-sigma-lotus",
+  "title": "Lotus depth: normal, один шаг, первая сигма 10000",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "scheduler", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "scheduler",
+      "classType": "BasicScheduler",
+      "role": "Построить одношаговое normal-расписание",
+      "settings": {"scheduler": "normal", "steps": 1, "denoise": 1.0}
+    },
+    {
+      "ref": "set_first",
+      "classType": "SetFirstSigma",
+      "role": "Заменить начало модельно-зависимым значением Lotus",
+      "settings": {"sigma": 10000.0}
+    }
+  ],
+  "connections": [
+    {"from": "scheduler", "output": "SIGMAS", "to": "set_first", "input": "sigmas"}
+  ]
+}

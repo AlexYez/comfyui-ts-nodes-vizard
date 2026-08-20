@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.merge-unet-block-groups",
+  "locale": "ru",
+  "title": "input из model1, middle пополам, out из model2",
+  "summary": "ModelMergeBlocks использует input 1, middle 0,5 и out 0 для совместимых legacy UNet-ключей двух моделей.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-merge-blocks"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Два MODEL одной UNet-подобной архитектуры",
+    "Ключи diffusion_model.input*, middle* и out*",
+    "Проверка unmatched-ключей и shape warnings"
+  ],
+  "fragment": {"id": "fragment.merge-unet-block-groups", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/docs and exhaustive official workflow absence review, exact prefix/fallback tensor probe and Russian editorial pass; real checkpoint merge and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelMergeBlocks in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L138-L168",
+      "publisher": "Comfy-Org", "accessedAt": "2026-08-14"
+    }
+  ]
+}

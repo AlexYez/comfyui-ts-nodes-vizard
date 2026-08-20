@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mask-to-image",
+  "node": {"classType": "MaskToImage", "pythonModule": "comfy_extras.nodes_mask", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_mask.py#L109-L128", "path": "comfy_extras/nodes_mask.py", "lines": "109-128"}],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/MaskToImage/ru.md", "assessment": "Назначение верно, но не раскрыты точное повторение значений в три RGB-канала, отсутствие alpha/инверсии/порога и использование expand."}],
+    "workflows": [
+      {"id": "basic_mask_operations_and_compositing", "role": "MASK от ImageToMask переводится в IMAGE и показывается через PreviewImage."},
+      {"id": "video_wan_vace_14B_ref2v", "role": "Два SolidMask переводятся в IMAGE для batch/video-веток."},
+      {"id": "video_wan_vace_outpainting", "role": "Outpaint MASK переводится в IMAGE перед RepeatImageBatch."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Диагностический фрагмент структурно проверен, но не исполнен.", "Человеческое редакционное утверждение не выполнено."],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.merge-sd2-block-map",
+  "locale": "ru",
+  "title": "SD2: сохранить общий коэффициент и смешать последний выходной блок",
+  "summary": "При обычном порядке входов оставляет time_embed и несопоставленные ключи diffusion_model из model1, а output_blocks.11 смешивает как 25% model1 и 75% model2.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-merge-sd2"],
+  "requirements": [
+    "Два checkpoint одной точной архитектуры SD2",
+    "Совпадающие ключи diffusion_model и формы",
+    "Контрольный граф и отдельно выбранные CLIP/VAE"
+  ],
+  "fragment": {"id": "fragment.merge-sd2-block-map", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная сверка регистрации в /object_info, общей карты SD1/SD2 и закреплённого кода смешивания; официального графа нет, checkpoint и весь фрагмент не исполнялись, ручной проверки не было",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelMergeSD2 registration and shared class",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging_model_specific.py#L370-L374",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Shared SD1 and SD2 block map",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging_model_specific.py#L3-L26",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "ModelMergeBlocks algorithm",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L138-L168",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Prompt input order through ComfyUI execution",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L159-L306",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Shape mismatch handling in calculate_weight",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L501",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Pinned official workflow templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/tree/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Pinned embedded docs 0.5.9 tree",
+      "url": "https://github.com/Comfy-Org/embedded-docs/tree/1d258cf6e374d60d138a2bfcd273c7e11f750ef9/comfyui_embedded_docs/docs",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-image-data-set-from-folder",
+  "node": {
+    "classType": "LoadImageDataSetFromFolder",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L16-L206",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "16-206"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L326-L338",
+        "path": "folder_paths.py",
+        "lines": "326-338"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L568-L587",
+        "path": "folder_paths.py",
+        "lines": "568-587"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LoadImageDataSetFromFolder/en.md",
+        "assessment": "AI-generated документ подтверждает input subfolder, четыре расширения и IMAGE-list. Он не описывает прямой, несортированный обход, RGB-конвертацию, форму [1,H,W,3] и ошибку пустой папки; SHA-256 файла в wheel: ceed93799f195e84c3a9719cb6b518ab5e1be34db45f59a63b4138ea2262085e."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LoadImageDataSetFromFolder/ru.md",
+        "assessment": "Перевод повторяет общую справку и содержит служебное вступление; технические пробелы те же. SHA-256 файла в wheel: 335faeda5f2bc4cdae65aaebb4fe0c58406e96416954c01bd8fc89cf0f429f3f."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON, 496 корневых workflow и 272 subgraph; LoadImageDataSetFromFolder отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-folder-io-probe",
+        "role": "Точный класс во временном input прочитал два прямых PNG/WEBP как [1,5,6,3] и [1,4,7,3], пропустил GIF, TXT и вложенный PNG, отклонил пустую папку и traversal."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; одиночный fragment построен по точному runtime-контракту и не импортировался в canvas.",
+    "Динамическая папка 3d взята только из закреплённого runtime snapshot и должна быть заменена на локальное значение."
+  ],
+  "updatedAt": "2026-08-14"
+}

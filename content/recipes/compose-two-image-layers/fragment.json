@@ -1,0 +1,16 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.compose-two-image-layers", "title": "Два IMAGE в документе LAYERS",
+  "externalInputs": [
+    {"id": "base_image", "type": "IMAGE", "to": "base_layer", "input": "image"},
+    {"id": "overlay_image", "type": "IMAGE", "to": "overlay_layer", "input": "image"}
+  ],
+  "nodes": [
+    {"ref": "base_layer", "classType": "AddLayer", "role": "Создать нижний слой", "settings": {"name": "Основа", "x": 0, "y": 0, "opacity": 1.0, "blend_mode": "normal", "rotation": 0.0, "width": 0, "height": 0, "z_index": 0, "flip_h": false, "flip_v": false}},
+    {"ref": "overlay_layer", "classType": "AddLayer", "role": "Добавить смещённый верхний слой", "settings": {"name": "Наложение", "x": 128, "y": 96, "opacity": 0.75, "blend_mode": "normal", "rotation": 0.0, "width": 0, "height": 0, "z_index": 1, "flip_h": false, "flip_v": false}},
+    {"ref": "compositor", "classType": "ImageCompositor", "role": "Собрать слои и открыть редактор", "settings": {"compositor": {}}}
+  ],
+  "connections": [
+    {"from": "base_layer", "output": "LAYERS", "to": "overlay_layer", "input": "layers"},
+    {"from": "overlay_layer", "output": "LAYERS", "to": "compositor", "input": "layers"}
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-audio-mp3",
+  "node": {
+    "classType": "SaveAudioMP3",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L188-L217",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "188-217"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_ui.py#L289-L374",
+        "path": "comfy_api/latest/_ui.py",
+        "lines": "289-374"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveAudioMP3/en.md",
+        "assessment": "AI-generated документ правильно отмечает deprecated, None error и варианты quality, но ошибочно отрицает AUDIO output и не описывает batch, qscale/bitrate и channel limitation."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveAudioMP3/ru.md",
+        "assessment": "Перевод повторяет отсутствие выхода и не использован как источник точной семантики encoder."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON: 19 SaveAudioMP3 в 19 root-файлах, mode Always, все quality V0 и с входящей AUDIO-связью; subgraph-вхождений и исходящих связей нет."
+      },
+      {
+        "id": "audio-stable-audio-example#5fa61cc8-29d9-4deb-9f90-02d3c00b63b3/node-19",
+        "role": "VAEDecodeAudio № 12 → SaveAudioMP3 № 19; widgets audio/ComfyUI и V0."
+      },
+      {
+        "id": "isolated-pinned-save-audio-mp3-probe",
+        "role": "Точный class записал MP3 V0, 128k и 320k, вернул исходный AUDIO; проверены codec/sample rate и explicit None error."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Migration-fragment не исполнялся целиком; отдельно выполнены legacy и current saver classes на synthetic waveform.",
+    "Официальные workflow подтверждают только V0; 128k и 320k подтверждены source/runtime и isolated execution.",
+    "MP3-варианты не проходили субъективное сравнение качества, loudness или размера на реальном материале.",
+    "Автоматической replacement-записи нет; человеческая проверка ручной миграции ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.apply-controlnet-canny",
+  "locale": "ru",
+  "title": "Подключить Canny ControlNet с полным диапазоном",
+  "summary": "Выделяет из официального SD3.5 workflow связку ControlNetLoader → ControlNetApplyAdvanced со strength 0,66 и диапазоном 0–1.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.control-net-loader", "core.control-net-apply-advanced"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Установленный ControlNet, совместимый с выбранной MODEL",
+    "Подготовленная Canny IMAGE-карта, positive/negative CONDITIONING и подходящий VAE"
+  ],
+  "fragment": {"id": "fragment.apply-controlnet-canny", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned-source and exact official SD3.5 Canny topology review; full fragment execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ControlNet loaders and apply implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L862-L976",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official SD3.5 Canny ControlNet workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/sd3.5_large_canny_controlnet_example.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

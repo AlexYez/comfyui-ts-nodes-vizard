@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.tome-token-merge-30",
+  "title": "ToMe с коэффициентом 0,30",
+  "externalInputs": [{"id": "model", "type": "MODEL", "to": "tome", "input": "model"}],
+  "nodes": [{"ref": "tome", "classType": "TomePatchModel", "role": "Добавить патчи слияния токенов к attn1", "settings": {"ratio": 0.3}}],
+  "connections": []
+}

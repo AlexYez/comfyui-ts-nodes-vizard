@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.stable-zero123-conditioning-batched",
+  "node": {
+    "classType": "StableZero123_Conditioning_Batched",
+    "pythonModule": "comfy_extras.nodes_stable3d",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable3d.py#L63-L108",
+        "path": "comfy_extras/nodes_stable3d.py",
+        "lines": "63-108"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L612-L640",
+        "path": "comfy/model_base.py",
+        "lines": "612-640"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sample.py#L9-L36",
+        "path": "comfy/sample.py",
+        "lines": "9-36"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1568-L1576",
+        "path": "nodes.py",
+        "lines": "1568-1576"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/StableZero123_Conditioning_Batched/en.md",
+        "assessment": "SHA-256 e09301558ca0e785b54673c056881930f88a5b9ed606c6400848b32880e42de9. Приращения перечислены, но скалярные входы из runtime input.required названы необязательными; одинаковый исходный шум, накопление углов и ограничение одним init_image не описаны."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/StableZero123_Conditioning_Batched/ru.md",
+        "assessment": "SHA-256 09c6362482c5a61c25bcd3d45265af8a748c3e97f67d5837388f63467a8d5e40. Содержит служебное вступление о переводе, переводит exact identifiers и повторяет неверную optional-разметку английского файла."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "Просмотрены 512 JSON, 496 root workflow, 4083 root nodes, 272 subgraph и 4037 subgraph nodes; 0 raw-string и 0 node.type вхождений exact ID."
+      },
+      {
+        "id": "synthetic-exact-source-stable3d-conditioning-probe",
+        "role": "Прямой метод подтвердил поэлементные углы 10/5/0/−5 и −45/−15/15/45, positive batch 4, latent 4×4×5×7, batch_index [0,0,0,0], одинаковый sampler noise и ошибку формы для двух init images."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В официальном workflow wheel 0.1.42 нет topology или widgets для этой ноды; восемь ракурсов с шагом 45° — пример по исходному коду, а не официальный preset.",
+    "Проба использовала заглушки encoder и точную функцию подготовки шума; фрагмент с весами Stable Zero123, sampler и decode не исполнялся.",
+    "Качество ракурсов при накопленном elevation за пределами виджета и на разных checkpoint не оценивалось.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

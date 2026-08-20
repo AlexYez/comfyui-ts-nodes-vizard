@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.primitive-numbers-preview", "title": "INT 0 и FLOAT 1.5 в PreviewAny",
+  "externalInputs": [],
+  "nodes": [
+    {"ref": "integer", "classType": "PrimitiveInt", "role": "Целая константа", "settings": {"value": 0}},
+    {"ref": "integer_preview", "classType": "PreviewAny", "role": "Показать INT", "settings": {}},
+    {"ref": "float", "classType": "PrimitiveFloat", "role": "Дробная константа", "settings": {"value": 1.5}},
+    {"ref": "float_preview", "classType": "PreviewAny", "role": "Показать FLOAT", "settings": {}}
+  ],
+  "connections": [
+    {"from": "integer", "output": "INT", "to": "integer_preview", "input": "source"},
+    {"from": "float", "output": "FLOAT", "to": "float_preview", "input": "source"}
+  ]
+}

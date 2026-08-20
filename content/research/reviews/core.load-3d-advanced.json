@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-3d-advanced",
+  "node": {
+    "classType": "Load3DAdvanced",
+    "pythonModule": "comfy_extras.nodes_load_3d",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_load_3d.py#L323-L383",
+        "path": "comfy_extras/nodes_load_3d.py",
+        "lines": "323-383"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3dAdvanced.ts#L1-L103",
+        "path": "src/extensions/core/load3dAdvanced.ts",
+        "lines": "1-103"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/components/load3d/Load3DAdvanced.vue#L1-L21",
+        "path": "src/components/load3d/Load3DAdvanced.vue",
+        "lines": "1-21"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/Load3DAdvanced/en.md",
+        "assessment": "SHA-256 6e1efc825f9183c42d397f3b37134772eef980fecce80af73411a78a171eaa8b. Объясняет назначение состояния окна, но точные имена типов и границы входов уточнены по /object_info."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Load3DAdvanced/ru.md",
+        "assessment": "SHA-256 84107c6a427a2b01fd9ed5c8641463fac6913810156effd33518d0ac8abc67d0. Перевод полезен для общего назначения, но не используется вместо runtime-ключей."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-load-3d-advanced-zero-census",
+        "role": "Пакет SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3: 512 JSON, 496 корневых графов и 272 подграфа; Load3DAdvanced не встретился ни разу, сырое имя также отсутствует."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Серверные ветви с временным FILE_3D, значением none и несловарным состоянием проверены синтетически; живой виджет и WebGL не запускались.",
+    "В официальном пакете нет топологии или значений виджетов для Load3DAdvanced; фрагмент основан на /object_info и исходном коде.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.add-two-latents",
+  "title": "Базовый LATENT + второй LATENT",
+  "externalInputs": [
+    {"id": "base", "type": "LATENT", "to": "add", "input": "samples1"},
+    {"id": "addition", "type": "LATENT", "to": "add", "input": "samples2"}
+  ],
+  "nodes": [
+    {"ref": "add", "classType": "LatentAdd", "role": "Поэлементно прибавить samples2 к samples1", "settings": {}}
+  ],
+  "connections": []
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.stable-audio-timing-metadata",
+  "title": "Stable Audio timing metadata",
+  "externalInputs": [
+    { "id": "positive", "type": "CONDITIONING", "to": "timing", "input": "positive" },
+    { "id": "negative", "type": "CONDITIONING", "to": "timing", "input": "negative" }
+  ],
+  "nodes": [
+    {
+      "ref": "timing",
+      "classType": "ConditioningStableAudio",
+      "role": "Записать одинаковые временные числа в обе conditioning-ветви",
+      "settings": { "seconds_start": 0.0, "seconds_total": 47.0 }
+    }
+  ],
+  "connections": []
+}

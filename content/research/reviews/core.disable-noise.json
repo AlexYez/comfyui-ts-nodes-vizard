@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.disable-noise",
+  "node": {"classType": "DisableNoise", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L716-L729",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "716-729"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L993-L1009",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "993-1009"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/DisableNoise/ru.md",
+        "assessment": "Правильно описывает нулевой NOISE и отсутствие входов, но ошибочно создаёт впечатление, что downstream пропускает noise-related operations; код создаёт нулевой tensor, а sampler всё равно выполняется."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/DisableNoise/en.md",
+        "assessment": "Использован для сравнения назначения. CPU/dtype/layout/nested semantics взяты из Noise_EmptyNoise."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Семь случаев в семи файлах: 2 root и 5 subgraph; 5 mode 0 и 2 mode 4. Каждый NOISE-выход связан с SamplerCustomAdvanced."
+      },
+      {
+        "id": "active-depth-control-cases",
+        "role": "Активные случаи подтверждены в Lotus Depth, SD3.5 Depth, Qwen control и LTX depth; два Hunyuan Video 1.5 root-экземпляра bypassed."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact-source probe исполнил zero tensor для обычного LATENT; nested branch прочитана, но не выполнялась с production NestedTensor.",
+    "Полный sampling fragment и влияние zero noise на конкретную модель не исполнялись.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}
+

@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.sampling-percent-to-sigma",
+  "title": "SamplingPercentToSigma 25% через SetFirstSigma",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "convert", "input": "model"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "replace", "input": "sigmas"},
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sampler", "type": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "convert",
+      "classType": "SamplingPercentToSigma",
+      "role": "Получить model-specific sigma для четверти sampling",
+      "settings": {"sampling_percent": 0.25, "return_actual_sigma": false}
+    },
+    {
+      "ref": "replace",
+      "classType": "SetFirstSigma",
+      "role": "Заменить только первую точку внешнего SIGMAS",
+      "settings": {}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Принять изменённое расписание",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "convert", "output": "sigma_value", "to": "replace", "input": "sigma"},
+    {"from": "replace", "output": "SIGMAS", "to": "sample", "input": "sigmas"}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.combine-two-image-batches",
+  "title": "Два IMAGE-бэтча в старый ImageBatch",
+  "externalInputs": [
+    {
+      "id": "first_images",
+      "type": "IMAGE",
+      "to": "batch",
+      "input": "image1"
+    },
+    {
+      "id": "second_images",
+      "type": "IMAGE",
+      "to": "batch",
+      "input": "image2"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "batch",
+      "classType": "ImageBatch",
+      "role": "Сохранить унаследованный порядок: сначала image1, затем image2",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

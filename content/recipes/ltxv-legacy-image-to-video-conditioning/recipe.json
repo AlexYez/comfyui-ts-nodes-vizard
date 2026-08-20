@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-legacy-image-to-video-conditioning",
+  "locale": "ru",
+  "title": "Legacy LTXV image-to-video 768 × 512, 97 кадров",
+  "summary": "Повторяет exact root template: LTXVImgToVideo с strength 0,15 создаёт latent, а LTXVConditioning добавляет 25 fps в обе prompt-ветви.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-img-to-video", "core.ltxv-conditioning"],
+  "requirements": ["ComfyUI 0.32.0", "совместимый LTXV VAE", "IMAGE", "positive и negative CONDITIONING"],
+  "fragment": {"id": "fragment.ltxv-legacy-image-to-video-conditioning", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact official legacy LTXV topology, runtime type validation, source review, tensor probe and Russian editorial pass; human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [
+    {"title": "LTXVImgToVideo implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L87-L129", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"},
+    {"title": "Official legacy LTXV image-to-video template", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/ltxv_image_to_video.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}
+  ]
+}

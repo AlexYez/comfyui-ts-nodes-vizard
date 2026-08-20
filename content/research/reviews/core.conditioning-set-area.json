@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.conditioning-set-area",
+  "node": { "classType": "ConditioningSetArea", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L185-L206",
+        "path": "nodes.py",
+        "lines": "185-206"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/node_helpers.py#L9-L23",
+        "path": "node_helpers.py",
+        "lines": "9-23"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L33-L97",
+        "path": "comfy/samplers.py",
+        "lines": "33-97"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ConditioningSetArea/en.md",
+        "assessment": "Документ помечен как AI-generated и перечисляет поля, но не сообщает о делении координат на 8, tuple-порядке, перезаписи metadata и edge fuzz sampler. Эти свойства проверены по реализации."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 JSON-файлов целиком, включая definitions.subgraphs[*].nodes; вхождений ConditioningSetArea, widget values и topology neighbors нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment проверен структурно, но пространственное conditioning не запускалось на latent 512 × 512 или 1024 × 1024.",
+    "В official workflow templates JSON 0.1.42 нода отсутствует; реальные widget values и соседние conditioning-ветви официальным case не подтверждены.",
+    "Жёсткое деление координат на 8 не проверялось на архитектурах с другой пространственной организацией latent."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-mediapipe-face-landmarker",
+  "node": {"classType": "LoadMediaPipeFaceLandmarker", "pythonModule": "comfy_extras.nodes_mediapipe", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mediapipe.py#L37-L79", "path": "comfy_extras/nodes_mediapipe.py", "lines": "37-79"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mediapipe.py#L198-L220", "path": "comfy_extras/nodes_mediapipe.py", "lines": "198-220"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L441-L468", "path": "folder_paths.py", "lines": "67,441-468"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L122-L167", "path": "comfy/utils.py", "lines": "122-167"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/blueprints/Image%20Face%20Detection%20%28Mediapipe%29.json#L379-L771", "path": "blueprints/Image Face Detection (Mediapipe).json", "lines": "379-771"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_execution/caching.py#L82-L127", "path": "comfy_execution/caching.py", "lines": "82-127"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/platform/missingModel/missingModelDownload.ts#L7-L139", "path": "src/platform/missingModel/missingModelDownload.ts", "lines": "7-139"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/LoadMediaPipeFaceLandmarker/en.md", "assessment": "Raw SHA-256 485c299a01489caf53e1cba73c9826fa319c62e456fcda7e3135ebb225f822d3. AI-generated secondary overview omits the local-only execution boundary, cache implications and strict=False key validation gap."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/LoadMediaPipeFaceLandmarker/ru.md", "assessment": "Raw SHA-256 9840653a02744243a2c20f544f834c5b9c7cc05ae5566cb6f3efbc4ef09fefe6. Translation includes a template artifact and was not reused as article prose."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-zero-census", "role": "All 512 JSON, 496 root graphs and 272 subgraphs were parsed. All four MediaPipe IDs have zero direct, raw and recursive scalar occurrences and no EN/RU index entry."},
+      {"id": "blueprint-image-face-detection-mediapipe-6062babb", "role": "Pinned source blueprint links mediapipe_face_fp32.safetensors loader to the detector and records a mutable model URL without digest; its stale FACE_LANDMARKER subgraph input was excluded from the fragment."},
+      {"id": "isolated-exact-source-mediapipe-loader-probe", "role": "Loader execution was isolated with fake folder_paths and loader to check category, resolved local path and propagation of safe_load=True without network, real weights or GPU; pinned load_torch_file does not branch on that argument."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "No compatible MediaPipe weight file was present or downloaded, so state-dict compatibility and real inference were not tested.",
+    "The official blueprint model URL is mutable and has no digest; model provenance was not independently established.",
+    "The source loads detector variants with strict=False and does not inspect incompatible keys; failure behavior for malformed weights remains unexecuted.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

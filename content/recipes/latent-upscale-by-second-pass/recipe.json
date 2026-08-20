@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.latent-upscale-by-second-pass",
+  "locale": "ru",
+  "title": "Второй проход после увеличения LATENT в 1,5 раза",
+  "summary": "Адаптирует проверенную топологию legacy Hires Fix к LatentUpscaleBy: nearest-exact × 1.5, затем второй KSampler с denoise 0.5, VAE decode и сохранение.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": [
+    "core.ksampler",
+    "core.latent-upscale-by",
+    "core.save-image",
+    "core.vae-decode"
+  ],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "LATENT первого прохода, совместимые MODEL, CONDITIONING и VAE",
+    "Ручная проверка округлённого размера latent-grid"
+  ],
+  "fragment": {
+    "id": "fragment.latent-upscale-by-second-pass",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source review and explicitly disclosed legacy-workflow adaptation; fragment schema validated, execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "LatentUpscaleBy implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/nodes.py#L1365-L1384",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official legacy ComfyUI Hires Fix pattern",
+      "url": "https://comfyanonymous.github.io/ComfyUI_examples/2_pass_txt2img/",
+      "publisher": "ComfyUI",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

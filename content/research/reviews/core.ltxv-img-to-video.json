@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.ltxv-img-to-video",
+  "node": {"classType": "LTXVImgToVideo", "pythonModule": "comfy_extras.nodes_lt", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L87-L129", "path": "comfy_extras/nodes_lt.py", "lines": "87-129"}],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/LTXVImgToVideo/en.md", "assessment": "SHA-256 3dd98b434dff8ebf3b795bd6d994c709289c5797cbfb3fd9e323e129c9f85f80. Диапазоны верны; ошибочно заявлены conditioning mask changes, frame extension и strength blending/preservation semantics."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/LTXVImgToVideo/ru.md", "assessment": "SHA-256 6d467efc0fbb4d3296d091f8d1c180586089b620f7cb3b1eb7050cf1ff80d536. Перевод повторяет ошибки EN и переводит runtime IDs; source имеет приоритет."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-ltxv-img-to-video-census", "role": "Полный census нашёл ровно один root instance в ltxv_image_to_video.json: node77 [768,512,97,1,0.15], mode0."},
+      {"id": "ltxv-image-to-video-root-topology", "role": "Проверены CLIPTextEncode×2, CheckpointLoaderSimple VAE и LoadImage inputs; outputs идут в LTXVConditioning×2, LTXVScheduler и SamplerCustom."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Probe исполняет exact class с synthetic VAE/IMAGE и проверяет mask endpoints; real LTXV VAE/model не запускались.", "Официальный root изучен по сериализации, но полная генерация с checkpoint не выполнялась.", "Человеческое утверждение статьи и рецепта ещё не выполнено."],
+  "updatedAt": "2026-08-14"
+}

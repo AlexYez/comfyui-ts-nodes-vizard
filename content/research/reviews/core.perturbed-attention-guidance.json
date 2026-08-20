@@ -1,0 +1,75 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.perturbed-attention-guidance",
+  "node": {
+    "classType": "PerturbedAttentionGuidance",
+    "pythonModule": "comfy_extras.nodes_pag",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_pag.py#L13-L57",
+        "path": "comfy_extras/nodes_pag.py",
+        "lines": "13-57"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/modules/attention.py#L1032-L1049",
+        "path": "comfy/ldm/modules/attention.py",
+        "lines": "1032-1049"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/PerturbedAttentionGuidance/en.md",
+        "assessment": "Верно указывает value-only упрощение, scale default/range и scale=0 bypass, но не раскрывает exact middle/0 patch key, дополнительный conditional call и post-CFG формулу."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/PerturbedAttentionGuidance/ru.md",
+        "assessment": "Полезен как краткое описание интерфейса; технические ограничения и стоимость повторного model forward проверены по exact source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и всех recursive definitions.subgraphs точный PerturbedAttentionGuidance встречается 0 раз; fragment помечен source-derived."
+      },
+      {
+        "id": "arxiv-2403.17377-pag-method",
+        "role": "Первичная работа подтверждает identity self-attention degradation и guidance away from perturbed prediction без переобучения."
+      },
+      {
+        "id": "synthetic-exact-source-pag-probe",
+        "role": "AST-extracted exact node подтвердил patch key attn1/middle/0, возврат v, формулу cfg_result + scale × (cond − pag), один extra conditional call и полный bypass при scale=0."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official workflow wheel 0.1.42 не содержит PAG, поэтому fragment фиксирует runtime default, а не проверенный model-specific preset.",
+    "Tensor probe не загружал веса и не оценивал композицию, detail fidelity или качество изображения.",
+    "Совместимость middle/0 attention patch с отдельными архитектурами и человеческое утверждение статьи ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

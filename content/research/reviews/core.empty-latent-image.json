@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.empty-latent-image",
+  "node": { "classType": "EmptyLatentImage", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1242-L1262",
+        "path": "nodes.py",
+        "lines": "1242-1262"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sample.py#L40-L62",
+        "path": "comfy/sample.py",
+        "lines": "40-62"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/EmptyLatentImage/en.md",
+        "assessment": "Общее назначение совпадает. Документ помечен как AI-generated, не фиксирует нулевой тензор [B, 4, H//8, W//8], integer truncation, intermediate dtype и downscale_ratio_spacial; имя выхода в таблице не совпадает с runtime output_name LATENT."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "sdxlturbo_example",
+        "role": "Workflow bf11bf13-0fba-4b6b-9a8d-1680bf10cb09: EmptyLatentImage № 5 со значениями 512 × 512, batch 1 передаётся в SamplerCustom № 13."
+      },
+      {
+        "id": "sdxl_simple_example",
+        "role": "Workflow 88bcf757-1298-432f-885a-db5ab88cf224: EmptyLatentImage № 5 со значениями 1024 × 1024, batch 1 начинает base/refiner sampling."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Общий workflow прошёл структурную проверку, но пустой latent не подавался в реальную модель.",
+    "Адаптация общего 2D empty latent для video и архитектур с нестандартным latent format проверена по коду, но не исполнена; для них рекомендованы model-specific empty latent nodes."
+  ],
+  "updatedAt": "2026-08-13"
+}

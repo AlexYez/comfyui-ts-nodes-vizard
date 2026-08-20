@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.mask-compose-edge-control",
+  "locale": "ru",
+  "title": "Собрать маску и сравнить feather с grow",
+  "summary": "Повторяет официальную связку двух SolidMask и MaskComposite, затем разделяет результат на FeatherMask и GrowMask, чтобы не путать затухание у рамки с изменением контура.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": [
+    "core.feather-mask",
+    "core.grow-mask",
+    "core.mask-composite",
+    "core.solid-mask"
+  ],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Встроенные ноды comfy_extras.nodes_mask"
+  ],
+  "fragment": {
+    "id": "fragment.mask-compose-edge-control",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Source and official-workflow trace; fragment schema validated, execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "Mask nodes implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_mask.py#L180-L386",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: basic_mask_operations_and_compositing",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

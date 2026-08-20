@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.replace-save-audio-flac",
+  "locale": "ru",
+  "title": "Заменить SaveAudio на SaveAudioAdvanced без смены формата",
+  "summary": "Актуальная нода сохраняет внешний AUDIO как FLAC с прежним prefix и возвращает его дальше по графу.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.save-audio", "core.save-audio-advanced"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Старый workflow с SaveAudio либо готовый внешний AUDIO",
+    "Перенос пользовательского filename_prefix",
+    "Проверка всех downstream-связей после ручной миграции"
+  ],
+  "fragment": {
+    "id": "fragment.replace-save-audio-flac",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, isolated legacy/current saver comparison and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "SaveAudio and SaveAudioAdvanced in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L159-L294",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Shared AudioSaveHelper in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_ui.py#L260-L390",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

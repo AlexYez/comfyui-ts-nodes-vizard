@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.latent-flip",
+  "node": {
+    "classType": "LatentFlip",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1410-L1430",
+        "path": "nodes.py",
+        "lines": "1410-1430"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LatentFlip/en.md",
+        "assessment": "AI-generated документ перечисляет два label, но не объясняет dims=[2]/[3], точную перестановку строк/столбцов или metadata limitation."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LatentFlip/ru.md",
+        "assessment": "Перевод повторяет неоднозначные axis/direction labels; статья следует exact torch.flip dims и проверенной матрице."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Просмотрены 512 JSON, все root nodes и 272 definitions.subgraphs; LatentFlip отсутствует."
+      },
+      {
+        "id": "isolated-pinned-latent-flip-tensor-probe",
+        "role": "Матрица 2x3 подтвердила top-bottom для x-axis: vertically, left-right для y-axis: horizontally, неизменную форму и metadata."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В official workflow bundle 0.1.42 нет LatentFlip и нет реального downstream case.",
+    "Проба не декодировала модельный LATENT и не сравнивала его побитово с ImageFlip.",
+    "Fragment с внешним LATENT не выполнялся end-to-end.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

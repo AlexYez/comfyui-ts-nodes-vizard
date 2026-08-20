@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.add-text-suffix-basic",
+  "title": "AddTextSuffix с фиксированным суффиксом",
+  "externalInputs": [
+    {"id": "texts", "type": "STRING", "to": "suffix", "input": "texts"}
+  ],
+  "nodes": [
+    {
+      "ref": "suffix",
+      "classType": "AddTextSuffix",
+      "role": "Дополнить один текст буквальной строкой [draft]",
+      "settings": {"suffix": " [draft]"}
+    }
+  ],
+  "connections": []
+}

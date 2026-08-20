@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-training-dataset-basic",
+  "locale": "ru",
+  "title": "Сохранить набор в отдельный каталог",
+  "summary": "Однонодовый fragment пишет внешние LATENT и CONDITIONING в новый каталог nodes_wizard_training_example по 1000 внешних пар на shard; существующий каталог использовать нельзя без проверки.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.save-training-dataset"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Параллельные списки LATENT и CONDITIONING одинаковой длины",
+    "Пустой каталог datasets/nodes_wizard_training_example",
+    "Проверка свободного места и созданных shard-файлов"
+  ],
+  "fragment": {
+    "id": "fragment.save-training-dataset-basic",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, full workflow census, isolated temporary-directory execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SaveTrainingDataset in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1931-L2031",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.text-encode-hunyuan-video-image-to-video",
+  "node": {"classType": "TextEncodeHunyuanVideo_ImageToVideo", "pythonModule": "comfy_extras.nodes_hunyuan", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L270-L310",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "270-310"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/text_encoders/hunyuan_video.py#L47-L154",
+        "path": "comfy/text_encoders/hunyuan_video.py",
+        "lines": "47-154"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L83-L130",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "83-130"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/TextEncodeHunyuanVideo_ImageToVideo/en.md",
+        "assessment": "SHA-256 4e5ef2f4ea903b71a23f7414aca2901a6dd0d29008d9f2809cdbe3feeaf92ebb. Порты и диапазон верны; слово blend скрывает выбор каждого image_interleave-го состояния после LLaMA."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/TextEncodeHunyuanVideo_ImageToVideo/ru.md",
+        "assessment": "SHA-256 490998fb4c48f930e22a8d9e9cec22dcdd62e715d5ad61b8671e1401d7751c24. Общий смысл передан, но имена входов переведены, а различие Hunyuan Video 1.0 и 1.5 не описано."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-hunyuan-video-i2v-text-census",
+        "role": "Полный рекурсивный обход 512 JSON и 8120 нод не нашёл TextEncodeHunyuanVideo_ImageToVideo ни в корне, ни в подграфах; точной строки в wheel нет."
+      },
+      {
+        "id": "hunyuan-text-latent-exact-source-probe",
+        "role": "AST-извлечённый класс подтвердил передачу фиксированного шаблона, точного объекта mm_projected и image_interleave в совместимый токенизатор."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Точного официального примера нет; фрагмент не проверяет полный image-to-video граф.",
+    "Синтетическая проба не загружает vision-проектор, текстовую модель или diffusion-модель Hunyuan Video 1.0.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

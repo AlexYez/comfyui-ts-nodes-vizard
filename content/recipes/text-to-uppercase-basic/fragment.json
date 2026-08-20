@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.text-to-uppercase-basic",
+  "title": "TextToUppercase для одной строки",
+  "externalInputs": [
+    {"id": "texts", "type": "STRING", "to": "uppercase", "input": "texts"}
+  ],
+  "nodes": [
+    {
+      "ref": "uppercase",
+      "classType": "TextToUppercase",
+      "role": "Применить Unicode upper к одной строке",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

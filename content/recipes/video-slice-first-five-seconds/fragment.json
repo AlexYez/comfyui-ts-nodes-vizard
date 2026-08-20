@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.video-slice-first-five-seconds",
+  "title": "Video Slice: первые пять секунд",
+  "externalInputs": [
+    {"id": "video", "type": "VIDEO", "to": "slice", "input": "video"}
+  ],
+  "nodes": [
+    {
+      "ref": "slice",
+      "classType": "Video Slice",
+      "role": "Оставить доступную часть первых пяти секунд",
+      "settings": {
+        "start_time": 0.0,
+        "duration": 5.0,
+        "strict_duration": false
+      }
+    }
+  ],
+  "connections": []
+}

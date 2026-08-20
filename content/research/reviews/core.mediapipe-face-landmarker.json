@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mediapipe-face-landmarker",
+  "node": {"classType": "MediaPipeFaceLandmarker", "pythonModule": "comfy_extras.nodes_mediapipe", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mediapipe.py#L82-L169", "path": "comfy_extras/nodes_mediapipe.py", "lines": "82-169"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mediapipe.py#L227-L311", "path": "comfy_extras/nodes_mediapipe.py", "lines": "227-311"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/mediapipe/face_landmarker.py#L325-L681", "path": "comfy_extras/mediapipe/face_landmarker.py", "lines": "325-352,390-422,448-517,520-555,558-681"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/mediapipe/face_geometry.py#L10-L110", "path": "comfy_extras/mediapipe/face_geometry.py", "lines": "10-110"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/blueprints/Video%20Face%20Detection%20%28Mediapipe%29.json#L456-L1101", "path": "blueprints/Video Face Detection (Mediapipe).json", "lines": "456-1101"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/MediaPipeFaceLandmarker/en.md", "assessment": "Raw SHA-256 f313a4bd86e8adebb56ab1471e93c9ed524c353fe33e57f55c7d640ce8ec9442. AI-generated page says 468 landmarks, while pinned source defines and emits 478."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/MediaPipeFaceLandmarker/ru.md", "assessment": "Raw SHA-256 8e8f1a8a1dcf5f65d5404b683797ea24c9c85aa74f009fea3244126b55ce205e. Secondary translation repeats the landmark-count error; runtime identifiers and behavior were taken from source."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-zero-census", "role": "All 512 JSON, 496 root graphs and 272 subgraphs were parsed. All four MediaPipe IDs have zero direct, raw and recursive scalar occurrences and no EN/RU index entry."},
+      {"id": "blueprint-video-face-detection-mediapipe-ca14b151", "role": "Pinned source blueprint routes VIDEO through GetVideoComponents IMAGE into full/0/0.5/empty detector and then into face mask; stale FACE_LANDMARKER subgraph input was identified."},
+      {"id": "isolated-exact-source-mediapipe-landmarker-probe", "role": "Exact orchestration ran with synthetic detector results to check chunk size 16, short/full tie selection, fallback, bbox mapping and transforms without real weights, network or GPU."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "No real BlazeFace, FaceMesh or blendshape weights were executed, so accuracy, device memory and throughput were not measured.",
+    "Both fragment examples are structurally validated but were not run end to end.",
+    "The isolated probe cannot establish detector quality or identity stability through occlusion; fallback matching is source-level only.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

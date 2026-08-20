@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.model-save-export",
+  "locale": "ru",
+  "title": "Сохранить внешний diffusion MODEL без CLIP и VAE",
+  "summary": "Подключает внешний MODEL к ModelSave и экспортирует только diffusion state dict в output/diffusion_models.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.model-save"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Объект MODEL после загрузки, patch или merge",
+    "Совместимые CLIP и VAE должны храниться отдельно"
+  ],
+  "fragment": {"id": "fragment.model-save-export", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime review and Russian editorial pass; fragment schema and isolated temp-directory behavior validated, full fragment execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelSave implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L342-L360",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Shared save_checkpoint helper in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L170-L227",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

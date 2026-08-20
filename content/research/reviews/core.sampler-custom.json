@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sampler-custom",
+  "node": {"classType": "SamplerCustom", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L741-L805",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "741-805"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sample.py#L78-L83",
+        "path": "comfy/sample.py",
+        "lines": "78-83"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerCustom/ru.md",
+        "assessment": "Переводит системные порты и ошибочно объясняет cfg как общую конфигурацию; denoised_output подаёт как отдельное шумоподавление вместо последнего callback x0."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerCustom/en.md",
+        "assessment": "Список портов полезен как secondary reference, но noise mask, empty-latent repair, metadata cleanup и точная семантика x0 отсутствуют."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Полный census: 21 SamplerCustom, из них 5 root и 16 subgraph; все mode 0."
+      },
+      {
+        "id": "sdxlturbo_example-root",
+        "role": "Точно сверены widgets SamplerCustom #13 [true,0,fixed,1], MODEL/conditioning/LATENT, KSamplerSelect(euler_ancestral) и SDTurboScheduler(steps 1, denoise 1)."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Isolated exact-source probe использует stub model/sampler и проверяет wrapper semantics, но не выполняет реальный diffusion model.",
+    "Поведение вложенных latent и model-specific wrappers проверено чтением Guider/sample paths, а не полным набором исполняемых моделей.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

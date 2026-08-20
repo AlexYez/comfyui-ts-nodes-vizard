@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.combine-conditioning-pairs",
+  "locale": "ru",
+  "title": "Объединить две пары условий",
+  "summary": "Ставит записи второй положительной и отрицательной пары после первой, не смешивая и не копируя их тензоры.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.pair-conditioning-combine"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Две согласованные пары CONDITIONING",
+    "Проверка совместимости всех ветвей с последующим семплером"
+  ],
+  "fragment": {
+    "id": "fragment.combine-conditioning-pairs",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка закреплённых исходников и серверной схемы; точный метод проверен на синтетических данных, полный граф не исполнялся, human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "PairConditioningCombine в ComfyUI 0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L149-L171",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Помощники объединения условий",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L731-L771",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальные шаблоны workflow 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

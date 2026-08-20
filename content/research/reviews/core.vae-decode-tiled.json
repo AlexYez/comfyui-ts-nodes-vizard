@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.vae-decode-tiled",
+  "node": {"classType": "VAEDecodeTiled", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L340-L375", "path": "nodes.py", "lines": "340-375"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1281-L1311", "path": "comfy/sd.py", "lines": "1281-1311"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/VAEDecodeTiled/en.md", "assessment": "SHA-256 749b3b82e3425283134d6aa1cce341ffea1ceecb4dd3fd92eb34010d35f3b6ca. Inputs and spatial correction match; smooth-transition and quality wording is not a universal guarantee."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/VAEDecodeTiled/ru.md", "assessment": "SHA-256 7e0f527ce93121428106e684c4e922cc92df6c158ab062ee47715b178417dceb. Translation renames system fields in the table and repeats the unsupported quality assurance."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-vae-decode-tiled-census", "role": "Full 512 JSON/496 root/272 subgraph census: 27 nodes in 23 files; root5/subgraph22; mode0=22, mode4=5; nine exact widget tuples."},
+      {"id": "seedvr2-tiled-topology", "role": "Exact links/widgets for both direct image chains (3B/7B) and the distinct video chain through TemporalChunk, TemporalMerge and two switches."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Probe uses a fake wrapper VAE, but now passes a real PyTorch NestedTensor and verifies first-element selection, parameter correction and 5D flattening. Lightweight direct calls cover the pinned base 2D three-grid average and 2D/3D/owned decode routing with fake tiler outputs; no real first-stage VAE weights or full SeedVR2 graph were executed.", "Visual seams, peak VRAM and timing were not measured.", "Human approval pending."],
+  "updatedAt": "2026-08-14"
+}

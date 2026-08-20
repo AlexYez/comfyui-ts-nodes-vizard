@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.paint-mask-preview", "title": "Painter с двумя контрольными preview",
+  "externalInputs": [{"id": "base_image", "type": "IMAGE", "to": "painter", "input": "image"}],
+  "nodes": [
+    {"ref": "painter", "classType": "Painter", "role": "Нарисовать цветной слой и его альфа-маску", "settings": {"mask": "", "width": 1024, "height": 1024, "bg_color": "#000000"}},
+    {"ref": "image_preview", "classType": "PreviewImage", "role": "Проверить итоговую композицию", "settings": {}},
+    {"ref": "mask_preview", "classType": "MaskPreview", "role": "Проверить область штрихов", "settings": {}}
+  ],
+  "connections": [
+    {"from": "painter", "output": "IMAGE", "to": "image_preview", "input": "images"},
+    {"from": "painter", "output": "MASK", "to": "mask_preview", "input": "mask"}
+  ]
+}

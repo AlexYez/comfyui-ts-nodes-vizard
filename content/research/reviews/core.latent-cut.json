@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.latent-cut",
+  "node": {
+    "classType": "LatentCut",
+    "pythonModule": "comfy_extras.nodes_latent",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L176-L215",
+        "path": "comfy_extras/nodes_latent.py",
+        "lines": "176-215"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LatentCut/ru.md",
+        "assessment": "Даёт общее назначение index/amount, но не описывает clamp, 4D t как канал, torch.narrow view/shared storage и неизменённые metadata."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LatentCut/en.md",
+        "assessment": "Использован для сравнения назначения; точные границы и владение памятью проверены по реализации."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "video_wan2_2_14B_s2v",
+        "role": "Root case LatentCut 94 имеет widgets [t,0,1], получает sampled video latent и передаёт один кадр в LatentConcat."
+      },
+      {
+        "id": "image_qwen_image_layered-and-control-subgraphs",
+        "role": "В двух Qwen layered subgraph подтверждена связка LatentCut [t,1,16384] → LatentCutToBatch [t,1]. Полный census: два root и три subgraph экземпляра LatentCut в трёх файлах."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact-source tensor probe подтвердил clamp, отрицательный диапазон, 4D t и shared storage, но полный официальный workflow не исполнялся.",
+    "Поведение с нулевой длиной выбранной оси не проверялось как допустимый production-вход.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}
+

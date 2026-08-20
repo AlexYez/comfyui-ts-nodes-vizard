@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.four-image-stitch-grid", "title": "Четыре IMAGE в сетку 2x2",
+  "externalInputs": [
+    {"id": "top_left", "type": "IMAGE", "to": "top_row", "input": "image1"},
+    {"id": "top_right", "type": "IMAGE", "to": "top_row", "input": "image2"},
+    {"id": "bottom_left", "type": "IMAGE", "to": "bottom_row", "input": "image1"},
+    {"id": "bottom_right", "type": "IMAGE", "to": "bottom_row", "input": "image2"}
+  ],
+  "nodes": [
+    {"ref": "top_row", "classType": "ImageStitch", "role": "Собрать верхнюю строку вправо", "settings": {"direction": "right", "match_image_size": true, "spacing_width": 0, "spacing_color": "white"}},
+    {"ref": "bottom_row", "classType": "ImageStitch", "role": "Собрать нижнюю строку вправо", "settings": {"direction": "right", "match_image_size": true, "spacing_width": 0, "spacing_color": "white"}},
+    {"ref": "grid", "classType": "ImageStitch", "role": "Присоединить нижнюю строку вниз", "settings": {"direction": "down", "match_image_size": true, "spacing_width": 0, "spacing_color": "white"}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Показать готовую сетку", "settings": {}}
+  ],
+  "connections": [
+    {"from": "top_row", "output": "IMAGE", "to": "grid", "input": "image1"},
+    {"from": "bottom_row", "output": "IMAGE", "to": "grid", "input": "image2"},
+    {"from": "grid", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

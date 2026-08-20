@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sam3-track-to-mask",
+  "node": {
+    "classType": "SAM3_TrackToMask",
+    "pythonModule": "comfy_extras.nodes_sam3",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sam3.py#L473-L518",
+        "path": "comfy_extras/nodes_sam3.py",
+        "lines": "473-518"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SAM3_TrackToMask/en.md",
+        "assessment": "SHA-256 e58efc6114f4e7b579d75109e86af8a9f8e145b68f54b4d0fccf0fba0edcca25; выбор объектов проверен."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SAM3_TrackToMask/ru.md",
+        "assessment": "SHA-256 212d14d73999c4111533e5571e1363eca56ab9b755395b0724ac15e4f84da2d9; объединение OR и масштабирование уточнены."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-0142-zero-census",
+        "role": "В 768 официальных графах точных экземпляров нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Объединение упакованных масок не выполнялось; человеческое утверждение ещё не получено."
+  ],
+  "updatedAt": "2026-08-20"
+}

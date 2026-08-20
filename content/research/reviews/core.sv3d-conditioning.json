@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sv3d-conditioning",
+  "node": {
+    "classType": "SV3D_Conditioning",
+    "pythonModule": "comfy_extras.nodes_stable3d",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable3d.py#L110-L153",
+        "path": "comfy_extras/nodes_stable3d.py",
+        "lines": "110-153"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L535-L609",
+        "path": "comfy/model_base.py",
+        "lines": "535-609"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/supported_models.py#L343-L376",
+        "path": "comfy/supported_models.py",
+        "lines": "343-376"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L859-L884",
+        "path": "comfy/utils.py",
+        "lines": "859-884"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SV3D_Conditioning/en.md",
+        "assessment": "SHA-256 d8240bbbcc3a521053f02a4617c2ca1c6317afde1687bd30cac52960f0b4da34. Общая роль списков углов верна; формула 0–360°, повтор конечного направления, случаи одного и двух кадров и различие SV3D-u/p не раскрыты."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SV3D_Conditioning/ru.md",
+        "assessment": "SHA-256 29d9fdd1c4e55256992b8ce03929114785b979ddbccad9ed2eee5d6969306132. Переводит exact identifiers и помечает width, height, video_frames, elevation как optional вопреки runtime input.required."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "Просмотрены 512 JSON, 496 root workflow, 4083 root nodes, 272 subgraph и 4037 subgraph nodes; 0 raw-string и 0 node.type вхождений exact ID."
+      },
+      {
+        "id": "synthetic-exact-source-stable3d-conditioning-probe",
+        "role": "Прямой вызов метода подтвердил маршрут [0] для одного кадра и [0,90,180,270,360] для пяти кадров, постоянный elevation, общие списки углов в positive/negative и latent 5×4×5×7; точные методы encode_adm подтвердили, что SV3D-u не читает углы, а ширина ADM у SV3D-p равна 1280."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В официальном workflow wheel 0.1.42 нет topology, widgets или настроек sampler для exact ID SV3D_Conditioning.",
+    "Проба использовала заглушки encoder и точные методы encode_adm; веса SV3D-u/p, sampler, VAE decode и CreateVideo не запускались.",
+    "Качество повторённого конечного направления и потребление VRAM при разных video_frames не измерялись.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

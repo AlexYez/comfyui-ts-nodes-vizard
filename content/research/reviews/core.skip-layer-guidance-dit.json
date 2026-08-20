@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.skip-layer-guidance-dit",
+  "node": {"classType": "SkipLayerGuidanceDiT", "pythonModule": "comfy_extras.nodes_slg", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_slg.py#L8-L88",
+        "path": "comfy_extras/nodes_slg.py",
+        "lines": "8-88"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L93-L118",
+        "path": "comfy/model_patcher.py",
+        "lines": "93-118"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L592-L605",
+        "path": "comfy/samplers.py",
+        "lines": "592-605"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SkipLayerGuidanceDiT/en.md",
+        "assessment": "SHA-256 f2cdc1daaee6b2ce0b739b5f2b6c23134d5fc5c7b3c836201fefcfc419615adc; AI-generated page lists ports but calls the additional pass CFG negative, unlike the pinned cond call."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SkipLayerGuidanceDiT/ru.md",
+        "assessment": "SHA-256 05f9c64738899dca5e57a41a90351982a985c7c069148736d6fed7b292466040; runtime identifiers are translated and the same negative-pass claim is repeated."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "All 512 JSON, 496 root graphs and 272 subgraphs inspected: two direct SkipLayerGuidanceDiT nodes, both root and mode 0; exact widgets are identical."
+      },
+      {
+        "id": "e7533930-2792-43a9-b4b5-ded4617d8a43:wan2.1_fun_control",
+        "role": "UNETLoader #37 → SkipLayerGuidanceDiT #65 [9,10; 9,10; 3; 0.01; 0.8000000000000002; 0] → ModelSamplingSD3 #67 [5]."
+      },
+      {
+        "id": "e7533930-2792-43a9-b4b5-ded4617d8a43:wan2.1_fun_inp",
+        "role": "Second file reuses the UUID and local topology with the inpaint Wan loader; filename is retained because UUID alone is not unique case identity."
+      },
+      {
+        "id": "isolated-pinned-skip-layer-differential-probe",
+        "role": "Exact-source AST probe covers digit parsing, empty no-op, inclusive/reversed windows, scale/rescaling, replacement overwrite and post-hook registration without weights."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "Wan weights, predictions, качество, VRAM и время дополнительного прохода не измерялись.",
+    "Официальные JSON проверены как сериализованные графы, а не как успешные generation runs.",
+    "Human editorial approval pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

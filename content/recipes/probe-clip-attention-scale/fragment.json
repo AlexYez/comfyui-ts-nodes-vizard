@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.probe-clip-attention-scale",
+  "title": "CLIP self-attention: q 0.90, k/v/out 1.00",
+  "externalInputs": [
+    {"id": "clip", "type": "CLIP", "to": "scale_attention", "input": "clip"}
+  ],
+  "nodes": [
+    {"ref": "scale_attention", "classType": "CLIPAttentionMultiply", "role": "Уменьшить query projection на десять процентов", "settings": {"q": 0.9, "k": 1.0, "v": 1.0, "out": 1.0}}
+  ],
+  "connections": []
+}

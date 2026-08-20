@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sampler-lcm",
+  "node": {
+    "classType": "SamplerLCM",
+    "pythonModule": "comfy_extras.nodes_advanced_samplers",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_advanced_samplers.py#L89-L117",
+        "path": "comfy_extras/nodes_advanced_samplers.py",
+        "lines": "89-117"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L1015-L1045",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "1015-1045"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerLCM/en.md",
+        "assessment": "AI-generated документ верно перечисляет порты, но не описывает порядок clamp/noise_scaling, terminal transition и model-specific смысл единичного множителя."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerLCM/ru.md",
+        "assessment": "AI-generated перевод использован только для вторичной сверки; точное расписание множителя и область clamp проверены по source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "image_hidream_o1_dev:a2143803-dd9d-4fd4-9370-31ce70307498:root:125",
+        "role": "Единственный exact SamplerLCM: mode 0, widgets [1,1,2.5], SAMPLER→SamplerCustom node 108; соседние ModelNoiseScale и BasicScheduler(normal,28,1) проверены."
+      },
+      {
+        "id": "workflow-templates-json-0.1.42-executable-lcm-widget-census",
+        "role": "В полном root/subgraph scan дополнительно найдены 5 KSampler и 3 KSamplerSelect с exact widget lcm; они отделены от специализированной ноды."
+      },
+      {
+        "id": "isolated-pinned-lcm-constructor-and-noise-probe",
+        "role": "Safe exact-source probe подтвердил float options, линейный множитель, clamp случайного tensor и вызов model_sampling.noise_scaling."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся с HiDream O1 Dev weights.",
+    "Влияние s_noise gradient и noise_clip_std на качество и повторяемость не измерялось.",
+    "Сериализованный official seed находится в режиме randomize и при новом запуске может измениться.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

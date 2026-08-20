@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.merge-text-lists-basic",
+  "title": "MergeTextLists для подготовленного списка",
+  "externalInputs": [
+    {"id": "texts", "type": "STRING", "to": "merge", "input": "texts"}
+  ],
+  "nodes": [
+    {
+      "ref": "merge",
+      "classType": "MergeTextLists",
+      "role": "Пропустить подготовленный список строк без перестановки",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.flip-sigma-order",
+  "title": "Развернуть SIGMAS по оси 0",
+  "externalInputs": [
+    {"id": "sigmas", "type": "SIGMAS", "to": "flip", "input": "sigmas"}
+  ],
+  "nodes": [
+    {"ref": "flip", "classType": "FlipSigmas", "role": "Развернуть порядок и защитить новый старт от точного нуля", "settings": {}}
+  ],
+  "connections": []
+}

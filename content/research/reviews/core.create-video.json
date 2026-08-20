@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.create-video",
+  "node": {
+    "classType": "CreateVideo",
+    "pythonModule": "comfy_extras.nodes_video",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video.py#L152-L192",
+        "path": "comfy_extras/nodes_video.py",
+        "lines": "152-192"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L813-L899",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "813-899"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/constants/essentialsNodes.ts#L342-L357",
+        "path": "src/constants/essentialsNodes.ts",
+        "lines": "342-357"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/CreateVideo/en.md",
+        "assessment": "Входы и диапазоны в основном верны, но текст называет результат файлом и не объясняет ленивый VideoFromComponents."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/CreateVideo/ru.md",
+        "assessment": "Перевод пропускает вход bit_depth и также обещает файл вместо объектного VIDEO."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON: 102 CreateVideo, поровну в корневых графах и подграфах; 79 файлов, 42 идентификатора workflow, режим 0 — 93, режим 4 — 9."
+      },
+      {
+        "id": "video-ltx2-3-t2v#07824bbb-6672-4bb0-ac36-4313a519e35b/subgraph-b94257db-cdc1-45d3-8913-ca61e782d9c1/node-242",
+        "role": "VAEDecodeTiled, LTXVAudioVAEDecode и FLOAT fps сходятся в CreateVideo; выход VIDEO покидает подграф и сохраняется в root."
+      },
+      {
+        "id": "utility-seedvr2-components-roundtrip",
+        "role": "Обработанные кадры идут в CreateVideo, а audio, fps и bit_depth приходят от GetVideoComponents исходного VIDEO."
+      },
+      {
+        "id": "isolated-pinned-video-io-probe",
+        "role": "Точный CreateVideo.execute и методы VideoFromComponents проверены на синтетических тензорах без вызова кодека: кадры и звук сохранились теми же объектами, также сверены Fraction fps и bit_depth."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "H.264/AAC-сохранение VideoFromComponents не выполнялось: PyAV отсутствует; проверены ленивость и передача компонентов до кодировщика.",
+    "Поведение нестандартного числа аудиоканалов и совместимость десятибитного результата с проигрывателями не проверялись.",
+    "Официальные шаблоны используют только bit_depth 8; значение 10 подтверждено исходным кодом и runtime-схемой, но не шаблоном.",
+    "Fragment принимает готовые IMAGE и AUDIO и не исполнялся как полный граф.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

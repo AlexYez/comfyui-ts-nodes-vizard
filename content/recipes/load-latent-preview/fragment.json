@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-latent-preview",
+  "title": ".latent из input → VAE preview",
+  "externalInputs": [
+    {"id": "vae", "type": "VAE", "to": "decode", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "load",
+      "classType": "LoadLatent",
+      "role": "Прочитать выбранный safetensors .latent из input",
+      "settings": {"latent": "выберите установленный .latent"}
+    },
+    {"ref": "decode", "classType": "VAEDecode", "role": "Декодировать samples исходным совместимым VAE", "settings": {}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Показать содержимое без нового sampling", "settings": {}}
+  ],
+  "connections": [
+    {"from": "load", "output": "LATENT", "to": "decode", "input": "samples"},
+    {"from": "decode", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

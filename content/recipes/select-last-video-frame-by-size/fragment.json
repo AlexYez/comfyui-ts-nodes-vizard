@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.select-last-video-frame-by-size",
+  "title": "VIDEO — batch_size — последний IMAGE",
+  "externalInputs": [
+    {
+      "id": "video",
+      "type": "VIDEO",
+      "to": "components",
+      "input": "video"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "components",
+      "classType": "GetVideoComponents",
+      "role": "Извлечь IMAGE-бэтч кадров из VIDEO",
+      "settings": {}
+    },
+    {
+      "ref": "size",
+      "classType": "GetImageSize",
+      "role": "Получить batch_size кадров",
+      "settings": {}
+    },
+    {
+      "ref": "select",
+      "classType": "ImageFromBatch",
+      "role": "Прижать индекс batch_size к последнему доступному кадру",
+      "settings": {
+        "batch_index": 0,
+        "length": 1
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "components",
+      "output": "images",
+      "to": "size",
+      "input": "image"
+    },
+    {
+      "from": "components",
+      "output": "images",
+      "to": "select",
+      "input": "image"
+    },
+    {
+      "from": "size",
+      "output": "batch_size",
+      "to": "select",
+      "input": "batch_index"
+    }
+  ]
+}

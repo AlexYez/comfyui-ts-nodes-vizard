@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.duplicate-first-video-latent-frame",
+  "locale": "ru",
+  "title": "Добавить первый latent-кадр перед видео",
+  "summary": "Официальная связка Wan 2.2 S2V вырезает первый кадр через LatentCut и ставит его перед полной последовательностью через LatentConcat.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.latent-concat", "core.latent-cut"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Пятиосевой sampled video LATENT",
+    "Один и тот же LATENT должен быть подключён к обоим внешним входам fragment"
+  ],
+  "fragment": {
+    "id": "fragment.duplicate-first-video-latent-frame",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime and official workflow topology review, exact tensor probe and Russian editorial pass; full workflow execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "LatentCut and LatentConcat implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L136-L215",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: Wan 2.2 S2V",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-audio-conditioning-encode",
+  "locale": "ru",
+  "title": "Обрезать и кодировать речь для LTX IA2V",
+  "summary": "TrimAudioDuration 0/60 передаёт AUDIO в LTXVAudioVAEEncode, повторяя точную локальную связь двух официальных LTX speech-to-video templates.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-audio-vae-encode", "core.trim-audio-duration"],
+  "requirements": ["ComfyUI 0.32.0", "Вход AUDIO", "Совместимый LTX Audio VAE", "Дальнейшая LTX audio/video latent pipeline"],
+  "fragment": {"id": "fragment.ltxv-audio-conditioning-encode", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated inherited source, runtime, two exact official LTX IA2V topologies, fake-VAE execution and Russian editorial pass; human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [
+    {"title": "LTXVAudioVAEEncode in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt_audio.py#L37-L58", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"},
+    {"title": "Official Image and Speech to Video template", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/template_image_speech_to_video.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}
+  ]
+}

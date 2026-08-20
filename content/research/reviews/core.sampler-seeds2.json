@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sampler-seeds2",
+  "node": {"classType": "SamplerSEEDS2", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L681-L713", "path": "comfy_extras/nodes_custom_sampler.py", "lines": "681-713"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L1592-L1663", "path": "comfy/k_diffusion/sampling.py", "lines": "1592-1663"}
+    ],
+    "embeddedDocs": [
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/SamplerSEEDS2/ru.md", "assessment": "Перечисляет presets и диапазоны, но не объясняет две model evaluations, logSNR, условие injection, model noise_scale и финальную ветвь."},
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/SamplerSEEDS2/en.md", "assessment": "Использован для сверки общего назначения; exact phi_1/phi_2 и preset equivalence подтверждены implementation и runtime description."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-scan", "role": "Полный recursive census 512 JSON, 496 root workflow objects и 272 subgraphs: 0 SamplerSEEDS2. Recipe основан на runtime-described preset, не на готовом workflow."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Exact-source probe проверяет constructor options и preset mapping; двухстадийная model trajectory не выполнялась.",
+    "Эквивалентность exp_heun_2_x0 подтверждена прямым wrapper call в source, но визуальный output не сравнивался.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

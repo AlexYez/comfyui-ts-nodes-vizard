@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.layered-latent-to-batch",
+  "locale": "ru",
+  "title": "Разложить layered latent в batch",
+  "summary": "Связка из официальных Qwen layered workflow отбрасывает первый элемент оси t и переносит оставшиеся элементы в batch.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.latent-cut", "core.latent-cut-to-batch"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "LATENT с отдельными слоями или кадрами вдоль третьей оси с конца"
+  ],
+  "fragment": {
+    "id": "fragment.layered-latent-to-batch",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime and official Qwen layered topology review, exact tensor probe and Russian editorial pass; full workflow execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "LatentCut and LatentCutToBatch implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L176-L260",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: Qwen layered workflows",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

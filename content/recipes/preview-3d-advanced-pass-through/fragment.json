@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.preview-3d-advanced-pass-through",
+  "title": "Внешний FILE_3D → временный просмотр Preview3DAdvanced",
+  "externalInputs": [
+    {"id": "model_file", "type": "FILE_3D", "to": "preview", "input": "model_3d"}
+  ],
+  "nodes": [
+    {
+      "ref": "preview",
+      "classType": "Preview3DAdvanced",
+      "role": "Показать FILE_3D и передать файл со состоянием дальше",
+      "settings": {"width": 1024, "height": 1024}
+    }
+  ],
+  "connections": []
+}

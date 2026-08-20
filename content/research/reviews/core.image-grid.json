@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-grid",
+  "node": {"classType": "ImageGrid", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L562-L741",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "562-741"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1628-L1699",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1628-1699"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ImageGrid/ru.md",
+        "assessment": "Перевод начинается служебной фразой и не раскрывает растяжение пропорций, чёрные пустые ячейки, 8-bit RGB и experimental; использован только для сверки названий параметров."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ImageGrid/en.md",
+        "assessment": "Верно перечисляет columns, cell size, padding и один grid-output; точные формулы и PIL-путь подтверждены реализацией."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-exhaustive-image-grid",
+        "role": "Полный recursive scan всех 512 JSON, включая definitions.subgraphs, нашёл 0 exact ImageGrid; source-derived fragment не выдаётся за официальный template-case."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Формула layout и 8-битное округление проверены чистой Python-моделью; Pillow и сама node class в ComfyUI не запускались.",
+    "Официального workflow-case в wheel 0.1.42 нет; fragment построен только из source/runtime-контрактов.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

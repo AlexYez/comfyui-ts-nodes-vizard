@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.cfg-norm-pre-cfg",
+  "locale": "ru",
+  "title": "CFGNorm pre_cfg в JoyAI-графе",
+  "summary": "MODEL проходит через CFGNorm со strength 1 и pre_cfg=true, затем поступает в KSampler с параметрами официального JoyAI example.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.cfg-norm"],
+  "requirements": ["ComfyUI 0.32.0", "Совместимый JoyAI или другой MODEL", "Positive, negative CONDITIONING и LATENT"],
+  "fragment": {"id": "fragment.cfg-norm-pre-cfg", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema and official JoyAI topology review; model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "CFGNorm in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_cfg.py#L51-L109",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates 0.1.42: image_joyai_image_edit",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

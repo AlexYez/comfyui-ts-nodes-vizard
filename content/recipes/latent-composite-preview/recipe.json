@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.latent-composite-preview", "locale": "ru",
+  "title": "Собрать два latent и декодировать результат", "summary": "Смешивает внешние destination и source LATENT по внешней MASK, затем декодирует результат тем же совместимым VAE.", "body": "ru.md", "difficulty": "advanced",
+  "articleIds": ["core.latent-composite-masked", "core.preview-image", "core.vae-decode"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Два LATENT из совместимой модельной/VAE цепочки", "Согласованная MASK и тот же VAE для decode"],
+  "fragment": {"id": "fragment.latent-composite-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Source and schema review; compatible latent execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [{"title": "LatentCompositeMasked implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_mask.py#L12-L78", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}]
+}

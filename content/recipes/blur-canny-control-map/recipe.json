@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.blur-canny-control-map",
+  "locale": "ru",
+  "title": "Сгладить изображение перед Canny",
+  "summary": "Применяет небольшое гауссово размытие, извлекает Canny-границы с низкими порогами и показывает карту до подключения к control-модели.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.image-blur", "core.canny", "core.preview-image"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "RGB IMAGE; alpha следует отделить до Canny"
+  ],
+  "fragment": {
+    "id": "fragment.blur-canny-control-map",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source, Kornia and official Canny-workflow review; tensor path tested, full fragment execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ImageBlur implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L72-L111",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Canny implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_canny.py#L1-L45",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official Canny workflow cases in templates 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

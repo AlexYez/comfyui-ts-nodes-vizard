@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.random-noise-custom-sampling",
+  "title": "RandomNoise → SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sampler", "type": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "noise",
+      "classType": "RandomNoise",
+      "role": "Создать воспроизводимый NOISE-объект",
+      "settings": {"noise_seed": 42}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Сгенерировать шум под форму LATENT и выполнить custom sampling",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "noise", "output": "NOISE", "to": "sample", "input": "noise"}
+  ]
+}
+

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.sample-empty-hunyuan-video-10-latent",
+  "title": "Пустой latent Hunyuan Video 1.0 → SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sampler", "type": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"}
+  ],
+  "nodes": [
+    {
+      "ref": "latent",
+      "classType": "EmptyHunyuanLatentVideo",
+      "role": "Создать нулевой 16-канальный видеолатент",
+      "settings": {"width": 848, "height": 480, "length": 73, "batch_size": 1}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Принять latent вместе с внешними настройками сэмплирования",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "latent", "output": "LATENT", "to": "sample", "input": "latent_image"}
+  ]
+}

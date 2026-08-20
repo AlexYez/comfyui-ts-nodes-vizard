@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.primitive-string-switch", "locale": "ru",
+  "title": "Переключить две строковые константы одним BOOLEAN", "summary": "Точная малая связка official basic_switch_node: два PrimitiveString и PrimitiveBoolean подключены к ComfySwitchNode.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.primitive-string", "core.primitive-boolean", "core.comfy-switch-node"], "requirements": ["ComfyUI 0.32.0", "ComfySwitchNode из чистой установки"],
+  "fragment": {"id": "fragment.primitive-string-switch", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact topology/widgets from pinned basic_switch_node; full workflow and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "Official basic_switch_node workflow in templates 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.preview-3d",
+  "node": {
+    "classType": "Preview3D",
+    "pythonModule": "comfy_extras.nodes_load_3d",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_load_3d.py#L87-L129",
+        "path": "comfy_extras/nodes_load_3d.py",
+        "lines": "87-129"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_ui.py#L440-L456",
+        "path": "comfy_api/latest/_ui.py",
+        "lines": "440-456"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d.ts#L475-L686",
+        "path": "src/extensions/core/load3d.ts",
+        "lines": "475-686"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/Preview3D/en.md",
+        "assessment": "SHA-256 db81f27c0464074303119db9c8553f3d15f86507c55a1f64ef136d84048b85f7. Ошибочно указывает тип model_file и не отражает постоянную output-копию ветки FILE_3D."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Preview3D/ru.md",
+        "assessment": "SHA-256 bd1524edc4b8590f1ff707aea4b1c1e96b961aed78822d8dcad855059ed45313. Назначение просмотрщика сверено, а схема и файловая семантика исправлены по коду."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-preview-3d-census",
+        "role": "Полная перепись нашла 24 Preview3D в 17 файлах: 24 корневых, 0 подграфовых; mode=0 у 18 и mode=4 у 6. У 23 нод STRING подключён к model_file, camera_info и bg_image не подключены ни разу."
+      },
+      {
+        "id": "api_tripo_p1_text_to_model",
+        "role": "Исторический Preview3D №41 не содержит сериализованного model_file и опирается на сохранённый GLB-путь; в статье это отмечено как хрупкое UI-состояние, а не рекомендуемый пример."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Строковая и FILE_3D ветви проверены на временных синтетических данных, но модель не разбиралась в WebGL-просмотрщике.",
+    "Фрагмент повторяет официальный тип связи STRING, однако внешний производитель файла и полный граф намеренно не включены и не исполнялись.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

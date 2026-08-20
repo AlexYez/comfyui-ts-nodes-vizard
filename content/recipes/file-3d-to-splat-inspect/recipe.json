@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.file-3d-to-splat-inspect",
+  "locale": "ru",
+  "title": "Разобрать splat File3D и проверить число гауссов",
+  "summary": "Source-derived fragment соединяет File3DToSplat с GetSplatCount, чтобы после импорта PLY, SPLAT, KSPLAT или SPZ проверить размер результата.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.file-3d-to-splat", "core.get-splat-count"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "File3D с корректным Gaussian Splat содержимым",
+    "Формат PLY, SPLAT, KSPLAT или SPZ"
+  ],
+  "fragment": {"id": "fragment.file-3d-to-splat-inspect", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs review and exact-source PLY/SPLAT/KSPLAT/SPZ probes; official wheel has no File3DToSplat case, human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "File3DToSplat in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L194-L551",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

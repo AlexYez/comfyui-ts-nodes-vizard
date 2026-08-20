@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.sampling-percent-to-sigma",
+  "locale": "ru",
+  "title": "Задать первую sigma по 25% sampling",
+  "summary": "Переводит долю 0,25 в model-specific sigma, подставляет её в начало внешнего расписания и передаёт результат в SamplerCustomAdvanced.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.sampling-percent-to-sigma"],
+  "requirements": [
+    "MODEL с нужной sampling-конфигурацией",
+    "Внешний SIGMAS, у которого новая первая sigma не ниже второй",
+    "NOISE, GUIDER, SAMPLER и LATENT для SamplerCustomAdvanced"
+  ],
+  "fragment": {"id": "fragment.sampling-percent-to-sigma", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная проверка pinned methods, runtime-портов и полного zero-census; модельный sampling и ручная редакторская проверка не выполнены",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SamplingPercentToSigma implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L351-L376",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "SetFirstSigma implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L276-L296",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

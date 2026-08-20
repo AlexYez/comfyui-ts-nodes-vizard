@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sampler-lms",
+  "node": {"classType": "SamplerLMS", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L537-L552",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "537-552"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L406-L440",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "406-440"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerLMS/en.md",
+        "assessment": "SHA-256 230d1c167f0fefc14fe9fd15e5b4707fae995dee9f59839e611e94b403c4627e. AI-generated документ ошибочно раскрывает LMS как Least Mean Squares; pinned function linear_multistep_coeff и история derivatives подтверждают Linear Multistep."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerLMS/ru.md",
+        "assessment": "SHA-256 f2ccdb8c69ba8e6742a9613a032858ddc9cff2152caf1477ab96a4968c694cf4. Перевод повторяет ошибочную расшифровку и локализует runtime key order; факты взяты из runtime/source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-sampler-lms-zero-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3: 512 JSON, 496 root + 272 subgraph; exact type total/root/sub/files/UUID = 0/0/0/0/0; среди 97 KSamplerSelect точного widget 'lms' тоже нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact node execute проверен с подставной ksampler-фабрикой; terminal branch sample_lms исполнен на fake model, а nonterminal branch со SciPy quadrature не запускался.",
+    "В official wheel нет ни exact SamplerLMS, ни соседнего KSamplerSelect со значением lms; fragment полностью source-derived.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

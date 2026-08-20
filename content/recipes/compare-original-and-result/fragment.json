@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.compare-original-and-result", "title": "A/B-сравнение исходника и результата",
+  "externalInputs": [
+    {"id": "original_image", "type": "IMAGE", "to": "compare", "input": "image_a"},
+    {"id": "result_image", "type": "IMAGE", "to": "compare", "input": "image_b"}
+  ],
+  "nodes": [{"ref": "compare", "classType": "ImageCompare", "role": "Показать A/B под движущейся границей", "settings": {}}],
+  "connections": []
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.chroma-beta-sigma-schedule",
+  "title": "ModelSamplingAuraFlow и beta-расписание Chroma Radiance",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "sampling", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "sampling",
+      "classType": "ModelSamplingAuraFlow",
+      "role": "Применить sampling shift из официального Chroma Radiance subgraph",
+      "settings": {"shift": 1.0}
+    },
+    {
+      "ref": "beta",
+      "classType": "BetaSamplingScheduler",
+      "role": "Выбрать сигмы патченной модели по официальным beta-параметрам",
+      "settings": {"steps": 30, "alpha": 0.4, "beta": 0.4}
+    }
+  ],
+  "connections": [
+    {"from": "sampling", "output": "MODEL", "to": "beta", "input": "model"}
+  ]
+}

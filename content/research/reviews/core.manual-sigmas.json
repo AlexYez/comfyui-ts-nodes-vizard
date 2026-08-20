@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.manual-sigmas",
+  "node": {"classType": "ManualSigmas", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L1133-L1154",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "1133-1154"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L741-L798",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "741-798"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ManualSigmas/en.md",
+        "assessment": "Верно описывает строку и tensor, но не раскрывает научную запись, malformed decimal, пустой результат, CPU float32, порядок и конечный ноль."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ManualSigmas/ru.md",
+        "assessment": "Переводит имена runtime-портов и называет любые разделённые числа допустимыми; parser-ограничения и sampler-контракт сверены по pinned source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON и 496 корневых графов вместе с definitions.subgraphs[*].nodes: 30 ManualSigmas в 17 файлах, все в subgraphs и все напрямую подключены к SamplerCustomAdvanced."
+      },
+      {
+        "id": "official-ltx-manual-sigma-widget-census",
+        "role": "Подсчитаны четыре точные строки: короткая 0.909375... — 9 раз, полная с 1.0 — 8, короткая с 0.85 — 7, полная с 1. — 6."
+      },
+      {
+        "id": "synthetic-exact-source-manual-sigmas",
+        "role": "AST-extracted execute выполнен без модели: проверены знаки и разделители, CPU float32, пустой tensor, разбор 1e-3 как [1,-3] и ValueError для 1..2."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact-source probe проверяет только parser и tensor creation; SamplerCustomAdvanced с реальной LTX model не запускался.",
+    "Fragment использует точную официальную строку, но не содержит остальных model-specific узлов LTX workflow.",
+    "Влияние изменения отдельных сигм на видео не квалифицировано; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

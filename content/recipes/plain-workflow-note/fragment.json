@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.plain-workflow-note",
+  "title": "Одно действие перед запуском",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "warning",
+      "classType": "Note",
+      "role": "Напомнить о ручном выборе локального файла",
+      "settings": {
+        "title": "Перед запуском",
+        "text": "Выберите установленный checkpoint в соседней loader-ноде."
+      }
+    }
+  ],
+  "connections": []
+}

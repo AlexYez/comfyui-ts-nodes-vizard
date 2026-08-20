@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mask-preview",
+  "node": {"classType": "MaskPreview", "pythonModule": "comfy_extras.nodes_mask", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mask.py#L411-L434", "path": "comfy_extras/nodes_mask.py", "lines": "411-434"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_ui.py#L393-L414", "path": "comfy_api/latest/_ui.py", "lines": "393-414"}
+    ],
+    "embeddedDocs": [
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/MaskPreview/ru.md", "assessment": "Файл неверно называет output-каталог и настраиваемый filename_prefix. Source сохраняет через FolderType.temp со случайным ComfyUI_temp_ prefix, возвращает исходную MASK и объявляет ноду output node."}
+    ],
+    "workflows": [
+      {"id": "utility_birefnet_remove_background", "role": "Preview результата удаления фона."},
+      {"id": "utility_video_segment_sam3", "role": "Контроль маски сегментации видео."},
+      {"id": "utility_image_segment_sam3", "role": "Контроль маски сегментации изображения."},
+      {"id": "utility_moge_depth_estimation", "role": "Просмотр результата, представленного как MASK."},
+      {"id": "image_anima_lllite_image_inpainting", "role": "Проверка маски рядом с Painter в inpainting-графе."},
+      {"id": "basic_mask_operations_and_compositing", "role": "14 MaskPreview сравнивают ImageToMask, Invert, Threshold, Feather и несколько MaskComposite."},
+      {"id": "image_qwen_image_instantx_inpainting_controlnet", "role": "Две контрольные точки MASK в inpainting ControlNet."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Backend execute проверен с реальным temp PNG и точным MASK passthrough; вставка fragment и UI-отображение в браузере ещё не пройдены как E2E.",
+    "Все семь official workflow-файлов и 14 instances в basic workflow просмотрены статически; модели/API этих графов не запускались.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.clip-set-last-layer",
+  "node": { "classType": "CLIPSetLastLayer", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L690-L704",
+        "path": "nodes.py",
+        "lines": "690-704"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L298-L316",
+        "path": "comfy/sd.py",
+        "lines": "298-316"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L392-L400",
+        "path": "comfy/sd.py",
+        "lines": "392-400"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd1_clip.py#L152-L169",
+        "path": "comfy/sd1_clip.py",
+        "lines": "152-169"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/clip_model.py#L114-L136",
+        "path": "comfy/clip_model.py",
+        "lines": "114-136"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ClipSetLastLayer/en.md",
+        "assessment": "Документ помечен как AI-generated. Имена входов совпадают по смыслу, но утверждение об остановке обработки и ускорении расходится с CLIPEncoder.forward: цикл проходит по всем слоям и только сохраняет промежуточное состояние. Утверждение не перенесено."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 JSON-файлов, корневые nodes и definitions.subgraphs[*].nodes; вхождений CLIPSetLastLayer нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment проверен структурно, но кодирование текста и diffusion sampling с закреплёнными весами не выполнялись.",
+    "В официальном workflow-пакете 0.1.42 нет примера CLIPSetLastLayer; визуальный эффект и рекомендуемый индекс не подтверждались официальным case.",
+    "Поведение составных и нестандартных text encoder описано только в границах прочитанной реализации и не проверено end-to-end для каждой архитектуры."
+  ],
+  "updatedAt": "2026-08-13"
+}

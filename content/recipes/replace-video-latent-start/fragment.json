@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.replace-video-latent-start",
+  "title": "Destination video LATENT + source LATENT → заменить начало",
+  "externalInputs": [
+    {
+      "id": "destination_video",
+      "type": "LATENT",
+      "to": "replace_start",
+      "input": "destination"
+    },
+    {
+      "id": "source_frames",
+      "type": "LATENT",
+      "to": "replace_start",
+      "input": "source"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "replace_start",
+      "classType": "ReplaceVideoLatentFrames",
+      "role": "Заменить начало destination всеми кадрами source",
+      "settings": {
+        "index": 0
+      }
+    }
+  ],
+  "connections": []
+}
+

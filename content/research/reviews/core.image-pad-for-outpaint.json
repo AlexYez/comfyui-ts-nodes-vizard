@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-pad-for-outpaint",
+  "node": {
+    "classType": "ImagePadForOutpaint",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/nodes.py#L1997-L2062",
+        "path": "nodes.py",
+        "lines": "1997-2062"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ImagePadForOutpaint/ru.md",
+        "assessment": "Общее назначение верно, но не указаны заполнение 0.5, точная полярность маски, формула feathering и условие его полного отключения."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "flux_fill_outpaint_example",
+        "role": "Поля 400/0/400/400 и feathering 24; оба выхода подключены к InpaintModelConditioning."
+      },
+      {
+        "id": "api_bria_image_outpainting",
+        "role": "Поля 448/304/448/304 и feathering 40; IMAGE и MASK переданы Bria API-нode."
+      },
+      {
+        "id": "image_qwen_image_instantx_inpainting_controlnet",
+        "role": "Поля 200/200/0/200 без feathering; оба выхода используются в модельной inpaint-ветке."
+      },
+      {
+        "id": "video_wan_vace_outpainting",
+        "role": "Поля 120/120/120/200 без feathering; IMAGE и MASK используются для video outpaint."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment-only пример не исполнен локально с весами Flux Fill.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

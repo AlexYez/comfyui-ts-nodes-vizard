@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.stable-cascade-super-resolution-source",
+  "locale": "ru",
+  "title": "Проверить входы experimental Stable Cascade super-resolution",
+  "summary": "Source-derived fragment показывает два обязательных входа и три выхода экспериментальной ноды, не изображая непроверенный ControlNet workflow.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.stable-cascade-super-resolution-controlnet"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "IMAGE с каналами в последнем измерении",
+    "VAE с совместимым Stable Cascade encoder",
+    "Отдельно проверенная downstream super-resolution/ControlNet цепочка"
+  ],
+  "fragment": {"id": "fragment.stable-cascade-super-resolution-source", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/docs, exhaustive official workflow absence census, exact-source tensor probe and Russian editorial pass; downstream ControlNet execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "StableCascade_SuperResolutionControlnet in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable_cascade.py#L117-L148",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.cfg-override-window",
+  "title": "CFGOverride 3,0 на участке 0,7–1,0",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "override", "input": "model"},
+    {"id": "model-negative", "type": "MODEL", "to": "guider", "input": "model_negative"},
+    {"id": "positive", "type": "CONDITIONING", "to": "guider", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "guider", "input": "negative"},
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "sampler", "type": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {"ref": "override", "classType": "CFGOverride", "role": "Подменить CFG на последнем участке sampling", "settings": {"cfg": 3.0, "start_percent": 0.7, "end_percent": 1.0}},
+    {"ref": "guider", "classType": "DualModelGuider", "role": "Собрать guider из двух модельных ветвей", "settings": {"cfg": 7.0}},
+    {"ref": "sample", "classType": "SamplerCustomAdvanced", "role": "Выполнить sampling", "settings": {}}
+  ],
+  "connections": [
+    {"from": "override", "output": "MODEL", "to": "guider", "input": "model"},
+    {"from": "guider", "output": "GUIDER", "to": "sample", "input": "guider"}
+  ]
+}

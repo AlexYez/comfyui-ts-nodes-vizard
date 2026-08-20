@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.latent-batch-seed-behavior",
+  "node": {
+    "classType": "LatentBatchSeedBehavior",
+    "pythonModule": "comfy_extras.nodes_latent",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L289-L316",
+        "path": "comfy_extras/nodes_latent.py",
+        "lines": "289-316"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sample.py#L9-L38",
+        "path": "comfy/sample.py",
+        "lines": "9-38"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L732-L739",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "732-739"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LatentBatchSeedBehavior/ru.md",
+        "assessment": "Передаёт общую идею fixed/random, но говорит об изменении seed. Реализация seed не меняет: она повторяет либо удаляет batch_index. Формулировка статьи исправлена по коду sampler noise path."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LatentBatchSeedBehavior/en.md",
+        "assessment": "Использован для сверки названий режимов. Детерминизм random при неизменном sampler seed и стоимость высокого индекса выведены непосредственно из prepare_noise_inner."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON-файлов, корневые nodes и definitions.subgraphs[*].nodes; вхождений LatentBatchSeedBehavior нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-case для LatentBatchSeedBehavior в пакете 0.1.42 нет; связка Repeat → fixed основана на исходниках.",
+    "Fragment проверен структурно, но идентичность и различие noise tensors не измерялись в живом sampler; exampleExecuted остаётся false.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

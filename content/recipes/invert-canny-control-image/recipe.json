@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.invert-canny-control-image",
+  "locale": "ru",
+  "title": "Инвертировать Canny-карту перед просмотром",
+  "summary": "Повторяет проверяемый участок официального Anima workflow: внешний Canny IMAGE проходит через ImageInvert и сразу показывается в PreviewImage.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.image-invert", "core.preview-image"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "IMAGE-карта границ или другая control-карта с нужной для проверки полярностью"
+  ],
+  "fragment": {
+    "id": "fragment.invert-canny-control-image",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source and official-workflow trace; fragment schema validated, execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ImageInvert implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1932-L1947",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official image_anima_lllite_any_control_to_image workflow in templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/image_anima_lllite_any_control_to_image.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

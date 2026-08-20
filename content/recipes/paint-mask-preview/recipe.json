@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.paint-mask-preview", "locale": "ru",
+  "title": "Нарисовать маску поверх IMAGE", "summary": "Painter принимает базовый IMAGE, сохраняет интерактивные штрихи, а его IMAGE и MASK открываются в отдельных preview перед подключением к inpainting.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.painter", "core.preview-image", "core.mask-preview"],
+  "requirements": ["ComfyUI 0.32.0 и frontend 1.48.7 или совместимые версии", "Nodes 2.0", "Входной IMAGE"],
+  "fragment": {"id": "fragment.paint-mask-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated backend/frontend source and official Painter topology review; browser drawing fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "Painter backend in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_painter.py#L1-L130", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"},
+    {"title": "Painter widget in frontend 1.48.7", "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/components/painter/WidgetPainter.vue#L1-L348", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"},
+    {"title": "Official workflow templates JSON 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.replace-save-audio-opus",
+  "title": "AUDIO → SaveAudioAdvanced Opus 128k",
+  "externalInputs": [
+    { "id": "audio", "type": "AUDIO", "to": "save", "input": "audio" }
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "SaveAudioAdvanced",
+      "role": "Сохранить Opus 128k актуальной нодой",
+      "settings": {
+        "filename_prefix": "audio/ComfyUI",
+        "format": { "format": "opus", "quality": "128k" }
+      }
+    }
+  ],
+  "connections": []
+}

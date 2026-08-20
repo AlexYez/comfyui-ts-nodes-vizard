@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.apg",
+  "node": {"classType": "APG", "pythonModule": "comfy_extras.nodes_apg", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_apg.py#L7-L99",
+        "path": "comfy_extras/nodes_apg.py",
+        "lines": "7-99"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L592-L627",
+        "path": "comfy/samplers.py",
+        "lines": "592-627"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/APG/en.md",
+        "assessment": "Верно передаёт общую идею projection и runtime ranges, но не раскрывает точную modified_cond formula, cfg=0 division, sigma reset и ненормированный momentum."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/APG/ru.md",
+        "assessment": "Переводит runtime labels и называет state скользящим средним; exact source использует running = momentum × running + guidance без коэффициента нормировки."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON и всех recursive subgraphs точный APG не найден; официальный model-specific preset отсутствует."
+      },
+      {
+        "id": "iclr-2025-apg-method",
+        "role": "Оригинальная статья ICLR подтверждает три элемента метода: projection, rescaling и reverse momentum, а также цель уменьшения артефактов высокого guidance."
+      },
+      {
+        "id": "synthetic-exact-source-apg-hook",
+        "role": "AST-extracted exact hook подтвердил projection, clipping, negative momentum accumulation/reset, single-condition bypass, non-finite cfg=0 и отличие eta=1/no-modifiers от ordinary CFG после стандартного Comfy CFG mixing."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official wheel 0.1.42 не содержит APG; fragment фиксирует runtime defaults лишь как контрольную точку, а не проверенный quality preset.",
+    "Модель и изображения не генерировались; tensor probe не оценивает oversaturation, fidelity или пригодность defaults для конкретной архитектуры.",
+    "Формулировка runtime tooltip про default CFG при eta=1 расходится с algebraic probe при отключённых norm/momentum; человеческое рассмотрение этой оговорки ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.shuffle-dataset",
+  "node": {"classType": "ShuffleDataset", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L579-L746",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "579-746"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1127-L1144",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1127-1144"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ShuffleDataset/en.md",
+        "assessment": "Справка помечена как AI-generated. Она описывает перестановку и seed, но не раскрывает модуль 2^32-1, коллизии, разворачивание пакета и глобальное состояние NumPy; SHA-256: 760f2eac561fad7d25016f0407ec67663ccb05837a31a927ddfb69f63b7be65e."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ShuffleDataset/ru.md",
+        "assessment": "Русская AI-generated версия ошибочно говорит, что seed 0 даёт новый порядок при каждом выполнении; код воспроизводимо задаёт NumPy seed 0. SHA-256: 043b41519aa6ea17dafabf9b241134ba910029f692092ed7cf50f1512522faec."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 файлов JSON, 496 корневых графов и 272 подграфа; ShuffleDataset отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-shuffle-merge-probe",
+        "role": "Для восьми элементов seed 7 дал 2,5,0,6,3,1,4,7, повторился, совпал с seed 4294967302 по модулю и изменился при seed 8; также проверены пустой список и сброс глобального NumPy RNG."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Фрагмент не импортировался на холст и не проходил визуальную проверку порядка изображений.",
+    "Влияние глобального NumPy RNG на сторонние ноды не проверялось в полном графе.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

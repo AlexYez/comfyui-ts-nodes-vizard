@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.add-unclip-reference",
+  "title": "IMAGE → CLIP Vision → unCLIP metadata",
+  "externalInputs": [
+    {"id": "clip_vision", "type": "CLIP_VISION", "to": "encode", "input": "clip_vision"},
+    {"id": "reference_image", "type": "IMAGE", "to": "encode", "input": "image"},
+    {"id": "conditioning", "type": "CONDITIONING", "to": "apply_unclip", "input": "conditioning"}
+  ],
+  "nodes": [
+    {"ref": "encode", "classType": "CLIPVisionEncode", "role": "Получить visual embedding", "settings": {"crop": "center"}},
+    {"ref": "apply_unclip", "classType": "unCLIPConditioning", "role": "Добавить embedding к conditioning metadata", "settings": {"strength": 0.75, "noise_augmentation": 0.0}}
+  ],
+  "connections": [
+    {"from": "encode", "output": "CLIP_VISION_OUTPUT", "to": "apply_unclip", "input": "clip_vision_output"}
+  ]
+}

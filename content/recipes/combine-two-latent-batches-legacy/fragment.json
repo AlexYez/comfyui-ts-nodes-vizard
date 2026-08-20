@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.combine-two-latent-batches-legacy",
+  "title": "Два внешних LATENT → deprecated LatentBatch",
+  "externalInputs": [
+    {
+      "id": "first_latent",
+      "type": "LATENT",
+      "to": "legacy_batch",
+      "input": "samples1"
+    },
+    {
+      "id": "second_latent",
+      "type": "LATENT",
+      "to": "legacy_batch",
+      "input": "samples2"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "legacy_batch",
+      "classType": "LatentBatch",
+      "role": "Воспроизвести старое объединение двух LATENT-батчей",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

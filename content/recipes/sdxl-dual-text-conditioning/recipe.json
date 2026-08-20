@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.sdxl-dual-text-conditioning",
+  "locale": "ru",
+  "title": "Собрать SDXL conditioning из потоков G и L",
+  "summary": "Кодирует отдельные строки для CLIP-G и CLIP-L с размерной разметкой 1024 × 1024 и без смещения кадрирования.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.clip-text-encode-sdxl"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "SDXL-совместимый CLIP", "положительный или отрицательный текст"],
+  "fragment": {"id": "fragment.sdxl-dual-text-conditioning", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Automated pinned source/runtime and token-padding review; no official wheel case, full fragment execution and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "CLIPTextEncodeSDXL in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_clip_sdxl.py#L29-L60", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

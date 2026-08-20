@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.split-sigmas",
+  "node": {"classType": "SplitSigmas", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L204-L226",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "204-226"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L968-L1007",
+        "path": "comfy/samplers.py",
+        "lines": "968-1007"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SplitSigmas/en.md",
+        "assessment": "Описывает деление на две части, но не показывает slices, повтор границы, имена high/low outputs и edge cases step 0/last/past-end."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SplitSigmas/ru.md",
+        "assessment": "Даёт общее описание без точной индексной семантики; двухэтапная topology и связь latent восстановлены по официальным workflow."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Найдены 4 SplitSigmas в 4 файлах: 2 root Hunyuan Video 1.5 со step 4 и 2 Bernini subgraph со widget 3 и внешней switch-границей."
+      },
+      {
+        "id": "official-two-stage-sampler-topology",
+        "role": "Во всех случаях BasicScheduler питает Split, high/low outputs идут в два последовательных sampler, а latent первого передаётся второму; Hunyuan использует DisableNoise на второй стадии."
+      },
+      {
+        "id": "synthetic-exact-source-split-sigmas",
+        "role": "AST-extracted execute подтвердил общую boundary, длины при step 0/last/past-end, два пустых выхода для empty input и два singleton-выхода."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Полный двухэтапный Hunyuan или Bernini fragment не исполнялся с моделями; probe проверяет только tensor slices.",
+    "Recipe останавливается на двух SIGMAS outputs и не вставляет model-specific sampler/guider/latent ветви.",
+    "Поведение одноэлементных и пустых частей зависит от downstream sampler; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

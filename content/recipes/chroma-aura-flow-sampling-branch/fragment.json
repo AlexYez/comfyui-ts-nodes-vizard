@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.chroma-aura-flow-sampling-branch",
+  "title": "Chroma AuraFlow fan-out в CFGGuider и BasicScheduler",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "patch", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "guide", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "guide", "input": "negative"}
+  ],
+  "nodes": [
+    {
+      "ref": "patch",
+      "classType": "ModelSamplingAuraFlow",
+      "role": "Поставить Chroma flow shift 1",
+      "settings": {"shift": 1.0}
+    },
+    {
+      "ref": "guide",
+      "classType": "CFGGuider",
+      "role": "Создать guider с CFG 3,5",
+      "settings": {"cfg": 3.5}
+    },
+    {
+      "ref": "schedule",
+      "classType": "BasicScheduler",
+      "role": "Построить beta SIGMAS на 26 шагов",
+      "settings": {"scheduler": "beta", "steps": 26, "denoise": 1.0}
+    }
+  ],
+  "connections": [
+    {"from": "patch", "output": "MODEL", "to": "guide", "input": "model"},
+    {"from": "patch", "output": "MODEL", "to": "schedule", "input": "model"}
+  ]
+}

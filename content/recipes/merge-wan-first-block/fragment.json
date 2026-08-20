@@ -1,0 +1,5 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.merge-wan-first-block", "title": "Wan 2.1 block 0: 50/50",
+  "externalInputs": [{"id": "model1", "type": "MODEL", "to": "merge", "input": "model1"}, {"id": "model2", "type": "MODEL", "to": "merge", "input": "model2"}],
+  "nodes": [{"ref": "merge", "classType": "ModelMergeWAN2_1", "role": "Смешать первый transformer block пополам", "settings": {"blocks.0.": 0.5}}], "connections": []
+}

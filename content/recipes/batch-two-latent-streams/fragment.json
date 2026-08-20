@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.batch-two-latent-streams",
+  "title": "Два LATENT → расширяемый Batch Latents",
+  "externalInputs": [
+    {
+      "id": "first_latent",
+      "type": "LATENT",
+      "to": "batch",
+      "input": "latents.latent0"
+    },
+    {
+      "id": "second_latent",
+      "type": "LATENT",
+      "to": "batch",
+      "input": "latents.latent1"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "batch",
+      "classType": "BatchLatentsNode",
+      "role": "Сохранить порядок потоков и собрать их в один LATENT-батч",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

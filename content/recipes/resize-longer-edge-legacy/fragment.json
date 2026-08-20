@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.resize-longer-edge-legacy", "title": "Legacy long-edge resize 1024",
+  "externalInputs": [{"id": "source_image", "type": "IMAGE", "to": "legacy_resize", "input": "images"}],
+  "nodes": [
+    {"ref": "legacy_resize", "classType": "ResizeImagesByLongerEdge", "role": "Воспроизвести старый Pillow Lanczos resize", "settings": {"longer_edge": 1024}},
+    {"ref": "preview_resize", "classType": "PreviewImage", "role": "Снять контрольный результат перед миграцией", "settings": {}}
+  ],
+  "connections": [{"from": "legacy_resize", "output": "images", "to": "preview_resize", "input": "images"}]
+}

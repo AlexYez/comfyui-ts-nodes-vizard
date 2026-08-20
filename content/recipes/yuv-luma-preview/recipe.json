@@ -1,0 +1,17 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.yuv-luma-preview",
+  "locale": "ru",
+  "title": "Показать яркостную компоненту Y",
+  "summary": "Разделяет трёхканальный RGB на Y/Cb/Cr и отправляет повторённую в RGB-компоненту Y в PreviewImage для проверки яркости.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.image-rgb-to-yuv", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Трёхканальный RGB IMAGE без alpha"],
+  "fragment": {"id": "fragment.yuv-luma-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Automated ComfyUI/Kornia source and tensor review; full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "ImageRGBToYUV implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_morphology.py#L56-L77", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

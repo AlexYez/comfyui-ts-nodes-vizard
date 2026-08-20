@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.lumina-renorm-cfg",
+  "locale": "ru",
+  "title": "RenormCFG 100/1 перед CFGGuider",
+  "summary": "Lumina-family MODEL проходит через RenormCFG с cfg_trunc 100 и renorm_cfg 1, затем используется CFGGuider с cfg 4.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.renorm-cfg", "core.cfg-guider"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Совместимый Lumina-family MODEL",
+    "Batch 1 и ненулевые нормы conditional/unconditional",
+    "Positive и negative CONDITIONING для CFGGuider"
+  ],
+  "fragment": {"id": "fragment.lumina-renorm-cfg", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/docs review, exhaustive official workflow census including adjacent NetaYume Lumina context, exact CFG hook tensor probe and Russian editorial pass; real Lumina execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "RenormCFG in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lumina2.py#L7-L64",
+      "publisher": "Comfy-Org", "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: image_netayume_lumina_t2i",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org", "accessedAt": "2026-08-14"
+    }
+  ]
+}

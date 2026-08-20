@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.encode-audio-for-humo",
+  "locale": "ru",
+  "title": "Кодировать AUDIO через Whisper для HuMo",
+  "summary": "Повторяет официальный HuMo участок: Whisper Large V3 загружается из audio_encoders и получает AUDIO через AudioEncoderEncode.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.audio-encoder-loader", "core.audio-encoder-encode", "core.load-audio"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "whisper_large_v3_fp16.safetensors в models/audio_encoders",
+    "Непустой AUDIO",
+    "Совместимый HuMo consumer для AUDIO_ENCODER_OUTPUT"
+  ],
+  "fragment": {
+    "id": "fragment.encode-audio-for-humo",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, exact official HuMo topology and model name, fake-encoder execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Audio encoder nodes in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio_encoder.py#L8-L50",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official HuMo workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_humo.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

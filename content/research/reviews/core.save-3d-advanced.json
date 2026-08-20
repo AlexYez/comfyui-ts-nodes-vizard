@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-3d-advanced",
+  "node": {"classType": "Save3DAdvanced", "pythonModule": "comfy_extras.nodes_save_3d", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_save_3d.py#L409-L478",
+        "path": "comfy_extras/nodes_save_3d.py",
+        "lines": "409-478"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d.ts#L688-L899",
+        "path": "frontend/src/extensions/core/load3d.ts",
+        "lines": "688-899"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_ui.py#L459-L466",
+        "path": "comfy_api/latest/_ui.py",
+        "lines": "459-466"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/Save3DAdvanced/en.md",
+        "assessment": "Правильно перечисляет File3D, viewport inputs и пять outputs; термин output dimensions уточнён как target viewer/pass-through, не file conversion."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Save3DAdvanced/ru.md",
+        "assessment": "Сохраняет структуру английской страницы; статья дополняет byte-preserving copy, optional precedence, filename и frontend lifecycle."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и 768 root/subgraph graphs Save3DAdvanced встречается 0 раз; fragment source-derived."
+      },
+      {
+        "id": "frontend-save3dadvanced-extension-1.48.7",
+        "role": "Pinned frontend подтверждает output route, LOAD_3D serialization, size callbacks и camera/model-info restoration after current load generation."
+      },
+      {
+        "id": "synthetic-exact-source-save-3d-advanced-probe",
+        "role": "Exact backend class подтвердил byte-preserving GLB output, no-trailing-underscore filename, object identity, explicit optional precedence, dimensions и PreviewUI3DAdvanced result."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official wheel 0.1.42 не содержит Save3DAdvanced; fragment не является official full workflow.",
+    "Probe исполнил copy/state branch, но не разбирал реальный GLB/GLTF/FBX/OBJ/STL/USDZ и не проверял связанные ресурсы.",
+    "Frontend viewer, ручная проверка output в стороннем приложении и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-14"
+}

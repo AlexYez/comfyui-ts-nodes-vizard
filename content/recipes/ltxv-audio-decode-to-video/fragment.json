@@ -1,0 +1,16 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-audio-decode-to-video",
+  "title": "LTX Audio Latent в CreateVideo",
+  "externalInputs": [
+    {"id": "audio_latent", "type": "LATENT", "to": "decode", "input": "samples"},
+    {"id": "ltx_audio_vae", "type": "VAE", "to": "decode", "input": "audio_vae"},
+    {"id": "video_frames", "type": "IMAGE", "to": "video", "input": "images"}
+  ],
+  "nodes": [
+    {"ref": "decode", "classType": "LTXVAudioVAEDecode", "role": "Декодировать LTX audio latent", "settings": {}},
+    {"ref": "video", "classType": "CreateVideo", "role": "Добавить AUDIO к кадрам", "settings": {"fps": 24.0}}
+  ],
+  "connections": [{"from": "decode", "output": "Audio", "to": "video", "input": "audio"}]
+}

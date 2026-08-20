@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.select-last-video-frame-by-size",
+  "locale": "ru",
+  "title": "Выбрать последний видеокадр через batch_size",
+  "summary": "Повторяет безопасную часть официального Vidu workflow: GetVideoComponents выдаёт кадры, GetImageSize считает batch_size, а ImageFromBatch clamp-ит этот индекс до последнего кадра.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.get-image-size", "core.image-from-batch"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "VIDEO с хотя бы одним кадром"
+  ],
+  "fragment": {
+    "id": "fragment.select-last-video-frame-by-size",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source and exact official Vidu-workflow trace; fragment schema validated, execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ImageFromBatch implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L136-L162",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "GetImageSize implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L569-L601",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official api_vidu_video_extension workflow in templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/api_vidu_video_extension.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

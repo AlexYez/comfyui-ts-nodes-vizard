@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.extend-intermediate-sigmas",
+  "node": {"classType": "ExtendIntermediateSigmas", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L297-L348",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "297-348"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ExtendIntermediateSigmas/en.md",
+        "assessment": "SHA-256 67a8be7e38a7bfdac3eed3d221089b9f85b044609c895cd7ab8bd9459a8cd5fe. Документ верно описывает назначение и границы, но называет steps числом вставок; source вставляет steps-1 и проверяет только sigma_current."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ExtendIntermediateSigmas/ru.md",
+        "assessment": "SHA-256 1b60b1f001c91de2ea505f579065e64d440364f0b94139bfed579224bef56cab. Перевод повторяет ошибку количества, локализует runtime keys и называет границы необязательными, хотя все inputs required."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-extend-intermediate-sigmas-zero-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3: exact type total/root/sub/files/UUID = 0/0/0/0/0 во всех 512 JSON и 768 graph scopes."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact execute исполнен на CPU tensors для linear/cosine/sine, steps 1/2/3, range crossing и empty input; GPU input не проверялся.",
+    "В official wheel exact-нода отсутствует; внешний SIGMAS → Extend → SamplerCustomAdvanced — source-derived fragment.",
+    "Полный sampler не запускался. Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

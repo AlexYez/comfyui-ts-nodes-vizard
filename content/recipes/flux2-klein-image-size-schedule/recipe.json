@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.flux2-klein-image-size-schedule",
+  "locale": "ru",
+  "title": "Flux.2 Klein: расписание по размеру изображения",
+  "summary": "Повторяет официальную image-edit топологию GetImageSize → Flux2Scheduler с четырьмя шагами для distilled Flux.2 Klein.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.flux2-scheduler"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Входное IMAGE для измерения width и height",
+    "Совместимая distilled Flux.2 Klein model и полный image-edit sampling-граф"
+  ],
+  "fragment": {"id": "fragment.flux2-klein-image-size-schedule", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs and official root Flux.2 Klein image-edit topology review; numerical probe passed, full model execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "Flux2Scheduler implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_flux.py#L184-L233",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: Flux.2 Klein KV image edit",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

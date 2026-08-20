@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.empty-hunyuan-latent-video",
+  "node": {"classType": "EmptyHunyuanLatentVideo", "pythonModule": "comfy_extras.nodes_hunyuan", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L41-L64",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "41-64"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L313-L361",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "313-361"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L1047-L1069",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "1047-1069"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/EmptyHunyuanLatentVideo/en.md",
+        "assessment": "SHA-256 afe821cfcd97b597b33621c2c73f3be1dafc670d99fba317d96958ddcf19ce89. Диапазоны совпадают, но точная пятиосевая форма, метаданные, устройство и расход памяти не описаны."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/EmptyHunyuanLatentVideo/ru.md",
+        "assessment": "SHA-256 838013119f7af1f8307ea9dd900f3bcf0fd72581157f6ac3f642b7d85954cfe9. Общий смысл верен; имена виджетов переведены, а output назван samples вместо runtime-сокета LATENT."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "hunyuan-video-text-to-video-node-45",
+        "role": "Официальный root workflow b07dba9f-f409-47a6-84bb-a6639b2a70da: node 45, widgets [848,480,73,1], mode 0, link 180 в SamplerCustomAdvanced node 13. Member SHA-256 3f221fb9cb178bf4e186410553b918604751deb58f61e03bebbcee64721e8744."
+      },
+      {
+        "id": "workflow-templates-0142-empty-hunyuan-10-census",
+        "role": "Полный обход нашёл четыре экземпляра: три root и один subgraph, mode 0. Только hunyuan_video_text_to_video относится к Hunyuan Video; остальные три находятся в Wan-графах."
+      },
+      {
+        "id": "hunyuan-text-latent-exact-source-probe",
+        "role": "AST-извлечённый класс на CPU подтвердил нули, формы по умолчанию и при граничных длинах, floor-деление и downscale_ratio_spacial 8."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Выполнено только создание малых синтетических тензоров; sampler, VAE и модель Hunyuan Video 1.0 не запускались.",
+    "Три Wan-вхождения учтены в census, но не использованы как доказательство семантики Hunyuan Video.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

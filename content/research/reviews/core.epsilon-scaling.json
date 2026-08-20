@@ -1,0 +1,75 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.epsilon-scaling",
+  "node": {
+    "classType": "Epsilon Scaling",
+    "pythonModule": "comfy_extras.nodes_eps",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_eps.py#L8-L66",
+        "path": "comfy_extras/nodes_eps.py",
+        "lines": "8-66"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/Epsilon Scaling/en.md",
+        "assessment": "Exact runtime route правильно описывает uniform schedule, range и направление noise scaling; no-space duplicate не рассматривается как NodeId alias."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Epsilon Scaling/ru.md",
+        "assessment": "Подтверждает назначение и defaults; точная x − denoised algebra, zero guard и hook ordering сверены по source."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/EpsilonScaling/en.md",
+        "assessment": "Вторая папка документации использует имя Python-класса без пробела, но runtime inventory и source node_id не подтверждают alias."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и всех recursive subgraphs exact Epsilon Scaling встречается 0 раз; official scaling preset отсутствует."
+      },
+      {
+        "id": "arxiv-2308.15321-exposure-bias",
+        "role": "Первичная работа описывает exposure bias и training-free epsilon scaling с практичным uniform schedule."
+      },
+      {
+        "id": "synthetic-exact-source-epsilon-probe",
+        "role": "Exact node подтвердил identity при factor=1, уменьшение noise component при factor>1, усиление при factor<1, zero guard и отсутствие sigma input."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальный wheel 0.1.42 не содержит Epsilon Scaling; fragment source-derived и не является рекомендацией для конкретной модели.",
+    "Полная генерация изображений и сравнение sampler/model combinations не выполнялись; algebraic probe не оценивает качество.",
+    "Влияние порядка нескольких post-CFG hooks и человеческое утверждение статьи ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

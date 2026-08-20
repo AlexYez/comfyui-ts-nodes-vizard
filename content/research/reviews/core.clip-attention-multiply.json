@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.clip-attention-multiply",
+  "node": {
+    "classType": "CLIPAttentionMultiply",
+    "pythonModule": "comfy_extras.nodes_attention_multiply",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_attention_multiply.py#L69-L101",
+        "path": "comfy_extras/nodes_attention_multiply.py",
+        "lines": "69-101"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L493",
+        "path": "comfy/lora.py",
+        "lines": "438-493"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L298-L307",
+        "path": "comfy/sd.py",
+        "lines": "298-307"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/CLIPAttentionMultiply/en.md",
+        "assessment": "Перечисляет q, k, v и out, но не раскрывает точные suffix-фильтры, одновременное масштабирование weight и bias и допустимый результат без единого совпадения."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/CLIPAttentionMultiply/ru.md",
+        "assessment": "Описывает назначение коэффициентов; ограничения архитектурных имён и точная patcher-семантика дополнены по pinned implementation."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON-файлов и 496 корневых workflow-графов, включая definitions.subgraphs[*].nodes; CLIPAttentionMultiply не найден."
+      },
+      {
+        "id": "synthetic-exact-source-clip-attention-multiply",
+        "role": "AST-extracted execute выполнен на фиктивном state dict: восемь exact weight/bias suffixes получили q/k/v/out factors, неподдерживаемые ключи пропущены; calculate_weight подтвердила чистое масштабирование при patch None."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальных workflow-кейсов CLIPAttentionMultiply в пакете 0.1.42 нет; fragment основан на pinned source.",
+    "Exact-source probe проверяет выбор ключей и patcher-умножение, но не запускает transformer forward с настоящим CLIP.",
+    "Fragment-only recipe не исполнен целиком; число совпадений для реальных архитектур, визуальное влияние и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

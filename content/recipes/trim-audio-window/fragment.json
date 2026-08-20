@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.trim-audio-window",
+  "title": "Первые 25 секунд AUDIO",
+  "externalInputs": [
+    {"id": "source_audio", "type": "AUDIO", "to": "trim", "input": "audio"}
+  ],
+  "nodes": [
+    {"ref": "trim", "classType": "TrimAudioDuration", "role": "Оставить первые 25 секунд", "settings": {"start_index": 0.0, "duration": 25.0}}
+  ],
+  "connections": []
+}

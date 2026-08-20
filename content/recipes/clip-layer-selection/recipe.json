@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.clip-layer-selection",
+  "locale": "ru",
+  "title": "Выбор слоя перед CLIPTextEncode",
+  "summary": "Внешний CLIP проходит через CLIPSetLastLayer со значением −2, после чего отдельная CLIPTextEncode создаёт conditioning из этой ветви.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.clip-set-last-layer", "core.clip-text-encode"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Совместимый объект CLIP от checkpoint- или CLIP-загрузчика",
+    "Осмысленный для выбранного text encoder индекс слоя"
+  ],
+  "fragment": {
+    "id": "fragment.clip-layer-selection",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "CLIPSetLastLayer implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L690-L704",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "CLIPTextEncode implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L56-L77",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

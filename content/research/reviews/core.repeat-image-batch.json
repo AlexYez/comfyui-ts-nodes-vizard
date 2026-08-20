@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.repeat-image-batch",
+  "node": {
+    "classType": "RepeatImageBatch",
+    "pythonModule": "comfy_extras.nodes_images",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L113-L133",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "113-133"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/RepeatImageBatch/ru.md",
+        "assessment": "Объясняет amount, но формулировка про одно изображение недостаточна для многокадрового входа. Порядок повторения всего блока подтверждён image.repeat((amount, 1, 1, 1))."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/RepeatImageBatch/en.md",
+        "assessment": "Использовано как вторичное AI-generated описание; размер выхода, порядок блока и расход памяти сформулированы по pinned реализации."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "template_ltx2_3_ic_lora_ingredients",
+        "role": "Workflow 0112e9af-5129-48ba-af78-92c40ac40b40: LoadImage № 724 → RepeatImageBatch № 709; amount от ComfyMathExpression № 717; выход в ResizeAndPadImage № 722."
+      },
+      {
+        "id": "video_wan_vace_flf2v",
+        "role": "Workflow 96995b8f-85c5-47af-b3cf-7b6a24675694: активная subgraph-нода № 149, MaskToImage → RepeatImageBatch → две BatchImagesNode."
+      },
+      {
+        "id": "video_wan_vace_outpainting",
+        "role": "Тот же UUID в отдельном файле: активная корневая нода № 129 с amount 17, MaskToImage → RepeatImageBatch → ImageToMask."
+      },
+      {
+        "id": "video_wan_vace_14B_ref2v",
+        "role": "Четвёртый сырой экземпляр № 132 сохранён в mode 4 (bypassed), поэтому не включён в число трёх активных случаев."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment структурно проверен, но не исполнен с реальной маской или video-последовательностью.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

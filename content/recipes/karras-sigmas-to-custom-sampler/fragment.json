@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.karras-sigmas-to-custom-sampler",
+  "title": "KarrasScheduler по умолчанию перед SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sampler", "type": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "schedule",
+      "classType": "KarrasScheduler",
+      "role": "Построить явное Karras-расписание",
+      "settings": {"steps": 20, "sigma_max": 14.614642, "sigma_min": 0.0291675, "rho": 7.0}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Принять явные SIGMAS",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "schedule", "output": "SIGMAS", "to": "sample", "input": "sigmas"}
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.select-vae-device",
+  "locale": "ru",
+  "title": "Направить VAE на второй GPU",
+  "summary": "Подключает внешний VAE к SelectVAEDevice с device gpu:1 и сохраняет безопасный fallback на прежнее устройство, если второго GPU нет.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.select-vae-device"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Второй GPU для фактического выбора gpu:1",
+    "VAE от loader с cached_patcher_init support при смене устройства",
+    "Свободная VRAM для VAE encode/decode"
+  ],
+  "fragment": {"id": "fragment.select-vae-device", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime review and Russian editorial pass; fragment schema and isolated source logic validated, real device execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SelectVAEDevice implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_multigpu.py#L282-L347",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "VAE offload device in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_management.py#L1239-L1248",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

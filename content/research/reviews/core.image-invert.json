@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-invert",
+  "node": {
+    "classType": "ImageInvert",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1932-L1947",
+        "path": "nodes.py",
+        "lines": "1932-1947"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ImageInvert/ru.md",
+        "assessment": "Полезно как вторичное описание одного IMAGE-входа и выхода. Формулировки о цветах не заменяют исходник: гарантирована арифметика 1.0 - image, без HSV и clamp."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ImageInvert/en.md",
+        "assessment": "Сверено как вторичное AI-generated описание; точная формула, категория и поведение тензора подтверждены pinned source и runtime inventory."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "image_anima_lllite_any_control_to_image",
+        "role": "Workflow f7a250a1-53fb-496b-8c39-c60d9e764028: Canny № 90 → ImageInvert № 93 → PreviewImage № 92, затем control-ветка через ResizeImageMaskNode."
+      },
+      {
+        "id": "flux_depth_lora_example",
+        "role": "Один из пяти depth-workflow, где ImageInvert расположен внутри subgraph и меняет полярность декодированного IMAGE."
+      },
+      {
+        "id": "video_ltx2_depth_to_video",
+        "role": "Подтверждает применение ImageInvert к depth IMAGE внутри subgraph; входит в полный счёт 6 нод в 6 файлах."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment структурно проверен, но не исполнен в ComfyUI с реальной Canny-картой.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

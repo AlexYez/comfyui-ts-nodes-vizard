@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.stable-cascade-official-two-stage",
+  "title": "Stable Cascade: Stage C → prior Stage B",
+  "externalInputs": [
+    {"id": "model_stage_c", "type": "MODEL", "to": "sample_c", "input": "model"},
+    {"id": "positive_stage_c", "type": "CONDITIONING", "to": "sample_c", "input": "positive"},
+    {"id": "negative_stage_c", "type": "CONDITIONING", "to": "sample_c", "input": "negative"},
+    {"id": "positive_stage_b", "type": "CONDITIONING", "to": "prepare_b", "input": "conditioning"},
+    {"id": "model_stage_b", "type": "MODEL", "to": "sample_b", "input": "model"},
+    {"id": "negative_stage_b", "type": "CONDITIONING", "to": "sample_b", "input": "negative"}
+  ],
+  "nodes": [
+    {
+      "ref": "empty",
+      "classType": "StableCascade_EmptyLatentImage",
+      "role": "Создать согласованную пару пустых latent для Stage C и Stage B",
+      "settings": {"width": 1024, "height": 1024, "compression": 42, "batch_size": 1}
+    },
+    {
+      "ref": "sample_c",
+      "classType": "KSampler",
+      "role": "Получить prior низкого разрешения на Stage C",
+      "settings": {
+        "seed": 314307448448003,
+        "steps": 20,
+        "cfg": 4.0,
+        "sampler_name": "euler_ancestral",
+        "scheduler": "simple",
+        "denoise": 1.0
+      }
+    },
+    {
+      "ref": "prepare_b",
+      "classType": "StableCascade_StageB_Conditioning",
+      "role": "Записать готовый Stage C prior в positive conditioning Stage B",
+      "settings": {}
+    },
+    {
+      "ref": "sample_b",
+      "classType": "KSampler",
+      "role": "Детализировать prior моделью Stage B",
+      "settings": {
+        "seed": 183495397600639,
+        "steps": 10,
+        "cfg": 1.1,
+        "sampler_name": "euler_ancestral",
+        "scheduler": "simple",
+        "denoise": 1.0
+      }
+    }
+  ],
+  "connections": [
+    {"from": "empty", "output": "stage_c", "to": "sample_c", "input": "latent_image"},
+    {"from": "empty", "output": "stage_b", "to": "sample_b", "input": "latent_image"},
+    {"from": "sample_c", "output": "LATENT", "to": "prepare_b", "input": "stage_c"},
+    {"from": "prepare_b", "output": "CONDITIONING", "to": "sample_b", "input": "positive"}
+  ]
+}

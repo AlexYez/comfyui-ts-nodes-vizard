@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.wan-temporal-attention-chain",
+  "locale": "ru",
+  "title": "Временное внимание WAN 2.1 Fun",
+  "summary": "Воспроизводит участок двух официальных графов: ModelSamplingSD3 с shift 5, множители 1/1/1,2/1,3, CFGZeroStar и KSampler.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.unet-temporal-attention-multiply"],
+  "requirements": ["ComfyUI 0.32.0", "Совместимый WAN 2.1 Fun MODEL", "Подготовленные positive и negative CONDITIONING", "Совместимый LATENT"],
+  "fragment": {"id": "fragment.wan-temporal-attention-chain", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная проверка исходника, runtime-схемы и точной топологии двух официальных WAN-графов; модель и полный граф не запускались, редактор пока не утвердил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "UNetTemporalAttentionMultiply в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_attention_multiply.py#L104-L137",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальные графы wan2.1_fun_control и wan2.1_fun_inp",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

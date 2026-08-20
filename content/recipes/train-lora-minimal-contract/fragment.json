@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.train-lora-minimal-contract",
+  "title": "MODEL + LATENT + CONDITIONING → TrainLoraNode → LoraModelLoader",
+  "externalInputs": [
+    {"id": "training-model", "type": "MODEL", "to": "train", "input": "model"},
+    {"id": "latents", "type": "LATENT", "to": "train", "input": "latents"},
+    {"id": "positive", "type": "CONDITIONING", "to": "train", "input": "positive"},
+    {"id": "clean-model", "type": "MODEL", "to": "apply", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "train",
+      "classType": "TrainLoraNode",
+      "role": "Обучить адаптер на подготовленном наборе",
+      "settings": {
+        "batch_size": 1,
+        "grad_accumulation_steps": 1,
+        "steps": 16,
+        "learning_rate": 0.0005,
+        "rank": 8,
+        "optimizer": "AdamW",
+        "loss_function": "MSE",
+        "seed": 0,
+        "training_dtype": "bf16",
+        "lora_dtype": "bf16",
+        "quantized_backward": false,
+        "algorithm": "LoRA",
+        "gradient_checkpointing": true,
+        "checkpoint_depth": 1,
+        "offloading": false,
+        "existing_lora": "[None]",
+        "bucket_mode": false,
+        "bypass_mode": false
+      }
+    },
+    {
+      "ref": "apply",
+      "classType": "LoraModelLoader",
+      "role": "Применить полученный LORA_MODEL к чистой модели",
+      "settings": {"strength_model": 1.0, "bypass": false}
+    }
+  ],
+  "connections": [
+    {"from": "train", "output": "lora", "to": "apply", "input": "lora"}
+  ]
+}

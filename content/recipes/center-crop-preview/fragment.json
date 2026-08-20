@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.center-crop-preview", "title": "Центральный crop 512 × 512",
+  "externalInputs": [{"id": "source_image", "type": "IMAGE", "to": "center_crop", "input": "images"}],
+  "nodes": [
+    {"ref": "center_crop", "classType": "CenterCropImages", "role": "Вырезать центральное окно", "settings": {"width": 512, "height": 512}},
+    {"ref": "preview_crop", "classType": "PreviewImage", "role": "Проверить результат", "settings": {}}
+  ],
+  "connections": [{"from": "center_crop", "output": "images", "to": "preview_crop", "input": "images"}]
+}

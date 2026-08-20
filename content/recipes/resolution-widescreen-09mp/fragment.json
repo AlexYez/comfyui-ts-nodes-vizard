@@ -1,0 +1,1 @@
+{"$schema":"../../schemas/recipe-fragment.schema.v1.json","schemaVersion":"1.0","fragmentId":"fragment.resolution-widescreen-09mp","title":"Размер 16:9 около 0,9 Мп","externalInputs":[],"nodes":[{"ref":"resolution","classType":"ResolutionSelector","role":"Вычислить ширину и высоту","settings":{"aspect_ratio":"16:9 (Widescreen)","megapixels":0.9,"multiple":32}}],"connections":[]}

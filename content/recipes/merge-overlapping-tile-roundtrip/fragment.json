@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.merge-overlapping-tile-roundtrip",
+  "title": "IMAGE 2048 × 1536 — шесть тайлов — weighted merge — preview",
+  "externalInputs": [
+    {"id": "image_2048x1536", "type": "IMAGE", "to": "split", "input": "image"}
+  ],
+  "nodes": [
+    {"ref": "split", "classType": "SplitImageToTileList", "role": "Нарезать исходник на список из шести перекрывающихся тайлов", "settings": {"tile_width": 1024, "tile_height": 1024, "overlap": 128}},
+    {"ref": "merge", "classType": "ImageMergeTileList", "role": "Восстановить холст с исходной геометрией и тем же overlap", "settings": {"final_width": 2048, "final_height": 1536, "overlap": 128}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Показать собранный IMAGE", "settings": {}}
+  ],
+  "connections": [
+    {"from": "split", "output": "IMAGE", "to": "merge", "input": "image_list"},
+    {"from": "merge", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

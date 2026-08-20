@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.vae-decode-hunyuan3d",
+  "node": {"classType": "VAEDecodeHunyuan3D", "pythonModule": "comfy_extras.nodes_hunyuan3d", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan3d.py#L95-L117", "path": "comfy_extras/nodes_hunyuan3d.py", "lines": "95-117"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/hunyuan3d/vae.py#L425-L458", "path": "comfy/ldm/hunyuan3d/vae.py", "lines": "425-458"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/hunyuan3d/vae.py#L965-L978", "path": "comfy/ldm/hunyuan3d/vae.py", "lines": "965-978"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/VAEDecodeHunyuan3D/en.md", "assessment": "Назначение и диапазоны верны, но num_chunks ошибочно описан как число chunks, а название octree не раскрывает фактическую uniform grid реализацию."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/VAEDecodeHunyuan3D/ru.md", "assessment": "Повторяет неточный смысл количества частей и октодерева, переводит runtime-имена параметров; статья следует точному циклу VanillaVolumeDecoder."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-census", "role": "Просмотрены 512 JSON, 496 root и 768 root/subgraph графов; четыре direct root/mode0 экземпляра, у всех widgets [8000,256]."},
+      {"id": "3d_hunyuan3d-v2.1", "role": "KSampler node7 → decode node8; VAE из ImageOnlyCheckpointLoader node1; decode → VoxelToMesh node9 [surface net,0.6]."},
+      {"id": "3d_hunyuan3d_image_to_model", "role": "KSampler node3 → decode node61; VAE из loader node54; decode → VoxelToMesh node81 [surface net,0.6]."},
+      {"id": "3d_hunyuan3d_multiview_to_model", "role": "KSampler node3 → decode node61 → VoxelToMesh node82; VAE checkpoint hunyuan3d-dit-v2-mv_fp16.safetensors."},
+      {"id": "3d_hunyuan3d_multiview_to_model_turbo", "role": "KSampler node3 → decode node61 → VoxelToMesh node83; VAE checkpoint hunyuan3d-dit-v2-mv-turbo_fp16.safetensors."},
+      {"id": "synthetic-exact-source-vae-decode-hunyuan3d-wrapper", "role": "Wrapper передал exact samples identity и options {num_chunks:1234,octree_resolution:48}, игнорировал batch_index, завернул exact tensor identity в VOXEL; missing samples вызвал KeyError."},
+      {"id": "synthetic-exact-source-hunyuan3d-volume-decoder", "role": "Настоящий VanillaVolumeDecoder для R=2/chunk4/B2 создал [2,3,3,3], 27 queries и 7 calls [4,4,4,4,4,4,3] в bounds ±1.01. Формула даёт 16,974,593 queries/2122 iterations для R256/chunk8000 и 135,005,697 queries для R512."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Настоящие Hunyuan3D VAE/geometry decoder weights и полный приложенный фрагмент не запускались.",
+    "VRAM, время, качество сетки и поведение OOM на R=256/512 не измерялись; выполнен только малый exact-source цикл с синтетическим geo_decoder.",
+    "Человеческое утверждение статьи и рецептов ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

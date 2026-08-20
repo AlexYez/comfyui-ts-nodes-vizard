@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.set-flux-guidance", "locale": "ru",
+  "title": "Добавить guidance 4 к Flux-like conditioning", "summary": "Записывает guidance=4 в готовый CONDITIONING без повторного text encode.", "body": "ru.md", "difficulty": "intermediate",
+  "articleIds": ["core.flux-guidance"], "requirements": ["ComfyUI 0.32.0", "CONDITIONING для model family, использующей guidance embed"],
+  "fragment": {"id": "fragment.set-flux-guidance", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact official Flux2 preset/topology, runtime validation, source review and Russian editorial pass; model sampling and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "FluxGuidance in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_flux.py#L59-L79", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}, {"title": "Official Flux2 text-to-image template", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/image_flux2_text_to_image.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

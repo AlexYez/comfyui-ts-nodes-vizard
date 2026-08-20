@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.set-conditioning-strength",
+  "title": "Metadata strength 0,6",
+  "externalInputs": [
+    { "id": "conditioning", "type": "CONDITIONING", "to": "set_strength", "input": "conditioning" }
+  ],
+  "nodes": [
+    {
+      "ref": "set_strength",
+      "classType": "ConditioningSetAreaStrength",
+      "role": "Заменить общий sampler-множитель записи на 0,6",
+      "settings": { "strength": 0.6 }
+    }
+  ],
+  "connections": []
+}

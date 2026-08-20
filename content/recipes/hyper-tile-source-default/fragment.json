@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.hyper-tile-source-default",
+  "title": "HyperTile с runtime defaults 256, 2, 0, false",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "hyper-tile", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "hyper-tile",
+      "classType": "HyperTile",
+      "role": "Разбить highest-resolution self-attention на пространственные тайлы",
+      "settings": {"tile_size": 256, "swap_size": 2, "max_depth": 0, "scale_depth": false}
+    }
+  ],
+  "connections": []
+}

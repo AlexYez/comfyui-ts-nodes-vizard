@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.self-attention-guidance",
+  "node": {
+    "classType": "SelfAttentionGuidance",
+    "pythonModule": "comfy_extras.nodes_sag",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sag.py#L15-L183",
+        "path": "comfy_extras/nodes_sag.py",
+        "lines": "15-183"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SelfAttentionGuidance/en.md",
+        "assessment": "Подтверждает experimental status, runtime ranges и chunked-batch limitation; не указывает NaN при blur_sigma=0, 4D helper contract и стоимость scale=0."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SelfAttentionGuidance/ru.md",
+        "assessment": "Передаёт общий алгоритм attention-guided blur; точные mask threshold, middle/0/0 key и post-CFG branches сверены по исходнику."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и всех recursive subgraphs SelfAttentionGuidance встречается 0 раз; official widgets/topology отсутствуют."
+      },
+      {
+        "id": "arxiv-2210.00939-sag-method",
+        "role": "Первичная работа подтверждает использование собственной attention map и размытие attended regions для self-guidance."
+      },
+      {
+        "id": "synthetic-exact-source-sag-probe",
+        "role": "Exact helpers/node подтвердили middle/0/0 capture, selected-region blur, small-dimension bypass, extra unconditional call при scale=0, конечный sigma=2 и NaN при sigma=0."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальный wheel 0.1.42 не содержит SAG; fragment source-derived и не задаёт проверенный quality preset.",
+    "Полный image generation, разные attention backends и chunked batches не исполнялись; tensor probe проверяет только model-free ветви.",
+    "Поддержка конкретных архитектур, визуальная оценка и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.video-frame-sample",
+  "node": {
+    "classType": "VideoFrameSample",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L141-L167",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "141-167"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1196-L1268",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1196-1268"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L118-L145",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "118-145"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L800-L828",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "800-828"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VideoFrameSample/en.md",
+        "assessment": "AI-generated справка верно различает четыре стратегии, ленивые head/tail и декодируемые uniform/random, но не описывает точные индексы, упаковку по исходному FPS, отсутствие audio, модуль seed, локальный RNG и потерю trim-offset; SHA-256 файла в wheel: fd74e5beaa59ad2448f6a3bb5e2784b7281f09d2cfd69e2ef1b17c819351bf86."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/VideoFrameSample/ru.md",
+        "assessment": "Русская AI-generated версия переводит точные системные имена video, num_frames и strategy, а перечисленные технические ограничения не раскрывает; SHA-256 файла в wheel: 9d528e7099dfc4fce46594eb6093e367a7585d6aeaa0d348bdf02116b1bd0f3c."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON, 496 корневых workflow, 272 subgraph и 8120 узлов; VideoFrameSample отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-video-load-sample-crop-probe",
+        "role": "На восьмикадровом AVI проверены head/tail, uniform 0,2,5,7, центральный кадр 4, random 2,4,5,6 при seed 11, модульная коллизия, неизменность глобального RNG, отсутствие audio и игнорирование trim-offset после crop."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; однонодовый fragment не импортировался и не выполнялся на canvas.",
+    "Изолированный прогон использовал постоянный FPS, видео без аудиопотока и синтетические кадры; пользовательские кодеки и VFR требуют отдельной проверки.",
+    "Потеря активного trim-offset подтверждена для file-backed VideoFromFile в закреплённом исходнике; исправление в будущих версиях нужно отслеживать по коду и regression probe.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

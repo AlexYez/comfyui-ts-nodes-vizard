@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.style-model-loader",
+  "node": {"classType": "StyleModelLoader", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1097-L1110",
+        "path": "nodes.py",
+        "lines": "1097-1110"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1450-L1468",
+        "path": "comfy/sd.py",
+        "lines": "1450-1468"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L10-L38",
+        "path": "folder_paths.py",
+        "lines": "10-38"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/t2i_adapter/adapter.py#L203-L229",
+        "path": "comfy/t2i_adapter/adapter.py",
+        "lines": "203-229"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/flux/redux.py#L6-L25",
+        "path": "comfy/ldm/flux/redux.py",
+        "lines": "6-25"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_execution/caching.py#L82-L127",
+        "path": "comfy_execution/caching.py",
+        "lines": "82-127"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/StyleModelLoader/en.md",
+        "assessment": "Каталог совпадает с classType. Документ верно указывает style_models и output, но сводит работу к общему style transfer; две families и точные 1024→768 / 1152→4096 compatibility constraints взяты из source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "flux_redux_model_example",
+        "role": "Workflow 06010f12-03bc-41ce-86bd-14f321d5a152: StyleModelLoader №42 [flux1-redux-dev.safetensors] разветвляется в Apply №41/45; SigCLIP №38 и Encode №39/46, оба Apply [1,multiply], итог в BasicGuider №22."
+      },
+      {
+        "id": "workflow-templates-0142-style-model-loader-census",
+        "role": "Полный census: один exact StyleModelLoader, root 1/subgraph 0, mode 0, один file и UUID; других style model pairings wheel не подтверждает."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Format dispatch проверен с extracted pinned function и fake state dict markers; настоящие StyleAdapter/Redux weights, CLIP Vision и conditioning не исполнялись.",
+    "Shared fragment повторяет только одну reference-ветвь Flux Redux и требует внешний совместимый Flux CONDITIONING.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-13"
+}

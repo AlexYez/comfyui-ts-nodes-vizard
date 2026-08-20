@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-image-data-set-increment",
+  "locale": "ru",
+  "title": "Сохранить IMAGE-список без перезаписи имён",
+  "summary": "Legacy-нода SaveImageDataSetToFolder получает внешний IMAGE-список и пишет PNG в режиме increment; для новых графов предпочтителен SaveImage.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.save-image-data-set-to-folder"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Списочный IMAGE с отдельными изображениями",
+    "Права записи в output",
+    "Ручная проверка deprecated-ноды перед заменой на SaveImage"
+  ],
+  "fragment": {
+    "id": "fragment.save-image-data-set-increment",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, replacement API, full workflow census, isolated temp-directory execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SaveImageDataSetToFolder in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L395-L494",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

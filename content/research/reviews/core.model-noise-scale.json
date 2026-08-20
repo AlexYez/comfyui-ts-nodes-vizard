@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-noise-scale",
+  "node": {"classType": "ModelNoiseScale", "pythonModule": "comfy_extras.nodes_model_advanced", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L310-L330",
+        "path": "comfy_extras/nodes_model_advanced.py",
+        "lines": "310-330"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L86-L103",
+        "path": "comfy/model_sampling.py",
+        "lines": "86-103"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/supported_models.py#L1653-L1664",
+        "path": "comfy/supported_models.py",
+        "lines": "1653-1664"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ModelNoiseScale/ru.md",
+        "assessment": "Передаёт tooltip и диапазон, но не описывает реконструкцию sampling-класса, абсолютную замену, перенос только shift/multiplier и расхождение dev tooltip 7.5 с official workflow 7.6."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ModelNoiseScale/en.md",
+        "assessment": "Использован как вторичное описание intended HiDream-O1 use. Точные patch semantics взяты из исходника."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "image_hidream_o1",
+        "role": "Root node 124, widget [8], CheckpointLoaderSimple 6 → ModelNoiseScale → BasicScheduler 112 и HiDreamO1PatchSeamSmoothing 232."
+      },
+      {
+        "id": "image_hidream_o1_dev",
+        "role": "Root node 124, widget [7.6], CheckpointLoaderSimple 6 → ModelNoiseScale → BasicScheduler 112 и SamplerCustom 108. Полный census: ровно 2 root, 0 subgraph."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact-source patch method выполнен на совместимом fake sampling class; настоящая HiDream-O1 модель и full recipe не исполнялись.",
+    "Совместимость с произвольными кастомными model_sampling классами не доказана; статья ограничивает рекомендацию официальными HiDream-O1 cases.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

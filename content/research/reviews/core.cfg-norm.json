@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.cfg-norm",
+  "node": {"classType": "CFGNorm", "pythonModule": "comfy_extras.nodes_cfg", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_cfg.py#L51-L109",
+        "path": "comfy_extras/nodes_cfg.py",
+        "lines": "51-109"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L592-L627",
+        "path": "comfy/samplers.py",
+        "lines": "592-627"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/CFGNorm/en.md",
+        "assessment": "AI-generated документ не содержит optional pre_cfg и неточно описывает default formula как сравнение conditional и unconditional outputs."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/CFGNorm/ru.md",
+        "assessment": "Перевод также пропускает pre_cfg, локализует runtime port names и повторяет недоказанное обещание стабилизации."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON, 496 root graphs и 272 subgraphs: 33 CFGNorm в 19 files, 1 root и 32 subgraph, все mode 0; widgets [1]×14, [1,false]×18, [1,true]×1."
+      },
+      {
+        "id": "b2c3d4e5-f6a7-4890-91bc-def012345678:7f6dd18d-96db-4ad7-a173-6f6d8a0c3d01",
+        "role": "Единственный pre_cfg=true case: UNETLoader → CFGNorm [1,true] → KSampler [42,fixed,40,4,euler,normal,1] в image_joyai_image_edit."
+      },
+      {
+        "id": "f8677519-4c78-42f8-b9d2-db74ed7c9ab6:ec44c008-5f23-4498-a682-eb96a8598475",
+        "role": "Lens и Lens Turbo используют CFGNorm [1,false], хотя runtime tooltip говорит, что pre_cfg=true matches models like Lens; расхождение зафиксировано без предположения о preferred preset."
+      },
+      {
+        "id": "isolated-pinned-cfg-patch-probe",
+        "role": "Exact-source probe проверяет post clamp/strength, pre interpolation/extrapolation, zero norms и регистрацию разных hook types без весов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "JoyAI weights и реальные predictions не загружались; tensor formulas проверены изолированно.",
+    "Official topology проверена как сериализованный JSON, а не как успешный generation run.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

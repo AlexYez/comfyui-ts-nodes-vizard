@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.make-training-dataset-basic",
+  "title": "MakeTrainingDataset с внешними данными и моделями",
+  "externalInputs": [
+    {"id": "images", "type": "IMAGE", "to": "make", "input": "images"},
+    {"id": "vae", "type": "VAE", "to": "make", "input": "vae"},
+    {"id": "clip", "type": "CLIP", "to": "make", "input": "clip"},
+    {"id": "texts", "type": "STRING", "to": "make", "input": "texts"}
+  ],
+  "nodes": [
+    {
+      "ref": "make",
+      "classType": "MakeTrainingDataset",
+      "role": "Кодировать внешние изображения через VAE, а подписи через CLIP",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

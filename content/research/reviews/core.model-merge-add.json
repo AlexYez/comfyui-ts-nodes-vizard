@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-merge-add",
+  "node": {"classType": "ModelMergeAdd", "pythonModule": "comfy_extras.nodes_model_merging", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L52-L68", "path": "comfy_extras/nodes_model_merging.py", "lines": "52-68"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L842-L889", "path": "comfy/model_patcher.py", "lines": "842-889"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L501", "path": "comfy/lora.py", "lines": "438-501"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/ModelMergeAdd/en.md", "assessment": "SHA-256 b9f04d63ee04fccf5bad3fd80be2b04c9eecc56438539e31560caa1519cdfcc9. Describes patch addition but omits exact unit coefficients, diffusion filtering and delta-transfer context."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ModelMergeAdd/ru.md", "assessment": "SHA-256 431839f9b6a823657c37888fa6e3cc56d06a134ee75b225af94ba127ffb9d8c2. Used as secondary terminology evidence only."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-model-merge-add-census", "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; all 512 JSON, 496 root workflows and 272 subgraphs contain zero exact ModelMergeAdd nodes."},
+      {"id": "isolated-model-merge-calculate-weight-probe", "role": "Exact ModelAdd and calculate_weight returned 12 for weights 2 and 10, preserved non-diffusion model1 weight, and ignored a key present only in model2."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "The nested subtract-to-add fragment was schema-validated but not executed as a ComfyUI graph.",
+    "No real source, base or target checkpoint was loaded or sampled.",
+    "No current official workflow template serializes ModelMergeAdd; the delta recipe is source-derived.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

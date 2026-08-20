@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.preview-gaussian-splat",
+  "node": {"classType": "PreviewGaussianSplat", "pythonModule": "comfy_extras.nodes_load_3d", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_load_3d.py#L192-L258",
+        "path": "comfy_extras/nodes_load_3d.py",
+        "lines": "192-258"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3dPreviewExtensions.ts#L23-L243",
+        "path": "frontend/src/extensions/core/load3dPreviewExtensions.ts",
+        "lines": "23-243"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d/SplatModelAdapter.ts#L1-L77",
+        "path": "frontend/src/extensions/core/load3d/SplatModelAdapter.ts",
+        "lines": "1-77"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/PreviewGaussianSplat/en.md",
+        "assessment": "Корректно перечисляет formats, viewport inputs и pass-through outputs; не раскрывает temp lifecycle, frontend adapter и content-based PLY routing."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/PreviewGaussianSplat/ru.md",
+        "assessment": "Термины входов сохранены, но общая фраза о preview дополнена точным backend/frontend контрактом без обещаний качества рендера."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и 768 root/subgraph graphs PreviewGaussianSplat встречается 0 раз; fragment source-derived."
+      },
+      {
+        "id": "frontend-load3d-preview-extension-1.48.7",
+        "role": "Точная frontend integration подтверждает temp-folder route, сериализацию viewport, callbacks размеров, remount и camera/model-info restoration."
+      },
+      {
+        "id": "synthetic-exact-source-preview-splat-probe",
+        "role": "Exact backend class с реальным File3D подтвердил byte-preserving temp copy, filename, optional-input precedence и pass-through outputs."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official wheel 0.1.42 не содержит PreviewGaussianSplat; fragment не является официальным full workflow.",
+    "Probe исполнил backend temp/file branch, но не WebGL, Spark SplatMesh, browser interaction или очистку temp в реальном сервере.",
+    "Визуальная проверка PLY/SPZ/SPLAT/KSPLAT на разных GPU и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-14"
+}

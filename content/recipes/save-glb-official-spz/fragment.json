@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.save-glb-official-spz",
+  "title": "SPLAT → SplatToFile3D (SPZ) → SaveGLB",
+  "externalInputs": [
+    {"id": "splat", "type": "SPLAT", "to": "to-file", "input": "splat"}
+  ],
+  "nodes": [
+    {
+      "ref": "to-file",
+      "classType": "SplatToFile3D",
+      "role": "Сериализовать первый элемент SPLAT batch в SPZ",
+      "settings": {"format": "spz"}
+    },
+    {
+      "ref": "save",
+      "classType": "SaveGLB",
+      "role": "Записать готовый File3D с фактическим расширением SPZ",
+      "settings": {"filename_prefix": "3d/ComfyUI_TripoSplat"}
+    }
+  ],
+  "connections": [
+    {"from": "to-file", "output": "model_3d", "to": "save", "input": "mesh"}
+  ]
+}

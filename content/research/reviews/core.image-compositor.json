@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.image-compositor",
+  "node": {"classType": "ImageCompositor", "pythonModule": "comfy_extras.nodes_compositor", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_compositor.py#L1-L550", "path": "comfy_extras/nodes_compositor.py", "lines": "1-550"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/imageCompositor.ts#L1-L61", "path": "src/extensions/core/imageCompositor.ts", "lines": "1-61"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/renderer/extensions/compositor/components/WidgetCompositor.vue#L1-L145", "path": "src/renderer/extensions/compositor/components/WidgetCompositor.vue", "lines": "1-145"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/renderer/extensions/compositor/composables/useCompositorEditor.ts#L1-L48", "path": "src/renderer/extensions/compositor/composables/useCompositorEditor.ts", "lines": "1-48"}
+    ],
+    "embeddedDocs": [],
+    "workflows": [{"id": "api_bytedance_seedream_5_0_layer_separation", "role": "ByteDanceSeedreamLayerSeparationNode №14 output LAYERS index 5 → ImageCompositor №25 input layers; compositor widget stores [{}]."}]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Embedded docs 0.5.9 has no ImageCompositor article.", "Exhaustive workflow census found one root ImageCompositor and no subgraph occurrence; the ByteDance API/model workflow was traced but not executed.", "Backend document expansion, opaque and transparent composition, output mask, empty document and invalid saved state were tested with synthetic tensors; the complete Nodes 2.0 editor recipe and PSD export were not executed.", "Human approval is pending."],
+  "updatedAt": "2026-08-13"
+}

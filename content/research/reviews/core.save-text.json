@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-text",
+  "node": {
+    "classType": "SaveText",
+    "pythonModule": "comfy_extras.nodes_text",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_text.py#L8-L72",
+        "path": "comfy_extras/nodes_text.py",
+        "lines": "8-72"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveText/en.md",
+        "assessment": "SHA-256 20b986d5dd73e672ec6973cbf164725b8c25727f1fbc77763fe630e9e4242bdd; форматы проверены."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveText/ru.md",
+        "assessment": "SHA-256 2c41031c5cc0871a1f6e61a52bc556ddd66f89f95112e6358d218920af2c7729; сохранение некорректного JSON уточнено."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-0142-save-text",
+        "role": "Проверены 11 точных экземпляров, TXT-префиксы и отключённые примеры."
+      },
+      {
+        "id": "safe-temp-save-text-probe",
+        "role": "Точный исходный метод сохранил TXT, Markdown, корректный и некорректный JSON только во временном каталоге."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Фрагмент рецепта не выполнялся в пользовательском каталоге output.",
+    "Человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-20"
+}

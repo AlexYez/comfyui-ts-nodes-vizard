@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.tome-patch-model",
+  "node": {"classType": "TomePatchModel", "pythonModule": "comfy_extras.nodes_tomesd", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_tomesd.py#L24-L178", "path": "comfy_extras/nodes_tomesd.py", "lines": "24-178"}],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/TomePatchModel/en.md", "assessment": "SHA-256 b299d2940e23aacb6535b44edf03f07cf583fcd7b4cfbb2da032adc328c03f14. Purpose/range match, but speed and quality claims are generic and omit full-resolution-only/query-only behavior."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/TomePatchModel/ru.md", "assessment": "SHA-256 c7b9543ac1112d85f7cc004121aad5a595cd98fcdd4a488ad58f85204fa08aec. Contains translation preface, renames system fields and incorrectly labels required ratio as optional."}
+    ],
+    "workflows": [{"id": "workflow-templates-json-0.1.42-tome-patch-model-census", "role": "Exhaustive 512 JSON/496 root/272 subgraph census: zero exact TomePatchModel occurrences."}]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Exact-source tensor probe covers 2×2 matching, ratio zero, query reduction/unmerge and clone hook installation; no real diffusion MODEL was sampled.", "Published ToMe benchmarks were not treated as ComfyUI node benchmarks.", "Human approval pending."],
+  "updatedAt": "2026-08-14"
+}

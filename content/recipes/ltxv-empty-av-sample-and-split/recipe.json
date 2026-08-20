@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-empty-av-sample-and-split",
+  "locale": "ru",
+  "title": "Пустой LTXV audio latent → AV sampling → разделение",
+  "summary": "Повторяет официальную LTX 2.x цепочку: создаёт пустой аудиопоток 97/25/1, объединяет его с видео, передаёт joint latent в SamplerCustomAdvanced и снова разделяет результат.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-empty-latent-audio", "core.ltxv-concat-av-latent", "core.ltxv-separate-av-latent"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "совместимый LTXV video LATENT",
+    "LTX Audio VAE из того же семейства модели",
+    "готовые NOISE, GUIDER, SAMPLER и SIGMAS"
+  ],
+  "fragment": {
+    "id": "fragment.ltxv-empty-av-sample-and-split",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated exact official LTX 2.3 topology, runtime type validation, source review, tensor probe and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "LTXV AV latent implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L747-L852",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official LTX 2.3 ID-LoRA template",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_ltx2_3_id_lora.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

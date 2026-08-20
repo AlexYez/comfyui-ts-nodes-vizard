@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.stable-audio-latent-decode",
+  "locale": "ru",
+  "title": "Stable Audio latent, sampling и VAE decode",
+  "summary": "Переносит официальную цепочку EmptyLatentAudio → KSampler → VAEDecodeAudio с widgets из audio_stable_audio_example.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.empty-latent-audio", "core.vae-decode-audio", "core.ksampler"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Совместимые Stable Audio MODEL и VAE",
+    "Positive и negative CONDITIONING",
+    "Достаточная память для 47,6 секунды audio sampling"
+  ],
+  "fragment": {
+    "id": "fragment.stable-audio-latent-decode",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, official topology, synthetic unit and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "EmptyLatentAudio and VAEDecodeAudio in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L13-L133",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: audio_stable_audio_example",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.primitive-numbers-preview", "locale": "ru",
+  "title": "Проверить PrimitiveInt и PrimitiveFloat через PreviewAny", "summary": "Точная preview-часть official basic_datatype_conversion: INT 0 и FLOAT 1.5 независимо выводятся как текст.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.primitive-int", "core.primitive-float"], "requirements": ["ComfyUI 0.32.0", "PreviewAny из чистой установки"],
+  "fragment": {"id": "fragment.primitive-numbers-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact topology/widgets from pinned basic_datatype_conversion; full workflow and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "Official basic_datatype_conversion workflow in templates 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

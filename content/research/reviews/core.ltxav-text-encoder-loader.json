@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxav-text-encoder-loader",
+  "node": {
+    "classType": "LTXAVTextEncoderLoader",
+    "pythonModule": "comfy_extras.nodes_lt_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt_audio.py#L169-L211",
+        "path": "comfy_extras/nodes_lt_audio.py",
+        "lines": "169-211"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1513-L1522",
+        "path": "comfy/sd.py",
+        "lines": "1513-1522"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LTXAVTextEncoderLoader/en.md",
+        "assessment": "SHA-256 d3b52054f6d57b05f5ca6e32d443782f28a118e850a35f03c74282336bfb622c. Документ верно описывает два файла и cpu, но не фиксирует порядок путей, CLIPType.LTXV и embeddings directory."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LTXAVTextEncoderLoader/ru.md",
+        "assessment": "SHA-256 6052471fe58a8a136d219c4df97a7abff56ad8564723f8ee3e95da7ed1a38622. Перевод не использовался как источник внутренних аргументов loader."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-ltxav-text-loader-census",
+        "role": "В 512 JSON найдено 18 экземпляров в 16 файлах, все subgraph; device всегда default. Зафиксированы пять пар файлов, 32 связи в CLIPTextEncode и шесть в LoraLoader."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Model-free probe перехватывает точные пути, clip_type, embeddings и CPU model_options; настоящие Gemma/LTX веса не читались.",
+    "Prompt encode и полный LTX video graph не выполнялись; recipe подтверждён только схемой и официальной топологией.",
+    "Совместимость будущих Gemma 4/LTX checkpoint пар по одним именам не доказана.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-14"
+}

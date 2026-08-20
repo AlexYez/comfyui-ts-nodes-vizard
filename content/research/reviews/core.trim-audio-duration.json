@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.trim-audio-duration",
+  "node": {"classType": "TrimAudioDuration", "pythonModule": "comfy_extras.nodes_audio", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L426-L481", "path": "comfy_extras/nodes_audio.py", "lines": "426-481"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/TrimAudioDuration/en.md", "assessment": "SHA-256 f7aabba56ca5c32a6da443827c952c1fcef38e335c48ad75ed2da6cde1e3f8aa; confirms seconds, negative start, clamping and error, but omits view/storage and metadata branches."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/TrimAudioDuration/ru.md", "assessment": "SHA-256 3645d50962b56bffcb07eb494ab76e5d4d3633fb5371bbdcffc50ff28a384904; terminology reference, not used as a source of unverified implementation details."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-scan", "role": "512 JSON, 496 root graphs and 272 subgraphs: four exact TrimAudioDuration nodes, all subgraph/mode 0; widgets [0,60] three times and [0,25] once."},
+      {"id": "video-wan-dancer-trim-node-494", "role": "Exact 0/25 case feeds CreateVideo, WanDancerEncodeAudio and WanDancerPadKeyframesList."},
+      {"id": "audio-editing-exact-class-probe", "role": "Direct class execution checked positive and negative offsets, Python rounding, clamping, zero-duration errors, empty/None branches, storage sharing and metadata loss."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "The catalog fragment was not run inside a complete Wan Dancer or LTX audio-to-video graph.",
+    "No user audio file was auditioned; boundary behavior was verified on synthetic tensors.",
+    "Human editorial approval is pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

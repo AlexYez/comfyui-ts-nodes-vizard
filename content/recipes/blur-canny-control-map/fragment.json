@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.blur-canny-control-map",
+  "title": "IMAGE — небольшое размытие — Canny — preview",
+  "externalInputs": [
+    {"id": "source_image", "type": "IMAGE", "to": "blur", "input": "image"}
+  ],
+  "nodes": [
+    {
+      "ref": "blur",
+      "classType": "ImageBlur",
+      "role": "Сгладить одиночные мелкие детали перед поиском границ",
+      "settings": {"blur_radius": 2, "sigma": 1.0}
+    },
+    {
+      "ref": "canny",
+      "classType": "Canny",
+      "role": "Извлечь связанные слабые и сильные границы",
+      "settings": {"low_threshold": 0.1, "high_threshold": 0.2}
+    },
+    {
+      "ref": "preview",
+      "classType": "PreviewImage",
+      "role": "Проверить карту до передачи в control-модель",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "blur", "output": "IMAGE", "to": "canny", "input": "image"},
+    {"from": "canny", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

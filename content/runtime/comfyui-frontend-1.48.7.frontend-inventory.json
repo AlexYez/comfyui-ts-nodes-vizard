@@ -1,0 +1,29 @@
+{
+  "$schema": "../schemas/frontend-inventory.schema.v1.json",
+  "schemaVersion": "1.0",
+  "source": "https://github.com/Comfy-Org/ComfyUI_frontend/tree/6d6af63c00f132cd25dc29307fc56bd2c094fa22 (tag v1.48.7); pinned by https://github.com/Comfy-Org/ComfyUI/tree/c2bcbecd82ec5ae66594340b395c24ef0217b238 (tag v0.32.0, requirements.txt)",
+  "frontendVersion": "1.48.7",
+  "capturedAt": "2026-08-13T18:03:35Z",
+  "nodes": [
+    {
+      "classType": "MarkdownNote",
+      "packageId": "comfy-core",
+      "dev_only": false
+    },
+    {
+      "classType": "Note",
+      "packageId": "comfy-core",
+      "dev_only": false
+    },
+    {
+      "classType": "PrimitiveNode",
+      "packageId": "comfy-core",
+      "dev_only": false
+    },
+    {
+      "classType": "Reroute",
+      "packageId": "comfy-core",
+      "dev_only": false
+    }
+  ]
+}

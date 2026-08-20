@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.join-image-with-alpha",
+  "node": {"classType": "JoinImageWithAlpha", "pythonModule": "comfy_extras.nodes_compositing", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_compositing.py#L188-L209", "path": "comfy_extras/nodes_compositing.py", "lines": "188-209"}],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/JoinImageWithAlpha/ru.md", "assessment": "Описание не фиксирует критическую полярность alpha=1−MASK, bilinear resize, cyclic batch repeat и замену прежнего alpha. Статья опирается на точный код и round-trip."}],
+    "workflows": [
+      {"id": "api_bria_remove_video_background_transparent", "role": "BriaTransparentVideoBackground IMAGE/MASK → JoinImageWithAlpha → SaveWEBM."},
+      {"id": "utility_image_segment_sam3", "role": "LoadImage и SAM3 segmentation MASK → JoinImageWithAlpha → PreviewImage."},
+      {"id": "api_bytedance_seedream_5_0_layer_separation", "role": "BatchImagesNode и BatchMasksNode → JoinImageWithAlpha → SaveImageAdvanced."},
+      {"id": "api_beeble_switchx_image_edit", "role": "LoadImage и InvertMask → JoinImageWithAlpha → SaveImage."},
+      {"id": "video_wan2.1_alpha_t2v_14B", "role": "VAEDecode и InvertMask → JoinImageWithAlpha → SaveAnimatedWEBP."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Все пять root workflow occurrences в templates 0.1.42 описаны; full dependent workflows не исполнялись из-за внешних models/API dependencies.", "Resize, cyclic repeat и alpha inversion исполнены на synthetic tensors; full Preview fragment ещё не запускался.", "Человеческое редакционное утверждение не выполнено."],
+  "updatedAt": "2026-08-13"
+}

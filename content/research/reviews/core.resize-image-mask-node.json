@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.resize-image-mask-node",
+  "node": {"classType": "ResizeImageMaskNode", "pythonModule": "comfy_extras.nodes_post_processing", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L250-L514", "path": "comfy_extras/nodes_post_processing.py", "lines": "250-514"}],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ResizeImageMaskNode/ru.md", "assessment": "Основные восемь режимов и параметры описаны, но runtime и исходник 0.32.0 дополнительно содержат девятый режим scale to multiple. Нулевые размеры и точный cover-then-center-crop алгоритм не разобраны."}],
+    "workflows": [
+      {"id": "video_ltx2_i2v", "role": "LoadImage №98 → ResizeImageMaskNode №102 (scale dimensions, 1280, 720, center, lanczos) → video subgraph №92."},
+      {"id": "video_ltx2_i2v_distilled", "role": "Та же проверенная связка 1280 × 720 для distilled LTX-2."},
+      {"id": "image_anima_lllite_depth_control_to_image", "role": "LoadImage №91 → ResizeImageMaskNode №693 (scale total pixels, 1.0, lanczos) → depth control subgraph №690."},
+      {"id": "image_boogu_image_0_1_edit", "role": "LoadImage №32 → ResizeImageMaskNode №49 (scale total pixels, 1.0, lanczos) → GetImageSize №46."},
+      {"id": "image_boogu_image_0_1_edit_int8", "role": "Int8 variant preserves the same resize settings and neighbor topology."},
+      {"id": "image_qwen_Image_2512_controlnet", "role": "LoadImage №121 → ResizeImageMaskNode №123 (scale total pixels, 1.6, area) → Canny №122 and GetImageSize №125."},
+      {"id": "image_anima_lllite_image_inpainting", "role": "Unconnected ResizeImageMaskNode №696 stores scale total pixels, 1.0, lanczos as an editable graph component."},
+      {"id": "utility_image_stitch", "role": "ImageStitch №18 → ResizeImageMaskNode №21 (scale dimensions, 2048, 2048, center, lanczos) → SaveImage №19."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Backend helpers were executed for IMAGE and MASK across all nine modes, including zero-size boundaries; the complete inserted fragment with PreviewImage was not executed.", "Eight official workflow files were traced; no claim is made that their model pipelines were executed in this review.", "Human approval is pending."],
+  "updatedAt": "2026-08-13"
+}

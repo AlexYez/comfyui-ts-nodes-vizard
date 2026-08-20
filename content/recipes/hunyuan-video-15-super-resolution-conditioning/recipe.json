@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.hunyuan-video-15-super-resolution-conditioning",
+  "locale": "ru",
+  "title": "Подготовить обходной SR-этап Hunyuan Video 1.5",
+  "summary": "Фрагмент воспроизводит сохранённые связи SR-ноды с CFGGuider и сэмплером, но официальный этап находится в BYPASS и не доказывает выполненное суперразрешение.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.hunyuan-video-15-super-resolution"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Совместимые Hunyuan Video 1.5 SR MODEL и 32-канальный latent после специализированного апскейлера",
+    "Осознанное включение всей SR-ветви вместо переноса режима BYPASS"
+  ],
+  "fragment": {"id": "fragment.hunyuan-video-15-super-resolution-conditioning", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка зафиксированных исходников, схемы ноды, документации и workflow-шаблонов; точный класс проверен на синтетических данных. Редактор ещё не утвердил материал.",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "HunyuanVideo15SuperResolution в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L133-L176",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальный I2V workflow Hunyuan Video 1.5 с обходным SR-этапом",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_hunyuan_video_1.5_720p_i2v.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "NodeMode.BYPASS в интерфейсе 1.48.7",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/lib/litegraph/src/types/globalEnums.ts#L80-L90",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

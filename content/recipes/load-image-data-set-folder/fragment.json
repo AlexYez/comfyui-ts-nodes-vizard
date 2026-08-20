@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-image-data-set-folder",
+  "title": "LoadImageDataSetFromFolder с локальной папкой",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "loader",
+      "classType": "LoadImageDataSetFromFolder",
+      "role": "Прочитать поддерживаемые изображения верхнего уровня папки",
+      "settings": {
+        "folder": "3d"
+      }
+    }
+  ],
+  "connections": []
+}

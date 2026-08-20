@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.latent-rotate",
+  "node": {
+    "classType": "LatentRotate",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1386-L1408",
+        "path": "nodes.py",
+        "lines": "1386-1408"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LatentRotate/en.md",
+        "assessment": "AI-generated документ описывает назначение, но не перечисляет точные COMBO values, направление поворота, tensor dims, обмен H/W или неизменённые metadata."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LatentRotate/ru.md",
+        "assessment": "Перевод использует общие фразы о скрытом пространстве и локализует имена портов; exact semantics сверены по source/runtime."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Просмотрены 512 JSON, все root nodes и 272 definitions.subgraphs; LatentRotate отсутствует."
+      },
+      {
+        "id": "isolated-pinned-latent-rotate-tensor-probe",
+        "role": "Матрица 2x3 подтвердила none/90/180/270, clockwise направление 90, обмен H/W и неизменённую noise_mask."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В official workflow bundle 0.1.42 нет LatentRotate и нет реальных widget/topology cases.",
+    "Проба не декодировала модельный LATENT, поэтому pixel-space вид и VAE boundary effects не оценивались.",
+    "Fragment с внешним LATENT не запускался в живом frontend.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.rescale-vprediction-cfg",
+  "title": "V-prediction RescaleCFG 0,7 → CFGGuider 7",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "patch", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "guider", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "guider", "input": "negative"}
+  ],
+  "nodes": [
+    {"ref": "patch", "classType": "RescaleCFG", "role": "Нормализовать guided-предсказание V-модели", "settings": {"multiplier": 0.7}},
+    {"ref": "guider", "classType": "CFGGuider", "role": "Собрать GUIDER с cfg 7 из patched MODEL", "settings": {"cfg": 7.0}}
+  ],
+  "connections": [
+    {"from": "patch", "output": "MODEL", "to": "guider", "input": "model"}
+  ]
+}

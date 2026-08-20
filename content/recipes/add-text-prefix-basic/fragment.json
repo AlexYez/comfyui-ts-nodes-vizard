@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.add-text-prefix-basic",
+  "title": "AddTextPrefix с фиксированным префиксом",
+  "externalInputs": [
+    {"id": "texts", "type": "STRING", "to": "prefix", "input": "texts"}
+  ],
+  "nodes": [
+    {
+      "ref": "prefix",
+      "classType": "AddTextPrefix",
+      "role": "Поставить буквальную строку dataset: перед одним текстом",
+      "settings": {"prefix": "dataset: "}
+    }
+  ],
+  "connections": []
+}

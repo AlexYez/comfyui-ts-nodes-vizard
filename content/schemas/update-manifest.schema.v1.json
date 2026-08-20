@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nodes-wizard.local/schemas/update-manifest.schema.v1.json",
+  "title": "TS Nodes Wizard catalog update manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "catalogVersion",
+    "publishedAt",
+    "canonicalization",
+    "signatureScope",
+    "compatibility",
+    "inventory",
+    "artifacts",
+    "changes",
+    "signature"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": "1.0" },
+    "catalogVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "publishedAt": { "type": "string", "format": "date-time" },
+    "canonicalization": { "const": "comfy-nodes-wizard-json-v1" },
+    "signatureScope": { "const": "top-level-manifest-excluding-signature" },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["comfyui", "frontend"],
+      "properties": {
+        "comfyui": { "type": "string" },
+        "frontend": { "type": "string" }
+      }
+    },
+    "inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "comfyuiVersion", "capturedAt"],
+      "properties": {
+        "source": { "type": "string" },
+        "comfyuiVersion": { "type": "string" },
+        "frontendVersion": { "type": "string" },
+        "capturedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "size", "url", "contentType"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "size": { "type": "integer", "minimum": 0 },
+          "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+          "contentType": { "type": "string", "minLength": 3 }
+        }
+      }
+    },
+    "changes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "added", "updated", "deprecated", "removed"],
+      "properties": {
+        "summary": { "type": "string", "minLength": 20, "maxLength": 500 },
+        "added": { "$ref": "#/$defs/ids" },
+        "updated": { "$ref": "#/$defs/ids" },
+        "deprecated": { "$ref": "#/$defs/ids" },
+        "removed": { "$ref": "#/$defs/ids" }
+      }
+    },
+    "signature": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["algorithm", "keyId", "publicKey", "value"],
+          "properties": {
+            "algorithm": { "const": "Ed25519" },
+            "keyId": { "type": "string", "minLength": 1 },
+            "publicKey": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" },
+            "value": { "type": "string", "pattern": "^[A-Za-z0-9_-]{86}$" }
+          }
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    }
+  }
+}

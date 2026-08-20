@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.porter-duff-src-over-preview",
+  "title": "source + alpha поверх destination + alpha",
+  "externalInputs": [
+    {"id": "source_image", "type": "IMAGE", "to": "porter_duff", "input": "source"},
+    {"id": "source_mask", "type": "MASK", "to": "porter_duff", "input": "source_alpha"},
+    {"id": "destination_image", "type": "IMAGE", "to": "porter_duff", "input": "destination"},
+    {"id": "destination_mask", "type": "MASK", "to": "porter_duff", "input": "destination_alpha"}
+  ],
+  "nodes": [
+    {"ref": "porter_duff", "classType": "PorterDuffImageComposite", "role": "Наложить source поверх destination с учётом обеих alpha", "settings": {"mode": "SRC_OVER"}},
+    {"ref": "preview_image", "classType": "PreviewImage", "role": "Показать итоговый цвет", "settings": {}},
+    {"ref": "preview_mask", "classType": "MaskPreview", "role": "Показать итоговую прозрачность в формате MASK", "settings": {}}
+  ],
+  "connections": [
+    {"from": "porter_duff", "output": "IMAGE", "to": "preview_image", "input": "images"},
+    {"from": "porter_duff", "output": "MASK", "to": "preview_mask", "input": "mask"}
+  ]
+}

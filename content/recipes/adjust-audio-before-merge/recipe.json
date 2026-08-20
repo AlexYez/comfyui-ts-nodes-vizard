@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.adjust-audio-before-merge",
+  "locale": "ru",
+  "title": "Подготовить уровни перед AudioMerge",
+  "summary": "Два AudioAdjustVolume с +1 dB подают дорожки в AudioMerge(add), повторяя точную локальную топологию официального Sonilo subgraph.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.audio-adjust-volume", "core.audio-merge"],
+  "requirements": ["ComfyUI 0.32.0", "Два входа AUDIO", "Совместимые размеры waveform", "Контроль пиков после сложения"],
+  "fragment": {"id": "fragment.adjust-audio-before-merge", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, exact official Sonilo topology, exact-class tensor probe and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "AudioAdjustVolume and AudioMerge in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L647-L755",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official Sonilo Video Soundtrack Generation workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/api_sonilo_v2m.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

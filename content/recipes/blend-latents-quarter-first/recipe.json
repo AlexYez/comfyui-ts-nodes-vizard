@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.blend-latents-quarter-first",
+  "locale": "ru",
+  "title": "Смешать 25% первого LATENT и 75% второго",
+  "summary": "Одна LatentBlend принимает два внешних LATENT одинакового формата и создаёт линейную смесь с blend_factor 0,25.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.latent-blend", "core.latent-interpolate"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Два LATENT из совместимого латентного пространства",
+    "Совместимые batch и число каналов",
+    "Отдельная проверка noise_mask и других дополнительных полей"
+  ],
+  "fragment": {
+    "id": "fragment.blend-latents-quarter-first",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema review and exact-source tensor probe; full fragment execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "LatentBlend implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1476-L1517",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Pinned embedded documentation 0.5.9: LatentBlend",
+      "url": "https://github.com/Comfy-Org/embedded-docs/blob/1d258cf6e374d60d138a2bfcd273c7e11f750ef9/comfyui_embedded_docs/docs/LatentBlend/en.md",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

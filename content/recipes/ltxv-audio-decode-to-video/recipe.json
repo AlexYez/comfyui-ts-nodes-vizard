@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-audio-decode-to-video",
+  "locale": "ru",
+  "title": "Декодировать LTX audio latent и добавить к видео",
+  "summary": "LTXVAudioVAEDecode передаёт AUDIO в optional-порт CreateVideo при fps 24 — повторяющаяся официальная LTX 2.x topology.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-audio-vae-decode"],
+  "requirements": ["ComfyUI 0.32.0", "LTX audio LATENT", "Совместимый LTX Audio VAE", "IMAGE batch для CreateVideo"],
+  "fragment": {"id": "fragment.ltxv-audio-decode-to-video", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source, runtime, exhaustive 21-case official LTX topology, fake-VAE execution and Russian editorial pass; human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [
+    {"title": "LTXVAudioVAEDecode in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt_audio.py#L60-L89", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"},
+    {"title": "Official LTX 2.3 text-to-video template", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_ltx2_3_t2v.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "frontend.markdown-note",
+  "node": { "classType": "MarkdownNote", "pythonModule": "comfyui_frontend", "origin": "frontend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "6d6af63c00f132cd25dc29307fc56bd2c094fa22",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-frontend-1.48.7.frontend-inventory.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/noteNode.ts#L55-L83",
+        "path": "src/extensions/core/noteNode.ts",
+        "lines": "55-83"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/stores/nodeDefStore.ts#L248-L263",
+        "path": "src/stores/nodeDefStore.ts",
+        "lines": "248-263"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/renderer/extensions/vueNodes/widgets/components/WidgetMarkdown.vue#L1-L65",
+        "path": "src/renderer/extensions/vueNodes/widgets/components/WidgetMarkdown.vue",
+        "lines": "1-65"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/utils/executionUtil.ts#L17-L90",
+        "path": "src/utils/executionUtil.ts",
+        "lines": "17-90"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/MarkdownNote/ru.md",
+        "assessment": "AI-generated secondary documentation; назначение и Markdown сверены, а регистрация и сериализация взяты из pinned source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "4125c6df-9bca-430d-8e85-7cff9cc592d4",
+        "role": "Official 3d_hunyuan3d-v2.1: корневая MarkdownNote № 15 хранит модельную ссылку и дерево папок в widgets_values[0]."
+      },
+      {
+        "id": "workflow.frontend-utilities-lab",
+        "role": "Локальный schema-validated workflow хранит отдельную MarkdownNote с инструкцией без исполняемых портов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": ["Учебный workflow проверен как JSON и по каталожной схеме, но не открывался и не исполнялся в живом ComfyUI."],
+  "updatedAt": "2026-08-13"
+}

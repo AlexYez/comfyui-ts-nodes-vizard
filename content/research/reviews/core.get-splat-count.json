@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.get-splat-count",
+  "node": {"classType": "GetSplatCount", "pythonModule": "comfy_extras.nodes_gaussian_splat", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L33-L36", "path": "comfy_extras/nodes_gaussian_splat.py", "lines": "33-36"}, {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L1145-L1171", "path": "comfy_extras/nodes_gaussian_splat.py", "lines": "1145-1171"}],
+    "embeddedDocs": [{"locale": "en", "archivePath": "comfyui_embedded_docs/docs/GetSplatCount/en.md", "assessment": "SHA-256 0134d2e39ad4a61622f44f312cb9b64d9306d62de4d42406aeacecaa688f97a4; secondary terminology reference."}, {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/GetSplatCount/ru.md", "assessment": "SHA-256 a88ece3b43c36603df444acbe08e4d165b9bca6223fd3399ed77848182968ac2; secondary terminology reference."}],
+    "workflows": [{"id": "workflow-templates-0142-get-splat-count-census", "role": "All 512 JSON, 496 roots and 272 subgraphs contain zero exact GetSplatCount."}, {"id": "isolated-gaussian-splat-helper-probe", "role": "Counts-aware and shape-fallback totals were executed on synthetic SPLAT objects."}]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["No frontend inline progress text was exercised.", "No real padded SPLAT file was loaded.", "The recipe is source-derived because no official case exists.", "Редактор пока не проверил материал вручную."], "updatedAt": "2026-08-14"
+}

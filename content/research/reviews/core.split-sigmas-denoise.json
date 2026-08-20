@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.split-sigmas-denoise",
+  "node": {"classType": "SplitSigmasDenoise", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L228-L252",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "228-252"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L962-L1007",
+        "path": "comfy/samplers.py",
+        "lines": "962-1007"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SplitSigmasDenoise/en.md",
+        "assessment": "Верно связывает границу с denoise, но не раскрывает round, точные slices, общую boundary и поведение denoise 0."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SplitSigmasDenoise/ru.md",
+        "assessment": "Даёт общее назначение; runtime-имена портов переведены в таблице, а edge cases и число переходов пришлось сверять по source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON, 496 корневых графов и все definitions.subgraphs[*].nodes; SplitSigmasDenoise не найден."
+      },
+      {
+        "id": "synthetic-exact-source-split-sigmas-denoise",
+        "role": "AST-extracted execute подтвердил общий элемент при положительном хвосте, пустой high при denoise 0, полный low при denoise 1, empty/singleton, округление 2.5 к 2 и shared storage."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Ни одного официального model-specific workflow с этой нодой в пакете 0.1.42 нет; fragment основан на точной реализации, а не на официальной полной топологии.",
+    "Probe проверяет tensor slices, но две последовательные sampling-стадии с реальными моделями не запускались.",
+    "Поведение downstream sampler на пустом и одноэлементном выходе не квалифицировано; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

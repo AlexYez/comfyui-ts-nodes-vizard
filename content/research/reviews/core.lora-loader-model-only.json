@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.lora-loader-model-only",
+  "node": { "classType": "LoraLoaderModelOnly", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L753-L765",
+        "path": "nodes.py",
+        "lines": "753-765"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L706-L751",
+        "path": "nodes.py",
+        "lines": "706-751"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L98-L130",
+        "path": "comfy/sd.py",
+        "lines": "98-130"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LoraLoaderModelOnly/ru.md",
+        "assessment": "Интерфейс и каталог описаны верно. AI-generated text omits inherited one-file cache, zero-strength early return, safe metadata load, clone semantics and NOT LOADED diagnostics."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LoraLoaderModelOnly/en.md",
+        "assessment": "The English locale has the same omissions as Russian."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "basic_switch_node",
+        "role": "Root node № 62 receives MODEL from UNETLoader № 60, applies pixel_art_style_z_image_turbo.safetensors at strength 1 and feeds true branch of ComfySwitchNode № 61."
+      },
+      {
+        "id": "image_qwen_image_2512_with_2steps_lora",
+        "role": "Root node № 114 applies Wuli-Qwen-Image-2512-Turbo-LoRA-2steps-V1.0-bf16.safetensors at strength 1."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "The exhaustive wheel census proves 143 instances in 75 files, but no LoRA or base model weights were loaded and the fragment was not rendered.",
+    "Artistic effect and recommended strength remain model/file-specific and require controlled inference."
+  ],
+  "updatedAt": "2026-08-13"
+}

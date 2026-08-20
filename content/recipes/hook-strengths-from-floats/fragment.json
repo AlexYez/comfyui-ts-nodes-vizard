@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.hook-strengths-from-floats",
+  "title": "FLOATS + HOOKS → расписание силы",
+  "externalInputs": [
+    {"id": "strengths", "type": "FLOATS", "to": "create-keyframes", "input": "floats_strength"},
+    {"id": "hooks", "type": "HOOKS", "to": "set-keyframes", "input": "hooks"}
+  ],
+  "nodes": [
+    {
+      "ref": "create-keyframes",
+      "classType": "CreateHookKeyframesFromFloats",
+      "role": "Равномерно разложить внешний список сил по процентам",
+      "settings": {"start_percent": 0.0, "end_percent": 1.0, "print_keyframes": false}
+    },
+    {
+      "ref": "set-keyframes",
+      "classType": "SetHookKeyframes",
+      "role": "Назначить расписание внешней группе хуков",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "create-keyframes", "output": "HOOK_KF", "to": "set-keyframes", "input": "hook_kf"}
+  ]
+}

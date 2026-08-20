@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.unclip-checkpoint-loader",
+  "node": {
+    "classType": "unCLIPCheckpointLoader",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L675-L688",
+        "path": "nodes.py",
+        "lines": "675-688"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L2034-L2201",
+        "path": "comfy/sd.py",
+        "lines": "2034-2201"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/supported_models.py#L137-L160",
+        "path": "comfy/supported_models.py",
+        "lines": "137-160"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L439-L480",
+        "path": "comfy/model_base.py",
+        "lines": "439-480"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/UnclipCheckpointLoader/en.md",
+        "assessment": "AI-generated документ перечисляет четыре выхода и оговаривает available, но не объясняет условный clip_vision_prefix, diffusion-only fallback и отсутствие отдельного unCLIP guard."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/UnclipCheckpointLoader/ru.md",
+        "assessment": "Перевод локализует ckpt_name и не уточняет семейства SD21UnclipL/H; факты взяты из source/runtime."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Просмотрены 512 JSON, все root nodes и 272 subgraphs; unCLIPCheckpointLoader отсутствует."
+      },
+      {
+        "id": "22fbfe6b-e7d7-4193-8409-8599b5dce771:sdxl_revision_text_prompts",
+        "role": "Ближайший official case использует CheckpointLoaderSimple и отдельный CLIPVisionLoader, затем две unCLIPConditioning; это контрпример универсальности unCLIP loader."
+      },
+      {
+        "id": "isolated-pinned-special-loader-dispatch-probe",
+        "role": "Exact class подтвердил порядок четырёх возвращаемых объектов, forced output flags и embeddings path без чтения checkpoint."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В official workflow bundle 0.1.42 нет unCLIPCheckpointLoader; fragment основан на exact source/runtime.",
+    "Реальный SD 2.1 unCLIP checkpoint не загружался, поэтому наличие и совместимость четырёх компонентов не проверены исполнением.",
+    "Fragment не импортировался и не выполнялся end-to-end.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

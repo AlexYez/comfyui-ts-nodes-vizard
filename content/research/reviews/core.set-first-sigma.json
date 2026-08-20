@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.set-first-sigma",
+  "node": {"classType": "SetFirstSigma", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L276-L296",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "276-296"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SetFirstSigma/en.md",
+        "assessment": "Точно описывает замену первого элемента и диапазон widget, но не упоминает clone storage, empty IndexError, singleton и нарушение монотонности."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SetFirstSigma/ru.md",
+        "assessment": "Передаёт основную операцию, но переводит exact port names и не объясняет model-specific scale; статья опирается на runtime и pinned implementation."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Найдены 5 SetFirstSigma в 5 subgraphs: 3 widget fallback 999.0000000000002 и 2 со значением 10000; все в цепочке BasicScheduler → SetFirstSigma → SamplerCustomAdvanced."
+      },
+      {
+        "id": "official-flux-depth-lotus-topology",
+        "role": "В flux_depth_lora_example BasicScheduler использует normal, steps 1, denoise 1; SetFirstSigma хранит fallback 10000, а sigma вынесена на внешний вход subgraph."
+      },
+      {
+        "id": "synthetic-exact-source-set-first-sigma",
+        "role": "AST-extracted execute подтвердил clone, замену только индекса 0, сохранение входа, singleton replacement и IndexError на пустом tensor."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Lotus и Qwen Image model weights не загружались; значения 999/10000 не проверены вне официальной topology.",
+    "Fragment воспроизводит только scheduler и override, а не полный SamplerCustomAdvanced workflow.",
+    "Качество и стабильность реального результата не оценивались; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

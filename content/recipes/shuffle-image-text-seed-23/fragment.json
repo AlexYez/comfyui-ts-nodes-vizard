@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.shuffle-image-text-seed-23",
+  "title": "ShuffleImageTextDataset с seed 23",
+  "externalInputs": [
+    {
+      "id": "images",
+      "type": "IMAGE",
+      "to": "shuffle_pairs",
+      "input": "images"
+    },
+    {
+      "id": "texts",
+      "type": "STRING",
+      "to": "shuffle_pairs",
+      "input": "texts"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "shuffle_pairs",
+      "classType": "ShuffleImageTextDataset",
+      "role": "Переставить изображения и подписи по общим индексам",
+      "settings": {
+        "seed": 23
+      }
+    }
+  ],
+  "connections": []
+}

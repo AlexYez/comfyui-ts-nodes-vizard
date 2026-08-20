@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.adjust-brightness",
+  "node": {"classType": "AdjustBrightness", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L579-L746",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "579-746"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1083-L1102",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1083-1102"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/AdjustBrightness/en.md",
+        "assessment": "Справка помечена как AI-generated. Она подтверждает умножение, clamp и factor 0–2, но называет порты image вместо images и не описывает обработку всего пакета; SHA-256: 521f768404c865b7bcbc03eb9a8e00229feeb8395ef55170eaf040de84760648."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/AdjustBrightness/ru.md",
+        "assessment": "Русский AI-generated перевод дополнительно переводит системные имена factor и images, поэтому пригоден только для общего назначения; SHA-256: b95df6b0739af11651092c81bf78c46bc18b18879a17fbc9119facdf49c9742c."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 файлов JSON, 496 корневых графов и 272 подграфа; AdjustBrightness отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-adjust-dedup-probe",
+        "role": "Точный класс на [2,2,2,3] совпал с (input*2).clamp(0,1), сохранил форму/dtype и при factor 0 вернул нулевой тензор."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Нейтральный фрагмент не импортировался на холст и не проходил визуальное сравнение изображений.",
+    "Официального сценария в шаблонах графов нет; практические соединения помечены как вывод из портов исполнения.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

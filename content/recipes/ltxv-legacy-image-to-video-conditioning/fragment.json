@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-legacy-image-to-video-conditioning",
+  "title": "Legacy LTXV I2V с frame-rate conditioning",
+  "externalInputs": [
+    {"id": "positive", "type": "CONDITIONING", "to": "i2v", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "i2v", "input": "negative"},
+    {"id": "vae", "type": "VAE", "to": "i2v", "input": "vae"},
+    {"id": "image", "type": "IMAGE", "to": "i2v", "input": "image"}
+  ],
+  "nodes": [
+    {"ref": "i2v", "classType": "LTXVImgToVideo", "role": "Закодировать IMAGE в начало LTXV latent", "settings": {"width": 768, "height": 512, "length": 97, "batch_size": 1, "strength": 0.15}},
+    {"ref": "conditioning", "classType": "LTXVConditioning", "role": "Записать 25 fps в positive и negative metadata", "settings": {"frame_rate": 25.0}}
+  ],
+  "connections": [
+    {"from": "i2v", "output": "positive", "to": "conditioning", "input": "positive"},
+    {"from": "i2v", "output": "negative", "to": "conditioning", "input": "negative"}
+  ]
+}

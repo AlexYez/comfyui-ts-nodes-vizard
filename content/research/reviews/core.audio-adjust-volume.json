@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.audio-adjust-volume",
+  "node": {"classType": "AudioAdjustVolume", "pythonModule": "comfy_extras.nodes_audio", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L717-L755", "path": "comfy_extras/nodes_audio.py", "lines": "717-755"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/AudioAdjustVolume/en.md", "assessment": "SHA-256 a31fb1094d279e6041d653013e9b5e80947e6ed77264299f3a7378e7e5ba3334; confirms dB gain purpose and range, but does not emphasize the non-neutral +1 default or metadata branch."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/AudioAdjustVolume/ru.md", "assessment": "SHA-256 2dde9b1053a2037346757b8d3ffb8afd1475ac9e25282ef60641295111d06b63; secondary terminology reference."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-scan", "role": "Two exact AudioAdjustVolume nodes, both mode 0 and widgets [1], both inside the api_sonilo_v2m Video Audio Merger subgraph."},
+      {"id": "api-sonilo-v2m-volume-nodes-719-722", "role": "The two +1 dB outputs feed audio1 and audio2 of AudioMerge node 721 with add method."},
+      {"id": "audio-editing-exact-class-probe", "role": "Direct class execution checked dB coefficients at -100/-6/0/1/6/100, no clamp, None handling, zero identity and metadata behavior."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "The full Sonilo graph and external API were not executed.",
+    "No subjective loudness or clipping listening test was performed.",
+    "The catalog fragments remain in_review and await human approval."
+  ],
+  "updatedAt": "2026-08-14"
+}

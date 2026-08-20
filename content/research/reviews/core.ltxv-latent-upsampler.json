@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-latent-upsampler",
+  "node": {"classType": "LTXVLatentUpsampler", "pythonModule": "comfy_extras.nodes_lt_upsampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt_upsampler.py#L7-L65",
+        "path": "comfy_extras/nodes_lt_upsampler.py",
+        "lines": "7-65"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/lightricks/latent_upsampler.py#L147-L297",
+        "path": "comfy/ldm/lightricks/latent_upsampler.py",
+        "lines": "147-297"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L179-L228",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "179-228"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVLatentUpsampler/en.md",
+        "assessment": "Верно описывает spatial ×2, VAE channel statistics, сохранение batch/channels/time и удаление noise_mask; не раскрывает memory heuristic, shallow-copy metadata и отсутствие tiling."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVLatentUpsampler/ru.md",
+        "assessment": "Содержательно соответствует английской версии, но переводит runtime labels и использует канцелярские конструкции; exact имена входов и технические границы сверены по runtime/source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON и рекурсивных definitions.subgraphs найдено 16 LTXVLatentUpsampler в 14 файлах; все внутри subgraph."
+      },
+      {
+        "id": "official-ltx-spatial-upscaler-topology",
+        "role": "Вход samples поровну приходит от LTXVCropGuides и LTXVSeparateAVLatent; выход двенадцать раз идёт в LTXVImgToVideoInplace и четыре раза в LTXVConcatAVLatent."
+      },
+      {
+        "id": "official-ltx-spatial-upscaler-files",
+        "role": "Подтверждены девять LTX 2, пять LTX 2.3 и два LTX 2.5 loader widget; recipe использует точное LTX 2.5 имя из двух официальных случаев."
+      },
+      {
+        "id": "synthetic-exact-source-ltxv-latent-upsampler",
+        "role": "AST-extracted exact node подтвердил dtype/device path, оценку памяти, порядок VAE statistics, spatial-only shape, shallow metadata copy и удаление noise_mask; малый exact LatentUpsampler подтвердил PixelShuffle ×2 без весов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment содержит loader и upsampler, но оставляет реальные samples и VAE внешними; полная LTX stage-2 ветвь не исполнялась.",
+    "Официальные LTX upscaler weights не загружались: model-free probe проверяет код и формы, но не качество видео и реальный VRAM peak.",
+    "Нода experimental; человеческое утверждение текста и проверка на поддерживаемых GPU ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

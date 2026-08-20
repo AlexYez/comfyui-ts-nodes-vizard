@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-only-checkpoint-save",
+  "node": {"classType": "ImageOnlyCheckpointSave", "pythonModule": "comfy_extras.nodes_video_model", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video_model.py#L110-L123",
+        "path": "comfy_extras/nodes_video_model.py",
+        "lines": "110-123"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L170-L227",
+        "path": "comfy_extras/nodes_model_merging.py",
+        "lines": "170-227"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L2338-L2362",
+        "path": "comfy/sd.py",
+        "lines": "2338-2362"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/supported_models.py#L312-L341",
+        "path": "comfy/supported_models.py",
+        "lines": "312-341"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L520-L566",
+        "path": "folder_paths.py",
+        "lines": "520-566"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ImageOnlyCheckpointSave/en.md",
+        "assessment": "SHA-256 2a213c82c1d672a4812a58c2bbcd5ccbbd1c1f95a467f879b37e2b49add2d6f5. Входы и отсутствие выходов совпадают; modelspec, метки EDM, перезапись метаданных, различие каталогов и отсутствие пробной загрузки пропущены."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ImageOnlyCheckpointSave/ru.md",
+        "assessment": "SHA-256 e8649dbc5996219c220796dfba87a03178c6a32a2c49ff63e871a61921551590. Переводит model и filename_prefix, поэтому точные имена портов сверены по /object_info."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-image-only-save-zero-census",
+        "role": "Полный обход 512 файлов JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл ImageOnlyCheckpointSave; точной строки также нет среди 517 файлов пакета."
+      },
+      {
+        "id": "image-video-checkpoint-svg-exact-source-probe",
+        "role": "Извлечённый через AST точный подкласс подтверждает наследование, передачу clip_vision/vae, скрытые метаданные и пустой результат; проверки общей функции охватывают modelspec/EDM для SVD и обработку пути без настоящих весов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального примера рабочего процесса нет; фрагмент основан на точной схеме, исходнике и внешних компонентах.",
+    "Настоящая многогигабайтная контрольная точка не записывалась и не загружалась повторно; совместимость и пиковая память не измерялись.",
+    "Синтетическая проба функции записи проверяет вызовы и метаданные, а не байтовую корректность настоящего файла safetensors.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

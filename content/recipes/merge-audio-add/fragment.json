@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.merge-audio-add",
+  "title": "Наложение двух AUDIO через add",
+  "externalInputs": [
+    {
+      "id": "primary_audio",
+      "type": "AUDIO",
+      "to": "merge",
+      "input": "audio1"
+    },
+    {
+      "id": "additional_audio",
+      "type": "AUDIO",
+      "to": "merge",
+      "input": "audio2"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "merge",
+      "classType": "AudioMerge",
+      "role": "Сложить две дорожки на временной сетке audio1",
+      "settings": {
+        "merge_method": "add"
+      }
+    }
+  ],
+  "connections": []
+}

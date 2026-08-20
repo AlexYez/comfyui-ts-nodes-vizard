@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.preview-3d-string-result",
+  "locale": "ru",
+  "title": "STRING-результат 3D-сервиса → Preview3D",
+  "summary": "Подключает внешний STRING-путь из совместимой 3D-ноды к терминальному Preview3D без локально зашитого имени файла.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.preview-3d"],
+  "requirements": [
+    "Внешняя нода, возвращающая доступный ComfyUI STRING-путь к 3D-файлу",
+    "Интерфейс 1.48.7 с WebGL",
+    "Поддерживаемый формат GLB, GLTF, FBX, OBJ, STL, USDZ или FILE_3D"
+  ],
+  "fragment": {"id": "fragment.preview-3d-string-result", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная сверка /object_info, закреплённых исходников и 23 официальных связей типа STRING; внешний сервис, WebGL и весь фрагмент не исполнялись, ручной проверки не было",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Preview3D backend in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_load_3d.py#L87-L129",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Preview3D frontend lifecycle",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d.ts#L475-L686",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Pinned official workflow templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/tree/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

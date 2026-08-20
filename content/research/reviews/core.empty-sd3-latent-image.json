@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.empty-sd3-latent-image",
+  "node": {"classType": "EmptySD3LatentImage", "pythonModule": "comfy_extras.nodes_sd3", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sd3.py#L40-L61",
+        "path": "comfy_extras/nodes_sd3.py",
+        "lines": "40-61"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sample.py#L40-L62",
+        "path": "comfy/sample.py",
+        "lines": "40-62"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/latent_formats.py#L118-L148",
+        "path": "comfy/latent_formats.py",
+        "lines": "118-148"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/EmptySD3LatentImage/en.md",
+        "assessment": "Точно указывает нули, 16 каналов и уменьшение 8, но верхний предел называет MAX_RESOLUTION вместо фактического runtime 16384 и не объясняет metadata key."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/EmptySD3LatentImage/ru.md",
+        "assessment": "Основные размеры переданы верно, но имена runtime-параметров переведены и добавлено служебное вступление, что непригодно для точной справочной статьи."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON найдено 37 EmptySD3LatentImage в 37 файлах: 13 root и 24 subgraph; 29 имеют widgets 1024×1024×1, все mode=0."
+      },
+      {
+        "id": "sd3.5_simple_example-node-53-to-3",
+        "role": "Exact official root case: node 53 widgets [1024,1024,1] подключён LATENT к KSampler node 3 с [seed, randomize, 20, 4.01, euler, sgm_uniform, 1]."
+      },
+      {
+        "id": "synthetic-exact-source-empty-sd3-latent-probe",
+        "role": "Exact execute probe подтвердил zeros, dtype/device from model management, форму 2×16×12×10 для 80×96×2, metadata ratio 8 и floor 8×9 при прямом 65×79."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Probe исполнил точный tensor branch, но не полный fragment с KSampler и SD3.5 weights.",
+    "Поведение автоматической адаптации пустого latent изучено по exact sampler source, но не прогнано на всех архитектурах из 37 official cases.",
+    "Пиковая память больших разрешений на разных устройствах и человеческое утверждение текста ожидаются."
+  ],
+  "updatedAt": "2026-08-14"
+}

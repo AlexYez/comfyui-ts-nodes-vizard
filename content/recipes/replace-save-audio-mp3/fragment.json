@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.replace-save-audio-mp3",
+  "title": "AUDIO → SaveAudioAdvanced MP3 V0",
+  "externalInputs": [
+    { "id": "audio", "type": "AUDIO", "to": "save", "input": "audio" }
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "SaveAudioAdvanced",
+      "role": "Сохранить MP3 V0 актуальной нодой",
+      "settings": {
+        "filename_prefix": "audio/ComfyUI",
+        "format": { "format": "mp3", "quality": "V0" }
+      }
+    }
+  ],
+  "connections": []
+}

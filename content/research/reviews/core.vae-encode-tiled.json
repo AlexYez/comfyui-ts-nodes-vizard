@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.vae-encode-tiled",
+  "node": {"classType": "VAEEncodeTiled", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L391-L407", "path": "nodes.py", "lines": "391-407"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1313-L1421", "path": "comfy/sd.py", "lines": "1313-1421"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/VAEEncodeTiled/en.md", "assessment": "SHA-256 ac87525f0442a87d3a54d332bbcb4c761f09f5b237df69ff85bffcc99d8f7969. Public fields match; internal 2D/3D/owned tiler routing and ordinary-encode OOM fallback are omitted."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/VAEEncodeTiled/ru.md", "assessment": "SHA-256 7b3b23601627a2cecfe1cd173b8cfe072d1fa417c978a11208c7be62a7078d37. Translation renames pixels/tile_size/overlap and omits wrapper-versus-VAE distinction."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-vae-encode-tiled-census", "role": "Full census: 3 exact nodes in 3 files, all subgraph/mode0; [512,128,4096,8]×2 image and [512,128,64,8]×1 video."},
+      {"id": "seedvr2-tiled-topology", "role": "Two image cases have direct VAEEncodeTiled48→SeedVR2Conditioning61/KSampler54→VAEDecodeTiled55 links; the video case routes through TemporalChunk, TemporalMerge and two ComfySwitchNode instances."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Wrapper forwarding and minimal LATENT output use a fake VAE. Lightweight direct calls execute pinned vae_encode_crop_pixels (center crop plus channel trim/pad), the base 2D three-grid average and 2D/3D/owned routing with fake tiler outputs; no real first-stage VAE weights were executed.", "Full SeedVR2 workflow, visual comparison and memory profile were not run.", "Human approval pending."],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-merge-subtract",
+  "node": {"classType": "ModelMergeSubtract", "pythonModule": "comfy_extras.nodes_model_merging", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L33-L50", "path": "comfy_extras/nodes_model_merging.py", "lines": "33-50"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L842-L889", "path": "comfy/model_patcher.py", "lines": "842-889"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L501", "path": "comfy/lora.py", "lines": "438-501"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/ModelMergeSubtract/en.md", "assessment": "SHA-256 80ca57006fb62340697643724b610144497cbc9b0220d995db2513537a10c953. The prose is ambiguous about multiplier placement and omits that both model terms are scaled."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ModelMergeSubtract/ru.md", "assessment": "SHA-256 922f7d9443c2aefa1eeba44fed15ab92c82516b186aa5859ea3f0fef3fcf94ee. Used as secondary terminology evidence only; exact formula comes from source and probe."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-model-merge-subtract-census", "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; all 512 JSON, 496 root workflows and 272 subgraphs contain zero exact ModelMergeSubtract nodes."},
+      {"id": "isolated-model-merge-calculate-weight-probe", "role": "Exact ModelSubtract and calculate_weight confirmed multiplier*(model1-model2): weights 2/10 returned -16 at multiplier 2 and 8 at multiplier -1."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "The multiplier formula and shape mismatch branch were executed only on synthetic tensors.",
+    "No real checkpoint difference was loaded, sampled or saved.",
+    "No current official workflow template serializes ModelMergeSubtract; the fragment is source-derived.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

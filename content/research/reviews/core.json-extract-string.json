@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.json-extract-string",
+  "node": {
+    "classType": "JsonExtractString",
+    "pythonModule": "comfy_extras.nodes_string",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L410-L441",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "410-441"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/JsonExtractString/en.md",
+        "assessment": "SHA-256 039e5cdcb895e05c0a7db1775af398397ac3cdc4b82ad03ec8f1d02f98fd4e35; top-level contract verified."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/JsonExtractString/ru.md",
+        "assessment": "SHA-256 b11309fb145f9c1723c006ac43d9a790f8133e1e3fbf9baca9cda6904412c91b; Python str and empty ambiguity clarified."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-0142-json-extract",
+        "role": "14 exact nodes; positive/negative prompt, prompt, mu and preset keys inspected."
+      },
+      {
+        "id": "exact-source-json-probe",
+        "role": "Executed string/number/bool/list/dict/null/missing/non-dict/invalid JSON branches."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Полные API-графы не выполнялись.",
+    "Человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-20"
+}

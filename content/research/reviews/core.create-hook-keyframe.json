@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.create-hook-keyframe",
+  "node": {"classType": "CreateHookKeyframe", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L471-L499", "path": "comfy_extras/nodes_hooks.py", "lines": "471-499"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L426-L539", "path": "comfy/hooks.py", "lines": "426-539"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L568-L596", "path": "comfy/hooks.py", "lines": "568-596"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/CreateHookKeyframe/en.md", "assessment": "SHA-256 c29b27f41cd47f9faf9c2502c44c71a0ae28dbf95dbb37526102955eb7eada84. Подтверждает диапазоны и цепочку, но не объясняет стабильную сортировку, дубликаты и то, что первая точка становится текущей."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/CreateHookKeyframe/ru.md", "assessment": "SHA-256 b5a5a4875af29f280ad2f68b8a6ae746bfb30489b2878c279805a6f011158818. Переводит имена параметров; точные `strength_mult`, `start_percent`, `prev_hook_kf` и `HOOK_KF` взяты из runtime."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-create-hook-keyframe-zero-census", "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл CreateHookKeyframe."},
+      {"id": "hook-keyframe-scheduling-exact-source-probe", "role": "Точный метод подтвердил отдельные объекты группы и кадров, сортировку новой точки −2 при 0,2 перед прежней 8 при 0,8 и стабильный порядок одинакового процента; потребление sigma и CLIP-диапазоны сверены по исходнику."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Официального графа с CreateHookKeyframe в пакете 0.1.42 нет; рецепт основан на исходнике.",
+    "Проценты не преобразовывались настоящей моделью в sigma и не проверялись на полном сэмплере; effective guarantee и пропуск кадров подтверждены по исходнику потребителя.",
+    "Переходы одинаковых процентов на реальном числе шагов и отдельное расписание CLIP не исполнялись.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

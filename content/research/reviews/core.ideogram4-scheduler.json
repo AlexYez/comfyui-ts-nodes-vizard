@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ideogram4-scheduler",
+  "node": {"classType": "Ideogram4Scheduler", "pythonModule": "comfy_extras.nodes_ideogram4", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_ideogram4.py#L10-L54",
+        "path": "comfy_extras/nodes_ideogram4.py",
+        "lines": "10-54"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/Ideogram4Scheduler/en.md",
+        "assessment": "Верно указывает steps + 1, descending order и terminal zero, но не раскрывает exact probit/logSNR formula, resolution mean и presets."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Ideogram4Scheduler/ru.md",
+        "assessment": "Передаёт общее назначение; runtime-имена входов в таблице переведены, а preset topology и формула сверены отдельно."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "В 512 JSON и всех definitions.subgraphs[*].nodes найдены два Ideogram4Scheduler, оба в subgraph обычного и int8 text-to-image шаблона."
+      },
+      {
+        "id": "official-ideogram4-presets-and-topology",
+        "role": "JSON ветка подтверждает Quality 48/0/1.5, Default 20/0/1.75, Turbo 12/0.5/1.75; dimensions округляются вверх к 16 с минимумом 256, SIGMAS идут в SamplerCustomAdvanced."
+      },
+      {
+        "id": "synthetic-exact-source-ideogram4-scheduler",
+        "role": "AST-extracted exact functions подтвердили float32 steps + 1, terminal zero, площадь без ориентации, resolution/mu effect, clamp endpoints и one-step behavior."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment воспроизводит официальный Default scheduler preset, но не содержит model, conditioning, guider, sampler и latent ветви.",
+    "Ideogram 4 веса не запускались; exact-source probe проверяет только численное расписание.",
+    "Визуальная разница Quality, Default и Turbo не квалифицирована; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

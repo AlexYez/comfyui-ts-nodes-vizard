@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.rebatch-images",
+  "node": {
+    "classType": "RebatchImages",
+    "pythonModule": "comfy_extras.nodes_rebatch",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_rebatch.py#L110-L140",
+        "path": "comfy_extras/nodes_rebatch.py",
+        "lines": "110-140"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/RebatchImages/en.md",
+        "assessment": "Подтверждает назначение и список выходных батчей; отсутствие resize и точный порядок flatten/chunk взяты из реализации."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/RebatchImages/ru.md",
+        "assessment": "Использована как вторичное описание; не объясняет зависимость совместимости формы от границ chunk."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON: RebatchImages встречается один раз, только в subgraph; корневых вхождений нет."
+      },
+      {
+        "id": "video_wan_dancer#a92ccb88-3a14-4114-9b6b-fa8952839d39/subgraph-f7467834-35a6-42fe-b525-7f17383beb4f/node-671",
+        "role": "Активная RebatchImages № 671 с batch_size 4096: VAEDecode № 658 по link 1329 → RebatchImages → link 1330 → CreateVideo № 158; subgraph Image to Video (Wan Dancer)."
+      },
+      {
+        "id": "synthetic-pinned-class-rebatch-images",
+        "role": "Точный класс запущен на синтетических IMAGE tensor: входы 2+3 при target 2 дали порции 2+2+1 с сохранением порядка."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment сохраняет официальный центральный участок и настройки, но не исполнялся целиком с VAE-кадрами, AUDIO и CreateVideo.",
+    "Синтетически проверен exact class, однако поведение при нехватке GPU-памяти на реальном длинном видео не квалифицировано.",
+    "Человеческое утверждение статьи и примера ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

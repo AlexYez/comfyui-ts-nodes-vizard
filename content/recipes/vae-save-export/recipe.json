@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.vae-save-export",
+  "locale": "ru",
+  "title": "Сохранить внешний VAE в output/vae",
+  "summary": "Подключает внешний VAE к VAESave и пишет state dict first-stage модели в нумерованный safetensors-файл.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.vae-save"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Объект VAE, который нужно экспортировать",
+    "Достаточно места в output-каталоге"
+  ],
+  "fragment": {"id": "fragment.vae-save-export", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime review and Russian editorial pass; fragment schema and isolated temp-directory behavior validated, full fragment execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "VAESave implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L308-L340",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "VAE.get_sd in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1423-L1424",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

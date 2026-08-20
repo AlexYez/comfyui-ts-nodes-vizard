@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.void-custom-advanced-sampler",
+  "title": "VOID DDIM sampler в custom advanced sampling",
+  "externalInputs": [
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "void_sampler",
+      "classType": "VOIDSampler",
+      "role": "Создать VOID-specific DDIM без стандартного noise scaling",
+      "settings": {}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Выполнить VOID sampling с внешними noise, guider, sigmas и latent",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "void_sampler", "output": "SAMPLER", "to": "sample", "input": "sampler"}
+  ]
+}

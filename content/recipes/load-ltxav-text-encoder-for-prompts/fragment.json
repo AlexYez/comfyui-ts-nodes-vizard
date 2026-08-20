@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-ltxav-text-encoder-for-prompts",
+  "title": "LTXAV CLIP для positive и negative prompt",
+  "externalInputs": [
+    {"id": "positive_text", "type": "STRING", "to": "positive", "input": "text"},
+    {"id": "negative_text", "type": "STRING", "to": "negative", "input": "text"}
+  ],
+  "nodes": [
+    {
+      "ref": "loader",
+      "classType": "LTXAVTextEncoderLoader",
+      "role": "Собрать LTXAV CLIP из text encoder и checkpoint",
+      "settings": {
+        "text_encoder": "gemma_3_12B_it_fp4_mixed.safetensors",
+        "ckpt_name": "ltx-2.3-22b-dev-fp8.safetensors",
+        "device": "default"
+      }
+    },
+    {
+      "ref": "positive",
+      "classType": "CLIPTextEncode",
+      "role": "Кодировать positive prompt",
+      "settings": {}
+    },
+    {
+      "ref": "negative",
+      "classType": "CLIPTextEncode",
+      "role": "Кодировать negative prompt",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "loader", "output": "CLIP", "to": "positive", "input": "clip"},
+    {"from": "loader", "output": "CLIP", "to": "negative", "input": "clip"}
+  ]
+}

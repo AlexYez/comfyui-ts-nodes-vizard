@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.painter",
+  "node": {"classType": "Painter", "pythonModule": "comfy_extras.nodes_painter", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_painter.py#L1-L130", "path": "comfy_extras/nodes_painter.py", "lines": "1-130"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/composables/painter/usePainter.ts#L35-L781", "path": "src/composables/painter/usePainter.ts", "lines": "35-781"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/components/painter/WidgetPainter.vue#L1-L348", "path": "src/components/painter/WidgetPainter.vue", "lines": "1-348"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/lib/litegraph/src/widgets/PainterWidget.ts#L1-L24", "path": "src/lib/litegraph/src/widgets/PainterWidget.ts", "lines": "1-24"}
+    ],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/Painter/ru.md", "assessment": "Общий UI и поля описаны, но первый кадр image[:1], PNG upload/restore, Nodes 2.0 requirement, CPU/Lanczos path и отличие alpha штрихов от transparency MASK не раскрыты."}],
+    "workflows": [
+      {"id": "api_bytedance_seedream_5_0_pro_image_edit", "role": "LoadImage №3 → Painter №7; Painter IMAGE → ByteDanceSeedreamNodeV2 №1 и PreviewImage №5; blank mask, 1024×1024."},
+      {"id": "image_anima_lllite_image_inpainting", "role": "LoadImage №91 → Painter №694 with saved temp overlay; Painter MASK → MaskPreview №695 and IMAGE → inpainting subgraph №88."},
+      {"id": "video_wan2_1_infinitetalk", "role": "Two Painter nodes №174/175 receive the same source IMAGE and feed separate MASK sockets in two video subgraphs; stored canvas 1216×960."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Exhaustive census found four root Painter nodes in three workflow files and zero subgraph occurrences; InfiniteTalk has an extra fifth stored widget value not present in the pinned runtime schema, so no meaning is assigned to it.", "Exact backend was executed with a temporary RGBA overlay, resized alpha, a two-frame base proving image[:1], and blank #336699 canvas; the browser brush, PNG upload and complete inserted fragment were not executed.", "Official model and API workflows were traced but not run.", "Human approval is pending."],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.make-image-contact-sheet",
+  "title": "Два IMAGE — Batch Images — сетка 2 × 1 — preview",
+  "externalInputs": [
+    {"id": "first", "type": "IMAGE", "to": "batch", "input": "images.image0"},
+    {"id": "second", "type": "IMAGE", "to": "batch", "input": "images.image1"}
+  ],
+  "nodes": [
+    {"ref": "batch", "classType": "BatchImagesNode", "role": "Собрать два IMAGE в упорядоченный бэтч", "settings": {}},
+    {"ref": "grid", "classType": "ImageGrid", "role": "Нарисовать две квадратные ячейки в одной строке", "settings": {"columns": 2, "cell_width": 256, "cell_height": 256, "padding": 4}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Показать готовый RGB-холст", "settings": {}}
+  ],
+  "connections": [
+    {"from": "batch", "output": "IMAGE", "to": "grid", "input": "images"},
+    {"from": "grid", "output": "images", "to": "preview", "input": "images"}
+  ]
+}

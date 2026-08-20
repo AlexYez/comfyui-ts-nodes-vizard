@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.empty-latent-audio",
+  "node": {
+    "classType": "EmptyLatentAudio",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L13-L36",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "13-36"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sample.py#L40-L63",
+        "path": "comfy/sample.py",
+        "lines": "40-63"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/EmptyLatentAudio/en.md",
+        "assessment": "Документ помечен как AI-generated и верно приводит shape, audio type и ratio 2048. Он не уточняет, что формула жёстко использует 44 100 Гц и округляет length до чётного числа."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 JSON и все subgraphs: 3 экземпляра в 3 файлах, 1 root и 2 subgraph, все mode 0."
+      },
+      {
+        "id": "5fa61cc8-29d9-4deb-9f90-02d3c00b63b3",
+        "role": "audio_stable_audio_example: EmptyLatentAudio #11 widgets [47.6, 1] → KSampler #3 latent_image; эта topology перенесена в fragment."
+      },
+      {
+        "id": "audio_stable_audio_3_medium-and-base",
+        "role": "В двух subgraph-вариантах node #11 имеет widgets [60, 1], а seconds также связан с PrimitiveFloat #36; выход идёт в KSampler #3."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Safe synthetic unit check подтвердил shape [2,64,22] для 1 секунды и batch 2, нули и metadata; полный sampling fragment не выполнялся.",
+    "Официальная topology и widgets перенесены, но checkpoint weights, text encoder, VAE decode и audio output не запускались.",
+    "Фактическая длительность после адаптации model latent format и VAE decode не измерялась.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-13"
+}

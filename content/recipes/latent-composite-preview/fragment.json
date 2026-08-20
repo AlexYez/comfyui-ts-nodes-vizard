@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.latent-composite-preview", "title": "LATENT composite и VAE preview",
+  "externalInputs": [
+    {"id": "destination", "type": "LATENT", "to": "composite", "input": "destination"},
+    {"id": "source", "type": "LATENT", "to": "composite", "input": "source"},
+    {"id": "mask", "type": "MASK", "to": "composite", "input": "mask"},
+    {"id": "vae", "type": "VAE", "to": "decode", "input": "vae"}
+  ],
+  "nodes": [
+    {"ref": "composite", "classType": "LatentCompositeMasked", "role": "Смешать source samples с destination", "settings": {"x": 0, "y": 0, "resize_source": false}},
+    {"ref": "decode", "classType": "VAEDecode", "role": "Декодировать результат совместимым VAE", "settings": {}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Показать декодированный composite", "settings": {}}
+  ],
+  "connections": [
+    {"from": "composite", "output": "LATENT", "to": "decode", "input": "samples"},
+    {"from": "decode", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

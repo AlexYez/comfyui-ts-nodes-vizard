@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.split-alpha-preview",
+  "title": "RGBA — RGB и MASK — два preview",
+  "externalInputs": [{"id": "rgba_image", "type": "IMAGE", "to": "split", "input": "image"}],
+  "nodes": [
+    {"ref": "split", "classType": "SplitImageWithAlpha", "role": "Извлечь RGB и инвертировать alpha в MASK", "settings": {}},
+    {"ref": "preview_rgb", "classType": "PreviewImage", "role": "Показать цвет без alpha", "settings": {}},
+    {"ref": "mask_image", "classType": "MaskToImage", "role": "Повторить MASK в RGB для просмотра", "settings": {}},
+    {"ref": "preview_mask", "classType": "PreviewImage", "role": "Показать прозрачность в полярности ComfyUI MASK", "settings": {}}
+  ],
+  "connections": [
+    {"from": "split", "output": "IMAGE", "to": "preview_rgb", "input": "images"},
+    {"from": "split", "output": "MASK", "to": "mask_image", "input": "mask"},
+    {"from": "mask_image", "output": "IMAGE", "to": "preview_mask", "input": "images"}
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.set-clip-hooks",
+  "node": {"classType": "SetClipHooks", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L228-L259",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "228-259"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L269-L415",
+        "path": "comfy/sd.py",
+        "lines": "269-415"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L342-L397",
+        "path": "comfy/hooks.py",
+        "lines": "342-397"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L1516-L1535",
+        "path": "comfy/model_patcher.py",
+        "lines": "1516-1535"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L56-L77",
+        "path": "nodes.py",
+        "lines": "56-77"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SetClipHooks/en.md",
+        "assessment": "SHA-256 471416e745b8f19a01c2bb3ae46c83aa40ff57722b0f918b763ab149a971f242. Описывает назначение и входы, но ошибочно создаёт впечатление, что CLIP клонируется даже без хуков; не раскрывает пустое расписание без WeightHook."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SetClipHooks/ru.md",
+        "assessment": "SHA-256 30bb693a720faa1be4d9831b04c82417c83cb40c3f8c45c770ed6a99343494cc. Переводит имена параметров, поэтому точные ключи и ветвления сверены по runtime и исходнику."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-set-clip-hooks-zero-census",
+        "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл ни одного SetClipHooks; точной строки нет и среди всех 517 файлов пакета."
+      },
+      {
+        "id": "hooks-exact-source-model-free-probe",
+        "role": "Точный SetClipHooks с тестовыми CLIP и patcher подтвердил возврат входа без хуков, clone(disable_dynamic=True), цель Clip, раздельные группы forced/apply и расписания WeightHook без загрузки модели."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального примера в пакете графов 0.1.42 нет; учебный фрагмент основан на зафиксированных контрактах SetClipHooks и CLIPTextEncode.",
+    "Ветвления и расчёт интервалов проверены на тестовых объектах, но настоящий CLIP, LoRA-веса и сэмплер не запускались.",
+    "Совместимость конкретных весовых хуков с архитектурами текстовых энкодеров не проверена.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

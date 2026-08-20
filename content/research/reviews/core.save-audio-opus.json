@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-audio-opus",
+  "node": {
+    "classType": "SaveAudioOpus",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L220-L248",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "220-248"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_ui.py#L260-L374",
+        "path": "comfy_api/latest/_ui.py",
+        "lines": "260-374"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveAudioOpus/en.md",
+        "assessment": "AI-generated документ подтверждает deprecated и quality options, но ошибочно отрицает AUDIO output и не описывает resample rules, batch/channel semantics или Python-default V3."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveAudioOpus/ru.md",
+        "assessment": "Перевод содержит редакционную вставку и повторяет ошибку об отсутствии выхода; факты сверены по source/runtime."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON: четыре SaveAudioOpus, все root mode Bypass, widgets audio/ComfyUI и 128k, полностью отсоединены; subgraph-вхождений нет."
+      },
+      {
+        "id": "api-elevenlabs-speech-to-speech#91f6bbe2-ed41-4fd6-bac7-71d5b5864ecb",
+        "role": "Содержит отключённый несвязанный SaveAudioOpus с 128k рядом с активным MP3 saver; это serialization evidence, не execution evidence."
+      },
+      {
+        "id": "isolated-pinned-save-audio-opus-probe",
+        "role": "Точный class выполнил mono 64k–192k и stereo 320k с 44100→48000; mono 320k отвергнут закреплённым libopus."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В official bundle нет активного Opus case; четыре placeholders отключены и отсоединены.",
+    "Migration-fragment не исполнялся целиком; legacy/current classes проверены изолированно.",
+    "Отказ mono 320k относится к закреплённой libopus build и может различаться в другом окружении.",
+    "Opus не проходил субъективное прослушивание; человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

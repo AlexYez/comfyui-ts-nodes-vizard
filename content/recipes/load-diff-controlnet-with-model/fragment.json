@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-diff-controlnet-with-model",
+  "title": "MODEL — DiffControlNetLoader — Apply ControlNet",
+  "externalInputs": [
+    {"id": "base_model", "type": "MODEL", "to": "diff_loader", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "apply", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "apply", "input": "negative"},
+    {"id": "control_image", "type": "IMAGE", "to": "apply", "input": "image"},
+    {"id": "vae", "type": "VAE", "to": "apply", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "diff_loader",
+      "classType": "DiffControlNetLoader",
+      "role": "Восстановить diff-ControlNet относительно точной базовой MODEL",
+      "settings": {"control_net_name": "выберите diff-ControlNet для этой MODEL"}
+    },
+    {
+      "ref": "apply",
+      "classType": "ControlNetApplyAdvanced",
+      "role": "Добавить восстановленный ControlNet к обеим ветвям",
+      "settings": {"strength": 1.0, "start_percent": 0.0, "end_percent": 1.0}
+    }
+  ],
+  "connections": [
+    {"from": "diff_loader", "output": "CONTROL_NET", "to": "apply", "input": "control_net"}
+  ]
+}

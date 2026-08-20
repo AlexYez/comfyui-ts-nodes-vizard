@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.load-ltxv-audio-vae-for-encode-decode",
+  "locale": "ru",
+  "title": "Один LTX Audio VAE для encode и decode",
+  "summary": "Loader с официальным LTX 2.3 preset разветвляет один VAE в LTXVAudioVAEEncode и LTXVAudioVAEDecode, как в image-and-speech-to-video subgraph.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-audio-vae-loader", "core.ltxv-audio-vae-encode", "core.ltxv-audio-vae-decode"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "ltx-2.3-22b-dev-fp8.safetensors в models/checkpoints либо совместимый проверенный LTX checkpoint",
+    "AUDIO для encode",
+    "LTX audio LATENT для decode"
+  ],
+  "fragment": {
+    "id": "fragment.load-ltxv-audio-vae-for-encode-decode",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, exact official image-and-speech-to-video topology, model-free call probe and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "LTXVAudioVAELoader in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt_audio.py#L9-L34",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official Image and Speech to Video template",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/template_image_speech_to_video.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

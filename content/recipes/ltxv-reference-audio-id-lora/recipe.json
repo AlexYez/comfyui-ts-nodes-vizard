@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-reference-audio-id-lora",
+  "locale": "ru",
+  "title": "Голосовой референс LTXV ID-LoRA → conditioning → CFGGuider",
+  "summary": "Воспроизводит единственный официальный LTXVReferenceAudio case: preset 3/0/1, frame rate conditioning и передача патченного MODEL вместе с positive/negative в CFGGuider.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-reference-audio"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "LTXV model с совместимой ID-LoRA",
+    "LTX Audio VAE",
+    "референс типа AUDIO",
+    "positive и negative CONDITIONING"
+  ],
+  "fragment": {
+    "id": "fragment.ltxv-reference-audio-id-lora",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated exact official LTX 2.3 ID-LoRA topology, runtime type validation, source review, guidance probe and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "LTXVReferenceAudio in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L855-L937",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official LTX 2.3 ID-LoRA template",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_ltx2_3_id_lora.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

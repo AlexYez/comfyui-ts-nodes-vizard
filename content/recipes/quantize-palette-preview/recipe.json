@@ -1,0 +1,17 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.quantize-palette-preview",
+  "locale": "ru",
+  "title": "Свести изображение к палитре из восьми цветов",
+  "summary": "Ограничивает RGB IMAGE восемью цветами с упорядоченным Bayer-дизерингом и показывает результат без изменения размера кадра.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.image-quantize", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Трёхканальный RGB IMAGE без alpha"],
+  "fragment": {"id": "fragment.quantize-palette-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Automated source, Pillow-path and schema review; tensor path tested, full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "ImageQuantize implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L114-L178", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

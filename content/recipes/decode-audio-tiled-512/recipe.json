@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.decode-audio-tiled-512",
+  "locale": "ru",
+  "title": "Tiled decode с размером 512 и overlap 64",
+  "summary": "Source-derived fragment вызывает VAEDecodeAudioTiled с runtime-default параметрами и внешними LATENT/VAE.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.vae-decode-audio-tiled"],
+  "requirements": ["ComfyUI 0.32.0", "Audio LATENT", "Совместимый audio VAE", "Подбор tile_size и overlap под память и модель"],
+  "fragment": {"id": "fragment.decode-audio-tiled-512", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source, runtime, tiled dispatcher, fake-VAE execution and Russian editorial pass; human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [
+    {"title": "VAEDecodeAudioTiled in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L98-L159", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"},
+    {"title": "VAE tiled dispatcher in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1281-L1311", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}
+  ]
+}

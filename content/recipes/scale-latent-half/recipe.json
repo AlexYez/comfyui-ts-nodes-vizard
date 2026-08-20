@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.scale-latent-half",
+  "locale": "ru",
+  "title": "Уменьшить амплитуду LATENT вдвое",
+  "summary": "Создаёт LatentMultiply с multiplier 0,5: форма и batch не меняются, tensor samples получает половинные значения, а остальные поля словаря сохраняются.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.latent-multiply"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Один LATENT",
+    "Проверка noise_mask и конечности samples после операции"
+  ],
+  "fragment": {"id": "fragment.scale-latent-half", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "LatentMultiply implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L73-L95",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Pinned embedded documentation 0.5.9: LatentMultiply",
+      "url": "https://github.com/Comfy-Org/embedded-docs/blob/1d258cf6e374d60d138a2bfcd273c7e11f750ef9/comfyui_embedded_docs/docs/LatentMultiply/en.md",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

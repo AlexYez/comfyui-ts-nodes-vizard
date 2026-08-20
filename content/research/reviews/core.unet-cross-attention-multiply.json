@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.unet-cross-attention-multiply",
+  "node": {"classType": "UNetCrossAttentionMultiply", "pythonModule": "comfy_extras.nodes_attention_multiply", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_attention_multiply.py#L6-L20", "path": "comfy_extras/nodes_attention_multiply.py", "lines": "6-20"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_attention_multiply.py#L46-L66", "path": "comfy_extras/nodes_attention_multiply.py", "lines": "46-66"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L493", "path": "comfy/lora.py", "lines": "438-493"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/UNetCrossAttentionMultiply/en.md", "assessment": "SHA-256 2ae83378103b89247e356a60a438ef8796c7102bfebd598e25e9e747d6be76cc. Подтверждает диапазоны, но не объясняет суффикс attn2, нулевое число совпадений и архитектурную условность названия cross-attention."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/UNetCrossAttentionMultiply/ru.md", "assessment": "SHA-256 d743f5d3cffdf9d7da17b06121695780ca0e24487b60e747267e0020b415f6c3. Переводит model и out, поэтому точные имена входов и выхода взяты из runtime."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-unet-cross-attention-zero-census", "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл UNetCrossAttentionMultiply."},
+      {"id": "unet-attention-multiply-exact-source-probe", "role": "Точная функция выбрала восемь attn2 weight/bias ключей и пропустила attn1; отдельный вызов calculate_weight подтвердил умножение текущего тензора."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Официального графа с UNetCrossAttentionMultiply в пакете 0.1.42 нет; значение v = 0,9 выбрано для редакционного контрольного опыта.",
+    "Проверка не выполняла cross-attention с настоящим conditioning и не доказывает семантику attn2 для любой архитектуры.",
+    "Визуальный эффект, совместимость отдельных checkpoint и потребление памяти полного графа не измерялись.",
+    "Редактор пока не утвердил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

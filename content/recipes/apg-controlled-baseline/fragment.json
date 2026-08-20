@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.apg-controlled-baseline",
+  "title": "APG с runtime-значениями по умолчанию",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "apg", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "apg",
+      "classType": "APG",
+      "role": "Добавить pre-CFG projection, norm clipping и отключённый momentum",
+      "settings": {"eta": 1.0, "norm_threshold": 5.0, "momentum": 0.0}
+    }
+  ],
+  "connections": []
+}

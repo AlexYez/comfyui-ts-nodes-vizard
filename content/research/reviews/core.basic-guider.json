@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.basic-guider",
+  "node": {
+    "classType": "BasicGuider",
+    "pythonModule": "comfy_extras.nodes_custom_sampler",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L805-L829",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "805-829"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L592-L627",
+        "path": "comfy/samplers.py",
+        "lines": "592-627"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/BasicGuider/en.md",
+        "assessment": "AI-generated документ верно перечисляет MODEL, CONDITIONING и GUIDER, но не раскрывает наследуемый cfg=1 и пропуск unconditional-ветви."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/BasicGuider/ru.md",
+        "assessment": "Перевод использован только как вторичный ориентир: он не объясняет точный sampling path и ограничения сравнения с CFGGuider."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Просмотрены 512 JSON, все root nodes и 272 subgraphs: 14 BasicGuider в 14 файлах, 3 root и 11 subgraph; все mode 0 и все ведут в SamplerCustomAdvanced."
+      },
+      {
+        "id": "06010f12-03bc-41ce-86bd-14f321d5a152:flux_redux_model_example",
+        "role": "ModelSamplingFlux и StyleModelApply входят в BasicGuider, его GUIDER подключён к SamplerCustomAdvanced."
+      },
+      {
+        "id": "isolated-pinned-guider-formula-probe",
+        "role": "Exact source подтвердил single-condition execute, базовый cfg=1 и стандартный пропуск unconditional condition без запуска весов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "Модельные weights не загружались; стоимость проходов выведена из закреплённого sampling source.",
+    "Official topology проверена как сериализованный JSON, а не как успешный model run.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.lms-custom-sampling",
+  "title": "SamplerLMS order 4 перед SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "sampler",
+      "classType": "SamplerLMS",
+      "role": "Создать Linear Multistep sampler",
+      "settings": {"order": 4}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Исполнить component sampling",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "sampler", "output": "SAMPLER", "to": "sample", "input": "sampler"}
+  ]
+}

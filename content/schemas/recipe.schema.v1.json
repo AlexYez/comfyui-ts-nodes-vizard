@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nodes-wizard.local/schemas/recipe.schema.v1.json",
+  "title": "TS Nodes Wizard recipe",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "recipeId",
+    "locale",
+    "title",
+    "summary",
+    "body",
+    "difficulty",
+    "articleIds",
+    "requirements",
+    "fragment",
+    "editorial",
+    "sources"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": "1.0" },
+    "recipeId": { "type": "string", "pattern": "^recipe\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$" },
+    "locale": { "type": "string", "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$" },
+    "title": { "type": "string", "minLength": 3, "maxLength": 140 },
+    "summary": { "type": "string", "minLength": 20, "maxLength": 360 },
+    "body": { "type": "string", "pattern": ".+\\.md$" },
+    "difficulty": { "enum": ["beginner", "intermediate", "advanced"] },
+    "articleIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "requirements": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 2 }
+    },
+    "fragment": { "$ref": "#/$defs/fileRef" },
+    "workflow": { "$ref": "#/$defs/nullableFileRef" },
+    "editorial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "reviewedBy", "reviewedAt"],
+      "properties": {
+        "state": { "enum": ["draft", "in_review", "approved"] },
+        "reviewedBy": { "type": "string", "minLength": 2 },
+        "reviewedAt": { "type": "string", "format": "date" }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "url", "publisher", "accessedAt"],
+        "properties": {
+          "title": { "type": "string", "minLength": 3 },
+          "url": { "type": "string", "pattern": "^https://" },
+          "publisher": { "type": "string", "minLength": 2 },
+          "accessedAt": { "type": "string", "format": "date" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "fileRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "path", "format"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "format": { "type": "string", "minLength": 1 }
+      }
+    },
+    "nullableFileRef": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["id", "path", "format"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "format": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

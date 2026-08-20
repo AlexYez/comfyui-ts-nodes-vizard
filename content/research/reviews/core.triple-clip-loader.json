@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.triple-clip-loader",
+  "node": {"classType": "TripleCLIPLoader", "pythonModule": "comfy_extras.nodes_sd3", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sd3.py#L11-L37",
+        "path": "comfy_extras/nodes_sd3.py",
+        "lines": "11-37"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1513-L1522",
+        "path": "comfy/sd.py",
+        "lines": "1513-1522"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1982-L1995",
+        "path": "comfy/sd.py",
+        "lines": "1982-1995"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/TripleCLIPLoader/en.md",
+        "assessment": "Верно описывает три text encoders и типичный комплект SD3, но не раскрывает safe_load, SD3 branch для трёх state dict и model-management placement."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/TripleCLIPLoader/ru.md",
+        "assessment": "Передаёт общий смысл, но содержит служебное вступление о переводе и не различает единый интерфейс CLIP от слияния весов."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "Во всех 512 JSON, 496 root graphs и 768 root/subgraph graphs найдено 0 TripleCLIPLoader; recipe поэтому явно source-derived."
+      },
+      {
+        "id": "synthetic-exact-source-triple-clip-loader-probe",
+        "role": "Exact class probe подтвердил порядок трёх разрешённых путей, передачу двух embeddings paths, сохранение результата load_clip и FileNotFoundError до load_clip при отсутствующем втором файле."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "CLIP-L, CLIP-G и T5-XXL с реальными весами не загружались; probe заменял filesystem resolver и comfy.sd.load_clip наблюдаемыми doubles.",
+    "Fragment содержит placeholders и должен пройти локальную проверку выбранных text_encoders перед вставкой.",
+    "Поведение VRAM/offload на Windows, Linux и macOS и человеческое утверждение текста ожидаются."
+  ],
+  "updatedAt": "2026-08-14"
+}

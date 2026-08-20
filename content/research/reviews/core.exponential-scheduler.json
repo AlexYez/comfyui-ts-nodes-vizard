@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.exponential-scheduler",
+  "node": {"classType": "ExponentialScheduler", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L69-L88",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "69-88"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L19-L35",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "19-35"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ExponentialScheduler/en.md",
+        "assessment": "SHA-256 3aa12a14cdbdc0adce490c82b8bdfaefe60cab12539709bb02210486c6e76df6. AI-generated обзор правильно передаёт общее назначение, но не фиксирует log-linear формулу, направление и конечный ноль; они взяты из source."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ExponentialScheduler/ru.md",
+        "assessment": "SHA-256 dc48353b75a3d6f6734a853a666738c24bbe7a09ab77236410fa8999c455b7ad. Перевод меняет runtime-ключ steps и не предупреждает о log(0); факты сверены независимо."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-exponential-scheduler-zero-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; полный просмотр 512 JSON, 496 root и 272 subgraph не нашёл ни одного exact ExponentialScheduler."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Функция из pinned source исполнена без модели; проверены числовая сетка и ошибки границ, но sampler не запускался.",
+    "В official wheel 0.1.42 нет ExponentialScheduler, поэтому fragment source-derived и использует runtime defaults.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

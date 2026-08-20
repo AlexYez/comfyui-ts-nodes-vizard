@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.video-frame-sample-uniform-4",
+  "title": "VideoFrameSample: четыре равномерных кадра",
+  "externalInputs": [
+    {
+      "id": "video",
+      "type": "VIDEO",
+      "to": "sample",
+      "input": "video"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "sample",
+      "classType": "VideoFrameSample",
+      "role": "Выбрать четыре равномерно распределённых кадра",
+      "settings": {
+        "num_frames": 4,
+        "strategy": "uniform",
+        "seed": 0
+      }
+    }
+  ],
+  "connections": []
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.image-composite-mask", "locale": "ru",
+  "title": "Наложить source на destination по мягкой маске", "summary": "Смешивает два внешних IMAGE при x=0, y=0 по внешней MASK и показывает результат без постоянного сохранения.", "body": "ru.md", "difficulty": "intermediate",
+  "articleIds": ["core.image-composite-masked", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Два IMAGE и согласованная MASK"],
+  "fragment": {"id": "fragment.image-composite-mask", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Official workflow topology and schema review; image execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "ImageCompositeMasked implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_mask.py#L12-L108", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"},
+    {"title": "Official basic_mask_operations_and_compositing workflow in templates 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

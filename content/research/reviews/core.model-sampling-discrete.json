@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-sampling-discrete",
+  "node": {"classType": "ModelSamplingDiscrete", "pythonModule": "comfy_extras.nodes_model_advanced", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L11-L89",
+        "path": "comfy_extras/nodes_model_advanced.py", "lines": "11-89"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L1-L214",
+        "path": "comfy/model_sampling.py", "lines": "1-214"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en", "archivePath": "comfyui_embedded_docs/docs/ModelSamplingDiscrete/en.md",
+        "assessment": "SHA-256 05452cb0a52ac34693fe4d61d66f4922a48932f3199ee05a6d7c6c1162f7a68e. AI-generated overview omits current img_to_img/img_to_img_flow choices, exact prediction formulas, 50-step LCM base and zsnr transformation."
+      },
+      {
+        "locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ModelSamplingDiscrete/ru.md",
+        "assessment": "SHA-256 4cc98c64f88355919777cb2bcc0f59c979580eb7b658c2a752b84c179899c00b. Used only as navigation; runtime/source take precedence."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-model-sampling-discrete-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; 512 JSON, 496 root and 272 subgraph: zero exact ModelSamplingDiscrete nodes."
+      }
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Exact patch executed for all six sampling choices on a weight-free model config; real checkpoint inference was not run.",
+    "LCM 50-sigma construction and zsnr rescale were probed, but a distilled LCM workflow was not executed end to end.",
+    "No direct official workflow case exists; the fragment is source-derived.",
+    "Human editorial approval is pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

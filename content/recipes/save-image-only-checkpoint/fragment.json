@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.save-image-only-checkpoint",
+  "title": "Внешние MODEL + CLIP_VISION + VAE → контрольная точка с визуальным энкодером",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "save", "input": "model"},
+    {"id": "clip_vision", "type": "CLIP_VISION", "to": "save", "input": "clip_vision"},
+    {"id": "vae", "type": "VAE", "to": "save", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "ImageOnlyCheckpointSave",
+      "role": "Собрать совместимые компоненты в нумерованный файл safetensors",
+      "settings": {"filename_prefix": "checkpoints/wizard-image-only"}
+    }
+  ],
+  "connections": []
+}

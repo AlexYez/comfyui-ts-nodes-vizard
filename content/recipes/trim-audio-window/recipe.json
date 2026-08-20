@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.trim-audio-window",
+  "locale": "ru",
+  "title": "Обрезать первые 25 секунд AUDIO",
+  "summary": "TrimAudioDuration оставляет диапазон от 0 до 25 секунд; параметры повторяют доказанный узел из официального Wan Dancer subgraph.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.trim-audio-duration"],
+  "requirements": ["ComfyUI 0.32.0", "Непустой вход AUDIO длительностью больше 0 секунд"],
+  "fragment": {"id": "fragment.trim-audio-window", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, official Wan Dancer topology, exact-class tensor probe and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "TrimAudioDuration in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L426-L481",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official Wan Dancer workflow template",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_wan_dancer.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

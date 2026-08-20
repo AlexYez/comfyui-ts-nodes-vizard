@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-3d-render-passes",
+  "title": "Load3D → отдельный просмотр цвета, маски и нормалей",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "load3d",
+      "classType": "Load3D",
+      "role": "Открыть локальную модель и захватить три прохода живого окна просмотра",
+      "settings": {
+        "model_file": "выберите модель из input/3d",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "ref": "color",
+      "classType": "PreviewImage",
+      "role": "Показать цветной снимок сцены",
+      "settings": {}
+    },
+    {
+      "ref": "mask-to-image",
+      "classType": "MaskToImage",
+      "role": "Преобразовать MASK в IMAGE для диагностического просмотра",
+      "settings": {}
+    },
+    {
+      "ref": "mask",
+      "classType": "PreviewImage",
+      "role": "Показать маску видимой модели",
+      "settings": {}
+    },
+    {
+      "ref": "normal",
+      "classType": "PreviewImage",
+      "role": "Показать карту нормалей",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "load3d", "output": "image", "to": "color", "input": "images"},
+    {"from": "load3d", "output": "mask", "to": "mask-to-image", "input": "mask"},
+    {"from": "mask-to-image", "output": "IMAGE", "to": "mask", "input": "images"},
+    {"from": "load3d", "output": "normal", "to": "normal", "input": "images"}
+  ]
+}

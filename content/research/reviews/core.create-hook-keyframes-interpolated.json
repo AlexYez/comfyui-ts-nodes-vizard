@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.create-hook-keyframes-interpolated",
+  "node": {"classType": "CreateHookKeyframesInterpolated", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L501-L547", "path": "comfy_extras/nodes_hooks.py", "lines": "501-547"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L540-L567", "path": "comfy/hooks.py", "lines": "540-567"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L446-L596", "path": "comfy/hooks.py", "lines": "446-596"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/CreateHookKeyframesInterpolated/en.md", "assessment": "SHA-256 2107b9772a2e3e2071e3013b720ae4d28d007193183440ca9b3d320379be92b6. Общее назначение верно, но таблица ошибочно перечисляет десять дополнительных режимов, отсутствующих в runtime 0.32.0."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/CreateHookKeyframesInterpolated/ru.md", "assessment": "SHA-256 a9a26796bc585bcb57d28afb1fce3f24ddc6b1c42acfab07328f33216340ad63. Повторяет ошибочный расширенный список и переводит системные порты; статья следует четырём значениям `/object_info`."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-create-hook-keyframes-interpolated-zero-census", "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл CreateHookKeyframesInterpolated."},
+      {"id": "hook-keyframe-scheduling-exact-source-probe", "role": "Точные методы подтвердили линейные проценты, середины 0,25/0,75/0,5 для трёх кривых, пять дискретных уровней и разворот 1→3 в 3→1 при диапазоне 0,8→0,2; ступенчатое потребление и CLIP-диапазоны сверены по исходнику."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Официального графа с CreateHookKeyframesInterpolated в пакете 0.1.42 нет; рецепт основан на исходнике.",
+    "Значения кривых вычислены на CPU без модели; полное ступенчатое сэмплирование, расписание CLIP и визуальный результат не исполнялись.",
+    "Не исследовалась стоимость ста точек в длительном реальном сэмплировании.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

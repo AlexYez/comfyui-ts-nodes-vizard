@@ -1,0 +1,59 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.empty-audio",
+  "node": {
+    "classType": "EmptyAudio",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L756-L800",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "756-800"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/EmptyAudio/en.md",
+        "assessment": "Документ помечен как AI-generated и верно описывает silence, ranges и output. Он не отмечает отсутствие memory guard, CPU allocation и допустимый waveform нулевой длины. StableAudioEmptyLatentImage в archive отсутствует."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены все 512 JSON-файлов и definitions.subgraphs[*].nodes. EmptyAudio не найден; official topology и widget values отсутствуют."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Safe synthetic unit check подтвердил shape [1,1,80], float32 zeros и sample rate 8000; fragment с 2-second preset не является полным workflow-run.",
+    "В official workflow templates JSON 0.1.42 нода отсутствует; preset 2 s/44.1 kHz/stereo не подтверждён official case.",
+    "StableAudioEmptyLatentImage отсутствует в exact inventory и embedded docs; EmptyAudio выбрана как scope replacement, а не runtime migration target.",
+    "Совместимость zero-length AUDIO и крупных allocations с downstream nodes не проверялась.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-13"
+}

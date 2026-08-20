@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.audio-encoder-loader",
+  "node": {
+    "classType": "AudioEncoderLoader",
+    "pythonModule": "comfy_extras.nodes_audio_encoder",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio_encoder.py#L8-L31",
+        "path": "comfy_extras/nodes_audio_encoder.py",
+        "lines": "8-31"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/audio_encoders/audio_encoders.py#L9-L92",
+        "path": "comfy/audio_encoders/audio_encoders.py",
+        "lines": "9-92"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/AudioEncoderLoader/en.md",
+        "assessment": "SHA-256 b441dbccd5da339a568d69762762c2fa1e3336146580a62c3406d366ae0d49e5. Документ даёт общий контракт, но не называет Wav2Vec2/Whisper detection, 16 кГц и strict=False warnings."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/AudioEncoderLoader/ru.md",
+        "assessment": "SHA-256 e27367788e551c364d285d67810d53071791ab1ad448a0f09a8fd29485a4eb32. В таблице переводит системное имя параметра, поэтому статья сохраняет точный runtime id audio_encoder_name."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-audio-encoder-loader-census",
+        "role": "Полный census нашёл пять нод в трёх файлах: Whisper Large V3 для HuMo, Wav2Vec2 large English для Wan S2V и Chinese base для InfiniteTalk; все пять ведут в AudioEncoderEncode."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Call probe проверяет safe_load, путь, передачу state dict и invalid-None error, но не создаёт многослойный encoder из реальных весов.",
+    "Три официальных preset names проверены по workflow wheel; соответствующие файлы не скачивались и не запускались.",
+    "VRAM, скорость и качество признаков Whisper/Wav2Vec2 не измерялись.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-14"
+}

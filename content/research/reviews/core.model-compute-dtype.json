@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-compute-dtype",
+  "node": {"classType": "ModelComputeDtype", "pythonModule": "comfy_extras.nodes_model_advanced", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L333-L349", "path": "comfy_extras/nodes_model_advanced.py", "lines": "333-349"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L740-L746", "path": "comfy/model_patcher.py", "lines": "740-746"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/node_helpers.py#L77-L89", "path": "comfy/node_helpers.py", "lines": "77-89"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/ModelComputeDtype/en.md", "assessment": "SHA-256 60c96242d1d3f5da5381ede021e88b31efc4de02751593840a0465cdddd75a99. Lists the visible choices but does not explain force_cast_weights, patches UUID or device-specific memory consequences."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ModelComputeDtype/ru.md", "assessment": "SHA-256 c7ac9f49230bcd80645ce728f4cabd325f8e9bc1427b1ce84b07298a3a84a43e. Used as a secondary terminology reference."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-model-compute-dtype-census", "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; 512 JSON, 496 root workflows and 272 subgraphs: zero exact ModelComputeDtype nodes."},
+      {"id": "isolated-model-compute-dtype-probe", "role": "Exact node mapping confirmed default to None and fp32/fp16/bf16 to torch.float32/float16/bfloat16; ModelPatcher source confirms force-cast and patches UUID behavior."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "The dtype mapping was executed without real model weights or a GPU benchmark.",
+    "No current official workflow template serializes this patch node; the fragment is source-derived.",
+    "VRAM, speed and numerical output were not measured for any device.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

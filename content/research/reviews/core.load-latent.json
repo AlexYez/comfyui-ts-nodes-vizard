@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-latent",
+  "node": {"classType": "LoadLatent", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L557-L592",
+        "path": "nodes.py",
+        "lines": "557-592"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L326-L370",
+        "path": "folder_paths.py",
+        "lines": "326-370"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LoadLatent/en.md",
+        "assessment": "AI-generated файл верно называет input directory и scaling adjustments, но не раскрывает marker condition, float32 conversion, root-only listing, SHA-256 invalidation и потерю metadata."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LoadLatent/ru.md",
+        "assessment": "Локализация ошибочно именует вход «скрытый»; runtime ID latent и все точные file/scale semantics проверены по /object_info и коду."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON и 496 workflow-графов, включая definitions.subgraphs[*].nodes; LoadLatent не найден."
+      },
+      {
+        "id": "isolated-exact-source-load-latent-file-probe",
+        "role": "Exact-source LoadLatent и protected input helpers выполнены в TemporaryDirectory: проверены sorted root combo, marker roundtrip float16 → float32, legacy 0.18215 → 1.0, only-samples dict, VALIDATE_INPUTS и полный SHA-256 IS_CHANGED."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса LoadLatent в 0.1.42 нет; preview recipe является source-derived.",
+    "Файловая ветвь использовала минимальный совместимый safetensors-кодек; production-библиотека и реальный VAE decode в полном ComfyUI process не исполнялись.",
+    "Повреждённые и недоверенные файлы не запускались; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

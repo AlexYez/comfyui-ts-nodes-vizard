@@ -1,0 +1,73 @@
+{
+  "$schema": "../schemas/backend-inventory-metadata.schema.v1.json",
+  "schemaVersion": "1.0",
+  "inventoryId": "comfyui.backend.0.32.0.c2bcbecd",
+  "source": {
+    "repository": "https://github.com/Comfy-Org/ComfyUI",
+    "tag": "v0.32.0",
+    "commit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "backendVersion": "0.32.0",
+    "localCheckout": ".comfyui-source-0.32.0"
+  },
+  "capture": {
+    "capturedAt": "2026-08-13T18:11:19Z",
+    "endpoint": "/object_info",
+    "systemStatsEndpoint": "/system_stats",
+    "customNodes": "disabled",
+    "builtinApiNodes": "enabled",
+    "device": "cpu",
+    "launchArguments": [
+      "--cpu",
+      "--disable-all-custom-nodes",
+      "--listen",
+      "127.0.0.1",
+      "--port",
+      "8199",
+      "--base-directory",
+      "<empty-temporary-base>",
+      "--disable-auto-launch",
+      "--preview-method",
+      "none"
+    ],
+    "pythonVersion": "3.12.10",
+    "pytorchVersion": "2.12.1+cu130",
+    "torchaudioVersion": "2.11.0+cpu",
+    "requiredPackages": {
+      "comfyui-frontend-package": "1.48.7",
+      "comfyui-workflow-templates": "0.11.39",
+      "comfyui-embedded-docs": "0.5.9",
+      "comfy-kitchen": "0.2.30",
+      "comfy-aimdo": "0.4.13"
+    },
+    "nodeClassMappingCount": 840,
+    "endpointNodeCount": 840,
+    "importEvidence": {
+      "quickTestExitCode": 0,
+      "customNodeLog": "Skipping loading of custom nodes",
+      "builtinImportFailureWarnings": 0,
+      "nodeInfoFailureCount": 0
+    }
+  },
+  "snapshot": {
+    "path": "comfyui-0.32.0.object-info.json",
+    "sha256": "ee3818989fc5dfe7e8888a704f64e2c449b4c582cf1ca70417c85fb6b051b700",
+    "size": 1495075,
+    "format": "exact UTF-8 response body from GET /object_info; no filtering or reserialization"
+  },
+  "replacements": {
+    "path": "comfyui-0.32.0.node-replacements.json",
+    "sha256": "4d9e22176cbddd8c309707d434f011854cd768f92146586bf9e17c01e93ae5b6",
+    "size": 1920,
+    "format": "exact UTF-8 response body from GET /api/node_replacements"
+  },
+  "embeddedDocs": {
+    "package": "comfyui-embedded-docs",
+    "version": "0.5.9",
+    "repository": "https://github.com/Comfy-Org/embedded-docs",
+    "requirementsSource": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/requirements.txt#L3",
+    "documentPattern": "comfyui_embedded_docs/docs/{classType}/en.md",
+    "accessCommand": "python -c \"import importlib.metadata as m; print(m.distribution('comfyui-embedded-docs').locate_file('comfyui_embedded_docs/docs/KSampler/en.md'))\"",
+    "englishDocumentCount": 873,
+    "vendored": false
+  }
+}

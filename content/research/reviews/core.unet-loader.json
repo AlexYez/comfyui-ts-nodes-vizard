@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.unet-loader",
+  "node": { "classType": "UNETLoader", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L979-L1003",
+        "path": "nodes.py",
+        "lines": "979-1003"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L2204-L2310",
+        "path": "comfy/sd.py",
+        "lines": "2204-2310"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L28-L31",
+        "path": "folder_paths.py",
+        "lines": "28-31"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "flux_schnell_full_text_to_image",
+        "role": "Root node № 38 loads flux1-schnell.safetensors with default dtype and connects MODEL by link 61 to KSampler № 31."
+      },
+      {
+        "id": "video_wan_vace_14B_t2v",
+        "role": "Active root node № 106 loads wan2.1_vace_14B_fp16.safetensors/default and feeds LoraLoader № 107."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Pinned embedded docs 0.5.9 contains no UNETLoader article; source code and official workflow cases are the primary evidence.",
+    "No diffusion model was loaded, so FP8 device support, memory use and inference quality were not measured; fragments remain structural examples."
+  ],
+  "updatedAt": "2026-08-13"
+}

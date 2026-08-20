@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.encode-audio-ace-latent",
+  "title": "AUDIO в LATENT через VAEEncodeAudio",
+  "externalInputs": [
+    {"id": "source_audio", "type": "AUDIO", "to": "encode", "input": "audio"},
+    {"id": "audio_vae", "type": "VAE", "to": "encode", "input": "vae"}
+  ],
+  "nodes": [{"ref": "encode", "classType": "VAEEncodeAudio", "role": "Закодировать waveform в audio latent", "settings": {}}],
+  "connections": []
+}

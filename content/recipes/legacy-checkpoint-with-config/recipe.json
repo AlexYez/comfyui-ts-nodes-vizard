@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.legacy-checkpoint-with-config",
+  "locale": "ru",
+  "title": "Диагностическая загрузка checkpoint с YAML",
+  "summary": "Одна deprecated-нода фиксирует старую пару checkpoint/config без выдуманной универсальной модели и помогает проверить legacy overrides перед миграцией.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.checkpoint-loader"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Legacy checkpoint в models/checkpoints",
+    "Соответствующий YAML в models/configs",
+    "Понимание ожидаемых parameterization и CLIP layer"
+  ],
+  "fragment": {
+    "id": "fragment.legacy-checkpoint-with-config",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "CheckpointLoader in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L595-L611",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Deprecated load_checkpoint config behavior",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L2010-L2032",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

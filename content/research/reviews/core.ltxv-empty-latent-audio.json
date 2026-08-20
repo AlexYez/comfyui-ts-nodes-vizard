@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-empty-latent-audio",
+  "node": {
+    "classType": "LTXVEmptyLatentAudio",
+    "pythonModule": "comfy_extras.nodes_lt_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt_audio.py#L93-L166",
+        "path": "comfy_extras/nodes_lt_audio.py",
+        "lines": "93-166"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVEmptyLatentAudio/en.md",
+        "assessment": "SHA-256 2927c7984a5197ca8a4fe34d898bb31f23a8c9727b8b70c9278f89afd2e90f29. Форма, обязательный VAE и диапазоны описаны верно; frame_rate упрощён до INT вместо runtime FLOAT,INT."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVEmptyLatentAudio/ru.md",
+        "assessment": "SHA-256 632b7e794c57292ca8ae166d436ef1f220398c83dc63e8973073f5d06daffd63. Перевод повторяет упрощение типа frame_rate; технические формулировки заново сверены с source и /object_info."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-ltxv-empty-audio-census",
+        "role": "Полный recursive census 512 JSON / 496 root / 272 subgraph нашёл 19 нод в 17 файлах, все в subgraph: mode 0 — 18, mode 4 — 1; widgets 97/25/1 — 18 раз, 121/25/1 — один раз."
+      },
+      {
+        "id": "video-ltx2-3-id-lora-subgraph-98ee9e5b",
+        "role": "Нода 348 [97,25,1] получает VAE от LTXVAudioVAELoader 335 и передаёт Latent в LTXVConcatAVLatent 326."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact-method probe проверяет форму, dtype/device selection и обязательный VAE на synthetic stub; полный LTXV sampler с реальными весами не запускался.",
+    "Зависимость num_of_latents_from_frames от конкретной LTX Audio VAE проверена по интерфейсу, но не на всех checkpoint-вариантах.",
+    "Человеческое утверждение статьи и рецепта ещё не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

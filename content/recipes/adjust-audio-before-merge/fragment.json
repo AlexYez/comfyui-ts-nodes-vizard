@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.adjust-audio-before-merge",
+  "title": "Два регулятора уровня перед AudioMerge(add)",
+  "externalInputs": [
+    {"id": "video_audio", "type": "AUDIO", "to": "video_gain", "input": "audio"},
+    {"id": "soundtrack_audio", "type": "AUDIO", "to": "soundtrack_gain", "input": "audio"}
+  ],
+  "nodes": [
+    {"ref": "video_gain", "classType": "AudioAdjustVolume", "role": "Настроить уровень исходной дорожки", "settings": {"volume": 1}},
+    {"ref": "soundtrack_gain", "classType": "AudioAdjustVolume", "role": "Настроить уровень добавочной дорожки", "settings": {"volume": 1}},
+    {"ref": "merge", "classType": "AudioMerge", "role": "Сложить дорожки методом add", "settings": {"merge_method": "add"}}
+  ],
+  "connections": [
+    {"from": "video_gain", "output": "AUDIO", "to": "merge", "input": "audio1"},
+    {"from": "soundtrack_gain", "output": "AUDIO", "to": "merge", "input": "audio2"}
+  ]
+}

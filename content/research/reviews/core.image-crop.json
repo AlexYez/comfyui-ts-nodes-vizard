@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.image-crop",
+  "node": {"classType": "ImageCrop", "pythonModule": "comfy_extras.nodes_images", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L27-L56", "path": "comfy_extras/nodes_images.py", "lines": "27-56"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L59-L91", "path": "comfy_extras/nodes_images.py", "lines": "59-91"}
+    ],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ImageCrop/ru.md", "assessment": "Базовые поля описаны, но deprecated lifecycle, clamp только начала, clipping конца обычным tensor slice, отсутствие preview и shared-storage view не раскрыты."}],
+    "workflows": []
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Exhaustive scan of 496 official workflow graphs found no ImageCrop node.", "Exact tensor slices, far-out coordinates and shared storage were executed; the full fragment with PreviewImage was not executed.", "ImageCropV2 is documented as an editorial alternative because the 0.32.0 Node Replacement API has no ImageCrop mapping.", "Human approval is pending."],
+  "updatedAt": "2026-08-13"
+}

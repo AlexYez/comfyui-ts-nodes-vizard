@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.video-slice",
+  "node": {
+    "classType": "Video Slice",
+    "pythonModule": "comfy_extras.nodes_video",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video.py#L260-L304",
+        "path": "comfy_extras/nodes_video.py",
+        "lines": "260-304"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L141-L205",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "141-205"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L800-L810",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "800-810"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L900-L911",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "900-911"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/Video Slice/en.md",
+        "assessment": "AI-generated справка верно описывает seconds trim, duration 0 и strict intent, но помечает runtime-required виджеты optional и не раскрывает отрицательный старт, requested window против available duration, file/components различия и расширение за parent duration при chained VideoFromFile trim; SHA-256 файла в wheel: 74852b5b4f1ef46c74563c51dfe07665e542a40242ce3fc5943d5c6d8f6314e7."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Video Slice/ru.md",
+        "assessment": "Русская AI-generated версия добавляет вводную о переводе и заменяет exact identifiers описательными русскими именами; границы и различия реализаций не разобраны; SHA-256 файла в wheel: d5a8fe6c3d7338831b6e234e774ad275d9488443e661e14038e7cbc8d91fd933."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Все 8 raw hits являются Video Slice nodes: 6 root и 2 subgraph; иных строковых попаданий нет."
+      },
+      {
+        "id": "workflow-templates-json-0.1.42-video-slice-settings-topology",
+        "role": "Пять сериализованных настроек 0/5/false, две 0/0/false и одна 0/15/false; 6 root-нод напрямую соединены с LoadVideo, а две subgraph-ноды выводят start_time/duration наружу."
+      },
+      {
+        "id": "isolated-pinned-video-shuffle-random-load-slice-probe",
+        "role": "На двухсекундном file-backed AVI проверены non-strict 5-second clip, strict error, duration=0, negative start, requested против available duration и расширение дочернего unlimited trim за parent duration; fragment не исполнялся."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Recipe-fragment повторяет официальные настройки, но не импортировался и не выполнялся на canvas как полный workflow.",
+    "Восемь официальных случаев просмотрены статически; их медиа и downstream-ноды не исполнялись.",
+    "Probe использовал постоянные 4 FPS и VideoFromFile без audio; VFR, audio и VideoFromComponents не исполнялись.",
+    "Расширение дочернего VideoFromFile trim за parent duration подтверждено для закреплённого исходника и требует повторной regression-проверки в новых версиях.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

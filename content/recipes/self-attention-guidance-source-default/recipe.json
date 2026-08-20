@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.self-attention-guidance-source-default",
+  "locale": "ru",
+  "title": "SAG: source-derived runtime defaults",
+  "summary": "Добавляет экспериментальный SelfAttentionGuidance со scale 0.5 и blur_sigma 2.0 для контролируемой проверки на 4D image latent.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.self-attention-guidance"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Совместимый MODEL и 4D image latent",
+    "Unconditional и conditional ветви без chunked batch"
+  ],
+  "fragment": {
+    "id": "fragment.self-attention-guidance-source-default",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs/paper review and exact-source tensor probe; official wheel has no SAG case, model image comparison and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "SelfAttentionGuidance implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sag.py#L15-L183",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Improving Sample Quality of Diffusion Models Using Self-Attention Guidance",
+      "url": "https://arxiv.org/abs/2210.00939",
+      "publisher": "arXiv",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

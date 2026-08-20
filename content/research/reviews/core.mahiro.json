@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mahiro",
+  "node": {"classType": "Mahiro", "pythonModule": "comfy_extras.nodes_mahiro", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mahiro.py#L8-L53",
+        "path": "comfy_extras/nodes_mahiro.py",
+        "lines": "8-53"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L592-L605",
+        "path": "comfy/samplers.py",
+        "lines": "592-605"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/Mahiro/en.md",
+        "assessment": "AI-generated документ неточно называет tensors normalized cond/uncond outputs и заявляет stronger steering без benchmark или direct workflow."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Mahiro/ru.md",
+        "assessment": "Перевод содержит постороннюю эмоциональную фразу в H1, локализует runtime port и повторяет недоказанное обещание точности."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON, 496 root graphs и 272 subgraphs: прямых Mahiro и exact строковых упоминаний ID нет."
+      },
+      {
+        "id": "source-derived-mahiro-standard-sampling-fragment",
+        "role": "Fragment следует runtime ports и post-hook position; KSampler values являются runtime defaults, а не official Mahiro preset."
+      },
+      {
+        "id": "isolated-pinned-cfg-patch-probe",
+        "role": "Exact-source probe проверяет similarity weight, endpoint blend, batch coupling, cfg=1 case и post-hook registration без весов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Прямой официальный workflow case отсутствует в bundle 0.1.42.",
+    "Source-derived fragment не импортировался и не выполнялся в ComfyUI.",
+    "Model weights не загружались; similarity formula проверена на синтетических tensors.",
+    "Влияние global batch-mean weight на реальные batched generations не измерялось.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

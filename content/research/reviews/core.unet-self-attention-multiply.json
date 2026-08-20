@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.unet-self-attention-multiply",
+  "node": {"classType": "UNetSelfAttentionMultiply", "pythonModule": "comfy_extras.nodes_attention_multiply", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_attention_multiply.py#L6-L43", "path": "comfy_extras/nodes_attention_multiply.py", "lines": "6-43"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L842-L868", "path": "comfy/model_patcher.py", "lines": "842-868"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L493", "path": "comfy/lora.py", "lines": "438-493"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/UNetSelfAttentionMultiply/en.md", "assessment": "SHA-256 6f0831b46fb3edfd45aae912bc3cd708c59fd1d349e005004759569a1fa41f5a. Перечисляет q, k, v и out, но не раскрывает точные суффиксы, одновременное изменение weight/bias и поведение без совпадений."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/UNetSelfAttentionMultiply/ru.md", "assessment": "SHA-256 e5c2ede315d1eb90bf908b2cfccfa066fc218c1265bb5812eed8ed1d851f4447. Переводит системные имена model и out, поэтому точные идентификаторы сверены с `/object_info`."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-unet-self-attention-zero-census", "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл UNetSelfAttentionMultiply."},
+      {"id": "unet-attention-multiply-exact-source-probe", "role": "Точная функция на искусственном state dict выбрала восемь attn1 weight/bias ключей, отклонила attn2 и похожие имена; calculate_weight подтвердила чистое умножение strength_model."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Официального графа с UNetSelfAttentionMultiply в пакете 0.1.42 нет; рецепт основан на закреплённом исходнике.",
+    "Проверка выполнила выбор ключей и materialization коэффициента без настоящего transformer forward и без весов модели.",
+    "Визуальное влияние, число совпадений в конкретных checkpoint и стоимость полного графа не измерялись.",
+    "Редактор пока не утвердил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

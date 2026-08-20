@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.create-model-only-lora-hook",
+  "locale": "ru",
+  "title": "LoRA-хук для модели через CONDITIONING",
+  "summary": "Создаёт LoRA-хук с фиксированным strength_clip=0, прикрепляет его к внешнему CONDITIONING и не регистрирует на CLIP.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.create-hook-lora-model-only"],
+  "requirements": ["ComfyUI 0.32.0", "Внешнее CONDITIONING", "Совместимая базовая модель", "Проверенный файл LoRA вместо SELECT_LORA_FILE", "Не подключать полученный HOOKS к SetClipHooks"],
+  "fragment": {"id": "fragment.create-model-only-lora-hook", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная проверка исходника, типов `/object_info`, соединений и граничных случаев патчей; отдельная русская редактура через ts-write-natural-russian; настоящие веса и полный граф не запускались, человеческого утверждения пока нет",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "CreateHookLoraModelOnly в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L338-L359",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "ConditioningSetProperties в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L86-L116",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Разбор патчей LoRA в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L37-L95",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Маска и сила ConditioningSetProperties в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L719-L756",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

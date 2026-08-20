@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.skip-layer-guidance-dit-wan",
+  "title": "Wan 2.1: SkipLayerGuidanceDiT → ModelSamplingSD3",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "slg", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "slg",
+      "classType": "SkipLayerGuidanceDiT",
+      "role": "Добавить официальный Wan SLG patch",
+      "settings": {"double_layers": "9,10", "single_layers": "9,10", "scale": 3.0, "start_percent": 0.01, "end_percent": 0.8, "rescaling_scale": 0.0}
+    },
+    {
+      "ref": "sampling",
+      "classType": "ModelSamplingSD3",
+      "role": "Применить сериализованный Wan shift после SLG",
+      "settings": {"shift": 5.0}
+    }
+  ],
+  "connections": [
+    {"from": "slg", "output": "MODEL", "to": "sampling", "input": "model"}
+  ]
+}

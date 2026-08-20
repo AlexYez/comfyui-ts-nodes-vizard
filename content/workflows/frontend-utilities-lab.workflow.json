@@ -1,0 +1,162 @@
+{
+  "last_node_id": 8,
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "MarkdownNote",
+      "pos": [-780, -360],
+      "size": [430, 230],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Памятка к учебному workflow",
+      "properties": {},
+      "widgets_values": ["## Что проверить\n\n- Primitive управляет двумя входами `width`;\n- Reroute только меняет трассу `LATENT`;\n- Note хранит обычный текст.\n\nЭтот файл не требует checkpoint."],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 2,
+      "type": "Note",
+      "pos": [-780, -80],
+      "size": [360, 120],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Перед сохранением",
+      "properties": {},
+      "widgets_values": ["Выберите установленный checkpoint в соседней ноде-загрузчике перед запуском основного workflow."],
+      "color": "#323",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 3,
+      "type": "PrimitiveNode",
+      "pos": [-350, -300],
+      "size": [210, 82],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        { "name": "INT", "type": "INT", "widget": { "name": "width" }, "slot_index": 0, "links": [1, 2] }
+      ],
+      "title": "width",
+      "properties": { "Run widget replace on values": false },
+      "widgets_values": [512, "fixed"],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 4,
+      "type": "EmptyLatentImage",
+      "pos": [0, -300],
+      "size": [315, 110],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        { "name": "width", "type": "INT", "widget": { "name": "width" }, "link": 1 },
+        { "name": "height", "type": "INT", "widget": { "name": "height" }, "link": null },
+        { "name": "batch_size", "type": "INT", "widget": { "name": "batch_size" }, "link": null }
+      ],
+      "outputs": [
+        { "name": "LATENT", "type": "LATENT", "slot_index": 0, "links": [3] }
+      ],
+      "properties": { "cnr_id": "comfy-core", "ver": "0.32.0", "Node name for S&R": "EmptyLatentImage" },
+      "widgets_values": [512, 512, 1]
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [0, -110],
+      "size": [315, 110],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        { "name": "width", "type": "INT", "widget": { "name": "width" }, "link": 2 },
+        { "name": "height", "type": "INT", "widget": { "name": "height" }, "link": null },
+        { "name": "batch_size", "type": "INT", "widget": { "name": "batch_size" }, "link": null }
+      ],
+      "outputs": [
+        { "name": "LATENT", "type": "LATENT", "slot_index": 0, "links": null }
+      ],
+      "properties": { "cnr_id": "comfy-core", "ver": "0.32.0", "Node name for S&R": "EmptyLatentImage" },
+      "widgets_values": [512, 768, 1]
+    },
+    {
+      "id": 6,
+      "type": "Reroute",
+      "pos": [420, -275],
+      "size": [75, 26],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        { "name": "", "type": "*", "link": 3 }
+      ],
+      "outputs": [
+        { "name": "", "type": "LATENT", "links": [4, 5] }
+      ],
+      "properties": { "showOutputText": false, "horizontal": false }
+    },
+    {
+      "id": 7,
+      "type": "RepeatLatentBatch",
+      "pos": [620, -360],
+      "size": [290, 80],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        { "name": "samples", "type": "LATENT", "link": 4 },
+        { "name": "amount", "type": "INT", "widget": { "name": "amount" }, "link": null }
+      ],
+      "outputs": [
+        { "name": "LATENT", "type": "LATENT", "slot_index": 0, "links": null }
+      ],
+      "properties": { "cnr_id": "comfy-core", "ver": "0.32.0", "Node name for S&R": "RepeatLatentBatch" },
+      "widgets_values": [1]
+    },
+    {
+      "id": 8,
+      "type": "RepeatLatentBatch",
+      "pos": [620, -210],
+      "size": [290, 80],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        { "name": "samples", "type": "LATENT", "link": 5 },
+        { "name": "amount", "type": "INT", "widget": { "name": "amount" }, "link": null }
+      ],
+      "outputs": [
+        { "name": "LATENT", "type": "LATENT", "slot_index": 0, "links": null }
+      ],
+      "properties": { "cnr_id": "comfy-core", "ver": "0.32.0", "Node name for S&R": "RepeatLatentBatch" },
+      "widgets_values": [2]
+    }
+  ],
+  "links": [
+    [1, 3, 0, 4, 0, "INT"],
+    [2, 3, 0, 5, 0, "INT"],
+    [3, 4, 0, 6, 0, "LATENT"],
+    [4, 6, 0, 7, 0, "LATENT"],
+    [5, 6, 0, 8, 0, "LATENT"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "nodes_wizard": {
+      "workflowId": "workflow.frontend-utilities-lab",
+      "note": "Structural frontend-node example; not executed in a live ComfyUI session."
+    }
+  },
+  "version": 0.4
+}

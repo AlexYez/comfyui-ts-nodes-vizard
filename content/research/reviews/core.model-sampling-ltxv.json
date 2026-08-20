@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-sampling-ltxv",
+  "node": {"classType": "ModelSamplingLTXV", "pythonModule": "comfy_extras.nodes_lt", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L567-L610",
+        "path": "comfy_extras/nodes_lt.py",
+        "lines": "567-610"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L403-L442",
+        "path": "comfy/model_sampling.py",
+        "lines": "403-442"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ModelSamplingLTXV/en.md",
+        "assessment": "SHA-256 e8fc5867bd96988c0e33de5c55460d8a5e12aa91a96f03ae159935613683829f. Документ верно отмечает необязательный latent и значение 4096 без него, но не уточняет произведение shape[2:], опорные точки 1024/4096, экстраполяцию и Flux exp(mu)."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ModelSamplingLTXV/ru.md",
+        "assessment": "SHA-256 c63d0242c3bad05560acda2cfa2dab507d2c239aa683dbb18bcf97c585d49fd9. Перевод заменяет runtime key latent на «скрытый»; точные имена и семантика взяты из runtime/source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-model-sampling-ltxv-zero-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3: 512 JSON-файлов, 496 корневых графов + 272 подграфа, 8120 нод; точный тип: всего/в корневых графах/в подграфах/файлов/UUID = 0/0/0/0/0."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Точный метод execute исполнен на подставном MODEL и синтетических формах latent; реальные веса LTXV, scheduler и sampler не запускались.",
+    "В официальном wheel нет точной топологии и значений виджетов; ModelSamplingLTXV → BasicScheduler — лишь типосовместимый фрагмент по исходнику.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

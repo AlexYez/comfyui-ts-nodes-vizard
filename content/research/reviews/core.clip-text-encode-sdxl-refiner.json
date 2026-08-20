@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.clip-text-encode-sdxl-refiner",
+  "node": {"classType": "CLIPTextEncodeSDXLRefiner", "pythonModule": "comfy_extras.nodes_clip_sdxl", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_clip_sdxl.py#L7-L27", "path": "comfy_extras/nodes_clip_sdxl.py", "lines": "7-27"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L482-L507", "path": "comfy/model_base.py", "lines": "482-507"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/ClipTextEncodeSdxlRefiner/en.md", "assessment": "Документ AI-generated. Назначение полей подтверждено, но советы о минимальном размере, кратности, рекомендуемом ascore и доле Refiner-стадии не следуют из закреплённой реализации."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ClipTextEncodeSdxlRefiner/ru.md", "assessment": "Локализация содержит шаблонные формулы и перевод identifiers. Runtime names, required state и ranges взяты из /object_info."}
+    ],
+    "workflows": [
+      {"id": "full-wheel-census-0.1.42", "role": "Рекурсивный просмотр 512 JSON, 496 root graphs и 272 subgraphs не нашёл CLIPTextEncodeSDXLRefiner ни как node type, ни как текстовое упоминание."}
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official workflow case для exact NodeId отсутствует; fragment source-derived.",
+    "Model-free probe подтвердил токенизацию и add_dict, но Base-to-Refiner sampling с весами не выполнялся.",
+    "Выбор aesthetic score и момента переключения Refiner требует модельного теста; human approval pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

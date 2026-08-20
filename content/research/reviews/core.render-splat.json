@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.render-splat",
+  "node": {"classType": "RenderSplat", "pythonModule": "comfy_extras.nodes_gaussian_splat", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L631-L1014", "path": "comfy_extras/nodes_gaussian_splat.py", "lines": "631-1014"}],
+    "embeddedDocs": [{"locale": "en", "archivePath": "comfyui_embedded_docs/docs/RenderSplat/en.md", "assessment": "SHA-256 13e0f3327336235f008443e3c82867dc3391f5826f3c06623bdcb36d74805adb; secondary terminology reference."}, {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/RenderSplat/ru.md", "assessment": "SHA-256 23798494d0dfe8c12f6df4aecb4439a6e0c79178414ec75b37a40132ec31ebcf; secondary terminology reference."}],
+    "workflows": [{"id": "3d_triposplat_image_to_gaussian_splat", "role": "One exact root occurrence: CreateCameraInfo orbit [35,30,2.5] to RenderSplat [1024,1024,75,1,2,0,0,color,#848484], IMAGE to CreateVideo(25)."}, {"id": "workflow-templates-0142-render-splat-census", "role": "Exhaustive 512 JSON / 496 root / 272 subgraph census found exactly one RenderSplat."}]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["The TripoSplat generation and full GPU rasterizer were not executed.", "Real memory and performance were not measured.", "Only camera/math helpers were synthetically probed.", "Редактор пока не проверил материал вручную."], "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.select-image-batch-segment",
+  "title": "Выбрать последний IMAGE из бэтча",
+  "externalInputs": [
+    {
+      "id": "images",
+      "type": "IMAGE",
+      "to": "select",
+      "input": "image"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "select",
+      "classType": "ImageFromBatch",
+      "role": "Выбрать последний элемент входного IMAGE-бэтча",
+      "settings": {
+        "batch_index": -1,
+        "length": 1
+      }
+    }
+  ],
+  "connections": []
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.text-to-lowercase",
+  "node": {"classType": "TextToLowercase", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L777-L932",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "777-932"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1451-L1461",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1451-1461"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L106-L136",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "106-136"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L243-L341",
+        "path": "execution.py",
+        "lines": "243-341"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/TextToLowercase/en.md",
+        "assessment": "Case-sensitive lookup found the exact member. AI-generated EN warns that the node is deprecated and points to Convert Text Case, but names the exact runtime input/output text rather than texts and omits Unicode expansion plus the nested output contract; raw wheel member SHA-256: fb9b329d738653d307b36cdee3c4faa6e9fd9faf925618e9e76158083538747d."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/TextToLowercase/ru.md",
+        "assessment": "Case-sensitive lookup found the exact member. RU omits the deprecated warning, uses text and translated texts, and omits the output wrapper and Unicode caveats; raw wheel member SHA-256: a58f269e511ca2e9163554fc88f15097b04800c2c03e786164ea9adc3cf65137."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-case-sensitive-root-subgraph-scan",
+        "role": "Проверены 512 JSON, 496 корневых workflow, 4083 root-узла, 272 subgraph и 4037 subgraph-узлов; case-sensitive raw и exact type hits для TextToLowercase равны нулю."
+      },
+      {
+        "id": "isolated-pinned-dataset-text-transform-probe",
+        "role": "Точный класс обработал ПрИВЕТ İ Σ ẞ как привет i̇ σ ß, совпал с CaseConverter(lowercase), подтвердил source/runtime deprecated-конфликт и вложенный выход, который ломает прямую цепочку со старым TextToUppercase."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; fragment построен по exact runtime input и не импортировался на canvas.",
+    "Node Replacement API не регистрирует переход к CaseConverter, поэтому формальная replacedBy-связь не опубликована.",
+    "Интерфейсное отображение и подключаемость вложенного выхода требуют человеческой проверки в запущенном frontend.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

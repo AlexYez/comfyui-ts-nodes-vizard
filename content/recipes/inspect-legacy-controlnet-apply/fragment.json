@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.inspect-legacy-controlnet-apply",
+  "title": "Legacy CONDITIONING + CONTROL_NET + IMAGE",
+  "externalInputs": [
+    {"id": "conditioning", "type": "CONDITIONING", "to": "legacy_apply", "input": "conditioning"},
+    {"id": "control_net", "type": "CONTROL_NET", "to": "legacy_apply", "input": "control_net"},
+    {"id": "control_image", "type": "IMAGE", "to": "legacy_apply", "input": "image"}
+  ],
+  "nodes": [
+    {"ref": "legacy_apply", "classType": "ControlNetApply", "role": "Воспроизвести deprecated metadata старого графа", "settings": {"strength": 1.0}}
+  ],
+  "connections": []
+}

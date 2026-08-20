@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.scheduled-conditioning-properties",
+  "title": "TIMESTEPS_RANGE для ConditioningSetProperties",
+  "externalInputs": [
+    { "id": "conditioning", "type": "CONDITIONING", "to": "set_properties", "input": "cond_NEW" }
+  ],
+  "nodes": [
+    {
+      "ref": "range",
+      "classType": "ConditioningTimestepsRange",
+      "role": "Создать основной диапазон от 0,2 до 0,75",
+      "settings": { "start_percent": 0.2, "end_percent": 0.75 }
+    },
+    {
+      "ref": "set_properties",
+      "classType": "ConditioningSetProperties",
+      "role": "Записать границы диапазона в conditioning metadata",
+      "settings": { "strength": 1.0, "set_cond_area": "default" }
+    }
+  ],
+  "connections": [
+    { "from": "range", "output": "TIMESTEPS_RANGE", "to": "set_properties", "input": "timesteps" }
+  ]
+}

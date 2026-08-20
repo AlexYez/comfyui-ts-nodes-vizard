@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.stable-cascade-super-resolution-controlnet",
+  "node": {
+    "classType": "StableCascade_SuperResolutionControlnet",
+    "pythonModule": "comfy_extras.nodes_stable_cascade",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable_cascade.py#L117-L148",
+        "path": "comfy_extras/nodes_stable_cascade.py",
+        "lines": "117-148"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1065-L1092",
+        "path": "comfy/sd.py",
+        "lines": "1065-1092"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/StableCascade_SuperResolutionControlnet/en.md",
+        "assessment": "Общая роль и делители latent указаны, но controlnet_input описан как encoded image без пояснения, что это прямой VAE latent NHWC в сокете IMAGE; experimental flag не обсуждается."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/StableCascade_SuperResolutionControlnet/ru.md",
+        "assessment": "Перевод повторяет неоднозначное описание encoded image, опускает точные формы, experimental flag, alpha drop и отсутствие доказанного downstream workflow."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root и 768 root/subgraph графах точных экземпляров experimental-ноды нет."
+      },
+      {
+        "id": "comfyui-examples-f9431bb-stable-cascade-six-png-census",
+        "role": "Просмотрены text-to-image, image-to-image, два image-remixing, canny и inpaint PNG; нода не встречается ни разу, поэтому downstream recipe не реконструирован."
+      },
+      {
+        "id": "source-derived-single-node-fragment",
+        "role": "Fragment содержит только доказанные required IMAGE/VAE и саму ноду; отсутствие loader, apply и sampler намеренное."
+      },
+      {
+        "id": "synthetic-exact-source-stable-cascade-super-resolution-probe",
+        "role": "Exact execute на 2×33×65×4 подтвердил RGB-only encode, NHWC результата VAE 2×1×2×16 и нулевые формы Stage C 2×16×2×4, Stage B 2×4×16×32."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Совместимый официальный downstream super-resolution/ControlNet workflow не найден ни в wheel, ни в Stable Cascade examples.",
+    "Проба использовала VAE-заглушку; реальные VAE, ControlNet, sampler и decode не запускались.",
+    "Семантика IMAGE-типизированного latent требует повторной проверки при каждом обновлении; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

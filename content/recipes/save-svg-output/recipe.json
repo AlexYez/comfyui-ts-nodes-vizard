@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-svg-output",
+  "locale": "ru",
+  "title": "Сохранить внешний SVG с номером элемента пакета",
+  "summary": "Подключает готовый SVG к SaveSVGNode и добавляет %batch_num% к префиксу, чтобы имя отражало порядок элементов.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.save-svg-node"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Готовый объект SVG от доверенного производителя",
+    "Право записи в выходной каталог"
+  ],
+  "fragment": {"id": "fragment.save-svg-output", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка схемы, исходника, подстановки имён в интерфейсе и активных официальных топологий SVG; схема и временная запись проверены, полный граф не запускался, редактор пока не проверил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SaveSVGNode в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L497-L566",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Подстановка имени файла SaveSVGNode в интерфейсе 1.48.7",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/saveImageExtraOutput.ts#L7-L53",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальный граф Quiver для преобразования изображения в SVG",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/api_quiver_image_to_svg.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

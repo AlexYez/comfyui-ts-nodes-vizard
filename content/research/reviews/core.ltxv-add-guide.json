@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-add-guide",
+  "node": {"classType": "LTXVAddGuide", "pythonModule": "comfy_extras.nodes_lt", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L181-L208", "path": "comfy_extras/nodes_lt.py", "lines": "181-208"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L250-L496", "path": "comfy_extras/nodes_lt.py", "lines": "250-496"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/LTXVAddGuide/en.md", "assessment": "SHA-256 fc973c571d5fbc74b1f986c6ff1486c89e2672aa250d51ce174a929f07e31b91. Inputs актуальны; frame alignment и append-versus-position details упрощены."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/LTXVAddGuide/ru.md", "assessment": "SHA-256 6f5ebd93ad58b117d4f66262735b8c646f07fb3a45c81d393110c42c2da3542a. Устаревшая страница: strength 0..1 и нет attention_mask/iclora_parameters."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-ltxv-add-guide-census", "role": "Full census: 12 subgraph instances в 7 files; mode0 11/mode4 1; widgets [0,1]×6, [-1,0.7]×3, [0,0.7]×3."},
+      {"id": "video-ltx2-3-flf2v-guide-chain", "role": "Exact two-guide topology: preprocess104→guide115(0,.7)→guide111(-1,.7), then conditioning to guider and LATENT to AV concat."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Exact-helper tensor probe покрывает index rounding, append/mask/dilation/metadata branches без model weights; полный VAE encode и model-side guide attention не выполнялись.", "PyAV preprocessing, sampling и человеческое утверждение рецептов ещё не выполнены."],
+  "updatedAt": "2026-08-14"
+}

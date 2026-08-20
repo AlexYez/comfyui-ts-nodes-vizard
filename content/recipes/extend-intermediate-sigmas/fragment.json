@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.extend-intermediate-sigmas",
+  "title": "ExtendIntermediateSigmas defaults перед SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "sigmas", "type": "SIGMAS", "to": "extend", "input": "sigmas"},
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sampler", "type": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "extend",
+      "classType": "ExtendIntermediateSigmas",
+      "role": "Вставить одну линейную точку в выбранные интервалы",
+      "settings": {"steps": 2, "start_at_sigma": -1.0, "end_at_sigma": 12.0, "spacing": "linear"}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Принять расширенное расписание",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "extend", "output": "SIGMAS", "to": "sample", "input": "sigmas"}
+  ]
+}

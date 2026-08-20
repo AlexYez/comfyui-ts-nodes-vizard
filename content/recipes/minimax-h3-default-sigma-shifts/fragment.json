@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.minimax-h3-default-sigma-shifts",
+  "title": "MiniMax H3 с исходными video/audio flow-shift",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "shift", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "shift",
+      "classType": "MiniMaxH3SigmaShift",
+      "role": "Согласовать video schedule и audio schedule исходной парой MiniMax H3",
+      "settings": {"shift_video": 12.0, "shift_audio": 3.0}
+    }
+  ],
+  "connections": []
+}

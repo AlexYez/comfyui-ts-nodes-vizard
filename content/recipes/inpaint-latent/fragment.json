@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.inpaint-latent",
+  "title": "Создать LATENT с noise mask для inpaint",
+  "externalInputs": [
+    { "id": "model", "type": "MODEL", "to": "sampler", "input": "model" },
+    { "id": "positive", "type": "CONDITIONING", "to": "sampler", "input": "positive" },
+    { "id": "negative", "type": "CONDITIONING", "to": "sampler", "input": "negative" }
+  ],
+  "nodes": [
+    {
+      "ref": "checkpoint",
+      "classType": "CheckpointLoaderSimple",
+      "role": "Получить VAE, соответствующий модельной цепочке",
+      "settings": { "ckpt_name": "выберите совместимый checkpoint" }
+    },
+    {
+      "ref": "load",
+      "classType": "LoadImage",
+      "role": "Прочитать IMAGE и alpha MASK",
+      "settings": { "image": "выберите изображение с проверенной маской" }
+    },
+    {
+      "ref": "inpaint_encode",
+      "classType": "VAEEncodeForInpaint",
+      "role": "Закодировать изображение и добавить noise_mask",
+      "settings": { "grow_mask_by": 6 }
+    },
+    {
+      "ref": "sampler",
+      "classType": "KSampler",
+      "role": "Перерисовать область noise_mask с настройками выбранной модели",
+      "settings": { "seed": 42, "steps": 20, "cfg": 7.0, "sampler_name": "euler", "scheduler": "normal", "denoise": 1.0 }
+    }
+  ],
+  "connections": [
+    { "from": "load", "output": "IMAGE", "to": "inpaint_encode", "input": "pixels" },
+    { "from": "load", "output": "MASK", "to": "inpaint_encode", "input": "mask" },
+    { "from": "checkpoint", "output": "VAE", "to": "inpaint_encode", "input": "vae" },
+    { "from": "inpaint_encode", "output": "LATENT", "to": "sampler", "input": "latent_image" }
+  ]
+}

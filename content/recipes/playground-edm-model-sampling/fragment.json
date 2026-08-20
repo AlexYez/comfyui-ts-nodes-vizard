@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.playground-edm-model-sampling",
+  "title": "Playground EDM 80/0,002 → BasicScheduler",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "patch", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "patch",
+      "classType": "ModelSamplingContinuousEDM",
+      "role": "Поставить EDM sampling и Playground latent format",
+      "settings": {"sampling": "edm_playground_v2.5", "sigma_max": 80.0, "sigma_min": 0.002}
+    },
+    {
+      "ref": "schedule",
+      "classType": "BasicScheduler",
+      "role": "Построить SIGMAS из patched Playground MODEL",
+      "settings": {"scheduler": "simple", "steps": 20, "denoise": 1.0}
+    }
+  ],
+  "connections": [
+    {"from": "patch", "output": "MODEL", "to": "schedule", "input": "model"}
+  ]
+}

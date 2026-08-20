@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-audio-mp3-v0",
+  "locale": "ru",
+  "title": "Сохранить AUDIO как MP3 с настройкой V0",
+  "summary": "SaveAudioAdvanced записывает каждый элемент входного batch отдельным MP3 в output/audio и возвращает AUDIO дальше.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.save-audio-advanced"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Готовый вход AUDIO",
+    "Достаточно места и права записи в output",
+    "Mono- или stereo-waveform; многоканальный звук заранее свести"
+  ],
+  "fragment": {
+    "id": "fragment.save-audio-mp3-v0",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, official workflow, isolated encoder execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "SaveAudioAdvanced in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L251-L294",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official Sonilo Video Soundtrack Generation workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/api_sonilo_v2m.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

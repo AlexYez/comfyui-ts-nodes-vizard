@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.freeu",
+  "node": {"classType": "FreeU", "pythonModule": "comfy_extras.nodes_freelunch", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_freelunch.py#L8-L69",
+        "path": "comfy_extras/nodes_freelunch.py",
+        "lines": "8-69"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/modules/diffusionmodules/openaimodel.py#L905-L917",
+        "path": "comfy/ldm/modules/diffusionmodules/openaimodel.py",
+        "lines": "905-917"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/FreeU/en.md",
+        "assessment": "Верно связывает b/s с 4x/2x channel stages и приводит runtime ranges; не раскрывает half-channel in-place update, 2x2 frequency mask, 4D limit и CPU fallback."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/FreeU/ru.md",
+        "assessment": "Сохраняет параметры и общую идею, но рекламную формулировку об улучшении качества не использовали как факт конкретной модели."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и всех recursive subgraphs FreeU встречается 0 раз; fragment честно помечен source-derived."
+      },
+      {
+        "id": "arxiv-2309.11497-freeu-method",
+        "role": "Первичная работа обосновывает раздельное перевзвешивание backbone и skip features без обучения; параметры остаются architecture-dependent."
+      },
+      {
+        "id": "synthetic-exact-source-freeu-probe",
+        "role": "AST-extracted exact patch подтвердил 4x/2x channel gates, scaling первой половины h, центральный 2x2 FFT mask, dtype, unmatched bypass, 5D failure и stacking order."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official wheel 0.1.42 не содержит FreeU; fragment фиксирует runtime defaults, а не проверенный checkpoint preset.",
+    "Tensor probe не исполнял полный U-Net и не оценивал изображения, память accelerator или реальную стоимость CPU fallback.",
+    "Совместимость конкретных архитектур и человеческое утверждение статьи ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

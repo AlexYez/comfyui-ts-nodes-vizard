@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.add-two-latents",
+  "locale": "ru",
+  "title": "Сложить два внешних LATENT",
+  "summary": "Подключает два LATENT к LatentAdd: первый задаёт форму, batch и метаданные, второй подгоняется по размеру и поэлементно прибавляется к samples первого.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.latent-add"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Два LATENT из совместимого латентного пространства",
+    "Проверенные noise_mask и batch_index первого входа"
+  ],
+  "fragment": {"id": "fragment.add-two-latents", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "LatentAdd implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L10-L44",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Pinned embedded documentation 0.5.9: LatentAdd",
+      "url": "https://github.com/Comfy-Org/embedded-docs/blob/1d258cf6e374d60d138a2bfcd273c7e11f750ef9/comfyui_embedded_docs/docs/LatentAdd/en.md",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

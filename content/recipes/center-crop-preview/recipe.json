@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.center-crop-preview", "locale": "ru",
+  "title": "Обрезать центр и проверить кадр", "summary": "Вырезает центральные 512 × 512 пикселей внешнего IMAGE и показывает результат.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.center-crop-images", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "IMAGE не меньше желаемого crop, если нужен точный размер"],
+  "fragment": {"id": "fragment.center-crop-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source/runtime and synthetic crop review; full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [{"title": "CenterCropImages in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1001-L1020", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}]
+}

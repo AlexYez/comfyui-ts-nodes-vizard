@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.join-alpha-preview",
+  "title": "RGB IMAGE и прозрачная MASK — RGBA — preview",
+  "externalInputs": [
+    {"id": "color_image", "type": "IMAGE", "to": "join", "input": "image"},
+    {"id": "transparency_mask", "type": "MASK", "to": "join", "input": "alpha"}
+  ],
+  "nodes": [
+    {"ref": "join", "classType": "JoinImageWithAlpha", "role": "Инвертировать MASK в alpha и собрать RGBA", "settings": {}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Проверить прозрачные и непрозрачные области", "settings": {}}
+  ],
+  "connections": [{"from": "join", "output": "IMAGE", "to": "preview", "input": "images"}]
+}

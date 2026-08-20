@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.dual-model-guider",
+  "node": {
+    "classType": "DualModelGuider",
+    "pythonModule": "comfy_extras.nodes_custom_sampler",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L914-L989",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "914-989"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L592-L605",
+        "path": "comfy/samplers.py",
+        "lines": "592-605"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/DualModelGuider/en.md",
+        "assessment": "AI-generated документ верно различает conditional/unconditional models и optional negative, но не раскрывает lifecycle второй модели, fallback class и cfg=1 skip."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/DualModelGuider/ru.md",
+        "assessment": "Перевод передаёт общий контракт, однако риски совместимости пары моделей и multigpu-код проверялись по закреплённому source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Просмотрены 512 JSON, все root nodes и 272 subgraphs: 2 DualModelGuider в двух файлах и одном UUID, оба в subgraphs, mode 0, cfg 7."
+      },
+      {
+        "id": "fdcfc2b2-168f-4f3d-a1d0-6986b802fce5:image_ideogram4_t2i",
+        "role": "Основная Ideogram model после CFGOverride подключена к model, отдельная unconditional UNET — к model_negative; ConditioningZeroOut формирует negative."
+      },
+      {
+        "id": "isolated-pinned-guider-formula-probe",
+        "role": "Exact execute подтвердил fallback без model_negative, null condition без negative и отдельный guider с двумя моделями; C=30, U=10, cfg=4 дали 90."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "Обе Ideogram модели и их weights не загружались; совместимость проверена только по official serialized topology и source contract.",
+    "Отдельный prepare/cleanup lifecycle и multigpu branch не выполнялись на GPU.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

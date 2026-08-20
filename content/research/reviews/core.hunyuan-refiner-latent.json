@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.hunyuan-refiner-latent",
+  "node": {"classType": "HunyuanRefinerLatent", "pythonModule": "comfy_extras.nodes_hunyuan", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L388-L416",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "388-416"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L2509-L2535",
+        "path": "comfy/model_base.py",
+        "lines": "2509-2535"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/latent_formats.py#L864-L886",
+        "path": "comfy/latent_formats.py",
+        "lines": "864-886"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sample.py#L40-L62",
+        "path": "comfy/sample.py",
+        "lines": "40-62"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L1220-L1226",
+        "path": "comfy/samplers.py",
+        "lines": "1220-1226"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/HunyuanRefinerLatent/en.md",
+        "assessment": "SHA-256 3a3cac8daa96260522b77898854c6d876ef852890ee0813ca0c6f7d6f8a830c2. Называет основные поля, но неверно подписывает порядок осей выхода и не раскрывает поведение входов разной размерности или потерю служебных полей."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/HunyuanRefinerLatent/ru.md",
+        "assessment": "SHA-256 34f677973a4074e0a7dac326747e3003a839a76d8c379ebf862f9ffe636cc175. Переводит идентификаторы входов и повторяет неточную подпись осей; официальную модельную топологию не приводит."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-hunyuan-refiner-zero-census",
+        "role": "Во всех 512 JSON, корневых графах и подграфах точный NodeId и сырая строка HunyuanRefinerLatent отсутствуют; официальная топология не установлена."
+      },
+      {
+        "id": "hunyuan-video-conditioning-exact-source-probe",
+        "role": "Точный класс на CPU подтвердил 5D-форму [B,32,T,H,W], поведение 4D-входа [B,32,C,H,W], нули, float32, передачу исходного samples в оба условия и потерю остальных служебных полей."
+      },
+      {
+        "id": "hunyuan-refiner-consumer-shape-audit",
+        "role": "Исследованный refiner-кандидат HunyuanImage21Refiner упаковывает условие C32,T9 в C64,T5, тогда как общий код сэмплера подгоняет нулевой выход до C64,T9 и не вызывает process_latent_in. Те же имена ключей встречаются у SR-модели с другой раскладкой. Для T>1 временные размеры в проверенном refiner-пути механически расходятся; T=1 остаётся лишь правдоподобным, но не выполненным случаем."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Нет официального workflow и подтверждённого сквозного модельного обработчика для многокадрового случая.",
+    "Диагностический фрагмент намеренно не подключает сэмплер или MODEL.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

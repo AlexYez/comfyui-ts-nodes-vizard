@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.sd-4x-upscale-conditioning",
+  "locale": "ru",
+  "title": "Подготовить SD x4 Upscaler conditioning для KSampler",
+  "summary": "Прикрепляет low-resolution изображение и уровень шумовой аугментации к обеим ветвям conditioning и подаёт целевой пустой latent в KSampler.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.sd-4x-upscale-conditioning", "core.ksampler"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "MODEL семейства Stable Diffusion x4 Upscaler", "IMAGE и две ветви CONDITIONING"],
+  "fragment": {"id": "fragment.sd-4x-upscale-conditioning", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Automated pinned source/runtime/model-consumer review; no official wheel case, full fragment execution and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "SD_4XUpscale_Conditioning in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sdupscale.py#L7-L52", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

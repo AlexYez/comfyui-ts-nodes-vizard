@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.split-overlapping-tiles-preview",
+  "locale": "ru",
+  "title": "Нарезать IMAGE и показать порядок тайлов",
+  "summary": "SplitImageToTileList создаёт список тайлов 1024 × 1024 с overlap 128, а list-aware ImageGrid раскладывает их по четырём столбцам для проверки порядка и краевых окон.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.split-image-to-tile-list", "core.image-grid", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "IMAGE для диагностической нарезки; результат ImageGrid не предназначен для обратной сборки"],
+  "fragment": {"id": "fragment.split-overlapping-tiles-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned-source and runtime list-contract review; source-derived fragment and pure-Python coordinate checks complete, ComfyUI execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "SplitImageToTileList implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L705-L764",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "ImageGrid list-input implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L579-L741",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.hunyuan-video-15-image-to-video-conditioning",
+  "locale": "ru",
+  "title": "Подготовить условия I2V для Hunyuan Video 1.5",
+  "summary": "Фрагмент повторяет активные связи официального 720p I2V-шаблона: стартовый кадр и CLIP Vision входят в HunyuanVideo15ImageToVideo, затем условия и латент расходятся в CFGGuider и сэмплер.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.hunyuan-video-15-image-to-video"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Совместимые Hunyuan Video 1.5 MODEL, VAE, текстовые условия и CLIP Vision",
+    "Внешние NOISE, SAMPLER и SIGMAS"
+  ],
+  "fragment": {"id": "fragment.hunyuan-video-15-image-to-video-conditioning", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка зафиксированных исходников, схемы ноды, документации и workflow-шаблонов; точный класс проверен на синтетических данных. Редактор ещё не утвердил материал.",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "HunyuanVideo15ImageToVideo в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L83-L130",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальный 720p I2V workflow Hunyuan Video 1.5",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_hunyuan_video_1.5_720p_i2v.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

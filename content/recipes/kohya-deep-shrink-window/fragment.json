@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.kohya-deep-shrink-window",
+  "title": "Окно Kohya Deep Shrink по умолчанию",
+  "externalInputs": [{"id": "model", "type": "MODEL", "to": "shrink", "input": "model"}],
+  "nodes": [{"ref": "shrink", "classType": "PatchModelAddDownscale", "role": "Уменьшить карту признаков блока 3 в диапазоне сигм", "settings": {"block_number": 3, "downscale_factor": 2.0, "start_percent": 0.0, "end_percent": 0.35, "downscale_after_skip": true, "downscale_method": "bicubic", "upscale_method": "bicubic"}}],
+  "connections": []
+}

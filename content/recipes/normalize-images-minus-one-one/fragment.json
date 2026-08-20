@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.normalize-images-minus-one-one",
+  "title": "NormalizeImages: 0–1 → −1…1",
+  "externalInputs": [
+    {
+      "id": "images",
+      "type": "IMAGE",
+      "to": "normalize",
+      "input": "images"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "normalize",
+      "classType": "NormalizeImages",
+      "role": "Вычесть 0,5 и разделить значения на 0,5",
+      "settings": {
+        "mean": 0.5,
+        "std": 0.5
+      }
+    }
+  ],
+  "connections": []
+}

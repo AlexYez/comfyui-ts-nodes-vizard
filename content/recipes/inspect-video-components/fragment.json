@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.inspect-video-components",
+  "title": "VIDEO → компоненты → VIDEO",
+  "externalInputs": [
+    {
+      "id": "video",
+      "type": "VIDEO",
+      "to": "components",
+      "input": "video"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "components",
+      "classType": "GetVideoComponents",
+      "role": "Извлечь кадры, звук, fps и bit depth",
+      "settings": {}
+    },
+    {
+      "ref": "rebuilt",
+      "classType": "CreateVideo",
+      "role": "Собрать новый объект VIDEO из извлечённых компонентов",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "components",
+      "output": "images",
+      "to": "rebuilt",
+      "input": "images"
+    },
+    {
+      "from": "components",
+      "output": "audio",
+      "to": "rebuilt",
+      "input": "audio"
+    },
+    {
+      "from": "components",
+      "output": "fps",
+      "to": "rebuilt",
+      "input": "fps"
+    },
+    {
+      "from": "components",
+      "output": "bit_depth",
+      "to": "rebuilt",
+      "input": "bit_depth"
+    }
+  ]
+}

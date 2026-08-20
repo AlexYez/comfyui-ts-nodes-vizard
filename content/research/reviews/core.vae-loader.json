@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.vae-loader",
+  "node": { "classType": "VAELoader", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L767-L860",
+        "path": "nodes.py",
+        "lines": "767-860"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L26-L36",
+        "path": "folder_paths.py",
+        "lines": "26-36"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L856-L865",
+        "path": "comfy/sd.py",
+        "lines": "856-865"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VaeLoader/en.md",
+        "assessment": "Общее назначение совпадает. AI-generated документ использует иной регистр пути и перечисляет только часть approximate VAE; в нём нет pixel_space, новых TAE, проверки encoder/decoder pair и taef2 metadata."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "flux_schnell_full_text_to_image",
+        "role": "Workflow 908d0bfb-e192-4627-9b57-147496e6e2dd: VAELoader № 39 выбирает ae.safetensors и передаёт VAE в VAEDecode № 8."
+      },
+      {
+        "id": "text_to_video_wan",
+        "role": "Workflow 21720dda-bf84-4f0a-8469-a681c80e302e: VAELoader № 39 выбирает wan_2.1_vae.safetensors и подключён к VAEDecode № 8."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В clean snapshot combo содержит только pixel_space; стандартный и approximate VAE не загружались с диска в тестовом процессе.",
+    "Общий workflow использует placeholder VAE и не доказывает совместимость произвольной пары checkpoint/VAE; пользователь должен выбрать пару по official model workflow."
+  ],
+  "updatedAt": "2026-08-13"
+}

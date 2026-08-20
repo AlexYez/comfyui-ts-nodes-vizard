@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.save-transparent-webm",
+  "title": "RGBA IMAGE и fps → прозрачный WebM",
+  "externalInputs": [
+    {
+      "id": "rgba_frames",
+      "type": "IMAGE",
+      "to": "save_webm",
+      "input": "images"
+    },
+    {
+      "id": "source_fps",
+      "type": "FLOAT",
+      "to": "save_webm",
+      "input": "fps"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "save_webm",
+      "classType": "SaveWEBM",
+      "role": "Закодировать RGBA-кадры в WebM с альфа-каналом",
+      "settings": {
+        "filename_prefix": "video/transparent",
+        "codec": "vp9",
+        "crf": 32
+      }
+    }
+  ],
+  "connections": []
+}

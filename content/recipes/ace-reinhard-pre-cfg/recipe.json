@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.ace-reinhard-pre-cfg", "locale": "ru",
+  "title": "ACE: Reinhard tonemap перед CFG", "summary": "ModelSamplingSD3(shift 5) и LatentOperationTonemapReinhard(1) подключаются к LatentApplyOperationCFG — точная внутренняя связка трёх official ACE workflows.", "body": "ru.md", "difficulty": "advanced",
+  "articleIds": ["core.latent-apply-operation-cfg", "core.latent-operation-tonemap-reinhard"], "requirements": ["ComfyUI 0.32.0", "Совместимый ACE Step 1 MODEL", "Дальнейший sampler и conditioning"],
+  "fragment": {"id": "fragment.ace-reinhard-pre-cfg", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact topology/widgets from three pinned official ACE workflows; full audio sampling and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "Official ACE Step 1 workflows in templates 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

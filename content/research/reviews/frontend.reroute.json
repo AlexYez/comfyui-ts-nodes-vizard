@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "frontend.reroute",
+  "node": { "classType": "Reroute", "pythonModule": "comfyui_frontend", "origin": "frontend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "6d6af63c00f132cd25dc29307fc56bd2c094fa22",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-frontend-1.48.7.frontend-inventory.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/rerouteNode.ts#L14-L296",
+        "path": "src/extensions/core/rerouteNode.ts",
+        "lines": "14-296"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/lib/litegraph/src/LGraphCanvas.ts#L6679-L6727",
+        "path": "src/lib/litegraph/src/LGraphCanvas.ts",
+        "lines": "6679-6727"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/lib/litegraph/src/types/serialisation.ts#L202-L232",
+        "path": "src/lib/litegraph/src/types/serialisation.ts",
+        "lines": "202-232"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/utils/migration/migrateReroute.ts#L20-L37",
+        "path": "src/utils/migration/migrateReroute.ts",
+        "lines": "20-37, 285-308, 316-336"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Reroute/ru.md",
+        "assessment": "AI-generated secondary documentation; назначение сверено, различие legacy/native и миграция взяты из pinned frontend source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "58f78c8c-912a-4108-8626-4348be1fab82",
+        "role": "Official templates-all_in_one-image_edit_models: Reroute № 135 раздаёт IMAGE, № 136 раздаёт STRING по семи ветвям."
+      },
+      {
+        "id": "workflow.frontend-utilities-lab",
+        "role": "Локальный schema-validated workflow сохраняет legacy type Reroute между EmptyLatentImage и двумя RepeatLatentBatch для проверки миграции."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": ["Миграция legacy Reroute в native point и сохранение нового JSON не прогонялись в живом frontend; учебный workflow проверен только структурно."],
+  "updatedAt": "2026-08-13"
+}

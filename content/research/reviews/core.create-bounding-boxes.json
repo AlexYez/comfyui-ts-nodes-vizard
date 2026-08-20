@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.create-bounding-boxes",
+  "node": {"classType": "CreateBoundingBoxes", "pythonModule": "comfy_extras.nodes_bounding_boxes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_bounding_boxes.py#L15-L369",
+        "path": "comfy_extras/nodes_bounding_boxes.py",
+        "lines": "15-369"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/createBoundingBoxes.ts#L5-L48",
+        "path": "src/extensions/core/createBoundingBoxes.ts",
+        "lines": "5-48"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/composables/boundingBoxes/useBoundingBoxes.ts#L26-L776",
+        "path": "src/composables/boundingBoxes/useBoundingBoxes.ts",
+        "lines": "26-776"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/CreateBoundingBoxes/en.md",
+        "assessment": "Корректно перечисляет интерфейс; приоритет incoming/editor_state и клиентская синхронизация размеров требуют сверки с исходником."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/CreateBoundingBoxes/ru.md",
+        "assessment": "Перевод содержит служебную фразу и переводит системные имена; использован только как вторичный источник."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "api_ideogram_p_image_t2i",
+        "role": "Единственный прямой случай: корневая нода mode 0, пять рамок, 1024 × 1024, связь elements → BuildJsonPromptIdeogram.element."
+      },
+      {
+        "id": "bounding-boxes-exact-source-probe",
+        "role": "Точные серверные функции выполнены на синтетических данных: одиночный словарь, JSON и пакет внешних рамок используют ожидаемый формат и только первый кадр; отдельно проверены первый кадр фона, приоритет состояния, оба координатных выхода и preview."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Интерактивные pointer-события и отображение холста в реальном браузере не исполнялись.",
+    "Полный граф с Ideogram API не запускался; рецепт заканчивается на локальном PreviewAny.",
+    "Backend-проверка синтетическая и не заменяет исполнение всего фрагмента в ComfyUI.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

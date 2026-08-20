@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-video",
+  "node": {
+    "classType": "SaveVideo",
+    "pythonModule": "comfy_extras.nodes_video",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video.py#L75-L149",
+        "path": "comfy_extras/nodes_video.py",
+        "lines": "75-149"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L460-L899",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "460-899"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/core/graph/widgets/dynamicWidgets.ts#L72-L217",
+        "path": "src/core/graph/widgets/dynamicWidgets.ts",
+        "lines": "72-217"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveVideo/en.md",
+        "assessment": "Документ ошибочно перечисляет WebM, MKV, GIF, H.265, VP9, AV1 и ProRes, которых нет в runtime-схеме v0.32.0, и пропускает возврат исходного VIDEO."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveVideo/ru.md",
+        "assessment": "Перевод повторяет лишние format/codec и прямо утверждает отсутствие выходов, хотя текущая схема возвращает VIDEO."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON: 226 SaveVideo, все в корневых графах; режим 0 — 213, режим 4 — 13; 192 файла и 114 идентификаторов workflow."
+      },
+      {
+        "id": "workflow-templates-json-0.1.42-save-video-widget-census",
+        "role": "format auto встречается 218 раз, mp4 — 8; codec auto — 216, h264 — 10; сохранённой ветки re-encode нет."
+      },
+      {
+        "id": "utility-seedvr2-3b-int8-upscale-video#e2c3e7f6-e19d-4eb7-b9a5-dbc31fc43988/node-76",
+        "role": "Root SaveVideo получает VIDEO из подграфа, сохраняет video/Upscaled_seedVR2 с auto/auto."
+      },
+      {
+        "id": "isolated-pinned-video-io-probe",
+        "role": "Точный execute вызван с безопасным VIDEO-объектом: проверены путь MP4, h264/re-encode, CRF, метаданные, PreviewVideo и возврат исходного VIDEO."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Настоящий кодировщик H.264/AAC не запускался: PyAV отсутствует в текущем окружении; с объектом-заглушкой проверена координирующая часть точного метода.",
+    "Перенос реальных H.264, VP9, subtitle и audio streams в разные MP4-контейнеры не проверялся на наборе файлов.",
+    "Официальные workflow не покрывают encoding = re-encode и CRF.",
+    "Fragment принимает готовый VIDEO и не исполнялся как полный граф.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

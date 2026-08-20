@@ -1,0 +1,96 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.trim-video-latent",
+  "node": {"classType": "TrimVideoLatent", "pythonModule": "comfy_extras.nodes_wan", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_wan.py#L375-L397",
+        "path": "comfy_extras/nodes_wan.py",
+        "lines": "375-397"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_wan.py#L287-L373",
+        "path": "comfy_extras/nodes_wan.py",
+        "lines": "287-373"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_wan.py#L1253-L1379",
+        "path": "comfy_extras/nodes_wan.py",
+        "lines": "1253-1379"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/TrimVideoLatent/en.md",
+        "assessment": "AI-generated файл правильно указывает удаление начала, но называет единицы frames; код режет tensor dimension 2 и не гарантирует соответствие decoded frames."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/TrimVideoLatent/ru.md",
+        "assessment": "Использован только как вторичное описание; view storage, отсутствие rank/clamp, metadata mismatch и официальный trim_latent link установлены по source/runtime/workflows."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "video_wan_vace_14B_ref2v",
+        "role": "Root mode 0: KSampler → TrimVideoLatent → VAEDecode; trim_amount связан с output slot 3 WanVaceToVideo, widget [0], VACE length widget 81."
+      },
+      {
+        "id": "video_wan_vace_14B_t2v",
+        "role": "Root mode 0: та же тройка и динамический trim_latent link; widget [0], VACE length widget 81."
+      },
+      {
+        "id": "video_wan_vace_14B_v2v",
+        "role": "Root mode 0: та же тройка и dynamic INT из WanVaceToVideo; widget [0], VACE length widget 81."
+      },
+      {
+        "id": "video_wan_vace_outpainting",
+        "role": "Root mode 0: KSampler → TrimVideoLatent → VAEDecode, trim_latent из WanVaceToVideo; widget [0], VACE length widget 45."
+      },
+      {
+        "id": "video_wan_vace_flf2v",
+        "role": "Subgraph mode 0: KSampler → TrimVideoLatent → VAEDecode; INT из output slot 3 WanVaceToVideo, widget [0], VACE length widget 45."
+      },
+      {
+        "id": "video_wan_vace_inpainting",
+        "role": "Subgraph mode 0: KSampler → TrimVideoLatent → VAEDecode; INT из output slot 3 WanVaceToVideo, widget [0], VACE length widget 81."
+      },
+      {
+        "id": "video_wan_animate2",
+        "role": "Два subgraph mode 0: SamplerCustom → TrimVideoLatent → VAEDecode; оба INT приходят с output slot 3 WanAnimate2ToVideo, widgets [0], length widgets 81."
+      },
+      {
+        "id": "synthetic-exact-source-trim-video-latent",
+        "role": "AST-extracted execute проверен на 5D tensor, trim 2, trim 99, unchanged temporal noise_mask и 4D image-like input; подтверждены third-axis slice, zero length, shallow metadata и shared storage view."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Проверены все 496 официальных workflow-графов и восемь найденных экземпляров в семи файлах, но полный Wan VACE или Animate2 fragment с моделью не исполнялся.",
+    "Synthetic probe подтверждает tensor semantics, но не измеряет соответствие latent slices декодированным кадрам конкретного VAE.",
+    "Human approval и проверка temporal metadata в полном pipeline ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

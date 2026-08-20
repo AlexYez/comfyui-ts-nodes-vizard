@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.concatenate-audio-after",
+  "locale": "ru",
+  "title": "Поставить второй AUDIO после первого",
+  "summary": "Создаёт AudioConcat в режиме after: второй внешний AUDIO начинается сразу после первого, а mono и разные sample rate согласуются по правилам ноды.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.audio-concat"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Два AUDIO с одинаковым batch-размером и согласуемым числом каналов",
+    "Прослушивание стыка, если клипы должны соединяться без щелчка"
+  ],
+  "fragment": {
+    "id": "fragment.concatenate-audio-after",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source/runtime/full official workflow and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "AudioConcat implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L578-L644",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official Wan 2.1 InfiniteTalk workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_wan2_1_infinitetalk.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

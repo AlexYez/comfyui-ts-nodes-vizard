@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-image-output",
+  "node": {"classType": "LoadImageOutput", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1734-L1880", "path": "nodes.py", "lines": "1734-1880"}
+    ],
+    "embeddedDocs": [
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/LoadImageOutput/ru.md", "assessment": "Верно описывает output-folder refresh и два выхода, но начинается служебной фразой перевода и не раскрывает общий LoadImage decoder, MASK polarity, cache hash и experimental flag."},
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/LoadImageOutput/en.md", "assessment": "Использовано как вторичное AI-generated описание UI; decoder и edge cases подтверждены pinned source/runtime."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-exhaustive-load-image-output", "role": "Recursive scan всех 496 workflow-графов и subgraph нашёл 0 exact LoadImageOutput; source-derived fragment не выдаётся за официальный template-case."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Для fragment нужен реальный файл в output; LoadImageOutput node class и remote refresh не запускались.",
+    "Локальная Pillow-проверка не покрывает основной InputImpl.VideoFromFile decoder и device/dtype ComfyUI.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-13"
+}

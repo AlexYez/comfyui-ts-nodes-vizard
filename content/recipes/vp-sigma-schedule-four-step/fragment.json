@@ -1,0 +1,16 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.vp-sigma-schedule-four-step",
+  "title": "Четыре VP-перехода с конечным нулём",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "vp",
+      "classType": "VPScheduler",
+      "role": "Построить короткую VP-кривую для проверки значений и длины",
+      "settings": {"steps": 4, "beta_d": 19.9, "beta_min": 0.1, "eps_s": 0.001}
+    }
+  ],
+  "connections": []
+}

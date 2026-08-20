@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.dual-clip-loader",
+  "node": { "classType": "DualCLIPLoader", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1031-L1061",
+        "path": "nodes.py",
+        "lines": "1031-1061"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1470-L1524",
+        "path": "comfy/sd.py",
+        "lines": "1470-1524"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L28-L34",
+        "path": "folder_paths.py",
+        "lines": "28-34"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "flux_schnell_full_text_to_image",
+        "role": "Root node № 40 loads clip_l.safetensors then t5xxl_fp16.safetensors as flux/default and connects to CLIPTextEncodeFlux № 41."
+      },
+      {
+        "id": "audio_ace_step1_5_xl_base",
+        "role": "Root node № 105 demonstrates an ACE pair: qwen_0.6b_ace15.safetensors and qwen_4b_ace15.safetensors with type ace/default."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Pinned embedded docs 0.5.9 contains no DualCLIPLoader article; pair semantics were checked against exact source and multiple official architectures.",
+    "The two text-encoder files were not loaded and the Flux fragment was not rendered; only schema, order, settings and topology were validated."
+  ],
+  "updatedAt": "2026-08-13"
+}

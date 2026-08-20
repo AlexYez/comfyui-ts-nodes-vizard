@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.stable-cascade-empty-latent-image",
+  "node": {
+    "classType": "StableCascade_EmptyLatentImage",
+    "pythonModule": "comfy_extras.nodes_stable_cascade",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable_cascade.py#L27-L53",
+        "path": "comfy_extras/nodes_stable_cascade.py",
+        "lines": "27-53"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/latent_formats.py#L83-L110",
+        "path": "comfy/latent_formats.py",
+        "lines": "83-110"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/StableCascade_EmptyLatentImage/en.md",
+        "assessment": "Формы обоих tensor и смысл compression переданы верно; batch_size ошибочно помечен optional, хотя runtime относит его к required."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/StableCascade_EmptyLatentImage/ru.md",
+        "assessment": "Формулы сохранены, но runtime-имена параметров переведены и batch_size также назван необязательным; для точного справочника использован /object_info."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "Просмотрены 512 JSON, 496 root и 768 root/subgraph графов; точных Stable Cascade ID в wheel не найдено."
+      },
+      {
+        "id": "comfyui-examples-f9431bb-stable-cascade-six-png-census",
+        "role": "В шести официальных PNG найдено пять экземпляров ноды: четыре с widgets [1024,1024,42,1] и один [1024,768,42,1]; оба выхода всегда ведут к соответствующим KSampler."
+      },
+      {
+        "id": "stable-cascade-text-to-image-exact-two-stage-branch",
+        "role": "Exact case: Empty [1024,1024,42,1] питает Stage C KSampler [20,4,euler_ancestral,simple,1] и Stage B KSampler [10,1.1,euler_ancestral,simple,1]."
+      },
+      {
+        "id": "synthetic-exact-source-stable-cascade-empty-probe",
+        "role": "Точный execute дал для 1000×770, compression 42, batch 2 формы 2×16×18×23 и 2×4×192×250; оба tensor нулевые, CPU float32, словари содержат только samples."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact tensor branch выполнен без Stage C и Stage B весов; полный приложенный fragment не запускался.",
+    "Пиковая CPU/VRAM память всей двухстадийной генерации на разных устройствах не измерялась.",
+    "Человеческое утверждение статьи и рецепта ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

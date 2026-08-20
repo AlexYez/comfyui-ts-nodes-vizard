@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.split-balance-rejoin-stereo",
+  "title": "Разделить stereo, изменить баланс и объединить",
+  "externalInputs": [
+    {"id": "stereo_audio", "type": "AUDIO", "to": "split", "input": "audio"}
+  ],
+  "nodes": [
+    {"ref": "split", "classType": "SplitAudioChannels", "role": "Получить левый и правый mono-каналы", "settings": {}},
+    {"ref": "left_gain", "classType": "AudioAdjustVolume", "role": "Ослабить левый канал на 3 dB", "settings": {"volume": -3}},
+    {"ref": "right_gain", "classType": "AudioAdjustVolume", "role": "Оставить правый канал на 0 dB", "settings": {"volume": 0}},
+    {"ref": "join", "classType": "JoinAudioChannels", "role": "Собрать левый и правый mono в stereo", "settings": {}}
+  ],
+  "connections": [
+    {"from": "split", "output": "left", "to": "left_gain", "input": "audio"},
+    {"from": "split", "output": "right", "to": "right_gain", "input": "audio"},
+    {"from": "left_gain", "output": "AUDIO", "to": "join", "input": "audio_left"},
+    {"from": "right_gain", "output": "AUDIO", "to": "join", "input": "audio_right"}
+  ]
+}

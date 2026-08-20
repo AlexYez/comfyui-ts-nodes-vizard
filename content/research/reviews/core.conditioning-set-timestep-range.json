@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.conditioning-set-timestep-range",
+  "node": { "classType": "ConditioningSetTimestepRange", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L297-L311",
+        "path": "nodes.py",
+        "lines": "297-311"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/node_helpers.py#L9-L23",
+        "path": "node_helpers.py",
+        "lines": "9-23"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L859-L882",
+        "path": "comfy/samplers.py",
+        "lines": "859-882"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L33-L45",
+        "path": "comfy/samplers.py",
+        "lines": "33-45"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ConditioningSettimestepRange/en.md",
+        "assessment": "Exact runtime-ID discovery не находит документ: в wheel каталог использует строчную t в Settimestep. Файл помечен как AI-generated и даёт только общее описание, без percent-to-sigma, пересечения с CLIP schedule, перезаписи ключей и отсутствия проверки start <= end."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 JSON-файлов целиком, включая definitions.subgraphs[*].nodes; вхождений ConditioningSetTimestepRange, widget values и topology neighbors нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment проверен структурно, но диапазон 0,0–0,5 не проходил реальный denoising-run.",
+    "Official workflow templates JSON 0.1.42 не содержит ноду; реальные widget values, scheduler и topology neighbors официальным case не подтверждены.",
+    "Границы не сопоставлялись с конкретными дискретными sigma для разных model sampling и scheduler."
+  ],
+  "updatedAt": "2026-08-13"
+}

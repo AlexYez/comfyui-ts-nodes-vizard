@@ -1,0 +1,1 @@
+{"$schema":"../../schemas/recipe-fragment.schema.v1.json","schemaVersion":"1.0","fragmentId":"fragment.substring-first-characters","title":"Первые 77 кодовых точек","externalInputs":[{"id":"text","type":"STRING","to":"slice","input":"string"}],"nodes":[{"ref":"slice","classType":"StringSubstring","role":"Взять срез [0:77]","settings":{"start":0,"end":77}}],"connections":[]}

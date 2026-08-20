@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.file-3d-to-splat-inspect",
+  "title": "Splat File3D → File3DToSplat → GetSplatCount",
+  "externalInputs": [
+    {"id": "model-3d", "type": "FILE_3D_SPLAT_ANY", "to": "from-file", "input": "model_3d"}
+  ],
+  "nodes": [
+    {
+      "ref": "from-file",
+      "classType": "File3DToSplat",
+      "role": "Разобрать файл в активированные SPLAT-тензоры",
+      "settings": {}
+    },
+    {
+      "ref": "count",
+      "classType": "GetSplatCount",
+      "role": "Проверить число загруженных гауссов",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "from-file", "output": "splat", "to": "count", "input": "splat"}
+  ]
+}

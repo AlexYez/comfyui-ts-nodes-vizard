@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.string-format",
+  "node": {
+    "classType": "StringFormat",
+    "pythonModule": "comfy_extras.nodes_string",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L8-L36",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "8-36"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/StringFormat/en.md",
+        "assessment": "SHA-256 124d201a9c2e08d22137043cc13c0a5b5a0a0f6cbd825227745be95e50d51c5a; синтаксис сверён."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/StringFormat/ru.md",
+        "assessment": "SHA-256 33bb90294b6a638611f8973890803335892a198866b75264e332c25b54d44625; ошибки и расширяемые входы уточнены."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-0142-zero-census",
+        "role": "0 StringFormat в 512 JSON/768 графах."
+      },
+      {
+        "id": "exact-source-format-probe",
+        "role": "Выполнены подстановка полей, спецификатор формата, экранирование скобок, KeyError и ValueError."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальных примеров нет; фрагмент основан на исходнике.",
+    "Человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-20"
+}

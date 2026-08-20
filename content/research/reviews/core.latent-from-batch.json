@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.latent-from-batch",
+  "node": {
+    "classType": "LatentFromBatch",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1265-L1299",
+        "path": "nodes.py",
+        "lines": "1265-1299"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LatentFromBatch/ru.md",
+        "assessment": "Описывает выбор подмножества по batch_index и length, но переводит системные имена и не фиксирует однократное сложение отрицательного индекса, clamp, сокращение length, перенос metadata и четырёхмерный repeat для короткой многомасочной noise_mask. Эти детали проверены по исходнику."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LatentFromBatch/en.md",
+        "assessment": "Использован как вторичное описание назначения портов. Точные правила noise_mask, batch_index и clone среза взяты из реализации."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON-файлов, корневые nodes и definitions.subgraphs[*].nodes; вхождений LatentFromBatch нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В официальном workflow-пакете 0.1.42 нет случая LatentFromBatch; fragment основан на реализации, а не на готовой официальной топологии.",
+    "Fragment проверен структурно, но не исполнялся на LATENT с noise_mask и пользовательским batch_index; ошибка пятиосевой короткой multi-mask ветки выведена из контракта torch repeat и не воспроизводилась в живом ComfyUI.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.build-json-prompt-ideogram",
+  "node": {"classType": "BuildJsonPromptIdeogram", "pythonModule": "comfy_extras.nodes_json_prompt", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_json_prompt.py#L7-L67",
+        "path": "comfy_extras/nodes_json_prompt.py",
+        "lines": "7-67"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/color_util.py#L20-L23",
+        "path": "comfy_extras/color_util.py",
+        "lines": "20-23"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_io.py#L1254-L1270",
+        "path": "comfy_api/latest/_io.py",
+        "lines": "1254-1270"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_io.py#L1822-L1911",
+        "path": "comfy_api/latest/_io.py",
+        "lines": "1822-1911"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L273-L306",
+        "path": "execution.py",
+        "lines": "273-306"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/components/palette/WidgetColors.vue#L1-L22",
+        "path": "src/components/palette/WidgetColors.vue",
+        "lines": "1-22"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/BuildJsonPromptIdeogram/en.md",
+        "assessment": "Верно описывает ветви стиля и рекомендуемые поля, но не разбирает точные правила словаря и слабую серверную проверку."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/BuildJsonPromptIdeogram/ru.md",
+        "assessment": "Перевод ошибочно выглядит так, будто пустые рекомендуемые строки обязательны на уровне схемы; runtime допускает их."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "api_ideogram_p_image_t2i",
+        "role": "Единственный прямой случай: photo/editorial, четыре цвета, вход от CreateBoundingBoxes и выход в PreviewAny."
+      },
+      {
+        "id": "json-ideogram-exact-source-probe",
+        "role": "Точный execute выполнен для none, photo, art_style и ошибочного строкового style; отдельно get_finalized_class_inputs и build_nested_inputs подтвердили плоский контракт /prompt и вложенный словарь перед execute."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Реальный запрос Ideogram и соответствие удалённой модели её неформализованным требованиям не проверялись.",
+    "Клиентский виджет ограничивает палитру 16 цветами, но прямой вызов Python-метода это ограничение не обеспечивает.",
+    "Полный рецепт не исполнялся; проверены точный словарь и официальная сериализация.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

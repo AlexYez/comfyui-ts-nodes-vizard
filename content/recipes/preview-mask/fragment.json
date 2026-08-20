@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.preview-mask",
+  "title": "Временный preview маски",
+  "externalInputs": [
+    {"id": "mask_to_inspect", "type": "MASK", "to": "preview_mask", "input": "mask"}
+  ],
+  "nodes": [
+    {"ref": "preview_mask", "classType": "MaskPreview", "role": "Показать маску и вернуть её без изменений", "settings": {}}
+  ],
+  "connections": []
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.hunyuan-video-15-super-resolution",
+  "node": {"classType": "HunyuanVideo15SuperResolution", "pythonModule": "comfy_extras.nodes_hunyuan", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L133-L176",
+        "path": "comfy_extras/nodes_hunyuan.py",
+        "lines": "133-176"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L2597-L2626",
+        "path": "comfy/model_base.py",
+        "lines": "2597-2626"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/lib/litegraph/src/types/globalEnums.ts#L80-L90",
+        "path": "src/lib/litegraph/src/types/globalEnums.ts",
+        "lines": "80-90"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/HunyuanVideo15SuperResolution/en.md",
+        "assessment": "SHA-256 865f03bbf77a1f2d6876204c0e566e1a9d3bca20f6cc3c023ff5107a9e46dd24. Верно отмечает парную зависимость start_image и VAE и возврат латента без изменений; не раскрывает раскладку 2C+2, BYPASS и отложенное применение шума."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/HunyuanVideo15SuperResolution/ru.md",
+        "assessment": "SHA-256 ac4648e6ecfadc4d17c83b4fea0412903f163f5cba052766497aeab8f3e97eb1. Переводит идентификаторы нескольких входов и не сообщает о записи в канал C+1 или шуме модели, зависящем от seed."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "video-hunyuan-video-15-720p-i2v-sr-node-113",
+        "role": "Корневая нода 113 в video_hunyuan_video_1.5_720p_i2v.json: виджет [0.7], связи от HunyuanVideo15LatentUpscaleWithModel, VAE, стартового изображения и CLIP Vision к отдельным CFGGuider и SamplerCustomAdvanced. Режим 4 = BYPASS; SHA-256 файла: 4f6ab488b60f7b70f6501217c1ed697a366f29c3c36755e87ef76f6023676015."
+      },
+      {
+        "id": "workflow-templates-0142-hunyuan-video-15-sr-census",
+        "role": "Полный обход нашёл два корневых экземпляра с noise_augmentation 0.7 — в I2V и T2V. У обоих режим 4; в T2V необязательные VAE, start_image и CLIP Vision явно не подключены."
+      },
+      {
+        "id": "hunyuan-video-conditioning-exact-source-probe",
+        "role": "Точный класс на CPU подтвердил форму 2C+2, возврат того же объекта латента, условную зависимость VAE и запись единицы в C+1 на t0 с перезаписью первого канала низкокачественного среза."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальные SR-экземпляры обходятся; активный SR-проход с весами не выполнялся.",
+    "Запись маркера в C+1 описана как точное поведение 0.32.0, но её замысел не подтверждён документацией разработчиков.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.rescale-cfg",
+  "node": {"classType": "RescaleCFG", "pythonModule": "comfy_extras.nodes_model_advanced", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L271-L308", "path": "comfy_extras/nodes_model_advanced.py", "lines": "271-308"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L638-L647", "path": "comfy/model_patcher.py", "lines": "638-647"}
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {"id": "workflow-templates-0142-rescale-cfg-census", "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; 512 JSON, 496 root workflows and 272 subgraphs: zero exact RescaleCFG nodes."},
+      {"id": "isolated-rescale-cfg-hook-probe", "role": "Exact source hook executed on synthetic tensors: affine multiplier path confirmed; sigma zero and zero standard deviation produce non-finite values, and multiplier zero does not bypass the calculation."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "The exact hook was executed only on synthetic tensors, without a real V-prediction model.",
+    "No current official workflow template serializes RescaleCFG; the fragment is source-derived.",
+    "The 5D video behavior was inferred from hard-coded standard-deviation axes and was not executed in a video graph.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.regex-match",
+  "node": {
+    "classType": "RegexMatch",
+    "pythonModule": "comfy_extras.nodes_string",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L257-L295",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "257-295"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/RegexMatch/en.md",
+        "assessment": "SHA-256 d55b6cca8a9accaa1130976ae779262172f2409d063360883a3330830fbeaceb; flags verified."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/RegexMatch/ru.md",
+        "assessment": "SHA-256 22cfd806e8c692c43bd0c6e0a1f2f16e52a440ec218d435ddd7d4a08adfce478; invalid-pattern ambiguity clarified."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-0142-zero-census",
+        "role": "0 RegexMatch in 512 JSON/768 graphs."
+      },
+      {
+        "id": "exact-source-regex-probe",
+        "role": "Executed search, flags, partial match and caught re.error."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальных примеров нет; фрагмент основан на исходнике.",
+    "Человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-20"
+}

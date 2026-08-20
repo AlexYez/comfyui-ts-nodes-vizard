@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.trim-vace-latent-before-decode",
+  "locale": "ru",
+  "title": "Убрать служебный VACE-префикс перед VAEDecode",
+  "summary": "Повторяет официальную топологию: sampled video LATENT проходит через TrimVideoLatent, trim_amount приходит с выхода trim_latent того же WanVaceToVideo, затем результат декодируется.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.trim-video-latent", "core.vae-decode", "core.preview-image"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Пятиосевой sampled Wan VACE LATENT",
+    "INT trim_latent от того же WanVaceToVideo",
+    "VAE из той же VACE-цепочки"
+  ],
+  "fragment": {"id": "fragment.trim-vace-latent-before-decode", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime, eight official root/subgraph topology cases and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "TrimVideoLatent and WanVaceToVideo implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_wan.py#L287-L397",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.truncate-text",
+  "node": {"classType": "TruncateText", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L777-L932",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "777-932"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1477-L1491",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1477-1491"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L243-L341",
+        "path": "execution.py",
+        "lines": "243-341"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/TruncateText/en.md",
+        "assessment": "Case-sensitive lookup found the exact member. AI-generated EN confirms prefix truncation, default 77 and range, but calls exact input/output text/string and does not distinguish code points, graphemes and tokens or mention output wrapping; raw wheel member SHA-256: 585058e2b861fb12a36045efa9dfdbc44b90fbc544333381d9bae968519e8f7c."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/TruncateText/ru.md",
+        "assessment": "Case-sensitive lookup found the exact member. RU translates max_length, retains text/string instead of texts, duplicates the AI-generated notice and initially links to EN; Unicode and output-contract gaps remain. Raw wheel member SHA-256: 130f7f6c3e2d1753b0a0bf275c659339a5ef05c148e7f8acb99c66db98bda7bd."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-case-sensitive-root-subgraph-scan",
+        "role": "Проверены 512 JSON, 496 root workflows, 4083 root nodes, 272 subgraphs и 4037 subgraph nodes; TruncateText отсутствует в raw и exact type census."
+      },
+      {
+        "id": "isolated-pinned-dataset-text-transform-probe",
+        "role": "Точный Python-срез для A😀éБ при max_length 4 вернул A😀é, короткая строка сохранилась, одноэлементный [1] был развёрнут, а output contract остался вложенным."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; fragment с runtime default 77 не импортировался на canvas.",
+    "Probe проверяет Python-кодовые точки, но не исчерпывает все emoji ZWJ и нормализационные формы Unicode.",
+    "Форма выхода в живом интерфейсе и downstream-диагностика требуют человеческой проверки.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

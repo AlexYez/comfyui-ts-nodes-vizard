@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.rescale-vprediction-cfg",
+  "locale": "ru",
+  "title": "RescaleCFG 0,7 перед CFGGuider",
+  "summary": "V-prediction MODEL проходит через RescaleCFG с multiplier 0,7, затем тот же patched MODEL подаётся в CFGGuider с cfg 7.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.rescale-cfg", "core.cfg-guider"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "MODEL с V-prediction-предсказанием",
+    "Совместимые positive и negative CONDITIONING",
+    "Проверка результата без multiplier 0: ноль не отключает внутренний rescale"
+  ],
+  "fragment": {"id": "fragment.rescale-vprediction-cfg", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime review, exhaustive official workflow absence census, exact CFG hook tensor probe and Russian editorial pass; real V-prediction model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "RescaleCFG in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L271-L308",
+      "publisher": "Comfy-Org", "accessedAt": "2026-08-14"
+    }
+  ]
+}

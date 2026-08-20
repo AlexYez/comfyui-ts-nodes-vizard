@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.conditioning-set-area-percentage",
+  "node": { "classType": "ConditioningSetAreaPercentage", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L208-L227",
+        "path": "nodes.py",
+        "lines": "208-227"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L761-L780",
+        "path": "comfy/samplers.py",
+        "lines": "761-780"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L33-L97",
+        "path": "comfy/samplers.py",
+        "lines": "33-97"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ConditioningSetAreaPercentage/en.md",
+        "assessment": "Документ помечен как AI-generated. Он верно описывает относительные размеры, но не уточняет диапазон как доли 0–1, порядок percentage tuple, округление, минимум в одну latent-ячейку и отсутствие проверки x+width/y+height."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 JSON-файлов целиком, включая definitions.subgraphs[*].nodes; вхождений ConditioningSetAreaPercentage, widget values и topology neighbors нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment проверен структурно, но relative area не разрешалась sampler на конкретном spatial latent.",
+    "Official workflow templates JSON 0.1.42 не содержит ноду, поэтому официальных widget values, topology neighbors и эталонного результата нет.",
+    "Percentage tuple с двумя spatial-осями не проверялся для видео- или другого многомерного latent."
+  ],
+  "updatedAt": "2026-08-13"
+}

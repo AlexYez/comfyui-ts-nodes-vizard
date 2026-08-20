@@ -1,0 +1,50 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.gan-video-upscale",
+  "locale": "ru",
+  "title": "Увеличить кадры видео моделью RealESRGAN x4",
+  "summary": "Воспроизводит официальный utility-gan_upscaler: разобрать видео на кадры, audio и fps, увеличить кадры RealESRGAN x4, собрать видео и сохранить его.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": [
+    "core.image-upscale-with-model",
+    "core.upscale-model-loader"
+  ],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "RealESRGAN_x4plus.safetensors в models/upscale_models",
+    "Видео в input-каталоге ComfyUI",
+    "Достаточно памяти для 4× площади каждого кадра"
+  ],
+  "fragment": {
+    "id": "fragment.gan-video-upscale",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source and exact official-workflow trace; fragment schema validated, model execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ImageUpscaleWithModel implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_upscale_model.py#L20-L100",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: utility-gan_upscaler",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official repackaged RealESRGAN x4 model",
+      "url": "https://huggingface.co/Comfy-Org/Real-ESRGAN_repackaged/resolve/main/RealESRGAN_x4plus.safetensors",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

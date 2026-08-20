@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.voxel-to-mesh-basic",
+  "node": {"classType": "VoxelToMeshBasic", "pythonModule": "comfy_extras.nodes_hunyuan3d", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan3d.py#L120-L227",
+        "path": "comfy_extras/nodes_hunyuan3d.py",
+        "lines": "120-227"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan3d.py#L417-L448",
+        "path": "comfy_extras/nodes_hunyuan3d.py",
+        "lines": "417-448"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_replacements.py#L6-L93",
+        "path": "comfy_extras/nodes_replacements.py",
+        "lines": "6-93"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VoxelToMeshBasic/en.md",
+        "assessment": "Заголовок подтверждает отображаемое имя с пометкой об устаревании, а таблица — входы runtime; замену, строгое сравнение с порогом и служебное значение пустого поля пришлось сверить по исходному коду. SHA-256 d511823ae59e022bfda705cd3d59d35216a29ceac420f287cf4486f6fe02c4d2."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/VoxelToMeshBasic/ru.md",
+        "assessment": "Не объясняет устаревание и замену, переводит точные идентификаторы и содержит служебную фразу переводчика. SHA-256 17dbb399becbf2101cae7aa60c57a9c2bbf022f77bd2895e927f228586900c03."
+      }
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-zero-census", "role": "Полный обход 512 JSON, 496 корневых и 272 вложенных графов не нашёл VoxelToMeshBasic; четыре актуальных Hunyuan3D-графа используют VoxelToMesh."}
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Функция `basic` исполнена на синтетическом тензоре CPU, но фрагмент с устаревшей нодой и полный старый граф не запускались.",
+    "Смысловая замена подтверждена исходным кодом, однако автоматического правила замены нет и миграция не проверялась в интерфейсе.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

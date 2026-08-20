@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.image-scale-preview",
+  "title": "LoadImage — ImageScale 832 × 480 — PreviewImage",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "load",
+      "classType": "LoadImage",
+      "role": "Загрузить исходный кадр",
+      "settings": {
+        "image": "выберите входной файл"
+      }
+    },
+    {
+      "ref": "scale",
+      "classType": "ImageScale",
+      "role": "Заполнить кадр 832 × 480 с центральной обрезкой",
+      "settings": {
+        "upscale_method": "lanczos",
+        "width": 832,
+        "height": 480,
+        "crop": "center"
+      }
+    },
+    {
+      "ref": "preview",
+      "classType": "PreviewImage",
+      "role": "Проверить получившийся кадр",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "load",
+      "output": "IMAGE",
+      "to": "scale",
+      "input": "image"
+    },
+    {
+      "from": "scale",
+      "output": "IMAGE",
+      "to": "preview",
+      "input": "images"
+    }
+  ]
+}

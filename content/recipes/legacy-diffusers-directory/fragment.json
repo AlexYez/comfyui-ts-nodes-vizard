@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.legacy-diffusers-directory",
+  "title": "Deprecated Diffusers directory loader",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "diffusers_loader",
+      "classType": "DiffusersLoader",
+      "role": "Загрузить уже обнаруженный legacy-каталог Diffusers",
+      "settings": {
+        "model_path": "выберите найденный каталог с model_index.json"
+      }
+    }
+  ],
+  "connections": []
+}

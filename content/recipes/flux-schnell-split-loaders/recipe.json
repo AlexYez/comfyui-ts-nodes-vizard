@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.flux-schnell-split-loaders",
+  "locale": "ru",
+  "title": "Раздельная загрузка Flux.1 Schnell",
+  "summary": "UNETLoader загружает Flux.1 Schnell, а DualCLIPLoader собирает CLIP-L и T5-XXL для CLIPTextEncodeFlux.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.unet-loader", "core.dual-clip-loader"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "flux1-schnell.safetensors в models/diffusion_models",
+    "clip_l.safetensors и t5xxl_fp16.safetensors в models/text_encoders",
+    "Совместимый Flux VAE и sampling-цепь"
+  ],
+  "fragment": {
+    "id": "fragment.flux-schnell-split-loaders",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, workflow and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "Official workflow templates JSON 0.1.42: flux_schnell_full_text_to_image",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "UNETLoader and DualCLIPLoader in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L979-L1061",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

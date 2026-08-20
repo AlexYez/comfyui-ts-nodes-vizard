@@ -1,0 +1,96 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-svg-node",
+  "node": {"classType": "SaveSVGNode", "pythonModule": "comfy_extras.nodes_images", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L497-L566",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "497-566"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_util/image_types.py#L1-L18",
+        "path": "comfy_api/latest/_util/image_types.py",
+        "lines": "1-18"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L276-L340",
+        "path": "folder_paths.py",
+        "lines": "276-340"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L520-L566",
+        "path": "folder_paths.py",
+        "lines": "520-566"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/server.py#L624-L659",
+        "path": "server.py",
+        "lines": "624-659"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/saveImageExtraOutput.ts#L7-L53",
+        "path": "frontend/src/extensions/core/saveImageExtraOutput.ts",
+        "lines": "7-53"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveSVGNode/en.md",
+        "assessment": "SHA-256 fa919fd197397218feb1256cfd614156fe25170df2c3d7b1f3c63b1fbdbe3925. Назначение и CDATA описаны, но соединяемый выход SVG ошибочно заменён одним результатом UI/DICT; безопасность, положение курсора и обработка нескольких совпадений регулярного выражения не раскрыты."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveSVGNode/ru.md",
+        "assessment": "SHA-256 dae083881b7ffd61a62eba29b726e071e9946565f3c8e1a07271972937ac4517. Переводит filename_prefix и приписывает выходу svg тип DICT, поэтому точное имя порта и тип взяты из /object_info."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-save-svg-census",
+        "role": "Полный обход 512 файлов JSON, 496 корневых графов и 272 подграфов: 7 точных SaveSVGNode, все в корневых графах; mode=0 у пяти и mode=4 у двух, 7 файлов и 5 разных UUID рабочих процессов."
+      },
+      {
+        "id": "api-quiver-image-to-svg",
+        "role": "Активная нода 3 получает SVG от QuiverImageToSVGNode 1 и хранит префикс svg/Quiver."
+      },
+      {
+        "id": "api-recraft-v4-1-text-to-vector",
+        "role": "Активная нода 14 получает SVG от RecraftV4TextToVectorNode 13 и хранит префикс svg/Recraft_v4.1_t2v."
+      },
+      {
+        "id": "image-video-checkpoint-svg-exact-source-probe",
+        "role": "Извлечённый через AST точный класс SaveSVGNode во временной папке проверяет имена элементов пакета, возврат того же объекта, курсор в конце потока, вставку метаданных, повторные теги svg, отсутствие тега и недопустимый UTF-8 без сетевых вызовов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "API-производители SVG из официальных графов не запускались; фрагмент оставляет SVG внешним входом.",
+    "Проверка ветви записи не является аудитом произвольного активного SVG и не доказывает его безопасность.",
+    "Параллельная файловая гонка описана по исходнику, но специально не воспроизводилась.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

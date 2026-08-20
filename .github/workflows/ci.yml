@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Validate catalog and run Python self-tests
+        run: python tools/catalog.py ci
+
+      - name: Test packaging contract
+        run: python -m unittest discover -s tests -v
+
+      - name: Type-check frontend
+        run: npm run typecheck
+
+      - name: Test frontend
+        run: npm run test -- --run
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Verify generated catalog is current
+        run: python tools/catalog.py build --check
+
+      - name: Verify required release files
+        shell: bash
+        run: |
+          test -s web/nodes-wizard.js
+          test -s web/data/catalog.json
+          test -s web/data/search-index.json
+          test -s web/README.md
+          test -s LICENSE
+          test -s LICENSE-CONTENT
+
+      - name: Verify clean generated state
+        run: git diff --exit-code

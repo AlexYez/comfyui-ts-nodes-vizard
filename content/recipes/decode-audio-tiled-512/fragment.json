@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.decode-audio-tiled-512",
+  "title": "Audio LATENT в AUDIO через tiled decoder",
+  "externalInputs": [
+    {"id": "audio_latent", "type": "LATENT", "to": "decode", "input": "samples"},
+    {"id": "audio_vae", "type": "VAE", "to": "decode", "input": "vae"}
+  ],
+  "nodes": [{"ref": "decode", "classType": "VAEDecodeAudioTiled", "role": "Декодировать latent перекрывающимися частями", "settings": {"tile_size": 512, "overlap": 64}}],
+  "connections": []
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.conditioning-concat",
+  "node": { "classType": "ConditioningConcat", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L134-L160",
+        "path": "nodes.py",
+        "lines": "134-160"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ConditioningConcat/en.md",
+        "assessment": "Документ помечен как AI-generated и даёт лишь общее описание. Он не фиксирует, что используется только первая запись conditioning_from, сцепление идёт по оси 1, а метаданные копируются только от conditioning_to. Эти факты проверены по исходнику."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 JSON-файлов, корневые nodes и definitions.subgraphs[*].nodes; вхождений ConditioningConcat нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment проверен структурно, но torch.cat не выполнялся на тензорах от закреплённой модели.",
+    "В official workflow templates JSON 0.1.42 нет ConditioningConcat; полезная downstream-топология официальным case не подтверждена.",
+    "Влияние увеличенной токенной длины на память и время не измерялось для конкретной архитектуры."
+  ],
+  "updatedAt": "2026-08-13"
+}

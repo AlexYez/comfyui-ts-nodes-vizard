@@ -1,0 +1,1 @@
+{"$schema":"../../schemas/recipe-fragment.schema.v1.json","schemaVersion":"1.0","fragmentId":"fragment.trim-text-both-sides","title":"Очистка краёв строки","externalInputs":[],"nodes":[{"ref":"trim","classType":"StringTrim","role":"Удалить пробельные символы с обоих краёв","settings":{"string":"\t  текст с внутренними  пробелами  \n","mode":"Both"}}],"connections":[]}

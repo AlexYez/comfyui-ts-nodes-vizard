@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.conditioning-multiply",
+  "node": {
+    "classType": "ConditioningMultiply",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L162-L183",
+        "path": "nodes.py",
+        "lines": "162-183"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/node_helpers.py#L9-L23",
+        "path": "node_helpers.py",
+        "lines": "9-23"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ConditioningMultiply/en.md",
+        "assessment": "Документ помечен как AI-generated. Общее назначение совпадает с исходником, но границу между масштабированием тензоров и сохранением остальных metadata статья устанавливает по реализации."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены все 512 JSON-файлов, включая definitions.subgraphs[*].nodes. ConditioningMultiply не найден; официальные widget values и соседи графа отсутствуют."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment проверен по схеме и runtime-инвентарю, но не исполнен в ComfyUI с реальным CONDITIONING.",
+    "В official workflow templates JSON 0.1.42 нода отсутствует; реальные значения multiplier и соседние ноды официальным workflow не подтверждены.",
+    "Поведение на conditioning_lyrics и других нестандартных tensor metadata проверено по исходнику только как сохранение ссылки; отдельного runtime-теста нет.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-13"
+}

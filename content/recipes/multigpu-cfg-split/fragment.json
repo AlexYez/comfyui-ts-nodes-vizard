@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.multigpu-cfg-split",
+  "title": "MODEL → primary gpu:0 → MultiGPU CFG Split на двух устройствах",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "select_model", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "select_model",
+      "classType": "SelectModelDevice",
+      "role": "Назначить primary load device; при недоступном gpu:0 сохранить исходную маршрутизацию",
+      "settings": {"device": "gpu:0"}
+    },
+    {
+      "ref": "split",
+      "classType": "MultiGPU_WorkUnits",
+      "role": "Подготовить не более двух полных экземпляров MODEL для conditioning scheduler",
+      "settings": {"max_gpus": 2}
+    }
+  ],
+  "connections": [
+    {"from": "select_model", "output": "MODEL", "to": "split", "input": "model"}
+  ]
+}

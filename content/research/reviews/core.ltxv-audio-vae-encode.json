@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-audio-vae-encode",
+  "node": {
+    "classType": "LTXVAudioVAEEncode",
+    "pythonModule": "comfy_extras.nodes_lt_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt_audio.py#L37-L57",
+        "path": "comfy_extras/nodes_lt_audio.py",
+        "lines": "37-57"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L66-L95",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "66-95"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVAudioVAEEncode/en.md",
+        "assessment": "Файл SHA-256 5515f563d16a4a36a7f2906d4a7a7daf0478b9d05203ae72a6a69182007ab454 верно показывает назначение портов, но его заявление о сохранении sample rate и audio type в LATENT не подтверждается кодом: результат содержит только samples."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVAudioVAEEncode/ru.md",
+        "assessment": "Файл SHA-256 24e420358f6f28a1f5d82c8dc1c76c9ebff861942394b30a9ca6c79d029be4e2 проверен как перевод; расхождение с фактическим samples-only результатом исправлено в статье."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "template_image_speech_to_video-and-video_ltx2_3_ia2v",
+        "role": "Во всех 512 JSON и вложенных subgraph найдено два LTXVAudioVAEEncode. Оба повторяют цепочку TrimAudioDuration(0,60) → LTXVAudioVAEEncode → SetLatentNoiseMask."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Модель-независимый probe подтверждает делегирование в VAEEncodeAudio, resample, BCT→BTC и samples-only output; LTX Audio VAE с весами не загружался.",
+    "Два официальных IA2V-графа проверены по сериализованной топологии, но полная генерация речи и видео не выполнялась.",
+    "Совместимость latent с конкретными LTX 2.x checkpoint и пределы длины зависят от модели и требуют отдельного запуска.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-14"
+}

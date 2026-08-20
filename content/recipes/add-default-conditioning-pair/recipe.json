@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.add-default-conditioning-pair",
+  "locale": "ru",
+  "title": "Добавить запасную пару условий",
+  "summary": "Помечает запасную пару ключом default и добавляет её после основной, чтобы семплер заполнил остаток обычного покрытия.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.pair-conditioning-set-default-combine"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Основная и запасная пары CONDITIONING",
+    "Понимание пространственного покрытия основных условий",
+    "Необязательная группа HOOKS для запасной пары"
+  ],
+  "fragment": {
+    "id": "fragment.add-default-conditioning-pair",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка закреплённых исходников, серверной схемы и семплера; маркировка default и формула остатка проверены на синтетических данных, полный граф не исполнялся, human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "PairConditioningSetDefaultCombine в ComfyUI 0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L173-L200",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Маркировка default и объединение HOOKS",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L773-L785",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Расчёт незакрытого покрытия в семплере",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L165-L206",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Маски, области и время условий в семплере",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L33-L116",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

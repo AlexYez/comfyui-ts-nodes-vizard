@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.load-unclip-image-conditioning",
+  "locale": "ru",
+  "title": "Разобрать unCLIP-checkpoint и добавить референс",
+  "summary": "Показывает source-derived ветвь CLIP_VISION из unCLIPCheckpointLoader через CLIPVisionEncode в unCLIPConditioning; совместимый checkpoint выбирается локально.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.unclip-checkpoint-loader", "core.clip-vision-encode", "core.unclip-conditioning"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Проверенный полный SD 2.1 unCLIP checkpoint",
+    "Внешнее IMAGE",
+    "Базовое positive CONDITIONING"
+  ],
+  "fragment": {
+    "id": "fragment.load-unclip-image-conditioning",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema review; no official 0.1.42 case, checkpoint execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "unCLIP checkpoint loading and conditioning in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L675-L688",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "SD21UnclipL and SD21UnclipH model configurations",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/supported_models.py#L137-L160",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

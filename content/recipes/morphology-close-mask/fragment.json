@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.morphology-close-mask",
+  "title": "MASK — IMAGE — close 5 × 5 — MASK и preview",
+  "externalInputs": [{"id": "source_mask", "type": "MASK", "to": "to_image", "input": "mask"}],
+  "nodes": [
+    {"ref": "to_image", "classType": "MaskToImage", "role": "Повторить MASK в трёх RGB-каналах", "settings": {}},
+    {"ref": "close", "classType": "Morphology", "role": "Закрыть тёмные отверстия меньше окна", "settings": {"operation": "close", "kernel_size": 5}},
+    {"ref": "to_mask", "classType": "ImageToMask", "role": "Вернуть идентичный красный канал в MASK", "settings": {"channel": "red"}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Показать обработанную карту как IMAGE", "settings": {}}
+  ],
+  "connections": [
+    {"from": "to_image", "output": "IMAGE", "to": "close", "input": "image"},
+    {"from": "close", "output": "IMAGE", "to": "to_mask", "input": "image"},
+    {"from": "close", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

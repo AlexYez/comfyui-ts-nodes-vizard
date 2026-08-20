@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.resize-shorter-edge-legacy", "locale": "ru",
+  "title": "Проверить старый resize по короткой стороне", "summary": "Воспроизводит deprecated ResizeImagesByShorterEdge с target 512 для ручного сравнения перед миграцией.", "body": "ru.md", "difficulty": "intermediate",
+  "articleIds": ["core.resize-images-by-shorter-edge", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Унаследованный workflow либо контрольное IMAGE"],
+  "fragment": {"id": "fragment.resize-shorter-edge-legacy", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source/runtime and synthetic resize review; full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [{"title": "ResizeImagesByShorterEdge in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L938-L965", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}]
+}

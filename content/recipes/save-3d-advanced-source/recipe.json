@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-3d-advanced-source",
+  "locale": "ru",
+  "title": "Сохранить File3D и передать viewport дальше",
+  "summary": "Source-derived fragment подключает общий File3D и живое состояние Load3D к Save3DAdvanced, оставляя префикс и viewport 1024 × 1024.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.save-3d-advanced"],
+  "requirements": [
+    "ComfyUI 0.32.0 и frontend 1.48.7",
+    "File3D в mesh-формате GLB, GLTF, FBX, OBJ, STL или USDZ",
+    "Рабочий Load3D-виджет в браузере"
+  ],
+  "fragment": {"id": "fragment.save-3d-advanced-source", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned backend/frontend/runtime/docs review and exact-source output-copy probe; official wheel has no Save3DAdvanced case, browser rendering and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Save3DAdvanced in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_save_3d.py#L409-L478",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Save3DAdvanced frontend integration 1.48.7",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d.ts#L688-L899",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

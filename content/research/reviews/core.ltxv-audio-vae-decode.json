@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-audio-vae-decode",
+  "node": {
+    "classType": "LTXVAudioVAEDecode",
+    "pythonModule": "comfy_extras.nodes_lt_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt_audio.py#L60-L90",
+        "path": "comfy_extras/nodes_lt_audio.py",
+        "lines": "60-90"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L913-L928",
+        "path": "comfy/sd.py",
+        "lines": "913-928"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVAudioVAEDecode/en.md",
+        "assessment": "Файл SHA-256 a224532f44201e533603f067a63e4832b04e6684f92315d5099fe5bf905ead11 верно указывает nested-last и output sample rate; отсутствие общей std-нормализации подтверждено отдельно по коду."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVAudioVAEDecode/ru.md",
+        "assessment": "Файл SHA-256 6b35443bb5a9b15c0abc73275a5c221f5dc26358cfda676aef0eeb5b29e44201 сверялся с английским документом и реализацией pinned ComfyUI."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-ltx-audio-decode-census",
+        "role": "Полный recursive census нашёл 21 LTXVAudioVAEDecode в subgraph 19 файлов: все получают LATENT от LTXVSeparateAVLatent и передают AUDIO в CreateVideo; 20 включены, один сохранён в mode 4."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fake-VAE probe проверяет nested-last, BTC→BCT, отсутствие std scaling, перенос на device latent и sample rate из first_stage_model; настоящие веса LTX Audio VAE не запускались.",
+    "Двадцать один официальный узел проверен как сохранённая топология, но ни один полный LTX video workflow не был исполнен.",
+    "Качество декодирования, синхронизация AUDIO с IMAGE batch и расход памяти требуют отдельной проверки на реальных checkpoint.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-14"
+}

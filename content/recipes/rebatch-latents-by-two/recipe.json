@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.rebatch-latents-by-two",
+  "locale": "ru",
+  "title": "Разбить LATENT-поток на порции по два элемента",
+  "summary": "Создаёт RebatchLatents с batch_size 2: совместимые входные пакеты идут по порядку, выходят list-порциями по два элемента и последним неполным остатком.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.rebatch-latents"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "LATENT-поток, для которого downstream поддерживает list-output",
+    "Проверенная форма noise_mask, если она присутствует"
+  ],
+  "fragment": {
+    "id": "fragment.rebatch-latents-by-two",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source/runtime and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "RebatchLatents implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_rebatch.py#L7-L108",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Pinned embedded documentation 0.5.9: RebatchLatents",
+      "url": "https://github.com/Comfy-Org/embedded-docs/blob/1d258cf6e374d60d138a2bfcd273c7e11f750ef9/comfyui_embedded_docs/docs/RebatchLatents/en.md",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

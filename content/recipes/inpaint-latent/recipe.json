@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.inpaint-latent",
+  "locale": "ru",
+  "title": "Подготовка masked latent для inpaint",
+  "summary": "Соединяет исходный IMAGE, MASK и совместимый VAE в latent с noise_mask, который можно передать в обычный KSampler.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": [
+    "core.checkpoint-loader-simple",
+    "core.ksampler",
+    "core.load-image",
+    "core.vae-encode-for-inpaint"
+  ],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Модельная цепочка, совместимая с inpaint",
+    "Изображение и проверенная маска"
+  ],
+  "fragment": {
+    "id": "fragment.inpaint-latent",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Source-level review; model-specific execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "VAEEncodeForInpaint implementation",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/nodes.py#L367-L401",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "ComfyUI inpainting workflow",
+      "url": "https://docs.comfy.org/tutorials/basic/inpaint",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.add-layer",
+  "node": {"classType": "AddLayer", "pythonModule": "comfy_extras.nodes_compositor", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_compositor.py#L98-L166", "path": "comfy_extras/nodes_compositor.py", "lines": "98-166"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_compositor.py#L552-L699", "path": "comfy_extras/nodes_compositor.py", "lines": "552-699"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/renderer/extensions/compositor/composables/useCompositorEditor.ts#L1-L48", "path": "src/renderer/extensions/compositor/composables/useCompositorEditor.ts", "lines": "1-48"}
+    ],
+    "embeddedDocs": [],
+    "workflows": []
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Embedded docs 0.5.9 has no AddLayer article and exhaustive scan of 496 official workflow graphs found no AddLayer occurrence.", "All non-default document fields, degree-to-radian conversion, two-frame expansion and single-mask repetition were executed on exact source; the full two-layer fragment and browser editor were not executed.", "The recipe is source-derived and not labeled as an official workflow.", "Human approval is pending."],
+  "updatedAt": "2026-08-13"
+}

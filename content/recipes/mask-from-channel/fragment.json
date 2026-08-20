@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.mask-from-channel",
+  "title": "Просмотреть выбранный канал как маску",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "load_mask",
+      "classType": "LoadImageMask",
+      "role": "Прочитать alpha или выбранный RGB-канал",
+      "settings": {
+        "image": "выберите файл из input",
+        "channel": "alpha"
+      }
+    },
+    {
+      "ref": "mask_to_image",
+      "classType": "MaskToImage",
+      "role": "Преобразовать MASK в видимый IMAGE без изменения полярности",
+      "settings": {}
+    },
+    {
+      "ref": "preview",
+      "classType": "PreviewImage",
+      "role": "Проверить белую и чёрную области",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "load_mask",
+      "output": "MASK",
+      "to": "mask_to_image",
+      "input": "mask"
+    },
+    {
+      "from": "mask_to_image",
+      "output": "IMAGE",
+      "to": "preview",
+      "input": "images"
+    }
+  ]
+}

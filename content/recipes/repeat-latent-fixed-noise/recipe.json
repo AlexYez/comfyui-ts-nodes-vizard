@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.repeat-latent-fixed-noise",
+  "locale": "ru",
+  "title": "Повторить LATENT и зафиксировать индекс шума",
+  "summary": "Fragment повторяет весь входной LATENT-батч четыре раза, затем назначает всем элементам итогового батча один batch_index для общего начального шума.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": [
+    "core.repeat-latent-batch",
+    "core.latent-batch-seed-behavior"
+  ],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "LATENT, совместимый с последующим sampler",
+    "Sampler подключается отдельно и предоставляет собственный seed"
+  ],
+  "fragment": {
+    "id": "fragment.repeat-latent-fixed-noise",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source/runtime and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "RepeatLatentBatch implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1301-L1326",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "LatentBatchSeedBehavior implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L289-L316",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.encode-hunyuan-dit-dual-text",
+  "title": "Два текста → HunyuanDiT CONDITIONING",
+  "externalInputs": [
+    {"id": "clip", "type": "CLIP", "to": "encode", "input": "clip"}
+  ],
+  "nodes": [
+    {
+      "ref": "encode",
+      "classType": "CLIPTextEncodeHunyuanDiT",
+      "role": "Закодировать BERT и mT5-XL отдельными потоками",
+      "settings": {
+        "bert": "small wooden boat, foggy lake, dawn",
+        "mt5xl": "A small wooden boat drifts across a quiet lake at dawn while low fog hides the distant shore."
+      }
+    }
+  ],
+  "connections": []
+}

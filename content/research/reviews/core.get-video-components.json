@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.get-video-components",
+  "node": {
+    "classType": "GetVideoComponents",
+    "pythonModule": "comfy_extras.nodes_video",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video.py#L194-L217",
+        "path": "comfy_extras/nodes_video.py",
+        "lines": "194-217"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L308-L457",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "308-457"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L59-L74",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "59-74"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/GetVideoComponents/en.md",
+        "assessment": "Четыре выхода перечислены верно, но frames описаны как отдельные изображения; не объяснены пакет IMAGE, расход памяти, альфа-канал и различие файловой и компонентной реализаций."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/GetVideoComponents/ru.md",
+        "assessment": "Перевод полностью пропускает bit_depth и не отражает ограничения файлового decoder."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON: 49 GetVideoComponents, в корневых графах — 24, в подграфах — 25; 32 файла, 27 идентификаторов workflow, режим 0 — 48, режим 4 — 1."
+      },
+      {
+        "id": "utility-seedvr2-3b-int8-upscale-video/subgraph-1970dcb4-982a-4c01-a373-4d239a3041e4/node-74",
+        "role": "images уходят на увеличение; audio, fps и bit_depth подключены к CreateVideo node 75."
+      },
+      {
+        "id": "api-vidu-video-extension#7391bf14-015f-4b3b-ae72-ff93d79479c4/node-3",
+        "role": "images идут в GetImageSize и ImageFromBatch; batch_size используется как ограничиваемый индекс для выбора последнего кадра."
+      },
+      {
+        "id": "isolated-pinned-video-io-probe",
+        "role": "Точный GetVideoComponents.execute вызван на VideoFromComponents: проверены возврат тех же объектов IMAGE/AUDIO, FLOAT fps и выбранный bit_depth без декодирования файла."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Реальный контейнер не декодировался: PyAV отсутствует в текущем окружении; файловая ветка проверена чтением source и официальными topology.",
+    "Variable-frame-rate, повреждённые пакеты, rotation metadata и несколько аудиопотоков не проверялись на наборе медиафайлов.",
+    "Fragment не сохраняет alpha и metadata и не исполнялся как полный граф.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

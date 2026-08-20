@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.lora-model-loader",
+  "node": {"classType": "LoraModelLoader", "pythonModule": "comfy_extras.nodes_train", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_train.py#L1313-L1361",
+        "path": "comfy_extras/nodes_train.py",
+        "lines": "1313-1361"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L98-L130",
+        "path": "comfy/sd.py",
+        "lines": "98-130"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L133-L229",
+        "path": "comfy/sd.py",
+        "lines": "133-229"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LoraModelLoader/en.md",
+        "assessment": "Верно описывает входы и нулевую силу; выражение loader может создать впечатление чтения файла, которого здесь нет."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LoraModelLoader/ru.md",
+        "assessment": "Перевод повторяет общее назначение, но не разделяет обычные патчи и bypass-инъекции."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-lora-model-loader-zero-census",
+        "role": "Полный обход 512 JSON, 496 корневых графов, 272 подграфов и 8120 нод не нашёл LoraModelLoader."
+      },
+      {
+        "id": "lora-model-loader-routing-probe",
+        "role": "Точный execute проверен заглушками: strength 0 сохраняет идентичность, обычная ветвь и bypass вызывают разные функции с clip=None и strength_clip=0."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Настоящие веса, сопоставление ключей и ModelPatcher не исполнялись.",
+    "Эквивалентность обычного и bypass-режима для конкретных адаптеров не оценивалась.",
+    "В официальных графах примера нет; общий рецепт основан на схеме и исходнике.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

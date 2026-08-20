@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.clip-save-export",
+  "title": "Внешний CLIP → один или несколько safetensors-файлов",
+  "externalInputs": [
+    {"id": "clip", "type": "CLIP", "to": "save", "input": "clip"}
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "CLIPSave",
+      "role": "Разделить state dict по известным prefix-группам и записать каждую непустую группу",
+      "settings": {"filename_prefix": "clip/wizard-encoder"}
+    }
+  ],
+  "connections": []
+}

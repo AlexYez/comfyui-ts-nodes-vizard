@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.stable-cascade-stage-b-conditioning",
+  "node": {
+    "classType": "StableCascade_StageB_Conditioning",
+    "pythonModule": "comfy_extras.nodes_stable_cascade",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable_cascade.py#L91-L114",
+        "path": "comfy_extras/nodes_stable_cascade.py",
+        "lines": "91-114"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L752-L769",
+        "path": "comfy/model_base.py",
+        "lines": "752-769"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/cascade/stage_b.py#L231-L245",
+        "path": "comfy/ldm/cascade/stage_b.py",
+        "lines": "231-245"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/StableCascade_StageB_Conditioning/en.md",
+        "assessment": "Общая роль prior описана верно; отсутствуют точный metadata key, shallow-copy semantics, перезапись прежнего ключа и игнорирование прочих полей LATENT."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/StableCascade_StageB_Conditioning/ru.md",
+        "assessment": "Текст передаёт назначение, но начинается со служебной фразы о переводе, переводит имена входов и без evidence обещает более согласованный результат."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "Во всех 512 JSON и 768 root/subgraph графах точных применений ноды нет."
+      },
+      {
+        "id": "comfyui-examples-f9431bb-stable-cascade-six-png-census",
+        "role": "Нода присутствует во всех шести официальных Stable Cascade PNG: Stage C KSampler идёт в stage_c, исходное positive — в conditioning, выход — в positive Stage B; negative Stage B подключён напрямую."
+      },
+      {
+        "id": "synthetic-exact-source-stable-cascade-stage-b-conditioning-probe",
+        "role": "Проба подтвердила сохранение embedding, новый верхнеуровневый metadata, общие вложенные объекты, ссылку на тот же prior, игнорирование batch_index и KeyError без samples."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Полный Stage C → Stage B fragment с настоящими checkpoint не исполнялся.",
+    "Поведение при намеренно несовместимом batch prior и Stage B noise не включено в safe probe.",
+    "Человеческое утверждение текста и воспроизводимости примера ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

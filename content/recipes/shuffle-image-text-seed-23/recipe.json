@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.shuffle-image-text-seed-23",
+  "locale": "ru",
+  "title": "Перемешать пары изображение–подпись с seed 23",
+  "summary": "ShuffleImageTextDataset с seed 23 применяет одну перестановку к спискам IMAGE и STRING и сохраняет исходные пары при равной длине входов.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.shuffle-image-text-dataset"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Списки IMAGE и STRING одинаковой длины",
+    "Проверенное соответствие элементов по исходному индексу",
+    "Выборочная проверка пар после перестановки"
+  ],
+  "fragment": {
+    "id": "fragment.shuffle-image-text-seed-23",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, full workflow census, exact paired-list execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ShuffleImageTextDataset in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1147-L1190",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

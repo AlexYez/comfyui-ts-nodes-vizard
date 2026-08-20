@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sampler-dpmpp-3m-sde",
+  "node": {"classType": "SamplerDPMPP_3M_SDE", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L396-L419",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "396-419"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L882-L951",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "882-951"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L91-L149",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "91-149"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerDPMPP_3M_SDE/en.md",
+        "assessment": "AI-generated документ верно указывает third-order multistep, eta, s_noise и CPU/GPU option, но не раскрывает разогрев 2M→3M, terminal branch и model noise_scale."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerDPMPP_3M_SDE/ru.md",
+        "assessment": "Перевод использован как вторичный обзор портов; точный смысл noise_device и число сохранённых прогнозов проверены по source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Просмотрены 512 JSON, 496 root-графов и 272 subgraphs: SamplerDPMPP_3M_SDE отсутствует полностью, поэтому official topology/widgets не заявляются."
+      },
+      {
+        "id": "official-algorithm-widget-census:dpmpp_3m_sde_gpu",
+        "role": "Algorithm name найден в двух активных KSampler: audio_stable_audio_example (50 steps, cfg 4.98, exponential) и sdxl_revision_text_prompts (26 steps, cfg 8, exponential); specialized classType не используется."
+      },
+      {
+        "id": "isolated-pinned-dpmpp-sampler-constructor-probe",
+        "role": "Exact class подтвердил CPU→dpmpp_3m_sde, GPU→dpmpp_3m_sde_gpu и передачу только eta/s_noise без исполнения модели."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "Модельные predictions, 2M/3M warm-up и Brownian tree не исполнялись на tensor/GPU.",
+    "Official bundle не содержит ни одного case этой специализированной ноды.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

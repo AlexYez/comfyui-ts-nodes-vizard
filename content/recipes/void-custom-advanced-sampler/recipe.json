@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.void-custom-advanced-sampler",
+  "locale": "ru",
+  "title": "VOID sampler → SamplerCustomAdvanced",
+  "summary": "Воспроизводит прямую связь из официального двухпроходного VOID workflow; noise, guider, sigmas и latent остаются внешними входами.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.void-sampler", "core.sampler-custom-advanced"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "VOID pass 1 или pass 2 MODEL и conditioning",
+    "RandomNoise для pass 1 либо VOIDWarpedNoiseSource для pass 2"
+  ],
+  "fragment": {"id": "fragment.void-custom-advanced-sampler", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs and official VOID topology review; exact-source numerical probe passed, VOID weights execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "VOIDSampler implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_void.py#L409-L467",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: Video Inpaint (VOID)",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

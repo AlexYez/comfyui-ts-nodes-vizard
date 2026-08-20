@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.interpolate-hook-strength",
+  "locale": "ru",
+  "title": "Ступенчато ослабить группу хуков",
+  "summary": "Создаёт пять точек ease_out от силы 1 до 0 на диапазоне 0–100% и назначает их внешней группе HOOKS.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.create-hook-keyframes-interpolated"],
+  "requirements": ["ComfyUI 0.32.0", "Внешняя группа HOOKS", "Потребитель HOOKS после фрагмента", "Проверенная схема сэмплирования"],
+  "fragment": {"id": "fragment.interpolate-hook-strength", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная проверка исходника, четырёх режимов, `/object_info` и соединений; модель и полный граф не запускались, редактор пока не проверил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "CreateHookKeyframesInterpolated в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L501-L547",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "InterpolationMethod в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L540-L567",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

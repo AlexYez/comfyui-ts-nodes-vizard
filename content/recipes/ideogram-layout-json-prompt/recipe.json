@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ideogram-layout-json-prompt",
+  "locale": "ru",
+  "title": "Разметить обложку и проверить JSON-промпт Ideogram",
+  "summary": "Повторяет проверенную часть официального примера: пять рамок CreateBoundingBoxes становятся структурированным словарём и выводятся через PreviewAny без API-вызова.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.create-bounding-boxes", "core.build-json-prompt-ideogram"],
+  "requirements": ["ComfyUI 0.32.0", "Клиентская часть 1.48.7 для интерактивного редактора рамок"],
+  "fragment": {
+    "id": "fragment.ideogram-layout-json-prompt",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка всех пяти нод, четырёх связей и значений официального api_ideogram_p_image_t2i; безопасный фрагмент точно сопоставлен с тремя локальными нодами, серверные функции выполнены без API, полный граф не запускался; утверждение человеком ещё не пройдено (human approval pending)",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Официальный граф api_ideogram_p_image_t2i в пакете 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "CreateBoundingBoxes в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_bounding_boxes.py#L308-L369",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "BuildJsonPromptIdeogram в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_json_prompt.py#L7-L67",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

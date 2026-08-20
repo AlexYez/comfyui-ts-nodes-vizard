@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.perp-neg-custom-sampling",
+  "title": "Perp-Neg с cfg 8 и neg_scale 1",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "guider", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "guider", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "guider", "input": "negative"},
+    {"id": "empty-conditioning", "type": "CONDITIONING", "to": "guider", "input": "empty_conditioning"},
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "sampler", "type": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {"ref": "guider", "classType": "PerpNegGuider", "role": "Вычислить perpendicular negative guidance", "settings": {"cfg": 8.0, "neg_scale": 1.0}},
+    {"ref": "sample", "classType": "SamplerCustomAdvanced", "role": "Выполнить sampling с готовым GUIDER", "settings": {}}
+  ],
+  "connections": [
+    {"from": "guider", "output": "GUIDER", "to": "sample", "input": "guider"}
+  ]
+}

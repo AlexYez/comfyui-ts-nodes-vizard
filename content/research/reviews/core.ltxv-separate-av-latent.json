@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-separate-av-latent",
+  "node": {
+    "classType": "LTXVSeparateAVLatent",
+    "pythonModule": "comfy_extras.nodes_lt",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L822-L852",
+        "path": "comfy_extras/nodes_lt.py",
+        "lines": "822-852"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/nested_tensor.py#L3-L40",
+        "path": "comfy/nested_tensor.py",
+        "lines": "3-40"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVSeparateAVLatent/en.md",
+        "assessment": "SHA-256 323dc3dc34a5559e20ecc53f0e1d05dd1475c59c0b175e3f6afc935d06cc0ff1. Назначение и два выхода указаны, но штатные video/audio streams ошибочно названы первыми элементами batch dimension."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVSeparateAVLatent/ru.md",
+        "assessment": "SHA-256 b53f9b5bbc73b08c02b6570f6de3e3a188b815efccbfd42faa83dc26a8ccb3d3. Перевод повторяет batch-axis misconception; source подтверждает NestedTensor.unbind и shallow-copy behavior."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-ltxv-separate-census",
+        "role": "Полный census нашёл 37 нод в 19 файлах, все subgraph: 35 получают LATENT от SamplerCustomAdvanced, две — от KSampler; mode 0 — 35, mode 4 — 2."
+      },
+      {
+        "id": "video-ltx2-3-id-lora-two-stage-separate",
+        "role": "Проверены Separate 309 после первого sampler и Separate 311 после второго: audio ветвится в повторный Concat либо LTXVAudioVAEDecode, video — в отдельные стадии."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Tensor probe проверяет exact class с synthetic NestedTensor и масками; полная модель не запускалась.",
+    "Поведение с дополнительными третьим и последующими потоками отмечено по коду, но такой официальный workflow не найден.",
+    "Человеческое утверждение статьи и рецепта ещё не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

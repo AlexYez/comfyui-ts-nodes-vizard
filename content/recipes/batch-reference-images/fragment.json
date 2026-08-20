@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.batch-reference-images",
+  "title": "Три IMAGE — упорядоченный reference-бэтч — preview",
+  "externalInputs": [
+    {"id": "scene", "type": "IMAGE", "to": "batch", "input": "images.image0"},
+    {"id": "replacement", "type": "IMAGE", "to": "batch", "input": "images.image1"},
+    {"id": "character", "type": "IMAGE", "to": "batch", "input": "images.image2"}
+  ],
+  "nodes": [
+    {"ref": "batch", "classType": "BatchImagesNode", "role": "Собрать три источника в заданном порядке", "settings": {}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Показать элементы полученного IMAGE-бэтча", "settings": {}}
+  ],
+  "connections": [
+    {"from": "batch", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

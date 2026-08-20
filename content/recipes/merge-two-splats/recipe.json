@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.merge-two-splats",
+  "locale": "ru",
+  "title": "Объединить два SPLAT и проверить число гауссов",
+  "summary": "Два внешних SPLAT подключаются к первым автоматически растущим портам MergeSplat; GetSplatCount считает реальные гауссы, а выходной PreviewAny показывает результат.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.merge-splat"],
+  "requirements": ["ComfyUI 0.32.0", "Два SPLAT с одинаковым размером пакета"],
+  "fragment": {"id": "fragment.merge-two-splats", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка зафиксированных runtime, исходника и полного обхода официальных графов; точная функция объединения проверена на тензорах. Полный рендер не исполнялся, ручная редакторская проверка не выполнена",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "MergeSplat в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L1169-L1238",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "GetSplatCount в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L1145-L1166",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

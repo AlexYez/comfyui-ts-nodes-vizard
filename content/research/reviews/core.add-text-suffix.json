@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.add-text-suffix",
+  "node": {"classType": "AddTextSuffix", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L777-L932",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "777-932"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1509-L1521",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1509-1521"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L39-L59",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "39-59"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L243-L341",
+        "path": "execution.py",
+        "lines": "243-341"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/AddTextSuffix/en.md",
+        "assessment": "Case-sensitive lookup found the exact AI-generated member. EN records deprecation and Concatenate Text, but renames texts to text, calls required suffix optional, and omits the runtime deprecated conflict and nested output. Raw SHA-256: 5befc41a0da3a0aea928a4530675580ed39eb5e1fd9cd938212ef9e048dfe237."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/AddTextSuffix/ru.md",
+        "assessment": "Case-sensitive lookup found the exact member. RU omits deprecation, substitutes text for exact texts and translates suffix as an identifier; it does not describe required/default semantics, experimental status or the output wrapper. Raw SHA-256: fd3acfade5119a7fa4256f9f1ebdda2b9c0557989dae04c73165513b30eb06fa."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-case-sensitive-root-subgraph-scan",
+        "role": "Проверены 512 JSON, 496 root workflows, 4083 root nodes, 272 subgraphs и 4037 subgraph nodes; AddTextSuffix отсутствует и в сыром тексте, и среди точных значений node.type."
+      },
+      {
+        "id": "isolated-pinned-dataset-text-affix-merge-probe",
+        "role": "Точный класс подтвердил text + suffix, пустой суффикс, разворачивание одноэлементного параметра, совпадение со StringConcatenate и вложенный выходной контракт runtime."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-примера нет; фрагмент, построенный по исходнику с suffix = [draft], не импортировался и не выполнялся на canvas.",
+    "Node Replacement API не связывает AddTextSuffix со StringConcatenate, хотя исходник называет Concatenate Text преемником.",
+    "Живое интерфейсное поведение deprecated-конфликта и вложенного выхода требует человеческой проверки.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

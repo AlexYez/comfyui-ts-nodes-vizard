@@ -1,0 +1,6 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.wan-context-window-81-frames", "title": "Окно Wan на 81 кадр",
+  "externalInputs": [{"id": "model", "type": "MODEL", "to": "context", "input": "model"}],
+  "nodes": [{"ref": "context", "classType": "WanContextWindowsManual", "role": "Применить исходные настройки Wan и удержать первый I2V-кадр", "settings": {"context_length": 81, "context_overlap": 30, "context_schedule": "standard_uniform", "context_stride": 1, "closed_loop": false, "fuse_method": "pyramid", "freenoise": true, "retain_first_frame": true, "split_conds_to_windows": false}}],
+  "connections": []
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.load-training-dataset-basic",
+  "locale": "ru",
+  "title": "Выбрать ранее сохранённый набор",
+  "summary": "Однонодовый fragment оставляет явный placeholder SELECT_SAVED_DATASET: перед запуском пользователь должен выбрать проверенный локальный каталог из динамического COMBO.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.load-training-dataset"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Проверенный локальный каталог внутри datasets",
+    "Ручной выбор реального значения вместо SELECT_SAVED_DATASET",
+    "Проверка числа LATENT и CONDITIONING после загрузки"
+  ],
+  "fragment": {
+    "id": "fragment.load-training-dataset-basic",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, full workflow census, isolated temporary-directory execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "LoadTrainingDataset in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L2034-L2103",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

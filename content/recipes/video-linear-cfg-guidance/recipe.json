@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.video-linear-cfg-guidance",
+  "locale": "ru",
+  "title": "Линейный CFG перед KSampler",
+  "summary": "VideoLinearCFGGuidance задаёт min_cfg 1, а KSampler доводит линейную покадровую шкалу до cfg 2,5.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.video-linear-cfg-guidance"],
+  "requirements": ["ComfyUI 0.32.0", "Video MODEL с кадрами по batch-оси", "Совместимые positive, negative и LATENT"],
+  "fragment": {"id": "fragment.video-linear-cfg-guidance", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema and official SVD topology review; graph execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "VideoLinearCFGGuidance in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video_model.py#L59-L81",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates 0.1.42: txt_to_image_to_video",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-gaussian-splat",
+  "node": {"classType": "SaveGaussianSplat", "pythonModule": "comfy_extras.nodes_save_3d", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_save_3d.py#L409-L521",
+        "path": "comfy_extras/nodes_save_3d.py",
+        "lines": "409-521"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3dPreviewExtensions.ts#L25-L250",
+        "path": "frontend/src/extensions/core/load3dPreviewExtensions.ts",
+        "lines": "25-250"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d/SplatModelAdapter.ts#L1-L77",
+        "path": "frontend/src/extensions/core/load3d/SplatModelAdapter.ts",
+        "lines": "1-77"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveGaussianSplat/en.md",
+        "assessment": "Внутри служебной Markdown-обёртки верно перечисляет formats и outputs; не раскрывает отсутствие conversion и byte validation."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveGaussianSplat/ru.md",
+        "assessment": "Корректно называет splat family и viewport fields; статья уточняет File3D copy, PLY routing и optional precedence."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и 768 root/subgraph graphs SaveGaussianSplat встречается 0 раз; fragment source-derived."
+      },
+      {
+        "id": "neighboring-official-triposplat-spz-saveglb-case",
+        "role": "Official wheel содержит SplatToFile3D(spz) to SaveGLB, но не SaveGaussianSplat; этот сосед не объявлен exact case."
+      },
+      {
+        "id": "synthetic-exact-source-save-gaussian-splat-probe",
+        "role": "Exact backend class подтвердил byte-preserving SPZ output, format extension, viewport fallback, object identity, dimensions и PreviewUI3DAdvanced result."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official wheel 0.1.42 не содержит SaveGaussianSplat; fragment source-derived и не является full workflow.",
+    "Probe проверил сохранение метаданных формата и байтов, но не валидный real SPZ render; форматный round-trip исследован отдельно в SplatToFile3D batch.",
+    "PLY/SPLAT/SPZ/KSPLAT browser rendering на разных GPU и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-14"
+}

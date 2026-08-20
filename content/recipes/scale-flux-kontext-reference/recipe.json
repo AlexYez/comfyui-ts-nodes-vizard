@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.scale-flux-kontext-reference", "locale": "ru",
+  "title": "Flux Kontext reference scale → VAE encode", "summary": "Выбирает reference resolution по aspect ratio, выполняет Lanczos center crop и кодирует результат совместимым VAE.", "body": "ru.md", "difficulty": "intermediate",
+  "articleIds": ["core.flux-kontext-image-scale", "core.vae-encode"], "requirements": ["ComfyUI 0.32.0", "reference IMAGE", "совместимый VAE"],
+  "fragment": {"id": "fragment.scale-flux-kontext-reference", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact official Flux Kontext scale-to-VAE topology, runtime type validation, source review and Russian editorial pass; VAE weights and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "FluxKontextImageScale in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_flux.py#L105-L150", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}, {"title": "Official Flux Kontext template", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/flux_kontext_dev_basic.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.clip-text-encode-sd3-source",
+  "title": "SD3 CLIP → три текста → CONDITIONING",
+  "externalInputs": [
+    {"id": "clip", "type": "CLIP", "to": "encode", "input": "clip"}
+  ],
+  "nodes": [
+    {
+      "ref": "encode",
+      "classType": "CLIPTextEncodeSD3",
+      "role": "Токенизировать CLIP-L, CLIP-G и T5-XXL отдельно",
+      "settings": {
+        "clip_l": "a glass sphere on a wooden table",
+        "clip_g": "a glass sphere on a wooden table",
+        "t5xxl": "a transparent glass sphere resting on a wooden table in soft window light",
+        "empty_padding": "none"
+      }
+    }
+  ],
+  "connections": []
+}

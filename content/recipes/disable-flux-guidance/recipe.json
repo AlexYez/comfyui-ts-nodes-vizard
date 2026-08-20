@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.disable-flux-guidance", "locale": "ru",
+  "title": "Установить Flux guidance в None", "summary": "Явно удаляет числовой guidance embed из CONDITIONING, сохраняя tensor и остальные metadata.", "body": "ru.md", "difficulty": "advanced",
+  "articleIds": ["core.flux-disable-guidance"], "requirements": ["ComfyUI 0.32.0", "CONDITIONING для модели, поддерживающей отсутствие guidance embed"],
+  "fragment": {"id": "fragment.disable-flux-guidance", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source-derived contract, runtime type validation, zero official occurrence census and Russian editorial pass; model sampling and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "FluxDisableGuidance in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_flux.py#L82-L102", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

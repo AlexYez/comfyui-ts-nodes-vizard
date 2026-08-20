@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.video-random-temporal-crop-16-seed-7",
+  "title": "VideoRandomTemporalCrop: 16 кадров, seed 7",
+  "externalInputs": [
+    {"id": "video", "type": "VIDEO", "to": "crop", "input": "video"}
+  ],
+  "nodes": [
+    {
+      "ref": "crop",
+      "classType": "VideoRandomTemporalCrop",
+      "role": "Выбрать случайное непрерывное окно до 16 кадров",
+      "settings": {"length": 16, "seed": 7}
+    }
+  ],
+  "connections": []
+}

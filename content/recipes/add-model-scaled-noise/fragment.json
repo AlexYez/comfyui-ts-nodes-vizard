@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.add-model-scaled-noise",
+  "title": "RandomNoise + MODEL + SIGMAS + LATENT → AddNoise",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "add_noise", "input": "model"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "add_noise", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "add_noise", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "noise",
+      "classType": "RandomNoise",
+      "role": "Создать воспроизводимый NOISE-объект",
+      "settings": {"noise_seed": 42}
+    },
+    {
+      "ref": "add_noise",
+      "classType": "AddNoise",
+      "role": "Применить шум через model-specific noise_scaling",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "noise", "output": "NOISE", "to": "add_noise", "input": "noise"}
+  ]
+}
+

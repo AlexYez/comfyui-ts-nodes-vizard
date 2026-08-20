@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.empty-latent-hunyuan3d-v2",
+  "node": {"classType": "EmptyLatentHunyuan3Dv2", "pythonModule": "comfy_extras.nodes_hunyuan3d", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan3d.py#L10-L30", "path": "comfy_extras/nodes_hunyuan3d.py", "lines": "10-30"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/latent_formats.py#L932-L945", "path": "comfy/latent_formats.py", "lines": "932-945"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/EmptyLatentHunyuan3Dv2/en.md", "assessment": "Назначение и диапазоны верны, но текст называет результат latent images и не фиксирует точную форму B×64×resolution либо маркер type."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/EmptyLatentHunyuan3Dv2/ru.md", "assessment": "Это буквальный AI-перевод с изменёнными runtime-именами входов; точные имена и форма восстановлены по исходнику и /object_info."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-census", "role": "Побайтно закреплён wheel 242982d6…; просмотрены 512 JSON, 496 root и 768 root/subgraph графов."},
+      {"id": "3d_hunyuan3d-v2.1", "role": "Нода 4, widgets [4096,1], mode 0, единственная связь LATENT → KSampler.latent_image; KSampler [30,5,euler,normal,1]."},
+      {"id": "3d_hunyuan3d_image_to_model", "role": "Нода 66, widgets [3072,1], mode 0, LATENT → KSampler [20,8,euler,normal,1]."},
+      {"id": "3d_hunyuan3d_multiview_to_model", "role": "Нода 66, widgets [3072,1], mode 0, LATENT → KSampler [20,7.5,euler,normal,1]."},
+      {"id": "3d_hunyuan3d_multiview_to_model_turbo", "role": "Нода 66, widgets [3072,1], mode 0, LATENT → KSampler [20,4,euler,normal,1]."},
+      {"id": "synthetic-exact-source-empty-hunyuan3dv2", "role": "Точный execute(7,2) дал нули [2,64,7], CPU float32 и только keys samples/type; type=hunyuan3dv2. По формуле проверены 0.75 MiB при 3072×1 и 8 GiB на максимуме схемы."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Семплирование с реальными весами Hunyuan3D v2 и оба приложенных фрагмента не выполнялись.",
+    "Пиковая память крайних resolution/batch не измерялась; 8 GiB — точный размер только нулевого float32-тензора по формуле.",
+    "Человеческое утверждение статьи и рецептов ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

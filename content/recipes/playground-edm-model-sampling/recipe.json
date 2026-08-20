@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.playground-edm-model-sampling",
+  "locale": "ru",
+  "title": "Playground 2.5: EDM sampling и latent format",
+  "summary": "ModelSamplingContinuousEDM в режиме edm_playground_v2.5 с официальными границами 80/0,002 перед BasicScheduler.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-sampling-continuous-edm", "core.basic-scheduler"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "SDXL Playground 2.5 checkpoint, а не обычная SDXL-модель",
+    "VAE и latent pipeline, совместимые с SDXL_Playground_2_5",
+    "Один patched MODEL для scheduler и guider"
+  ],
+  "fragment": {"id": "fragment.playground-edm-model-sampling", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime and supported-model detection review, exhaustive official workflow absence census, exact class/tensor probe and Russian editorial pass; real Playground execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelSamplingContinuousEDM in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L197-L240",
+      "publisher": "Comfy-Org", "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "SDXL Playground 2.5 detection in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/supported_models.py#L211-L232",
+      "publisher": "Comfy-Org", "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.strip-whitespace-basic",
+  "title": "StripWhitespace для одной строки",
+  "externalInputs": [
+    {"id": "texts", "type": "STRING", "to": "strip", "input": "texts"}
+  ],
+  "nodes": [
+    {
+      "ref": "strip",
+      "classType": "StripWhitespace",
+      "role": "Удалить Python-whitespace только с двух краёв строки",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

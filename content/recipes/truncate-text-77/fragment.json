@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.truncate-text-77",
+  "title": "TruncateText с пределом 77",
+  "externalInputs": [
+    {"id": "texts", "type": "STRING", "to": "truncate", "input": "texts"}
+  ],
+  "nodes": [
+    {
+      "ref": "truncate",
+      "classType": "TruncateText",
+      "role": "Оставить первые 77 кодовых точек строки",
+      "settings": {"max_length": 77}
+    }
+  ],
+  "connections": []
+}

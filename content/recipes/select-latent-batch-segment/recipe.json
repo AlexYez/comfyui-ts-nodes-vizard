@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.select-latent-batch-segment",
+  "locale": "ru",
+  "title": "Выбрать последний элемент LATENT-батча",
+  "summary": "Fragment принимает внешний LATENT и возвращает его последний batch-элемент через LatentFromBatch с batch_index = -1 и length = 1.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.latent-from-batch"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Непустой LATENT-батч"
+  ],
+  "fragment": {
+    "id": "fragment.select-latent-batch-segment",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source/runtime and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "LatentFromBatch implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1265-L1299",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.dual-cfg-regular-guidance",
+  "locale": "ru",
+  "title": "Dual CFG regular: шкалы 5 и 2",
+  "summary": "Три внешних CONDITIONING входят в DualCFGGuider с cfg_conds 5, cfg_cond2_negative 2 и style regular, как в HiDream и OmniGen templates.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.dual-cfg-guider"],
+  "requirements": ["ComfyUI 0.32.0", "MODEL и три CONDITIONING с ролями cond1, cond2, negative", "NOISE, SAMPLER, SIGMAS и LATENT"],
+  "fragment": {"id": "fragment.dual-cfg-regular-guidance", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema and official HiDream/OmniGen topology review; model execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "DualCFGGuider in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L856-L912",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: hidream_e1_full and image_omnigen2_image_edit",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

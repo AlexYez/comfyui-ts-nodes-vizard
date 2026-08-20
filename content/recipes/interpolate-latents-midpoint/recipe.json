@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.interpolate-latents-midpoint",
+  "locale": "ru",
+  "title": "Смешать два одиночных LATENT при ratio 0,5",
+  "summary": "Создаёт LatentInterpolate для двух batch-1 LATENT и смешивает нормализованное направление с величиной; ratio 0,5 задаёт равные веса обоих входов.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.latent-interpolate"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Два LATENT из совместимого пространства, каждый с batch-размером 1",
+    "Проверка metadata первого входа и противоположных или нулевых векторов"
+  ],
+  "fragment": {"id": "fragment.interpolate-latents-midpoint", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs discrepancy and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "LatentInterpolate implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_latent.py#L97-L134",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Pinned embedded documentation 0.5.9: LatentInterpolate",
+      "url": "https://github.com/Comfy-Org/embedded-docs/blob/1d258cf6e374d60d138a2bfcd273c7e11f750ef9/comfyui_embedded_docs/docs/LatentInterpolate/en.md",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

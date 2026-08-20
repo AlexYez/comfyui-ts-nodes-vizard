@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.clip-loader",
+  "node": { "classType": "CLIPLoader", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1004-L1030",
+        "path": "nodes.py",
+        "lines": "1004-1030"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1470-L1524",
+        "path": "comfy/sd.py",
+        "lines": "1470-1524"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L28-L34",
+        "path": "folder_paths.py",
+        "lines": "28-34"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "audio_stable_audio_example",
+        "role": "Root node № 10 loads t5-base.safetensors as stable_audio/default and connects its CLIP output to positive and empty negative CLIPTextEncode."
+      },
+      {
+        "id": "video_wan_vace_14B_t2v",
+        "role": "Active root node № 110 loads umt5_xxl_fp16.safetensors as wan/default and feeds LoraLoader № 107."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Pinned embedded docs 0.5.9 contains no CLIPLoader article; all technical claims were derived from exact source, runtime and official workflows.",
+    "The exhaustive wheel census found 176 instances in 134 files, but model weights were not downloaded and no encoder was executed."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.differential-diffusion",
+  "node": {"classType": "DifferentialDiffusion", "pythonModule": "comfy_extras.nodes_differential_diffusion", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_differential_diffusion.py#L9-L61",
+        "path": "comfy_extras/nodes_differential_diffusion.py",
+        "lines": "9-61"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L630-L643",
+        "path": "comfy/samplers.py",
+        "lines": "630-643"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L646-L659",
+        "path": "comfy/model_patcher.py",
+        "lines": "646-659"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/DifferentialDiffusion/en.md",
+        "assessment": "SHA-256 478a845a8e4287c6978b003b6b5ea40928235cd1fefdfff785e6f482a877f507; basic threshold description is sound but strength=0 discontinuity is omitted."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/DifferentialDiffusion/ru.md",
+        "assessment": "SHA-256 50527761228607b65645a3810b18442996c0dd15e9a258c4bfb448ce8c41dff0; repeats the omission, translates runtime port names and includes a translation-template artifact."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "All 512 JSON, 496 root graphs and 272 subgraphs inspected: four DifferentialDiffusion nodes in three files, one root and three subgraph, all mode 0 and widgets [1]."
+      },
+      {
+        "id": "aff23af9-e8f4-41f8-8e4c-0854e355b753",
+        "role": "Flux.1 Outpaint: UNETLoader #31 → DifferentialDiffusion #39 [1] → KSampler #3 [random seed, 20, cfg 1, euler, normal, 1]."
+      },
+      {
+        "id": "551d82b0-b1fb-483a-a5ea-564bdb813625:42bcb419-1e9f-48eb-a6d6-c22e0625db3a",
+        "role": "Flux.1 Inpaint subgraph has the same local model chain with strength 1 and KSampler 20/cfg 1/euler/normal/denoise 1."
+      },
+      {
+        "id": "e7c6bb1e-fcbe-44c9-a614-9d1972a25fb8:cb0eaf1c-704f-477d-8893-79665db14ed1:b8560576-5524-4495-baa5-2cb40da12e9e",
+        "role": "OneReward inpaint and outpaint subgraphs each place DifferentialDiffusion strength 1 directly before KSampler."
+      },
+      {
+        "id": "isolated-pinned-skip-layer-differential-probe",
+        "role": "Exact-source tensor probe covers thresholds, inclusive comparison, midpoint blending, strength 0/1 binary branch and mask-function overwrite without weights."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "Flux Fill and OneReward weights, visual mask progression and scheduler-dependent edge cases were not executed.",
+    "Official templates were inspected as serialized JSON, not verified generation runs.",
+    "Human editorial approval pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

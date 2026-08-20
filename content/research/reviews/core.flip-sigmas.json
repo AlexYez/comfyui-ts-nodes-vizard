@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.flip-sigmas",
+  "node": {"classType": "FlipSigmas", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L254-L274",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "254-274"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/FlipSigmas/en.md",
+        "assessment": "Упоминает разворот и ненулевой старт, но не называет 0.0001, не описывает empty/singleton behavior и без источника объявляет операцию необходимой для reverse generation."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/FlipSigmas/ru.md",
+        "assessment": "Повторяет общее назначение и усиленную рекомендацию; точные границы и отсутствие официальных cases добавлены по source и census."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON, 496 root-графов и все definitions.subgraphs[*].nodes; FlipSigmas не найден."
+      },
+      {
+        "id": "synthetic-exact-source-flip-sigmas",
+        "role": "AST-extracted execute подтвердил [4,2,0] → [0.0001,2,4], неизменность входа, сохранение float64, empty identity и singleton zero → 0.0001."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальной sampler-топологии FlipSigmas в пакете 0.1.42 нет; fragment является source-derived диагностикой.",
+    "Probe не запускал ни один sampler с возрастающим расписанием и не подтверждает совместимость конкретных алгоритмов.",
+    "Практическая задача reverse schedule и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

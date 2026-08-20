@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.crop-mask-preview", "locale": "ru",
+  "title": "Обрезать маску и проверить фактическую область", "summary": "Вырезает из внешней MASK прямоугольник 256 × 256 с отступом 64 пикселя и показывает его как IMAGE.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.crop-mask", "core.mask-to-image"], "requirements": ["ComfyUI 0.32.0 или совместимая версия", "MASK размером не меньше 320 × 320 для полного результата"],
+  "fragment": {"id": "fragment.crop-mask-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Source and schema review; mask execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [{"title": "CropMask implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_mask.py#L225-L251", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}]
+}

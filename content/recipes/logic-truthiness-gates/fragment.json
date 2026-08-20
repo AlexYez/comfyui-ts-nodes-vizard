@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.logic-truthiness-gates", "title": "Пустая строка, ready и 0 через NOT/AND/OR",
+  "externalInputs": [],
+  "nodes": [
+    {"ref": "empty", "classType": "PrimitiveString", "role": "Falsy пустая строка", "settings": {"value": ""}},
+    {"ref": "ready", "classType": "PrimitiveString", "role": "Truthy непустая строка", "settings": {"value": "ready"}},
+    {"ref": "zero", "classType": "PrimitiveInt", "role": "Falsy целочисленный ноль", "settings": {"value": 0}},
+    {"ref": "not_empty", "classType": "ComfyNotNode", "role": "Инвертировать пустую строку в true", "settings": {}},
+    {"ref": "all_ready", "classType": "ComfyAndNode", "role": "Проверить два truthy-значения", "settings": {}},
+    {"ref": "any_false", "classType": "ComfyOrNode", "role": "Проверить два falsy-значения", "settings": {}}
+  ],
+  "connections": [
+    {"from": "empty", "output": "STRING", "to": "not_empty", "input": "value"},
+    {"from": "ready", "output": "STRING", "to": "all_ready", "input": "values.value0"},
+    {"from": "not_empty", "output": "BOOLEAN", "to": "all_ready", "input": "values.value1"},
+    {"from": "empty", "output": "STRING", "to": "any_false", "input": "values.value0"},
+    {"from": "zero", "output": "INT", "to": "any_false", "input": "values.value1"}
+  ]
+}

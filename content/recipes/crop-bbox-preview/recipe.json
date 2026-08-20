@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.crop-bbox-preview", "locale": "ru",
+  "title": "Вырезать область по bounding box с полями", "summary": "PrimitiveBoundingBox задаёт область 512 × 512, CropByBBoxes добавляет по 32 пикселя вокруг неё и вписывает crop в квадрат 512 × 512 без растяжения.", "body": "ru.md", "difficulty": "intermediate",
+  "articleIds": ["core.crop-by-bboxes", "core.primitive-bounding-box", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Входной IMAGE", "Bounding box в координатах исходного изображения"],
+  "fragment": {"id": "fragment.crop-bbox-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source/runtime and Russian editorial review; no official case, full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "CropByBBoxes implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sdpose.py#L672-L770", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"},
+    {"title": "PrimitiveBoundingBox implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L93-L124", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.render-splat-official-turntable", "locale": "ru",
+  "title": "Официальный Gaussian Splat turntable на 75 кадров", "summary": "Orbit-камера 35°/30°/2,5 подключается к RenderSplat 1024² на 75 кадров; топология и widgets взяты из TripoSplat workflow 0.1.42.", "body": "ru.md", "difficulty": "intermediate",
+  "articleIds": ["core.render-splat", "core.create-camera-info"], "requirements": ["ComfyUI 0.32.0", "Внешний SPLAT", "Достаточно памяти для 75 кадров 1024 × 1024"],
+  "fragment": {"id": "fragment.render-splat-official-turntable", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated pinned official workflow topology/widgets and runtime schema review; full TripoSplat generation/render and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "Official 3d_triposplat_image_to_gaussian_splat workflow in 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

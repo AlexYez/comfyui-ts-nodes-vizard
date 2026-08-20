@@ -1,0 +1,361 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nodes-wizard.local/schemas/compiled-catalog.schema.v1.json",
+  "title": "TS Nodes Wizard compiled catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "catalogVersion", "locale", "generatedAt", "articles"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "catalogVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "locale": { "type": "string", "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "articles": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/article" }
+    }
+  },
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "article": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manifest", "title", "summary", "tags", "concepts", "body"],
+      "properties": {
+        "manifest": { "$ref": "#/$defs/manifest" },
+        "title": { "type": "string", "minLength": 3 },
+        "summary": { "type": "string", "minLength": 20, "maxLength": 360 },
+        "tags": { "$ref": "#/$defs/stringArray" },
+        "concepts": { "$ref": "#/$defs/stringArray" },
+        "body": { "type": "string", "minLength": 1 },
+        "recipeData": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/recipe" }
+        },
+        "workflowData": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/workflow" }
+        }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "articleId", "kind", "locale", "node", "runtimeIdentity", "status", "experimental",
+        "compatibility", "relations", "recipes", "workflows", "sources", "editorialState",
+        "editorial", "searchAliases", "assets"
+      ],
+      "properties": {
+        "articleId": { "type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$" },
+        "kind": { "enum": ["core", "custom", "virtual", "concept"] },
+        "locale": { "type": "string", "minLength": 2 },
+        "node": { "$ref": "#/$defs/nodeIdentity" },
+        "runtimeIdentity": { "$ref": "#/$defs/runtimeIdentity" },
+        "status": { "enum": ["active", "deprecated", "experimental", "stale", "removed", "draft"] },
+        "experimental": { "type": "boolean" },
+        "compatibility": { "$ref": "#/$defs/compatibility" },
+        "relations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/relation" }
+        },
+        "recipes": { "$ref": "#/$defs/stringArray" },
+        "workflows": { "$ref": "#/$defs/stringArray" },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/articleSource" }
+        },
+        "editorialState": { "enum": ["draft", "in_review", "approved"] },
+        "editorial": { "$ref": "#/$defs/editorial" },
+        "searchAliases": { "$ref": "#/$defs/stringArray" },
+        "assets": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/asset" }
+        }
+      }
+    },
+    "nodeIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packageId", "pythonModule", "nodeId", "kind"],
+      "properties": {
+        "packageId": { "type": ["string", "null"] },
+        "pythonModule": { "type": ["string", "null"] },
+        "nodeId": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["backend", "frontend", "concept"] }
+      }
+    },
+    "runtimeIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classType", "origin", "aliases"],
+      "properties": {
+        "classType": { "type": "string", "minLength": 1 },
+        "pythonModule": { "type": "string", "minLength": 1 },
+        "packageId": { "type": "string", "minLength": 1 },
+        "origin": { "enum": ["backend", "frontend", "concept"] },
+        "aliases": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verifiedOn", "sourceRevision", "schemaFingerprint"],
+      "properties": {
+        "comfyui": { "type": "string" },
+        "frontend": { "type": "string" },
+        "since": { "type": "string" },
+        "until": { "type": "string" },
+        "verifiedOn": { "type": "string", "format": "date" },
+        "sourceRevision": { "type": "string", "minLength": 1 },
+        "schemaFingerprint": {
+          "type": ["string", "null"],
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "articleId"],
+      "properties": {
+        "type": { "enum": ["related", "alternative", "replacedBy"] },
+        "articleId": { "type": "string", "minLength": 1 }
+      }
+    },
+    "articleSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "title", "url", "publisher", "kind", "accessedAt", "supports"],
+      "properties": {
+        "sourceId": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 3 },
+        "url": { "type": "string", "pattern": "^https://" },
+        "publisher": { "type": "string", "minLength": 2 },
+        "kind": { "type": "string", "minLength": 1 },
+        "accessedAt": { "type": "string", "format": "date" },
+        "supports": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "editorial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "owner", "reviewedBy", "reviewedAt", "factsReviewedAt"],
+      "properties": {
+        "state": { "enum": ["draft", "in_review", "approved"] },
+        "owner": { "type": "string", "minLength": 2 },
+        "reviewedBy": { "type": "string", "minLength": 2 },
+        "reviewedAt": { "type": "string", "format": "date" },
+        "factsReviewedAt": { "type": "string", "format": "date" },
+        "schemaHash": {
+          "type": ["string", "null"],
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id", "label"],
+      "properties": {
+        "type": { "enum": ["recipe", "workflow", "image", "file"] },
+        "id": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 }
+      }
+    },
+    "recipe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema", "schemaVersion", "recipeId", "locale", "title", "summary", "body",
+        "difficulty", "articleIds", "requirements", "fragment", "editorial",
+        "sources", "fragmentData"
+      ],
+      "properties": {
+        "$schema": { "type": "string" },
+        "schemaVersion": { "const": "1.0" },
+        "recipeId": { "type": "string", "pattern": "^recipe\\." },
+        "locale": { "type": "string", "minLength": 2 },
+        "title": { "type": "string", "minLength": 3 },
+        "summary": { "type": "string", "minLength": 20 },
+        "body": { "type": "string", "minLength": 1 },
+        "difficulty": { "type": "string", "minLength": 1 },
+        "articleIds": { "$ref": "#/$defs/stringArray" },
+        "requirements": { "$ref": "#/$defs/stringArray" },
+        "fragment": { "$ref": "#/$defs/exampleReference" },
+        "workflow": { "$ref": "#/$defs/nullableExampleReference" },
+        "editorial": { "$ref": "#/$defs/recipeEditorial" },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/recipeSource" }
+        },
+        "fragmentData": { "$ref": "#/$defs/fragment" },
+        "workflowData": { "$ref": "#/$defs/nullableWorkflow" }
+      }
+    },
+    "exampleReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "path", "format"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "format": { "type": "string", "minLength": 1 }
+      }
+    },
+    "nullableExampleReference": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["id", "path", "format"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "format": { "type": "string", "minLength": 1 }
+      }
+    },
+    "recipeEditorial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "reviewedBy", "reviewedAt"],
+      "properties": {
+        "state": { "enum": ["draft", "in_review", "approved"] },
+        "reviewedBy": { "type": "string", "minLength": 2 },
+        "reviewedAt": { "type": "string", "format": "date" }
+      }
+    },
+    "recipeSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "url", "publisher", "accessedAt"],
+      "properties": {
+        "title": { "type": "string", "minLength": 3 },
+        "url": { "type": "string", "pattern": "^https://" },
+        "publisher": { "type": "string", "minLength": 2 },
+        "accessedAt": { "type": "string", "format": "date" }
+      }
+    },
+    "fragment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["$schema", "schemaVersion", "fragmentId", "title", "externalInputs", "nodes", "connections"],
+      "properties": {
+        "$schema": { "type": "string" },
+        "schemaVersion": { "const": "1.0" },
+        "fragmentId": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 3 },
+        "externalInputs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/fragmentExternalInput" }
+        },
+        "nodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/fragmentNode" }
+        },
+        "connections": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/fragmentConnection" }
+        }
+      }
+    },
+    "fragmentExternalInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "to", "input"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "minLength": 1 },
+        "to": { "type": "string", "minLength": 1 },
+        "input": { "type": "string", "minLength": 1 }
+      }
+    },
+    "fragmentNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ref", "classType", "role", "settings"],
+      "properties": {
+        "ref": { "type": "string", "minLength": 1 },
+        "classType": { "type": "string", "minLength": 1 },
+        "role": { "type": "string", "minLength": 1 },
+        "settings": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "fragmentConnection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "output", "to", "input"],
+      "properties": {
+        "from": { "type": "string", "minLength": 1 },
+        "output": { "type": "string", "minLength": 1 },
+        "to": { "type": "string", "minLength": 1 },
+        "input": { "type": "string", "minLength": 1 }
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["nodes", "links", "version"],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["id", "type"],
+            "properties": {
+              "id": { "type": ["integer", "string"] },
+              "type": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "minItems": 6
+          }
+        },
+        "version": { "type": ["number", "string"] }
+      }
+    },
+    "nullableWorkflow": {
+      "type": ["object", "null"],
+      "additionalProperties": true,
+      "required": ["nodes", "links", "version"],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["id", "type"],
+            "properties": {
+              "id": { "type": ["integer", "string"] },
+              "type": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "minItems": 6
+          }
+        },
+        "version": { "type": ["number", "string"] }
+      }
+    }
+  }
+}

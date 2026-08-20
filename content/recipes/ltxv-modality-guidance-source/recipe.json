@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-modality-guidance-source",
+  "locale": "ru",
+  "title": "Добавить cross-modal guidance перед LTXV Dual CFG",
+  "summary": "Source-derived fragment ставит LTXVModalityGuidance с reference default 3 перед LTXVDualCFGGuider и оставляет conditioning внешним.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-modality-guidance", "core.ltxv-dual-cfg-guider"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "LTXV-AV MODEL с video↔audio cross-attention",
+    "Positive и negative CONDITIONING для той же модели",
+    "Nested audio-video LATENT в последующей sampling-ветви"
+  ],
+  "fragment": {"id": "fragment.ltxv-modality-guidance-source", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime, exact full workflow absence census, model-free callback probe and Russian editorial pass; full LTXV-AV execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "LTXV modality guidance and dual CFG in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L994-L1120",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.mask-conversions", "title": "Сравнить исходную, инвертированную и пороговую маски",
+  "externalInputs": [{"id": "image", "type": "IMAGE", "to": "extract", "input": "image"}],
+  "nodes": [
+    {"ref": "extract", "classType": "ImageToMask", "role": "Извлечь red-канал как MASK", "settings": {"channel": "red"}},
+    {"ref": "original_image", "classType": "MaskToImage", "role": "Показать исходную полутоновую маску", "settings": {}},
+    {"ref": "original_preview", "classType": "PreviewImage", "role": "Preview исходной маски", "settings": {}},
+    {"ref": "invert", "classType": "InvertMask", "role": "Сменить полярность", "settings": {}},
+    {"ref": "invert_image", "classType": "MaskToImage", "role": "Перевести инверсию в IMAGE", "settings": {}},
+    {"ref": "invert_preview", "classType": "PreviewImage", "role": "Preview инвертированной маски", "settings": {}},
+    {"ref": "threshold", "classType": "ThresholdMask", "role": "Бинаризовать как в официальном примере", "settings": {"value": 0.41}},
+    {"ref": "threshold_image", "classType": "MaskToImage", "role": "Перевести бинарную маску в IMAGE", "settings": {}},
+    {"ref": "threshold_preview", "classType": "PreviewImage", "role": "Preview бинарной маски", "settings": {}}
+  ],
+  "connections": [
+    {"from": "extract", "output": "MASK", "to": "original_image", "input": "mask"},
+    {"from": "original_image", "output": "IMAGE", "to": "original_preview", "input": "images"},
+    {"from": "extract", "output": "MASK", "to": "invert", "input": "mask"},
+    {"from": "invert", "output": "MASK", "to": "invert_image", "input": "mask"},
+    {"from": "invert_image", "output": "IMAGE", "to": "invert_preview", "input": "images"},
+    {"from": "extract", "output": "MASK", "to": "threshold", "input": "mask"},
+    {"from": "threshold", "output": "MASK", "to": "threshold_image", "input": "mask"},
+    {"from": "threshold_image", "output": "IMAGE", "to": "threshold_preview", "input": "images"}
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-empty-image-conditioning-inplace",
+  "locale": "ru",
+  "title": "Пустой LTXV latent → стартовое изображение inplace",
+  "summary": "Создаёт официальный LTXV latent 768 × 512 на 97 кадров и записывает VAE-представление изображения в его начало с strength 0,7.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.empty-ltxv-latent-video", "core.ltxv-img-to-video-inplace"],
+  "requirements": ["ComfyUI 0.32.0", "совместимый LTXV VAE", "подготовленное IMAGE"],
+  "fragment": {"id": "fragment.ltxv-empty-image-conditioning-inplace", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact official LTX 2.3 subgraph topology, runtime type validation, source review, tensor probe and Russian editorial pass; human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [
+    {"title": "LTXV latent and inplace conditioning in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L63-L178", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"},
+    {"title": "Official LTX 2.3 image-to-video template", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_ltx2_3_i2v.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}
+  ]
+}

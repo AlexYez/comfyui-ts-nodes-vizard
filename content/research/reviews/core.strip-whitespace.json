@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.strip-whitespace",
+  "node": {"classType": "StripWhitespace", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L777-L932",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "777-932"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1540-L1549",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1540-1549"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L139-L167",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "139-167"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L243-L341",
+        "path": "execution.py",
+        "lines": "243-341"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/StripWhitespace/en.md",
+        "assessment": "Case-sensitive lookup found the exact AI-generated member. It records two-sided trimming, deprecation and Trim Text, but renames texts to text and omits broader Python whitespace examples, experimental/runtime-deprecated conflict and nested output. Raw SHA-256: 632235f3a2468828cc3098c233cdfce07368b0a3afd7dc76ea368f53a2174520."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/StripWhitespace/ru.md",
+        "assessment": "Case-sensitive lookup found the exact member. RU adds a translation preamble, drops DEPRECATED and uses text rather than exact texts; it does not mention U+00A0/U+2003 coverage, output nesting or runtime flags. Raw SHA-256: b943d0302e3292df41de3a8bae9d8cce7177b7f9473b15cc9ece279bc5b1ae2e."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-case-sensitive-root-subgraph-scan",
+        "role": "Проверены 512 JSON, 496 root workflows, 4083 root nodes, 272 subgraphs и 4037 subgraph nodes; StripWhitespace отсутствует в raw и exact type census."
+      },
+      {
+        "id": "isolated-pinned-dataset-text-affix-merge-probe",
+        "role": "Точный класс подтвердил двусторонний str.strip, сохранение внутренней табуляции, пустой результат для all-whitespace, U+00A0/U+2003, parity со StringTrim(Both) и вложенный выход."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-примера нет; фрагмент с одним внешним STRING не импортировался и не выполнялся на canvas.",
+    "Node Replacement API не связывает StripWhitespace со StringTrim, хотя исходник называет Trim Text преемником.",
+    "Живое интерфейсное поведение deprecated-конфликта и вложенного выхода требует человеческой проверки.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

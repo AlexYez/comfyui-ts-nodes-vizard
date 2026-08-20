@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.flux-dual-text-conditioning", "locale": "ru",
+  "title": "Раздельные CLIP-L и T5XXL prompts для Flux", "summary": "Кодирует короткий CLIP-L prompt и развёрнутый T5XXL prompt одной CLIPTextEncodeFlux с guidance 3,5.", "body": "ru.md", "difficulty": "intermediate",
+  "articleIds": ["core.clip-text-encode-flux"], "requirements": ["ComfyUI 0.32.0", "совместимый dual CLIP с CLIP-L и T5XXL"],
+  "fragment": {"id": "fragment.flux-dual-text-conditioning", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact official Flux Schnell node/settings topology, runtime type validation, source review and Russian editorial pass; encoder weights and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "CLIPTextEncodeFlux in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_flux.py#L11-L35", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}, {"title": "Official Flux Schnell template", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/flux_schnell_full_text_to_image.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

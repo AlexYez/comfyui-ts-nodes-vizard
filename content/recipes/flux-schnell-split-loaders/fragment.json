@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.flux-schnell-split-loaders",
+  "title": "Flux.1 Schnell: diffusion model, CLIP-L и T5-XXL",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "diffusion_model",
+      "classType": "UNETLoader",
+      "role": "Загрузить Flux.1 Schnell diffusion model",
+      "settings": {
+        "unet_name": "flux1-schnell.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "ref": "text_encoders",
+      "classType": "DualCLIPLoader",
+      "role": "Собрать CLIP-L и T5-XXL в конфигурации Flux",
+      "settings": {
+        "clip_name1": "clip_l.safetensors",
+        "clip_name2": "t5xxl_fp16.safetensors",
+        "type": "flux",
+        "device": "default"
+      }
+    },
+    {
+      "ref": "encode",
+      "classType": "CLIPTextEncodeFlux",
+      "role": "Закодировать два текстовых представления и guidance",
+      "settings": {
+        "clip_l": "маленький ретро-автомобиль среди весенних цветов",
+        "t5xxl": "небольшой ретро-автомобиль, пастельные цветы, мягкий зелёный фон",
+        "guidance": 3.5
+      }
+    }
+  ],
+  "connections": [
+    { "from": "text_encoders", "output": "CLIP", "to": "encode", "input": "clip" }
+  ]
+}

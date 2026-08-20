@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mask-composite",
+  "node": {
+    "classType": "MaskComposite",
+    "pythonModule": "comfy_extras.nodes_mask",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_mask.py#L252-L300",
+        "path": "comfy_extras/nodes_mask.py",
+        "lines": "252-300"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/MaskComposite/ru.md",
+        "assessment": "Даёт роли входов и общий смысл операций, но не перечисляет точную математику, округление мягких масок в boolean, размер выхода по destination, обрезку source, batch broadcasting и ошибку координат строго за пределами основы."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "basic_mask_operations_and_compositing",
+        "role": "Проверены семь экземпляров: три add и по одному multiply, and, or, xor; смещения 128, 256 и 512; цепочки в FeatherMask, MaskPreview и следующие MaskComposite. Subtract в шаблоне отсутствует."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Операция subtract сверена с кодом, но не представлена в 496 workflow закреплённого официального пакета 0.1.42.",
+    "Семейный fragment структурно проверен, но не исполнен в ComfyUI.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

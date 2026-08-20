@@ -1,0 +1,50 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-sample-save",
+  "title": "Загрузка модели, сэмплирование, декодирование и сохранение",
+  "externalInputs": [
+    { "id": "positive", "type": "CONDITIONING", "to": "sampler", "input": "positive" },
+    { "id": "negative", "type": "CONDITIONING", "to": "sampler", "input": "negative" },
+    { "id": "latent", "type": "LATENT", "to": "sampler", "input": "latent_image" }
+  ],
+  "nodes": [
+    {
+      "ref": "checkpoint",
+      "classType": "CheckpointLoaderSimple",
+      "role": "Загрузить MODEL и VAE из выбранного checkpoint",
+      "settings": { "ckpt_name": "выберите установленный checkpoint" }
+    },
+    {
+      "ref": "sampler",
+      "classType": "KSampler",
+      "role": "Удалить шум из latent с учётом условий",
+      "settings": {
+        "seed": 42,
+        "steps": 20,
+        "cfg": 7.0,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "denoise": 1.0
+      }
+    },
+    {
+      "ref": "decode",
+      "classType": "VAEDecode",
+      "role": "Преобразовать LATENT в IMAGE",
+      "settings": {}
+    },
+    {
+      "ref": "save",
+      "classType": "SaveImage",
+      "role": "Сохранить изображение в output",
+      "settings": { "filename_prefix": "wizard/%date:yyyy-MM-dd%/txt2img" }
+    }
+  ],
+  "connections": [
+    { "from": "checkpoint", "output": "MODEL", "to": "sampler", "input": "model" },
+    { "from": "sampler", "output": "LATENT", "to": "decode", "input": "samples" },
+    { "from": "checkpoint", "output": "VAE", "to": "decode", "input": "vae" },
+    { "from": "decode", "output": "IMAGE", "to": "save", "input": "images" }
+  ]
+}

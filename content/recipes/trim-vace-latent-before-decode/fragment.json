@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.trim-vace-latent-before-decode",
+  "title": "Sampled Wan VACE LATENT → trim_latent → VAE preview",
+  "externalInputs": [
+    {"id": "sampled_video_latent", "type": "LATENT", "to": "trim", "input": "samples"},
+    {"id": "vace_trim_latent", "type": "INT", "to": "trim", "input": "trim_amount"},
+    {"id": "vae", "type": "VAE", "to": "decode", "input": "vae"}
+  ],
+  "nodes": [
+    {"ref": "trim", "classType": "TrimVideoLatent", "role": "Удалить вычисленный служебный temporal-префикс", "settings": {"trim_amount": 0}},
+    {"ref": "decode", "classType": "VAEDecode", "role": "Декодировать очищенный video LATENT", "settings": {}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Проверить decoded frames", "settings": {}}
+  ],
+  "connections": [
+    {"from": "trim", "output": "LATENT", "to": "decode", "input": "samples"},
+    {"from": "decode", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.model-merge-sd35-large",
+  "node": {"classType": "ModelMergeSD35_Large", "pythonModule": "comfy_extras.nodes_model_merging_model_specific", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"}, "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {"runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging_model_specific.py#L132-L153", "path": "comfy_extras/nodes_model_merging_model_specific.py", "lines": "132-153"}, {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L138-L168", "path": "comfy_extras/nodes_model_merging.py", "lines": "138-168"}],
+    "embeddedDocs": [{"locale": "en", "archivePath": "comfyui_embedded_docs/docs/ModelMergeSD35_Large/en.md", "assessment": "SHA-256 766af7f60a7328577e7cd93c14fcc193ef3268d968aa8597225924513d1d8735. Secondary UI reference."}, {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ModelMergeSD35_Large/ru.md", "assessment": "SHA-256 96c015bea8b9f927881156f57d80a4bc20d9020d80623407861f464103e28da3. Terminology reference only."}],
+    "workflows": [{"id": "workflow-templates-0142-model-merge-sd35-census", "role": "All 512 JSON, 496 roots and 272 subgraphs: zero exact ModelMergeSD35_Large nodes."}, {"id": "isolated-model-specific-merge-schema-probe", "role": "Exact INPUT_TYPES produced five embedding prefixes, 38 joint blocks, final layer and 44 ratio inputs."}]},
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["No real SD3.5 Large checkpoint was merged or sampled.", "No official serialized case exists; recipe is source-derived.", "Checkpoint key coverage was not measured with weights.", "Редактор пока не проверил материал вручную."], "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,1 @@
+{"$schema":"../../schemas/recipe-fragment.schema.v1.json","schemaVersion":"1.0","fragmentId":"fragment.seedvr2-preprocess-input","title":"Подготовить вход SeedVR2","externalInputs":[{"id":"resized_images","type":"IMAGE","to":"pre","input":"resized_images"}],"nodes":[{"ref":"pre","classType":"SeedVR2Preprocess","role":"Дополнить размеры и время","settings":{}}],"connections":[]}

@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.hidream-o1-dev-lcm-sampler",
+  "title": "HiDream O1 Dev: SamplerLCM → SamplerCustom",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "sample", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "sample", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "sample", "input": "negative"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "algorithm",
+      "classType": "SamplerLCM",
+      "role": "Создать LCM sampler с официальными настройками HiDream",
+      "settings": {"s_noise": 1.0, "s_noise_end": 1.0, "noise_clip_std": 2.5}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustom",
+      "role": "Исполнить официальный HiDream custom-sampling участок",
+      "settings": {"add_noise": true, "noise_seed": 270186383729385, "cfg": 1.0}
+    }
+  ],
+  "connections": [
+    {"from": "algorithm", "output": "SAMPLER", "to": "sample", "input": "sampler"}
+  ]
+}

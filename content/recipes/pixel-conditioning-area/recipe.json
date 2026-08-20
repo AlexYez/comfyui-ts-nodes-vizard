@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.pixel-conditioning-area",
+  "locale": "ru",
+  "title": "Область 512 × 512 в пиксельных координатах",
+  "summary": "ConditioningSetArea назначает внешнему CONDITIONING прямоугольник 512 × 512 от левого верхнего угла с единичной силой.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.conditioning-set-area"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Внешнее значение CONDITIONING",
+    "Canvas шириной и высотой не меньше 512 пикселей"
+  ],
+  "fragment": {
+    "id": "fragment.pixel-conditioning-area",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ConditioningSetArea implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L185-L206",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Area handling in ComfyUI v0.32.0 sampler",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L33-L97",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-audio-conditioning-encode",
+  "title": "Trim AUDIO и LTX Audio VAE Encode",
+  "externalInputs": [
+    {"id": "speech_audio", "type": "AUDIO", "to": "trim", "input": "audio"},
+    {"id": "ltx_audio_vae", "type": "VAE", "to": "encode", "input": "audio_vae"}
+  ],
+  "nodes": [
+    {"ref": "trim", "classType": "TrimAudioDuration", "role": "Оставить первые 60 секунд", "settings": {"start_index": 0.0, "duration": 60.0}},
+    {"ref": "encode", "classType": "LTXVAudioVAEEncode", "role": "Получить LTX Audio Latent", "settings": {}}
+  ],
+  "connections": [{"from": "trim", "output": "AUDIO", "to": "encode", "input": "audio"}]
+}

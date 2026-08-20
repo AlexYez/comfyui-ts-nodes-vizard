@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.chroma-beta-sigma-schedule",
+  "locale": "ru",
+  "title": "Chroma Radiance: ветка beta-расписания",
+  "summary": "Воспроизводит подтверждённую официальным subgraph ветку ModelSamplingAuraFlow с shift 1.0 и BetaSamplingScheduler со значениями 30, 0.4, 0.4.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.beta-sampling-scheduler"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Совместимый Chroma Radiance MODEL",
+    "Полная model-specific ветка guider, sampler, conditioning и latent для фактического denoise"
+  ],
+  "fragment": {"id": "fragment.chroma-beta-sigma-schedule", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs and exhaustive official Chroma Radiance subgraph review; discrete-table probe passed, full model execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "BetaSamplingScheduler algorithm in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L695-L708",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: Chroma Radiance subgraph",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

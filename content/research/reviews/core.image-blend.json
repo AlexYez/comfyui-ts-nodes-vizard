@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-blend",
+  "node": {"classType": "ImageBlend", "pythonModule": "comfy_extras.nodes_post_processing", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L18-L70", "path": "comfy_extras/nodes_post_processing.py", "lines": "18-70"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/node_helpers.py#L85-L91", "path": "node_helpers.py", "lines": "85-91"}
+    ],
+    "embeddedDocs": [
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ImageBlend/ru.md", "assessment": "Перечисляет режимы и входы, но не раскрывает знаковое difference, center crop, channel fix, batch broadcasting и итоговый clamp; эти детали сверены по коду и синтетическим тензорам."}
+    ],
+    "workflows": [
+      {"id": "utility_sdpose_multi_person", "role": "DrawBBoxes и pose IMAGE смешиваются через normal с factor 0.5, затем идут в PreviewImage."},
+      {"id": "utility_sdpose_multi_person_video", "role": "Та же настройка normal 0.5 смешивает разметку для последующей CreateVideo."}
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Математический путь normal/difference и resize исполнен на синтетических tensors; полный fragment с PreviewImage ещё не вставлялся в живой ComfyUI граф.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.video-triangle-cfg-guidance",
+  "title": "Треугольный CFG 1,0 → 2,5 → 1,0",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "guidance", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "sample", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "sample", "input": "negative"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {"ref": "guidance", "classType": "VideoTriangleCFGGuidance", "role": "Задать CFG на краях video batch", "settings": {"min_cfg": 1.0}},
+    {"ref": "sample", "classType": "KSampler", "role": "Задать центральный CFG и выполнить sampling", "settings": {"seed": 0, "steps": 20, "cfg": 2.5, "sampler_name": "euler", "scheduler": "karras", "denoise": 1.0}}
+  ],
+  "connections": [
+    {"from": "guidance", "output": "MODEL", "to": "sample", "input": "model"}
+  ]
+}

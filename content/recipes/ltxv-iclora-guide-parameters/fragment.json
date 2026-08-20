@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-iclora-guide-parameters",
+  "title": "IC-LoRA parameters для LTXVAddGuide",
+  "externalInputs": [
+    {"id": "iclora_model", "type": "MODEL", "to": "parameters", "input": "iclora_model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "guide", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "guide", "input": "negative"},
+    {"id": "vae", "type": "VAE", "to": "guide", "input": "vae"},
+    {"id": "latent", "type": "LATENT", "to": "guide", "input": "latent"},
+    {"id": "image", "type": "IMAGE", "to": "guide", "input": "image"}
+  ],
+  "nodes": [
+    {"ref": "parameters", "classType": "GetICLoRAParameters", "role": "Извлечь reference downscale factor из LoRA MODEL", "settings": {}},
+    {"ref": "guide", "classType": "LTXVAddGuide", "role": "Добавить IC-LoRA reference guide в начало ролика", "settings": {"frame_idx": 0, "strength": 1.0}}
+  ],
+  "connections": [
+    {"from": "parameters", "output": "iclora_parameters", "to": "guide", "input": "iclora_parameters"}
+  ]
+}

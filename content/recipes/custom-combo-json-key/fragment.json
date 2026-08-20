@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.custom-combo-json-key", "title": "Category combo → JSON key",
+  "externalInputs": [],
+  "nodes": [
+    {"ref": "category", "classType": "CustomCombo", "role": "Выбрать категорию", "settings": {"choice": "Music", "index": 0, "option1": "Music", "option2": "Instrument", "option3": "SFX", "option4": ""}},
+    {"ref": "lookup", "classType": "JsonExtractString", "role": "Извлечь текст по выбранному ключу", "settings": {"json_string": "{\"Music\":\"music preset\",\"Instrument\":\"instrument preset\",\"SFX\":\"sound-effects preset\"}"}}
+  ],
+  "connections": [{"from": "category", "output": "STRING", "to": "lookup", "input": "key"}]
+}

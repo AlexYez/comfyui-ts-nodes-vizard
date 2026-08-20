@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.gligen-loader",
+  "node": {
+    "classType": "GLIGENLoader",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1196-L1209",
+        "path": "nodes.py",
+        "lines": "1196-1209"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1997-L2002",
+        "path": "comfy/sd.py",
+        "lines": "1997-2002"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/gligen.py#L259-L299",
+        "path": "comfy/gligen.py",
+        "lines": "259-299"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sampler_helpers.py#L83-L106",
+        "path": "comfy/sampler_helpers.py",
+        "lines": "83-106"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/GligenLoader/en.md",
+        "assessment": "AI-generated документ указывает model directory и общий output, но не описывает expected fuser/position keys, fp16 или load/offload policy."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/GligenLoader/ru.md",
+        "assessment": "Перевод содержит общие фразы о generative tasks и локализует имя gligen_name; не использован как источник внутренней семантики."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Просмотрены 512 JSON, все root nodes и 272 subgraphs; GLIGENLoader и GLIGENTextBoxApply отсутствуют."
+      },
+      {
+        "id": "isolated-pinned-special-loader-dispatch-probe",
+        "role": "Exact node class подтвердил folder group gligen, resolved path и возврат loader result; веса не читались."
+      },
+      {
+        "id": "pinned-gligen-loader-static-audit",
+        "role": "Exact comfy/sd.py и comfy/gligen.py проверены на safe_load, fp16 branch, CoreModelPatcher devices, fuser reconstruction и position network."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В official workflow bundle 0.1.42 отсутствуют GLIGEN-ноды; fragment основан на exact source/runtime.",
+    "GLIGEN checkpoint не читался, поэтому architecture compatibility, dtype branch и memory use не проверены реальным исполнением.",
+    "Fragment и sampler не выполнялись.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

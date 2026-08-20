@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.renorm-cfg",
+  "node": {"classType": "RenormCFG", "pythonModule": "comfy_extras.nodes_lumina2", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lumina2.py#L7-L64", "path": "comfy_extras/nodes_lumina2.py", "lines": "7-64"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L638-L647", "path": "comfy/model_patcher.py", "lines": "638-647"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/RenormCFG/en.md", "assessment": "SHA-256 2acd99c38ee49de7b540d913283105704ece21c1e0b3c3ee7cf3eacd8cc335a1. Covers the visible purpose but omits the batch comparison defect, zero-norm division and exact extra-channel branch."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/RenormCFG/ru.md", "assessment": "SHA-256 f50571d7339c4010276e279edbb995f825a8b02157b59e676760c34d9ddbdaae. Used as a secondary terminology reference."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-renorm-cfg-census", "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; 512 JSON, 496 root workflows and 272 subgraphs: zero exact RenormCFG nodes."},
+      {"id": "9ae6082b-c7f4-433c-9971-7a8f65a3ea65:image_netayume_lumina_t2i", "role": "Real adjacent Lumina context: subgraph 3649d32d-3c81-4249-9e89-a1fe12609f65 uses ModelSamplingAuraFlow shift 4 and KSampler cfg 4, but does not contain RenormCFG."},
+      {"id": "isolated-renorm-cfg-hook-probe", "role": "Exact source hook executed on synthetic tensors: below/above-threshold branches and extra-channel rule confirmed; batch two raises ambiguous-tensor-bool error and zero norms produce non-finite values."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "The exact hook was executed only on synthetic tensors, without Lumina weights or sampling.",
+    "The official NetaYume Lumina workflow is adjacent evidence and does not serialize RenormCFG.",
+    "Batch-two failure and zero-norm non-finite output were reproduced but not repaired; the catalog documents pinned 0.32.0 behavior.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

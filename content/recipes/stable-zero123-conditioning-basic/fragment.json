@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.stable-zero123-conditioning-basic",
+  "title": "Stable Zero123: conditioning одного ракурса",
+  "externalInputs": [
+    {"id": "clip_vision", "type": "CLIP_VISION", "to": "condition", "input": "clip_vision"},
+    {"id": "init_image", "type": "IMAGE", "to": "condition", "input": "init_image"},
+    {"id": "vae", "type": "VAE", "to": "condition", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "condition",
+      "classType": "StableZero123_Conditioning",
+      "role": "Подготовить positive, negative и пустой latent для одного угла камеры",
+      "settings": {
+        "width": 256,
+        "height": 256,
+        "batch_size": 1,
+        "elevation": 0.0,
+        "azimuth": 0.0
+      }
+    }
+  ],
+  "connections": []
+}

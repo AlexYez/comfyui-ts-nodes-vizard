@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.zero-negative-conditioning",
+  "locale": "ru",
+  "title": "Нулевое conditioning для negative-входа",
+  "summary": "CLIPTextEncode создаёт совместимую форму, ConditioningZeroOut обнуляет её, а KSampler получает результат в negative — как в официальных шаблонах.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.conditioning-zero-out", "core.clip-text-encode", "core.ksampler"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Совместимые MODEL и CLIP",
+    "Внешние positive CONDITIONING и LATENT",
+    "Понимание, что fragment не включает VAE decode и сохранение"
+  ],
+  "fragment": {
+    "id": "fragment.zero-negative-conditioning",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ConditioningZeroOut implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L272-L295",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: basic_switch_node",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

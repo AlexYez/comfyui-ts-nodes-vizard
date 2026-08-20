@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-sampling-flux",
+  "node": {"classType": "ModelSamplingFlux", "pythonModule": "comfy_extras.nodes_model_advanced", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L161-L196",
+        "path": "comfy_extras/nodes_model_advanced.py",
+        "lines": "161-196"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L403-L442",
+        "path": "comfy/model_sampling.py",
+        "lines": "403-442"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L86-L103",
+        "path": "comfy/model_sampling.py",
+        "lines": "86-103"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ModelSamplingFlux/en.md",
+        "assessment": "SHA-256 21a34bd4b1a3738fcaabf7d7a66e170ed70b31a33780d3e2f4b8d8d2d238624d. Документ правильно связывает shift с width/height, но не даёт token formula, anchors, extrapolation или exp(mu)."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ModelSamplingFlux/ru.md",
+        "assessment": "SHA-256 ace516f9f828ec5ecf3c7c2fb40e42c8dd25d0623cbea1ad77253647d474999d. Перевод локализует runtime keys и не раскрывает advanced flags; использован как вторичный ориентир."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-model-sampling-flux-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3: 4 точных совпадения = 1 в корневом графе + 3 в подграфах, 4 файла, 3 UUID корневых графов; у всех режим 0; значения виджетов — 2×[1.15,0.5,1024,1024] и 2×[1.15,0.5,1488,1440]."
+      },
+      {
+        "id": "flux_redux_model_example",
+        "role": "Граф 06010f12-03bc-41ce-86bd-14f321d5a152: UNETLoader #12 + PrimitiveNode #34/#35 [1024] → ModelSamplingFlux #30 → BasicGuider #22 и BasicScheduler #17 [simple,20,1]."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Точный метод patch и математика Flux/CONST исполнены на подставном MODEL и тензорах CPU; реальные веса Flux и визуальный результат не проверялись.",
+    "Рецепт фиксирует официальную ветвь 1024×1024; другие разрешения требуют пересчёта и не покрыты полным исполнением.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

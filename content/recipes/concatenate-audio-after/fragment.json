@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.concatenate-audio-after",
+  "title": "AUDIO 1 → AUDIO 2 без паузы",
+  "externalInputs": [
+    {
+      "id": "first_audio",
+      "type": "AUDIO",
+      "to": "concat",
+      "input": "audio1"
+    },
+    {
+      "id": "second_audio",
+      "type": "AUDIO",
+      "to": "concat",
+      "input": "audio2"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "concat",
+      "classType": "AudioConcat",
+      "role": "Поставить второй клип сразу после первого по временной оси",
+      "settings": {
+        "direction": "after"
+      }
+    }
+  ],
+  "connections": []
+}

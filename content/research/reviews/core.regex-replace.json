@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.regex-replace",
+  "node": {
+    "classType": "RegexReplace",
+    "pythonModule": "comfy_extras.nodes_string",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L373-L407",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "373-407"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/RegexReplace/en.md",
+        "assessment": "SHA-256 84cc193be8d7f642bae20858b3e3d5ae9b56e4daa4836c9cfaed236c61f7ba39; count/flags verified."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/RegexReplace/ru.md",
+        "assessment": "SHA-256 86eb075ba6a07120cf898e67a5e1ee7ea2387168979b02b9a564c1817decc8fe; uncaught error behavior added."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-0142-regex-replace",
+        "role": "10 exact nodes; code-fence and placeholder patterns inspected."
+      },
+      {
+        "id": "exact-source-regex-probe",
+        "role": "Executed flags/count/backreference and proved invalid regex raises re.error."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Полные API-графы не выполнялись.",
+    "Человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-20"
+}

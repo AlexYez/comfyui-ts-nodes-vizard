@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.merge-sdxl-block-map",
+  "title": "SDXL: равная смесь средних блоков",
+  "externalInputs": [
+    {"id": "model1", "type": "MODEL", "to": "merge", "input": "model1"},
+    {"id": "model2", "type": "MODEL", "to": "merge", "input": "model2"}
+  ],
+  "nodes": [
+    {
+      "ref": "merge",
+      "classType": "ModelMergeSDXL",
+      "role": "Смешать три средних блока поровну",
+      "settings": {
+        "middle_block.0": 0.5,
+        "middle_block.1": 0.5,
+        "middle_block.2": 0.5
+      }
+    }
+  ],
+  "connections": []
+}

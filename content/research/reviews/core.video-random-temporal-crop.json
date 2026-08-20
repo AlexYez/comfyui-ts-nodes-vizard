@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.video-random-temporal-crop",
+  "node": {
+    "classType": "VideoRandomTemporalCrop",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1316-L1360",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1316-1360"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L216-L291",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "216-291"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L800-L810",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "800-810"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L900-L911",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "900-911"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VideoRandomTemporalCrop/en.md",
+        "assessment": "AI-generated справка верно описывает непрерывное окно, length, seed и lazy intent, но не раскрывает length clamp, включённый последний старт, модуль seed, локальный RNG, перевод через средний FPS, fallback подсчёта кадров и различия VIDEO-реализаций; SHA-256 файла в wheel: a410acb6d8685d0f58f769bd3d183f1d2e69739a312c587f739aedbfda8f9188."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/VideoRandomTemporalCrop/ru.md",
+        "assessment": "Русская AI-generated версия переводит точные порты video и length и не указывает experimental-флаг; остальные пробелы исходной справки сохраняются; SHA-256 файла в wheel: 7fe7c895c25e0cdf8f118158469a8fae47ac2ccf57c4b65fd41d026e0fda3713."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON, 496 корневых workflow, 272 subgraph и 8120 нод; VideoRandomTemporalCrop отсутствует как точный node.type и как case-sensitive строка."
+      },
+      {
+        "id": "isolated-pinned-video-shuffle-random-load-slice-probe",
+        "role": "На восьмикадровом AVI 4 FPS проверены seed 11, последний допустимый старт, полный length clamp, модульная коллизия seed, неизменность глобального RNG и общий file-backed источник; это не исполнение fragment."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; однонодовый fragment не импортировался и не выполнялся на canvas.",
+    "Probe использовал постоянные 4 FPS, video-only AVI и file-backed вход; VFR, audio и VideoFromComponents не исполнялись.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

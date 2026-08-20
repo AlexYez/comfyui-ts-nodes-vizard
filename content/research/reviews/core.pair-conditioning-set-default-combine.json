@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.pair-conditioning-set-default-combine",
+  "node": {"classType": "PairConditioningSetDefaultCombine", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L173-L200",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "173-200"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L773-L785",
+        "path": "comfy/hooks.py",
+        "lines": "773-785"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L165-L206",
+        "path": "comfy/samplers.py",
+        "lines": "165-206"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L33-L116",
+        "path": "comfy/samplers.py",
+        "lines": "33-116"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/PairConditioningSetDefaultAndCombine/en.md",
+        "assessment": "SHA-256 91fea2f69e04ad6739fb9a584039891f89be625e292b48d220f2bf4bc266ab87. Страница использует имя класса, а не точный NodeId, и не объясняет расчёт незакрытого покрытия."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/PairConditioningSetDefaultAndCombine/ru.md",
+        "assessment": "SHA-256 c98dc4ee2617b9a42f52ff9789e77b096ba0267c5023cc06b980e900611d934d. Перевод повторяет общее описание и переводит имена портов, не совпадающие с серверной схемой."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 файлов JSON, 496 корневых графов, 272 подграфа и 8120 нод. PairConditioningSetDefaultCombine и имя класса PairConditioningSetDefaultAndCombine не найдены."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Полный фрагмент и вычисление модели не исполнялись; exampleExecuted остаётся false.",
+    "Проверка выполнила закреплённый finalize_default_conds на синтетическом латенте с частичным, полным и перекрывающимся покрытием, но не запускала модель.",
+    "Проверены замена собственной маски default-записи и несовпадение форм при заранее заданной area; весь calc_cond_batch не выполнялся.",
+    "Формула незакрытого покрытия подтверждена исходником и прямым выполнением функции, но не измерением итогового изображения.",
+    "Официальных примеров в пакете 0.1.42 нет.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

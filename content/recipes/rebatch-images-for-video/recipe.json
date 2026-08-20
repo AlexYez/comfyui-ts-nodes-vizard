@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.rebatch-images-for-video",
+  "locale": "ru",
+  "title": "Собрать IMAGE-кадры перед CreateVideo",
+  "summary": "Повторяет центральный участок официального Wan Dancer: RebatchImages с верхним пределом 4096 перед CreateVideo 30 fps; IMAGE и необязательный AUDIO подключаются снаружи.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.rebatch-images"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "IMAGE-поток с одинаковой формой кадров внутри будущей порции",
+    "Достаточная память для сборки кадров и создание сохранения VIDEO отдельной нодой"
+  ],
+  "fragment": {
+    "id": "fragment.rebatch-images-for-video",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source/runtime/full official workflow and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "RebatchImages implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_rebatch.py#L110-L140",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official Wan Dancer workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_wan_dancer.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

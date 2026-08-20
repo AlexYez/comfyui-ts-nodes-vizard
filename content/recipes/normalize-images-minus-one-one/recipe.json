@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.normalize-images-minus-one-one",
+  "locale": "ru",
+  "title": "Преобразовать диапазон 0–1 в −1…1",
+  "summary": "NormalizeImages с исходными mean 0,5 и std 0,5 переводит 0 в −1, 0,5 в 0 и 1 в 1, не ограничивая итоговый диапазон.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.normalize-images"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Внешний IMAGE в ожидаемом диапазоне 0–1",
+    "Следующая нода, которая явно принимает нормализованные значения −1…1"
+  ],
+  "fragment": {
+    "id": "fragment.normalize-images-minus-one-one",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, full workflow census, exact tensor execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "NormalizeImages in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1052-L1080",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

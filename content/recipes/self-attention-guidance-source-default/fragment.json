@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.self-attention-guidance-source-default",
+  "title": "SAG с runtime-значениями 0.5 и 2.0",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "sag", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "sag",
+      "classType": "SelfAttentionGuidance",
+      "role": "Записать unconditional attention и добавить guidance от размытого latent",
+      "settings": {"scale": 0.5, "blur_sigma": 2.0}
+    }
+  ],
+  "connections": []
+}

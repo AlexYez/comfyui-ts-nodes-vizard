@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.merge-sd1-block-map",
+  "locale": "ru",
+  "title": "SD1: проверить направление трёх коэффициентов блоков",
+  "summary": "Оставляет 75% model1 в input_blocks.1, смешивает middle_block.1 пополам и берёт output_blocks.11 из model2; остальные группы сохраняются из model1.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-merge-sd1"],
+  "requirements": [
+    "Два checkpoint одной проверенной архитектуры SD1 с совпадающими ключами diffusion_model и формами",
+    "Отдельно выбранные совместимые CLIP и VAE",
+    "Контрольный граф сэмплирования с фиксированным seed"
+  ],
+  "fragment": {"id": "fragment.merge-sd1-block-map", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная сверка /object_info и закреплённого исходного кода, а также синтетическая проверка коэффициентов; официального графа нет, checkpoint и весь фрагмент не исполнялись, ручной проверки не было",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelMergeSD1 inputs in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging_model_specific.py#L3-L26",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "ModelMergeBlocks algorithm",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L138-L168",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Shape mismatch handling in calculate_weight",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L501",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Pinned official workflow templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/tree/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

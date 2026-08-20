@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.shuffle-video-text-dataset",
+  "node": {"classType": "ShuffleVideoTextDataset", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1399-L1445",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1399-1445"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ShuffleVideoTextDataset/en.md",
+        "assessment": "Справка помечена как AI-generated. Она описывает перестановку пар, но не уточняет отсутствие проверки длин, модуль seed, глобальное состояние NumPy и отсутствие обработки кадров внутри VIDEO; SHA-256: ff3d338827fedb080c1389ae541ab254274a0762a3865ba7e1f90b65d5c0a5ac."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ShuffleVideoTextDataset/ru.md",
+        "assessment": "Русская AI-generated версия переводит точные имена videos и texts и также не описывает расхождение длин; SHA-256: 65eb8117e497d773fa231bd0c3285f5d0621fa3a1117c3299d3d4b9e6bf23c06."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 файлов JSON, 496 корневых графов и 272 подграфа; ShuffleVideoTextDataset отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-shuffle-merge-probe",
+        "role": "Seed 29 дал порядок 7,1,6,0,2,4,3,5 и сохранил пары; проверены скалярный и списочный seed, модульная коллизия, пустые списки, IndexError при коротком texts и отбрасывание длинного хвоста."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Фрагмент не импортировался на холст и не проверен на реальных объектах VIDEO с подписями.",
+    "Нода не сверяет длины и не сообщает отброшенные тексты; интерфейсная диагностика требует человеческой проверки.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

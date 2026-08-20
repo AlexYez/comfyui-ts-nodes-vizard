@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.image-to-mask",
+  "node": {"classType": "ImageToMask", "pythonModule": "comfy_extras.nodes_mask", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_mask.py#L131-L154", "path": "comfy_extras/nodes_mask.py", "lines": "131-154"}],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ImageToMask/ru.md", "assessment": "Каналы перечислены верно, но слово «бинарное» может ввести в заблуждение: код сохраняет полутон; alpha не инвертируется и требует существующего четвёртого канала."}],
+    "workflows": [
+      {"id": "basic_mask_operations_and_compositing", "role": "Red-канал расходится в preview, invert и threshold-ветки."},
+      {"id": "video_wan2.1_alpha_t2v_14B", "role": "Канал из VAEDecode инвертируется для JoinImageWithAlpha."},
+      {"id": "video_wan_vace_14B_ref2v", "role": "Канал из video IMAGE используется как VACE mask."},
+      {"id": "video_wan_vace_outpainting", "role": "Канал из повторённого video IMAGE используется как VACE mask."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Диагностический фрагмент структурно проверен, но не исполнен.", "Человеческое редакционное утверждение не выполнено."],
+  "updatedAt": "2026-08-13"
+}

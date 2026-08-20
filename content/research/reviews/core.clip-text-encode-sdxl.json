@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.clip-text-encode-sdxl",
+  "node": {"classType": "CLIPTextEncodeSDXL", "pythonModule": "comfy_extras.nodes_clip_sdxl", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_clip_sdxl.py#L29-L60", "path": "comfy_extras/nodes_clip_sdxl.py", "lines": "29-60"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L509-L532", "path": "comfy/model_base.py", "lines": "509-532"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/ClipTextEncodeSdxl/en.md", "assessment": "Документ помечен как AI-generated. Перечень портов использован для вторичной сверки; трактовка G как global, а L как local/detail не выдана за правило исходника."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ClipTextEncodeSdxl/ru.md", "assessment": "Локализация переводит runtime-термины и повторяет семантическое толкование потоков. Точные identifiers и алгоритм взяты из /object_info и Python source."}
+    ],
+    "workflows": [
+      {"id": "full-wheel-census-0.1.42", "role": "Все 512 JSON, включая 496 корневых графов и 272 definitions.subgraphs, проверены рекурсивно: CLIPTextEncodeSDXL отсутствует и как exact node type, и как scalar/raw mention."}
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment выведен из runtime-схемы и исходника: в official workflow wheel 0.1.42 нет прямого случая.",
+    "Model-free probe проверил замену потоков, padding пустыми секциями и metadata, но настоящий SDXL CLIP и полный sampler graph не запускались.",
+    "Human approval pending: материал ожидает ручного редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-14"
+}

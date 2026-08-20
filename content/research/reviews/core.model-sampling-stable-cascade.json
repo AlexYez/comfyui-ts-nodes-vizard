@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-sampling-stable-cascade",
+  "node": {"classType": "ModelSamplingStableCascade", "pythonModule": "comfy_extras.nodes_model_advanced", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L91-L118",
+        "path": "comfy_extras/nodes_model_advanced.py", "lines": "91-118"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L349-L398",
+        "path": "comfy/model_sampling.py", "lines": "349-398"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L724-L770",
+        "path": "comfy/model_base.py", "lines": "724-770"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en", "archivePath": "comfyui_embedded_docs/docs/ModelSamplingStableCascade/en.md",
+        "assessment": "SHA-256 5d54f7dc44f8daf8b79c37dc0c7effd5dff0049ae2b2fc03a6097190e2018c2c. Covers ports/default but not 10000-point loop, cosine/log-SNR formula, base shift 1, clamp or shift-zero degeneration."
+      },
+      {
+        "locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ModelSamplingStableCascade/ru.md",
+        "assessment": "SHA-256 64e0332d6a05528e244d1decd5e9667415a51bb5f2c37ebdf4efb24f63acac64. Used as secondary terminology reference."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-model-sampling-stable-cascade-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; 512 JSON, 496 root and 272 subgraph: zero exact ModelSamplingStableCascade nodes."
+      },
+      {
+        "id": "source-stable-cascade-stage-models",
+        "role": "Official source constructs both StableCascade_C and StableCascade_B with ModelType.STABLE_CASCADE, confirming the real model-family context without inventing a workflow case."
+      }
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Exact patch and 10000-sigma construction were executed for shift 2 and 0 without Stage C/B weights.",
+    "No current official workflow template serializes this patch node; the recipe demonstrates source-validated ordering only.",
+    "Two-stage Cascade conditioning/prior flow and image output were not executed.",
+    "Human editorial approval is pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

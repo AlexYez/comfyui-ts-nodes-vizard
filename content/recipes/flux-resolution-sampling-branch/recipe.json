@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.flux-resolution-sampling-branch",
+  "locale": "ru",
+  "title": "Flux Redux: sampling patch для 1024×1024",
+  "summary": "Повторяет официальную ветвь ModelSamplingFlux с defaults 1,15/0,5 и 1024×1024, разветвлённую в BasicGuider и BasicScheduler simple/20/1.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-sampling-flux"],
+  "requirements": [
+    "Совместимый Flux MODEL",
+    "CONDITIONING для BasicGuider",
+    "Фактическое sampling-разрешение 1024×1024"
+  ],
+  "fragment": {"id": "fragment.flux-resolution-sampling-branch", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная сверка закреплённых исходников, runtime-инвентаря и точной топологии официального графа Flux Redux; веса и фрагмент не исполнялись, ручной редакторской проверки не было",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelSamplingFlux implementation",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L161-L196",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальный граф Flux Redux",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/flux_redux_model_example.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

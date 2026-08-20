@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.cfg-override",
+  "node": {"classType": "CFGOverride", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L1154-L1192",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "1154-1192"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/patcher_extension.py#L65-L130",
+        "path": "comfy/patcher_extension.py",
+        "lines": "65-130"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/CFGOverride/en.md",
+        "assessment": "AI-generated документ верно перечисляет параметры и overlap rule, но неточно сводит percent к доле числа steps вместо model-specific percent_to_sigma."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/CFGOverride/ru.md",
+        "assessment": "Перевод повторяет неточность о количестве шагов и локализует runtime-имена портов; точное поведение проверено по source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON, все root graphs и 272 definitions.subgraphs: 2 CFGOverride, обе mode 0 в двух Ideogram v4 files и одном повторяемом subgraph."
+      },
+      {
+        "id": "fdcfc2b2-168f-4f3d-a1d0-6986b802fce5:83e6e004-48ea-408e-9024-eb49c3d7dc14",
+        "role": "UNETLoader → CFGOverride [3, 0.7, 1] → DualModelGuider → SamplerCustomAdvanced в image_ideogram4_t2i и int8 variant."
+      },
+      {
+        "id": "isolated-pinned-cfg-override-probe",
+        "role": "Exact-source probe проверяет попадание в sigma-окно, восстановление cfg и нерабочий обратный диапазон без весов модели."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "Модельные weights и реальный scheduler не загружались.",
+    "Официальная topology проверена как сериализованный JSON, а не как успешный generation run.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

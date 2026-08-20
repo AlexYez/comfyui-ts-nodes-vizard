@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.karras-sigmas-to-custom-sampler",
+  "locale": "ru",
+  "title": "Подключить Karras SIGMAS к custom sampler",
+  "summary": "Строит расписание Karras со стандартными границами и rho 7 и передаёт его в SamplerCustomAdvanced, оставляя остальные части полного workflow внешними.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.karras-scheduler"],
+  "requirements": [
+    "GUIDER с моделью, для которой проверены sigma_max и sigma_min",
+    "NOISE, SAMPLER и LATENT для SamplerCustomAdvanced"
+  ],
+  "fragment": {"id": "fragment.karras-sigmas-to-custom-sampler", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная проверка pinned формулы, runtime-схемы и полного workflow census; модельный sampling и ручная редакторская проверка не выполнены",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "KarrasScheduler implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L47-L67",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Exact Karras sigma formula",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L19-L29",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

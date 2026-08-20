@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.text-to-lowercase-basic",
+  "title": "TextToLowercase для одной строки",
+  "externalInputs": [
+    {"id": "texts", "type": "STRING", "to": "lowercase", "input": "texts"}
+  ],
+  "nodes": [
+    {
+      "ref": "lowercase",
+      "classType": "TextToLowercase",
+      "role": "Применить Unicode lower к одной строке",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

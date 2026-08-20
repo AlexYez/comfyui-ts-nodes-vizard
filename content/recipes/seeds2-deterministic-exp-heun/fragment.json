@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.seeds2-deterministic-exp-heun",
+  "title": "SamplerSEEDS2 как exp_heun_2_x0",
+  "externalInputs": [
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {"ref": "algorithm", "classType": "SamplerSEEDS2", "role": "Создать deterministic exponential Heun preset", "settings": {"solver_type": "phi_2", "eta": 0.0, "s_noise": 1.0, "r": 1.0}},
+    {"ref": "sample", "classType": "SamplerCustomAdvanced", "role": "Исполнить двухстадийный sampling", "settings": {}}
+  ],
+  "connections": [
+    {"from": "algorithm", "output": "SAMPLER", "to": "sample", "input": "sampler"}
+  ]
+}

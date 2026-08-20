@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sampler-ar-video",
+  "node": {
+    "classType": "SamplerARVideo",
+    "pythonModule": "comfy_extras.nodes_ar_video",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_ar_video.py#L44-L73",
+        "path": "comfy_extras/nodes_ar_video.py",
+        "lines": "44-73"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_ar_video.py#L76-L122",
+        "path": "comfy_extras/nodes_ar_video.py",
+        "lines": "76-122"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L1845-L1957",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "1845-1957"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerARVideo/en.md",
+        "assessment": "AI-generated обзор верно называет framewise/chunkwise и checkpoint training mode, но не описывает 5D guard, cache API и точный block loop."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerARVideo/ru.md",
+        "assessment": "AI-generated перевод использован как вторичный обзор; re-noise formula, commit calls, I2V initial latent и ограничения проверены по source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "video_causal_forcing_i2v:b5d4e2f9-8c3a-4b0e-a4d2-f9e6b3c0a1d5:subgraph:96ba6b5d-dd48-49b3-84c3-5b86eafc2a07",
+        "role": "Единственный exact SamplerARVideo: mode 0, widget [1], SAMPLER→SamplerCustomAdvanced; ARVideoI2V, CFGGuider(1), BasicScheduler(simple,4,1), RandomNoise и decode topology просмотрены."
+      },
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Полный scan 512 JSON, 496 root-графов и 272 subgraph подтвердил единственность специализированного case."
+      },
+      {
+        "id": "isolated-pinned-ar-video-constructor-and-guard-probe",
+        "role": "Exact-source probe подтвердил ar_video options и ранние ошибки для не-5D latent и модели без требуемого cache API, без загрузки weights."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся с Causal-WAN checkpoint.",
+    "Browser/video encode pipeline, пиковая VRAM и время не измерялись.",
+    "Совпадение num_frame_per_block с training mode должен подтвердить поставщик конкретного checkpoint.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mediapipe-face-mesh-visualize",
+  "node": {"classType": "MediaPipeFaceMeshVisualize", "pythonModule": "comfy_extras.nodes_mediapipe", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mediapipe.py#L314-L428", "path": "comfy_extras/nodes_mediapipe.py", "lines": "314-428"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/MediaPipeFaceMeshVisualize/en.md", "assessment": "Raw SHA-256 8b0efa38d879d570abfe579fa9e3cddeb73e671bd5c645bea64a1d51ec043be4. AI-generated page calls all the full mesh and invents left_iris/right_iris; pinned runtime excludes tesselation and uses one irises set."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/MediaPipeFaceMeshVisualize/ru.md", "assessment": "Raw SHA-256 9c55eadc780f28cebbd2b08394cb43f8ba5c73b9e69823b4f9b310e03ab80d11. Secondary translation was not used for exact dynamic-combo keys."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-zero-census", "role": "All 512 JSON, 496 root graphs and 272 subgraphs were parsed. All four MediaPipe IDs have zero direct, raw and recursive scalar occurrences and no EN/RU index entry."},
+      {"id": "pinned-mediapipe-blueprints-visualizer-zero-census", "role": "Both official source blueprints were inspected and contain loader, detector and mask but no MediaPipeFaceMeshVisualize."},
+      {"id": "isolated-exact-source-mediapipe-visualize-probe", "role": "Exact drawing logic ran on synthetic face payloads to check all versus tesselation, fill, points, color fallback and batch mismatch without a model or file writes."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "No official workflow or blueprint case uses MediaPipeFaceMeshVisualize; its fragment is source-derived.",
+    "The complete fragment was not run with real landmarks or source images.",
+    "CPU drawing performance was not benchmarked for long batches or the 2547-edge tesselation set.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

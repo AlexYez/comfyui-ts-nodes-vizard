@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.repeat-image-mask-sequence",
+  "locale": "ru",
+  "title": "Повторить IMAGE-представление маски для последовательности",
+  "summary": "Повторяет официальный участок outpainting: внешний IMAGE после MaskToImage копируется RepeatImageBatch 17 раз и возвращается в MASK через ImageToMask.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.repeat-image-batch", "core.image-to-mask"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "IMAGE-представление маски, обычно полученное через MaskToImage"
+  ],
+  "fragment": {
+    "id": "fragment.repeat-image-mask-sequence",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source and official outpainting-workflow trace; fragment schema validated, execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "RepeatImageBatch implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L113-L133",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official video_wan_vace_outpainting workflow in templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_wan_vace_outpainting.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

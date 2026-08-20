@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-concat-av-latent",
+  "node": {
+    "classType": "LTXVConcatAVLatent",
+    "pythonModule": "comfy_extras.nodes_lt",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L747-L819",
+        "path": "comfy_extras/nodes_lt.py",
+        "lines": "747-819"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/nested_tensor.py#L3-L97",
+        "path": "comfy/nested_tensor.py",
+        "lines": "3-97"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVConcatAVLatent/en.md",
+        "assessment": "SHA-256 208a0f66392081a18f24ef636d95c00367a9a7234ae23f1299824473f7bae81e. Документ верно называет два потока и mask fallback, но ошибочно описывает samples как tensor concatenation вместо NestedTensor."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVConcatAVLatent/ru.md",
+        "assessment": "SHA-256 65801d98172b9e665568a3705fb88a0369fb641967bc8766a1336620a8ba5bdc. Перевод повторяет ошибку о конкатенации и не раскрывает ветвь замены аудио, trim/pad и metadata precedence."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-ltxv-concat-census",
+        "role": "Полный census нашёл 37 нод в 19 файлах, все subgraph: mode 0 — 35, mode 4 — 2; output идёт в SamplerCustomAdvanced 35 раз и KSampler два раза."
+      },
+      {
+        "id": "video-ltx2-3-id-lora-two-stage-concat",
+        "role": "Проверены две реальные стадии: Empty 348 → Concat 326 → Sampler 291 и Separate 309 audio → Concat 287 → Sampler 310."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact-class tensor probe проверяет NestedTensor, mask fallback, metadata precedence, audio trim/pad и ошибки формы без запуска diffusion model.",
+    "Fragment типизирован и основан на официальной topology, но полный AV sampling с model weights не выполнялся.",
+    "Человеческое утверждение статьи и рецепта ещё не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

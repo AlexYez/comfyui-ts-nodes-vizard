@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.minimax-h3-default-sigma-shifts",
+  "locale": "ru",
+  "title": "MiniMax H3: исходные sigma-shift 12 / 3",
+  "summary": "Патчит MiniMax H3 MODEL исходными flow-shift из pinned model config: 12 для видео и 3 для аудио.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.minimax-h3-sigma-shift"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Совместимый MiniMax H3 joint audio-video MODEL",
+    "Custom sampling graph, где один patched MODEL питает guider и scheduler"
+  ],
+  "fragment": {"id": "fragment.minimax-h3-default-sigma-shifts", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned runtime/source and exact-source mathematical review; official wheel has no exact node case, model execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "MiniMaxH3SigmaShift implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_minimax_h3.py#L283-L324",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "MiniMax H3 default sampling settings in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/supported_models.py#L959-L974",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.probe-clip-attention-scale",
+  "locale": "ru",
+  "title": "Проверить масштаб query-проекции CLIP",
+  "summary": "Вставляет experimental CLIPAttentionMultiply с q 0.90 и остальными коэффициентами 1, чтобы сравнить один параметр с прямой bypass-веткой.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.clip-attention-multiply", "core.clip-text-encode"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "CLIP с ключами self_attn.q_proj/k_proj/v_proj/out_proj",
+    "Фиксированный prompt и контрольная bypass-ветка"
+  ],
+  "fragment": {"id": "fragment.probe-clip-attention-scale", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs and exhaustive zero-case workflow review; exact suffix/patch probe passed, text encoder execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "CLIPAttentionMultiply implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_attention_multiply.py#L69-L101",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

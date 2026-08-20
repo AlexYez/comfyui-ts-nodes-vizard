@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.empty-sd3-latent-official-sampler",
+  "locale": "ru",
+  "title": "Подать пустой SD3 latent в KSampler",
+  "summary": "Повторяет точную ветвь official sd3.5_simple_example: EmptySD3LatentImage 1024 × 1024, batch 1 подключён к KSampler.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.empty-sd3-latent-image", "core.ksampler"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Совместимый SD3 или SD3.5 MODEL",
+    "Готовые positive и negative CONDITIONING"
+  ],
+  "fragment": {"id": "fragment.empty-sd3-latent-official-sampler", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned official workflow topology/widgets, runtime source and exact-source tensor probe; full model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Official sd3.5_simple_example workflow in templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/sd3.5_simple_example.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "EmptySD3LatentImage in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sd3.py#L40-L61",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

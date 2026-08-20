@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.text-to-uppercase",
+  "node": {"classType": "TextToUppercase", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L777-L932",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "777-932"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1464-L1474",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1464-1474"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L106-L136",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "106-136"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L243-L341",
+        "path": "execution.py",
+        "lines": "243-341"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/TextToUppercase/en.md",
+        "assessment": "Case-sensitive lookup found the exact member. AI-generated EN includes deprecation and Convert Text Case, but uses text rather than exact texts and omits Unicode length changes plus the nested output contract; raw wheel member SHA-256: 127c4778471baa89f8d217629531c999e72b152c3fb9c9c910d2c0aface471f7."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/TextToUppercase/ru.md",
+        "assessment": "Case-sensitive lookup found the exact member. RU starts with Вот перевод документации, omits deprecation, uses text instead of texts and does not cover Unicode expansion or output wrapping; raw wheel member SHA-256: 64d1499f1b9858b508baa97d4e21f72d57b3249bb0e969c64d8a7b7f2a9fd9fa."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-case-sensitive-root-subgraph-scan",
+        "role": "Проверены 512 JSON, 496 корневых workflow, 4083 root-узла, 272 subgraph и 4037 subgraph-узлов; raw и type hits для TextToUppercase отсутствуют."
+      },
+      {
+        "id": "isolated-pinned-dataset-text-transform-probe",
+        "role": "Точный класс превратил straße ı σς в STRASSE I ΣΣ, совпал с CaseConverter(UPPERCASE), подтвердил source/runtime deprecated-конфликт и дополнительную списочную оболочку."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; fragment не импортировался на canvas.",
+    "Node Replacement API не подтверждает source-comment переход к CaseConverter.",
+    "Интерфейсное поведение вложенного результата требует ручной проверки в ComfyUI frontend.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

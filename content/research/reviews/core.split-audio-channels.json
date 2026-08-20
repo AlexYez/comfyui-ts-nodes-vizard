@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.split-audio-channels",
+  "node": {"classType": "SplitAudioChannels", "pythonModule": "comfy_extras.nodes_audio", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L484-L516", "path": "comfy_extras/nodes_audio.py", "lines": "484-516"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/SplitAudioChannels/en.md", "assessment": "SHA-256 8153756284afc6158a12b3c2d3db195f19dbfa23590d5f392d1ae43ac9a455e9; confirms stereo input and two mono outputs."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/SplitAudioChannels/ru.md", "assessment": "SHA-256 0ad110bd8474c3d3e9efbcacd348ef4ae3debf024a0c312e55e598b5d6fc9e1d; secondary terminology reference."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-scan", "role": "No exact SplitAudioChannels occurrence in 512 JSON, 496 root graphs or 272 subgraphs."},
+      {"id": "audio-editing-exact-class-probe", "role": "Direct class execution checked left/right values, [B,1,T] shapes, shared storage, None output, metadata loss and mono/multichannel errors."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "No exact official workflow case exists in templates 0.1.42; the recipe is explicitly source-derived.",
+    "The full split-adjust-join fragment was not executed with a decoded audio file.",
+    "Human editorial approval is pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

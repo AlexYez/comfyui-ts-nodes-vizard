@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.stable-audio-continuous-v-sampling",
+  "title": "Stable Audio continuous V 500/0,03 → BasicScheduler",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "patch", "input": "model"}
+  ],
+  "nodes": [
+    {
+      "ref": "patch",
+      "classType": "ModelSamplingContinuousV",
+      "role": "Поставить continuous V sampling с диапазоном Stable Audio",
+      "settings": {"sampling": "v_prediction", "sigma_max": 500.0, "sigma_min": 0.03}
+    },
+    {
+      "ref": "schedule",
+      "classType": "BasicScheduler",
+      "role": "Построить SIGMAS из того же patched MODEL",
+      "settings": {"scheduler": "simple", "steps": 50, "denoise": 1.0}
+    }
+  ],
+  "connections": [
+    {"from": "patch", "output": "MODEL", "to": "schedule", "input": "model"}
+  ]
+}

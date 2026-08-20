@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.differential-diffusion-flux-fill",
+  "locale": "ru",
+  "title": "DifferentialDiffusion перед KSampler в Flux Fill",
+  "summary": "MODEL проходит через DifferentialDiffusion со strength 1 и поступает в KSampler с локальными настройками официального Flux.1 Outpaint template.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.differential-diffusion"],
+  "requirements": ["ComfyUI 0.32.0", "Flux Fill или совместимый MODEL", "CONDITIONING и LATENT с denoise mask"],
+  "fragment": {"id": "fragment.differential-diffusion-flux-fill", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema and official Flux Fill topology review; model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "DifferentialDiffusion in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_differential_diffusion.py#L9-L61",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates 0.1.42: flux_fill_outpaint_example",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

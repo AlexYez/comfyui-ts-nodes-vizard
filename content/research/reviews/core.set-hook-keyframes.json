@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.set-hook-keyframes",
+  "node": {"classType": "SetHookKeyframes", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L446-L469", "path": "comfy_extras/nodes_hooks.py", "lines": "446-469"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L287-L350", "path": "comfy/hooks.py", "lines": "287-350"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L426-L539", "path": "comfy/hooks.py", "lines": "426-539"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/SetHookKeyframes/en.md", "assessment": "SHA-256 33164aec0850ee1819c6aadcc16f04d42784618ec5419c46a67a4e88dc516a6e. Верно описывает клонирование при подключённом hook_kf, но не различает None и пустую группу и не раскрывает общий объект расписания всех хуков."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/SetHookKeyframes/ru.md", "assessment": "SHA-256 dad1fa97dd743760744f7e163ef554c5c80344383da345c735675bffafc5046b. Переводит системные имена портов; точные ключи и ветви взяты из runtime и исходника."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-set-hook-keyframes-zero-census", "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл SetHookKeyframes."},
+      {"id": "hook-keyframe-scheduling-exact-source-probe", "role": "Точные методы подтвердили возврат входа без hook_kf, клонирование при подключённой группе, одно общее клонированное расписание для выходных хуков, неизменность входа и очистку прежних точек пустой группой."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Официального графа с SetHookKeyframes в пакете 0.1.42 нет; рецепт основан на исходнике.",
+    "Клонирование проверено на тестовых хуках, но реальная LoRA, MODEL, CLIP и сэмплер не запускались.",
+    "Не измерялось потребление расписания разными типами хуков в полном графе.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

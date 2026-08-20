@@ -1,0 +1,97 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.gan-video-upscale",
+  "title": "LoadVideo — RealESRGAN x4 — CreateVideo — SaveVideo",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "load_video",
+      "classType": "LoadVideo",
+      "role": "Загрузить исходное видео",
+      "settings": {
+        "file": "выберите входное видео"
+      }
+    },
+    {
+      "ref": "components",
+      "classType": "GetVideoComponents",
+      "role": "Разделить видео на frames, audio и fps",
+      "settings": {}
+    },
+    {
+      "ref": "model",
+      "classType": "UpscaleModelLoader",
+      "role": "Загрузить официальную модель RealESRGAN x4",
+      "settings": {
+        "model_name": "RealESRGAN_x4plus.safetensors"
+      }
+    },
+    {
+      "ref": "upscale",
+      "classType": "ImageUpscaleWithModel",
+      "role": "Увеличить каждый кадр tiled-проходом модели",
+      "settings": {}
+    },
+    {
+      "ref": "create_video",
+      "classType": "CreateVideo",
+      "role": "Собрать увеличенные кадры с исходными audio и fps",
+      "settings": {}
+    },
+    {
+      "ref": "save_video",
+      "classType": "SaveVideo",
+      "role": "Сохранить собранное видео",
+      "settings": {
+        "filename_prefix": "video/ComfyUI",
+        "format": "auto",
+        "codec": "auto"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "load_video",
+      "output": "VIDEO",
+      "to": "components",
+      "input": "video"
+    },
+    {
+      "from": "model",
+      "output": "UPSCALE_MODEL",
+      "to": "upscale",
+      "input": "upscale_model"
+    },
+    {
+      "from": "components",
+      "output": "images",
+      "to": "upscale",
+      "input": "image"
+    },
+    {
+      "from": "upscale",
+      "output": "IMAGE",
+      "to": "create_video",
+      "input": "images"
+    },
+    {
+      "from": "components",
+      "output": "audio",
+      "to": "create_video",
+      "input": "audio"
+    },
+    {
+      "from": "components",
+      "output": "fps",
+      "to": "create_video",
+      "input": "fps"
+    },
+    {
+      "from": "create_video",
+      "output": "VIDEO",
+      "to": "save_video",
+      "input": "video"
+    }
+  ]
+}

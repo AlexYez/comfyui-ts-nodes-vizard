@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.apply-controlnet-canny",
+  "title": "ControlNetLoader — Apply ControlNet со strength 0,66",
+  "externalInputs": [
+    {"id": "positive", "type": "CONDITIONING", "to": "apply", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "apply", "input": "negative"},
+    {"id": "canny_map", "type": "IMAGE", "to": "apply", "input": "image"},
+    {"id": "vae", "type": "VAE", "to": "apply", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "loader",
+      "classType": "ControlNetLoader",
+      "role": "Загрузить установленный Canny ControlNet, совместимый с MODEL",
+      "settings": {"control_net_name": "выберите совместимый Canny ControlNet"}
+    },
+    {
+      "ref": "apply",
+      "classType": "ControlNetApplyAdvanced",
+      "role": "Добавить контроль к обеим ветвям на всём sampling",
+      "settings": {"strength": 0.66, "start_percent": 0.0, "end_percent": 1.0}
+    }
+  ],
+  "connections": [
+    {"from": "loader", "output": "CONTROL_NET", "to": "apply", "input": "control_net"}
+  ]
+}

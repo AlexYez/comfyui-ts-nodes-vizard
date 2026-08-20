@@ -1,0 +1,1 @@
+{"$schema":"../../schemas/recipe-fragment.schema.v1.json","schemaVersion":"1.0","fragmentId":"fragment.measure-text-length","title":"Измерение строки","externalInputs":[{"id":"text","type":"STRING","to":"length","input":"string"}],"nodes":[{"ref":"length","classType":"StringLength","role":"Получить число кодовых точек Python","settings":{}}],"connections":[]}

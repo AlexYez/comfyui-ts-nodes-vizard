@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.encode-clip-vision-reference",
+  "title": "CLIP_VISION + IMAGE → CLIP_VISION_OUTPUT",
+  "externalInputs": [
+    {"id": "clip_vision", "type": "CLIP_VISION", "to": "encode", "input": "clip_vision"},
+    {"id": "reference_image", "type": "IMAGE", "to": "encode", "input": "image"}
+  ],
+  "nodes": [
+    {"ref": "encode", "classType": "CLIPVisionEncode", "role": "Получить визуальные признаки референса", "settings": {"crop": "center"}}
+  ],
+  "connections": []
+}

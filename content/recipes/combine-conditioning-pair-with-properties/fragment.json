@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.combine-conditioning-pair-with-properties",
+  "title": "Базовая и региональная пары условий",
+  "externalInputs": [
+    {"id": "positive_base", "type": "CONDITIONING", "to": "combine_pair_props", "input": "positive"},
+    {"id": "negative_base", "type": "CONDITIONING", "to": "combine_pair_props", "input": "negative"},
+    {"id": "positive_new", "type": "CONDITIONING", "to": "combine_pair_props", "input": "positive_NEW"},
+    {"id": "negative_new", "type": "CONDITIONING", "to": "combine_pair_props", "input": "negative_NEW"},
+    {"id": "mask", "type": "MASK", "to": "combine_pair_props", "input": "mask"},
+    {"id": "hooks", "type": "HOOKS", "to": "combine_pair_props", "input": "hooks"},
+    {"id": "timesteps", "type": "TIMESTEPS_RANGE", "to": "combine_pair_props", "input": "timesteps"}
+  ],
+  "nodes": [
+    {
+      "ref": "combine_pair_props",
+      "classType": "PairConditioningSetPropertiesAndCombine",
+      "role": "Добавить обработанную новую пару после базовой",
+      "settings": {"strength": 0.25, "set_cond_area": "default"}
+    }
+  ],
+  "connections": []
+}

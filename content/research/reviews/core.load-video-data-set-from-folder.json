@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-video-data-set-from-folder",
+  "node": {
+    "classType": "LoadVideoDataSetFromFolder",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L46-L55",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "46-55"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L285-L324",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "285-324"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L118-L145",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "118-145"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LoadVideoDataSetFromFolder/en.md",
+        "assessment": "AI-generated справка подтверждает подпапку input и ленивый VIDEO-список, но не описывает сортировку, отсутствие рекурсии, отложенную валидацию контейнера, ошибку пустой папки и experimental-статус; SHA-256 файла в wheel: 812eb64fb108997168b2c6cafedddfb31ca0a380866f92214bcae99fd9d8273d."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LoadVideoDataSetFromFolder/ru.md",
+        "assessment": "Русская AI-generated версия переводит точный вход folder как папка и повторяет те же технические пробелы; SHA-256 файла в wheel: 31951a011409399cfe4c0d2bb15c883d28d91d2abe4222f15704f8c7caad85bc."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON, 496 корневых workflow, 272 subgraph и 8120 узлов в двух областях; LoadVideoDataSetFromFolder отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-video-load-sample-crop-probe",
+        "role": "Точный класс во временном input отсортировал a.mkv и z.MP4, пропустил TXT и вложенный MOV, отклонил пустую папку и traversal; пустые файлы с подходящими расширениями подтвердили отсутствие декодирования в загрузчике."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; одиночный fragment построен по точному runtime-контракту и не импортировался в canvas.",
+    "Динамическая папка 3d взята только из закреплённого runtime snapshot и должна быть заменена на локальное значение.",
+    "Синтетическая проверка загрузчика не доказывает декодируемость пользовательских видеофайлов.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

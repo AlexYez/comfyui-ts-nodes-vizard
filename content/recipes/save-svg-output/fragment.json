@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.save-svg-output",
+  "title": "Внешний SVG → нумерованные файлы в выходном каталоге svg",
+  "externalInputs": [
+    {"id": "svg", "type": "SVG", "to": "save", "input": "svg"}
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "SaveSVGNode",
+      "role": "Сохранить каждый элемент пакета SVG и вернуть исходный SVG дальше по графу",
+      "settings": {"filename_prefix": "svg/wizard-%batch_num%"}
+    }
+  ],
+  "connections": []
+}

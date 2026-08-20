@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.color-transfer-preview",
+  "title": "Target batch и reference — единый Reinhard — preview",
+  "externalInputs": [
+    {"id": "target_images", "type": "IMAGE", "to": "transfer", "input": "image_target"},
+    {"id": "reference_images", "type": "IMAGE", "to": "transfer", "input": "image_ref"}
+  ],
+  "nodes": [
+    {"ref": "transfer", "classType": "ColorTransfer", "role": "Подогнать batch единым преобразованием к цветам референса", "settings": {"method": "reinhard_lab", "source_stats": {"source_stats": "uniform"}, "strength": 1.0}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Проверить цвет и стабильность соседних кадров", "settings": {}}
+  ],
+  "connections": [{"from": "transfer", "output": "image", "to": "preview", "input": "images"}]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ays-sdxl-ten-step-sampling",
+  "locale": "ru",
+  "title": "SDXL: нативное AYS-расписание на десять шагов",
+  "summary": "AlignYourStepsScheduler с таблицей SDXL, десятью переходами и полным denoise перед SamplerCustomAdvanced.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.align-your-steps-scheduler", "core.sampler-custom-advanced"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "SDXL-модель и GUIDER, построенный из неё",
+    "Совместимые NOISE, SAMPLER и LATENT",
+    "Проверка того, что модельная sampling-шкала подходит таблице AYS SDXL"
+  ],
+  "fragment": {
+    "id": "fragment.ays-sdxl-ten-step-sampling",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime and exhaustive official workflow absence review with exact schedule probe and Russian editorial pass; full model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "AlignYourStepsScheduler in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_align_your_steps.py#L1-L59",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.audio-merge",
+  "node": {
+    "classType": "AudioMerge",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L578-L590",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "578-590"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L647-L714",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "647-714"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/AudioMerge/en.md",
+        "assessment": "AI-generated документ подтверждает четыре метода и общую подгонку, но не описывает асимметричную длину audio1, singleton broadcasting, global peak scope, empty waveform и metadata loss."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON: один AudioMerge, только в subgraph, mode Always, widgets [add]; mean/subtract/multiply и root-примеры отсутствуют."
+      },
+      {
+        "id": "api-sonilo-v2m#9132f036-0cbe-44bb-9948-c8d1348ec66b/subgraph-bb615e2f/node-721",
+        "role": "AudioAdjustVolume № 722 и № 719 подают audio1/audio2 в AudioMerge(add), выход подключён к CreateVideo № 718."
+      },
+      {
+        "id": "isolated-pinned-audio-merge-tensor-probe",
+        "role": "Проверены add/mean/subtract/multiply, audio2 padding, singleton batch/channel broadcasting и единый normalization divisor при peak > 1."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment из двух внешних AUDIO не исполнялся с реальными файлами; проверен только pinned class на синтетических tensors.",
+    "Официальный bundle подтверждает только add; mean, subtract и multiply проверены source/runtime и synthetic execution.",
+    "Resample ветка прочитана по общему helper и отдельно проверяется формой/rate, но не проходила субъективное прослушивание.",
+    "Полный Sonilo subgraph с видео и внешним API не запускался; человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

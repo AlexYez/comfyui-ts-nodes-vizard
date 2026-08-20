@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.sample-empty-hunyuan-video-15-latent",
+  "locale": "ru",
+  "title": "Подать пустой latent Hunyuan Video 1.5 в sampler",
+  "summary": "Фрагмент повторяет точное ребро официального 720p T2V-шаблона: нулевой latent 1280×720×121 поступает в SamplerCustomAdvanced, остальные входы внешние.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.empty-hunyuan-video-15-latent"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Совместимые Hunyuan Video 1.5 MODEL, VAE, guider, sampler и sigmas"
+  ],
+  "fragment": {"id": "fragment.sample-empty-hunyuan-video-15-latent", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/docs/workflow review and exact-source tensor probe; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "EmptyHunyuanVideo15Latent в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan.py#L67-L80",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальный Hunyuan Video 1.5 720p text-to-video workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_hunyuan_video_1.5_720p_t2v.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

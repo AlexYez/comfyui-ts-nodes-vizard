@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.control-net-loader",
+  "node": {"classType": "ControlNetLoader", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L862-L894",
+        "path": "nodes.py",
+        "lines": "862-894"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/controlnet.py#L728-L893",
+        "path": "comfy/controlnet.py",
+        "lines": "728-893"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L10-L38",
+        "path": "folder_paths.py",
+        "lines": "10-38"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_execution/caching.py#L82-L127",
+        "path": "comfy_execution/caching.py",
+        "lines": "82-127"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ControlnetLoader/en.md",
+        "assessment": "Каталог отличается от classType регистром буквы n. Назначение и models/controlnet совпадают; объединённый t2i_adapter path, format detection и отсутствие file-content fingerprint сверены по source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "sd3.5_large_canny_controlnet_example",
+        "role": "Workflow 5c7e191b-b600-4ec5-9100-b8135c0fd76c: loader №46 выбирает sd3.5_large_controlnet_canny.safetensors и идёт в apply №51 вместе с Canny, conditioning и VAE."
+      },
+      {
+        "id": "workflow-templates-0142-control-net-loader-census",
+        "role": "Полный census: семь exact instances, root 5/subgraph 2, files 6/distinct UUID 4; mode 0 ×6 и mode 4 ×1; SD3.5 blur/canny/depth и Qwen families."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Wrapper loader method проверен с fake path resolver и fake common loader, включая invalid-model branch; реальные model files не читались.",
+    "Fragment выделяет только loader/apply часть SD3.5 Canny topology и не включает checkpoint, preprocessor и sampler.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-13"
+}

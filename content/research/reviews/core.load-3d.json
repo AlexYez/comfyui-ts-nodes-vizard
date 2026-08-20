@@ -1,0 +1,90 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-3d",
+  "node": {
+    "classType": "Load3D",
+    "pythonModule": "comfy_extras.nodes_load_3d",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_load_3d.py#L15-L84",
+        "path": "comfy_extras/nodes_load_3d.py",
+        "lines": "15-84"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d.ts#L149-L473",
+        "path": "src/extensions/core/load3d.ts",
+        "lines": "149-473"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d/Load3dUtils.ts#L1-L133",
+        "path": "src/extensions/core/load3d/Load3dUtils.ts",
+        "lines": "1-133"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d/RecordingManager.ts#L120-L228",
+        "path": "src/extensions/core/load3d/RecordingManager.ts",
+        "lines": "120-228"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/Load3D/en.md",
+        "assessment": "SHA-256 8118cc26d576a18496a883269e6b94f758a5d39846f0fab4e1df69536aaba011. Описывает управление просмотрщиком, но перечисляет устаревший выход lineart и не отражает model_3d/model_3d_info текущей схемы."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/Load3D/ru.md",
+        "assessment": "SHA-256 9fc909cb78659f4995d123c5e609b1ccad41544e8d5d64a1209e4d93fc58f9c1. Содержит то же расхождение, поэтому точные имена и восемь выходов взяты из /object_info и исходного кода."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "api_hunyuan3d_model2uv",
+        "role": "Корневой Load3D №13 открывает toy.glb и передаёт выход model_3d с индексом 6 в TencentModelTo3DUVNode."
+      },
+      {
+        "id": "api_hunyuan3d_part",
+        "role": "Корневой Load3D №36 открывает motor_cycle.fbx и передаёт FILE_3D в Tencent3DPartNode."
+      },
+      {
+        "id": "api_hunyuan3d_retopo_uv",
+        "role": "Корневой Load3D №265 открывает toy.glb и передаёт FILE_3D в TencentSmartTopologyNode."
+      },
+      {
+        "id": "api_hunyuan3d_smart_topology",
+        "role": "Корневой Load3D №1 открывает toy.glb и передаёт FILE_3D в TencentSmartTopologyNode. Полная перепись дала 4 корневых и 0 подграфовых экземпляров."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Серверные ветви проверены на временных синтетических файлах, но реальная 3D-модель и WebGL-просмотрщик не запускались.",
+    "Официальные шаблоны используют только выход model_3d; учебная ветка image/mask/normal основана на точной схеме и коде, а не на готовом шаблоне.",
+    "Запись WebM/VP9 в закреплённом интерфейсе получает расширение mp4; воспроизведение и перенос этого результата на разных системах не проверялись.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

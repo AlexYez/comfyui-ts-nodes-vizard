@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.load-image-data-set-folder",
+  "locale": "ru",
+  "title": "Прочитать изображения из выбранной подпапки",
+  "summary": "Одиночная LoadImageDataSetFromFolder читает прямые PNG, JPG, JPEG и WEBP и выдаёт списочный IMAGE без выдуманного downstream-workflow.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.load-image-data-set-from-folder"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Подпапка внутри input с поддерживаемыми изображениями",
+    "Замена значения 3d на существующую локальную папку"
+  ],
+  "fragment": {
+    "id": "fragment.load-image-data-set-folder",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, full workflow census, isolated temp-directory execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "LoadImageDataSetFromFolder in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L170-L206",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

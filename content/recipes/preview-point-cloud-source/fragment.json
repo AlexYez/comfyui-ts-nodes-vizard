@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.preview-point-cloud-source",
+  "title": "Point-cloud PLY → PreviewPointCloud",
+  "externalInputs": [
+    {"id": "model-3d", "type": "FILE_3D_POINT_CLOUD_ANY", "to": "preview-point-cloud", "input": "model_3d"},
+    {"id": "viewport-state", "type": "LOAD_3D", "to": "preview-point-cloud", "input": "viewport_state"}
+  ],
+  "nodes": [
+    {
+      "ref": "preview-point-cloud",
+      "classType": "PreviewPointCloud",
+      "role": "Скопировать PLY во временную папку и показать его как point cloud",
+      "settings": {"width": 1024, "height": 1024}
+    }
+  ],
+  "connections": []
+}

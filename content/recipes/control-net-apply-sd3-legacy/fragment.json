@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.control-net-apply-sd3-legacy",
+  "title": "Старая SD3 ControlNet-ветвь с обязательным VAE",
+  "externalInputs": [
+    {"id": "positive", "type": "CONDITIONING", "to": "apply", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "apply", "input": "negative"},
+    {"id": "control-net", "type": "CONTROL_NET", "to": "apply", "input": "control_net"},
+    {"id": "vae", "type": "VAE", "to": "apply", "input": "vae"},
+    {"id": "image", "type": "IMAGE", "to": "apply", "input": "image"}
+  ],
+  "nodes": [
+    {
+      "ref": "apply",
+      "classType": "ControlNetApplySD3",
+      "role": "Прикрепить deprecated SD3 ControlNet к positive и negative",
+      "settings": {"strength": 1.0, "start_percent": 0.0, "end_percent": 1.0}
+    }
+  ],
+  "connections": []
+}

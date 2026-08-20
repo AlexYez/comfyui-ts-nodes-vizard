@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-scheduler",
+  "node": {"classType": "LTXVScheduler", "pythonModule": "comfy_extras.nodes_lt", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L612-L675",
+        "path": "comfy_extras/nodes_lt.py",
+        "lines": "612-675"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L63-L83",
+        "path": "comfy_extras/nodes_lt.py",
+        "lines": "63-83"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/nested_tensor.py#L63-L65",
+        "path": "comfy/nested_tensor.py",
+        "lines": "63-65"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVScheduler/en.md",
+        "assessment": "Верно сообщает fallback 4096 и optional latent, но не раскрывает shape[2:] product, 1024/4096 anchors, extrapolation, nested video shape и numerical edges."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVScheduler/ru.md",
+        "assessment": "Общий перевод описывает stretch, но не различает последнюю ненулевую сигму terminal и отдельный terminal zero."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Найдены семь LTXVScheduler в семи файлах: два legacy root с 30 steps, четыре LTX2 subgraph с 20 и один distilled LoRA subgraph с 12."
+      },
+      {
+        "id": "official-ltxv-latent-aware-topology",
+        "role": "Latent подключён во всех семи случаях; legacy outputs идут в SamplerCustom, LTX2 — в SamplerCustomAdvanced; все используют shifts 2.05/0.95, stretch true, terminal 0.1."
+      },
+      {
+        "id": "synthetic-exact-source-ltxv-scheduler",
+        "role": "AST-extracted execute подтвердил fallback/latent shapes, anchors and extrapolation, stretch tail, terminal double zero, one-step behavior, equal-shift size independence и NaN при shift 100."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment повторяет EmptyLTXVLatentVideo → scheduler, но не содержит model, conditioning и SamplerCustom ветви.",
+    "Полный LTXV/LTX2 video sampling не выполнялся; probe проверяет только shape и sigma mathematics.",
+    "Визуальное влияние extrapolated shift для длинных видео и nested AV cases требует человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-13"
+}

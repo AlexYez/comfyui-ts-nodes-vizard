@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.stable-audio-latent-decode",
+  "title": "EmptyLatentAudio → KSampler → VAEDecodeAudio",
+  "externalInputs": [
+    { "id": "model", "type": "MODEL", "to": "sample", "input": "model" },
+    { "id": "positive", "type": "CONDITIONING", "to": "sample", "input": "positive" },
+    { "id": "negative", "type": "CONDITIONING", "to": "sample", "input": "negative" },
+    { "id": "vae", "type": "VAE", "to": "decode", "input": "vae" }
+  ],
+  "nodes": [
+    {
+      "ref": "empty_audio_latent",
+      "classType": "EmptyLatentAudio",
+      "role": "Создать нулевой audio latent на 47,6 секунды",
+      "settings": { "seconds": 47.6, "batch_size": 1 }
+    },
+    {
+      "ref": "sample",
+      "classType": "KSampler",
+      "role": "Сгенерировать audio latent по conditioning",
+      "settings": {
+        "seed": 840755638734093,
+        "steps": 50,
+        "cfg": 4.98,
+        "sampler_name": "dpmpp_3m_sde_gpu",
+        "scheduler": "exponential",
+        "denoise": 1.0
+      }
+    },
+    {
+      "ref": "decode",
+      "classType": "VAEDecodeAudio",
+      "role": "Преобразовать sampled latent в AUDIO",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    { "from": "empty_audio_latent", "output": "LATENT", "to": "sample", "input": "latent_image" },
+    { "from": "sample", "output": "LATENT", "to": "decode", "input": "samples" }
+  ]
+}

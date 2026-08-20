@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.karras-scheduler",
+  "node": {"classType": "KarrasScheduler", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L47-L67",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "47-67"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L19-L29",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "19-29"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/KarrasScheduler/en.md",
+        "assessment": "SHA-256 80d35ea87a25369eaf79a6786729d421f190f592e6926ab8a625efe0ccdd4469. AI-generated текст перечисляет порты, но описывает движение между границами без точного направления, формулы и конечного нуля; эти детали сверены по source."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/KarrasScheduler/ru.md",
+        "assessment": "SHA-256 b6b4dcf4cd425316a001a4691576085fa47a3b14528df8cb2c120f00c32c81de. Перевод локализует runtime-ключи и не раскрывает опасные нулевые значения; использован только как вторичная справка."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-karras-scheduler-zero-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; полный просмотр 512 JSON, 496 root и 272 subgraph не нашёл ни одного exact KarrasScheduler."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Функция из pinned source исполнена на CPU без модели; проверены rho 0, 0,01, 0,1 и 7, включая NaN, потерю sigma_min и overflow, но sampler и совместимость границ с реальными model_sampling не проверялись.",
+    "В official wheel 0.1.42 нет KarrasScheduler, поэтому fragment source-derived и использует runtime defaults, а не настройки template.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

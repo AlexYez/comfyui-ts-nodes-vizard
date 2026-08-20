@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sampler-custom-advanced",
+  "node": {"classType": "SamplerCustomAdvanced", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L1028-L1082",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "1028-1082"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L1210-L1386",
+        "path": "comfy/samplers.py",
+        "lines": "1210-1386"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerCustomAdvanced/ru.md",
+        "assessment": "Передаёт общую роль компонентов, но опускает noise_mask, downscale metadata, empty-latent repair, intermediate device и точный x0 callback."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SamplerCustomAdvanced/en.md",
+        "assessment": "Упоминает mask и downscale keys; source понадобился для model_patcher repair, empty SIGMAS, lifecycle и точного переноса x0."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Полный census: 87 SamplerCustomAdvanced, из них 14 root и 73 subgraph; 81 mode 0 и 6 mode 4."
+      },
+      {
+        "id": "template_ltx2_3_style_transition-subgraph0",
+        "role": "Точно сверены RandomNoise #100, CFGGuider #116, SamplerEulerAncestral #117 [0,1], ManualSigmas #118, latent #119 и SamplerCustomAdvanced #120; denoised_output связан с LTXVSeparateAVLatent."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact-source probe исполняет wrapper с контролируемыми NOISE/GUIDER stubs, но не загружает реальную модель.",
+    "Minimal Euler fragment является проверенной component topology, а LTX fragment — точным официальным участком; ни один не запускался целиком.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.instruct-pix-to-pix-conditioning",
+  "node": {"classType": "InstructPixToPixConditioning", "pythonModule": "comfy_extras.nodes_ip2p", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_ip2p.py#L7-L53", "path": "comfy_extras/nodes_ip2p.py", "lines": "7-53"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L678-L708", "path": "comfy/model_base.py", "lines": "678-708"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/InstructPixToPixConditioning/en.md", "assessment": "Общее назначение и порты совпадают. Формулировка о приведении к ближайшему кратному уточнена по коду: размер уменьшается на remainder, crop центрируется."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/InstructPixToPixConditioning/ru.md", "assessment": "Локализация использована только для сопоставления смысла. Exact identifiers, shallow metadata copy и zero latent проверены по source."}
+    ],
+    "workflows": [
+      {"id": "flux_canny_model_example", "role": "Root workflow 90469c7e-4751-418c-9bd5-e43b3745a118: узел 35 получает FluxGuidance, ConditioningZeroOut, VAELoader ae.safetensors и Canny; все три выхода идут в KSampler."},
+      {"id": "flux_depth_lora_example", "role": "Root d2d1faaf-2721-471e-a202-305446a968ee, subgraph 93bb962d-07fe-4a22-88e4-2df05e9caf80: узел 35 подключён к KSampler по positive, negative и latent."},
+      {"id": "hidream_e1_1", "role": "Root dbedd4b2-c963-475d-8057-72a15e532fd5: узел 52 получает две CLIPTextEncode ветви, VAELoader и scaled image; conditioning идёт в DualCFGGuider, latent в SamplerCustomAdvanced."},
+      {"id": "hidream_e1_full", "role": "Отдельный template с тем же сериализованным root UUID: узел 52 повторяет image-edit topology, но использует другой ImageScale и настройки DualCFGGuider."}
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Synthetic probe проверил центральный crop, один общий encoded latent, metadata copies и zero latent без настоящего VAE.",
+    "Fragment повторяет официальную трёхвыходную topology, но не исполнялся с checkpoint, VAE и изображением.",
+    "Совместимость и параметры sampling различаются между Flux, HiDream и классическими InstructPix2Pix моделями; human approval pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

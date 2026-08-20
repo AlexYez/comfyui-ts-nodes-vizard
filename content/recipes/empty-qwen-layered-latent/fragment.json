@@ -1,0 +1,1 @@
+{"$schema":"../../schemas/recipe-fragment.schema.v1.json","schemaVersion":"1.0","fragmentId":"fragment.empty-qwen-layered-latent","title":"Qwen layered latent 640×640","externalInputs":[],"nodes":[{"ref":"latent","classType":"EmptyQwenImageLayeredLatentImage","role":"Создать layered latent","settings":{"width":640,"height":640,"layers":2,"batch_size":1}}],"connections":[]}

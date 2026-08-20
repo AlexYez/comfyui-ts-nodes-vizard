@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.audio-encoder-encode",
+  "node": {
+    "classType": "AudioEncoderEncode",
+    "pythonModule": "comfy_extras.nodes_audio_encoder",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio_encoder.py#L34-L50",
+        "path": "comfy_extras/nodes_audio_encoder.py",
+        "lines": "34-50"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/audio_encoders/audio_encoders.py#L36-L47",
+        "path": "comfy/audio_encoders/audio_encoders.py",
+        "lines": "36-47"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/AudioEncoderEncode/en.md",
+        "assessment": "SHA-256 b72ab0c78bf6f143a8546d674b45ca515b880594ccadc043ac284af9c5d6470e. Документ верно называет encoded representation, но не раскрывает resample 16 кГц и три поля output."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/AudioEncoderEncode/ru.md",
+        "assessment": "SHA-256 acfefd542e8534fbc55cc06df41cc5518affc522dc5bd5ce09626a8eb0a0cd45. Перевод также не различает финальные и послойные признаки."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-audio-encoder-encode-census",
+        "role": "Найдено семь нод в трёх файлах: HuMo root 1, Wan S2V root 2, InfiniteTalk subgraph 4. Зафиксированы три LoadAudio входа, четыре subgraph AUDIO inputs и model-specific consumers."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fake-encoder probe исполняет точный node method; wrapper probe подменяет resampler и нейросеть, проверяя 16 кГц, поля результата и audio_samples без реальных весов.",
+    "HuMo, Wan S2V и InfiniteTalk workflow не запускались end-to-end.",
+    "Качество, языковая применимость и model-specific совместимость признаков требуют запуска соответствующих весов.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-14"
+}

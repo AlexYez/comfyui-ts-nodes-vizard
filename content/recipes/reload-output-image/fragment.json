@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.reload-output-image",
+  "title": "Output file — IMAGE preview и MASK preview",
+  "externalInputs": [],
+  "nodes": [
+    {"ref": "load_output", "classType": "LoadImageOutput", "role": "Выбрать сохранённый файл из output", "settings": {"image": "SELECT_OUTPUT_FILE"}},
+    {"ref": "preview_image", "classType": "PreviewImage", "role": "Показать RGB-кадры", "settings": {}},
+    {"ref": "mask_image", "classType": "MaskToImage", "role": "Преобразовать обратную alpha MASK в IMAGE", "settings": {}},
+    {"ref": "preview_mask", "classType": "PreviewImage", "role": "Показать область прозрачности", "settings": {}}
+  ],
+  "connections": [
+    {"from": "load_output", "output": "IMAGE", "to": "preview_image", "input": "images"},
+    {"from": "load_output", "output": "MASK", "to": "mask_image", "input": "mask"},
+    {"from": "mask_image", "output": "IMAGE", "to": "preview_mask", "input": "images"}
+  ]
+}

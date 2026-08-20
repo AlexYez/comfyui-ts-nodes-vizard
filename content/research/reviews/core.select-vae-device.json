@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.select-vae-device",
+  "node": {"classType": "SelectVAEDevice", "pythonModule": "comfy_extras.nodes_multigpu", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_multigpu.py#L51-L139",
+        "path": "comfy_extras/nodes_multigpu.py",
+        "lines": "51-139"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_multigpu.py#L282-L347",
+        "path": "comfy_extras/nodes_multigpu.py",
+        "lines": "282-347"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_management.py#L246-L289",
+        "path": "comfy/model_management.py",
+        "lines": "246-289"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_management.py#L1239-L1248",
+        "path": "comfy/model_management.py",
+        "lines": "1239-1248"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SelectVAEDevice/en.md",
+        "assessment": "Raw SHA-256 8254a38eebcc0332a19681c8b3a25d57195aa91cac6b0abaef5945a05c0499f2. AI-generated page describes GPU/default and CPU exclusion but omits wrapper copy, patcher factory and offload details."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SelectVAEDevice/ru.md",
+        "assessment": "Raw SHA-256 2284b163637f153907d49b7998360dcedbbf55cf289ea3b62a58b8b5ac378157. AI-generated translation renames exact input device to устройство and is not used for serialized identifiers."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-zero-census",
+        "role": "All 512 JSON, 496 roots and 272 subgraphs scanned. SelectVAEDevice has 0 direct, raw and recursive scalar occurrences and no EN/RU index title."
+      },
+      {
+        "id": "isolated-exact-source-select-vae-device-probe",
+        "role": "Exact shared helpers and execute method ran on a synthetic VAE wrapper; shallow copy, patcher clone, gpu/default, CPU rejection, unavailable fallback, offload override and first_stage_model synchronization were checked."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "No target occurrence exists in official workflow wheel 0.1.42; the fragment is source-derived.",
+    "No production VAE, encode/decode, real GPU transfer, dtype behavior or VRAM measurement was executed.",
+    "The isolated probe validates routing and wrapper synchronization only.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

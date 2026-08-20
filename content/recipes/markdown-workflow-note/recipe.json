@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.markdown-workflow-note",
+  "locale": "ru",
+  "title": "Оформить памятку для workflow",
+  "summary": "Добавляет MarkdownNote с проверяемой структурой: назначение workflow, обязательные файлы, путь установки и условие перед запуском.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["frontend.markdown-note"],
+  "requirements": ["ComfyUI frontend 1.48.7 или совместимая версия"],
+  "fragment": {
+    "id": "fragment.markdown-workflow-note",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "workflow": {
+    "id": "workflow.frontend-utilities-lab",
+    "path": "../../workflows/frontend-utilities-lab.workflow.json",
+    "format": "comfyui-workflow/0.4"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated technical and editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "MarkdownNote implementation in ComfyUI frontend 1.48.7",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/noteNode.ts#L55-L83",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official Hunyuan3D v2.1 workflow template",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/3d_hunyuan3d-v2.1.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

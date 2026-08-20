@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.perp-neg-guider",
+  "node": {"classType": "PerpNegGuider", "pythonModule": "comfy_extras.nodes_perpneg", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_perpneg.py#L12-L151",
+        "path": "comfy_extras/nodes_perpneg.py",
+        "lines": "12-151"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L592-L627",
+        "path": "comfy/samplers.py",
+        "lines": "592-627"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/PerpNegGuider/en.md",
+        "assessment": "AI-generated документ верно перечисляет три conditioning и experimental intent, но не раскрывает формулу, global reduction, zero-norm risk и hook differences."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/PerpNegGuider/ru.md",
+        "assessment": "Перевод даёт общий обзор, но опускает даже осторожное утверждение EN о совместном calc_cond_batch вызове и не описывает оптимизации."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON, 496 root workflow graphs и 272 definitions.subgraphs: прямых PerpNegGuider и строковых упоминаний exact ID нет."
+      },
+      {
+        "id": "source-derived-perp-neg-custom-sampling-fragment",
+        "role": "Fragment следует exact required ports и соединяет GUIDER с SamplerCustomAdvanced; defaults не представлены как официальный preset."
+      },
+      {
+        "id": "isolated-pinned-perp-neg-probe",
+        "role": "Exact-source tensor probe проверяет формулу, ортогональность, neg_scale=0, global reduction и non-finite zero-norm case без весов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Прямой официальный workflow case отсутствует в bundle 0.1.42.",
+    "Source-derived fragment не импортировался и не выполнялся в ComfyUI.",
+    "Модельные weights не загружались; формула проверена на синтетических tensors.",
+    "Глобальная проекция и риск нулевой нормы требуют проверки на реальных conditioning выбранной модели.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

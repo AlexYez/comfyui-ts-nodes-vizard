@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "frontend.primitive-node",
+  "node": { "classType": "PrimitiveNode", "pythonModule": "comfyui_frontend", "origin": "frontend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "6d6af63c00f132cd25dc29307fc56bd2c094fa22",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-frontend-1.48.7.frontend-inventory.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/widgetInputs.ts#L31-L235",
+        "path": "src/extensions/core/widgetInputs.ts",
+        "lines": "31-235"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/widgetInputs.ts#L473-L616",
+        "path": "src/extensions/core/widgetInputs.ts",
+        "lines": "473-616"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/utils/nodeDefUtil.ts#L31-L140",
+        "path": "src/utils/nodeDefUtil.ts",
+        "lines": "31-140"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/widgetValuePropagation.ts#L10-L64",
+        "path": "src/extensions/core/widgetValuePropagation.ts",
+        "lines": "10-64"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/stores/nodeDefStore.ts#L208-L220",
+        "path": "src/stores/nodeDefStore.ts",
+        "lines": "208-220"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/utils/executionUtil.ts#L17-L90",
+        "path": "src/utils/executionUtil.ts",
+        "lines": "17-90"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "88bcf757-1298-432f-885a-db5ab88cf224",
+        "role": "Official sdxl_simple_example: PrimitiveNode № 45 передаёт steps двум KSamplerAdvanced, № 51 передаёт STRING двум CLIPTextEncode."
+      },
+      {
+        "id": "workflow.frontend-utilities-lab",
+        "role": "Локальный schema-validated workflow соединяет один INT-виджет PrimitiveNode с width двух EmptyLatentImage."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": ["В embedded docs 0.5.9 нет страницы PrimitiveNode; статья опирается на pinned frontend source и официальный сериализованный workflow.", "Учебный workflow проверен как JSON и по каталожной схеме, но не открывался и не исполнялся в живом ComfyUI."],
+  "updatedAt": "2026-08-13"
+}

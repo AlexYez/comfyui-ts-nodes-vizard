@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-reference-audio-id-lora",
+  "title": "LTXV ID-LoRA reference audio с CFGGuider",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "reference", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "reference", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "reference", "input": "negative"},
+    {"id": "reference_audio", "type": "AUDIO", "to": "reference", "input": "reference_audio"},
+    {"id": "audio_vae", "type": "VAE", "to": "reference", "input": "audio_vae"},
+    {"id": "frame_rate", "type": "FLOAT", "to": "conditioning", "input": "frame_rate"}
+  ],
+  "nodes": [
+    {
+      "ref": "reference",
+      "classType": "LTXVReferenceAudio",
+      "role": "Закодировать голосовой референс и поставить identity guidance",
+      "settings": {"identity_guidance_scale": 3.0, "start_percent": 0.0, "end_percent": 1.0}
+    },
+    {
+      "ref": "conditioning",
+      "classType": "LTXVConditioning",
+      "role": "Добавить LTXV frame rate к positive и negative",
+      "settings": {}
+    },
+    {
+      "ref": "guider",
+      "classType": "CFGGuider",
+      "role": "Собрать GUIDER с патченным MODEL и conditioning",
+      "settings": {"cfg": 1.0}
+    }
+  ],
+  "connections": [
+    {"from": "reference", "output": "MODEL", "to": "guider", "input": "model"},
+    {"from": "reference", "output": "positive", "to": "conditioning", "input": "positive"},
+    {"from": "reference", "output": "negative", "to": "conditioning", "input": "negative"},
+    {"from": "conditioning", "output": "positive", "to": "guider", "input": "positive"},
+    {"from": "conditioning", "output": "negative", "to": "guider", "input": "negative"}
+  ]
+}

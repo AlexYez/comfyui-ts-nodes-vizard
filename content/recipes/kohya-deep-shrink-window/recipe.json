@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.kohya-deep-shrink-window",
+  "locale": "ru",
+  "title": "Deep Shrink: блок 3, окно 0–0.35",
+  "summary": "Добавляет составленный по исходному коду патч: он в начале удаления шума уменьшает карту признаков третьего входного блока вдвое.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.patch-model-add-downscale"],
+  "requirements": ["ComfyUI 0.32.0", "MODEL с block index 3", "контрольная ветвь и профилирование"],
+  "fragment": {"id": "fragment.kohya-deep-shrink-window", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact-source hook behavior, runtime schema, no-official-case census and Russian editorial review; model benchmark and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "PatchModelAddDownscale in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_downscale.py#L6-L53", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

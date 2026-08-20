@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.combine-hooks-8",
+  "node": {"classType": "CombineHooks8", "pythonModule": "comfy_extras.nodes_hooks", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L679-L714",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "679-714"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L82-L129",
+        "path": "comfy/hooks.py",
+        "lines": "82-129"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L287-L423",
+        "path": "comfy/hooks.py",
+        "lines": "287-423"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L86-L116",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "86-116"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-combine-hooks-8-zero-census",
+        "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл ни одного CombineHooks8; точной строки нет и среди всех 517 файлов пакета."
+      },
+      {
+        "id": "hooks-exact-source-model-free-probe",
+        "role": "Точные классы CombineHooks8 и HookGroup подтвердили порядок A–D–H при остальных свободных портах, а общая вспомогательная функция — правила нуля, одной и нескольких групп."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "В embedded docs 0.5.9 нет каталога CombineHooks8 и точного упоминания NodeId.",
+    "Официального примера в пакете графов 0.1.42 нет; учебный фрагмент основан на зафиксированном исходнике и типах runtime.",
+    "Разреженный порядок входов проверен без моделей, но фрагмент с настоящими хуками, CONDITIONING и сэмплером целиком не исполнялся.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

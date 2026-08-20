@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.inspect-unet-self-attention-q",
+  "locale": "ru",
+  "title": "Проверить q в самовнимании UNet",
+  "summary": "Оставляет k, v и out равными 1, а q снижает до 0,9, чтобы сравнить одну переменную с контрольной ветвью.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.unet-self-attention-multiply"],
+  "requirements": ["ComfyUI 0.32.0", "Совместимый MODEL с ключами attn1.to_q", "Контрольная ветвь без ноды", "Одинаковые seed и параметры сэмплера"],
+  "fragment": {"id": "fragment.inspect-unet-self-attention-q", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная проверка исходника, runtime-схемы и соединений; полный граф и модель не запускались, редактор пока не утвердил материал вручную",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "UNetSelfAttentionMultiply в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_attention_multiply.py#L6-L43",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

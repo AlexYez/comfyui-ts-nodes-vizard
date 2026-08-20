@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.create-lora-weight-hook",
+  "title": "LoRA → HOOKS → CLIP и CONDITIONING",
+  "externalInputs": [
+    {"id": "clip", "type": "CLIP", "to": "set-clip", "input": "clip"}
+  ],
+  "nodes": [
+    {
+      "ref": "create-hook",
+      "classType": "CreateHookLora",
+      "role": "Загрузить выбранную LoRA и создать весовой хук для модели и CLIP",
+      "settings": {"lora_name": "SELECT_LORA_FILE", "strength_model": 1.0, "strength_clip": 1.0}
+    },
+    {
+      "ref": "set-clip",
+      "classType": "SetClipHooks",
+      "role": "Применить хук к CLIP без автоматического переноса в conditioning",
+      "settings": {"apply_to_conds": false, "schedule_clip": false}
+    },
+    {
+      "ref": "encode",
+      "classType": "CLIPTextEncode",
+      "role": "Закодировать промпт CLIP с активным весовым хуком",
+      "settings": {"text": "описание сцены с выбранной LoRA"}
+    },
+    {
+      "ref": "attach",
+      "classType": "ConditioningSetProperties",
+      "role": "Явно прикрепить тот же модельный хук к conditioning",
+      "settings": {"strength": 1.0, "set_cond_area": "default"}
+    }
+  ],
+  "connections": [
+    {"from": "create-hook", "output": "HOOKS", "to": "set-clip", "input": "hooks"},
+    {"from": "create-hook", "output": "HOOKS", "to": "attach", "input": "hooks"},
+    {"from": "set-clip", "output": "CLIP", "to": "encode", "input": "clip"},
+    {"from": "encode", "output": "CONDITIONING", "to": "attach", "input": "cond_NEW"}
+  ]
+}

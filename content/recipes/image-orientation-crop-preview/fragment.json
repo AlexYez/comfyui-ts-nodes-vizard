@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.image-orientation-crop-preview", "title": "Crop — horizontal flip — clockwise rotate",
+  "externalInputs": [{"id": "image", "type": "IMAGE", "to": "crop", "input": "image"}],
+  "nodes": [
+    {"ref": "crop", "classType": "ImageCropV2", "role": "Вырезать левый верхний квадрат 512x512", "settings": {"crop_region": {"x": 0, "y": 0, "width": 512, "height": 512}}},
+    {"ref": "flip", "classType": "ImageFlip", "role": "Отразить квадрат слева направо", "settings": {"flip_method": "y-axis: horizontally"}},
+    {"ref": "rotate", "classType": "ImageRotate", "role": "Повернуть результат на 90 градусов по часовой стрелке", "settings": {"rotation": "90 degrees"}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Показать итоговую геометрию", "settings": {}}
+  ],
+  "connections": [
+    {"from": "crop", "output": "IMAGE", "to": "flip", "input": "image"},
+    {"from": "flip", "output": "IMAGE", "to": "rotate", "input": "image"},
+    {"from": "rotate", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

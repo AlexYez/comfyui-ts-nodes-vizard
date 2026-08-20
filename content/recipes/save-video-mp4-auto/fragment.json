@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.save-video-mp4-auto",
+  "title": "VIDEO → SaveVideo auto",
+  "externalInputs": [
+    {
+      "id": "video",
+      "type": "VIDEO",
+      "to": "save_video",
+      "input": "video"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "save_video",
+      "classType": "SaveVideo",
+      "role": "Сохранить готовый VIDEO в output/video",
+      "settings": {
+        "filename_prefix": "video/ComfyUI",
+        "format": "auto",
+        "codec": {
+          "codec": "auto"
+        }
+      }
+    }
+  ],
+  "connections": []
+}

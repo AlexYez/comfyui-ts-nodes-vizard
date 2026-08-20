@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.merge-image-lists-pass-through",
+  "title": "MergeImageLists с одним списочным входом",
+  "externalInputs": [
+    {
+      "id": "images",
+      "type": "IMAGE",
+      "to": "merge",
+      "input": "images"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "merge",
+      "classType": "MergeImageLists",
+      "role": "Развернуть вход в плоский список без перестановки",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.clip-text-encode-sd3-source",
+  "locale": "ru",
+  "title": "Закодировать три текста через SD3 CLIP",
+  "summary": "Source-derived fragment подключает внешний SD3 CLIP к CLIPTextEncodeSD3 и показывает раздельные поля CLIP-L, CLIP-G и T5-XXL.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.clip-text-encode-sd3"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "SD3-совместимый объект CLIP с ключами l, g и t5xxl"
+  ],
+  "fragment": {"id": "fragment.clip-text-encode-sd3-source", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/docs review and exact-source tokenizer branch probe; real encoder execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "CLIPTextEncodeSD3 in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sd3.py#L64-L109",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42 recursive census",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

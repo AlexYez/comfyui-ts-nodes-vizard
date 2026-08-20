@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.apply-hypernetwork",
+  "locale": "ru",
+  "title": "Hypernetwork поверх внешнего MODEL",
+  "summary": "Минимальный source-derived fragment принимает MODEL, устанавливает выбранный attention patch с strength 1 и оставляет выход для sampler.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.hypernetwork-loader"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Базовый MODEL совместимой архитектуры",
+    "Совместимый hypernetwork-файл в models/hypernetworks",
+    "Контрольный запуск без patch для сравнения"
+  ],
+  "fragment": {
+    "id": "fragment.apply-hypernetwork",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "HypernetworkLoader in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hypernetwork.py#L9-L139",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

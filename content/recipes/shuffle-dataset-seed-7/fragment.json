@@ -1,0 +1,25 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.shuffle-dataset-seed-7",
+  "title": "ShuffleDataset с seed 7",
+  "externalInputs": [
+    {
+      "id": "images",
+      "type": "IMAGE",
+      "to": "shuffle",
+      "input": "images"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "shuffle",
+      "classType": "ShuffleDataset",
+      "role": "Воспроизводимо переставить изображения",
+      "settings": {
+        "seed": 7
+      }
+    }
+  ],
+  "connections": []
+}

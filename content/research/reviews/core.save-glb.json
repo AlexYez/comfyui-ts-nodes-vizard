@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-glb",
+  "node": {"classType": "SaveGLB", "pythonModule": "comfy_extras.nodes_save_3d", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_save_3d.py#L79-L406",
+        "path": "comfy_extras/nodes_save_3d.py",
+        "lines": "79-406"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_util/geometry_types.py#L56-L125",
+        "path": "comfy_api/latest/_util/geometry_types.py",
+        "lines": "56-125"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/saveMesh.ts#L31-L210",
+        "path": "frontend/src/extensions/core/saveMesh.ts",
+        "lines": "31-210"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveGLB/en.md",
+        "assessment": "Верно перечисляет MESH и File3D formats, output directory и UI-result; не различает encoding MESH и byte-preserving File3D copy достаточно явно."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveGLB/ru.md",
+        "assessment": "Передаёт общее назначение, но список форматов короче runtime и не раскрывает metadata branch, пустые batch items и first-result frontend preview."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и 768 root/subgraph graphs найдено 39 SaveGLB в 31 файле: 7 MESH, 18 FILE_3D_GLB, 6 FILE_3D_OBJ, 5 FILE_3D_FBX и 3 FILE_3D incoming links."
+      },
+      {
+        "id": "3d_triposplat_image_to_gaussian_splat-node-92-to-51",
+        "role": "Exact official case: SplatToFile3D format=spz подключён к SaveGLB с filename_prefix=3d/ComfyUI_TripoSplat."
+      },
+      {
+        "id": "synthetic-exact-source-save-glb-probe",
+        "role": "Exact source проверил MESH-to-GLB, metadata, UV/color/unlit attributes, empty batch skip, invalid face rejection и byte-preserving SPZ/blank-format File3D branches."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Probe исполнил реальные writer/copy branches, но не весь fragment с внешним SPLAT и не официальный TripoSplat workflow с весами.",
+    "GLB, GLTF, OBJ, FBX, STL, USDZ, PLY, SPLAT, SPZ и KSPLAT не открывались вручную в наборе сторонних viewers.",
+    "Frontend WebGL preview, asset thumbnail persistence и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-14"
+}

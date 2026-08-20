@@ -1,0 +1,25 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.sv3d-conditioning-orbit",
+  "title": "SV3D: круг из 21 ракурса",
+  "externalInputs": [
+    {"id": "clip_vision", "type": "CLIP_VISION", "to": "condition", "input": "clip_vision"},
+    {"id": "init_image", "type": "IMAGE", "to": "condition", "input": "init_image"},
+    {"id": "vae", "type": "VAE", "to": "condition", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "condition",
+      "classType": "SV3D_Conditioning",
+      "role": "Подготовить 21 camera position от 0° до 360° включительно",
+      "settings": {
+        "width": 576,
+        "height": 576,
+        "video_frames": 21,
+        "elevation": 0.0
+      }
+    }
+  ],
+  "connections": []
+}

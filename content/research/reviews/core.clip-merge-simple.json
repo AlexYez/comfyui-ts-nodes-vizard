@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.clip-merge-simple",
+  "node": {
+    "classType": "CLIPMergeSimple",
+    "pythonModule": "comfy_extras.nodes_model_merging",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L71-L90",
+        "path": "comfy_extras/nodes_model_merging.py",
+        "lines": "71-90"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L493",
+        "path": "comfy/lora.py",
+        "lines": "438-493"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L298-L307",
+        "path": "comfy/sd.py",
+        "lines": "298-307"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ClipMergeSimple/en.md",
+        "assessment": "Описывает порты и смешивание, но приписывает ratio весу clip2. Это противоречит порядку strength_patch и strength_model в pinned implementation."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ClipMergeSimple/ru.md",
+        "assessment": "Повторяет перевёрнутые крайние значения ratio; формула статьи сверена с реализацией и точной функцией calculate_weight."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON-файлов и 496 корневых workflow-графов, включая definitions.subgraphs[*].nodes; CLIPMergeSimple не найден."
+      },
+      {
+        "id": "synthetic-exact-source-clip-merge-simple",
+        "role": "AST-extracted merge и точная calculate_weight выполнены на малых числовых весах: подтверждены коэффициенты ratio для clip1 и 1-ratio для clip2, фильтр position_ids/logit_scale и tokenizer первого входа."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальных workflow-кейсов CLIPMergeSimple в пакете 0.1.42 нет; fragment основан на pinned source.",
+    "Exact-source probe проверяет алгебру patches на малых весах, но не загружает настоящий CLIP и не запускает text encode.",
+    "Fragment-only recipe не исполнен целиком в ComfyUI; визуальное влияние смеси и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

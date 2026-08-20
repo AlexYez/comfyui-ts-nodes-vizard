@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.encode-hunyuan-video-10-i2v-prompt",
+  "title": "Текст и CLIP Vision → Hunyuan Video 1.0 CONDITIONING",
+  "externalInputs": [
+    {"id": "clip", "type": "CLIP", "to": "encode", "input": "clip"},
+    {"id": "vision", "type": "CLIP_VISION_OUTPUT", "to": "encode", "input": "clip_vision_output"}
+  ],
+  "nodes": [
+    {
+      "ref": "encode",
+      "classType": "TextEncodeHunyuanVideo_ImageToVideo",
+      "role": "Собрать мультимодальное условие Hunyuan Video 1.0",
+      "settings": {
+        "prompt": "The subject slowly turns toward the window while the camera makes a gentle push-in.",
+        "image_interleave": 2
+      }
+    }
+  ],
+  "connections": []
+}

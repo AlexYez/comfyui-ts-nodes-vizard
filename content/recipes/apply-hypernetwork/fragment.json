@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.apply-hypernetwork",
+  "title": "MODEL через HypernetworkLoader",
+  "externalInputs": [
+    { "id": "base_model", "type": "MODEL", "to": "hypernetwork", "input": "model" }
+  ],
+  "nodes": [
+    {
+      "ref": "hypernetwork",
+      "classType": "HypernetworkLoader",
+      "role": "Добавить hypernetwork patch к attn1 и attn2",
+      "settings": {
+        "hypernetwork_name": "выберите совместимый hypernetwork",
+        "strength": 1.0
+      }
+    }
+  ],
+  "connections": []
+}

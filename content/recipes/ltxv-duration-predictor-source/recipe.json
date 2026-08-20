@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-duration-predictor-source",
+  "locale": "ru",
+  "title": "Подключить LTX 2.4 duration head",
+  "summary": "Source-derived fragment принимает готовый LTX 2.4 duration head как MODEL_PATCH и получает num_frames и raw seconds для positive LTXV conditioning.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.ltxv-duration-predictor"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "LTX 2.4 MODEL",
+    "Positive CONDITIONING от совместимого LTX text encoder",
+    "Duration head, загруженный через ModelPatchLoader как MODEL_PATCH"
+  ],
+  "fragment": {"id": "fragment.ltxv-duration-predictor-source", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime, exact full workflow absence census, exact duration math and model-free node probe and Russian editorial pass; real head execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "LTXV Duration Predictor in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L1123-L1174",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "LTX 2.4 DurationHead and frame conversion",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/lightricks/duration_head.py#L25-L81",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

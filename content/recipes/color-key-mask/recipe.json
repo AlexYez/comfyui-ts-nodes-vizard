@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.color-key-mask", "locale": "ru",
+  "title": "Проверить точное выделение RGB-цвета", "summary": "Выделяет чистый зелёный цвет 0x00FF00 в бинарную MASK и показывает результат до композитинга или сегментации.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.image-color-to-mask", "core.mask-to-image"], "requirements": ["ComfyUI 0.32.0 или совместимая версия", "IMAGE с известной плоской RGB-заливкой"],
+  "fragment": {"id": "fragment.color-key-mask", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Source and schema review; image execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [{"title": "ImageColorToMask implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_mask.py#L157-L178", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}]
+}

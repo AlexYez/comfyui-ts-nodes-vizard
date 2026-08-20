@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.merge-splat",
+  "node": {"classType": "MergeSplat", "pythonModule": "comfy_extras.nodes_gaussian_splat", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L33-L35",
+        "path": "comfy_extras/nodes_gaussian_splat.py",
+        "lines": "33-35"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L1169-L1238",
+        "path": "comfy_extras/nodes_gaussian_splat.py",
+        "lines": "1169-1238"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_util/geometry_types.py#L14-L29",
+        "path": "comfy_api/latest/_util/geometry_types.py",
+        "lines": "14-29"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/MergeSplat/en.md",
+        "assessment": "Подтверждает назначение и диапазон автоматически растущего входа, но противоречит себе о числе обязательных подключений и не раскрывает `counts` или нулевое дополнение SH. SHA-256 1a4c5e2e453c54cf439e26f806663f1fd0bddf74e30abcf3e2582d13fb3a5bfd."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/MergeSplat/ru.md",
+        "assessment": "Одновременно требует минимум один и минимум два входа, а также не описывает равенство размеров пакетов; детали проверены по исходному коду. SHA-256 6e9d4760628070f4d374f0ce5b5ed54c196f263d51b2d7f7334b50687a3e5e40."
+      }
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-zero-census", "role": "Полный обход 512 JSON, 496 корневых графов, 272 вложенных графов и 8120 нод не нашёл MergeSplat."}
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Точная функция объединения из исходного кода исполнена на синтетических тензорах, но фрагмент и граф Comfy целиком не запускались.",
+    "В официальных шаблонах нет MergeSplat, поэтому схема соединений фрагмента обоснована типами runtime и исходным кодом. `PreviewAny` добавлен как выходная нода, но весь фрагмент в ComfyUI не исполнялся.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

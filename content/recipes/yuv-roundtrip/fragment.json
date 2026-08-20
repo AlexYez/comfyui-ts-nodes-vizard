@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.yuv-roundtrip",
+  "title": "RGB — Y/Cb/Cr — RGB — preview",
+  "externalInputs": [{"id": "rgb_image", "type": "IMAGE", "to": "to_yuv", "input": "image"}],
+  "nodes": [
+    {"ref": "to_yuv", "classType": "ImageRGBToYUV", "role": "Разделить RGB на Y, Cb и Cr", "settings": {}},
+    {"ref": "to_rgb", "classType": "ImageYUVToRGB", "role": "Собрать неизменённые компоненты обратно", "settings": {}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Проверить восстановленный RGB", "settings": {}}
+  ],
+  "connections": [
+    {"from": "to_yuv", "output": "Y", "to": "to_rgb", "input": "Y"},
+    {"from": "to_yuv", "output": "U", "to": "to_rgb", "input": "U"},
+    {"from": "to_yuv", "output": "V", "to": "to_rgb", "input": "V"},
+    {"from": "to_rgb", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

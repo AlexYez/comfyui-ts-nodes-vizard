@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-training-dataset",
+  "node": {
+    "classType": "LoadTrainingDataset",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L46-L135",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "46-135"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L2034-L2103",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "2034-2103"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LoadTrainingDataset/en.md",
+        "assessment": "AI-generated справка ошибочно указывает output directory и STRING с default вместо динамического required COMBO; она не описывает свободный фильтр имён, лексикографическую сортировку, weights_only, игнорирование metadata и отсутствие проверки пар; SHA-256 файла в wheel: a9a2468c2a60fc5dd9f005856428c9a43d8dc4ae00bdb23129faf8bdc6b22bd2."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LoadTrainingDataset/ru.md",
+        "assessment": "Русская AI-generated версия повторяет неверные каталог и тип выбора и не раскрывает правила обнаружения, порядок shard, trust boundary и валидационные пробелы; SHA-256 файла в wheel: 2dd3de246f25283ec281cb68eb2485ad46320dfa00f20c0e6c2f4ba84d47e823."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON, 496 корневых workflow, 272 subgraph и 8120 узлов; LoadTrainingDataset отсутствует как точный type и как case-sensitive строка."
+      },
+      {
+        "id": "isolated-pinned-dataset-training-pipeline-probe",
+        "role": "Во временном datasets проверены порядок загрузки, игнорирование metadata, чтение остаточных shard, отказ metadata-only каталога, принятие несогласованных внутренних списков и защита пути; fragment не исполнялся."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; однонодовый fragment с динамическим placeholder не импортировался и не выполнялся на canvas.",
+    "Изолированный probe читал только созданные им синтетические файлы; неизвестные, повреждённые, огромные и межверсионные torch.save-архивы не проверялись.",
+    "weights_only=True сужает десериализацию, но не заменяет проверку происхождения и ресурсов файла.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

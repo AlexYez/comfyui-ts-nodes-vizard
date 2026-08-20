@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.clip-layer-selection",
+  "title": "CLIP со скрытым состоянием предпоследнего слоя",
+  "externalInputs": [
+    { "id": "clip", "type": "CLIP", "to": "set_layer", "input": "clip" }
+  ],
+  "nodes": [
+    {
+      "ref": "set_layer",
+      "classType": "CLIPSetLastLayer",
+      "role": "Создать ветвь CLIP с индексом слоя −2",
+      "settings": { "stop_at_clip_layer": -2 }
+    },
+    {
+      "ref": "encode",
+      "classType": "CLIPTextEncode",
+      "role": "Закодировать prompt выбранным скрытым состоянием",
+      "settings": { "text": "опишите сцену для контрольного сравнения" }
+    }
+  ],
+  "connections": [
+    { "from": "set_layer", "output": "CLIP", "to": "encode", "input": "clip" }
+  ]
+}

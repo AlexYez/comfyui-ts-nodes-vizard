@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.resize-images-by-longer-edge",
+  "node": {"classType": "ResizeImagesByLongerEdge", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L562-L765", "path": "comfy_extras/nodes_dataset.py", "lines": "562-765"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L968-L998", "path": "comfy_extras/nodes_dataset.py", "lines": "968-998"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_replacements.py#L17-L32", "path": "comfy_extras/nodes_replacements.py", "lines": "17-32"}
+    ],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ResizeImagesByLongerEdge/ru.md", "assessment": "Русский файл не содержит deprecated-warning, английский содержит. Source class и display name deprecated, официальный replacement ведёт в ImageScaleToMaxDimension; runtime deprecated=false из-за base-schema omission."}],
+    "workflows": []
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Exhaustive scan 496 official workflow graphs не нашёл ResizeImagesByLongerEdge.", "Landscape/portrait/RGBA и zero-dimension edge case исполнены; полный fragment и автоматическая replacement-операция frontend не запускались.", "Lifecycle mismatch сохранён честно: runtime false, source/display/replacement deprecated.", "Человеческое утверждение не выполнено."],
+  "updatedAt": "2026-08-13"
+}

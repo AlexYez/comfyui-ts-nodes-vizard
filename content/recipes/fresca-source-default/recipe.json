@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.fresca-source-default",
+  "locale": "ru",
+  "title": "FreSca: source-derived runtime defaults",
+  "summary": "Добавляет FreSca с low scale 1.0, high scale 1.25 и cutoff 20 для контролируемой проверки conditional-unconditional guidance.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.fresca"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "MODEL и sampling path с conditional и unconditional predictions",
+    "Известный spatial размер prediction для интерпретации cutoff"
+  ],
+  "fragment": {"id": "fragment.fresca-source-default", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs/paper review and exact-source tensor probe; official wheel has no FreSca case, model image/video run and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "FreSca implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_fresca.py#L8-L103",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "FreSca: Scaling in Frequency Space Enhances Diffusion Models",
+      "url": "https://arxiv.org/abs/2504.02154",
+      "publisher": "arXiv",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

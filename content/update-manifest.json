@@ -1,0 +1,54 @@
+{
+  "$schema": "schemas/update-manifest.schema.v1.json",
+  "schemaVersion": "1.0",
+  "catalogVersion": "0.1.0",
+  "publishedAt": "2026-08-13T12:00:00Z",
+  "canonicalization": "comfy-nodes-wizard-json-v1",
+  "signatureScope": "top-level-manifest-excluding-signature",
+  "compatibility": {
+    "comfyui": ">=0.32.0",
+    "frontend": ">=1.48.7"
+  },
+  "inventory": {
+    "source": "runtime/comfyui-0.32.0.object-info.json",
+    "comfyuiVersion": "0.32.0",
+    "frontendVersion": "1.48.7",
+    "capturedAt": "2026-08-13T18:11:19Z"
+  },
+  "artifacts": [
+    {
+      "path": "generated/catalog.json",
+      "sha256": "486d342335cde9cf7164cab470625f15070227c1c2d29e4cbee8d55d56a09a15",
+      "size": 160688,
+      "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog.json",
+      "contentType": "application/json"
+    },
+    {
+      "path": "generated/search-index.json",
+      "sha256": "9f9fb23b9f86879f071b19135299795160ed879fe37dfbdbdee6c050bb80921d",
+      "size": 23913,
+      "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/search-index.json",
+      "contentType": "application/json"
+    },
+    {
+      "path": "generated/catalog-bundle.zip",
+      "sha256": "394fbae04b6f225a7d10348eed722495b1830ee090986f962dcf3ccef73e4545",
+      "size": 32516,
+      "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog-bundle.zip",
+      "contentType": "application/zip"
+    }
+  ],
+  "changes": {
+    "summary": "Первая версия русского каталога: три core-ноды, frontend Reroute и базовый txt2img-рецепт.",
+    "added": [
+      "core.checkpoint-loader-simple",
+      "core.ksampler",
+      "core.save-image",
+      "frontend.reroute"
+    ],
+    "updated": [],
+    "deprecated": [],
+    "removed": []
+  },
+  "signature": null
+}

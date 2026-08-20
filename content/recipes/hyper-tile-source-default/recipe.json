@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.hyper-tile-source-default",
+  "locale": "ru",
+  "title": "HyperTile: source-derived runtime defaults",
+  "summary": "Добавляет HyperTile с tile size 256, swap size 2, depth 0 и отключённым depth scaling для измерения attention memory и времени.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.hyper-tile"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "MODEL с spatial attn1 и корректным original_shape",
+    "Измерение качества, времени и peak memory на одном seed"
+  ],
+  "fragment": {"id": "fragment.hyper-tile-source-default", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs/upstream review and exact-source tensor/attention probe; official wheel has no HyperTile case, full model performance run and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "HyperTile implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hypertile.py#L10-L86",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "HyperTile official reference implementation",
+      "url": "https://github.com/tfernd/HyperTile",
+      "publisher": "tfernd",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

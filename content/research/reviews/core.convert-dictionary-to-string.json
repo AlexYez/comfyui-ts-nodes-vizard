@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.convert-dictionary-to-string",
+  "node": {
+    "classType": "ConvertDictionaryToString",
+    "pythonModule": "comfy_extras.nodes_string",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L444-L468",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "444-468"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ConvertDictionaryToString/en.md",
+        "assessment": "SHA-256 6b89ddc4936d0454fbeb8538783c5687d672d5bbab111472062509af93be31da; контракт отступов проверен."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ConvertDictionaryToString/ru.md",
+        "assessment": "SHA-256 1150ff5d3aa508f4006880fa3202efefd53eda9127203fb862e8b138b35b735f; поведение Unicode и ошибок уточнено."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-0142-zero-census",
+        "role": "В 768 графах точных экземпляров ноды нет."
+      },
+      {
+        "id": "exact-source-json-dump-probe",
+        "role": "Выполнены Unicode, вложенные значения, отступы 0 и 2, а также ветвь TypeError."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальных примеров нет; фрагмент основан на исходнике.",
+    "Человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-20"
+}

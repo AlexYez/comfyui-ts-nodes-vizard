@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.outpaint-conditioning",
+  "locale": "ru",
+  "title": "Outpaint по схеме Flux Fill",
+  "summary": "Расширяет изображение, передаёт новые области в InpaintModelConditioning и соединяет его три выхода с KSampler.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": [
+    "core.image-pad-for-outpaint",
+    "core.inpaint-model-conditioning",
+    "core.ksampler",
+    "core.load-image",
+    "core.preview-image",
+    "core.vae-decode"
+  ],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Flux Fill MODEL и подготовленные Flux positive/negative CONDITIONING",
+    "ae.safetensors в models/vae",
+    "Исходное изображение в input-каталоге"
+  ],
+  "fragment": {
+    "id": "fragment.outpaint-conditioning",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Official Flux Fill workflow topology and schema review; local model execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "InpaintModelConditioning and ImagePadForOutpaint implementations",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/nodes.py",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official flux_fill_outpaint_example in workflow templates 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

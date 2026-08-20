@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.skip-layer-guidance-dit-wan",
+  "locale": "ru",
+  "title": "SkipLayerGuidanceDiT перед ModelSamplingSD3 в Wan 2.1",
+  "summary": "Fragment сохраняет официальный локальный участок Wan 2.1: SLG с блоками 9 и 10, окном 0,01–0,8 и scale 3 перед ModelSamplingSD3 с shift 5.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.skip-layer-guidance-dit"],
+  "requirements": ["ComfyUI 0.32.0", "Совместимый Wan 2.1 DiT MODEL", "Дальнейшие model patches и sampler конкретного workflow"],
+  "fragment": {"id": "fragment.skip-layer-guidance-dit-wan", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema and official Wan topology review; model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SkipLayerGuidanceDiT in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_slg.py#L8-L88",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates 0.1.42: wan2.1_fun_control and wan2.1_fun_inp",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

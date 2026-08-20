@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.beta-sampling-scheduler",
+  "node": {"classType": "BetaSamplingScheduler", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L160-L180",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "160-180"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L695-L708",
+        "path": "comfy/samplers.py",
+        "lines": "695-708"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/BetaSamplingScheduler/en.md",
+        "assessment": "Перечисляет inputs, но не раскрывает beta PPF, дискретную model table, numpy.rint, дедупликацию и zero-parameter failure."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/BetaSamplingScheduler/ru.md",
+        "assessment": "Даёт общий перевод без точного алгоритма; runtime-порты и edge cases восстановлены по pinned source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "В полном census найден один BetaSamplingScheduler: subgraph image_chroma1_radiance_text_to_image.json, widgets 30, 0.4, 0.4."
+      },
+      {
+        "id": "official-chroma-radiance-beta-topology",
+        "role": "Подтверждено ModelSamplingAuraFlow shift 1 → BetaSamplingScheduler → SamplerCustomAdvanced; тот же patched MODEL идёт в CFGGuider, sampler выбран euler, CFG равен 3.5."
+      },
+      {
+        "id": "synthetic-exact-source-beta-scheduler",
+        "role": "AST-extracted node и beta_scheduler с таблицей [0..5] подтвердили quantile indexing, adjacent dedupe, explicit zero, сокращение requested 20 до 7 значений, duplicate zero и ValueError при alpha 0."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment воспроизводит подтверждённую sampling/scheduler ветку, но не содержит веса Chroma Radiance и остальные части subgraph.",
+    "Полный Chroma denoise с реальной таблицей model_sampling.sigmas не запускался; probe использует короткую синтетическую таблицу.",
+    "Поведение конкретных sampler на двойном нуле не квалифицировано; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

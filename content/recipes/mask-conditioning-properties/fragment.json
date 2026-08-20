@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.mask-conditioning-properties",
+  "title": "ConditioningSetProperties с маской",
+  "externalInputs": [
+    { "id": "conditioning", "type": "CONDITIONING", "to": "set_properties", "input": "cond_NEW" },
+    { "id": "mask", "type": "MASK", "to": "set_properties", "input": "mask" }
+  ],
+  "nodes": [
+    {
+      "ref": "set_properties",
+      "classType": "ConditioningSetProperties",
+      "role": "Добавить mask metadata и ограничить area её границами",
+      "settings": { "strength": 0.8, "set_cond_area": "mask bounds" }
+    }
+  ],
+  "connections": []
+}

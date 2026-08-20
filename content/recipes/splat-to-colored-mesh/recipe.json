@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.splat-to-colored-mesh",
+  "locale": "ru",
+  "title": "Извлечь цветной MESH из SPLAT и сохранить GLB",
+  "summary": "Внешний SPLAT проходит через SplatToMesh со значениями по умолчанию и сохраняется как GLB; тяжёлые источники и проверка результата остаются за пределами фрагмента.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.splat-to-mesh"],
+  "requirements": ["ComfyUI 0.32.0", "Внешний SPLAT", "Достаточно оперативной или видеопамяти для решётки плотности"],
+  "fragment": {"id": "fragment.splat-to-colored-mesh", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная сверка зафиксированных runtime и исходника с отключённой веткой официального графа TripoSplat; точные функции проверены в низком разрешении. Полное построение меша не исполнялось, ручная редакторская проверка не выполнена",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SplatToMesh в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L1523-L1662",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальный граф TripoSplat с отключённой веткой SplatToMesh",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/3d_triposplat_image_to_gaussian_splat.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

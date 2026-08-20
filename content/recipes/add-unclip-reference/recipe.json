@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.add-unclip-reference",
+  "locale": "ru",
+  "title": "Добавить визуальный референс через unCLIP",
+  "summary": "Кодирует изображение с crop center и записывает его в positive conditioning со strength 0.75 и нулевой noise augmentation, как в официальном SDXL revision workflow.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.unclip-conditioning", "core.clip-vision-encode"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Generative model с поддержкой unclip_conditioning",
+    "Совместимый CLIP_VISION и базовый CONDITIONING"
+  ],
+  "fragment": {"id": "fragment.add-unclip-reference", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime and official SDXL revision topology review; exact-source metadata probe passed, compatible-model execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "unCLIPConditioning implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1176-L1194",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

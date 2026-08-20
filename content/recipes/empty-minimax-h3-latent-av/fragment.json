@@ -1,0 +1,1 @@
+{"$schema":"../../schemas/recipe-fragment.schema.v1.json","schemaVersion":"1.0","fragmentId":"fragment.empty-minimax-h3-latent-av","title":"Пустой MiniMax H3 AV latent","externalInputs":[],"nodes":[{"ref":"latent","classType":"EmptyMiniMaxH3LatentAV","role":"Создать AV latent","settings":{"width":1344,"height":768,"length":124}}],"connections":[]}

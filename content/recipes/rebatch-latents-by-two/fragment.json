@@ -1,0 +1,25 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.rebatch-latents-by-two",
+  "title": "LATENT list → порции не больше двух",
+  "externalInputs": [
+    {
+      "id": "latents",
+      "type": "LATENT",
+      "to": "rebatch",
+      "input": "latents"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "rebatch",
+      "classType": "RebatchLatents",
+      "role": "Перегруппировать LATENT-последовательность в list-порции",
+      "settings": {
+        "batch_size": 2
+      }
+    }
+  ],
+  "connections": []
+}

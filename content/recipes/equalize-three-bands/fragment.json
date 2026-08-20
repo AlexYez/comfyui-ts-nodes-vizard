@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.equalize-three-bands",
+  "title": "Мягкая трёхполосная коррекция AUDIO",
+  "externalInputs": [
+    {"id": "source_audio", "type": "AUDIO", "to": "eq", "input": "audio"}
+  ],
+  "nodes": [
+    {
+      "ref": "eq",
+      "classType": "AudioEqualizer3Band",
+      "role": "Скорректировать low, mid и high полосы",
+      "settings": {
+        "low_gain_dB": 2.0,
+        "low_freq": 100,
+        "mid_gain_dB": -2.0,
+        "mid_freq": 1000,
+        "mid_q": 0.707,
+        "high_gain_dB": 1.0,
+        "high_freq": 5000
+      }
+    }
+  ],
+  "connections": []
+}

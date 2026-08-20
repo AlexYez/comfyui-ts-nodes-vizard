@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.make-training-dataset",
+  "node": {
+    "classType": "MakeTrainingDataset",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1843-L1928",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1843-1928"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/MakeTrainingDataset/en.md",
+        "assessment": "AI-generated справка описывает VAE, CLIP и три режима числа подписей, но не внешний элемент против внутреннего batch, срез первых трёх каналов и ошибку пустого списка images; SHA-256 файла в wheel: d699d0082ff690a9ee826565451457ebd27ccf0546e299e333de1f5811a6293f."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/MakeTrainingDataset/ru.md",
+        "assessment": "Русская AI-generated версия переводит системные имена портов images и texts и также не раскрывает форму внешних и внутренних списков, срез каналов и пустой набор; SHA-256 файла в wheel: 5761646e78011a5bfdba1199e01ea5b4731ae282f6556535aaa9fc21059e9f8b."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON, 496 корневых workflow, 272 subgraph и 8120 узлов; MakeTrainingDataset отсутствует как точный type и как case-sensitive строка."
+      },
+      {
+        "id": "isolated-pinned-dataset-training-pipeline-probe",
+        "role": "На синтетических тензорах и заглушках VAE/CLIP проверены срез до RGB, повтор одной и пустой подписи, внешний элемент с внутренним batch, ошибки несовпадения и пустых images; это не исполнение fragment."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; однонодовый fragment не импортировался и не выполнялся на canvas.",
+    "Изолированный probe использовал заглушки VAE и CLIP и синтетические тензоры; качество кодирования реальных моделей и полный обучающий цикл не проверялись.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

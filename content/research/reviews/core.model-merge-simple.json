@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-merge-simple",
+  "node": {"classType": "ModelMergeSimple", "pythonModule": "comfy_extras.nodes_model_merging", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L14-L31", "path": "comfy_extras/nodes_model_merging.py", "lines": "14-31"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L842-L889", "path": "comfy/model_patcher.py", "lines": "842-889"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L501", "path": "comfy/lora.py", "lines": "438-501"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/ModelMergeSimple/en.md", "assessment": "SHA-256 c4c5150529a46a5a32a162157df1794b6076d271d3851130ec685e6aad8cbee2. Ratio endpoints are correct; diffusion-only filtering, missing keys and shape mismatch behavior are omitted."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ModelMergeSimple/ru.md", "assessment": "SHA-256 9d15fb2bbf45889926d6c68265fb7bd8b2c2ee689854aad1cbb69581b8934b08. Used as secondary terminology evidence only."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-model-merge-simple-census", "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; all 512 JSON, 496 root workflows and 272 subgraphs contain zero exact ModelMergeSimple nodes."},
+      {"id": "isolated-model-merge-calculate-weight-probe", "role": "Exact node classes and pinned calculate_weight executed on synthetic state dicts: ratio 0.25 with weights 2/10 returned 8; non-diffusion and model2-only keys were excluded; shape mismatch left ratio-scaled model1."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "No real checkpoint pair was loaded, sampled or saved.",
+    "No current official workflow template serializes ModelMergeSimple; the fragment is source-derived.",
+    "Compatibility claims are limited to matching diffusion keys and tensor shapes; model quality was not assessed.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

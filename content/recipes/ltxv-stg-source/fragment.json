@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-stg-source",
+  "title": "LTXV STG block 29 перед Dual CFG",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "stg", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "guider", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "guider", "input": "negative"}
+  ],
+  "nodes": [
+    {
+      "ref": "stg",
+      "classType": "LTXVSpatioTemporalGuidance",
+      "role": "Добавить STG-pass с value-passthrough self-attention в блоке 29",
+      "settings": {"scale": 1.0, "blocks": "29", "start_percent": 0.0, "end_percent": 1.0}
+    },
+    {
+      "ref": "guider",
+      "classType": "LTXVDualCFGGuider",
+      "role": "Подготовить guider для дальнейшего AV sampling",
+      "settings": {"video_cfg": 3.0, "audio_cfg": 7.0}
+    }
+  ],
+  "connections": [
+    {"from": "stg", "output": "MODEL", "to": "guider", "input": "model"}
+  ]
+}

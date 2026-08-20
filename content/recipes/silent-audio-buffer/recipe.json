@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.silent-audio-buffer",
+  "locale": "ru",
+  "title": "Две секунды stereo-тишины 44,1 кГц",
+  "summary": "EmptyAudio создаёт float32 AUDIO формы [1, 2, 88200] без модели, VAE и входного waveform.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.empty-audio"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Downstream-нода, принимающая AUDIO",
+    "Около 705 600 байт под samples без служебных расходов"
+  ],
+  "fragment": {
+    "id": "fragment.silent-audio-buffer",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, synthetic unit and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "EmptyAudio in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L756-L800",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

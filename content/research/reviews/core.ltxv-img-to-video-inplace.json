@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.ltxv-img-to-video-inplace",
+  "node": {"classType": "LTXVImgToVideoInplace", "pythonModule": "comfy_extras.nodes_lt", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L132-L178", "path": "comfy_extras/nodes_lt.py", "lines": "132-178"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L218-L230", "path": "comfy_extras/nodes_lt.py", "lines": "218-230"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/LTXVImgToVideoInplace/en.md", "assessment": "SHA-256 c456c911404c4a73c6a44191a4b7fd36880828fa621bd08588bd619b825064de. Resize и bypass верны; strength ошибочно описан как sample blending, metadata loss/NestedTensor limit не указаны."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/LTXVImgToVideoInplace/ru.md", "assessment": "SHA-256 163d4cf127ae80584cc9d5692b7e23e3ecf138b9abf7407cf8abbb8318beb68b. Перевод повторяет blending claim; exact source подтверждает unconditional sample overwrite."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-ltxv-inplace-census", "role": "Full census: 27 subgraph instances в 13 files, mode0 25/mode4 2; widgets [1,false]×20, [0.7,false]×6, [1,true]×1."},
+      {"id": "video-ltx2-3-i2v-two-inplace-stages", "role": "Проверены Empty295→Inplace296 strength0.7 и LatentUpsampler287→Inplace288 strength1, оба с LTXVPreprocess image branch."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Probe проверяет clone/overwrite/mask/bypass/metadata loss с fake VAE; real VAE weights не загружались.", "NestedTensor incompatibility выведена из exact interface и вызова clone, официальный failing graph не создавался.", "Человеческое утверждение статьи и рецепта ещё не выполнено."],
+  "updatedAt": "2026-08-14"
+}

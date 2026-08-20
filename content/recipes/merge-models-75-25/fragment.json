@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.merge-models-75-25",
+  "title": "75% model1 + 25% model2",
+  "externalInputs": [
+    {"id": "model1", "type": "MODEL", "to": "merge", "input": "model1"},
+    {"id": "model2", "type": "MODEL", "to": "merge", "input": "model2"}
+  ],
+  "nodes": [
+    {"ref": "merge", "classType": "ModelMergeSimple", "role": "Смешать совместимые diffusion-веса 75/25", "settings": {"ratio": 0.75}}
+  ],
+  "connections": []
+}

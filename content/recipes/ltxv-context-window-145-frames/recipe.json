@@ -1,0 +1,6 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.ltxv-context-window-145-frames", "locale": "ru", "title": "Окно LTXV на 145 кадров", "summary": "Применяет исходные значения LTXVContextWindows и удерживает первый индекс одновременно в conditioning и латенте.", "body": "ru.md", "difficulty": "advanced", "articleIds": ["core.ltxv-context-windows"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Совместимая LTXV-модель с временной осью latent dim=2"], "fragment": {"id": "fragment.ltxv-context-window-145-frames", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Automated pinned source/runtime/docs review and exact-source probe; no official case, full model execution or human approval", "reviewedAt": "2026-08-20"},
+  "sources": [{"title": "LTXVContextWindows source in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_context_windows.py#L107-L149", "publisher": "Comfy-Org", "accessedAt": "2026-08-20"}]
+}

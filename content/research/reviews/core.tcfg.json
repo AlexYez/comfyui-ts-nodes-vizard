@@ -1,0 +1,74 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.tcfg",
+  "node": {"classType": "TCFG", "pythonModule": "comfy_extras.nodes_tcfg", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_tcfg.py#L1-L64",
+        "path": "comfy_extras/nodes_tcfg.py",
+        "lines": "1-64"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L609-L627",
+        "path": "comfy/samplers.py",
+        "lines": "609-627"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/TCFG/en.md",
+        "assessment": "AI-generated документ ссылается на paper и называет общую цель, но не описывает SVD implementation, skip rules, CPU fallback и условия quality claim."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/TCFG/ru.md",
+        "assessment": "Перевод локализует runtime input name и повторяет безусловное утверждение об улучшении качества без topology или benchmark."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON, 496 root graphs и 272 subgraphs: прямых TCFG и exact строковых упоминаний ID нет."
+      },
+      {
+        "id": "source-derived-tcfg-standard-sampling-fragment",
+        "role": "Fragment следует runtime ports и source hook position; KSampler values являются runtime defaults, а не official TCFG preset."
+      },
+      {
+        "id": "isolated-pinned-cfg-patch-probe",
+        "role": "Exact-source probe проверяет per-item SVD projection, dtype restoration, skip без unconditional и hook registration без весов."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Прямой официальный workflow case отсутствует в bundle 0.1.42.",
+    "Source-derived fragment не импортировался и не выполнялся в ComfyUI.",
+    "Model weights не загружались; SVD behavior проверен на синтетических tensors.",
+    "Заявленные авторами paper результаты качества не воспроизводились для ComfyUI implementation.",
+    "CPU fallback path подтверждён по source, но принудительно не исполнялся.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}

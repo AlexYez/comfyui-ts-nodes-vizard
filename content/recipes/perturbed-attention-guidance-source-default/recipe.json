@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.perturbed-attention-guidance-source-default",
+  "locale": "ru",
+  "title": "PAG: source-derived runtime default",
+  "summary": "Добавляет PerturbedAttentionGuidance со scale 3.0 как воспроизводимую контрольную конфигурацию точной схемы ComfyUI 0.32.0.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.perturbed-attention-guidance"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "MODEL с подходящим attn1 в middle block 0",
+    "Sampling path для A/B-сравнения при фиксированном seed"
+  ],
+  "fragment": {
+    "id": "fragment.perturbed-attention-guidance-source-default",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs/paper review and exact-source tensor probe; official wheel has no PAG case, model image comparison and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "PerturbedAttentionGuidance implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_pag.py#L13-L57",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Self-Rectifying Diffusion Sampling with Perturbed-Attention Guidance",
+      "url": "https://arxiv.org/abs/2403.17377",
+      "publisher": "arXiv",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

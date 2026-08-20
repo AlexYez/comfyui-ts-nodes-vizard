@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.masked-conditioning-region",
+  "title": "Масочное conditioning с вычислительной областью по bounds",
+  "externalInputs": [
+    { "id": "conditioning", "type": "CONDITIONING", "to": "set_mask", "input": "conditioning" },
+    { "id": "mask", "type": "MASK", "to": "set_mask", "input": "mask" }
+  ],
+  "nodes": [
+    {
+      "ref": "set_mask",
+      "classType": "ConditioningSetMask",
+      "role": "Прикрепить маску и ограничить area её ненулевыми границами",
+      "settings": { "strength": 1.0, "set_cond_area": "mask bounds" }
+    }
+  ],
+  "connections": []
+}

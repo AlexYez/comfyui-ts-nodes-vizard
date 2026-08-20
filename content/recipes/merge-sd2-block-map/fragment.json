@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.merge-sd2-block-map",
+  "title": "SD2: общий коэффициент и последний выходной блок",
+  "externalInputs": [
+    {"id": "model1", "type": "MODEL", "to": "merge", "input": "model1"},
+    {"id": "model2", "type": "MODEL", "to": "merge", "input": "model2"}
+  ],
+  "nodes": [
+    {
+      "ref": "merge",
+      "classType": "ModelMergeSD2",
+      "role": "Оставить несопоставленные ключи из model1 и смешать output_blocks.11",
+      "settings": {
+        "time_embed.": 1.0,
+        "output_blocks.11.": 0.25
+      }
+    }
+  ],
+  "connections": []
+}

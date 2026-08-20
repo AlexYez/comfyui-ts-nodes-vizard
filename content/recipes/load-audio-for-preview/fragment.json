@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-audio-for-preview",
+  "title": "LoadAudio → PreviewAudio",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "loader",
+      "classType": "LoadAudio",
+      "role": "Прочитать выбранный аудиофайл из input",
+      "settings": {
+        "audio": "voice_demo.mp3"
+      }
+    },
+    {
+      "ref": "preview",
+      "classType": "PreviewAudio",
+      "role": "Записать временный FLAC и показать плеер",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "loader",
+      "output": "AUDIO",
+      "to": "preview",
+      "input": "audio"
+    }
+  ]
+}

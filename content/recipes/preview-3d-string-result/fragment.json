@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.preview-3d-string-result",
+  "title": "Внешний STRING-путь → Preview3D",
+  "externalInputs": [
+    {"id": "model_path", "type": "STRING", "to": "preview", "input": "model_file"}
+  ],
+  "nodes": [
+    {
+      "ref": "preview",
+      "classType": "Preview3D",
+      "role": "Открыть созданный сервером 3D-файл в терминальном просмотрщике",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

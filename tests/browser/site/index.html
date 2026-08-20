@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TS Nodes Wizard browser harness</title>
+    <style>
+      :root { color-scheme: dark; font-family: Inter, system-ui, sans-serif; }
+      body { margin: 0; min-height: 100vh; color: #d8dae0; background: #15171c; }
+      .canvas { min-height: 100vh; padding: 32px; background-image: radial-gradient(#30333b 1px, transparent 1px); background-size: 20px 20px; }
+      .node { width: 280px; margin: 80px auto; border: 1px solid #3c414d; border-radius: 10px; background: #24272f; box-shadow: 0 16px 50px #0008; }
+      .node h1 { margin: 0; padding: 12px 16px; border-radius: 9px 9px 0 0; font-size: 14px; background: #474c5a; }
+      .node p { margin: 0; padding: 18px 16px; color: #9fa5b3; font-size: 13px; }
+      .toolbar { position: fixed; z-index: 2; top: 16px; left: 16px; display: flex; gap: 8px; }
+      button { border: 1px solid #555b69; border-radius: 7px; padding: 9px 13px; color: inherit; background: #292d36; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="toolbar">
+        <button id="open-wizard">Открыть справочник</button>
+        <button id="open-ksampler">Открыть KSampler через контекстное меню</button>
+        <button id="open-unknown">Открыть неизвестную ноду</button>
+      </div>
+      <section class="node" aria-label="Mock KSampler node">
+        <h1>KSampler</h1>
+        <p>Тестовый холст ComfyUI. Кнопка выше вызывает настоящий extension hook.</p>
+      </section>
+    </div>
+    <script type="module">
+      await import("/extensions/comfyui-ts-nodes-vizard/nodes-wizard.js");
+      const extension = globalThis.__COMFY_APP__.extension;
+      await extension.setup?.();
+      document.querySelector("#open-wizard").addEventListener("click", () => {
+        extension.commands.find((command) => command.id === "nodes-wizard.open")?.function();
+      });
+      document.querySelector("#open-ksampler").addEventListener("click", () => {
+        const items = extension.getNodeMenuItems?.({ comfyClass: "KSampler", type: "KSampler" }) ?? [];
+        items.find((item) => item?.content?.includes("TS Nodes Wizard"))?.callback?.();
+      });
+      document.querySelector("#open-unknown").addEventListener("click", async () => {
+        const items = extension.getNodeMenuItems?.({ comfyClass: "FutureCoreNode", type: "FutureCoreNode" }) ?? [];
+        items.find((item) => item?.content?.includes("TS Nodes Wizard"))?.callback?.();
+      });
+    </script>
+  </body>
+</html>

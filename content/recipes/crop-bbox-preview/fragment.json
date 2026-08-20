@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.crop-bbox-preview", "title": "Bounding box с padding и сохранением пропорций",
+  "externalInputs": [{"id": "source_image", "type": "IMAGE", "to": "crop", "input": "image"}],
+  "nodes": [
+    {"ref": "box", "classType": "PrimitiveBoundingBox", "role": "Задать область в исходном изображении", "settings": {"x": 64, "y": 64, "width": 512, "height": 512}},
+    {"ref": "crop", "classType": "CropByBBoxes", "role": "Добавить поля и вписать область", "settings": {"output_width": 512, "output_height": 512, "padding": 32, "keep_aspect": "pad"}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Проверить crop", "settings": {}}
+  ],
+  "connections": [
+    {"from": "box", "output": "BOUNDING_BOX", "to": "crop", "input": "bboxes"},
+    {"from": "crop", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

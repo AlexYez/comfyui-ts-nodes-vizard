@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.split-sigma-schedule-two-stage",
+  "locale": "ru",
+  "title": "Разделить расписание для двух этапов сэмплирования",
+  "summary": "Строит BasicScheduler simple на восемь шагов и делит SIGMAS при step 4, сохраняя одну общую граничную сигму для последовательных sampler.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.split-sigmas"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Совместимая MODEL для BasicScheduler",
+    "Два SamplerCustomAdvanced с передачей latent между этапами"
+  ],
+  "fragment": {"id": "fragment.split-sigma-schedule-two-stage", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs and official Hunyuan two-stage topology review; exact boundary probe passed, full two-sampler execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "SplitSigmas implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L204-L226",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

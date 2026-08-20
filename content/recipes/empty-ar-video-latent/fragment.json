@@ -1,0 +1,1 @@
+{"$schema":"../../schemas/recipe-fragment.schema.v1.json","schemaVersion":"1.0","fragmentId":"fragment.empty-ar-video-latent","title":"Пустой AR-video latent","externalInputs":[],"nodes":[{"ref":"latent","classType":"EmptyARVideoLatent","role":"Создать AR latent","settings":{"width":832,"height":480,"length":81,"batch_size":1}}],"connections":[]}

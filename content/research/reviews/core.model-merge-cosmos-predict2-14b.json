@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-merge-cosmos-predict2-14b",
+  "node": {"classType": "ModelMergeCosmosPredict2_14B", "pythonModule": "comfy_extras.nodes_model_merging_model_specific", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging_model_specific.py#L294-L315", "path": "comfy_extras/nodes_model_merging_model_specific.py", "lines": "294-315"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L138-L168", "path": "comfy_extras/nodes_model_merging.py", "lines": "138-168"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_detection.py#L809-L851", "path": "comfy/model_detection.py", "lines": "809-851"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/ModelMergeCosmosPredict2_14B/en.md", "assessment": "SHA-256 0b274755c54c32275989a0561a3439152133e9bca19c0852261c4a353ae93c12; secondary UI reference."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ModelMergeCosmosPredict2_14B/ru.md", "assessment": "SHA-256 ab550c7526efef85ef54140ee3225b780c4b59b157a816ef8cf24b9c01d98d72; terminology reference."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-0142-model-merge-cosmos-predict2-14b-census", "role": "All 512 JSON, 496 roots and 272 subgraphs contain zero exact ModelMergeCosmosPredict2_14B."},
+      {"id": "isolated-model-specific-merge-schema-probe", "role": "Exact INPUT_TYPES counts, 36 block prefixes and longest-prefix behavior were checked without weights."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["No Cosmos Predict2 14B checkpoints were merged or sampled.", "No official direct case exists.", "Prefix behavior only was probed.", "Редактор пока не проверил материал вручную."],
+  "updatedAt": "2026-08-14"
+}

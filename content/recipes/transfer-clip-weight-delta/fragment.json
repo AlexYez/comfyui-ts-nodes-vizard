@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.transfer-clip-weight-delta",
+  "title": "target + (tuned − base)",
+  "externalInputs": [
+    {"id": "tuned_clip", "type": "CLIP", "to": "subtract", "input": "clip1"},
+    {"id": "base_clip", "type": "CLIP", "to": "subtract", "input": "clip2"},
+    {"id": "target_clip", "type": "CLIP", "to": "add", "input": "clip1"}
+  ],
+  "nodes": [
+    {"ref": "subtract", "classType": "CLIPMergeSubtract", "role": "Получить разность tuned минус base", "settings": {"multiplier": 1.0}},
+    {"ref": "add", "classType": "CLIPMergeAdd", "role": "Прибавить разность к target encoder", "settings": {}}
+  ],
+  "connections": [
+    {"from": "subtract", "output": "CLIP", "to": "add", "input": "clip2"}
+  ]
+}

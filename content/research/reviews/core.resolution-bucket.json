@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.resolution-bucket",
+  "node": {
+    "classType": "ResolutionBucket",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1748-L1840",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1748-1840"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ResolutionBucket/en.md",
+        "assessment": "AI-generated справка верно описывает точное совпадение H и W, но не фиксирует отсутствие округления, отсутствие проверки внутренней длины, порядок первого появления, несовместимые прочие измерения, пустые списки и потерю дополнительных latent-полей; SHA-256 файла в wheel: 2e6cb9353c83e46a02f20a57474d5ad36418cb3687cda299a8d2bd08420699fe."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ResolutionBucket/ru.md",
+        "assessment": "Русская AI-generated версия сохраняет основную идею bucket, но не раскрывает точные ошибки, порядок, отсутствие resize и форму нового словаря только с samples; SHA-256 файла в wheel: d2a1a73a787a50b0b509d627069247b0beecc49833e6fac418c56dbd00374ccf."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON, 496 корневых workflow, 272 subgraph и 8120 узлов; ResolutionBucket отсутствует как точный type и как case-sensitive строка."
+      },
+      {
+        "id": "isolated-pinned-dataset-training-pipeline-probe",
+        "role": "На синтетических тензорах проверены точные H-W bucket, порядок первого появления, пустой ввод, внутренние короткие и длинные conditioning, несовместимые формы и потеря extra latent fields; fragment не исполнялся."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; однонодовый fragment не импортировался и не выполнялся на canvas.",
+    "Изолированный probe охватывает синтетические 4-D latent-тензоры и отдельный конфликт каналов; крупные, временные и пользовательские LATENT-структуры не проверялись.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

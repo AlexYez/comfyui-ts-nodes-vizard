@@ -1,0 +1,5 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.set-flux-guidance", "title": "Flux guidance 4",
+  "externalInputs": [{"id": "conditioning", "type": "CONDITIONING", "to": "guidance", "input": "conditioning"}],
+  "nodes": [{"ref": "guidance", "classType": "FluxGuidance", "role": "Установить numeric guidance embed", "settings": {"guidance": 4.0}}], "connections": []
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.concat-conditioning-tokens",
+  "title": "Токены conditioning_from после токенов conditioning_to",
+  "externalInputs": [
+    { "id": "conditioning_to", "type": "CONDITIONING", "to": "concat", "input": "conditioning_to" },
+    { "id": "conditioning_from", "type": "CONDITIONING", "to": "concat", "input": "conditioning_from" }
+  ],
+  "nodes": [
+    {
+      "ref": "concat",
+      "classType": "ConditioningConcat",
+      "role": "Сцепить тензоры по оси длины токенной последовательности",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

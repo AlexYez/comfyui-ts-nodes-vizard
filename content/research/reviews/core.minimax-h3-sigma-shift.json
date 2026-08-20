@@ -1,0 +1,75 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.minimax-h3-sigma-shift",
+  "node": {"classType": "MiniMaxH3SigmaShift", "pythonModule": "comfy_extras.nodes_minimax_h3", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_minimax_h3.py#L283-L324",
+        "path": "comfy_extras/nodes_minimax_h3.py",
+        "lines": "283-324"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L279-L347",
+        "path": "comfy/model_sampling.py",
+        "lines": "279-347"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/minimax/model.py#L1-L39",
+        "path": "comfy/ldm/minimax/model.py",
+        "lines": "1-39"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/minimax/model.py#L489-L540",
+        "path": "comfy/ldm/minimax/model.py",
+        "lines": "489-540"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/supported_models.py#L959-L974",
+        "path": "comfy/supported_models.py",
+        "lines": "959-974"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON и всех рекурсивных definitions.subgraphs точный class type MiniMaxH3SigmaShift не найден; официальный widget/topology preset отсутствует."
+      },
+      {
+        "id": "pinned-minimax-h3-model-defaults",
+        "role": "supported_models.py фиксирует исходные sampling settings shift 12 и audio_shift 3, которые использованы как честная контрольная конфигурация fragment."
+      },
+      {
+        "id": "synthetic-exact-source-minimax-h3-sigma-shift",
+        "role": "AST-extracted node и sampling classes подтвердили clone, перенос noise_scale, separate transformer_options, audio_scale 4, 1000 sigma и точное соответствие video→base→audio преобразования прямой audio curve."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Embedded docs 0.5.9 не содержат каталога MiniMaxH3SigmaShift; статья опирается на exact source и runtime.",
+    "Official workflow wheel 0.1.42 не содержит exact NodeId, поэтому fragment основан на pinned model defaults и не выдаётся за извлечённый workflow case.",
+    "MiniMax H3 weights и полный joint AV fragment не исполнялись; человеческое утверждение и субъективная проверка audio-video результата ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

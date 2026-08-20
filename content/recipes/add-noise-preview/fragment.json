@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.add-noise-preview",
+  "title": "IMAGE — Gaussian noise 0.03 — preview",
+  "externalInputs": [{"id": "source_image", "type": "IMAGE", "to": "noise", "input": "image"}],
+  "nodes": [
+    {"ref": "noise", "classType": "ImageAddNoise", "role": "Добавить слабый воспроизводимый шум", "settings": {"seed": 123, "strength": 0.03}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Проверить зерно и clipping при полном масштабе", "settings": {}}
+  ],
+  "connections": [{"from": "noise", "output": "IMAGE", "to": "preview", "input": "images"}]
+}

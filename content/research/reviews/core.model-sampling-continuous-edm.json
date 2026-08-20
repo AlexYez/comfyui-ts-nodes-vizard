@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-sampling-continuous-edm",
+  "node": {"classType": "ModelSamplingContinuousEDM", "pythonModule": "comfy_extras.nodes_model_advanced", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L197-L240",
+        "path": "comfy_extras/nodes_model_advanced.py", "lines": "197-240"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L226-L278",
+        "path": "comfy/model_sampling.py", "lines": "226-278"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/supported_models.py#L211-L232",
+        "path": "comfy/supported_models.py", "lines": "211-232"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-model-sampling-continuous-edm-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; 512 JSON, 496 root and 272 subgraph: zero exact ModelSamplingContinuousEDM nodes."
+      },
+      {
+        "id": "source-sdxl-playground-2-5-detection",
+        "role": "Official supported-model branch detects edm_mean/edm_std, sets sigma_data 0.5, sigma_max 80, sigma_min 0.002 and SDXL_Playground_2_5 latent format; the recipe reproduces these source-backed settings."
+      }
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Embedded-docs 0.5.9 contains no directory for this exact node; no documentation text was inferred.",
+    "Exact patch executed for all five modes and edge bounds without model weights; Playground/Cosmos inference was not run.",
+    "No direct official workflow case exists; recipe settings are tied to official model-detection source instead.",
+    "Human editorial approval is pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-video",
+  "node": {
+    "classType": "LoadVideo",
+    "pythonModule": "comfy_extras.nodes_video",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video.py#L220-L258",
+        "path": "comfy_extras/nodes_video.py",
+        "lines": "220-258"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L229-L256",
+        "path": "folder_paths.py",
+        "lines": "229-256"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L343-L369",
+        "path": "folder_paths.py",
+        "lines": "343-369"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L118-L145",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "118-145"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LoadVideo/en.md",
+        "assessment": "AI-generated справка верно описывает input, динамический список и upload, но называет точный COMBO типом STRING и не раскрывает top-level-only перечисление, MIME по имени, existence-only validation, ленивый VideoFromFile, mtime fingerprint и uppercase output name; SHA-256 файла в wheel: 517f1d75d3968fab9ee3f80834cdea6d300d8851d6ad27c99893f728a1a222d2."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LoadVideo/ru.md",
+        "assessment": "Русская AI-generated версия добавляет вводную о переводе, переводит системные имена file и video и наследует технические пробелы EN; SHA-256 файла в wheel: eda1c9ffa16bab86c48049395412865635a91ea6deefd0a202c9940f3e27f384."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "В 512 JSON найдены 55 LoadVideo в 53 корневых workflow и 0 subgraph; raw string есть в 66 файлах, включая 13 index/schema JSON без такой ноды."
+      },
+      {
+        "id": "workflow-templates-json-0.1.42-load-video-topology",
+        "role": "Найдены 16 прямых связей LoadVideo -> GetVideoComponents и 6 LoadVideo -> Video Slice; реальные имена файлов присутствуют в widgets_values, но не переносятся в рецепт."
+      },
+      {
+        "id": "isolated-pinned-video-shuffle-random-load-slice-probe",
+        "role": "Во временном input проверены MIME-список верхнего уровня, upload-флаг, exact VideoFromFile path, traversal rejection, existence-only directory acceptance и неизменный mtime fingerprint при изменённых байтах; fragment не исполнялся."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Однонодовый fragment содержит локальный placeholder и не импортировался либо выполнялся на canvas.",
+    "55 официальных нод и их downstream-топология просмотрены статически; шаблоны и приложенные видео целиком не исполнялись.",
+    "Probe декодировал только созданный им video-only AVI; набор пользовательских контейнеров, codec, audio и VFR не проверялся.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

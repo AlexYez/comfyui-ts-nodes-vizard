@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.preview-3d-advanced-pass-through",
+  "locale": "ru",
+  "title": "FILE_3D → Preview3DAdvanced со сквозными выходами",
+  "summary": "Показывает внешний FILE_3D во временном просмотрщике и оставляет тот же файл, итоговую камеру, трансформацию и размеры доступными следующим нодам.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.preview-3d-advanced"],
+  "requirements": [
+    "Внешний совместимый FILE_3D",
+    "Интерфейс 1.48.7 с уже активированной 3D-интеграцией",
+    "WebGL и достаточно памяти для модели"
+  ],
+  "fragment": {"id": "fragment.preview-3d-advanced-pass-through", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная сверка /object_info и закреплённых серверных и клиентских исходников с синтетической проверкой копирования в temp; официальный пакет не содержит Preview3DAdvanced, WebGL и весь фрагмент не исполнялись, ручной проверки не было",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "Preview3DAdvanced backend in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_load_3d.py#L132-L190",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Preview3DAdvanced frontend lifecycle",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d.ts#L688-L892",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Pinned official workflow templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/tree/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

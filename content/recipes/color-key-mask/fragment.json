@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.color-key-mask", "title": "Выделить чистый зелёный и показать маску",
+  "externalInputs": [{"id": "image", "type": "IMAGE", "to": "key", "input": "image"}],
+  "nodes": [
+    {"ref": "key", "classType": "ImageColorToMask", "role": "Сравнить RGB с 0x00FF00", "settings": {"color": 65280}},
+    {"ref": "view", "classType": "MaskToImage", "role": "Перевести бинарную MASK в IMAGE", "settings": {}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Показать точные совпадения", "settings": {}}
+  ],
+  "connections": [
+    {"from": "key", "output": "MASK", "to": "view", "input": "mask"},
+    {"from": "view", "output": "IMAGE", "to": "preview", "input": "images"}
+  ]
+}

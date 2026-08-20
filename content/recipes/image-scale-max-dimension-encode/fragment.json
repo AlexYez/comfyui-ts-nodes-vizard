@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.image-scale-max-dimension-encode",
+  "title": "LoadImage — длинная сторона 1536 — VAEEncode",
+  "externalInputs": [
+    {
+      "id": "vae",
+      "type": "VAE",
+      "to": "encode",
+      "input": "vae"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "load",
+      "classType": "LoadImage",
+      "role": "Загрузить исходное изображение",
+      "settings": {
+        "image": "выберите входной файл"
+      }
+    },
+    {
+      "ref": "scale",
+      "classType": "ImageScaleToMaxDimension",
+      "role": "Привести длинную сторону к 1536 без crop",
+      "settings": {
+        "upscale_method": "area",
+        "largest_size": 1536
+      }
+    },
+    {
+      "ref": "encode",
+      "classType": "VAEEncode",
+      "role": "Закодировать подготовленный IMAGE выбранным VAE",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "load",
+      "output": "IMAGE",
+      "to": "scale",
+      "input": "image"
+    },
+    {
+      "from": "scale",
+      "output": "IMAGE",
+      "to": "encode",
+      "input": "pixels"
+    }
+  ]
+}

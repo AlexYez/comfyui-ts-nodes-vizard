@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.conditioning-set-default-combine",
+  "node": {
+    "classType": "ConditioningSetDefaultCombine",
+    "pythonModule": "comfy_extras.nodes_hooks",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L202-L226",
+        "path": "comfy_extras/nodes_hooks.py",
+        "lines": "202-226"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L692-L711",
+        "path": "comfy/hooks.py",
+        "lines": "692-711"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L773-L786",
+        "path": "comfy/hooks.py",
+        "lines": "773-786"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L165-L206",
+        "path": "comfy/samplers.py",
+        "lines": "165-206"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L231-L256",
+        "path": "comfy/samplers.py",
+        "lines": "231-256"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ConditioningSetDefaultAndCombine/en.md",
+        "assessment": "Архивное имя следует Python-классу, а не runtime NodeId. Документ помечен как AI-generated и передаёт идею fallback, но не описывает расчёт остаточной карты, ReLU и замену обычного множителя default-записи. Статья следует реализации."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены все 512 JSON-файлов, включая definitions.subgraphs[*].nodes. Runtime ID ConditioningSetDefaultCombine не найден; официальный пример hooks, topology или widgets отсутствует."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment проверен по схеме и runtime-инвентарю, но не исполнялся на пространственно размеченных conditioning и реальном sampler.",
+    "В official workflow templates JSON 0.1.42 runtime ID отсутствует; реальная topology с optional HOOKS официальным workflow не подтверждена.",
+    "Экспериментальный API может измениться после ComfyUI 0.32.0; совместимость с будущими версиями не предполагается.",
+    "Влияние нескольких перекрывающихся обычных записей на остаточную карту проверено по исходнику, но не численным runtime-тестом.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-13"
+}

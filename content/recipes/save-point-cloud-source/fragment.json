@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.save-point-cloud-source",
+  "title": "Point-cloud PLY → SavePointCloud",
+  "externalInputs": [
+    {"id": "model-3d", "type": "FILE_3D_POINT_CLOUD_ANY", "to": "save", "input": "model_3d"},
+    {"id": "viewport-state", "type": "LOAD_3D", "to": "save", "input": "viewport_state"}
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "SavePointCloud",
+      "role": "Скопировать point-cloud PLY в output и вернуть viewport state",
+      "settings": {"filename_prefix": "3d/ComfyUI", "width": 1024, "height": 1024}
+    }
+  ],
+  "connections": []
+}

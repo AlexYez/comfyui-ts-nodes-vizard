@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.render-splat-official-turntable", "title": "Orbit camera → RenderSplat: 75-frame turntable",
+  "externalInputs": [{"id": "splat", "type": "SPLAT", "to": "render", "input": "splat"}],
+  "nodes": [
+    {"ref": "camera", "classType": "CreateCameraInfo", "role": "Официальная orbit-камера", "settings": {"mode": {"mode": "orbit", "yaw": 35.0, "pitch": 30.0, "distance": 2.5}, "target_x": 0.0, "target_y": 0.0, "target_z": 0.0, "roll": 0.0, "fov": 35.0, "zoom": 1.0, "camera_type": "perspective"}},
+    {"ref": "render", "classType": "RenderSplat", "role": "Рендер полного оборота", "settings": {"width": 1024, "height": 1024, "frames": 75, "splat_scale": 1.0, "sharpen": 2.0, "headlight_shading": 0.0, "opacity_threshold": 0.0, "render_style": "color", "background": "#848484"}}
+  ],
+  "connections": [{"from": "camera", "output": "camera_info", "to": "render", "input": "camera_info"}]
+}

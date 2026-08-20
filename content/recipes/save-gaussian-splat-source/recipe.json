@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.save-gaussian-splat-source",
+  "locale": "ru",
+  "title": "Сохранить готовый Gaussian Splat File3D",
+  "summary": "Source-derived fragment подключает splat File3D и живой viewport к SaveGaussianSplat без смены PLY, SPLAT, SPZ или KSPLAT.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.save-gaussian-splat"],
+  "requirements": [
+    "ComfyUI 0.32.0 и frontend 1.48.7",
+    "Gaussian Splat File3D в формате PLY, SPLAT, SPZ или KSPLAT",
+    "Рабочий Load3D-виджет в браузере"
+  ],
+  "fragment": {"id": "fragment.save-gaussian-splat-source", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned backend/frontend/runtime/docs review and exact-source SPZ output-copy probe; official wheel has no SaveGaussianSplat case, browser rendering and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SaveGaussianSplat in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_save_3d.py#L409-L521",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "SaveGaussianSplat frontend integration 1.48.7",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3dPreviewExtensions.ts#L25-L250",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

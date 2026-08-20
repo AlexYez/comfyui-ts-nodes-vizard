@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.split-alpha-preview",
+  "locale": "ru",
+  "title": "Разделить RGBA и проверить цвет с прозрачностью",
+  "summary": "Отделяет первые три канала RGBA, преобразует alpha в MASK по формуле 1 − alpha и показывает цвет и визуализацию маски двумя preview.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.split-image-with-alpha", "core.mask-to-image", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "RGBA IMAGE; RGB также допустим и даст нулевую MASK"],
+  "fragment": {"id": "fragment.split-alpha-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Automated source and RGB/RGBA tensor review; full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "SplitImageWithAlpha implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_compositing.py#L164-L185", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"},
+    {"title": "MaskToImage implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mask.py", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

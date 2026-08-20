@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.select-clip-device",
+  "title": "Внешний CLIP → gpu:1 с fallback",
+  "externalInputs": [
+    {"id": "clip", "type": "CLIP", "to": "select_clip", "input": "clip"}
+  ],
+  "nodes": [
+    {
+      "ref": "select_clip",
+      "classType": "SelectCLIPDevice",
+      "role": "Создать CLIP clone и назначить его patcher второму доступному GPU",
+      "settings": {"device": "gpu:1"}
+    }
+  ],
+  "connections": []
+}

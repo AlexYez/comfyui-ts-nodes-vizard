@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.instruct-pix-to-pix-conditioning",
+  "locale": "ru",
+  "title": "Подготовить image-edit conditioning для KSampler",
+  "summary": "Кодирует входное изображение VAE, добавляет его latent к positive и negative и соединяет три выхода с KSampler по официальной topology.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.instruct-pix-to-pix-conditioning", "core.ksampler"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "совместимые MODEL и VAE", "positive и negative CONDITIONING", "входной IMAGE"],
+  "fragment": {"id": "fragment.instruct-pix-to-pix-conditioning", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Automated pinned source/runtime and four-case official topology review; full fragment execution and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [
+    {"title": "InstructPixToPixConditioning in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_ip2p.py#L7-L53", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"},
+    {"title": "Official workflow templates JSON 0.1.42", "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}
+  ]
+}

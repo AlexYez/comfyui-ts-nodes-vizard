@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.replace-save-audio-flac",
+  "title": "AUDIO → SaveAudioAdvanced FLAC",
+  "externalInputs": [
+    { "id": "audio", "type": "AUDIO", "to": "save", "input": "audio" }
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "SaveAudioAdvanced",
+      "role": "Сохранить FLAC актуальной нодой",
+      "settings": {
+        "filename_prefix": "audio/ComfyUI",
+        "format": { "format": "flac" }
+      }
+    }
+  ],
+  "connections": []
+}

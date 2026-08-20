@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.lumina-renorm-cfg",
+  "title": "Lumina RenormCFG 100/1 → CFGGuider 4",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "patch", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "guider", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "guider", "input": "negative"}
+  ],
+  "nodes": [
+    {"ref": "patch", "classType": "RenormCFG", "role": "Поставить Lumina CFG threshold и norm cap", "settings": {"cfg_trunc": 100.0, "renorm_cfg": 1.0}},
+    {"ref": "guider", "classType": "CFGGuider", "role": "Использовать patched MODEL с cfg 4", "settings": {"cfg": 4.0}}
+  ],
+  "connections": [
+    {"from": "patch", "output": "MODEL", "to": "guider", "input": "model"}
+  ]
+}

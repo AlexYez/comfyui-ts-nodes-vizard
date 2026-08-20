@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.mediapipe-face-mesh-overlay",
+  "title": "IMAGE — MediaPipe face landmarks — чёрный холст с сеткой",
+  "externalInputs": [
+    {"id": "input_image", "type": "IMAGE", "to": "detector", "input": "image"}
+  ],
+  "nodes": [
+    {
+      "ref": "loader",
+      "classType": "LoadMediaPipeFaceLandmarker",
+      "role": "Загрузить локальные веса short/full, сетку и эталонную геометрию",
+      "settings": {"model_name": "mediapipe_face_fp32.safetensors"}
+    },
+    {
+      "ref": "detector",
+      "classType": "MediaPipeFaceLandmarker",
+      "role": "Вернуть не более одного лица и его 478 ориентиров",
+      "settings": {"detector_variant": "short", "num_faces": 1, "min_confidence": 0.5, "missing_frame_fallback": "empty"}
+    },
+    {
+      "ref": "visualizer",
+      "classType": "MediaPipeFaceMeshVisualize",
+      "role": "Нарисовать стандартные связи и точки на чёрном холсте",
+      "settings": {"connections": {"connections": "all"}, "color": "#00ff00", "thickness": 1, "point_size": 2}
+    }
+  ],
+  "connections": [
+    {"from": "loader", "output": "FACE_DETECTION_MODEL", "to": "detector", "input": "face_detection_model"},
+    {"from": "detector", "output": "face_landmarks", "to": "visualizer", "input": "face_landmarks"}
+  ]
+}

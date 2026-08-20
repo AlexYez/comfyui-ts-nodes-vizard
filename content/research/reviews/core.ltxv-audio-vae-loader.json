@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxv-audio-vae-loader",
+  "node": {
+    "classType": "LTXVAudioVAELoader",
+    "pythonModule": "comfy_extras.nodes_lt_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt_audio.py#L9-L34",
+        "path": "comfy_extras/nodes_lt_audio.py",
+        "lines": "9-34"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L122-L165",
+        "path": "comfy/utils.py",
+        "lines": "122-165"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVAudioVAELoader/en.md",
+        "assessment": "SHA-256 6828d5e7f8352e8cdcd7be943b48aa23dd5bd94c79689169df9c4e83eef8a8ea. Документ верно описывает checkpoint и VAE output, но не показывает фильтрацию audio_vae/vocoder и invalid-model gate."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LTXVAudioVAELoader/ru.md",
+        "assessment": "SHA-256 c7d7e78a79be33fa241de978cd4935bd54ea67bb9edb861c0e0457c5b401cb94. Перевод использован как справочный, технические детали повторно сверены с pinned source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-ltx-audio-vae-loader-census",
+        "role": "Полный recursive census 512 JSON нашёл 18 экземпляров в 16 файлах, все в subgraph: mode 0 — 17, mode 4 — 1. Зафиксированы пять checkpoint presets и связи с encode/decode/empty/reference нодами."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Model-free probe подменяет чтение файла и конструктор VAE, но исполняет точный loader method и реальный prefix-filter helper; настоящий LTX checkpoint не загружался.",
+    "Официальные графы проверены как сериализованная топология, полный LTX audio/video workflow не запускался.",
+    "Пиковая CPU/VRAM память при чтении многогигабайтных checkpoint не измерялась.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-14"
+}

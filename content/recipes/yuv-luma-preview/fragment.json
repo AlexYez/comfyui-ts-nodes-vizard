@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.yuv-luma-preview",
+  "title": "RGB IMAGE — Y/Cb/Cr — preview Y",
+  "externalInputs": [{"id": "rgb_image", "type": "IMAGE", "to": "split_color", "input": "image"}],
+  "nodes": [
+    {"ref": "split_color", "classType": "ImageRGBToYUV", "role": "Вычислить Y, Cb и Cr", "settings": {}},
+    {"ref": "preview_y", "classType": "PreviewImage", "role": "Показать яркость Y как трёхканальный IMAGE", "settings": {}}
+  ],
+  "connections": [{"from": "split_color", "output": "Y", "to": "preview_y", "input": "images"}]
+}

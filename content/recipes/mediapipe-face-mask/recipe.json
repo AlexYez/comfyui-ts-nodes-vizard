@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.mediapipe-face-mask",
+  "locale": "ru",
+  "title": "Построить маску овала лица по MediaPipe",
+  "summary": "Загружает локальную модель MediaPipe, находит все лица во входном IMAGE и строит отдельную бинарную маску овала для каждого кадра пакета.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.load-mediapipe-face-landmarker", "core.mediapipe-face-landmarker", "core.mediapipe-face-mask"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "локальный mediapipe_face_fp32.safetensors в models/detection", "входной IMAGE или пакет IMAGE"],
+  "fragment": {"id": "fragment.mediapipe-face-mask", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/official blueprint topology review and schema validation; real model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "MediaPipe nodes in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mediapipe.py#L198-L311",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Image Face Detection MediaPipe blueprint in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/blueprints/Image%20Face%20Detection%20%28Mediapipe%29.json#L379-L771",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

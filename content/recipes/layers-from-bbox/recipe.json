@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.layers-from-bbox", "locale": "ru",
+  "title": "Создать позиционированный слой по bounding box", "summary": "PrimitiveBoundingBox задаёт положение и размер, а LayersFromBoundingBoxes превращает внешний IMAGE в документ LAYERS на холсте 1024 × 1024.", "body": "ru.md", "difficulty": "intermediate",
+  "articleIds": ["core.layers-from-bounding-boxes", "core.primitive-bounding-box"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Входной IMAGE", "Потребитель типа LAYERS для дальнейшей композиции"],
+  "fragment": {"id": "fragment.layers-from-bbox", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source/runtime and Russian editorial review; no official case, full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "LayersFromBoundingBoxes implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_compositor.py#L702-L849", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"},
+    {"title": "PrimitiveBoundingBox implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L93-L124", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

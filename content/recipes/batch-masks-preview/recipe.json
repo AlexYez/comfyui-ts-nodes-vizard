@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.batch-masks-preview",
+  "locale": "ru",
+  "title": "Собрать две маски и проверить пакет",
+  "summary": "Подключает две MASK к расширяемым входам BatchMasksNode и показывает все элементы общего пакета через MaskPreview.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.batch-masks-node", "core.mask-preview"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Две MASK; каждая может сама содержать batch"],
+  "fragment": {"id": "fragment.batch-masks-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source/runtime/workflow and tensor review; full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "BatchMasksNode in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L537-L609", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"},
+    {"title": "Official Seedream 5.0 layer separation workflow", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/api_bytedance_seedream_5_0_layer_separation.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.legacy-checkpoint-with-config",
+  "title": "Legacy checkpoint и отдельный YAML",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "legacy_loader",
+      "classType": "CheckpointLoader",
+      "role": "Загрузить старый checkpoint и применить legacy-поля YAML",
+      "settings": {
+        "config_name": "выберите соответствующий YAML",
+        "ckpt_name": "выберите legacy checkpoint"
+      }
+    }
+  ],
+  "connections": []
+}

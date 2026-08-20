@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.k-sampler-select",
+  "node": {"classType": "KSamplerSelect", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L379-L391",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "379-391"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L971-L1017",
+        "path": "comfy/samplers.py",
+        "lines": "971-1017"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/KSamplerSelect/ru.md",
+        "assessment": "Даёт общее назначение, но переводит системное имя sampler_name, не отделяет SAMPLER от SIGMAS и не описывает специальные ветви ddim/UniPC."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/KSamplerSelect/en.md",
+        "assessment": "Использован как вторичное описание выбора; точный реестр и фабричный dispatch проверены по runtime и source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Полный census 512 JSON и 272 subgraph: 97 KSamplerSelect, из них 16 root и 81 subgraph; 93 mode 0 и 4 mode 4. Распределение widgets: euler 66, euler_ancestral 15, res_multistep 5, gradient_estimation 4, lcm 3, dpmpp_2m 2, dpmpp_2m_sde_gpu 1, euler_ancestral_cfg_pp 1."
+      },
+      {
+        "id": "sdxlturbo_example-root",
+        "role": "Точная связка KSamplerSelect #14 [euler_ancestral] → SamplerCustom #13; SIGMAS отдельно от SDTurboScheduler #22 [1,1]."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Фабричный dispatch проверяется isolated exact-source пробой, но все 44 алгоритма не исполнялись с моделью.",
+    "SDXL Turbo fragment перенесён из официального workflow и type-checked, но полный workflow с весами не запускался.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

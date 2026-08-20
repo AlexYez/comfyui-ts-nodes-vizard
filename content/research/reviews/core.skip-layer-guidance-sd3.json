@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.skip-layer-guidance-sd3",
+  "node": {"classType": "SkipLayerGuidanceSD3", "pythonModule": "comfy_extras.nodes_sd3", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_sd3.py#L169-L199",
+        "path": "comfy_extras/nodes_sd3.py",
+        "lines": "169-199"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_slg.py#L8-L88",
+        "path": "comfy_extras/nodes_slg.py",
+        "lines": "8-88"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/modules/diffusionmodules/mmdit.py#L940-L979",
+        "path": "comfy/ldm/modules/diffusionmodules/mmdit.py",
+        "lines": "940-979"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SkipLayerGuidanceSD3/en.md",
+        "assessment": "SHA-256 7a9753e752f0c8fb248b70a4b38cdab8c5fa5c9296a495e7388a9e6b0619ae51; describes a negative-conditioning pass while source delegates to generic calc_cond_batch with cond."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SkipLayerGuidanceSD3/ru.md",
+        "assessment": "SHA-256 292bd3c50b4428961aad8f196b6e840763dffb703fb08dae583f44b341466b2c; contains a translation-template artifact, translated port names and the same mechanism mismatch."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "All 512 JSON, 496 root graphs and 272 subgraphs inspected: zero direct nodes and zero raw/scalar mentions of SkipLayerGuidanceSD3."
+      },
+      {
+        "id": "source-derived-runtime-valid-fragment",
+        "role": "ModelSamplingSD3 → SkipLayerGuidanceSD3 → KSampler fragment is derived from pinned source and object-info; it is not attributed to an official workflow."
+      },
+      {
+        "id": "isolated-pinned-skip-layer-differential-probe",
+        "role": "Exact-source AST probe verifies SD3 delegation into generic double_layers behavior without loading MMDiT weights."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official workflow bundle 0.1.42 has no direct or textual case for this node.",
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "SD3 weights, реальные joint-block indices, качество, VRAM и время не проверялись.",
+    "Human editorial approval pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

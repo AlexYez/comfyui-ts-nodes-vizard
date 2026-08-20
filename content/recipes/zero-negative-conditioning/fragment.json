@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.zero-negative-conditioning",
+  "title": "CLIPTextEncode → ZeroOut → negative KSampler",
+  "externalInputs": [
+    { "id": "clip", "type": "CLIP", "to": "negative_source", "input": "clip" },
+    { "id": "model", "type": "MODEL", "to": "sample", "input": "model" },
+    { "id": "positive", "type": "CONDITIONING", "to": "sample", "input": "positive" },
+    { "id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image" }
+  ],
+  "nodes": [
+    {
+      "ref": "negative_source",
+      "classType": "CLIPTextEncode",
+      "role": "Создать conditioning совместимой с CLIP формы",
+      "settings": { "text": "3d stylized style, a person smiling" }
+    },
+    {
+      "ref": "zero",
+      "classType": "ConditioningZeroOut",
+      "role": "Заменить поддерживаемые тензоры conditioning нулями",
+      "settings": {}
+    },
+    {
+      "ref": "sample",
+      "classType": "KSampler",
+      "role": "Использовать нулевое conditioning на negative-стороне",
+      "settings": {
+        "seed": 12673005598788,
+        "steps": 4,
+        "cfg": 1.0,
+        "sampler_name": "res_multistep",
+        "scheduler": "simple",
+        "denoise": 1.0
+      }
+    }
+  ],
+  "connections": [
+    { "from": "negative_source", "output": "CONDITIONING", "to": "zero", "input": "conditioning" },
+    { "from": "zero", "output": "CONDITIONING", "to": "sample", "input": "negative" }
+  ]
+}

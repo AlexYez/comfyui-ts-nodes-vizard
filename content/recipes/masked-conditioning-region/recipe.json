@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.masked-conditioning-region",
+  "locale": "ru",
+  "title": "Conditioning в границах маски",
+  "summary": "Fragment прикрепляет внешнюю MASK к CONDITIONING с силой 1 и просит sampler ограничить вычислительную область ненулевыми границами маски.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.conditioning-set-mask"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Внешнее значение CONDITIONING",
+    "Проверенная маска, где ненулевые значения отмечают активную область"
+  ],
+  "fragment": {
+    "id": "fragment.masked-conditioning-region",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ConditioningSetMask implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L245-L270",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Mask bounds resolution in ComfyUI v0.32.0 sampler",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L738-L809",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

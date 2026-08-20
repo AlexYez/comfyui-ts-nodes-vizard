@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.preview-gaussian-splat-source",
+  "title": "Gaussian Splat File3D → PreviewGaussianSplat",
+  "externalInputs": [
+    {"id": "model-3d", "type": "FILE_3D_SPLAT_ANY", "to": "preview-splat", "input": "model_3d"},
+    {"id": "viewport-state", "type": "LOAD_3D", "to": "preview-splat", "input": "viewport_state"}
+  ],
+  "nodes": [
+    {
+      "ref": "preview-splat",
+      "classType": "PreviewGaussianSplat",
+      "role": "Скопировать splat во временную папку и показать его в интерактивном viewer",
+      "settings": {"width": 1024, "height": 1024}
+    }
+  ],
+  "connections": []
+}

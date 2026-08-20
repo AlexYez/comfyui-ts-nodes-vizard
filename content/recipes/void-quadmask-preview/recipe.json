@@ -1,0 +1,17 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.void-quadmask-preview",
+  "locale": "ru",
+  "title": "Подготовить VOID quadmask и проверить уровни",
+  "summary": "Квантует внешнюю MASK для VOID с dilate_width 8 и показывает итоговые четыре уровня через MaskPreview.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.void-quadmask-preprocess", "core.mask-preview"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Маска с подготовленной семантикой уровней VOID"],
+  "fragment": {"id": "fragment.void-quadmask-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated source/runtime and threshold/dilation tensor review; full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "VOIDQuadmaskPreprocess in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_void.py#L108-L164", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

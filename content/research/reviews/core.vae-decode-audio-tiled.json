@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.vae-decode-audio-tiled",
+  "node": {
+    "classType": "VAEDecodeAudioTiled",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_audio.py#L98-L156",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "98-156"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1281-L1311",
+        "path": "comfy/sd.py",
+        "lines": "1281-1311"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VAEDecodeAudioTiled/en.md",
+        "assessment": "Файл SHA-256 3879faddd0f459c67542faa921129a0b0ca028160e7ce6969eb85aee6a483d84 объясняет tile_size и overlap, но не фиксирует выбор последнего nested latent, приоритет sample_rate и случай NaN для единственного отсчёта."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/VAEDecodeAudioTiled/ru.md",
+        "assessment": "Файл SHA-256 6200b8353f8cce514a0ad6b4d75a61a93a13eda99377c2ec4801f947bbe44b02 использован как справочный перевод; спорные детали сверялись с pinned source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-scan",
+        "role": "Проверены 512 JSON-файлов, 496 корневых графов и definitions.subgraphs[*].nodes. Точный VAEDecodeAudioTiled не найден, поэтому рецепт помечен как source-derived, а не официальный кейс."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fake-VAE probe проверяет точные аргументы decode_tiled, порядок осей, std scaling, nested-last и выбор sample rate; реальный tiled decoder с весами не запускался.",
+    "Уменьшение пикового расхода VRAM при разных tile_size и overlap не измерялось на аудиомоделях.",
+    "NaN на тензоре из единственного отсчёта воспроизведён на helper-коде, но влияние на реальные форматы audio latent не оценивалось.",
+    "Текст ожидает человеческого редакционного одобрения."
+  ],
+  "updatedAt": "2026-08-14"
+}

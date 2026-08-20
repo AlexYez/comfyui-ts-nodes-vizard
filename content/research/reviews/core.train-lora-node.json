@@ -1,0 +1,103 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.train-lora-node",
+  "node": {"classType": "TrainLoraNode", "pythonModule": "comfy_extras.nodes_train", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_train.py#L29-L382",
+        "path": "comfy_extras/nodes_train.py",
+        "lines": "29-382"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_train.py#L539-L950",
+        "path": "comfy_extras/nodes_train.py",
+        "lines": "539-950"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_train.py#L955-L1310",
+        "path": "comfy_extras/nodes_train.py",
+        "lines": "955-1310"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L243-L318",
+        "path": "execution.py",
+        "lines": "243-318"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/weight_adapter/lora.py#L127-L145",
+        "path": "comfy/weight_adapter/lora.py",
+        "lines": "127-145"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/weight_adapter/loha.py#L143-L165",
+        "path": "comfy/weight_adapter/loha.py",
+        "lines": "143-165"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/weight_adapter/lokr.py#L170-L199",
+        "path": "comfy/weight_adapter/lokr.py",
+        "lines": "170-199"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/weight_adapter/oft.py#L137-L153",
+        "path": "comfy/weight_adapter/oft.py",
+        "lines": "137-153"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/renderer/extensions/linearMode/getExecutionStatusMessage.ts#L1-L31",
+        "path": "src/renderer/extensions/linearMode/getExecutionStatusMessage.ts",
+        "lines": "1-31"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/TrainLoraNode/en.md",
+        "assessment": "Полезная таблица интерфейса; не раскрывает умножение внутренних итераций на grad_accumulation_steps и детали режимов датасета."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/TrainLoraNode/ru.md",
+        "assessment": "Машинный перевод содержит неестественные термины; факты повторно сформулированы по исходнику."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-train-lora-zero-census",
+        "role": "Полный обход 512 JSON, 496 корневых графов, 272 подграфов и 8120 нод не нашёл TrainLoraNode."
+      },
+      {
+        "id": "train-lora-data-preparation-probe",
+        "role": "В закреплённом окружении выполнены подготовка обычных и распределённых по корзинам латентов, разворачивание условий, инициализация смещений и весов корзин, полная ветвь выбора одной корзины до подменённого fwd_bwd, ветвь [None] existing_lora и проверки глобального RNG для sigma и LoRA."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Настоящая диффузионная модель, forward/backward, шаг оптимизатора и CUDA-offloading не запускались.",
+    "Полная воспроизводимость seed не доказана: исходник не устанавливает отдельный torch.manual_seed перед созданием адаптеров.",
+    "Официального примера графа нет; фрагмент основан на схеме и исходнике.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

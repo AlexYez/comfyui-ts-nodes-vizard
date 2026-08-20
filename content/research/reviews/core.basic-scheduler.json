@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.basic-scheduler",
+  "node": {"classType": "BasicScheduler", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L17-L44",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "17-44"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L645-L736",
+        "path": "comfy/samplers.py",
+        "lines": "645-736"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L1358-L1386",
+        "path": "comfy/samplers.py",
+        "lines": "1358-1386"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/BasicScheduler/en.md",
+        "assessment": "SHA-256 9c43618949d0d734a836f3faa0c7a5e1ec24aeb1625e919a9cfba895154e1537. AI-generated обзор правильно перечисляет основные порты, но добавляет непроверенные оценки качества, метафоры и отсутствующий вариант linear; факты брались из runtime/source."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/BasicScheduler/ru.md",
+        "assessment": "SHA-256 799c9a5334deba1281c4a3559292f019c7a7b7ae33f0552ee12d003eebf2f2ec. Перевод меняет runtime-имена model/steps/denoise и повторяет оценочные обещания; использован только как навигационная справка."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "flux_redux_model_example",
+        "role": "Workflow 06010f12-03bc-41ce-86bd-14f321d5a152: ModelSamplingFlux №30 разветвляется в BasicGuider №22 и BasicScheduler №17 [simple,20,1]; SIGMAS идут в SamplerCustomAdvanced №13."
+      },
+      {
+        "id": "workflow-templates-0142-basic-scheduler-census",
+        "role": "Wheel SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3; 512 JSON, 496 root и 272 subgraph. Найдено 46 BasicScheduler: root 13/subgraph 33, 38 файлов, 24 distinct workflow UUID, mode 0×44/mode 4×2; simple×35, normal×10, beta×1; denoise 1 во всех случаях."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Exact execute-метод проверен на подставном model_sampling для denoise 1, 0,5 и 0; отдельно исполнен BasicScheduler с kl_optimal при total_steps 1 и 2, подтверждены [NaN,0] и конечный двухшаговый хвост, но реальные веса, guider и sampler не запускались.",
+    "Официальные шаблоны используют только denoise 1, поэтому поведение частичного расписания подтверждено source/probe, а не готовым workflow.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

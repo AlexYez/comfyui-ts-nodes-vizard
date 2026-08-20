@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-webm",
+  "node": {
+    "classType": "SaveWEBM",
+    "pythonModule": "comfy_extras.nodes_video",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_video.py#L12-L73",
+        "path": "comfy_extras/nodes_video.py",
+        "lines": "12-73"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_ui.py#L432-L437",
+        "path": "comfy_api/latest/_ui.py",
+        "lines": "432-437"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/saveImageExtraOutput.ts#L7-L53",
+        "path": "src/extensions/core/saveImageExtraOutput.ts",
+        "lines": "7-53"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveWEBM/en.md",
+        "assessment": "Документ верно описывает VP9, AV1, fps, CRF и ограничение альфа-канала, но перечисляет только просмотр в интерфейсе и пропускает возврат исходного IMAGE."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveWEBM/ru.md",
+        "assessment": "Перевод локализует runtime-ключи и пропускает точное предупреждение об alpha; использован только как вторичная справка."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON, 496 корневых графов и 272 definitions.subgraphs: найден один SaveWEBM, только в корневом графе, режим 0."
+      },
+      {
+        "id": "api-bria-remove-video-background-transparent#6874296f-e51d-46b4-9bf5-f70b6d81a9ce/node-7",
+        "role": "JoinImageWithAlpha подаёт RGBA в SaveWEBM; GetVideoComponents передаёт fps исходного LoadVideo; сохранены VP9 и CRF 32."
+      },
+      {
+        "id": "isolated-pinned-video-io-probe",
+        "role": "Точный execute вызван с подменённым PyAV-контейнером: проверены RGBA/VP9, RGB/AV1, формат пикселей, preset, CRF, округление fps, метаданные и возврат исходного IMAGE."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "PyAV и системные кодировщики VP9/AV1 отсутствуют в текущем тестовом окружении; настоящий файл не кодировался, проверена точная ветка execute с безопасной подменой контейнера.",
+    "Совместимость прозрачного WebM с разными проигрывателями не проверялась.",
+    "Fragment принимает готовые RGBA-кадры и fps и не исполнялся как полный граф.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

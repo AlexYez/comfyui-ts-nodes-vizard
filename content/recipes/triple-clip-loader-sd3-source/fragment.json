@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.triple-clip-loader-sd3-source",
+  "title": "CLIP-L + CLIP-G + T5-XXL → TripleCLIPLoader",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "triple-loader",
+      "classType": "TripleCLIPLoader",
+      "role": "Загрузить три SD3 text encoders как один объект CLIP",
+      "settings": {
+        "clip_name1": "выберите установленный CLIP-L",
+        "clip_name2": "выберите установленный CLIP-G",
+        "clip_name3": "выберите установленный T5-XXL"
+      }
+    }
+  ],
+  "connections": []
+}

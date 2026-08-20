@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.checkpoint-as-lora-model-only-hook",
+  "title": "Checkpoint → model-only HOOKS → CONDITIONING",
+  "externalInputs": [
+    {"id": "conditioning", "type": "CONDITIONING", "to": "attach", "input": "cond_NEW"}
+  ],
+  "nodes": [
+    {
+      "ref": "create-hook",
+      "classType": "CreateHookModelAsLoraModelOnly",
+      "role": "Создать из checkpoint весовой хук только для модели",
+      "settings": {"ckpt_name": "SELECT_CHECKPOINT", "strength_model": 1.0}
+    },
+    {
+      "ref": "attach",
+      "classType": "ConditioningSetProperties",
+      "role": "Прикрепить checkpoint-хук к готовому conditioning",
+      "settings": {"strength": 1.0, "set_cond_area": "default"}
+    }
+  ],
+  "connections": [
+    {"from": "create-hook", "output": "HOOKS", "to": "attach", "input": "hooks"}
+  ]
+}

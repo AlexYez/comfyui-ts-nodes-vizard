@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.solid-color-mask-composite",
+  "locale": "ru",
+  "title": "Собрать красную область на чёрном фоне по маске",
+  "summary": "Повторяет официальный mask-composite участок: два EmptyImage 1024 × 1024 создают чёрный destination и красный source, а внешняя MASK управляет ImageCompositeMasked.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.empty-image", "core.image-composite-masked"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "MASK размером 1024 × 1024 либо понимание правил ImageCompositeMasked для другого размера"
+  ],
+  "fragment": {
+    "id": "fragment.solid-color-mask-composite",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source and exact official mask-workflow trace; fragment schema validated, execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "EmptyImage implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1973-L1995",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official basic_mask_operations_and_compositing workflow in templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/basic_mask_operations_and_compositing.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

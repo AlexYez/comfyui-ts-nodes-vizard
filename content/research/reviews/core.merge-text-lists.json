@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.merge-text-lists",
+  "node": {"classType": "MergeTextLists", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L777-L932",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "777-932"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1726-L1742",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1726-1742"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_toolkit.py#L5-L34",
+        "path": "comfy_extras/nodes_toolkit.py",
+        "lines": "5-34"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L243-L341",
+        "path": "execution.py",
+        "lines": "243-341"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/MergeTextLists/en.md",
+        "assessment": "Case-sensitive lookup found the exact AI-generated member. It records group intent, logging, deprecation and Create List, but presents the output as a normal merged list, asserts multiple connections without an autogrow schema or official workflow, and omits output_is_list=null/runtime deprecated=false. Raw SHA-256: 20de596ace15435dafa5e00be0773a0d23a71710274d8f9c5c5707f1145e00a1."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/MergeTextLists/ru.md",
+        "assessment": "Case-sensitive lookup found the exact member. RU translates exact texts to тексты, omits deprecation and repeats the unverified multiple-list connection claim; pass-through identity and nested runtime output are absent. Raw SHA-256: e29e0f531545f49948ab6d30bb850ec586e45c9f904b7208cdc3fa327b3f5116."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-case-sensitive-root-subgraph-scan",
+        "role": "Проверены 512 JSON, 496 root workflows, 4083 root nodes, 272 subgraphs и 4037 subgraph nodes; MergeTextLists отсутствует в регистрозависимом сыром поиске и среди точных node.type, поэтому официальная топология не найдена."
+      },
+      {
+        "id": "isolated-pinned-dataset-text-affix-merge-probe",
+        "role": "Точный класс сохранил объект, порядок, повторы и пустую строку; empty/singleton прошли, NodeOutput и merge_result_data подтвердили лишнюю вложенность, а CreateList дал эквивалентные значения с явным list contract."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-примера нет; фрагмент принимает подготовленный список, не импортировался и не выполнялся на canvas.",
+    "Несколько графовых соединений с одним обычным портом texts не подтверждены официальным workflow или autogrow-схемой.",
+    "Node Replacement API не связывает MergeTextLists с CreateList, хотя исходник называет Create List преемником.",
+    "Живое интерфейсное поведение deprecated-конфликта и вложенного выхода требует человеческой проверки.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

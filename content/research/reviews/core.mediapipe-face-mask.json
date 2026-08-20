@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mediapipe-face-mask",
+  "node": {"classType": "MediaPipeFaceMask", "pythonModule": "comfy_extras.nodes_mediapipe", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mediapipe.py#L172-L195", "path": "comfy_extras/nodes_mediapipe.py", "lines": "172-195"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_mediapipe.py#L431-L498", "path": "comfy_extras/nodes_mediapipe.py", "lines": "431-498"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/blueprints/Image%20Face%20Detection%20%28Mediapipe%29.json#L379-L771", "path": "blueprints/Image Face Detection (Mediapipe).json", "lines": "379-771"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/MediaPipeFaceMask/en.md", "assessment": "Raw SHA-256 9e2a182285338bfba5340814bfcb94aaf7142ab032ef6cd936f68a23741a28b9. AI-generated page invents eyes and incorrectly marks several custom defaults true; source has split left/right keys and only face_oval true."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/MediaPipeFaceMask/ru.md", "assessment": "Raw SHA-256 af6cff6a5d2775d5c3c83965a28ea4ef049789ee8831c34109f5d10b7861a0d1. Secondary translation repeats the schema mismatch; article uses runtime identifiers."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-zero-census", "role": "All 512 JSON, 496 root graphs and 272 subgraphs were parsed. All four MediaPipe IDs have zero direct, raw and recursive scalar occurrences and no EN/RU index entry."},
+      {"id": "blueprint-image-face-detection-mediapipe-6062babb", "role": "Pinned source blueprint connects full/0/0.5/empty detector to a custom mask with only face_oval true; stale FACE_LANDMARKER input was excluded from the fragment."},
+      {"id": "isolated-exact-source-mediapipe-mask-probe", "role": "Exact mask logic ran on synthetic landmarks/topology to check output shape, binary union, empty custom mask and multi-region behavior without a model or file writes."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "The complete loader-detector-mask fragment was not run with real MediaPipe weights.",
+    "Mask quality on real faces, off-frame coordinates and long batches was not visually reviewed or benchmarked.",
+    "Malformed custom FACE_LANDMARKS topology is outside the normal runtime contract and was not exhaustively fuzzed.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

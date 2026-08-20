@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.force-model-compute-fp32",
+  "locale": "ru",
+  "title": "Принудительный fp32 перед CFGGuider",
+  "summary": "ModelComputeDtype переводит вычислительный dtype MODEL в fp32, после чего patched MODEL поступает в CFGGuider с cfg 4.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-compute-dtype", "core.cfg-guider"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "MODEL, positive и negative CONDITIONING",
+    "Достаточно VRAM для fp32",
+    "Сравнение с default на том же seed и тех же параметрах"
+  ],
+  "fragment": {"id": "fragment.force-model-compute-fp32", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/docs review, exhaustive official workflow absence census, exact dtype mapping probe and Russian editorial pass; device-specific model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelComputeDtype in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L333-L349",
+      "publisher": "Comfy-Org", "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "ModelPatcher compute dtype contract in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L740-L746",
+      "publisher": "Comfy-Org", "accessedAt": "2026-08-14"
+    }
+  ]
+}

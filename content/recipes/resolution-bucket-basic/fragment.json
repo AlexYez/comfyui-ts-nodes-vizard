@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.resolution-bucket-basic",
+  "title": "ResolutionBucket с внешними параллельными списками",
+  "externalInputs": [
+    {"id": "latents", "type": "LATENT", "to": "bucket", "input": "latents"},
+    {"id": "conditioning", "type": "CONDITIONING", "to": "bucket", "input": "conditioning"}
+  ],
+  "nodes": [
+    {
+      "ref": "bucket",
+      "classType": "ResolutionBucket",
+      "role": "Собрать образцы с одинаковыми точными H и W",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

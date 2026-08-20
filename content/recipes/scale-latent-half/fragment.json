@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.scale-latent-half",
+  "title": "LATENT × 0,5",
+  "externalInputs": [
+    {"id": "latent", "type": "LATENT", "to": "multiply", "input": "samples"}
+  ],
+  "nodes": [
+    {"ref": "multiply", "classType": "LatentMultiply", "role": "Умножить каждый элемент samples на 0,5", "settings": {"multiplier": 0.5}}
+  ],
+  "connections": []
+}

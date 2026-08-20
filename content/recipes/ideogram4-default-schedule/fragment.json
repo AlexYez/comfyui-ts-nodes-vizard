@@ -1,0 +1,16 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ideogram4-default-schedule",
+  "title": "Ideogram 4 Default preset для квадратного latent",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "scheduler",
+      "classType": "Ideogram4Scheduler",
+      "role": "Построить официальное Default-расписание на двадцать переходов",
+      "settings": {"steps": 20, "width": 1024, "height": 1024, "mu": 0.0, "std": 1.75}
+    }
+  ],
+  "connections": []
+}

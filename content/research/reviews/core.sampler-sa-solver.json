@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sampler-sa-solver",
+  "node": {"classType": "SamplerSASolver", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L636-L678", "path": "comfy_extras/nodes_custom_sampler.py", "lines": "636-678"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L1734-L1841", "path": "comfy/k_diffusion/sampling.py", "lines": "1734-1841"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sa_solver.py#L103-L121", "path": "comfy/k_diffusion/sa_solver.py", "lines": "103-121"}
+    ],
+    "embeddedDocs": [
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/SamplerSASolver/ru.md", "assessment": "Начинается служебной фразой перевода, переводит системные порты и ошибочно называет eta step-size scaling. Не объясняет percent_to_sigma, inclusive tau и PECE model calls."},
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/SamplerSASolver/en.md", "assessment": "Список параметров сверён; exact predictor/corrector lifecycle и model-specific interval взяты из source."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-full-root-subgraph-scan", "role": "Полный recursive census 512 JSON, 496 root workflow objects и 272 subgraphs: 0 SamplerSASolver. Готового официального workflow нет."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Exact-source probe проверяет percent_to_sigma и tau closure на synthetic model sampling; predictor-corrector model execution не выполнялся.",
+    "Recipe требует ручной проверки, что MODEL конструктора и модель внутри GUIDER совпадают.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-14"
+}

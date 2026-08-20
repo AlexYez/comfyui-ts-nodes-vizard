@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.merge-unet-block-groups",
+  "title": "UNet input 1 / middle 0,5 / out 0",
+  "externalInputs": [
+    {"id": "model1", "type": "MODEL", "to": "merge", "input": "model1"},
+    {"id": "model2", "type": "MODEL", "to": "merge", "input": "model2"}
+  ],
+  "nodes": [
+    {"ref": "merge", "classType": "ModelMergeBlocks", "role": "Смешать три буквальные группы diffusion-ключей", "settings": {"input": 1.0, "middle": 0.5, "out": 0.0}}
+  ],
+  "connections": []
+}

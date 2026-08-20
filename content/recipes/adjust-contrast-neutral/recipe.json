@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.adjust-contrast-neutral",
+  "locale": "ru",
+  "title": "Проверить нейтральный коэффициент контраста",
+  "summary": "Одиночная AdjustContrast с коэффициентом 1,0 сохраняет значения штатного IMAGE в диапазоне 0–1 и служит нейтральной точкой для ручной настройки.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.adjust-contrast"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "Внешний вход IMAGE",
+    "Ручная оценка теней и светов после изменения factor"
+  ],
+  "fragment": {
+    "id": "fragment.adjust-contrast-neutral",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated source, runtime, full workflow census, exact tensor execution and Russian editorial pass; human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "AdjustContrast in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1105-L1124",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

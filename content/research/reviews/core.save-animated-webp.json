@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-animated-webp",
+  "node": {"classType": "SaveAnimatedWEBP", "pythonModule": "comfy_extras.nodes_images", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L197-L232", "path": "comfy_extras/nodes_images.py", "lines": "197-232"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_ui.py#L76-L269", "path": "comfy_api/latest/_ui.py", "lines": "76-269"}
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {"id": "video_wan2.1_alpha_t2v_14B", "role": "Workflow c265fdcc-11cd-4a1d-9a0d-bc37c45667d6: VAEDecode № 8 + InvertMask № 84 → JoinImageWithAlpha № 86 → enabled SaveAnimatedWEBP № 80, widgets ComfyUI/16/true/80/default."},
+      {"id": "workflow-templates-0142-exhaustive-save-animated-webp", "role": "Recursive scan: 5 exact SaveAnimatedWEBP, все root в 5 файлах, 3 distinct workflow UUID; mode 0 × 1, mode 4 × 4; четыре bypassed имеют 6 FPS lossless quality 80 default."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "В embedded-docs 0.5.9 каталога SaveAnimatedWEBP нет; статья опирается на source/runtime/workflow evidence.",
+    "Helper-compatible Pillow branch выполнена на трёх RGBA-кадрах: alpha и частичная прозрачность проверены, RGB у полностью прозрачного пикселя не гарантируется; node class, output directory, EXIF metadata и UI-wrapper не запускались.",
+    "Fragment в ComfyUI не исполнялся; редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-13"
+}

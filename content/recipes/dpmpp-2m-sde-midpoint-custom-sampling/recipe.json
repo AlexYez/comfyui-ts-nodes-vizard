@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.dpmpp-2m-sde-midpoint-custom-sampling",
+  "locale": "ru",
+  "title": "DPM++ 2M SDE midpoint для SamplerCustomAdvanced",
+  "summary": "Source-derived fragment выбирает midpoint, eta 1, s_noise 1 и GPU-backed Brownian tree, затем передаёт SAMPLER исполнителю.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.sampler-dpmpp-2m-sde"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Совместимые NOISE, GUIDER, SIGMAS и LATENT",
+    "Одинаковый полный граф для сравнения midpoint и Heun"
+  ],
+  "fragment": {
+    "id": "fragment.dpmpp-2m-sde-midpoint-custom-sampling",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema review and exhaustive official-workflow absence check; model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "SamplerDPMPP_2M_SDE in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L421-L445",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42: image_hidream_o1 algorithm topology and direct-node absence",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

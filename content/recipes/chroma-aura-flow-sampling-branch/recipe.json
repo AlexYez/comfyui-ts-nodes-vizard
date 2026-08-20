@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.chroma-aura-flow-sampling-branch",
+  "locale": "ru",
+  "title": "Chroma: один AuraFlow MODEL для guider и scheduler",
+  "summary": "Повторяет официальное разветвление ModelSamplingAuraFlow с shift 1 в CFGGuider 3,5 и BasicScheduler beta/26/1.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-sampling-aura-flow"],
+  "requirements": [
+    "Chroma MODEL из совместимой официальной ветви",
+    "Положительное и отрицательное CONDITIONING",
+    "Отдельно собранные noise, sampler и latent"
+  ],
+  "fragment": {"id": "fragment.chroma-aura-flow-sampling-branch", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Автоматизированная сверка закреплённых исходников, runtime-инвентаря и точной топологии официального графа Chroma; веса и фрагмент не исполнялись, ручной редакторской проверки не было",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelSamplingAuraFlow implementation",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_advanced.py#L148-L160",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Официальный граф Chroma",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/image_chroma_text_to_image.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

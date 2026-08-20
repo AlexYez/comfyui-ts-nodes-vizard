@@ -1,0 +1,17 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.batch-masks-preview",
+  "title": "Две MASK — один batch — preview",
+  "externalInputs": [
+    {"id": "first_mask", "type": "MASK", "to": "batch_masks", "input": "masks.mask0"},
+    {"id": "second_mask", "type": "MASK", "to": "batch_masks", "input": "masks.mask1"}
+  ],
+  "nodes": [
+    {"ref": "batch_masks", "classType": "BatchMasksNode", "role": "Соединить маски в порядке autogrow-входов", "settings": {}},
+    {"ref": "preview_batch", "classType": "MaskPreview", "role": "Показать элементы собранного MASK batch", "settings": {}}
+  ],
+  "connections": [
+    {"from": "batch_masks", "output": "MASK", "to": "preview_batch", "input": "mask"}
+  ]
+}

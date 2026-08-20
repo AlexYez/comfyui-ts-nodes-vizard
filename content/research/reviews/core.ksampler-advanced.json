@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ksampler-advanced",
+  "node": { "classType": "KSamplerAdvanced", "pythonModule": "nodes", "origin": "backend" },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1568-L1654",
+        "path": "nodes.py",
+        "lines": "1568-1654"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L1431-L1462",
+        "path": "comfy/samplers.py",
+        "lines": "1431-1462"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/KSamplerAdvanced/en.md",
+        "assessment": "Таблица перечисляет runtime-входы, но AI-generated описание приписывает Advanced общее улучшение качества и не раскрывает обрезку sigma-расписания, force_full_denoise и возврат без сэмплирования. Эти утверждения не перенесены."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "sdxl_simple_example",
+        "role": "Workflow 88bcf757-1298-432f-885a-db5ab88cf224: base KSamplerAdvanced № 10 работает 0–20 из 25 и передаёт leftover noise refiner-нode № 11, которая продолжает от 20 без нового шума."
+      },
+      {
+        "id": "sdxl_refiner_prompt_example",
+        "role": "Workflow f57481ef-a9c6-4695-996a-f5fe61177000: отдельные base/refiner conditioning применяются в паре KSamplerAdvanced № 10 и № 11."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Локальная цепочка 0–12 и 12–конец валидирована как граф, но непрерывность sigma и результат изображения не проверялись исполнением с checkpoint.",
+    "Не проводилось сравнительное измерение качества или скорости sampler/scheduler; статья не делает универсальных рекомендаций по их выбору."
+  ],
+  "updatedAt": "2026-08-13"
+}

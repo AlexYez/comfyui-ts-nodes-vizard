@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.merge-image-lists",
+  "node": {"classType": "MergeImageLists", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L579-L746",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "579-746"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1706-L1723",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1706-1723"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_toolkit.py#L5-L39",
+        "path": "comfy_extras/nodes_toolkit.py",
+        "lines": "5-39"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/MergeImageLists/en.md",
+        "assessment": "Справка помечена как AI-generated. Она передаёт назначение и рекомендацию Create List, но не объясняет разворачивание четырёхмерных пакетов и не отмечает конфликт source deprecation с runtime deprecated=false; SHA-256: c155205c2744ccb03181f0da659d2c6a98f045e0fff035f707bb3d76c1bfcfeb."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/MergeImageLists/ru.md",
+        "assessment": "Русская AI-generated версия переводит точные имена портов и убирает DEPRECATED из заголовка. Топология нескольких соединений с одним сокетом не подтверждена официальным графом; SHA-256: f91c959c458374dafede182698868a38352a9fdead87e83815e38de198e34e9c."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 файлов JSON, 496 корневых графов и 272 подграфа; MergeImageLists отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-shuffle-merge-probe",
+        "role": "Точный класс развернул два пакета 3+5 в восемь элементов [1,1,1,1], сохранил порядок и вернул пустой список для пустого входа."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Фрагмент не импортировался на холст и не проверял несколько соединений с одним портом images.",
+    "Node Replacement API не подтверждает заявленный в исходнике переход на CreateList.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

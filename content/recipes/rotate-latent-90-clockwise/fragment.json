@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.rotate-latent-90-clockwise",
+  "title": "Внешний LATENT → LatentRotate 90°",
+  "externalInputs": [
+    {"id": "latent", "type": "LATENT", "to": "rotate", "input": "samples"}
+  ],
+  "nodes": [
+    {
+      "ref": "rotate",
+      "classType": "LatentRotate",
+      "role": "Повернуть spatial tensor на 90° по часовой стрелке",
+      "settings": {"rotation": "90 degrees"}
+    }
+  ],
+  "connections": []
+}

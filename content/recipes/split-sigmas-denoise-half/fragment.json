@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.split-sigmas-denoise-half",
+  "title": "Последняя половина переходов в отдельном SIGMAS-выходе",
+  "externalInputs": [
+    {"id": "sigmas", "type": "SIGMAS", "to": "split", "input": "sigmas"}
+  ],
+  "nodes": [
+    {
+      "ref": "split",
+      "classType": "SplitSigmasDenoise",
+      "role": "Отделить последние round((N − 1) × 0.5) переходов с общей границей",
+      "settings": {"denoise": 0.5}
+    }
+  ],
+  "connections": []
+}

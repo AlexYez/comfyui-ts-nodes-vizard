@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.void-sampler",
+  "node": {"classType": "VOIDSampler", "pythonModule": "comfy_extras.nodes_void", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_void.py#L409-L467",
+        "path": "comfy_extras/nodes_void.py",
+        "lines": "409-467"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_sampling.py#L57-L79",
+        "path": "comfy/model_sampling.py",
+        "lines": "57-79"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VOIDSampler/en.md",
+        "assessment": "Верно ограничивает sampler VOID, указывает отсутствие inputs, SamplerCustom/Advanced и RandomNoise/VOIDWarpedNoiseSource; не раскрывает alpha update и edge cases."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/VOIDSampler/ru.md",
+        "assessment": "Сохраняет общую связь с VOID DDIM, но переводит sampling как дискретизацию и не описывает terminal zero, float32 cast и игнорирование latent/mask."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON и recursive subgraphs найдены два VOIDSampler в одном официальном Video Inpaint (VOID) subgraph."
+      },
+      {
+        "id": "official-void-two-pass-topology",
+        "role": "Оба sampler идут в SamplerCustomAdvanced: pass 1 использует RandomNoise, pass 2 VOIDWarpedNoiseSource; обе ветви имеют CFGGuider, BasicScheduler simple/30/1 и VOIDInpaintConditioning latent."
+      },
+      {
+        "id": "synthetic-exact-source-void-ddim",
+        "role": "AST-extracted exact sampler совпал с независимым alpha-space расчётом, подтвердил float32 noise, callback count, terminal-zero denoised, one-sigma no-op и отсутствие использования latent_image/denoise_mask."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment проверяет прямую sampler-связь, но оставляет noise, guider, sigmas и latent внешними и не выполняет двухпроходный VOID graph.",
+    "VOID weights, optical-flow model и video output не запускались; numerical probe проверяет DDIM loop, но не качество inpainting.",
+    "Человеческое утверждение, platform qualification и проверка packaged model assets ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

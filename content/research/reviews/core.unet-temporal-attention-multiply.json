@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.unet-temporal-attention-multiply",
+  "node": {"classType": "UNetTemporalAttentionMultiply", "pythonModule": "comfy_extras.nodes_attention_multiply", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_attention_multiply.py#L104-L137", "path": "comfy_extras/nodes_attention_multiply.py", "lines": "104-137"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L842-L868", "path": "comfy/model_patcher.py", "lines": "842-868"},
+      {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L493", "path": "comfy/lora.py", "lines": "438-493"}
+    ],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/UNetTemporalAttentionMultiply/en.md", "assessment": "SHA-256 2df1109d72d9a931e0e4663246fd7018b6e575ab2b83dd45c3b2eab6fbd1432b. Описывает четыре группы, но не сообщает, что код меняет только to_out.0 и делит temporal по подстроке `.time_stack.`."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/UNetTemporalAttentionMultiply/ru.md", "assessment": "SHA-256 91dedcb20b857353b80079d9003e9b634b24256576a75edd85406ec6479c3f6b. Переводит системные имена входов, поэтому exact identifiers взяты из `/object_info`."}
+    ],
+    "workflows": [
+      {"id": "wan2.1_fun_control", "role": "Корневой узел 68: ModelSamplingSD3 [5.000000000000001] → UNetTemporalAttentionMultiply [1,1,1.2,1.3] → CFGZeroStar → KSampler [887940314022885, randomize, 20, 6, uni_pc, simple, 1]."},
+      {"id": "wan2.1_fun_inp", "role": "Та же корневая топология и те же множители; seed KSampler равен 622093119444720."},
+      {"id": "unet-temporal-attention-exact-source-probe", "role": "Точный execute разделил структурные и `.time_stack.` выходы attn1/attn2 по четырём коэффициентам и не зарегистрировал q, k, v или похожие суффиксы."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": [
+    "Топология и настройки двух официальных WAN-графов проверены, но сами графы с весами не исполнялись.",
+    "Проверка классификации ключей выполнена на искусственном state dict без настоящего temporal transformer forward.",
+    "Качество движения, стабильность кадров, расход VRAM и перенос значений 1/1/1,2/1,3 на другие архитектуры не оценивались.",
+    "Редактор пока не утвердил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

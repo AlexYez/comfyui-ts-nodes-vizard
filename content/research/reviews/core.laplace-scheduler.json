@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.laplace-scheduler",
+  "node": {"classType": "LaplaceScheduler", "pythonModule": "comfy_extras.nodes_custom_sampler", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L112-L133",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "112-133"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/k_diffusion/sampling.py#L52-L59",
+        "path": "comfy/k_diffusion/sampling.py",
+        "lines": "52-59"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L962-L1007",
+        "path": "comfy/samplers.py",
+        "lines": "962-1007"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/LaplaceScheduler/en.md",
+        "assessment": "Верно перечисляет параметры и общий спад, но не сообщает, что output length равен steps и terminal zero отсутствует."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LaplaceScheduler/ru.md",
+        "assessment": "Общее описание не раскрывает формулу, clamp, one-step, reversed bounds и влияние ненулевой последней сигмы на custom sampler."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Проверены 512 JSON, 496 корневых графов и все nested nodes; LaplaceScheduler не найден."
+      },
+      {
+        "id": "synthetic-exact-source-laplace-scheduler",
+        "role": "AST-extracted node и get_sigmas_laplace подтвердили пять default values, отсутствие нуля, one/two-step, beta 0 plateau и результат clamp при sigma_min выше sigma_max."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса 0.1.42 нет; fragment только воспроизводит численную функцию с пятью точками.",
+    "Laplace SIGMAS не запускались через реальную diffusion-модель; влияние ненулевого terminal sigma на изображение не квалифицировано.",
+    "Совместимость отдельных sampler с ненулевым финалом требует model-specific проверки; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

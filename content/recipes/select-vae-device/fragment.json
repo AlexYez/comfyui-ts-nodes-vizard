@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.select-vae-device",
+  "title": "Внешний VAE → gpu:1 со стандартным VAE offload",
+  "externalInputs": [
+    {"id": "vae", "type": "VAE", "to": "select_vae", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "select_vae",
+      "classType": "SelectVAEDevice",
+      "role": "Скопировать VAE wrapper и направить его patcher на второй доступный GPU",
+      "settings": {"device": "gpu:1"}
+    }
+  ],
+  "connections": []
+}

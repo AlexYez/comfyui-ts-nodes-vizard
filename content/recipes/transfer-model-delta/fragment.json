@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.transfer-model-delta",
+  "title": "target + (source − base)",
+  "externalInputs": [
+    {"id": "source", "type": "MODEL", "to": "subtract", "input": "model1"},
+    {"id": "base", "type": "MODEL", "to": "subtract", "input": "model2"},
+    {"id": "target", "type": "MODEL", "to": "add", "input": "model1"}
+  ],
+  "nodes": [
+    {"ref": "subtract", "classType": "ModelMergeSubtract", "role": "Построить diffusion-дельту source минус base", "settings": {"multiplier": 1.0}},
+    {"ref": "add", "classType": "ModelMergeAdd", "role": "Прибавить дельту к target", "settings": {}}
+  ],
+  "connections": [
+    {"from": "subtract", "output": "MODEL", "to": "add", "input": "model2"}
+  ]
+}

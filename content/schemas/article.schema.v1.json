@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nodes-wizard.local/schemas/article.schema.v1.json",
+  "title": "TS Nodes Wizard article manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "articleId",
+    "kind",
+    "locale",
+    "title",
+    "summary",
+    "body",
+    "runtimeIdentity",
+    "status",
+    "experimental",
+    "compatibility",
+    "relations",
+    "tags",
+    "searchAliases",
+    "concepts",
+    "assets",
+    "editorial",
+    "sources"
+  ],
+  "properties": {
+    "$schema": { "type": "string", "minLength": 1 },
+    "schemaVersion": { "const": "1.0" },
+    "articleId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+    },
+    "kind": {
+      "enum": ["core", "custom", "virtual", "concept"]
+    },
+    "locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$"
+    },
+    "title": { "type": "string", "minLength": 3, "maxLength": 140 },
+    "summary": { "type": "string", "minLength": 20, "maxLength": 360 },
+    "body": {
+      "type": "string",
+      "pattern": "^(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+\\.md$"
+    },
+    "runtimeIdentity": { "$ref": "#/$defs/runtimeIdentity" },
+    "status": {
+      "enum": ["active", "deprecated", "experimental", "stale", "removed", "draft"]
+    },
+    "experimental": { "type": "boolean" },
+    "compatibility": { "$ref": "#/$defs/compatibility" },
+    "relations": { "$ref": "#/$defs/relations" },
+    "tags": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 2, "maxLength": 60 }
+    },
+    "searchAliases": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 160 }
+    },
+    "concepts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 2, "maxLength": 80 }
+    },
+    "assets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/asset" }
+    },
+    "editorial": { "$ref": "#/$defs/editorial" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    }
+  },
+  "$defs": {
+    "runtimeIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classType", "origin", "aliases"],
+      "properties": {
+        "classType": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "pythonModule": { "type": "string", "minLength": 1, "maxLength": 240 },
+        "packageId": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "origin": { "enum": ["backend", "frontend", "concept"] },
+        "aliases": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.:-]*$",
+            "maxLength": 160
+          }
+        }
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verifiedOn", "sourceRevision"],
+      "properties": {
+        "comfyui": { "type": "string", "minLength": 1 },
+        "frontend": { "type": "string", "minLength": 1 },
+        "since": { "type": "string", "minLength": 1 },
+        "until": { "type": ["string", "null"] },
+        "verifiedOn": { "type": "string", "format": "date" },
+        "sourceRevision": { "type": "string", "minLength": 1 }
+      }
+    },
+    "relations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["related", "alternatives", "replacedBy"],
+      "properties": {
+        "related": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "alternatives": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "replacedBy": { "type": ["string", "null"] }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "enum": ["recipe", "workflow", "image", "download"] },
+        "id": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 }
+      }
+    },
+    "editorial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "owner", "reviewedBy", "reviewedAt", "factsReviewedAt"],
+      "properties": {
+        "state": { "enum": ["draft", "in_review", "approved"] },
+        "owner": { "type": "string", "minLength": 2 },
+        "reviewedBy": { "type": "string", "minLength": 2 },
+        "reviewedAt": { "type": "string", "format": "date" },
+        "factsReviewedAt": { "type": "string", "format": "date" },
+        "schemaHash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceId",
+        "title",
+        "url",
+        "publisher",
+        "kind",
+        "accessedAt",
+        "supports"
+      ],
+      "properties": {
+        "sourceId": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+        "title": { "type": "string", "minLength": 3 },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "publisher": { "type": "string", "minLength": 2 },
+        "kind": { "enum": ["source", "documentation", "specification", "release"] },
+        "accessedAt": { "type": "string", "format": "date" },
+        "supports": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 2 }
+        }
+      }
+    }
+  }
+}

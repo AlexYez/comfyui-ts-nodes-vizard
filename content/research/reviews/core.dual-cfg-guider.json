@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.dual-cfg-guider",
+  "node": {
+    "classType": "DualCFGGuider",
+    "pythonModule": "comfy_extras.nodes_custom_sampler",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L856-L912",
+        "path": "comfy_extras/nodes_custom_sampler.py",
+        "lines": "856-912"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L592-L605",
+        "path": "comfy/samplers.py",
+        "lines": "592-605"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/node_helpers.py#L9-L22",
+        "path": "node_helpers.py",
+        "lines": "9-22"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/DualCFGGuider/en.md",
+        "assessment": "AI-generated документ перечисляет cond1, cond2, negative, две шкалы и styles, но не приводит regular/nested equations и cfg=1 optimization."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/DualCFGGuider/ru.md",
+        "assessment": "Перевод годится как обзор портов, но не объясняет metadata prompt_type=negative и различие двух формул."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "Просмотрены 512 JSON, все root nodes и 272 subgraphs: 4 DualCFGGuider в 4 файлах, 3 root и 1 subgraph; все mode 0 и только style regular."
+      },
+      {
+        "id": "dbedd4b2-c963-475d-8057-72a15e532fd5:hidream_e1_full",
+        "role": "InstructPixToPixConditioning питает cond1 и cond2, отдельный CLIPTextEncode — negative; widgets равны [5, 2, regular]."
+      },
+      {
+        "id": "38d4a359-349a-444f-acc1-acba3173c650:image_omnigen2_image_edit",
+        "role": "Два ReferenceLatent подключены к cond1 и cond2, CLIPTextEncode — к negative; widgets равны [5, 2, regular]."
+      },
+      {
+        "id": "isolated-pinned-guider-formula-probe",
+        "role": "Exact source дал 60 для regular и 100 для nested при N=10, M=20, P=30, cfg_conds=2 и cfg_cond2_negative=3; проверены skip-ветви regular."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "В официальном bundle 0.1.42 нет ни одного serialized case со style nested.",
+    "Числовая проба проверяет exact formula без tensor/model execution и без custom CFG hooks.",
+    "Человеческое редакционное одобрение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

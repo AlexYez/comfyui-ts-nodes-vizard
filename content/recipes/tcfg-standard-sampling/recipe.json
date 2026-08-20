@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.tcfg-standard-sampling",
+  "locale": "ru",
+  "title": "TCFG перед KSampler",
+  "summary": "Source-derived fragment ставит SVD-based TCFG в MODEL-цепочку перед обычным KSampler с двумя conditioning-ветвями.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.tcfg"],
+  "requirements": ["ComfyUI 0.32.0", "Совместимый MODEL", "Positive, negative CONDITIONING и LATENT"],
+  "fragment": {"id": "fragment.tcfg-standard-sampling", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema and full workflow absence review; source-derived fragment execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "TCFG in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_tcfg.py#L1-L64",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates 0.1.42: exhaustive absence census",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

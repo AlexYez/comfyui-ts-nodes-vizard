@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.combine-conditioning-pairs",
+  "title": "Две пары CONDITIONING в одном графе",
+  "externalInputs": [
+    {"id": "positive_a", "type": "CONDITIONING", "to": "combine_pair", "input": "positive_A"},
+    {"id": "negative_a", "type": "CONDITIONING", "to": "combine_pair", "input": "negative_A"},
+    {"id": "positive_b", "type": "CONDITIONING", "to": "combine_pair", "input": "positive_B"},
+    {"id": "negative_b", "type": "CONDITIONING", "to": "combine_pair", "input": "negative_B"}
+  ],
+  "nodes": [
+    {
+      "ref": "combine_pair",
+      "classType": "PairConditioningCombine",
+      "role": "Добавить вторую пару после первой без числового смешивания",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

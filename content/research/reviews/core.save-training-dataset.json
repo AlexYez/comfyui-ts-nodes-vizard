@@ -1,0 +1,72 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-training-dataset",
+  "node": {
+    "classType": "SaveTrainingDataset",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L46-L135",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "46-135"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1931-L2031",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1931-2031"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveTrainingDataset/en.md",
+        "assessment": "AI-generated справка верно передаёт назначение sharding, но ошибочно указывает output directory, называет runtime-required виджеты optional и не описывает точный формат, прямую неатомарную запись и остаточные shard при перезаписи; SHA-256 файла в wheel: c0b8ad582437ecf2b28ea346d2c75d53fb45a017fe69600b9df230c2814fb05d."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveTrainingDataset/ru.md",
+        "assessment": "Русская AI-generated версия повторяет неверный каталог output и не фиксирует exact metadata, формат torch.save, ограничения пути, отсутствие очистки и атомарной замены; SHA-256 файла в wheel: ea89633df8a995608aa9758aeef7b1d893f47ea4de8f2a9e9cb72841a7ebfeef."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON, 496 корневых workflow, 272 subgraph и 8120 узлов; SaveTrainingDataset отсутствует как точный type и как case-sensitive строка."
+      },
+      {
+        "id": "isolated-pinned-dataset-training-pipeline-probe",
+        "role": "Во временном datasets проверены потолочное деление на shard, exact metadata, вложенный путь, отказы traversal, пустая запись и сохранение старых shard при короткой перезаписи; fragment не исполнялся."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; однонодовый fragment не импортировался и не выполнялся на canvas.",
+    "Изолированный probe работал только во временном каталоге и не проверял обрыв процесса, заполнение диска, конкурентную запись и большие реальные наборы.",
+    "Повторная запись в существующий каталог может оставить старые shard-файлы; рецепт требует отдельный свободный каталог.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

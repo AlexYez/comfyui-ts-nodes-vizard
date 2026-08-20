@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-merge-sd1",
+  "node": {"classType": "ModelMergeSD1", "pythonModule": "comfy_extras.nodes_model_merging_model_specific", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging_model_specific.py#L3-L26",
+        "path": "comfy_extras/nodes_model_merging_model_specific.py",
+        "lines": "3-26"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L138-L168",
+        "path": "comfy_extras/nodes_model_merging.py",
+        "lines": "138-168"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L842-L889",
+        "path": "comfy/model_patcher.py",
+        "lines": "842-889"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L501",
+        "path": "comfy/lora.py",
+        "lines": "438-501"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ModelMergeSD1/en.md",
+        "assessment": "SHA-256 7472a4cf5f32aec1823d072c236564b8172e62ddf4b3fd8bd3e5cf0ac8e618c9. Перечисляет 30 коэффициентов, но не раскрывает их направление, выбор самого длинного префикса и поведение при несовпадении форм."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ModelMergeSD1/ru.md",
+        "assessment": "SHA-256 804f3fb03dd5eb30dcf6e2374f80eb7a0484ee64c5f735e3af24e48974c3f0ec. Переводит model1/model2 и поэтому не используется как источник точных имён из /object_info."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-model-merge-sd1-zero-census",
+        "role": "Пакет SHA-256 242982d65e1c51ca03d892bc1009bb6843f457e7dfc0c20afe6438770b7a14a3: 512 JSON, 496 корневых графов, 272 подграфа и 8120 нод; точный тип не встретился ни в одном графе или файле, режимов и значений виджетов нет."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Точный код исполнен только на синтетических CPU-тензорах; реальные checkpoint SD1 и сэмплирование не запускались.",
+    "В официальном пакете нет топологии или значений виджетов для ModelMergeSD1; рецепт основан на /object_info и исходном коде.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

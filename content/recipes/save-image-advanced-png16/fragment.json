@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.save-image-advanced-png16",
+  "title": "IMAGE — Save Image Advanced — PNG 16-bit sRGB",
+  "externalInputs": [
+    {"id": "image", "type": "IMAGE", "to": "save_png16", "input": "images"}
+  ],
+  "nodes": [
+    {"ref": "save_png16", "classType": "SaveImageAdvanced", "role": "Сохранить каждый batch-элемент как 16-bit PNG", "settings": {"filename_prefix": "ComfyUI_16bit", "format": "png", "bit_depth": "16-bit", "input_color_space": "sRGB"}}
+  ],
+  "connections": []
+}

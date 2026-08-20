@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.style-model-apply",
+  "node": {"classType": "StyleModelApply", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1113-L1174",
+        "path": "nodes.py",
+        "lines": "1113-1174"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L1450-L1468",
+        "path": "comfy/sd.py",
+        "lines": "1450-1468"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/ldm/flux/redux.py#L1-L25",
+        "path": "comfy/ldm/flux/redux.py",
+        "lines": "1-25"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/StyleModelApply/en.md",
+        "assessment": "Базово описывает три объектных входа, но в таблице отсутствуют strength и strength_type; flatten, token append и attention-mask ветвь не раскрыты."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/StyleModelApply/ru.md",
+        "assessment": "Повторяет общее AI-generated описание без точной tensor и metadata семантики; факты взяты из pinned implementation."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON и definitions.subgraphs[*].nodes: два StyleModelApply только в root графе flux_redux_model_example, оба strength 1 и multiply."
+      },
+      {
+        "id": "official-flux-redux-two-reference-topology",
+        "role": "Подтверждена цепочка FluxGuidance → StyleModelApply → StyleModelApply → BasicGuider; каждый apply получает отдельный CLIPVisionEncode и общий StyleModelLoader."
+      },
+      {
+        "id": "synthetic-exact-source-style-model-apply",
+        "role": "AST-extracted класс выполнен на tensors: подтверждены flatten batch+tokens, append, multiply включая ноль, shallow metadata copy, float16 attention-mask expansion, log bias и RuntimeError при text batch 2 против style batch 1."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Flux Redux и StyleAdapter weights не запускались; визуальное влияние strength не оценивалось.",
+    "Synthetic probe исполнил exact apply method с фиктивным style output, но не StyleModel.get_cond с реальным checkpoint.",
+    "Fragment-only recipe не исполнен целиком; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

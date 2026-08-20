@@ -1,0 +1,104 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ideogram-layout-json-prompt",
+  "title": "CreateBoundingBoxes → BuildJsonPromptIdeogram → PreviewAny",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "boxes",
+      "classType": "CreateBoundingBoxes",
+      "role": "Хранить пять областей обложки из официального примера",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "editor_state": [
+          {
+            "x": 128,
+            "y": 32,
+            "width": 824,
+            "height": 124,
+            "metadata": {
+              "type": "text",
+              "text": "Ideogram P-Image",
+              "desc": "Large elegant white display serif title at the top center of the cover. Decorative swash flourishes extend from the letters. Bold upright letterforms with high contrast against the dark background.",
+              "palette": ["#ffffff"]
+            }
+          },
+          {
+            "x": 32,
+            "y": 96,
+            "width": 992,
+            "height": 928,
+            "metadata": {
+              "type": "obj",
+              "text": "",
+              "desc": "Figure in theatrical Renaissance-inspired high-fashion costume, waist-up. Smooth matte white porcelain mask with small dark circular eye holes and neutral melancholy expression. Antique-gold sculpted floral crown headpiece with off-white draped veil flowing over the shoulders. Dark black textured bodice with intricate gold embroidery and a large gold tassel pendant at the chest center. Extremely voluminous deep red silk ruffled sleeves. One gloved hand raised near the face in a delicate theatrical gesture.",
+              "palette": ["#ffffff", "#8b0000", "#c9a227", "#1a1a1a"]
+            }
+          },
+          {
+            "x": 22,
+            "y": 300,
+            "width": 88,
+            "height": 300,
+            "metadata": {
+              "type": "text",
+              "text": "CUSTOM\nNODES\n\"Extend what\nyou can build.\"",
+              "desc": "Small white sans-serif side label stacked vertically along the left margin. Section header in medium weight with a short editorial quote beneath in lighter weight, left-aligned.",
+              "palette": ["#ffffff"]
+            }
+          },
+          {
+            "x": 914,
+            "y": 300,
+            "width": 88,
+            "height": 300,
+            "metadata": {
+              "type": "text",
+              "text": "WORKFLOW\n\"Drag. Connect.\nGenerate.\"",
+              "desc": "Small white sans-serif side label stacked vertically along the right margin. Section header in medium weight with a short editorial quote beneath in lighter weight, right-aligned.",
+              "palette": ["#ffffff"]
+            }
+          },
+          {
+            "x": 64,
+            "y": 800,
+            "width": 928,
+            "height": 192,
+            "metadata": {
+              "type": "text",
+              "text": "CONNECT NODES. BUILD WORLDS. COMFYUI MAKES IT FLOW.",
+              "desc": "Wide white sans-serif editorial quote in all capitals spanning the bottom of the cover. Medium weight, centered, with generous letter-spacing across two lines.",
+              "palette": ["#ffffff"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ref": "build",
+      "classType": "BuildJsonPromptIdeogram",
+      "role": "Собрать официальный структурированный промпт",
+      "settings": {
+        "high_level_description": "An avant-garde high-fashion magazine cover titled 'Ideogram P-Image' featuring a masked figure in ornate Renaissance-inspired costume with voluminous red silk sleeves against a dark navy backdrop with subtle concentric graphic lines.",
+        "background": "dark",
+        "style": {"style": "photo", "photo": "editorial"},
+        "aesthetics": "High-fashion avant-garde editorial aesthetic with dramatic contrast and ornate costume details.",
+        "lighting": "Dramatic directional chiaroscuro lighting highlighting red silk and gold embroidery with deep shadows across the backdrop.",
+        "medium": "",
+        "color_palette": ["#0a1628", "#ffffff", "#8b0000", "#c9a227"]
+      }
+    },
+    {
+      "ref": "preview",
+      "classType": "PreviewAny",
+      "role": "Показать словарь без обращения к API",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "boxes", "output": "elements", "to": "build", "input": "element"},
+    {"from": "build", "output": "prompt", "to": "preview", "input": "source"}
+  ]
+}

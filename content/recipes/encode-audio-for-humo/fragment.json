@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.encode-audio-for-humo",
+  "title": "Whisper AUDIO_ENCODER_OUTPUT для HuMo",
+  "externalInputs": [
+    {"id": "source_audio", "type": "AUDIO", "to": "encode", "input": "audio"}
+  ],
+  "nodes": [
+    {
+      "ref": "loader",
+      "classType": "AudioEncoderLoader",
+      "role": "Загрузить официальный HuMo Whisper encoder",
+      "settings": {"audio_encoder_name": "whisper_large_v3_fp16.safetensors"}
+    },
+    {
+      "ref": "encode",
+      "classType": "AudioEncoderEncode",
+      "role": "Получить признаки AUDIO для HuMo",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "loader", "output": "AUDIO_ENCODER", "to": "encode", "input": "audio_encoder"}
+  ]
+}

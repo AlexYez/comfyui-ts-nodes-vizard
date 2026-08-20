@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.composite-latents-with-feather",
+  "locale": "ru",
+  "title": "Вставить LATENT с растушёвкой и показать результат",
+  "summary": "Вставляет внешний samples_from в samples_to со смещением 64 × 64 пикселя и feather 32, затем декодирует собранный LATENT совместимым VAE.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.latent-composite", "core.vae-decode", "core.preview-image"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Два LATENT с совместимыми batch, каналами и латентным пространством",
+    "VAE, соответствующий обоим входам"
+  ],
+  "fragment": {"id": "fragment.composite-latents-with-feather", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "LatentComposite implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1432-L1474",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42 exhaustive scan",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.stable-cascade-super-resolution-source",
+  "title": "Experimental Stable Cascade super-resolution inputs",
+  "externalInputs": [
+    {"id": "image", "type": "IMAGE", "to": "prepare", "input": "image"},
+    {"id": "vae", "type": "VAE", "to": "prepare", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "prepare",
+      "classType": "StableCascade_SuperResolutionControlnet",
+      "role": "Закодировать RGB и создать пустые latent для экспериментальной super-resolution ветви",
+      "settings": {}
+    }
+  ],
+  "connections": []
+}

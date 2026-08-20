@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.apply-gligen-text-box",
+  "locale": "ru",
+  "title": "Добавить текстовую область GLIGEN 256×256",
+  "summary": "Загружает выбранный GLIGEN checkpoint и записывает в positive CONDITIONING текст «красный куб» с рамкой 256×256 от точки (128, 128).",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.gligen-loader", "core.gligen-text-box-apply", "core.clip-text-encode", "core.ksampler"],
+  "requirements": [
+    "ComfyUI 0.32.0",
+    "GLIGEN textbox checkpoint, совместимый с основной моделью",
+    "Базовое positive CONDITIONING",
+    "CLIP из совместимой модельной связки"
+  ],
+  "fragment": {
+    "id": "fragment.apply-gligen-text-box",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/schema and exact-source metadata review; no official 0.1.42 case, sampler execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "GLIGEN loader and text-box apply in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1196-L1240",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "GLIGEN position normalization in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/gligen.py#L198-L244",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

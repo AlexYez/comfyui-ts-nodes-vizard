@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.ltxv-iclora-guide-parameters",
+  "locale": "ru",
+  "title": "IC-LoRA metadata → LTXV guide",
+  "summary": "Передаёт MODEL после IC-LoRA Loader в GetICLoRAParameters и подключает извлечённый scale к LTXVAddGuide с frame_idx 0 и strength 1.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.get-ic-lora-parameters", "core.ltxv-add-guide"],
+  "requirements": ["ComfyUI 0.32.0", "IC-LoRA с совместимыми safetensors metadata", "LTXV MODEL/VAE/conditioning/latent/reference IMAGE"],
+  "fragment": {"id": "fragment.ltxv-iclora-guide-parameters", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated exact official IC-LoRA subgraph topology, runtime type validation, source review and Russian editorial pass; weights, full fragment execution and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [
+    {"title": "GetICLoRAParameters and LTXVAddGuide in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L23-L60", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"},
+    {"title": "Official LTX 2.3 IC-LoRA template", "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_ltx2_3_ic_lora.json", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}
+  ]
+}

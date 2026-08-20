@@ -1,0 +1,6 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.scale-flux-kontext-reference", "title": "Flux Kontext reference scale и VAE encode",
+  "externalInputs": [{"id": "reference_image", "type": "IMAGE", "to": "scale", "input": "image"}, {"id": "vae", "type": "VAE", "to": "encode", "input": "vae"}],
+  "nodes": [{"ref": "scale", "classType": "FluxKontextImageScale", "role": "Выбрать ближайшую reference resolution", "settings": {}}, {"ref": "encode", "classType": "VAEEncode", "role": "Закодировать scaled reference", "settings": {}}],
+  "connections": [{"from": "scale", "output": "IMAGE", "to": "encode", "input": "pixels"}]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.average-conditioning",
+  "title": "Равные коэффициенты двух совместимых CONDITIONING",
+  "externalInputs": [
+    { "id": "conditioning_to", "type": "CONDITIONING", "to": "average", "input": "conditioning_to" },
+    { "id": "conditioning_from", "type": "CONDITIONING", "to": "average", "input": "conditioning_from" }
+  ],
+  "nodes": [
+    {
+      "ref": "average",
+      "classType": "ConditioningAverage",
+      "role": "Интерполировать тензоры с долей стороны conditioning_to 0,5",
+      "settings": { "conditioning_to_strength": 0.5 }
+    }
+  ],
+  "connections": []
+}

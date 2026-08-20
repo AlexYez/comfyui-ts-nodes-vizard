@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-point-cloud",
+  "node": {"classType": "SavePointCloud", "pythonModule": "comfy_extras.nodes_save_3d", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_save_3d.py#L409-L561",
+        "path": "comfy_extras/nodes_save_3d.py",
+        "lines": "409-561"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3dPreviewExtensions.ts#L25-L254",
+        "path": "frontend/src/extensions/core/load3dPreviewExtensions.ts",
+        "lines": "25-254"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/6d6af63c00f132cd25dc29307fc56bd2c094fa22/src/extensions/core/load3d/PointCloudModelAdapter.ts#L1-L173",
+        "path": "frontend/src/extensions/core/load3d/PointCloudModelAdapter.ts",
+        "lines": "1-173"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SavePointCloud/en.md",
+        "assessment": "Правильно называет PLY input, viewport и pass-through outputs; не раскрывает no-parse backend и frontend faces/splat routing."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SavePointCloud/ru.md",
+        "assessment": "Содержит служебное вступление переводчика; фактическая таблица сверена, но текст статьи написан заново по source/runtime."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и 768 root/subgraph graphs SavePointCloud встречается 0 раз; fragment source-derived."
+      },
+      {
+        "id": "frontend-point-cloud-adapter-1.48.7",
+        "role": "Pinned frontend confirms PLY parser selection, vertex-color behavior, indexed faces as mesh, points normalization and target viewer state."
+      },
+      {
+        "id": "synthetic-exact-source-save-point-cloud-probe",
+        "role": "Exact backend class подтвердил byte-preserving PLY output, object identity, non-dict viewport fallback, extreme valid dimensions и PreviewUI3DAdvanced result."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Official wheel 0.1.42 не содержит SavePointCloud; fragment source-derived и не является full workflow.",
+    "Probe проверил copy/state contract на тестовых байтах, но не парсил реальный ASCII/binary PLY и не проверял vertex colors/faces visually.",
+    "Browser PLY performance, cross-platform viewer behavior и человеческое утверждение ожидаются."
+  ],
+  "updatedAt": "2026-08-14"
+}

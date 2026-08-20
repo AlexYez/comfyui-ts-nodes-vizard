@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.transform-splat",
+  "node": {"classType": "TransformSplat", "pythonModule": "comfy_extras.nodes_gaussian_splat", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L421-L493", "path": "comfy_extras/nodes_gaussian_splat.py", "lines": "421-493"}, {"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L1090-L1142", "path": "comfy_extras/nodes_gaussian_splat.py", "lines": "1090-1142"}],
+    "embeddedDocs": [{"locale": "en", "archivePath": "comfyui_embedded_docs/docs/TransformSplat/en.md", "assessment": "SHA-256 86542b01963e4d9664417bcd6c4a7adee9785b5f683a92734aaf765620bc356c; secondary terminology reference."}, {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/TransformSplat/ru.md", "assessment": "SHA-256 7f077f765cd683e75ddd3fbcabb929f5e87fab692230acda7231c9bf4921cfe2; secondary terminology reference."}],
+    "workflows": [{"id": "workflow-templates-0142-transform-splat-census", "role": "All 512 JSON, 496 roots and 272 subgraphs contain zero exact TransformSplat."}, {"id": "isolated-gaussian-splat-helper-probe", "role": "Exact uniform and non-uniform tensor branches were executed on synthetic SPLAT data."}]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["No real Gaussian Splat asset was transformed and rendered.", "Performance on large splats was not measured.", "The recipe is source-derived because no official case exists.", "Редактор пока не проверил материал вручную."], "updatedAt": "2026-08-14"
+}

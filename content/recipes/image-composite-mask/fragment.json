@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.image-composite-mask", "title": "IMAGE composite с внешней мягкой MASK",
+  "externalInputs": [
+    {"id": "destination", "type": "IMAGE", "to": "composite", "input": "destination"},
+    {"id": "source", "type": "IMAGE", "to": "composite", "input": "source"},
+    {"id": "mask", "type": "MASK", "to": "composite", "input": "mask"}
+  ],
+  "nodes": [
+    {"ref": "composite", "classType": "ImageCompositeMasked", "role": "Смешать source с destination по mask", "settings": {"x": 0, "y": 0, "resize_source": false}},
+    {"ref": "preview", "classType": "PreviewImage", "role": "Показать результат", "settings": {}}
+  ],
+  "connections": [{"from": "composite", "output": "IMAGE", "to": "preview", "input": "images"}]
+}

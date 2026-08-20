@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.repeat-image-mask-sequence",
+  "title": "Повторить IMAGE-маску и вернуть тип MASK",
+  "externalInputs": [
+    {
+      "id": "mask_image",
+      "type": "IMAGE",
+      "to": "repeat",
+      "input": "image"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "repeat",
+      "classType": "RepeatImageBatch",
+      "role": "Повторить входную IMAGE-последовательность 17 раз",
+      "settings": {
+        "amount": 17
+      }
+    },
+    {
+      "ref": "to_mask",
+      "classType": "ImageToMask",
+      "role": "Вернуть red-канал повторённого IMAGE как MASK",
+      "settings": {
+        "channel": "red"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "repeat",
+      "output": "IMAGE",
+      "to": "to_mask",
+      "input": "image"
+    }
+  ]
+}

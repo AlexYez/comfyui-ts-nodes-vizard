@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.fit-image-batch-1280x720",
+  "title": "IMAGE — contain 1280 × 720 — проверка размера",
+  "externalInputs": [
+    {
+      "id": "image",
+      "type": "IMAGE",
+      "to": "fit",
+      "input": "image"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "fit",
+      "classType": "ResizeAndPadImage",
+      "role": "Вписать IMAGE в 1280 × 720 с чёрными полями",
+      "settings": {
+        "target_width": 1280,
+        "target_height": 720,
+        "padding_color": "black",
+        "interpolation": "lanczos"
+      }
+    },
+    {
+      "ref": "size",
+      "classType": "GetImageSize",
+      "role": "Проверить width, height и сохранённый batch_size",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "fit",
+      "output": "IMAGE",
+      "to": "size",
+      "input": "image"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.video-temporal-crop",
+  "node": {
+    "classType": "VideoTemporalCrop",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1271-L1313",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1271-1313"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L216-L294",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "216-294"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_api/latest/_input_impl/video_types.py#L800-L810",
+        "path": "comfy_api/latest/_input_impl/video_types.py",
+        "lines": "800-810"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VideoTemporalCrop/en.md",
+        "assessment": "AI-generated справка подтверждает непрерывный ленивый диапазон, но не описывает clamp начала к последнему кадру, сокращение длины, средний FPS, metadata fallback и взаимодействие с последующей разреженной выборкой; SHA-256 файла в wheel: b87944c61be9a93962dbebfc3c0d34610aea3fcfc335934ecfba91b8c0cfd917."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/VideoTemporalCrop/ru.md",
+        "assessment": "Русская AI-generated версия переводит video, start_frame и length и не добавляет ограничения закреплённого кода; SHA-256 файла в wheel: 25d6a31ec1ecc8e590ec446d50aa540efa05d4715b9de22c6105104d7f314d0d."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON, 496 корневых workflow, 272 subgraph и 8120 узлов; VideoTemporalCrop отсутствует."
+      },
+      {
+        "id": "isolated-pinned-dataset-video-load-sample-crop-probe",
+        "role": "На восьмикадровом AVI 4 FPS проверены окна 2+3, 6+99999 и 99999+99999, прижатие к последнему кадру, сокращение длины, ленивый общий stream и сложение offset при следующем head."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; fragment не импортировался и не выполнялся на canvas.",
+    "Синтетический прогон использовал постоянный FPS и контейнер с точным metadata frame count; VFR и metadata fallback требуют отдельной платформенной проверки.",
+    "Следующий VideoFrameSample uniform/random в 0.32.0 игнорирует активный offset file-backed crop; это ограничение соседней реализации, а не самого ленивого окна.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

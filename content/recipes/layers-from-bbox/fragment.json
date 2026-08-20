@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.layers-from-bbox", "title": "IMAGE как слой на холсте 1024 × 1024",
+  "externalInputs": [{"id": "source_image", "type": "IMAGE", "to": "layers", "input": "image"}],
+  "nodes": [
+    {"ref": "box", "classType": "PrimitiveBoundingBox", "role": "Задать положение и размер слоя", "settings": {"x": 128, "y": 96, "width": 512, "height": 512}},
+    {"ref": "layers", "classType": "LayersFromBoundingBoxes", "role": "Создать документ LAYERS", "settings": {"crop_to_content": true, "canvas_width": 1024, "canvas_height": 1024}}
+  ],
+  "connections": [{"from": "box", "output": "BOUNDING_BOX", "to": "layers", "input": "bboxes"}]
+}

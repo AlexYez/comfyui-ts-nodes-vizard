@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.checkpoint-as-lora-model-only-hook",
+  "locale": "ru",
+  "title": "Checkpoint-хук только для модели",
+  "summary": "Создаёт model_as_lora-патч с фиксированным strength_clip=0, прикрепляет его к внешнему CONDITIONING и не регистрирует на CLIP.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.create-hook-model-as-lora-model-only"],
+  "requirements": ["ComfyUI 0.32.0", "Внешнее CONDITIONING", "Совместимая базовая модель", "Проверенный checkpoint вместо SELECT_CHECKPOINT", "Совпадающие ключи и формы целевых и базовых тензоров", "Память для полных словарей модели и доступного CLIP"],
+  "fragment": {"id": "fragment.checkpoint-as-lora-model-only-hook", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Автоматизированная проверка исходника, формулы, типов `/object_info`, соединений и граничных форм; отдельная русская редактура через ts-write-natural-russian; настоящие checkpoint и полный граф не запускались, человеческого утверждения пока нет",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "CreateHookModelAsLoraModelOnly в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L416-L438",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Патчи model_as_lora в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L609-L638",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "ConditioningSetProperties в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hooks.py#L86-L116",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Загрузка частей checkpoint в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L2034-L2049",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Регистрация весовых хуков в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L1537-L1581",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Маска и сила ConditioningSetProperties в ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/hooks.py#L719-L756",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-batch",
+  "node": {
+    "classType": "ImageBatch",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1949-L1971",
+        "path": "nodes.py",
+        "lines": "1949-1971"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_replacements.py#L32-L41",
+        "path": "comfy_extras/nodes_replacements.py",
+        "lines": "32-41"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L514-L588",
+        "path": "comfy_extras/nodes_post_processing.py",
+        "lines": "514-588"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ImageBatch/ru.md",
+        "assessment": "Подтверждает назначение двух входов и deprecated-статус, но точный channel padding, bilinear center resize, порядок cat и зарегистрированная замена проверены по исходнику."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ImageBatch/en.md",
+        "assessment": "Использовано как вторичное AI-generated описание; миграционная рекомендация основана на nodes_replacements.py и BatchImagesNode из pinned commit."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "templates-product_ad-v2.0",
+        "role": "Workflow c28dc1c5-217d-4ee0-8baf-1929aaf5162e: LoadImage № 1 и ResizeAndPadImage № 16 → ImageBatch № 18 → GeminiImage2Node № 3."
+      },
+      {
+        "id": "templates-textured_logotype-v2.1",
+        "role": "Workflow b82407ed-68b7-4df7-8dd7-3b964422bbe8: LoadImage № 4 и ResizeAndPadImage № 15 → ImageBatch № 5 → GeminiImage2Node № 7."
+      },
+      {
+        "id": "templates-photo_to_product_vid",
+        "role": "В subgraph две ImageBatch соединены цепочкой, чтобы собрать три video-компонента; входит в полный счёт 5 нод в 4 файлах."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment структурно проверен, но не исполнен и не мигрирован автоматически в BatchImagesNode.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

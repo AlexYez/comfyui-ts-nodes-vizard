@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.latent-upscale-by",
+  "node": {
+    "classType": "LatentUpscaleBy",
+    "pythonModule": "nodes",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/nodes.py#L1365-L1384",
+        "path": "nodes.py",
+        "lines": "1365-1384"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy/utils.py#L983-L1101",
+        "path": "comfy/utils.py",
+        "lines": "983-1101"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/LatentUpscaleBy/ru.md",
+        "assessment": "Общее описание называет resize повышением качества и переводит системные имена входов. Оно не фиксирует работу прямо в latent-grid, отдельный round сторон, crop disabled, scale_by < 1, нулевой размер и shallow copy дополнительных полей."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "pinned-package-census-0.1.42",
+        "role": "Рекурсивный обход top-level и subgraph nodes во всех 496 JSON не нашёл ни одного LatentUpscaleBy."
+      },
+      {
+        "id": "hiresfix_latent_workflow-adaptation-source",
+        "role": "Legacy official Hires Fix подтверждает схему latent resize → второй KSampler → VAEDecode, но использует LatentUpscale. Recipe явно заменяет точные 1152/768 на factor 1.5 и не считает это прямым official case."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Прямого официального workflow case для LatentUpscaleBy в закреплённом пакете и проверенном legacy Hires Fix нет.",
+    "Fragment является раскрытой адаптацией topology и структурно проверен, но не исполнен.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

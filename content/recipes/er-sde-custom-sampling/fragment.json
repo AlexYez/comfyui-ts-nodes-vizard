@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.er-sde-custom-sampling",
+  "title": "SamplerER_SDE → SamplerCustomAdvanced",
+  "externalInputs": [
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "guider", "type": "GUIDER", "to": "sample", "input": "guider"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {"ref": "algorithm", "classType": "SamplerER_SDE", "role": "Создать трёхстадийный ER-SDE sampler", "settings": {"solver_type": "ER-SDE", "max_stage": 3, "eta": 1.0, "s_noise": 1.0}},
+    {"ref": "sample", "classType": "SamplerCustomAdvanced", "role": "Исполнить ER-SDE sampling", "settings": {}}
+  ],
+  "connections": [
+    {"from": "algorithm", "output": "SAMPLER", "to": "sample", "input": "sampler"}
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.image-rotate",
+  "node": {"classType": "ImageRotate", "pythonModule": "comfy_extras.nodes_images", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_images.py#L604-L633", "path": "comfy_extras/nodes_images.py", "lines": "604-633"}],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ImageRotate/ru.md", "assessment": "Варианты и clockwise-направление согласуются с torch.rot90 по dims [2,1]; статья дополнительно фиксирует обмен ширины/высоты и отсутствие интерполяции."}],
+    "workflows": []
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["В 496 официальных workflow пакета 0.1.42 нода не встречается; transform fragment ещё не исполнен.", "Человеческое редакционное утверждение не выполнено."],
+  "updatedAt": "2026-08-13"
+}

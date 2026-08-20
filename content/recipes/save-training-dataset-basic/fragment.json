@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.save-training-dataset-basic",
+  "title": "SaveTrainingDataset в отдельный каталог",
+  "externalInputs": [
+    {"id": "latents", "type": "LATENT", "to": "save", "input": "latents"},
+    {"id": "conditioning", "type": "CONDITIONING", "to": "save", "input": "conditioning"}
+  ],
+  "nodes": [
+    {
+      "ref": "save",
+      "classType": "SaveTrainingDataset",
+      "role": "Записать согласованные пары в новый каталог datasets",
+      "settings": {
+        "folder_name": "nodes_wizard_training_example",
+        "shard_size": 1000
+      }
+    }
+  ],
+  "connections": []
+}

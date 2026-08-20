@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.empty-ltxv-latent-video",
+  "node": {"classType": "EmptyLTXVLatentVideo", "pythonModule": "comfy_extras.nodes_lt", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_lt.py#L63-L85", "path": "comfy_extras/nodes_lt.py", "lines": "63-85"}],
+    "embeddedDocs": [
+      {"locale": "en", "archivePath": "comfyui_embedded_docs/docs/EmptyLTXVLatentVideo/en.md", "assessment": "SHA-256 855bbf9ad7938d2dd5d26c66fd2508747874785d63a9361bb48165746d776e1d. Назначение и диапазоны верны; точная форма, 128 каналов, temporal/spatial compression и metadata не раскрыты."},
+      {"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/EmptyLTXVLatentVideo/ru.md", "assessment": "SHA-256 d8d3e676003616567e38a7e71cf70d0e91958fd097f60d27dc096196890ed004. Системные имена параметров переведены и вводная шаблонна; факты повторно сверены с source/runtime."}
+    ],
+    "workflows": [
+      {"id": "workflow-templates-json-0.1.42-empty-ltxv-census", "role": "Полный census 512 JSON / 496 root / 272 subgraphs: 22 instances в 20 files, 1 root + 21 subgraph; mode0 21/mode4 1; presets 768/512/97/1 ×21 и 960/544/121/1 ×1."},
+      {"id": "video-ltx2-3-i2v-empty-inplace", "role": "Subgraph 2454ad83...: Empty 295 [768,512,97,1] → LTXVImgToVideoInplace 296 [0.7,false]."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Exact-source probe выполняет zero allocation и shape formula на CPU; diffusion model не загружалась.", "Fragment типизирован и topology сверена, но полный official workflow не исполнялся.", "Человеческое утверждение статьи и рецепта ещё не выполнено."],
+  "updatedAt": "2026-08-14"
+}

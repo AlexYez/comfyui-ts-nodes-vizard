@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.hunyuan-image-to-video-concat-guidance",
+  "title": "HunyuanImageToVideo v1 (concat) → CFGGuider и сэмплер",
+  "externalInputs": [
+    {"id": "positive", "type": "CONDITIONING", "to": "prepare", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "guide", "input": "negative"},
+    {"id": "vae", "type": "VAE", "to": "prepare", "input": "vae"},
+    {"id": "start_image", "type": "IMAGE", "to": "prepare", "input": "start_image"},
+    {"id": "model", "type": "MODEL", "to": "guide", "input": "model"},
+    {"id": "noise", "type": "NOISE", "to": "sample", "input": "noise"},
+    {"id": "sampler", "type": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"id": "sigmas", "type": "SIGMAS", "to": "sample", "input": "sigmas"}
+  ],
+  "nodes": [
+    {
+      "ref": "prepare",
+      "classType": "HunyuanImageToVideo",
+      "role": "Закодировать стартовое изображение в режиме concat старого Hunyuan Video",
+      "settings": {"width": 848, "height": 480, "length": 53, "batch_size": 1, "guidance_type": "v1 (concat)"}
+    },
+    {
+      "ref": "guide",
+      "classType": "CFGGuider",
+      "role": "Добавить внешнее отрицательное условие и совместимую модель",
+      "settings": {}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustomAdvanced",
+      "role": "Сэмплировать 16-канальный видеолатент",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {"from": "prepare", "output": "positive", "to": "guide", "input": "positive"},
+    {"from": "guide", "output": "GUIDER", "to": "sample", "input": "guider"},
+    {"from": "prepare", "output": "latent", "to": "sample", "input": "latent_image"}
+  ]
+}

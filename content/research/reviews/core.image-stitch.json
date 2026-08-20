@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json", "schemaVersion": "1.0", "articleId": "core.image-stitch",
+  "node": {"classType": "ImageStitch", "pythonModule": "comfy_extras.nodes_images", "origin": "backend"},
+  "baseline": {"comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42"},
+  "state": "fact_checked", "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_images.py#L269-L441", "path": "comfy_extras/nodes_images.py", "lines": "269-441"}],
+    "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/ImageStitch/ru.md", "assessment": "Основная топология и важное отличие colored spacing от black alignment padding описаны верно; статья дополнительно фиксирует last-frame batch repeat, Lanczos resize, channel fill и порядок направлений."}],
+    "workflows": [
+      {"id": "utility_image_stitch", "role": "Три ImageStitch собирают четыре загрузки в сетку 2x2: две строки right, затем down; match=true, spacing=0."},
+      {"id": "api_bfl_flux_1_kontext_multiple_images_input", "role": "Две последовательные ноды собирают три референса с направлениями up/right и белыми spacing 8/20."},
+      {"id": "templates-character_sheet", "role": "Два image-потока соединяются right и сохраняются через SaveImage."}
+    ]
+  },
+  "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
+  "knownGaps": ["Grid fragment повторяет official utility topology, но не исполнен на четырёх тестовых изображениях.", "Человеческое редакционное утверждение не выполнено."],
+  "updatedAt": "2026-08-13"
+}

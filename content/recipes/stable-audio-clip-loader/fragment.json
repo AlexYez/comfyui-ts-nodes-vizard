@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.stable-audio-clip-loader",
+  "title": "T5 Base и два conditioning для Stable Audio",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "text_encoder",
+      "classType": "CLIPLoader",
+      "role": "Загрузить T5 Base с конфигурацией Stable Audio",
+      "settings": {
+        "clip_name": "t5-base.safetensors",
+        "type": "stable_audio",
+        "device": "default"
+      }
+    },
+    {
+      "ref": "positive",
+      "classType": "CLIPTextEncode",
+      "role": "Закодировать описание звука",
+      "settings": { "text": "электронная музыка в большом церковном зале" }
+    },
+    {
+      "ref": "negative",
+      "classType": "CLIPTextEncode",
+      "role": "Создать пустое отрицательное условие как в official case",
+      "settings": { "text": "" }
+    }
+  ],
+  "connections": [
+    { "from": "text_encoder", "output": "CLIP", "to": "positive", "input": "clip" },
+    { "from": "text_encoder", "output": "CLIP", "to": "negative", "input": "clip" }
+  ]
+}

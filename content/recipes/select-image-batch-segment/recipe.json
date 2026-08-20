@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.select-image-batch-segment",
+  "locale": "ru",
+  "title": "Взять последний кадр IMAGE-бэтча",
+  "summary": "Использует ImageFromBatch с batch_index = −1 и length = 1, как в официальном character-replacement subgraph, чтобы вернуть ровно последний доступный кадр.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.image-from-batch"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Непустой IMAGE-бэтч"
+  ],
+  "fragment": {
+    "id": "fragment.select-image-batch-segment",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated source and official negative-index workflow trace; fragment schema validated, execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "ImageFromBatch implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L136-L162",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Official video_wan21_scail2_character_replacement workflow in templates 0.1.42",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/cca1ea5ea4560108ecc2f44dee951f41ea433062/templates/video_wan21_scail2_character_replacement.json",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

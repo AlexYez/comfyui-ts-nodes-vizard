@@ -1,0 +1,74 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-image-data-set-to-folder",
+  "node": {
+    "classType": "SaveImageDataSetToFolder",
+    "pythonModule": "comfy_extras.nodes_dataset",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L395-L494",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "395-494"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/folder_paths.py#L520-L566",
+        "path": "folder_paths.py",
+        "lines": "520-566"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SaveImageDataSetToFolder/en.md",
+        "assessment": "AI-generated документ подтверждает deprecated label, list input и отсутствие output, но пропускает обязательный mode, uint8-конвертацию, форму тензора, stale-файлы и исходниковую замену; SHA-256: 8f0b7825cc2f2d79ebff5f0273b4dc9424015d20919a03f398e962f4a75e256e."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SaveImageDataSetToFolder/ru.md",
+        "assessment": "Русский AI-generated перевод также не содержит mode и детали deprecated-перехода; SHA-256: f1e46892c887b776e6e38b7b755264511925d88bb8c12b8a6c771f03e91a20d9."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены 512 JSON, 496 корневых workflow и 272 subgraph; SaveImageDataSetToFolder отсутствует."
+      },
+      {
+        "id": "node-replacements-v032-full-check",
+        "role": "В pinned /api/node_replacements нет формальной записи; редакционная замена на SaveImage основана только на комментарии nodes_dataset.py:480."
+      },
+      {
+        "id": "isolated-pinned-dataset-folder-io-probe",
+        "role": "Точный saver создал overwrite- и increment-имена, сохранил stale-файл после более короткого overwrite, отклонил traversal и не обработал элемент [2,H,W,C]."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Legacy-fragment не импортировался в canvas; проверен прямой вызов точного класса во временном output.",
+    "Переход на SaveImage не исполнен end-to-end и требует ручной проверки списочной семантики конкретного графа."
+  ],
+  "updatedAt": "2026-08-14"
+}

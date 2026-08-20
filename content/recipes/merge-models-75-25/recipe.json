@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.merge-models-75-25",
+  "locale": "ru",
+  "title": "Смешать 75% model1 и 25% model2",
+  "summary": "ModelMergeSimple смешивает совпадающие diffusion-веса двух совместимых моделей с ratio 0,75 в пользу model1.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-merge-simple"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Два MODEL одной архитектуры с совпадающими ключами и формами",
+    "Отдельно выбранные совместимые CLIP и VAE",
+    "Контрольный sampling на одинаковых seed и параметрах"
+  ],
+  "fragment": {"id": "fragment.merge-models-75-25", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime/docs and exhaustive official workflow absence review, exact ModelPatcher tensor probe and Russian editorial pass; real checkpoint merge and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "ModelMergeSimple in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging.py#L14-L31",
+      "publisher": "Comfy-Org", "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Patch weight calculation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/lora.py#L438-L501",
+      "publisher": "Comfy-Org", "accessedAt": "2026-08-14"
+    }
+  ]
+}

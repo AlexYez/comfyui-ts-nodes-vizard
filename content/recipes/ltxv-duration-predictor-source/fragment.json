@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.ltxv-duration-predictor-source",
+  "title": "LTXV 2.4 duration head → num_frames",
+  "externalInputs": [
+    {"id": "model", "type": "MODEL", "to": "predict", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "predict", "input": "positive"},
+    {"id": "duration_head", "type": "MODEL_PATCH", "to": "predict", "input": "duration_head"}
+  ],
+  "nodes": [
+    {
+      "ref": "predict",
+      "classType": "LTXVDurationPredictor",
+      "role": "Предсказать seconds и перевести их в 8k+1 num_frames",
+      "settings": {"frame_rate": 24.0, "min_seconds": 1.0, "max_seconds": 20.0}
+    }
+  ],
+  "connections": []
+}

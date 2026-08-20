@@ -1,0 +1,84 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.select-clip-device",
+  "node": {"classType": "SelectCLIPDevice", "pythonModule": "comfy_extras.nodes_multigpu", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_multigpu.py#L51-L139",
+        "path": "comfy_extras/nodes_multigpu.py",
+        "lines": "51-139"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_multigpu.py#L234-L279",
+        "path": "comfy_extras/nodes_multigpu.py",
+        "lines": "234-279"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_management.py#L246-L289",
+        "path": "comfy/model_management.py",
+        "lines": "246-289"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L298-L307",
+        "path": "comfy/sd.py",
+        "lines": "298-307"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L392-L460",
+        "path": "comfy/sd.py",
+        "lines": "392-460"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SelectCLIPDevice/en.md",
+        "assessment": "Raw SHA-256 8ca0f385a10768381180049549bbd42e02f3cf216a2deb6372f2421f8793d3c0. AI-generated page describes routing but omits fresh deepclone factory requirements and wrapper clone semantics."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SelectCLIPDevice/ru.md",
+        "assessment": "Raw SHA-256 b960652ef263e7427ce69f9f807b94547bee589a399b5b59dc65c36d34973d39. AI-generated translation uses localized CPU/GPU prose; exact runtime names were taken from object_info/source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-zero-census",
+        "role": "All 512 JSON, 496 roots and 272 subgraphs scanned. SelectCLIPDevice has 0 direct, raw and recursive scalar occurrences and no EN/RU index title."
+      },
+      {
+        "id": "isolated-exact-source-select-clip-device-probe",
+        "role": "Exact shared helpers and execute method ran on a synthetic CLIP wrapper; clone, gpu/default/cpu, unavailable fallback and loader-factory failure were checked without encoder weights. Fresh retarget left cond_stage_model pointing to the original object while patcher.model pointed to the fresh model."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "No target occurrence exists in official workflow wheel 0.1.42; the fragment is source-derived.",
+    "No production CLIP, token encoding, real GPU transfer or VRAM measurement was executed.",
+    "Pinned source leaves cond_stage_model and fresh patcher.model as different objects after retarget; runtime impact requires a real two-device CLIP encode test.",
+    "The isolated probe validates routing control flow only.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.split-image-to-tile-list",
+  "node": {"classType": "SplitImageToTileList", "pythonModule": "comfy_extras.nodes_images", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L705-L764",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "705-764"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SplitImageToTileList/ru.md",
+        "assessment": "Общее назначение верно, но максимум tile size 1048576 расходится с runtime/source 16384; выражение «пакетный список» уточнено как list-output IMAGE с сохранением batch-оси в каждом элементе."
+      },
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SplitImageToTileList/en.md",
+        "assessment": "Использовано как вторичное описание; stride floor, edge shifting и отсутствие padding взяты из закреплённой реализации."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-0142-exhaustive-split-image-to-tile-list",
+        "role": "Полный recursive scan всех 512 JSON, включая definitions.subgraphs, нашёл 0 exact SplitImageToTileList; source-derived fragment не выдаётся за официальный template-case."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Генератор координат и смысл slices проверены чистой Python-моделью вне ComfyUI runtime; torch и сама node class не запускались.",
+    "Официального workflow-case в wheel 0.1.42 нет; fragment построен только из source/runtime-контрактов.",
+    "Fragment не исполнялся в ComfyUI; редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-13"
+}

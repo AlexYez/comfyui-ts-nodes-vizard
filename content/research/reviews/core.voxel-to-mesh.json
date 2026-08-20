@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.voxel-to-mesh",
+  "node": {"classType": "VoxelToMesh", "pythonModule": "comfy_extras.nodes_hunyuan3d", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan3d.py#L120-L414",
+        "path": "comfy_extras/nodes_hunyuan3d.py",
+        "lines": "120-414"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_hunyuan3d.py#L451-L488",
+        "path": "comfy_extras/nodes_hunyuan3d.py",
+        "lines": "451-488"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_save_3d.py#L19-L57",
+        "path": "comfy_extras/nodes_save_3d.py",
+        "lines": "19-57"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/VoxelToMesh/en.md",
+        "assessment": "Подтверждает два алгоритма, диапазон `threshold` и выход MESH; строгое сравнение, координаты и дефект малой оболочки сверены по исходному коду. SHA-256 8596decb4cb49779814b15b2f1a3cbde5556bc213461eb422c6d63f15abe8d98."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/VoxelToMesh/ru.md",
+        "assessment": "Файл ошибочно называет ноду VoxelToMeshBasic, пропускает `algorithm`, переводит идентификаторы runtime и неточно описывает пакет. SHA-256 28352c82efce42aacb3c7b58c3618464ab666083b04cc2273965aad71a6e48c2."
+      }
+    ],
+    "workflows": [
+      {"id": "3d_hunyuan3d-v2.1", "role": "Граф 4125c6df-9bca-430d-8e85-7cff9cc592d4: VAEDecodeHunyuan3D 8 → VoxelToMesh 9 [surface net, 0.6] → SaveGLB 10; mode 0."},
+      {"id": "3d_hunyuan3d_image_to_model", "role": "Граф 81ccfe3e-3540-49e3-88ae-4fde173b8c87: декодер 61 → VoxelToMesh 81 [surface net, 0.6] → SaveGLB 82; mode 0."},
+      {"id": "3d_hunyuan3d_multiview_to_model", "role": "Граф 60fc533c-cab0-4b1e-839b-b7783bd27ba5: декодер 61 → VoxelToMesh 82 [surface net, 0.6] → SaveGLB 83; mode 0."},
+      {"id": "3d_hunyuan3d_multiview_to_model_turbo", "role": "Граф b22dbb77-aac1-4849-b05a-1d3c7f8b9d95: декодер 61 → VoxelToMesh 83 [surface net, 0.6] → SaveGLB 67; mode 0."}
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Точные вспомогательные функции `basic` и Surface Nets исполнены на синтетических тензорах CPU, но фрагмент и полный граф Hunyuan3D не запускались.",
+    "Ветка GPU, реальный выход VAE и GLB из фрагмента не проверены.",
+    "Редактор пока не проверил материал вручную."
+  ],
+  "updatedAt": "2026-08-14"
+}

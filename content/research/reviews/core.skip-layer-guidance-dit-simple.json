@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.skip-layer-guidance-dit-simple",
+  "node": {"classType": "SkipLayerGuidanceDiTSimple", "pythonModule": "comfy_extras.nodes_slg", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_slg.py#L91-L163",
+        "path": "comfy_extras/nodes_slg.py",
+        "lines": "91-163"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/samplers.py#L607-L627",
+        "path": "comfy/samplers.py",
+        "lines": "607-627"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_patcher.py#L646-L659",
+        "path": "comfy/model_patcher.py",
+        "lines": "646-659"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/SkipLayerGuidanceDiTSimple/en.md",
+        "assessment": "SHA-256 0428655c42390e74711ab1beac56b535fbc286cf5a9ff85145025f875f410f8a; marks four runtime-required settings optional and incorrectly requires both layer lists to be populated."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SkipLayerGuidanceDiTSimple/ru.md",
+        "assessment": "SHA-256 0b638be8ee673f2f04de2cd8249b292b0cbcb2e8e584b52578818960caadfc2b; repeats both errors and translates several exact port names."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-census",
+        "role": "All 512 JSON, 496 root graphs and 272 subgraphs inspected: one direct SkipLayerGuidanceDiTSimple node, subgraph mode 0."
+      },
+      {
+        "id": "a92ccb88-3a14-4114-9b6b-fa8952839d39:f7467834-35a6-42fe-b525-7f17383beb4f",
+        "role": "Wan Dancer: ModelSamplingSD3 #643 [5] → Simple SLG #645 [9, empty, 0, 1] → BasicScheduler #653 and CFGGuider #657; CFG input is linked from a switch."
+      },
+      {
+        "id": "isolated-pinned-skip-layer-differential-probe",
+        "role": "Exact-source AST probe covers one-list activation, inclusive/reversed windows, unconditional-none fallback, two calc calls and singleton batch-function overwrite."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Fragment не импортировался и не выполнялся в ComfyUI.",
+    "CFG 3 в fragment — явное source-derived тестовое значение; официальный subgraph получает cfg по связи от switch.",
+    "Wan Dancer weights, conditional/unconditional predictions и стоимость раздельных batch calls не измерялись.",
+    "Human editorial approval pending."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json", "schemaVersion": "1.0", "fragmentId": "fragment.primitive-string-switch", "title": "STRING true/false через BOOLEAN switch",
+  "externalInputs": [],
+  "nodes": [
+    {"ref": "true_text", "classType": "PrimitiveString", "role": "Строка для true-ветви", "settings": {"value": "true"}},
+    {"ref": "false_text", "classType": "PrimitiveString", "role": "Строка для false-ветви", "settings": {"value": "false"}},
+    {"ref": "flag", "classType": "PrimitiveBoolean", "role": "Выбрать ветвь", "settings": {"value": true}},
+    {"ref": "switch", "classType": "ComfySwitchNode", "role": "Вернуть выбранную строку", "settings": {}}
+  ],
+  "connections": [
+    {"from": "flag", "output": "BOOLEAN", "to": "switch", "input": "switch"},
+    {"from": "false_text", "output": "STRING", "to": "switch", "input": "on_false"},
+    {"from": "true_text", "output": "STRING", "to": "switch", "input": "on_true"}
+  ]
+}

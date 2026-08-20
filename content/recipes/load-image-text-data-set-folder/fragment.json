@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.load-image-text-data-set-folder",
+  "title": "LoadImageTextDataSetFromFolder с локальной папкой",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "loader",
+      "classType": "LoadImageTextDataSetFromFolder",
+      "role": "Прочитать изображения и одноимённые TXT-подписи",
+      "settings": {
+        "folder": "3d"
+      }
+    }
+  ],
+  "connections": []
+}

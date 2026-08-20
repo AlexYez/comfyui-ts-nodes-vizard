@@ -1,0 +1,98 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.advanced-sampling-external-vae",
+  "title": "Два участка sampling с общим расписанием и внешним VAE",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "checkpoint",
+      "classType": "CheckpointLoaderSimple",
+      "role": "Загрузить совместимые MODEL и CLIP",
+      "settings": { "ckpt_name": "выберите установленный checkpoint" }
+    },
+    {
+      "ref": "positive",
+      "classType": "CLIPTextEncode",
+      "role": "Закодировать положительный prompt",
+      "settings": { "text": "опишите желаемую сцену" }
+    },
+    {
+      "ref": "negative",
+      "classType": "CLIPTextEncode",
+      "role": "Закодировать отрицательный prompt",
+      "settings": { "text": "опишите нежелательные признаки" }
+    },
+    {
+      "ref": "empty_latent",
+      "classType": "EmptyLatentImage",
+      "role": "Создать нулевой latent для txt2img",
+      "settings": { "width": 1024, "height": 1024, "batch_size": 1 }
+    },
+    {
+      "ref": "sample_early",
+      "classType": "KSamplerAdvanced",
+      "role": "Добавить шум и выполнить участок 0–12 из 20 steps",
+      "settings": {
+        "add_noise": "enable",
+        "noise_seed": 42,
+        "steps": 20,
+        "cfg": 7.0,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "start_at_step": 0,
+        "end_at_step": 12,
+        "return_with_leftover_noise": "enable"
+      }
+    },
+    {
+      "ref": "sample_late",
+      "classType": "KSamplerAdvanced",
+      "role": "Продолжить с 12-го шага без нового шума и завершить denoise",
+      "settings": {
+        "add_noise": "disable",
+        "noise_seed": 42,
+        "steps": 20,
+        "cfg": 7.0,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "start_at_step": 12,
+        "end_at_step": 10000,
+        "return_with_leftover_noise": "disable"
+      }
+    },
+    {
+      "ref": "vae",
+      "classType": "VAELoader",
+      "role": "Загрузить отдельный VAE, совместимый с checkpoint",
+      "settings": { "vae_name": "выберите установленный VAE" }
+    },
+    {
+      "ref": "decode",
+      "classType": "VAEDecode",
+      "role": "Декодировать завершённый latent в IMAGE",
+      "settings": {}
+    },
+    {
+      "ref": "save",
+      "classType": "SaveImage",
+      "role": "Сохранить результат в output-каталог",
+      "settings": { "filename_prefix": "wizard/advanced-sampling" }
+    }
+  ],
+  "connections": [
+    { "from": "checkpoint", "output": "CLIP", "to": "positive", "input": "clip" },
+    { "from": "checkpoint", "output": "CLIP", "to": "negative", "input": "clip" },
+    { "from": "checkpoint", "output": "MODEL", "to": "sample_early", "input": "model" },
+    { "from": "positive", "output": "CONDITIONING", "to": "sample_early", "input": "positive" },
+    { "from": "negative", "output": "CONDITIONING", "to": "sample_early", "input": "negative" },
+    { "from": "empty_latent", "output": "LATENT", "to": "sample_early", "input": "latent_image" },
+    { "from": "checkpoint", "output": "MODEL", "to": "sample_late", "input": "model" },
+    { "from": "positive", "output": "CONDITIONING", "to": "sample_late", "input": "positive" },
+    { "from": "negative", "output": "CONDITIONING", "to": "sample_late", "input": "negative" },
+    { "from": "sample_early", "output": "LATENT", "to": "sample_late", "input": "latent_image" },
+    { "from": "sample_late", "output": "LATENT", "to": "decode", "input": "samples" },
+    { "from": "vae", "output": "VAE", "to": "decode", "input": "vae" },
+    { "from": "decode", "output": "IMAGE", "to": "save", "input": "images" }
+  ]
+}

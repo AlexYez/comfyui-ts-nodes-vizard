@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.nag-guidance-source-default",
+  "locale": "ru",
+  "title": "NAG: source-derived runtime defaults",
+  "summary": "Добавляет NAGuidance с scale 5.0, alpha 0.5 и tau 1.5 как отправную конфигурацию для distilled-модели с двумя conditioning-ветвями.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.nag-guidance"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "MODEL с совместимыми attn1 output patches",
+    "Positive и negative conditioning в одном sampling call"
+  ],
+  "fragment": {
+    "id": "fragment.nag-guidance-source-default",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime/docs/paper review and exact-source tensor probe; official wheel has no NAG case, distilled-model run and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "NAGuidance implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_nag.py#L6-L87",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Normalized Attention Guidance: Universal Negative Guidance for Diffusion Model",
+      "url": "https://arxiv.org/abs/2505.21179",
+      "publisher": "arXiv",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

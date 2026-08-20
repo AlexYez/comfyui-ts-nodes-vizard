@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.repeat-latent-fixed-noise",
+  "title": "Внешний LATENT → повтор ×4 → единый batch_index",
+  "externalInputs": [
+    {
+      "id": "latent",
+      "type": "LATENT",
+      "to": "repeat",
+      "input": "samples"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "repeat",
+      "classType": "RepeatLatentBatch",
+      "role": "Повторить весь входной LATENT-батч четырьмя блоками",
+      "settings": {
+        "amount": 4
+      }
+    },
+    {
+      "ref": "fix_noise_index",
+      "classType": "LatentBatchSeedBehavior",
+      "role": "Назначить всем элементам итогового батча первый batch_index",
+      "settings": {
+        "seed_behavior": "fixed"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "repeat",
+      "output": "LATENT",
+      "to": "fix_noise_index",
+      "input": "samples"
+    }
+  ]
+}

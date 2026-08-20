@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+.venv/
+venv/
+
+# Node and frontend tooling
+node_modules/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# Generated frontend output (keep documentation and catalog fixtures tracked)
+web/assets/
+web/chunks/
+web/*.js
+web/*.js.map
+!web/nodes-wizard.js
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Pinned upstream research checkouts and downloaded wheels
+.upstream-cache/
+.frontend-source-*/
+.comfyui-source-*/

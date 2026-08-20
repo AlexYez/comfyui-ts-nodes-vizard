@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.add-model-scaled-noise",
+  "locale": "ru",
+  "title": "Наложить model-scaled шум на LATENT",
+  "summary": "RandomNoise с seed 42 передаётся в экспериментальную AddNoise, которая применяет края SIGMAS и noise_scaling подключённой модели.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.add-noise", "core.random-noise"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "MODEL и SIGMAS из одной sampling-конфигурации",
+    "LATENT совместимого формата",
+    "Проверка результата для конкретной модели: AddNoise experimental"
+  ],
+  "fragment": {
+    "id": "fragment.add-model-scaled-noise",
+    "path": "fragment.json",
+    "format": "nodes-wizard-fragment/1.0"
+  },
+  "editorial": {
+    "state": "in_review",
+    "reviewedBy": "Automated pinned source/runtime review, exact-source branch probe and Russian editorial pass; no official case, full model execution and human approval pending",
+    "reviewedAt": "2026-08-14"
+  },
+  "sources": [
+    {
+      "title": "AddNoise implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_custom_sampler.py#L1084-L1126",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    },
+    {
+      "title": "Official workflow templates JSON 0.1.42",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-14"
+    }
+  ]
+}
+

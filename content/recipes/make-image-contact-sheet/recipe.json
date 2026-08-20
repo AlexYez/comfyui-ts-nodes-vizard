@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.make-image-contact-sheet",
+  "locale": "ru",
+  "title": "Собрать два IMAGE в сетку 2 × 1",
+  "summary": "Сначала формирует IMAGE-бэтч из двух внешних источников, затем ImageGrid создаёт один RGB-холст из двух ячеек 256 × 256 с четырёхпиксельным промежутком.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.batch-images-node", "core.image-grid", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "Два IMAGE; при важных пропорциях заранее впишите их в квадратные ячейки"],
+  "fragment": {"id": "fragment.make-image-contact-sheet", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned-source and runtime-contract review; source-derived fragment and pure-Python formula checks complete, PIL/ComfyUI execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "BatchImagesNode implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_post_processing.py#L514-L588",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "ImageGridNode implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1628-L1699",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

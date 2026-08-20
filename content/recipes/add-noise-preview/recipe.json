@@ -1,0 +1,17 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.add-noise-preview",
+  "locale": "ru",
+  "title": "Добавить слабый воспроизводимый шум",
+  "summary": "Добавляет RGB IMAGE слабый Gaussian noise с фиксированным seed 123 и показывает результат для проверки зерна и clipping.",
+  "body": "ru.md",
+  "difficulty": "beginner",
+  "articleIds": ["core.image-add-noise", "core.preview-image"],
+  "requirements": ["ComfyUI 0.32.0 или совместимая версия", "IMAGE; alpha лучше отделить заранее"],
+  "fragment": {"id": "fragment.add-noise-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "draft", "reviewedBy": "Automated source and deterministic tensor review; full fragment execution and human approval pending", "reviewedAt": "2026-08-13"},
+  "sources": [
+    {"title": "ImageAddNoise implementation in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_images.py#L165-L194", "publisher": "Comfy-Org", "accessedAt": "2026-08-13"}
+  ]
+}

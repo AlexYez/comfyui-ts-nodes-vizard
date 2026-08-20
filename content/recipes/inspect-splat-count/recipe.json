@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json", "schemaVersion": "1.0", "recipeId": "recipe.inspect-splat-count", "locale": "ru",
+  "title": "Проверить число гауссов без разрыва SPLAT-ветви", "summary": "GetSplatCount возвращает тот же SPLAT и суммарный INT, учитывая per-batch counts.", "body": "ru.md", "difficulty": "beginner",
+  "articleIds": ["core.get-splat-count"], "requirements": ["ComfyUI 0.32.0", "Внешний SPLAT"],
+  "fragment": {"id": "fragment.inspect-splat-count", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated pinned source/runtime schema and counts-aware helper review; human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "GetSplatCount in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L1145-L1171", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

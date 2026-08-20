@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.nag-guidance",
+  "node": {
+    "classType": "NAGuidance",
+    "pythonModule": "comfy_extras.nodes_nag",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_nag.py#L6-L87",
+        "path": "comfy_extras/nodes_nag.py",
+        "lines": "6-87"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/NAGuidance/en.md",
+        "assessment": "Подтверждает distilled/schnell use case и ranges; описание alpha=0 не оговаривает side effect ветви img_slice, а tau назван шире точного upper-cap поведения."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/NAGuidance/ru.md",
+        "assessment": "Даёт краткое назначение параметров; exact positive-negative formula, L1 axes, batch grouping и in-place image-slice writes проверены по source."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON, 496 root graphs и всех recursive subgraphs NAGuidance встречается 0 раз; official distilled-model topology отсутствует."
+      },
+      {
+        "id": "arxiv-2505.21179-nag-method",
+        "role": "Первичная работа подтверждает attention extrapolation, L1 normalization/refinement и negative guidance для few-step models."
+      },
+      {
+        "id": "synthetic-exact-source-nag-probe",
+        "role": "Exact output patch подтвердил tau upper cap, сохранение negative без img_slice, alpha=0 identity в обычной ветви, копирование positive в negative image slice и отключение CFG1 optimization."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официальный wheel 0.1.42 не содержит NAGuidance; fragment фиксирует defaults без model-specific validation.",
+    "Distilled/schnell checkpoint, prompt encoding и полный sampling path не запускались; tensor probe не оценивает удаление нежелательных понятий.",
+    "Архитектурное значение img_slice, визуальное сравнение и человеческое утверждение статьи ожидаются."
+  ],
+  "updatedAt": "2026-08-13"
+}

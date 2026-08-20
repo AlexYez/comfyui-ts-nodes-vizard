@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.route-latent-with-reroute",
+  "title": "Развести один LATENT по двум ветвям",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "latent",
+      "classType": "EmptyLatentImage",
+      "role": "Создать исходный LATENT без модели",
+      "settings": { "width": 512, "height": 512, "batch_size": 1 }
+    },
+    {
+      "ref": "reroute",
+      "classType": "Reroute",
+      "role": "Сохранить точный старый frontend-тип и дать точку разветвления",
+      "settings": { "resolved_type": "LATENT", "showOutputText": false, "horizontal": false }
+    },
+    {
+      "ref": "repeat_a",
+      "classType": "RepeatLatentBatch",
+      "role": "Получить первую ветвь LATENT",
+      "settings": { "amount": 1 }
+    },
+    {
+      "ref": "repeat_b",
+      "classType": "RepeatLatentBatch",
+      "role": "Получить вторую ветвь LATENT",
+      "settings": { "amount": 2 }
+    }
+  ],
+  "connections": [
+    { "from": "latent", "output": "LATENT", "to": "reroute", "input": "in" },
+    { "from": "reroute", "output": "LATENT", "to": "repeat_a", "input": "samples" },
+    { "from": "reroute", "output": "LATENT", "to": "repeat_b", "input": "samples" }
+  ]
+}

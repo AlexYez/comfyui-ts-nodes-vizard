@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.unclip-conditioning",
+  "node": {"classType": "unCLIPConditioning", "pythonModule": "nodes", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L1176-L1194",
+        "path": "nodes.py",
+        "lines": "1176-1194"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/node_helpers.py#L9-L23",
+        "path": "node_helpers.py",
+        "lines": "9-23"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/model_base.py#L439-L478",
+        "path": "comfy/model_base.py",
+        "lines": "439-478"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/UnclipConditioning/en.md",
+        "assessment": "Верно перечисляет входы, но говорит об интеграции и применении noise внутри ноды; код только записывает metadata, а потребитель зависит от model class."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/UnclipConditioning/ru.md",
+        "assessment": "Повторяет неточную модель немедленной обработки и переводит имена портов; append, zero bypass и модельная совместимость отсутствуют."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Проверены все 512 JSON и definitions.subgraphs[*].nodes: два unCLIPConditioning только в root sdxl_revision_text_prompts, оба strength 0.75 и noise_augmentation 0."
+      },
+      {
+        "id": "official-sdxl-revision-two-reference-topology",
+        "role": "Подтверждена последовательная цепочка CLIPTextEncode → unCLIPConditioning → unCLIPConditioning → KSampler positive с двумя CLIPVisionEncode."
+      },
+      {
+        "id": "synthetic-exact-source-unclip-conditioning",
+        "role": "AST-extracted node и exact conditioning_set_values выполнены: подтверждены shallow copy, сохранение text tensor, append к старому списку, отрицательный strength в записи и identity bypass при strength 0."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "SDXL revision, SD 2.1 unCLIP и другие compatible model consumers с весами не запускались.",
+    "Exact probe проверяет metadata append, но не unclip_adm, noise augmentor и sampler output.",
+    "Fragment-only recipe не исполнен целиком; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-13"
+}

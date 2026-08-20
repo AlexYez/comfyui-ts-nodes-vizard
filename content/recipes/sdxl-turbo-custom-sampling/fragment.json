@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.sdxl-turbo-custom-sampling",
+  "title": "SDXL Turbo: Euler ancestral + SDTurboScheduler + SamplerCustom",
+  "externalInputs": [
+    {"id": "model_for_sampler", "type": "MODEL", "to": "sample", "input": "model"},
+    {"id": "model_for_scheduler", "type": "MODEL", "to": "schedule", "input": "model"},
+    {"id": "positive", "type": "CONDITIONING", "to": "sample", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "sample", "input": "negative"},
+    {"id": "latent", "type": "LATENT", "to": "sample", "input": "latent_image"}
+  ],
+  "nodes": [
+    {
+      "ref": "algorithm",
+      "classType": "KSamplerSelect",
+      "role": "Выбрать Euler ancestral из системного реестра sampler",
+      "settings": {"sampler_name": "euler_ancestral"}
+    },
+    {
+      "ref": "schedule",
+      "classType": "SDTurboScheduler",
+      "role": "Построить одношаговое расписание SDXL Turbo",
+      "settings": {"steps": 1, "denoise": 1.0}
+    },
+    {
+      "ref": "sample",
+      "classType": "SamplerCustom",
+      "role": "Выполнить sampling с обычным CFG",
+      "settings": {"add_noise": true, "noise_seed": 0, "cfg": 1.0}
+    }
+  ],
+  "connections": [
+    {"from": "algorithm", "output": "SAMPLER", "to": "sample", "input": "sampler"},
+    {"from": "schedule", "output": "SIGMAS", "to": "sample", "input": "sigmas"}
+  ]
+}

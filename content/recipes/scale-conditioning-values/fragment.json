@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.scale-conditioning-values",
+  "title": "Основной embedding и pooled output с коэффициентом 0,5",
+  "externalInputs": [
+    { "id": "conditioning", "type": "CONDITIONING", "to": "multiply", "input": "conditioning" }
+  ],
+  "nodes": [
+    {
+      "ref": "multiply",
+      "classType": "ConditioningMultiply",
+      "role": "Умножить поддерживаемые тензоры conditioning на 0,5",
+      "settings": { "multiplier": 0.5 }
+    }
+  ],
+  "connections": []
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.save-animation-webp",
+  "title": "RGBA IMAGE-бэтч — animated lossless WebP 16 FPS",
+  "externalInputs": [
+    {"id": "rgba_frames", "type": "IMAGE", "to": "save_webp", "input": "images"}
+  ],
+  "nodes": [
+    {"ref": "save_webp", "classType": "SaveAnimatedWEBP", "role": "Сохранить кадры одним WebP", "settings": {"filename_prefix": "ComfyUI", "fps": 16.0, "lossless": true, "quality": 80, "method": "default"}}
+  ],
+  "connections": []
+}

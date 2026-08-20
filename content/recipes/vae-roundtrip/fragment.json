@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.vae-roundtrip",
+  "title": "Загрузить, закодировать, декодировать и показать изображение",
+  "externalInputs": [],
+  "nodes": [
+    {
+      "ref": "checkpoint",
+      "classType": "CheckpointLoaderSimple",
+      "role": "Получить VAE из выбранного checkpoint",
+      "settings": { "ckpt_name": "выберите установленный checkpoint" }
+    },
+    {
+      "ref": "load",
+      "classType": "LoadImage",
+      "role": "Прочитать изображение из input-каталога",
+      "settings": { "image": "выберите входной файл" }
+    },
+    {
+      "ref": "encode",
+      "classType": "VAEEncode",
+      "role": "Перевести IMAGE в LATENT",
+      "settings": {}
+    },
+    {
+      "ref": "decode",
+      "classType": "VAEDecode",
+      "role": "Вернуть LATENT в пиксельный IMAGE тем же VAE",
+      "settings": {}
+    },
+    {
+      "ref": "preview",
+      "classType": "PreviewImage",
+      "role": "Показать временный результат",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    { "from": "load", "output": "IMAGE", "to": "encode", "input": "pixels" },
+    { "from": "checkpoint", "output": "VAE", "to": "encode", "input": "vae" },
+    { "from": "encode", "output": "LATENT", "to": "decode", "input": "samples" },
+    { "from": "checkpoint", "output": "VAE", "to": "decode", "input": "vae" },
+    { "from": "decode", "output": "IMAGE", "to": "preview", "input": "images" }
+  ]
+}

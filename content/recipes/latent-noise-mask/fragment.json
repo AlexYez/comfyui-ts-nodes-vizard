@@ -1,0 +1,132 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.latent-noise-mask",
+  "title": "VAEEncode — SetLatentNoiseMask — KSampler",
+  "externalInputs": [
+    {
+      "id": "model",
+      "type": "MODEL",
+      "to": "sampler",
+      "input": "model"
+    },
+    {
+      "id": "vae_encode",
+      "type": "VAE",
+      "to": "encode",
+      "input": "vae"
+    },
+    {
+      "id": "vae_decode",
+      "type": "VAE",
+      "to": "decode",
+      "input": "vae"
+    },
+    {
+      "id": "positive",
+      "type": "CONDITIONING",
+      "to": "sampler",
+      "input": "positive"
+    },
+    {
+      "id": "negative",
+      "type": "CONDITIONING",
+      "to": "sampler",
+      "input": "negative"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "load_image",
+      "classType": "LoadImage",
+      "role": "Загрузить исходное изображение",
+      "settings": {
+        "image": "выберите исходное изображение"
+      }
+    },
+    {
+      "ref": "load_mask",
+      "classType": "LoadImageMask",
+      "role": "Загрузить независимый файл маски",
+      "settings": {
+        "image": "выберите файл маски",
+        "channel": "red"
+      }
+    },
+    {
+      "ref": "encode",
+      "classType": "VAEEncode",
+      "role": "Закодировать исходный IMAGE без изменения пикселей под маской",
+      "settings": {}
+    },
+    {
+      "ref": "set_mask",
+      "classType": "SetLatentNoiseMask",
+      "role": "Добавить MASK как noise_mask к LATENT",
+      "settings": {}
+    },
+    {
+      "ref": "sampler",
+      "classType": "KSampler",
+      "role": "Изменить область noise_mask",
+      "settings": {
+        "seed": 42,
+        "steps": 20,
+        "cfg": 2.5,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1.0
+      }
+    },
+    {
+      "ref": "decode",
+      "classType": "VAEDecode",
+      "role": "Вернуть результат sampler в IMAGE",
+      "settings": {}
+    },
+    {
+      "ref": "preview",
+      "classType": "PreviewImage",
+      "role": "Показать результат без постоянного сохранения",
+      "settings": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "load_image",
+      "output": "IMAGE",
+      "to": "encode",
+      "input": "pixels"
+    },
+    {
+      "from": "encode",
+      "output": "LATENT",
+      "to": "set_mask",
+      "input": "samples"
+    },
+    {
+      "from": "load_mask",
+      "output": "MASK",
+      "to": "set_mask",
+      "input": "mask"
+    },
+    {
+      "from": "set_mask",
+      "output": "LATENT",
+      "to": "sampler",
+      "input": "latent_image"
+    },
+    {
+      "from": "sampler",
+      "output": "LATENT",
+      "to": "decode",
+      "input": "samples"
+    },
+    {
+      "from": "decode",
+      "output": "IMAGE",
+      "to": "preview",
+      "input": "images"
+    }
+  ]
+}

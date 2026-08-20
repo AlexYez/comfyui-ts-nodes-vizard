@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.load-latent-preview",
+  "locale": "ru",
+  "title": "Загрузить .latent и декодировать для проверки",
+  "summary": "Читает выбранный .latent из корня input, декодирует samples совместимым внешним VAE и показывает изображение без нового sampling.",
+  "body": "ru.md",
+  "difficulty": "intermediate",
+  "articleIds": ["core.load-latent", "core.vae-decode", "core.preview-image"],
+  "requirements": [
+    "ComfyUI 0.32.0 или совместимая версия",
+    "Доверенный .latent в корне input",
+    "Тот же совместимый VAE, которым был создан LATENT"
+  ],
+  "fragment": {"id": "fragment.load-latent-preview", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {
+    "state": "draft",
+    "reviewedBy": "Automated pinned source/runtime and Russian editorial pass; fragment schema validated, live execution and human approval pending",
+    "reviewedAt": "2026-08-13"
+  },
+  "sources": [
+    {
+      "title": "LoadLatent implementation in ComfyUI v0.32.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L557-L592",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    },
+    {
+      "title": "Pinned embedded documentation 0.5.9: LoadLatent",
+      "url": "https://github.com/Comfy-Org/embedded-docs/blob/1d258cf6e374d60d138a2bfcd273c7e11f750ef9/comfyui_embedded_docs/docs/LoadLatent/en.md",
+      "publisher": "Comfy-Org",
+      "accessedAt": "2026-08-13"
+    }
+  ]
+}

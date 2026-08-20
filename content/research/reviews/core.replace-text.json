@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.replace-text",
+  "node": {"classType": "ReplaceText", "pythonModule": "comfy_extras.nodes_dataset", "origin": "backend"},
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L777-L932",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "777-932"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_dataset.py#L1524-L1537",
+        "path": "comfy_extras/nodes_dataset.py",
+        "lines": "1524-1537"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_string.py#L170-L190",
+        "path": "comfy_extras/nodes_string.py",
+        "lines": "170-190"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/execution.py#L243-L341",
+        "path": "execution.py",
+        "lines": "243-341"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/ReplaceText/en.md",
+        "assessment": "Case-sensitive lookup found the exact member. AI-generated EN notes deprecation and another Replace Text, but calls exact texts port text, says all text inputs despite is_input_list=false, and omits empty-find/non-overlap/output behavior; raw wheel member SHA-256: 5f4588e1160efcee7b5481b2d63090a8c1440adc7c372d798f8e55d5c1b733d3."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/ReplaceText/ru.md",
+        "assessment": "Case-sensitive lookup found the exact member. RU omits deprecation, repeats the inaccurate plural-input claim and uses text rather than texts; empty find and nested output are absent. Raw wheel member SHA-256: 36fb2d688b877772ba3ea9e47a412dd65d9c3df90398345e5cd784f2f44eb48c."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-case-sensitive-root-subgraph-scan",
+        "role": "Проверены 512 JSON, 496 root workflows, 4083 root nodes, 272 subgraphs и 4037 subgraph nodes; ReplaceText отсутствует в raw case-sensitive и exact type census."
+      },
+      {
+        "id": "isolated-pinned-dataset-text-transform-probe",
+        "role": "Точный класс подтвердил aa→b в aaaa как bb, регистрозависимость, удаление, пустой find как -a-b-c-, разворачивание одноэлементных параметров, parity со StringReplace и вложенный output contract."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Официального workflow-кейса нет; fragment использует три внешних STRING и не импортировался на canvas.",
+    "Node Replacement API не связывает ReplaceText со StringReplace, хотя исходник называет другой Replace Text преемником.",
+    "Живое интерфейсное поведение deprecated-конфликта и вложенного выхода требует человеческой проверки.",
+    "Статья ожидает человеческого утверждения."
+  ],
+  "updatedAt": "2026-08-14"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.adjust-brightness-neutral",
+  "title": "AdjustBrightness с коэффициентом 1,0",
+  "externalInputs": [
+    {
+      "id": "images",
+      "type": "IMAGE",
+      "to": "adjust",
+      "input": "images"
+    }
+  ],
+  "nodes": [
+    {
+      "ref": "adjust",
+      "classType": "AdjustBrightness",
+      "role": "Проверить нейтральную яркость перед ручной настройкой",
+      "settings": {
+        "factor": 1.0
+      }
+    }
+  ],
+  "connections": []
+}

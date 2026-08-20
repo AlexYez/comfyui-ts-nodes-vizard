@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.solid-mask",
+  "node": {
+    "classType": "SolidMask",
+    "pythonModule": "comfy_extras.nodes_mask",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_mask.py#L180-L200",
+        "path": "comfy_extras/nodes_mask.py",
+        "lines": "180-200"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/SolidMask/ru.md",
+        "assessment": "Даёт общее назначение и таблицу входов, но не описывает форму batch, float32, intermediate_device, точную стоимость больших размеров и зависимость полярности от потребителя. В тексте осталась служебная фраза перевода."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "basic_mask_operations_and_compositing",
+        "role": "Две SolidMask со значениями 0.5 и 1.0 образуют destination 1024×1024 и source 512×512 для MaskComposite."
+      },
+      {
+        "id": "video_wan_vace_14B_ref2v",
+        "role": "Две SolidMask одинакового размера со значениями 0 и 1 преобразуются в контрольные изображения маски; width и height приходят из PrimitiveNode."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Семейный fragment структурно проверен, но не исполнен в ComfyUI.",
+    "Человеческое редакционное утверждение не выполнено."
+  ],
+  "updatedAt": "2026-08-13"
+}

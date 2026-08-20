@@ -1,0 +1,15 @@
+{
+  "$schema": "../../schemas/recipe.schema.v1.json",
+  "schemaVersion": "1.0",
+  "recipeId": "recipe.merge-krea2-first-block",
+  "locale": "ru",
+  "title": "Смешать первый блок Krea 2 пополам",
+  "summary": "ModelMergeKrea2 задаёт 0,5 для blocks.0. двух совместимых моделей; image, time, text-fusion и остальные группы сохраняют runtime default 1.",
+  "body": "ru.md",
+  "difficulty": "advanced",
+  "articleIds": ["core.model-merge-krea2"],
+  "requirements": ["ComfyUI 0.32.0", "Две совместимые Krea 2 MODEL", "Совпадающие формы и model config"],
+  "fragment": {"id": "fragment.merge-krea2-first-block", "path": "fragment.json", "format": "nodes-wizard-fragment/1.0"},
+  "editorial": {"state": "in_review", "reviewedBy": "Automated pinned source/runtime/docs and exhaustive workflow absence review; real model execution and human approval pending", "reviewedAt": "2026-08-14"},
+  "sources": [{"title": "ModelMergeKrea2 in ComfyUI v0.32.0", "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_merging_model_specific.py#L340-L368", "publisher": "Comfy-Org", "accessedAt": "2026-08-14"}]
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.chain-two-controlnets-advanced",
+  "title": "Два ControlNet с диапазонами 0–0,65 и 0,35–1",
+  "externalInputs": [
+    {"id": "positive", "type": "CONDITIONING", "to": "early", "input": "positive"},
+    {"id": "negative", "type": "CONDITIONING", "to": "early", "input": "negative"},
+    {"id": "control_early", "type": "CONTROL_NET", "to": "early", "input": "control_net"},
+    {"id": "image_early", "type": "IMAGE", "to": "early", "input": "image"},
+    {"id": "vae_early", "type": "VAE", "to": "early", "input": "vae"},
+    {"id": "control_late", "type": "CONTROL_NET", "to": "late", "input": "control_net"},
+    {"id": "image_late", "type": "IMAGE", "to": "late", "input": "image"},
+    {"id": "vae_late", "type": "VAE", "to": "late", "input": "vae"}
+  ],
+  "nodes": [
+    {
+      "ref": "early",
+      "classType": "ControlNetApplyAdvanced",
+      "role": "Добавить первый ControlNet к началу sampling",
+      "settings": {"strength": 0.75, "start_percent": 0.0, "end_percent": 0.65}
+    },
+    {
+      "ref": "late",
+      "classType": "ControlNetApplyAdvanced",
+      "role": "Добавить второй ControlNet поверх предыдущей цепочки",
+      "settings": {"strength": 0.55, "start_percent": 0.35, "end_percent": 1.0}
+    }
+  ],
+  "connections": [
+    {"from": "early", "output": "positive", "to": "late", "input": "positive"},
+    {"from": "early", "output": "negative", "to": "late", "input": "negative"}
+  ]
+}

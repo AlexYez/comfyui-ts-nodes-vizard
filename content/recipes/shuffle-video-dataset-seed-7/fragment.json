@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/recipe-fragment.schema.v1.json",
+  "schemaVersion": "1.0",
+  "fragmentId": "fragment.shuffle-video-dataset-seed-7",
+  "title": "ShuffleVideoDataset с seed 7",
+  "externalInputs": [
+    {"id": "videos", "type": "VIDEO", "to": "shuffle", "input": "videos"}
+  ],
+  "nodes": [
+    {
+      "ref": "shuffle",
+      "classType": "ShuffleVideoDataset",
+      "role": "Переставить внешний список видео воспроизводимым образом",
+      "settings": {"seed": 7}
+    }
+  ],
+  "connections": []
+}

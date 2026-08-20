@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.stable-cascade-stage-c-vae-encode",
+  "node": {
+    "classType": "StableCascade_StageC_VAEEncode",
+    "pythonModule": "comfy_extras.nodes_stable_cascade",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
+    "embeddedDocs": "0.5.9",
+    "workflowTemplatesJson": "0.1.42"
+  },
+  "state": "fact_checked",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_stable_cascade.py#L56-L88",
+        "path": "comfy_extras/nodes_stable_cascade.py",
+        "lines": "56-88"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/utils.py#L1069-L1101",
+        "path": "comfy/utils.py",
+        "lines": "1069-1101"
+      },
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy/sd.py#L534-L558",
+        "path": "comfy/sd.py",
+        "lines": "534-558"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "en",
+        "archivePath": "comfyui_embedded_docs/docs/StableCascade_StageC_VAEEncode/en.md",
+        "assessment": "Верно сообщает resize, VAE encode и нулевой Stage B placeholder; compression ошибочно назван optional, а center crop, floor и отсечение RGB не раскрыты."
+      },
+      {
+        "locale": "ru",
+        "archivePath": "comfyui_embedded_docs/docs/StableCascade_StageC_VAEEncode/ru.md",
+        "assessment": "Сохраняет общий смысл, но переводит runtime-параметры, считает compression необязательным и не описывает bicubic center crop и точную форму Stage B."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-recursive-subgraph-census",
+        "role": "В 512 JSON и 768 root/subgraph графах точных Stable Cascade ID нет."
+      },
+      {
+        "id": "comfyui-examples-f9431bb-stable-cascade-image-to-image",
+        "role": "Единственный case среди шести официальных PNG: IMAGE и VAE Stage C входят в node 49, compression 32; stage_c идёт в KSampler denoise 0.6, stage_b — в Stage B KSampler."
+      },
+      {
+        "id": "synthetic-exact-source-stable-cascade-stage-c-vae-probe",
+        "role": "Exact node и common_upscale на 2×101×155×4 подтвердили RGB 2×96×128×3 после center+bicubic, alpha drop, тестовый Stage C 2×16×3×4 и нулевой Stage B 2×4×24×38."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": true,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Проба использовала VAE-заглушку с ratio 32; настоящие Stable Cascade VAE weights не загружались.",
+    "Полный image-to-image fragment с двумя sampler и decode не исполнялся.",
+    "Время и пиковая память VAE encode на поддерживаемых платформах не измерены; человеческое утверждение ожидается."
+  ],
+  "updatedAt": "2026-08-14"
+}
