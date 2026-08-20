@@ -1,11 +1,13 @@
-# Убрать служебный VACE-префикс перед VAEDecode
+# Удалить служебный префикс VACE перед декодированием
 
-Подайте sampled LATENT из `KSampler` во вход `sampled_video_latent`. Выход `trim_latent` того же `WanVaceToVideo` соедините с `vace_trim_latent`, а VAE исходной цепочки — с `vae`.
+Подайте отсэмплированный `LATENT` из `KSampler` во вход `sampled_video_latent`. Выход `trim_latent` той же `WanVaceToVideo` соедините с `vace_trim_latent`, а VAE исходной цепочки — с `vae`.
 
-## Почему trim_amount приходит по связи
+## Почему значение приходит по связи
 
-`WanVaceToVideo` вычисляет длину latent-префикса для reference image. В шести официальных VACE-экземплярах локальное widget-значение TrimVideoLatent равно `0`, но INT-link с output slot 3 conditioning-ноды задаёт фактическое значение.
+`WanVaceToVideo` вычисляет длину латентного префикса для опорного изображения. В шести официальных экземплярах VACE локальное значение виджета `TrimVideoLatent` равно `0`, но целочисленная связь с выходом 3 ноды кондиционирования задаёт фактическое число кадров для обрезки.
 
-## Статус примера
+## Источник топологии и ограничения
 
-VACE-топология подтверждена в `video_wan_vace_14B_ref2v`, `video_wan_vace_14B_t2v`, `video_wan_vace_14B_v2v`, `video_wan_vace_outpainting`, а также в subgraphs `video_wan_vace_flf2v` и `video_wan_vace_inpainting`. Полный census дополнительно нашёл два аналогичных Animate2 subgraph. Exact-source slice проверен на synthetic tensor; полный VACE fragment не запускался, поэтому `exampleExecuted` остаётся false. Полного workflow в recipe нет.
+Топология подтверждена в `video_wan_vace_14B_ref2v`, `video_wan_vace_14B_t2v`, `video_wan_vace_14B_v2v`, `video_wan_vace_outpainting`, а также в подграфах `video_wan_vace_flf2v` и `video_wan_vace_inpainting`. Полная перепись дополнительно нашла два аналогичных подграфа Animate2.
+
+Точный срез исходного кода проверен на синтетическом тензоре; полный фрагмент VACE не запускался, поэтому `exampleExecuted` остаётся ложным. Полного графа в рецепте нет.

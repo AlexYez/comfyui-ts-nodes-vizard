@@ -260,6 +260,22 @@ class LatentTransformContentTests(unittest.TestCase):
             self.assertNotIn("workflow", recipe)
             self.assertEqual("in_review", recipe["editorial"]["state"])
             self.assertIn("human approval pending", recipe["editorial"]["reviewedBy"])
+            recipe_body = (path.parent / recipe["body"]).read_text(encoding="utf-8")
+            prose_without_code = re.sub(
+                r"`[^`]+`|https?://\S+", "", recipe_body
+            ).casefold()
+            for untranslated in (
+                " fragment",
+                " tensor-",
+                " batch",
+                " metadata",
+                " preview",
+                " px",
+                " workflow",
+                " runtime",
+                " source-derived",
+            ):
+                self.assertNotIn(untranslated, prose_without_code, recipe_id)
 
             fragment_path = path.parent / recipe["fragment"]["path"]
             fragment = catalog.load_json(fragment_path)

@@ -228,6 +228,28 @@ class LatentIoCompositionContentTests(unittest.TestCase):
             recipe_body = (path.parent / recipe["body"]).read_text(encoding="utf-8")
             self.assertNotIn("\ufffd", recipe_body)
             self.assertIsNone(cliche_pattern.search(recipe_body))
+            prose_without_code = re.sub(
+                r"`[^`]+`|https?://\S+", "", recipe_body
+            ).casefold()
+            for untranslated in (
+                " fragment",
+                " workflow",
+                " batch",
+                " resize",
+                " pinned",
+                " runtime",
+                " placeholder",
+                " denoise",
+                " legacy marker",
+                " file branch",
+                " exact-source",
+                " sampled latent",
+                " widget-",
+                " output slot",
+                " subgraph",
+                " synthetic tensor",
+            ):
+                self.assertNotIn(untranslated, prose_without_code, recipe_id)
 
         self.assertEqual([], errors)
 
