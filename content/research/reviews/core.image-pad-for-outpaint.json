@@ -42,6 +42,10 @@
         "role": "Поля 448/304/448/304 и feathering 40; IMAGE и MASK переданы Bria API-нode."
       },
       {
+        "id": "image_flux.1_fill_dev_OneReward",
+        "role": "Вложенная локальная Flux Fill-ветвь использует поля 40/0/104/104 и feathering 40."
+      },
+      {
         "id": "image_qwen_image_instantx_inpainting_controlnet",
         "role": "Поля 200/200/0/200 без feathering; оба выхода используются в модельной inpaint-ветке."
       },

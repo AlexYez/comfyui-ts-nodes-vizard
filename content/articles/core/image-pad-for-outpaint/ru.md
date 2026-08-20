@@ -49,9 +49,10 @@ Feathering рассчитывается только когда `feathering > 0`
 
 В официальном `flux_fill_outpaint_example` используются `left=400`, `top=0`, `right=400`, `bottom=400`, `feathering=24`. Оба выхода подключены к `InpaintModelConditioning`.
 
-Ещё три официальных workflow показывают другие роли:
+Ещё четыре официальных примера показывают другие роли:
 
 - `api_bria_image_outpainting`: `448 / 304 / 448 / 304`, feathering `40`; изображение и маска идут в Bria API-ноду, изображение также показывается отдельно.
+- `image_flux.1_fill_dev_OneReward`: во вложенной локальной ветви используются `40 / 0 / 104 / 104` и feathering `40`; расширенный результат поступает в цепочку Flux Fill.
 - `image_qwen_image_instantx_inpainting_controlnet`: `200 / 200 / 0 / 200`, feathering `0`; оба выхода поступают в модельно-специфичную подготовку.
 - `video_wan_vace_outpainting`: `120 / 120 / 120 / 200`, feathering `0`; расширенные кадры и маска используются в Wan VACE и preview-ветках.
 
@@ -77,7 +78,7 @@ Feathering рассчитывается только когда `feathering > 0`
 
 ## Совместимость и источники
 
-Статья сверена с ComfyUI `v0.32.0`, точным `/object_info`, реализацией ноды и четырьмя официальными workflow из пакета 0.1.42.
+Статья сверена с ComfyUI `v0.32.0`, точным `/object_info`, реализацией ноды и пятью официальными примерами из пакета 0.1.42.
 
 - [Реализация `ImagePadForOutpaint` в ComfyUI v0.32.0](https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/nodes.py#L1997-L2062)
 - [Пакет официальных workflow-шаблонов 0.1.42](https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/)

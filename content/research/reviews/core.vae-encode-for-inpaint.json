@@ -4,15 +4,15 @@
   "articleId": "core.vae-encode-for-inpaint",
   "node": { "classType": "VAEEncodeForInpaint", "pythonModule": "nodes", "origin": "backend" },
   "baseline": { "comfyui": "0.32.0", "frontend": "1.48.7", "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238", "embeddedDocs": "0.5.9", "workflowTemplatesJson": "0.1.42" },
-  "state": "source_reviewed",
+  "state": "fact_checked",
   "reviewMode": "automated_assisted",
   "evidence": {
     "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
     "sourceLocations": [{ "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/nodes.py#L367-L401", "path": "nodes.py", "lines": "367-401" }],
     "embeddedDocs": [],
-    "workflows": [{ "id": "recipe.inpaint-latent", "role": "Локальный структурный фрагмент показывает IMAGE, MASK, VAE и latent_image без универсальных модельных обещаний." }]
+    "workflows": [{ "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan", "role": "Полный просмотр 496 корневых графов и 272 вложенных графов не нашёл VAEEncodeForInpaint." }]
   },
-  "checks": { "implementationRead": true, "runtimeCompared": true, "officialCasesInspected": false, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true },
-  "knownGaps": ["В закреплённом workflow-пакете 0.1.42 нода не найдена; нужен отдельный запуск на согласованной inpaint-модели."],
+  "checks": { "implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true },
+  "knownGaps": ["В закреплённом workflow-пакете 0.1.42 нода не найдена; нужен отдельный запуск на согласованной inpaint-модели.", "Человеческое редакционное утверждение не выполнено."],
   "updatedAt": "2026-08-13"
 }
