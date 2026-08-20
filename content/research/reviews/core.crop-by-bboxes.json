@@ -10,6 +10,6 @@
     "workflows": []
   },
   "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
-  "knownGaps": ["Exhaustive scan of 496 official workflow graphs found no CropByBBoxes node.", "Stretch, pad, multiple frames, empty input and invalid-box fallback were executed on synthetic tensors; the full PrimitiveBoundingBox-to-PreviewImage fragment was not executed.", "No detector-specific BOUNDING_BOX producer was included because list-shape contracts vary by producer.", "Human approval is pending."],
+  "knownGaps": ["Полный просмотр 496 официальных графов не нашёл CropByBBoxes.", "Растяжение, поля, несколько кадров, пустой вход и запасная обрезка при неверной рамке проверены на синтетических тензорах; полный фрагмент PrimitiveBoundingBox → PreviewImage не исполнялся.", "Источник BOUNDING_BOX от детектора не включён: списковая структура у разных производителей может различаться.", "Человеческое утверждение не выполнено."],
   "updatedAt": "2026-08-13"
 }

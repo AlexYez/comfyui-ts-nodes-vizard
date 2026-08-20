@@ -13,6 +13,6 @@
     "workflows": []
   },
   "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
-  "knownGaps": ["Embedded docs 0.5.9 has no LayersFromBoundingBoxes article and exhaustive scan of 496 official workflow graphs found no node occurrence.", "Layer append, z-index, names, content_rect crop, mask indexing, missing boxes, JSON boxes and canvas inheritance were executed synthetically; the full fragment and downstream compositor were not executed.", "The LAYERS node is experimental and its document format may change after the pinned baseline.", "Human approval is pending."],
+  "knownGaps": ["Во встроенной документации 0.5.9 нет статьи LayersFromBoundingBoxes; полный просмотр 496 официальных графов также не нашёл эту ноду.", "Добавление слоёв, z-index, имена, обрезка content_rect, выбор маски по индексу, отсутствующие рамки, рамки в JSON и наследование полотна проверены синтетически; полный фрагмент и последующий композитор не исполнялись.", "Нода LAYERS экспериментальная, поэтому формат документа может измениться после закреплённой версии.", "Человеческое утверждение не выполнено."],
   "updatedAt": "2026-08-13"
 }

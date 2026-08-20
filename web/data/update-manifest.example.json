@@ -18,8 +18,8 @@
   "artifacts": [
     {
       "path": "generated/catalog.json",
-      "sha256": "ec1b4bc50de92814fe05ce2ee986a9682757cb52e3ceed90ff68e0bad6452072",
-      "size": 11405838,
+      "sha256": "5275f60b95c2007bd8c4e6545c2503c1afa031ca1141baeca511f8d990a99ffe",
+      "size": 11406304,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog.json",
       "contentType": "application/json"
     },
@@ -32,8 +32,8 @@
     },
     {
       "path": "generated/catalog-bundle.zip",
-      "sha256": "2ec133a15b4aa9d6846e9599022a48abed1430eb60cd43dd58c980dd6dffa2f1",
-      "size": 3490379,
+      "sha256": "22db16e27722ff2f35fd45bf60a50ebc7cb69ccfb7dfec0b7190a6114dbcb5f8",
+      "size": 3490433,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog-bundle.zip",
       "contentType": "application/zip"
     }
