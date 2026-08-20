@@ -62,9 +62,11 @@ Fragment-only рецепт «Интерполяция двух CONDITIONING» п
 
 ## Совместимость и источники
 
-Статья описывает ComfyUI 0.32.0 на commit `c2bcbecd82ec5ae66594340b395c24ef0217b238`. Runtime фиксирует два обязательных `CONDITIONING`, `FLOAT` от 0 до 1 и один выход `CONDITIONING`.
+Статья описывает ComfyUI 0.32.0 на коммите `c2bcbecd82ec5ae66594340b395c24ef0217b238`. Среда выполнения фиксирует два обязательных `CONDITIONING`, `FLOAT` от 0 до 1 и один выход `CONDITIONING`.
 
-Embedded docs 0.5.9 по пути `comfyui_embedded_docs/docs/ConditioningAverage/en.md` помечены как AI-generated. Общее описание интерполяции совпадает с назначением, но документ не раскрывает использование только первой записи `from`, обрезку и нулевое дополнение, а также правила метаданных. Эти свойства взяты из закреплённой реализации.
+Официальный Replacement API содержит исправление старого идентификатора `ConditioningAverage ` с завершающим пробелом на точный `ConditioningAverage`. Это миграция опечатки, а не другая нода и не основание искать статью по отображаемому названию.
+
+Встроенная документация 0.5.9 по пути `comfyui_embedded_docs/docs/ConditioningAverage/en.md` помечена как созданная автоматически. Общее описание интерполяции совпадает с назначением, но документ не раскрывает использование только первой записи `from`, обрезку и нулевое дополнение, а также правила метаданных. Эти свойства взяты из закреплённой реализации.
 
 - [Реализация `ConditioningAverage`](https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L94-L132)
 - [Official workflow templates JSON 0.1.42](https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/)
