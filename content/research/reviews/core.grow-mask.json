@@ -32,7 +32,12 @@
         "assessment": "Верно передаёт знак expand, но описывает tapered_corners как визуальное скругление и не раскрывает крестообразное либо квадратное ядро, серую морфологию, число итераций, NumPy/SciPy и стоимость больших значений."
       }
     ],
-    "workflows": []
+    "workflows": [
+      {
+        "id": "workflow-templates-json-0.1.42-full-root-subgraph-scan",
+        "role": "Полный просмотр 512 JSON нашёл три GrowMask: два в подграфе image_qwen_image_instantx_inpainting_controlnet со значениями [0, true] и [20, true], один в подграфе video_wan_vace_inpainting со значением [20, true]."
+      }
+    ]
   },
   "checks": {
     "implementationRead": true,
@@ -44,7 +49,7 @@
     "factsRecheckedAfterEditing": true
   },
   "knownGaps": [
-    "Ни в одном из 496 workflow закреплённого официального пакета 0.1.42 GrowMask не встречается; сравнительная ветка рецепта выведена из реализации.",
+    "Официальные графы подтверждают GrowMask с expand 0 и 20, но не точную редакционную ветку MaskComposite → GrowMask(expand 16) из семейного рецепта.",
     "Семейный fragment структурно проверен, но не исполнен в ComfyUI.",
     "Человеческое редакционное утверждение не выполнено."
   ],
