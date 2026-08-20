@@ -19,13 +19,13 @@
     ],
     "workflows": [
       {"id": "workflow-templates-0142-create-hook-keyframes-from-floats-zero-census", "role": "Полный обход 512 JSON, 496 корневых графов и 272 подграфов (8120 нод) не нашёл CreateHookKeyframesFromFloats."},
-      {"id": "hook-keyframe-scheduling-exact-source-probe", "role": "Точные методы подтвердили список [0,2;0,4;0,8] на сетке 0,1/0,5/0,9, скаляр только в start_percent, пустой список как отдельную копию прежней группы и разворот значений; ограничения Iterable+len и отсутствие core-источника FLOATS сверены отдельно."}
+      {"id": "hook-keyframe-scheduling-exact-source-probe", "role": "Точные методы подтвердили список [0,2;0,4;0,8] на сетке 0,1/0,5/0,9, скаляр только в start_percent, пустой список как отдельную копию прежней группы, разворот значений и перескок одинаковых процентов. Generator и нульмерный тензор дали TypeError на len(), а строка формально создала нечисловые значения силы."}
     ]
   },
   "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
   "knownGaps": [
     "Официального графа с CreateHookKeyframesFromFloats в пакете 0.1.42 нет; рецепт основан на исходнике.",
-    "Синтетическая проверка использовала Python-список и скаляр; в чистом core-каталоге 0.32.0 нет пользовательского выхода FLOATS, поэтому полный локальный граф без сторонней ноды не собирается.",
+    "Синтетическая проверка использовала Python-список, скаляр и ошибочные пограничные входы; в чистом core-каталоге 0.32.0 нет пользовательского выхода FLOATS, поэтому полный локальный граф без сторонней ноды не собирается.",
     "Не проверялась реакция разных сэмплеров на очень длинные и плотные последовательности.",
     "Редактор пока не проверил материал вручную."
   ],

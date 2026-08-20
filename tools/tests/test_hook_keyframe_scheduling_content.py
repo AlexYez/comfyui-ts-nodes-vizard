@@ -244,10 +244,21 @@ class HookKeyframeSchedulingContentTests(unittest.TestCase):
         )
 
         replacements = catalog.load_json(REPLACEMENTS)
-        serialized = json.dumps(replacements, ensure_ascii=False)
+        replacement_ids: set[str] = set()
+
+        def collect_replacement_ids(value: Any) -> None:
+            if isinstance(value, dict):
+                for key, item in value.items():
+                    if key in {"old_node_id", "new_node_id"} and isinstance(item, str):
+                        replacement_ids.add(item)
+                    collect_replacement_ids(item)
+            elif isinstance(value, list):
+                for item in value:
+                    collect_replacement_ids(item)
+
+        collect_replacement_ids(replacements)
         for class_type in TARGET_TYPES:
-            self.assertNotIn(class_type, replacements)
-            self.assertNotIn(f'"new_node_id": "{class_type}"', serialized)
+            self.assertNotIn(class_type, replacement_ids)
 
     def test_fragments_are_typed_complete_and_use_exact_settings(self) -> None:
         inventory = catalog.load_json(INVENTORY)
@@ -454,12 +465,48 @@ class HookKeyframeSchedulingContentTests(unittest.TestCase):
         self.assertEqual([], setter["emptyClearsSchedule"])
         self.assertEqual(1.0, setter["emptyStrengthDefaultsToOne"])
         self.assertEqual(setter["sourceBeforeMutation"], setter["outputAfterSourceMutation"])
+        self.assertEqual(
+            {
+                "firstHookChanged": True,
+                "secondHookChanged": False,
+                "usedAfterFirstHook": 1,
+                "usedAfterSecondHook": 1,
+                "currentIndex": 1,
+            },
+            setter["sharedRuntime"],
+        )
+        self.assertEqual(
+            {"sourceIndex": 1, "cloneIndex": 0, "sourceUsedSteps": 1, "cloneUsedSteps": 0},
+            setter["cloneResetsRuntimeState"],
+        )
 
         single = payload["single"]
         self.assertTrue(single["outputIsClone"])
         self.assertEqual([[0.8, 8.0, 1]], single["previousUnchanged"])
         self.assertEqual([[0.2, -2.0, 1], [0.8, 8.0, 1]], single["sortedOutput"])
         self.assertEqual([[0.8, 8.0, 1], [0.8, 3.0, 1]], single["equalPercentStable"])
+        self.assertEqual([5.0, 5.0, 5.0], single["equalPercentModelTrace"]["startSigmas"])
+        self.assertEqual(
+            [(0, 1.0, False), (0, 1.0, False), (1, 2.0, True), (2, 3.0, True)],
+            [
+                (row["index"], row["strength"], row["changed"])
+                for row in single["equalPercentModelTrace"]["trace"]
+            ],
+        )
+        self.assertEqual(
+            [(1, 2.0, True), (2, 3.0, True), (2, 3.0, False)],
+            [
+                (row["index"], row["strength"], row["changed"])
+                for row in single["partialRangeTrace"]["trace"]
+            ],
+        )
+        self.assertEqual(
+            [
+                {"range": [0.0, 0.5], "frames": [None]},
+                {"range": [0.5, 1.0], "frames": [[0.5, 3.0]]},
+            ],
+            single["equalPercentClipRanges"],
+        )
 
         interp = payload["interpolated"]
         self.assertEqual(["linear", "ease_in", "ease_out", "ease_in_out"], interp["allowedMethods"])
@@ -471,6 +518,14 @@ class HookKeyframeSchedulingContentTests(unittest.TestCase):
         self.assertEqual(0, interp["descendingSorted"][0][2])
         self.assertAlmostEqual(1.0, interp["descendingSorted"][-1][1])
         self.assertEqual(1, interp["descendingSorted"][-1][2])
+        self.assertEqual([3.0, 2.0, 1.0], interp["reverseHelper"])
+        self.assertEqual(
+            [(0, 1.0, False), (0, 1.0, False), (2, 3.0, True), (2, 3.0, False)],
+            [
+                (row["index"], row["strength"], row["changed"])
+                for row in interp["equalPercentModelTrace"]["trace"]
+            ],
+        )
 
         floats = payload["fromFloats"]
         self.assertEqual([0.2, 0.4, 0.8], [row[1] for row in floats["listed"]])
@@ -481,6 +536,20 @@ class HookKeyframeSchedulingContentTests(unittest.TestCase):
         self.assertTrue(floats["emptyIsClone"])
         self.assertEqual([[0.4, 4.0, 1]], floats["emptyReturnsClonedPrevious"])
         self.assertEqual([3.0, 2.0, 1.0], [row[1] for row in floats["descendingSorted"]])
+        self.assertEqual(
+            [(0, 1.0, False), (0, 1.0, False), (2, 3.0, True), (2, 3.0, False)],
+            [
+                (row["index"], row["strength"], row["changed"])
+                for row in floats["equalPercentModelTrace"]["trace"]
+            ],
+        )
+        edges = floats["edgeInputs"]
+        self.assertEqual({"ok": True, "values": []}, edges["emptyTuple"])
+        self.assertEqual("TypeError", edges["generator"]["errorType"])
+        self.assertIn("has no len", edges["generator"]["message"])
+        self.assertEqual("TypeError", edges["zeroDimTensor"]["errorType"])
+        self.assertIn("0-d tensor", edges["zeroDimTensor"]["message"])
+        self.assertEqual([[0.0, 1.0, 1], [1.0, 2.0, 0]], edges["string"]["values"])
 
 
 if __name__ == "__main__":
