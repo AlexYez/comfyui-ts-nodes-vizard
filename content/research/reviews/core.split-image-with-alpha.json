@@ -10,9 +10,9 @@
     "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
     "sourceLocations": [{"url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_compositing.py#L164-L185", "path": "comfy_extras/nodes_compositing.py", "lines": "164-185"}],
     "embeddedDocs": [{"locale": "ru", "archivePath": "comfyui_embedded_docs/docs/SplitImageWithAlpha/ru.md", "assessment": "Не поясняет mask=1−alpha и RGB fallback mask=0. Эти контракты и поведение дополнительных channels добавлены по коду и exact round-trip."}],
-    "workflows": []
+    "workflows": [{"id": "templates_mjm_looped_restyler", "role": "Один SplitImageWithAlpha находится в третьем подграфе: вход IMAGE подключён, два соединения выхода IMAGE используются дальше, выход MASK не подключён."}]
   },
   "checks": {"implementationRead": true, "runtimeCompared": true, "officialCasesInspected": true, "exampleSchemaValidated": true, "exampleExecuted": false, "russianEdited": true, "factsRecheckedAfterEditing": true},
-  "knownGaps": ["Exhaustive scan official workflow templates JSON 0.1.42 не нашёл SplitImageWithAlpha; fragment не объявлен официальным.", "RGB fallback и exact RGBA split/join round-trip исполнены на synthetic tensors; full dual-preview fragment ещё не запускался.", "Человеческое редакционное утверждение не выполнено."],
+  "knownGaps": ["Полный просмотр 512 JSON-файлов нашёл один SplitImageWithAlpha в подграфе templates_mjm_looped_restyler; рецепт Wizard с двумя окнами просмотра не является копией этого примера.", "Запасная ветвь RGB и точное разделение/обратная сборка RGBA проверены на синтетических тензорах; полный фрагмент с двумя окнами просмотра ещё не запускался.", "Человеческое редакционное утверждение не выполнено."],
   "updatedAt": "2026-08-13"
 }
