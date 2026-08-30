@@ -20,12 +20,17 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
 ]
 
+[project.urls]
+Repository = "https://github.com/AlexYez/comfyui-ts-nodes-vizard"
+Documentation = "https://github.com/AlexYez/comfyui-ts-nodes-vizard#readme"
+Issues = "https://github.com/AlexYez/comfyui-ts-nodes-vizard/issues"
+
 [tool.setuptools]
 packages = []
 include-package-data = true
 
 [tool.comfy]
-PublisherId = "REPLACE_WITH_REGISTRY_PUBLISHER_ID"
+PublisherId = "timesaver"
 DisplayName = "TS Nodes Wizard"
 requires-comfyui = ">=0.32.0"
 includes = ["web"]

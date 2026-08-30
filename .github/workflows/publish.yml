@@ -1,0 +1,88 @@
+name: Publish to ComfyUI Registry
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v[0-9]*.[0-9]*.[0-9]*"
+      - "v[0-9]*.[0-9]*.[0-9]*-*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: comfy-registry-publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  qualify:
+    name: Qualify release artifact
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Require the tag to match the package version
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(python -c 'import tomllib; print(tomllib.load(open("pyproject.toml", "rb"))["project"]["version"])')"
+          test "${GITHUB_REF_NAME}" = "v${version}"
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Validate catalog and packaging
+        run: |
+          python tools/catalog.py ci
+          python -m unittest discover -s tests -v
+
+      - name: Test and build frontend
+        run: |
+          npm run typecheck
+          npm run test -- --run
+          npm run build
+
+      - name: Verify generated release files
+        shell: bash
+        run: |
+          python tools/catalog.py build --check
+          test -s web/nodes-wizard.js
+          test -s web/data/catalog.json
+          test -s web/data/search-index.json
+          test -s LICENSE
+          test -s LICENSE-CONTENT
+          git diff --exit-code
+
+  publish:
+    name: Publish package
+    needs: qualify
+    runs-on: ubuntu-latest
+    environment: comfyui-registry
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Require Registry token
+        shell: bash
+        env:
+          REGISTRY_ACCESS_TOKEN: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
+        run: test -n "$REGISTRY_ACCESS_TOKEN"
+
+      - name: Publish to ComfyUI Registry
+        uses: Comfy-Org/publish-node-action@v1
+        with:
+          personal_access_token: ${{ secrets.REGISTRY_ACCESS_TOKEN }}

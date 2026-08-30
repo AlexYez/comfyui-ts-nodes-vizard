@@ -29,6 +29,12 @@ class PackageContractTests(unittest.TestCase):
         self.assertEqual(metadata["project"]["name"], "comfyui-ts-nodes-vizard")
         self.assertEqual(metadata["project"]["version"], "0.1.0-alpha.1")
         self.assertEqual(metadata["project"]["dependencies"], [])
+        self.assertEqual(
+            metadata["project"]["urls"]["Repository"],
+            "https://github.com/AlexYez/comfyui-ts-nodes-vizard",
+        )
+        self.assertEqual(metadata["tool"]["comfy"]["PublisherId"], "timesaver")
+        self.assertEqual(metadata["tool"]["comfy"]["DisplayName"], "TS Nodes Wizard")
         self.assertEqual(metadata["tool"]["comfy"]["requires-comfyui"], ">=0.32.0")
         self.assertEqual(metadata["tool"]["comfy"]["includes"], ["web"])
 
