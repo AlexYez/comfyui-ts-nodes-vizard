@@ -35,6 +35,10 @@ class PackageContractTests(unittest.TestCase):
         )
         self.assertEqual(metadata["tool"]["comfy"]["PublisherId"], "timesaver")
         self.assertEqual(metadata["tool"]["comfy"]["DisplayName"], "TS Nodes Wizard")
+        self.assertEqual(
+            metadata["tool"]["comfy"]["Icon"],
+            "https://raw.githubusercontent.com/AlexYez/comfyui-ts-nodes-vizard/refs/heads/main/icon.png",
+        )
         self.assertEqual(metadata["tool"]["comfy"]["requires-comfyui"], ">=0.32.0")
         self.assertEqual(metadata["tool"]["comfy"]["includes"], ["web"])
 
@@ -43,6 +47,7 @@ class PackageContractTests(unittest.TestCase):
             "README.md",
             "LICENSE",
             "LICENSE-CONTENT",
+            "icon.png",
             "web/README.md",
             "web/nodes-wizard.js",
             "web/data/catalog.json",

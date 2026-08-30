@@ -32,5 +32,6 @@ include-package-data = true
 [tool.comfy]
 PublisherId = "timesaver"
 DisplayName = "TS Nodes Wizard"
+Icon = "https://raw.githubusercontent.com/AlexYez/comfyui-ts-nodes-vizard/refs/heads/main/icon.png"
 requires-comfyui = ">=0.32.0"
 includes = ["web"]
