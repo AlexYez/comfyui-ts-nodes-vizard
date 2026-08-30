@@ -18,22 +18,22 @@
   "artifacts": [
     {
       "path": "generated/catalog.json",
-      "sha256": "df8f9f6ffe439d6c6332dfb30bb48a42016e572e41939359599160cafb361ac5",
-      "size": 11409741,
+      "sha256": "4e2bed673570bc1898915cf5c3fd5c891f95af25e700feb319b838565a2874a8",
+      "size": 11881738,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog.json",
       "contentType": "application/json"
     },
     {
       "path": "generated/search-index.json",
-      "sha256": "000e7ee0bbbdae02e725f3fbfcde47f8f949ddfadf8ab39778d65ad995a57add",
-      "size": 5626564,
+      "sha256": "7ecb40aad5e6525f557665bc96e13733f323236a0c315c016ea2a51ccac806e0",
+      "size": 6098561,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/search-index.json",
       "contentType": "application/json"
     },
     {
       "path": "generated/catalog-bundle.zip",
-      "sha256": "16bc64174bd3cd3921a13da888d9c9fe5fabdbbec300cf342104c0d1987cf83f",
-      "size": 3491545,
+      "sha256": "1f685b2d706459cf33a351782cecc42e5a9235b1fb9e999905d4d60bdc3dd557",
+      "size": 3570578,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog-bundle.zip",
       "contentType": "application/zip"
     }

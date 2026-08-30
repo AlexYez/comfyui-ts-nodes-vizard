@@ -123,6 +123,34 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(len(compiled["articles"]), len(search["documents"]))
         self.assertEqual([], catalog.validate_compiled_catalog_instance(compiled))
 
+    def test_every_article_has_contextual_non_promotional_related_reading(self) -> None:
+        compiled, _ = catalog.compile_catalog()
+        forbidden = ("лучший", "уникальный", "обязательно", "наш проект", "успейте")
+        for article in compiled["articles"]:
+            with self.subTest(article=article["manifest"]["articleId"]):
+                body = article["body"]
+                self.assertEqual(1, body.count("## Связанные материалы"))
+                self.assertEqual(1, body.count("https://neurosaver.ru/"))
+                self.assertEqual(1, body.count("https://timesavervfx.com/comfyui/"))
+                self.assertEqual(1, body.count("https://timesavervfx.com/comfyui-launcher/"))
+                related_section = body.split("## Связанные материалы", 1)[1].casefold()
+                self.assertFalse(any(word in related_section for word in forbidden))
+
+    def test_related_reading_configuration_is_fixed_to_expected_https_origins(self) -> None:
+        reading = catalog.load_json(catalog.CONTENT / "related-reading.json")
+        entries = [reading["fallback"], *reading["rules"], *reading["common"]]
+        self.assertGreaterEqual(len(reading["rules"]), 20)
+        for entry in entries:
+            with self.subTest(url=entry["url"]):
+                self.assertRegex(entry["url"], r"^https://(?:neurosaver\.ru|timesavervfx\.com)/")
+                self.assertGreaterEqual(len(entry["context"]), 40)
+
+    def test_related_reading_uses_representative_topic_matches(self) -> None:
+        compiled, _ = catalog.compile_catalog()
+        by_id = {item["manifest"]["articleId"]: item for item in compiled["articles"]}
+        self.assertIn("/guide/ksampler-comfyui-nastroiki/", by_id["core.ksampler"]["body"])
+        self.assertIn("/guide/vae-comfyui-seraya-kartinka/", by_id["core.vae-decode"]["body"])
+
     def test_fragment_only_recipe_is_valid_and_compiles_without_workflow(self) -> None:
         recipe_path = catalog.CONTENT / "recipes" / "inpaint-latent" / "recipe.json"
         source_recipe = catalog.load_json(recipe_path)

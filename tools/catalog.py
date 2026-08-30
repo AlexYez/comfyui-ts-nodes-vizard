@@ -1335,6 +1335,7 @@ def compile_catalog(path: Path = CATALOG_MANIFEST, inventory_path: Path | None =
     for recipe_path, recipe in recipes:
         recipe_data[recipe["recipeId"]] = compile_recipe(recipe_path, recipe)
 
+    related_reading = load_json(CONTENT / "related-reading.json")
     compiled_articles: list[dict[str, Any]] = []
     search_documents: list[dict[str, Any]] = []
     for article_path, article in articles:
@@ -1371,13 +1372,25 @@ def compile_catalog(path: Path = CATALOG_MANIFEST, inventory_path: Path | None =
             "searchAliases": copy.deepcopy(article["searchAliases"]),
             "assets": copy.deepcopy(article["assets"]),
         }
+        reading_haystack = " ".join([
+            article["articleId"], article["title"], article["summary"], node_id,
+            identity.get("pythonModule") or "", *article["tags"], *article["concepts"],
+        ]).casefold()
+        selected_reading = next(
+            (rule for rule in related_reading["rules"] if any(keyword.casefold() in reading_haystack for keyword in rule["keywords"])),
+            related_reading["fallback"],
+        )
+        reading_items = [selected_reading, *related_reading["common"]]
+        reading_markdown = "\n\n## Связанные материалы\n\n" + "\n".join(
+            f"- [{entry['title']}]({entry['url']}) — {entry['context']}" for entry in reading_items
+        ) + "\n"
         item: dict[str, Any] = {
             "manifest": public_manifest,
             "title": article["title"],
             "summary": article["summary"],
             "tags": copy.deepcopy(article["tags"]),
             "concepts": copy.deepcopy(article["concepts"]),
-            "body": body_path.read_text(encoding="utf-8"),
+            "body": body_path.read_text(encoding="utf-8").rstrip() + reading_markdown,
         }
         if recipe_ids:
             item["recipeData"] = [recipe_data[recipe_id] for recipe_id in recipe_ids]

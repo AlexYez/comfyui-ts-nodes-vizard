@@ -41,6 +41,8 @@ python tools/frontend_inventory.py --source-root ../ComfyUI_frontend-1.48.7 --fr
 
 `validate`, `validate-compiled`, `build --check`, `fingerprint`, `diff` без `--output`, `coverage` и `ci` не изменяют файлы. `validate-compiled` проверяет один готовый catalog artifact по `content/schemas/compiled-catalog.schema.v1.json`; аргумент `-` читает строгий UTF-8 JSON из stdin. `build` пишет только в указанный `--output-dir`; по умолчанию это `content/generated`. `inventory-report` создаёт `inventory-report.json` и `inventory-report.md` в явно заданном каталоге.
 
+При сборке к каждой статье добавляется короткий раздел «Связанные материалы». Тематическая ссылка Neurosaver выбирается по упорядоченным правилам из `content/related-reading.json`; если точного соответствия нет, используется нейтральная вводная статья о ComfyUI. Две общие ссылки ведут на практический справочник ComfyUI и описание Launcher. Эти материалы не входят в технические источники статьи и не влияют на её редакционный статус.
+
 `release-gate` — отдельный read-only барьер для stable-релиза. Он возвращает ненулевой код и печатает все причины, если backend или frontend inventory покрыт не полностью, fingerprints или lifecycle расходятся, core/frontend-статьи и связанные рецепты не одобрены, примеры повреждены либо отсутствует явное человеческое одобрение выпуска. `--frontend-inventory` использует `content/schemas/frontend-inventory.schema.v1.json`, исключает `dev_only`, сверяет `frontendVersion` с целью в `update-manifest.json` и обязателен для успешного stable-gate. Альфа-каталог с `humanApproval.state = "pending"` обязан не пройти эту команду; это не влияет на `ci`.
 
 Очередь человеческого ревью для локальных нод печатается без изменения файлов:
