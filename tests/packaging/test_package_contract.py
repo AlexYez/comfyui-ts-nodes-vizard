@@ -27,7 +27,7 @@ class PackageContractTests(unittest.TestCase):
             metadata = tomllib.load(stream)
 
         self.assertEqual(metadata["project"]["name"], "comfyui-ts-nodes-vizard")
-        self.assertEqual(metadata["project"]["version"], "0.1.0-alpha.1")
+        self.assertEqual(metadata["project"]["version"], "0.2.0-alpha.1")
         self.assertEqual(metadata["project"]["dependencies"], [])
         self.assertEqual(
             metadata["project"]["urls"]["Repository"],

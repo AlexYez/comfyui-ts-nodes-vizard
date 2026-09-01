@@ -1531,9 +1531,12 @@ def catalog_coverage(nodes: Mapping[str, Mapping[str, Any]], replacements: Mappi
     stale: list[dict[str, str]] = []
     for _, article in articles:
         identity = article["runtimeIdentity"]
-        if identity["origin"] == "backend":
+        # This report qualifies a clean ComfyUI installation. Third-party
+        # pack inventories have their own coverage gate and must not become
+        # core runtime debt when those packs are (correctly) absent.
+        if identity["origin"] == "backend" and article.get("kind") == "core":
             backend_articles[identity["classType"]] = article
-        else:
+        elif identity["origin"] == "frontend" and identity.get("packageId") == "comfy-core":
             frontend_articles.append(article["articleId"])
     runtime_ids = set(nodes)
     covered_ids = runtime_ids & set(backend_articles)
@@ -1652,17 +1655,17 @@ def release_policy_reasons(
     for article_path, article in articles:
         identity = article.get("runtimeIdentity")
         identity = identity if isinstance(identity, Mapping) else {}
-        if identity.get("origin") == "backend" and isinstance(identity.get("classType"), str):
+        if article.get("kind") == "core" and identity.get("origin") == "backend" and isinstance(identity.get("classType"), str):
             backend_by_node[identity["classType"]] = (article_path, article)
             for alias in identity.get("aliases", []):
                 if isinstance(alias, str):
                     backend_by_alias[alias] = (article_path, article)
-        if identity.get("origin") == "frontend" and isinstance(identity.get("classType"), str):
+        if identity.get("origin") == "frontend" and identity.get("packageId") == "comfy-core" and isinstance(identity.get("classType"), str):
             frontend_by_node[identity["classType"]] = (article_path, article)
             for alias in identity.get("aliases", []):
                 if isinstance(alias, str):
                     frontend_by_alias[alias] = (article_path, article)
-        if article.get("kind") == "core" or identity.get("origin") == "frontend":
+        if article.get("kind") == "core" or (identity.get("origin") == "frontend" and identity.get("packageId") == "comfy-core"):
             release_articles.append((article_path, article))
 
     for node_id in sorted(nodes):

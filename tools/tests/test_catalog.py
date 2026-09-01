@@ -455,7 +455,7 @@ class ReleaseGateTests(unittest.TestCase):
         documented_node_ids = {
             article["runtimeIdentity"]["classType"]
             for _, article in self.articles
-            if article.get("runtimeIdentity", {}).get("origin") == "backend"
+            if article.get("kind") == "core" and article.get("runtimeIdentity", {}).get("origin") == "backend"
         }
         self.nodes = {node_id: self.nodes[node_id] for node_id in documented_node_ids}
         full_frontend_path = catalog.CONTENT / "runtime" / "comfyui-frontend-1.48.7.frontend-inventory.json"

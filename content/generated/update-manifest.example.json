@@ -1,7 +1,7 @@
 {
   "$schema": "schemas/update-manifest.schema.v1.json",
   "schemaVersion": "1.0",
-  "catalogVersion": "0.1.0",
+  "catalogVersion": "0.2.0",
   "publishedAt": "2026-08-13T12:00:00Z",
   "canonicalization": "comfy-nodes-wizard-json-v1",
   "signatureScope": "top-level-manifest-excluding-signature",
@@ -18,22 +18,22 @@
   "artifacts": [
     {
       "path": "generated/catalog.json",
-      "sha256": "4e2bed673570bc1898915cf5c3fd5c891f95af25e700feb319b838565a2874a8",
-      "size": 11881738,
+      "sha256": "fcc605daac4a31adc69c6e7fe15437e406da507eac88952deb21220e47b435cc",
+      "size": 12491499,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog.json",
       "contentType": "application/json"
     },
     {
       "path": "generated/search-index.json",
-      "sha256": "7ecb40aad5e6525f557665bc96e13733f323236a0c315c016ea2a51ccac806e0",
-      "size": 6098561,
+      "sha256": "81454f2591378865f9199162eb9592469c734c5f950fc2b120e47fc91d2ae4f3",
+      "size": 6497002,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/search-index.json",
       "contentType": "application/json"
     },
     {
       "path": "generated/catalog-bundle.zip",
-      "sha256": "1f685b2d706459cf33a351782cecc42e5a9235b1fb9e999905d4d60bdc3dd557",
-      "size": 3570578,
+      "sha256": "6d44fe309840bcd4da7245e6d39dbb8ce6afa86ba89bd9fe2d23d8275e58db6a",
+      "size": 3713070,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog-bundle.zip",
       "contentType": "application/zip"
     }
