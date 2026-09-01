@@ -31,7 +31,10 @@ jobs:
           python-version: "3.12"
 
       - name: Validate checked-in catalog
-        run: python tools/catalog.py ci
+        run: |
+          python tools/catalog.py validate
+          python tools/catalog.py build --check
+          python -m unittest discover -s tests -v
 
   upstream-inventory:
     # Upstream dependency installation can fail independently of Nodes Wizard.
