@@ -75,14 +75,15 @@ function ArticleRelations({ article, controller }: {
 
 function readWidth(): number {
   try {
-    const stored = Number(localStorage.getItem(WIDTH_KEY));
+    const raw = localStorage.getItem(WIDTH_KEY);
+    const stored = raw === null ? 540 : Number(raw);
     return Number.isFinite(stored) ? Math.min(900, Math.max(360, stored)) : 540;
   } catch {
     return 540;
   }
 }
 
-function ArticleView({ article, controller }: { article: CatalogArticle; controller: WizardController }) {
+function ArticleView({ article, controller, onRendered }: { article: CatalogArticle; controller: WizardController; onRendered: () => void }) {
   const snapshot = controller.getSnapshot();
   const resolved = snapshot.selected;
   const identity = article.manifest.runtimeIdentity;
@@ -129,6 +130,7 @@ function ArticleView({ article, controller }: { article: CatalogArticle; control
         <RuntimeOverlay runtime={resolved.runtime} locale={snapshot.locale} />
       ) : null}
       <MarkdownContent
+        onRendered={onRendered}
         markdown={article.body}
         baseUrl={catalogAssetBase(snapshot.registry?.catalog.sourceUrl)}
         nativeRenderer={nativeRenderer}
@@ -148,19 +150,48 @@ export function Drawer({ controller }: { controller: WizardController }) {
   const [width, setWidth] = useState(readWidth);
   const closeButton = useRef<HTMLButtonElement>(null);
   const main = useRef<HTMLElement>(null);
+  const restoreScroll = useCallback(() => {
+    const articleId = controller.getSnapshot().selected?.article.manifest.articleId;
+    if (!articleId || !main.current) return;
+    try { main.current.scrollTop = Number(sessionStorage.getItem(`${SCROLL_KEY}${articleId}`)) || 0; }
+    catch { /* Storage is optional. */ }
+  }, [controller]);
   const previousFocus = useRef<HTMLElement | null>(null);
   const wasOpen = useRef(false);
+  const resizeCleanup = useRef<(() => void) | undefined>();
+  const [page, setPage] = useState(0);
+  const [matches, setMatches] = useState<CatalogArticle[]>([]);
+  const [searchError, setSearchError] = useState("");
+  const [searching, setSearching] = useState(false);
   const ru = snapshot.locale === "ru";
-  const results = useMemo(() => {
-    if (!snapshot.registry) return [];
-    if (snapshot.query.trim()) {
-      return snapshot.registry.search(snapshot.query, snapshot.locale).map((result) => result.article);
-    }
-    return snapshot.registry.list(snapshot.locale);
-  }, [snapshot.locale, snapshot.query, snapshot.registry]);
   const showingResults = snapshot.panel === "content" && (
     Boolean(snapshot.query.trim()) || !snapshot.selected
   );
+  const results = useMemo(() => {
+    if (!snapshot.open || !showingResults || !snapshot.registry) return [];
+    if (snapshot.query.trim()) return matches;
+    return snapshot.registry.list(snapshot.locale);
+  }, [snapshot.open, showingResults, snapshot.locale, snapshot.query, snapshot.registry, matches]);
+  const currentPage = Math.min(page, Math.max(0, Math.ceil(results.length / 40) - 1));
+  useEffect(() => { setPage(0); }, [snapshot.query, snapshot.locale, snapshot.registry]);
+  useEffect(() => {
+    setMatches([]);
+    setSearchError("");
+    if (!snapshot.open || !showingResults || !snapshot.query.trim() || !snapshot.registry) {
+      setSearching(false);
+      return;
+    }
+    let active = true;
+    setSearching(true);
+    const timer = setTimeout(() => {
+      void snapshot.registry!.searchAsync(snapshot.query, snapshot.locale).then((found) => {
+        if (active) { setMatches(found.map((match) => match.article)); setSearching(false); }
+      }).catch((error: unknown) => {
+        if (active) { setSearchError(String(error)); setSearching(false); }
+      });
+    }, 150);
+    return () => { active = false; clearTimeout(timer); };
+  }, [snapshot.open, showingResults, snapshot.query, snapshot.locale, snapshot.registry]);
   const inertProps = (!snapshot.open ? { inert: "" } : {}) as React.HTMLAttributes<HTMLElement>;
 
   useEffect(() => {
@@ -177,27 +208,40 @@ export function Drawer({ controller }: { controller: WizardController }) {
   }, [snapshot.open]);
 
   useEffect(() => {
-    try { localStorage.setItem(WIDTH_KEY, String(width)); } catch { /* private mode */ }
+    const timer = setTimeout(() => {
+      try { localStorage.setItem(WIDTH_KEY, String(width)); } catch { /* private mode */ }
+    }, 200);
+    return () => clearTimeout(timer);
   }, [width]);
 
   useEffect(() => {
     const element = main.current;
     const articleId = snapshot.selected?.article.manifest.articleId;
-    if (!element || !articleId || showingResults || snapshot.panel !== "content") return;
-    try { element.scrollTop = Number(sessionStorage.getItem(`${SCROLL_KEY}${articleId}`)) || 0; }
-    catch { element.scrollTop = 0; }
-    const remember = () => {
-      try { sessionStorage.setItem(`${SCROLL_KEY}${articleId}`, String(element.scrollTop)); }
+    if (!snapshot.open || !element || !articleId || showingResults || snapshot.panel !== "content") return;
+    let scrollTop = 0;
+    try { scrollTop = Number(sessionStorage.getItem(`${SCROLL_KEY}${articleId}`)) || 0; }
+    catch { /* Storage is optional. */ }
+    element.scrollTop = scrollTop;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const save = () => {
+      try { sessionStorage.setItem(`${SCROLL_KEY}${articleId}`, String(scrollTop)); }
       catch { /* storage can be disabled */ }
+    };
+    const remember = () => {
+      scrollTop = element.scrollTop;
+      clearTimeout(timer);
+      timer = setTimeout(save, 200);
     };
     element.addEventListener("scroll", remember, { passive: true });
     return () => {
-      remember();
+      clearTimeout(timer);
+      save();
       element.removeEventListener("scroll", remember);
     };
-  }, [showingResults, snapshot.panel, snapshot.selected?.article.manifest.articleId]);
+  }, [snapshot.open, showingResults, snapshot.panel, snapshot.selected?.article.manifest.articleId]);
 
   useEffect(() => {
+    if (!snapshot.open) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape" && snapshot.open) controller.close();
     };
@@ -205,7 +249,10 @@ export function Drawer({ controller }: { controller: WizardController }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [controller, snapshot.open]);
 
+  useEffect(() => () => resizeCleanup.current?.(), [snapshot.open]);
+
   const startResize = (event: React.PointerEvent<HTMLDivElement>) => {
+    resizeCleanup.current?.();
     event.currentTarget.setPointerCapture(event.pointerId);
     const onMove = (moveEvent: PointerEvent) => {
       const next = Math.min(900, Math.max(360, window.innerWidth - moveEvent.clientX));
@@ -214,9 +261,13 @@ export function Drawer({ controller }: { controller: WizardController }) {
     const onEnd = () => {
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerup", onEnd);
+      window.removeEventListener("pointercancel", onEnd);
+      resizeCleanup.current = undefined;
     };
     window.addEventListener("pointermove", onMove);
     window.addEventListener("pointerup", onEnd, { once: true });
+    window.addEventListener("pointercancel", onEnd, { once: true });
+    resizeCleanup.current = onEnd;
   };
 
   const selectResult = (article: CatalogArticle) => {
@@ -227,6 +278,8 @@ export function Drawer({ controller }: { controller: WizardController }) {
     }
     controller.selectArticle(article.manifest.articleId);
   };
+
+  if (!snapshot.open) return null;
 
   return (
     <aside
@@ -302,7 +355,7 @@ export function Drawer({ controller }: { controller: WizardController }) {
             <CompatibilityPanel controller={controller} />
           ) : showingResults ? (
             <ul className="nw-results">
-              {results.map((article) => (
+              {results.slice(currentPage * 40, (currentPage + 1) * 40).map((article) => (
                 <li key={`${article.manifest.articleId}:${article.manifest.locale}`}>
                   <button className="nw-result" onClick={() => selectResult(article)}>
                     <strong>{article.title}</strong>
@@ -310,10 +363,17 @@ export function Drawer({ controller }: { controller: WizardController }) {
                   </button>
                 </li>
               ))}
-              {results.length === 0 ? <li className="nw-state">{ru ? "Ничего не найдено" : "No results"}</li> : null}
+              {searching ? <li role="status">{ru ? "Поиск…" : "Searching…"}</li> : null}
+              {searchError ? <li role="alert">{searchError}</li> : null}
+              {!searching && !searchError && results.length === 0 ? <li className="nw-state">{ru ? "Ничего не найдено" : "No results"}</li> : null}
+              {results.length > 40 ? <li className="nw-actions">
+                <button className="nw-button" disabled={currentPage === 0} onClick={() => { setPage(currentPage - 1); main.current?.scrollTo?.(0, 0); }}>{ru ? "Назад" : "Previous"}</button>
+                <span>{currentPage + 1} / {Math.ceil(results.length / 40)}</span>
+                <button className="nw-button" disabled={(currentPage + 1) * 40 >= results.length} onClick={() => { setPage(currentPage + 1); main.current?.scrollTo?.(0, 0); }}>{ru ? "Далее" : "Next"}</button>
+              </li> : null}
             </ul>
           ) : snapshot.selected ? (
-            <ArticleView article={snapshot.selected.article} controller={controller} />
+            <ArticleView key={snapshot.selected.article.manifest.articleId} article={snapshot.selected.article} controller={controller} onRendered={restoreScroll} />
           ) : null}
         </main>
         <footer className="nw-footer">

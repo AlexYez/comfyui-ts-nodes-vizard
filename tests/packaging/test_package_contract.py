@@ -27,7 +27,7 @@ class PackageContractTests(unittest.TestCase):
             metadata = tomllib.load(stream)
 
         self.assertEqual(metadata["project"]["name"], "comfyui-ts-nodes-vizard")
-        self.assertEqual(metadata["project"]["version"], "0.2.0-alpha.1")
+        self.assertEqual(metadata["project"]["version"], "0.2.0-alpha.2")
         self.assertEqual(metadata["project"]["dependencies"], [])
         self.assertEqual(
             metadata["project"]["urls"]["Repository"],
@@ -57,6 +57,14 @@ class PackageContractTests(unittest.TestCase):
             with self.subTest(path=relative_path):
                 self.assertTrue((ROOT / relative_path).is_file())
                 self.assertGreater((ROOT / relative_path).stat().st_size, 0)
+
+    def test_only_bootstrap_is_discovered_as_an_extension(self) -> None:
+        # ComfyUI discovers **/*.js recursively. Workers must never be run as extensions.
+        web = ROOT / "web"
+        self.assertEqual(sorted(p.relative_to(web).as_posix() for p in web.rglob("*.js")), ["nodes-wizard.js"])
+        self.assertLess((web / "nodes-wizard.js").stat().st_size, 20_000)
+        self.assertTrue(list((web / "chunks").glob("*.mjs")))
+        self.assertTrue(list((web / "workers").glob("*.mjs")))
 
 
 if __name__ == "__main__":

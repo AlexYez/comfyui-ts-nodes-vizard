@@ -88,6 +88,11 @@ jobs:
           test -s LICENSE-CONTENT
           git diff --exit-code
 
+      - name: Qualify browser performance behavior
+        run: |
+          npx playwright install --with-deps chromium
+          npm run test:browser
+
   publish:
     name: Publish package
     needs: qualify

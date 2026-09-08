@@ -5,13 +5,16 @@ import { renderSafeMarkdown, type NativeMarkdownRenderer } from "../markdown/ren
 export function MarkdownContent({
   markdown,
   baseUrl,
-  nativeRenderer
+  nativeRenderer,
+  onRendered
 }: {
   markdown: string;
   baseUrl?: string;
   nativeRenderer?: NativeMarkdownRenderer;
+  onRendered?: () => void;
 }) {
   const [html, setHtml] = useState("");
+  useEffect(() => { if (html) onRendered?.(); }, [html, onRendered]);
 
   useEffect(() => {
     let active = true;
@@ -25,4 +28,3 @@ export function MarkdownContent({
 
   return <div className="nw-markdown" dangerouslySetInnerHTML={{ __html: html }} />;
 }
-

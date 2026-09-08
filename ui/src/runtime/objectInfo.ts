@@ -268,7 +268,10 @@ function runtimeInputs(normalized: NormalizedNodeSchema): RuntimePort[] {
     name: input.name,
     type: input.type,
     optional: !input.required,
-    constraints: input.constraints
+    // Preserve exact uint64/decimal text through Worker structured cloning.
+    constraints: input.constraints ? Object.fromEntries(Object.entries(input.constraints).map(
+      ([key, value]) => [key, isLosslessNumber(value) ? value.raw : value]
+    )) : undefined
   }));
 }
 
@@ -283,7 +286,8 @@ function runtimeOutputs(normalized: NormalizedNodeSchema): RuntimePort[] {
 }
 
 export async function decodeObjectInfo(
-  input: unknown
+  input: unknown,
+  retainRaw = true
 ): Promise<Map<string, RuntimeNodeDefinition>> {
   const parsed = objectInfoSchema.parse(input);
   const result = new Map<string, RuntimeNodeDefinition>();
@@ -305,7 +309,7 @@ export async function decodeObjectInfo(
       inputs: runtimeInputs(normalized),
       outputs: runtimeOutputs(normalized),
       schemaHash: await schemaFingerprint(normalized),
-      raw: Object.freeze({ ...source })
+      raw: retainRaw ? Object.freeze({ ...source }) : Object.freeze({})
     });
   }));
 

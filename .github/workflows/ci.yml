@@ -73,6 +73,11 @@ jobs:
       - name: Verify generated catalog is current
         run: python tools/catalog.py build --check
 
+      - name: Qualify lazy loading and worker lifecycle in Chromium
+        run: |
+          npx playwright install --with-deps chromium
+          npm run test:browser
+
       - name: Verify required release files
         shell: bash
         run: |

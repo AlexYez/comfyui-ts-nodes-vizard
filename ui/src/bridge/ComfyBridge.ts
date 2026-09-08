@@ -3,7 +3,6 @@ import type {
   ComfyExtensionLike,
   ComfyNodeLike
 } from "../types/comfy";
-import { decodeObjectInfo, parseObjectInfoText } from "../runtime/objectInfo";
 import { decodeSystemVersions, type ComfySystemVersions } from "../runtime/systemVersions";
 import type { RuntimeNodeDefinition } from "../types/contracts";
 
@@ -75,7 +74,13 @@ export class ComfyBridge {
           credentials: "same-origin"
         });
     if (!response.ok) throw new Error(`/object_info: HTTP ${response.status}`);
-    return decodeObjectInfo(parseObjectInfoText(await response.text()));
+    const text = await response.text();
+    if (typeof Worker !== "undefined") {
+      const { runBackground } = await import("../catalog/background");
+      return runBackground("runtime", text, signal);
+    }
+    const { decodeObjectInfo, parseObjectInfoText } = await import("../runtime/objectInfo");
+    return decodeObjectInfo(parseObjectInfoText(text));
   }
 
   async fetchSystemVersions(signal?: AbortSignal): Promise<ComfySystemVersions> {

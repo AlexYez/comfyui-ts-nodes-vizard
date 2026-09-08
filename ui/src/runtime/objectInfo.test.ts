@@ -4,6 +4,14 @@ import { describe, expect, it } from "vitest";
 import { decodeObjectInfo, parseObjectInfoText } from "./objectInfo";
 
 describe("object_info fingerprints", () => {
+  it("keeps exact numeric constraints after structured clone without retaining raw definitions", async () => {
+    const nodes = await decodeObjectInfo(parseObjectInfoText(sampleText), false);
+    const cloned = structuredClone(nodes);
+    expect(cloned.get("KSampler")?.inputs).toEqual(nodes.get("KSampler")?.inputs);
+    expect(cloned.get("KSampler")?.raw).toEqual({});
+    expect(cloned.get("KSampler")?.inputs.find((port) => port.name === "seed")?.constraints?.max)
+      .toBe("18446744073709551615");
+  });
   it("matches the Python golden fingerprints byte-for-byte", async () => {
     const nodes = await decodeObjectInfo(parseObjectInfoText(sampleText));
     expect(nodes.get("KSampler")?.schemaHash).toBe(

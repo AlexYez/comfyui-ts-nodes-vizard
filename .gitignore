@@ -18,7 +18,8 @@ coverage/
 
 # Generated frontend output (keep documentation and catalog fixtures tracked)
 web/assets/
-web/chunks/
+web/chunks/*
+!web/chunks/*.mjs
 web/*.js
 web/*.js.map
 !web/nodes-wizard.js

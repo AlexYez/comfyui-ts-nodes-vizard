@@ -1,23 +1,35 @@
 import { app as comfyApp } from "/scripts/app.js";
 
-import { WizardController } from "./app/controller";
+import type { WizardController } from "./app/controller";
 import { ComfyBridge } from "./bridge/ComfyBridge";
 import type { ComfyAppLike } from "./types/comfy";
-import { mountWizard } from "./ui/mount";
+import { exactNodeClassType } from "./runtime/identity";
 
 const bridge = new ComfyBridge(comfyApp as ComfyAppLike);
-const controller = new WizardController({ bridge });
-let mounted = false;
+let controller: WizardController | undefined;
+let loading: Promise<WizardController> | undefined;
+let pending: { classType?: string } | undefined;
+
+function open(request?: { classType?: string }): void {
+  pending = request;
+  if (controller) { controller.open(request); return; }
+  if (loading) return;
+  loading = import("./app/start").then(({ startWizard }) => {
+    controller = startWizard(bridge, new URL(/* @vite-ignore */ "./data/catalog.json", import.meta.url).href);
+    controller.open(pending);
+    return controller;
+  }).catch((error: unknown) => {
+    bridge.toast("error", "TS Nodes Wizard", String(error));
+    throw error;
+  });
+  void loading.catch(() => { loading = undefined; });
+}
 
 bridge.register({
-  setup: () => {
-    if (!mounted) {
-      mountWizard(controller);
-      mounted = true;
-    }
-    void controller.initialise();
-  },
-  open: (request) => controller.open(request),
-  resolveClassType: (node) => controller.resolveClassType(node),
-  locale: () => controller.getSnapshot().locale
+  setup: () => {},
+  open,
+  resolveClassType: (node) => controller?.resolveClassType(node) ?? exactNodeClassType(node) ??
+    (typeof node.type === "string" && ["Reroute", "Note", "MarkdownNote", "PrimitiveNode"].includes(node.type) ? node.type : null),
+  locale: () => controller?.getSnapshot().locale ??
+    bridge.app.extensionManager?.setting?.get<string>("Comfy.Locale") ?? document.documentElement.lang ?? "ru"
 });

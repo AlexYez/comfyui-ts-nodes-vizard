@@ -13,6 +13,7 @@ import type {
   RuntimeNodeDefinition
 } from "../types/contracts";
 import { CatalogSearchIndex, type CatalogSearchResult } from "./search";
+import { BackgroundTask } from "./background";
 
 const localeFallbacks = (preferred: LocaleCode): string[] => [
   preferred,
@@ -49,7 +50,10 @@ export class CatalogRegistry {
   readonly #byClassType = new Map<string, CatalogArticle[]>();
   readonly #byAlias = new Map<string, CatalogArticle[]>();
   readonly #runtime = new Map<string, RuntimeNodeDefinition>();
-  readonly #search: CatalogSearchIndex;
+  #search?: CatalogSearchIndex;
+  #background?: BackgroundTask;
+  #indexReady?: Promise<unknown>;
+  #searchArticles?: Map<string, CatalogArticle>;
 
   constructor(
     catalog: CatalogDocument,
@@ -114,7 +118,6 @@ export class CatalogRegistry {
     for (const [classType, definition] of runtime) {
       this.#runtime.set(classType, definition);
     }
-    this.#search = new CatalogSearchIndex(this.#searchableArticles(catalog.locale));
   }
 
   get size(): number {
@@ -236,7 +239,44 @@ export class CatalogRegistry {
   }
 
   search(query: string, locale: LocaleCode, limit = 40): CatalogSearchResult[] {
+    this.#search ??= new CatalogSearchIndex(this.#searchableArticles(this.catalog.locale));
     return this.#search.search(query, locale, limit);
+  }
+
+  async searchAsync(query: string, locale: LocaleCode): Promise<CatalogSearchResult[]> {
+    if (!query.trim()) return [];
+    if (typeof Worker === "undefined") return this.search(query, locale);
+    if (!this.#background) {
+      this.#background = new BackgroundTask();
+      const articles = this.#searchableArticles(this.catalog.locale);
+      this.#searchArticles = new Map(articles.map((article) => [
+        `${article.manifest.articleId}\u0000${article.manifest.locale}`, article
+      ]));
+      this.#indexReady = this.#background.request("index", articles);
+    }
+    const background = this.#background;
+    const articles = this.#searchArticles;
+    try {
+      await this.#indexReady;
+      const matches = await background.request<Array<{ articleId: string; locale: string; score: number }>>(
+        "search", { query, locale }
+      );
+      return matches.flatMap((match) => {
+        const article = articles?.get(`${match.articleId}\u0000${match.locale}`);
+        return article ? [{ article, score: match.score }] : [];
+      });
+    } catch (error) {
+      if (this.#background === background) this.releaseSearch();
+      throw error;
+    }
+  }
+
+  releaseSearch(): void {
+    this.#background?.dispose();
+    this.#background = undefined;
+    this.#indexReady = undefined;
+    this.#searchArticles = undefined;
+    this.#search = undefined;
   }
 
   withRuntime(runtime: ReadonlyMap<string, RuntimeNodeDefinition>): CatalogRegistry {

@@ -3,6 +3,7 @@ import { catalogUrlCandidates } from "./locations";
 import { decodeCatalog, parseStoredCatalog } from "./schema";
 import type { CatalogStore, StoredCatalogRecord } from "./storage";
 import { compareCatalogVersions } from "./version";
+import { runBackground } from "./background";
 
 export interface CatalogLoadResult {
   catalog: CatalogDocument;
@@ -27,15 +28,17 @@ export class CatalogLoader {
     this.#urls = options.urls;
   }
 
-  async load(): Promise<CatalogLoadResult> {
+  async load(signal?: AbortSignal): Promise<CatalogLoadResult> {
     const warnings: string[] = [];
-    const cached = await this.#safeGetCached(warnings);
+    const cached = await this.#safeGetCached(warnings, signal);
+    signal?.throwIfAborted();
     const urls = this.#urls ?? catalogUrlCandidates();
     let bundled: CatalogDocument | null = null;
 
     for (const url of urls) {
       try {
         const response = await this.#fetch(url, {
+          signal,
           headers: { Accept: "application/json" },
           credentials: "same-origin"
         });
@@ -43,13 +46,17 @@ export class CatalogLoader {
           warnings.push(`${url}: HTTP ${response.status}`);
           continue;
         }
-        bundled = decodeCatalog(await response.json(), response.url || url);
+        bundled = typeof Worker !== "undefined"
+          ? await runBackground<CatalogDocument>("catalog", { text: await response.text(), url: response.url || url }, signal)
+          : decodeCatalog(await response.json(), response.url || url);
         break;
       } catch (error) {
+        signal?.throwIfAborted();
         warnings.push(`${url}: ${error instanceof Error ? error.message : String(error)}`);
       }
     }
 
+    signal?.throwIfAborted();
     if (!bundled && cached) {
       return { catalog: cached.catalog, source: "cache-fallback", warnings };
     }
@@ -81,11 +88,13 @@ export class CatalogLoader {
     return { catalog: bundled, source: "bundled", warnings };
   }
 
-  async #safeGetCached(warnings: string[]): Promise<StoredCatalogRecord | null> {
+  async #safeGetCached(warnings: string[], signal?: AbortSignal): Promise<StoredCatalogRecord | null> {
     try {
       const cached = await this.#store.getActive();
       if (!cached) return null;
-      const catalog = parseStoredCatalog(cached.catalog);
+      const catalog = typeof Worker !== "undefined"
+        ? await runBackground<CatalogDocument | null>("stored", cached.catalog, signal)
+        : parseStoredCatalog(cached.catalog);
       if (!catalog) {
         warnings.push("Catalog cache: invalid active snapshot ignored");
         return null;

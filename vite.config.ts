@@ -33,6 +33,8 @@ function rewriteComfyImports(mode: string): Plugin {
 }
 
 export default defineConfig(({ mode }) => ({
+  base: "./",
+  worker: { format: "es", rollupOptions: { output: { entryFileNames: "workers/[name]-[hash].mjs" } } },
   plugins: [react(), rewriteComfyImports(mode), copyCatalog()],
   build: {
     emptyOutDir: false,
@@ -46,9 +48,9 @@ export default defineConfig(({ mode }) => ({
       input: path.join(rootDir, "ui", "src", "main.tsx"),
       output: {
         entryFileNames: "nodes-wizard.js",
-        chunkFileNames: "chunks/[name]-[hash].js",
+        chunkFileNames: "chunks/[name]-[hash].mjs",
         assetFileNames: "assets/[name]-[hash][extname]",
-        inlineDynamicImports: true
+        inlineDynamicImports: false
       }
     }
   },

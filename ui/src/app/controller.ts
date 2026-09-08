@@ -1,6 +1,7 @@
 import { CatalogLoader } from "../catalog/loader";
 import { CatalogRegistry } from "../catalog/registry";
 import { parseStoredCatalog } from "../catalog/schema";
+import { runBackground } from "../catalog/background";
 import {
   ResilientCatalogStore,
   type CatalogStore,
@@ -149,6 +150,7 @@ export class WizardController {
   #runtime = new Map<string, import("../types/contracts").RuntimeNodeDefinition>();
   #pendingClassType?: string;
   #initialisePromise?: Promise<void>;
+  #initialiseController?: AbortController;
   #history: Array<{ type: "article" | "classType"; value: string }> = [];
   #historyIndex = -1;
   #snapshot: WizardSnapshot;
@@ -194,7 +196,8 @@ export class WizardController {
 
   async initialise(): Promise<void> {
     if (this.#initialisePromise) return this.#initialisePromise;
-    this.#initialisePromise = this.#doInitialise();
+    this.#initialiseController = new AbortController();
+    this.#initialisePromise = this.#doInitialise(this.#initialiseController.signal);
     return this.#initialisePromise;
   }
 
@@ -205,6 +208,17 @@ export class WizardController {
   }
 
   close(): void {
+    this.#snapshot.registry?.releaseSearch();
+    if (this.#snapshot.phase === "loading") {
+      this.#initialiseController?.abort();
+      this.#initialisePromise = undefined;
+      this.#set({ phase: "idle" });
+    }
+    if (this.#snapshot.update.status === "checking") {
+      this.#updateCheckGeneration += 1;
+      this.#updateCheckController?.abort();
+      this.#set({ update: { status: "idle" } });
+    }
     this.#set({ open: false });
   }
 
@@ -373,6 +387,7 @@ export class WizardController {
       updateConfirmationMessage(candidate, ru)
     ));
     if (!record) return;
+    this.#snapshot.registry?.releaseSearch();
     const registry = new CatalogRegistry(record.catalog, this.#runtime);
     const current = this.#snapshot.selected;
     const selected = current
@@ -472,7 +487,7 @@ export class WizardController {
     return null;
   }
 
-  async #doInitialise(): Promise<void> {
+  async #doInitialise(signal: AbortSignal): Promise<void> {
     this.#set({ phase: "loading", error: undefined });
     try {
       const loader = new CatalogLoader({
@@ -481,22 +496,23 @@ export class WizardController {
         fetch: this.#fetch
       });
       const [catalogResult, runtimeResult, versionResult] = await Promise.all([
-        loader.load(),
+        loader.load(signal),
         this.bridge
-          .fetchObjectInfo()
+          .fetchObjectInfo(signal)
           .then((runtime) => ({ runtime, warning: undefined }))
           .catch((error: unknown) => ({
             runtime: new Map(),
             warning: `/object_info: ${error instanceof Error ? error.message : String(error)}`
           })),
         this.bridge
-          .fetchSystemVersions()
+          .fetchSystemVersions(signal)
           .then((versions) => ({ versions, warning: undefined }))
           .catch((error: unknown) => ({
             versions: {} as { backend?: string; frontend?: string },
             warning: `/system_stats: ${error instanceof Error ? error.message : String(error)}`
           }))
       ]);
+      signal.throwIfAborted();
       const warnings = [...catalogResult.warnings];
       if (runtimeResult.warning) warnings.push(runtimeResult.warning);
       if (versionResult.warning) warnings.push(versionResult.warning);
@@ -523,6 +539,8 @@ export class WizardController {
       if (updateReady && updatesEnabled) {
         this.#updater = new CatalogUpdater(effectiveUpdateConfig, this.#store);
       }
+      const canRollback = await this.#hasValidPrevious(signal);
+      signal.throwIfAborted();
       this.#set({
         phase: "ready",
         registry,
@@ -534,7 +552,7 @@ export class WizardController {
         },
         updatesEnabled,
         updateConfigured: updateReady,
-        canRollback: await this.#hasValidPrevious(),
+        canRollback,
         update: !updatesEnabled
           ? { status: "disabled", detail: "Network update checks are disabled by the user." }
           : updateReady
@@ -551,6 +569,8 @@ export class WizardController {
         void this.checkForUpdates();
       }
     } catch (error) {
+      if (signal.aborted) return;
+      this.#initialisePromise = undefined;
       this.#set({
         phase: "error",
         error: error instanceof Error ? error.message : String(error)
@@ -562,6 +582,7 @@ export class WizardController {
     registry: CatalogRegistry;
     selected: ResolvedArticle | undefined;
   } {
+    this.#snapshot.registry?.releaseSearch();
     const registry = new CatalogRegistry(catalog, this.#runtime);
     const current = this.#snapshot.selected;
     const selected = current
@@ -576,19 +597,21 @@ export class WizardController {
     return { registry, selected };
   }
 
-  async #validPrevious(): Promise<StoredCatalogRecord | null> {
+  async #validPrevious(signal?: AbortSignal): Promise<StoredCatalogRecord | null> {
     try {
       const previous = await this.#store.getPrevious();
       if (!previous) return null;
-      const catalog = parseStoredCatalog(previous.catalog);
+      const catalog = typeof Worker !== "undefined"
+        ? await runBackground<CatalogDocument | null>("stored", previous.catalog, signal)
+        : parseStoredCatalog(previous.catalog);
       return catalog ? { ...previous, catalog } : null;
     } catch {
       return null;
     }
   }
 
-  async #hasValidPrevious(): Promise<boolean> {
-    return (await this.#validPrevious()) !== null;
+  async #hasValidPrevious(signal?: AbortSignal): Promise<boolean> {
+    return (await this.#validPrevious(signal)) !== null;
   }
 
   #resolvePending(): void {
