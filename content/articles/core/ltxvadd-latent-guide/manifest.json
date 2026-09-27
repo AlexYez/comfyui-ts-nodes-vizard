@@ -1,0 +1,72 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxvadd-latent-guide",
+  "kind": "core",
+  "locale": "ru",
+  "title": "LTXV Add Latent Guide: опора из уже закодированного фрагмента",
+  "summary": "Прикрепляет готовый video-latent как guide без обязательного промежуточного VAE decode/encode. Удобна, когда референс уже получен на предыдущем этапе генерации.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "LTXVAddLatentGuide",
+    "pythonModule": "comfy_extras.nodes_lt",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.ltxvgenerated-keyframes-to-guides",
+      "core.ltxvfreeze-latent"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/ltxv",
+    "LTXVAddLatentGuide"
+  ],
+  "searchAliases": [
+    "LTXVAddLatentGuide",
+    "LTXV Add Latent Guide",
+    "latent guide",
+    "add latent guide",
+    "guide latent"
+  ],
+  "concepts": [
+    "опора из уже закодированного фрагмента"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:a7856f4cf3b2163c3bca25d78fb4b15ee0103616393eb284e81914b564c83a00"
+  },
+  "sources": [
+    {
+      "sourceId": "core.ltxvadd-latent-guide-source",
+      "title": "LTXVAddLatentGuide: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_lt.py#L525-L646",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

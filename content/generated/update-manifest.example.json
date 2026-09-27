@@ -18,22 +18,22 @@
   "artifacts": [
     {
       "path": "generated/catalog.json",
-      "sha256": "a3ec9a0f1fecd470658acd7bfb1bcbdb8646a94bb8b1847c17dc5a926b82699f",
-      "size": 12567992,
+      "sha256": "a923b49243457840432b1a324c170a846460ec8b4ca99e658b14e416dc6e315f",
+      "size": 13153303,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog.json",
       "contentType": "application/json"
     },
     {
       "path": "generated/search-index.json",
-      "sha256": "d3c21b135b6714b52cf0a0c2e9a23ade5782f71a3731879e0d3c8f3395a59940",
-      "size": 6549561,
+      "sha256": "a12a8809c349ff3482968dd3700e5dc948daf59839a438a3abf92547a3dc0e0b",
+      "size": 6964125,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/search-index.json",
       "contentType": "application/json"
     },
     {
       "path": "generated/catalog-bundle.zip",
-      "sha256": "f5dcdac142d057eee0c4f2ec32bb38da07c104bafd6ffe91890e11c84360a1e9",
-      "size": 3734231,
+      "sha256": "2cf6825718dff5f34f622be07f9c94c76d3c5098be41e6eb5d6af72af067d7e2",
+      "size": 3909273,
       "url": "https://example.invalid/comfyui-ts-nodes-vizard/generated/catalog-bundle.zip",
       "contentType": "application/zip"
     }

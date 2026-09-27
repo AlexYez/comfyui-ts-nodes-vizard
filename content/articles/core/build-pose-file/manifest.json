@@ -1,0 +1,89 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.build-pose-file",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Create 3D Animation File: экспорт позы в GLB или BVH",
+  "summary": "Создаёт файл анимации из данных позы. GLB может содержать тело, визуализацию костей, OpenPose или SCAIL; BVH предназначен для переноса движения одного скелета.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "BuildPoseFile",
+    "pythonModule": "comfy_extras.nodes_sam3d_body",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.sam3-dbody-loader",
+      "core.sam3-dbody-predict",
+      "core.sam3-dbody-smooth",
+      "core.sam3-dbody-render"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d",
+    "BuildPoseFile"
+  ],
+  "searchAliases": [
+    "BuildPoseFile",
+    "Create 3D Animation File",
+    "pose animation",
+    "mocap",
+    "glb",
+    "bvh",
+    "build pose file",
+    "save pose file"
+  ],
+  "concepts": [
+    "экспорт позы в GLB или BVH"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:22ac315db1ad2f1493725a46f72e813ff182805d25d574dfdff97014cfcf3926"
+  },
+  "sources": [
+    {
+      "sourceId": "core.build-pose-file-source",
+      "title": "BuildPoseFile: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sam3d_body.py#L1105-L1458",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.build-pose-file-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

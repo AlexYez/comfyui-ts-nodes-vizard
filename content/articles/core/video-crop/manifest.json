@@ -1,0 +1,72 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.video-crop",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Video Crop: область кадра в ролике",
+  "summary": "Вырезает прямоугольную область из VIDEO и показывает результат в промежуточном превью. Используется, когда генератору или обработчику нужна только часть исходного кадра.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "VideoCrop",
+    "pythonModule": "comfy_extras.nodes_video",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": true,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.video-trim",
+      "core.concatenate-video"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "video",
+    "VideoCrop"
+  ],
+  "searchAliases": [
+    "VideoCrop",
+    "Crop Video",
+    "crop video",
+    "cut region",
+    "spatial crop"
+  ],
+  "concepts": [
+    "область кадра в ролике"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:c1b7e6cdf071b6cd44048a6cfabd45cd62ce242de60ae8fcc7c6c6cefe9abef0"
+  },
+  "sources": [
+    {
+      "sourceId": "core.video-crop-source",
+      "title": "VideoCrop: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_video.py#L528-L556",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

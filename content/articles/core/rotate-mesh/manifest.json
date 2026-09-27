@@ -1,0 +1,70 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.rotate-mesh",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Rotate Mesh: поворот геометрии",
+  "summary": "Поворачивает вершины сетки, её нормали и направления касательных. Текстуры и UV остаются привязаны к тем же вершинам; исходный объект не переписывается.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "RotateMesh",
+    "pythonModule": "comfy_extras.nodes_save_3d",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.get3-dcomponents",
+      "core.render-mesh",
+      "core.mesh-to-file3-d"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/mesh",
+    "RotateMesh"
+  ],
+  "searchAliases": [
+    "RotateMesh",
+    "Rotate Mesh"
+  ],
+  "concepts": [
+    "поворот геометрии"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:368181b8031141cd14851ed26889873caed7d0fd0914da7371073564b1647328"
+  },
+  "sources": [
+    {
+      "sourceId": "core.rotate-mesh-source",
+      "title": "RotateMesh: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_save_3d.py#L634-L735",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

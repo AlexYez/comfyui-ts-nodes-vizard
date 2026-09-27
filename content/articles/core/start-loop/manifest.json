@@ -1,0 +1,81 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.start-loop",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Start Loop: начало повторяемого участка графа",
+  "summary": "Задаёт цикл для группы нод: фиксированное число повторений, диапазон индексов или перебор списка. На каждой итерации выдаёт индекс, признаки первой и последней итерации и текущие данные.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "StartLoop",
+    "pythonModule": "comfy_extras.nodes_loop",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.end-loop",
+      "core.get-item-from-list"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "utilities/looping",
+    "StartLoop"
+  ],
+  "searchAliases": [
+    "StartLoop",
+    "Start Loop"
+  ],
+  "concepts": [
+    "начало повторяемого участка графа"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:3fc3c3b2a8156a8bded3103a5f45568794ff6dc70ef7fde3b05b38de196cb9d6"
+  },
+  "sources": [
+    {
+      "sourceId": "core.start-loop-source",
+      "title": "StartLoop: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_loop.py#L105-L237",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.start-loop-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

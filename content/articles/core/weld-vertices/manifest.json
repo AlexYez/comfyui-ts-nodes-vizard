@@ -1,0 +1,70 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.weld-vertices",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Weld Vertices: объединение совпадающих вершин",
+  "summary": "Объединяет близкие вершины по сеточной квантизации координат. Нужна перед операциями, которым важна общая граница соседних треугольников, например поиском отверстий.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "WeldVertices",
+    "pythonModule": "comfy_extras.nodes_mesh_postprocess",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.fill-holes",
+      "core.get-mesh-info",
+      "core.unwrap-mesh"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/mesh",
+    "WeldVertices"
+  ],
+  "searchAliases": [
+    "WeldVertices",
+    "Weld Vertices"
+  ],
+  "concepts": [
+    "объединение совпадающих вершин"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:aabd4a767bd06f6bcd36c73e1c7e39a6a02302dcb8007df25e3605e9b1f91b27"
+  },
+  "sources": [
+    {
+      "sourceId": "core.weld-vertices-source",
+      "title": "WeldVertices: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L3028-L3059",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

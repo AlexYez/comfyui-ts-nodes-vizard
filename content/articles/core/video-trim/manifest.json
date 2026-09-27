@@ -1,0 +1,73 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.video-trim",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Video Trim: временной фрагмент ролика",
+  "summary": "Оставляет выбранный временной отрезок VIDEO и показывает промежуточное превью. Нода меняет длительность, а не размер кадра.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "VideoTrim",
+    "pythonModule": "comfy_extras.nodes_video",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": true,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.video-crop",
+      "core.concatenate-video"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "video",
+    "VideoTrim"
+  ],
+  "searchAliases": [
+    "VideoTrim",
+    "Trim Video (Advanced)",
+    "trim video duration",
+    "skip first frames",
+    "cut video",
+    "start time"
+  ],
+  "concepts": [
+    "временной фрагмент ролика"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:0effa0fbcb1a1db85fddb60fe3133d9452c41b374e8e931452c4db7a99276482"
+  },
+  "sources": [
+    {
+      "sourceId": "core.video-trim-source",
+      "title": "VideoTrim: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_video.py#L491-L525",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

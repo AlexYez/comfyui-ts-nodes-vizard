@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.trellis2-texture-stage",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Trellis2 Texture Stage: подготовка материала по форме",
+  "summary": "Готовит разреженный latent и conditioning текстурного этапа Trellis2, сохраняя связь с уже полученной формой. Цвет и свойства материала ещё предстоит сгенерировать sampler.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "Trellis2TextureStage",
+    "pythonModule": "comfy_extras.nodes_trellis2",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.trellis2-shape-stage",
+      "core.vae-decode-shape-trellis",
+      "core.vae-decode-texture-trellis"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/trellis",
+    "Trellis2TextureStage"
+  ],
+  "searchAliases": [
+    "Trellis2TextureStage",
+    "Trellis2 Texture Stage"
+  ],
+  "concepts": [
+    "подготовка материала по форме"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:d65e3181639a3fd3288399e38859a95812a1664642a5b5a79a61aac1e4143906"
+  },
+  "sources": [
+    {
+      "sourceId": "core.trellis2-texture-stage-source",
+      "title": "Trellis2TextureStage: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L565-L624",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.trellis2-texture-stage-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import pathlib
 import tomllib
 import unittest
@@ -27,7 +28,10 @@ class PackageContractTests(unittest.TestCase):
             metadata = tomllib.load(stream)
 
         self.assertEqual(metadata["project"]["name"], "comfyui-ts-nodes-vizard")
-        self.assertEqual(metadata["project"]["version"], "0.3.0")
+        package = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
+        catalog = json.loads((ROOT / "content/catalog.manifest.json").read_text(encoding="utf-8"))
+        self.assertEqual(metadata["project"]["version"], package["version"])
+        self.assertEqual(metadata["project"]["version"], catalog["catalogVersion"])
         # Manager's StrictVersion parses each of the first three parts as int.
         # Keep editorial alpha status in the catalog, not in the Registry version.
         self.assertRegex(metadata["project"]["version"], r"^\d+\.\d+\.\d+$")

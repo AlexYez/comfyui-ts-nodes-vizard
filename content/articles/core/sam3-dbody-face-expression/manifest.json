@@ -1,0 +1,83 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sam3-dbody-face-expression",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Face Expression to SAM3D Body: мимика по исходным кадрам",
+  "summary": "Добавляет выражение лица к MHR-позе: распознаёт facial blendshapes, переводит их в параметры MHR и пересчитывает геометрию. Не заменяет восстановление тела через Predict.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "SAM3DBody_FaceExpression",
+    "pythonModule": "comfy_extras.nodes_sam3d_body",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.sam3-dbody-predict",
+      "core.sam3-dbody-smooth",
+      "core.sam3-dbody-render",
+      "core.build-pose-file"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "image/detection",
+    "SAM3DBody_FaceExpression"
+  ],
+  "searchAliases": [
+    "SAM3DBody_FaceExpression",
+    "Face Expression to SAM3D Body"
+  ],
+  "concepts": [
+    "мимика по исходным кадрам"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:15db851fadd418a15801dadecdc4dee8fc669b9141af4e89efe286f5775a9103"
+  },
+  "sources": [
+    {
+      "sourceId": "core.sam3-dbody-face-expression-source",
+      "title": "SAM3DBody_FaceExpression: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sam3d_body.py#L244-L431",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.sam3-dbody-face-expression-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

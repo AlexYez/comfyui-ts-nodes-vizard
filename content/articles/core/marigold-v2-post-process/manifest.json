@@ -1,0 +1,81 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.marigold-v2-post-process",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Marigold V2 Post Process: подготовка предсказанной карты",
+  "summary": "Приводит декодированное предсказание Marigold V2 к нужному виду: глубине, нормалям или albedo. Нода не запускает модель и не извлекает глубину из обычной фотографии сама.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "MarigoldV2PostProcess",
+    "pythonModule": "comfy_extras.nodes_marigold",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.image-color-space",
+      "core.mo-ge-geometry-to-fov"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "image/geometry estimation",
+    "MarigoldV2PostProcess"
+  ],
+  "searchAliases": [
+    "MarigoldV2PostProcess",
+    "Marigold V2 Post-Process"
+  ],
+  "concepts": [
+    "подготовка предсказанной карты"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:9afeac4e3a6aa0c9abb3ab3407467cd770bbe4043ddaec5115ce21ee1dabb8c8"
+  },
+  "sources": [
+    {
+      "sourceId": "core.marigold-v2-post-process-source",
+      "title": "MarigoldV2PostProcess: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_marigold.py#L9-L33",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.marigold-v2-post-process-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

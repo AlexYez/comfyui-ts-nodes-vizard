@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mesh-smooth-normals",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Smooth Mesh Normals: плавное и гранёное освещение",
+  "summary": "Вычисляет нормали вершин для плавного затенения сетки. Не сглаживает координаты поверхности: силуэт и мелкая геометрия от этой операции сами по себе не меняются.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "MeshSmoothNormals",
+    "pythonModule": "comfy_extras.nodes_mesh_postprocess",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.mesh-to-file3-d",
+      "core.bake-normal-map-from-mesh",
+      "core.get-mesh-info"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/mesh",
+    "MeshSmoothNormals"
+  ],
+  "searchAliases": [
+    "MeshSmoothNormals",
+    "Smooth Mesh Normals"
+  ],
+  "concepts": [
+    "плавное и гранёное освещение"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:76f03ca055696c4c13c69abe428f46a851091d7a4dbf653d1c5882439a99bd84"
+  },
+  "sources": [
+    {
+      "sourceId": "core.mesh-smooth-normals-source",
+      "title": "MeshSmoothNormals: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L3062-L3140",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.mesh-smooth-normals-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

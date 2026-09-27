@@ -1,0 +1,85 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mo-ge-geometry-to-fov",
+  "kind": "core",
+  "locale": "ru",
+  "title": "MoGe Geometry To FOV: угол обзора из оценки геометрии",
+  "summary": "Вычисляет поле зрения по intrinsics из данных MoGe. Позволяет согласовать предполагаемую камеру с последующей 3D-обработкой, например Pixal3D.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "MoGeGeometryToFOV",
+    "pythonModule": "comfy_extras.nodes_moge",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.pixal3-dconditioning"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "image/geometry estimation",
+    "MoGeGeometryToFOV"
+  ],
+  "searchAliases": [
+    "MoGeGeometryToFOV",
+    "Get FoV from MoGe Geometry",
+    "moge",
+    "fov",
+    "geometry",
+    "intrinsics",
+    "field of view"
+  ],
+  "concepts": [
+    "угол обзора из оценки геометрии"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:8749e307334ad81c2a01340654a7800bd02d4f6c4f2d02fa3144f5d843c88db4"
+  },
+  "sources": [
+    {
+      "sourceId": "core.mo-ge-geometry-to-fov-source",
+      "title": "MoGeGeometryToFOV: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_moge.py#L401-L445",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.mo-ge-geometry-to-fov-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

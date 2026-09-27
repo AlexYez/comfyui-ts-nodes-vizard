@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.render-uvatlas",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Render UV Atlas: просмотр UV-островов",
+  "summary": "Рисует двумерную раскладку UV сетки как IMAGE. Помогает осмотреть острова и упаковку перед запеканием, не создавая новую развёртку.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "RenderUVAtlas",
+    "pythonModule": "comfy_extras.nodes_mesh_postprocess",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.unwrap-mesh",
+      "core.render-mesh",
+      "core.apply-texture-to-mesh"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/texturing",
+    "RenderUVAtlas"
+  ],
+  "searchAliases": [
+    "RenderUVAtlas",
+    "Render UV Atlas"
+  ],
+  "concepts": [
+    "просмотр UV-островов"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:dd0894f2bb93bf41d2e40c1923d757f23d98555146c23579a17546408956d089"
+  },
+  "sources": [
+    {
+      "sourceId": "core.render-uvatlas-source",
+      "title": "RenderUVAtlas: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L2953-L2985",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.render-uvatlas-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

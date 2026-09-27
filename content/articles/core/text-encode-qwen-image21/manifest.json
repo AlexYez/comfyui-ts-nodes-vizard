@@ -1,0 +1,80 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.text-encode-qwen-image21",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Text Encode Qwen Image 2.1: текст и изображения для редактирования",
+  "summary": "Готовит positive, negative и начальный latent для Qwen Image 2.1 с необязательными изображениями-референсами. Согласует текстовое условие и размер будущего результата.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "TextEncodeQwenImage21",
+    "pythonModule": "comfy_extras.nodes_qwen",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.qwen-image21-cache"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/qwen image",
+    "TextEncodeQwenImage21"
+  ],
+  "searchAliases": [
+    "TextEncodeQwenImage21",
+    "Text Encode Qwen Image 2.1"
+  ],
+  "concepts": [
+    "текст и изображения для редактирования"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:5bdcc76a21ed2f2ef166b3b6c90721cb0185b9268e8cf8dbcef3994431f569e5"
+  },
+  "sources": [
+    {
+      "sourceId": "core.text-encode-qwen-image21-source",
+      "title": "TextEncodeQwenImage21: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_qwen.py#L111-L182",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.text-encode-qwen-image21-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

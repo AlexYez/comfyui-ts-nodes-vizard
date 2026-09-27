@@ -1,0 +1,83 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.vae-decode-shape-trellis",
+  "kind": "core",
+  "locale": "ru",
+  "title": "VAE Decode Shape Trellis: поверхность из разреженного latent",
+  "summary": "Декодирует sampled shape-latent в MESH и служебные SHAPE_SUBDIVIDES. Последние сохраняют структуру декодирования формы для согласованного получения текстурных вокселей.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "VaeDecodeShapeTrellis",
+    "pythonModule": "comfy_extras.nodes_trellis2",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.trellis2-shape-stage",
+      "core.vae-decode-texture-trellis",
+      "core.get-mesh-info",
+      "core.render-mesh"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/latent/trellis",
+    "VaeDecodeShapeTrellis"
+  ],
+  "searchAliases": [
+    "VaeDecodeShapeTrellis",
+    "Trellis2 VAE Decode Shape"
+  ],
+  "concepts": [
+    "поверхность из разреженного latent"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:9860abc3486a3f10b532df1230de1c0414a3b2cc8930c2b6587f20047bd87ed2"
+  },
+  "sources": [
+    {
+      "sourceId": "core.vae-decode-shape-trellis-source",
+      "title": "VaeDecodeShapeTrellis: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L116-L193",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.vae-decode-shape-trellis-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

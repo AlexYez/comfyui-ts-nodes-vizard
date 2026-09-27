@@ -1,0 +1,68 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-color-space",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Image Color Space: преобразование цвета SDR, HDR и linear",
+  "summary": "Пересчитывает значения RGB между поддерживаемыми цветовыми пространствами. Используется при согласовании изображений, линейных данных и HDR, а не для произвольного изменения насыщенности.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "ImageColorSpace",
+    "pythonModule": "comfy_extras.nodes_images",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.marigold-v2-post-process"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "image/color",
+    "ImageColorSpace"
+  ],
+  "searchAliases": [
+    "ImageColorSpace",
+    "Convert Image Color Space"
+  ],
+  "concepts": [
+    "преобразование цвета SDR, HDR и linear"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:f299a363a4bc3d2f7c7a1c646029efc1ac237ef745a171e0498b2e9cf4763567"
+  },
+  "sources": [
+    {
+      "sourceId": "core.image-color-space-source",
+      "title": "ImageColorSpace: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_images.py#L1111-L1179",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

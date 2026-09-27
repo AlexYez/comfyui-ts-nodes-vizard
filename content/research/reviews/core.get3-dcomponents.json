@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.get3-dcomponents",
+  "node": {
+    "classType": "Get3DComponents",
+    "pythonModule": "comfy_extras.nodes_mesh_io",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.37.0",
+    "frontend": "1.52.7",
+    "sourceCommit": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d",
+    "embeddedDocs": "0.5.12 (available; implementation is primary)",
+    "workflowTemplatesJson": "0.1.92"
+  },
+  "state": "source_reviewed",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.37.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_io.py#L67-L153",
+        "path": "comfy_extras/nodes_mesh_io.py",
+        "lines": "67-153"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": []
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": false,
+    "exampleSchemaValidated": false,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Human editorial approval pending",
+    "Full model workflow execution not performed",
+    "Worked example is explanatory, not an executable validated recipe",
+    "No direct occurrence in pinned official workflow templates"
+  ],
+  "updatedAt": "2026-09-27"
+}

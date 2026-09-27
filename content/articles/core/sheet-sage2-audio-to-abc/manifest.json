@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sheet-sage2-audio-to-abc",
+  "kind": "core",
+  "locale": "ru",
+  "title": "SheetSage2 Audio to ABC: нотный план из записи",
+  "summary": "Преобразует входное AUDIO в музыкальную запись ABC с помощью совместимого аудио-энкодера. Результат пригоден как нотное условие для YuE2, но не является новой звуковой дорожкой.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "SheetSage2AudioToABC",
+    "pythonModule": "comfy_extras.nodes_audio_encoder",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.yu-e2-generate-music",
+      "core.yu-e2-generate-abc",
+      "core.get-item-from-list"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/yue2",
+    "SheetSage2AudioToABC"
+  ],
+  "searchAliases": [
+    "SheetSage2AudioToABC",
+    "SheetSage2 Audio to ABC"
+  ],
+  "concepts": [
+    "нотный план из записи"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:71fa90d5bc6f5327906d0623868a9ec9ea3bb1934474569d83c81d42a6e0a721"
+  },
+  "sources": [
+    {
+      "sourceId": "core.sheet-sage2-audio-to-abc-source",
+      "title": "SheetSage2AudioToABC: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_audio_encoder.py#L53-L71",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.sheet-sage2-audio-to-abc-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

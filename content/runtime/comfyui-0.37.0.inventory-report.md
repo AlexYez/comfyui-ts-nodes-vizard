@@ -1,79 +1,16 @@
 # Nodes Wizard inventory report
 
 - Runtime nodes: 665
-- Backend articles: 601
-- Covered runtime nodes: 601
-- Coverage: 90.38%
-- Missing articles: 64
+- Backend articles: 665
+- Covered runtime nodes: 665
+- Coverage: 100.00%
+- Missing articles: 0
 - Articles without runtime node: 0
 - Stale articles: 31
 
 ## Missing articles
 
-- `ApplyTextureToMesh`
-- `BakeAmbientOcclusion`
-- `BakeNormalMapFromMesh`
-- `BakeTextureFromVoxel`
-- `BlockSparseAttention`
-- `BuildPoseFile`
-- `ConcatenateVideo`
-- `ConditioningLoader`
-- `DecimateMesh`
-- `EmptyMiniMaxMusic3LatentAudio`
-- `EmptyTrellis2LatentStructure`
-- `EmptyYuE2LatentAudio`
-- `EndLoop`
-- `FillHoles`
-- `Get3DComponents`
-- `GetItemFromList`
-- `GetMeshInfo`
-- `ImageColorSpace`
-- `ImageCropToMask`
-- `LTXVAddGeneratedKeyframes`
-- `LTXVAddLatentGuide`
-- `LTXVFreezeLatent`
-- `LTXVGeneratedKeyframesToGuides`
-- `LTXVSeparateGeneratedKeyframes`
-- `MarigoldV2PostProcess`
-- `MergeMeshes`
-- `MeshSmoothNormals`
-- `MeshTextureToImage`
-- `MeshToFile3D`
-- `MiniMaxH3AddGuide`
-- `MiniMaxH3FunControlNetApply`
-- `MiniMaxMusic3TextEncode`
-- `MoGeGeometryToFOV`
-- `PaintMesh`
-- `Pixal3DConditioning`
-- `Pixal3DMultiViewConditioning`
-- `QwenImage21Cache`
-- `RemeshMesh`
-- `RenderMesh`
-- `RenderUVAtlas`
-- `RotateMesh`
-- `SAM3DBody_FaceExpression`
-- `SAM3DBody_Loader`
-- `SAM3DBody_Predict`
-- `SAM3DBody_Render`
-- `SAM3DBody_Smooth`
-- `SaveConditioning`
-- `SenseNovaSamplingOptions`
-- `SheetSage2AudioToABC`
-- `StartLoop`
-- `TextEncodeQwenImage21`
-- `Trellis2Conditioning`
-- `Trellis2ShapeStage`
-- `Trellis2TextureStage`
-- `Trellis2UpsampleStage`
-- `UnwrapMesh`
-- `VaeDecodeShapeTrellis`
-- `VaeDecodeStructureTrellis2`
-- `VaeDecodeTextureTrellis`
-- `VideoCrop`
-- `VideoTrim`
-- `WeldVertices`
-- `YuE2GenerateABC`
-- `YuE2GenerateMusic`
+None.
 
 ## Articles without runtime node
 

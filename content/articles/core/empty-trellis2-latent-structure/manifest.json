@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.empty-trellis2-latent-structure",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Empty Trellis2 Latent Structure: заготовка объёма",
+  "summary": "Создаёт начальный latent структурного этапа Trellis2. На этом этапе модель определяет занятые области пространства; поверхности и текстуры появятся позже.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "EmptyTrellis2LatentStructure",
+    "pythonModule": "comfy_extras.nodes_trellis2",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.trellis2-conditioning",
+      "core.vae-decode-structure-trellis2",
+      "core.trellis2-shape-stage"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/latent/trellis",
+    "EmptyTrellis2LatentStructure"
+  ],
+  "searchAliases": [
+    "EmptyTrellis2LatentStructure",
+    "Empty Trellis2 Latent Structure"
+  ],
+  "concepts": [
+    "заготовка объёма"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:4300ca5648305afc598ad93fe895f9729522889bd23d1e29748d2f2ac320d2ef"
+  },
+  "sources": [
+    {
+      "sourceId": "core.empty-trellis2-latent-structure-source",
+      "title": "EmptyTrellis2LatentStructure: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L627-L646",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.empty-trellis2-latent-structure-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

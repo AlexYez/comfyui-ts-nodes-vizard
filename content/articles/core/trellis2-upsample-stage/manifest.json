@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.trellis2-upsample-stage",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Trellis2 Upsample Stage: переход к более подробной форме",
+  "summary": "Готовит разреженные координаты и conditioning для следующего, более высокого разрешения Trellis2. Это переход между этапами, а не законченный upscale поверхности одной нодой.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "Trellis2UpsampleStage",
+    "pythonModule": "comfy_extras.nodes_trellis2",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.trellis2-shape-stage",
+      "core.vae-decode-shape-trellis",
+      "core.trellis2-texture-stage"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/trellis",
+    "Trellis2UpsampleStage"
+  ],
+  "searchAliases": [
+    "Trellis2UpsampleStage",
+    "Trellis2 Upsample Stage"
+  ],
+  "concepts": [
+    "переход к более подробной форме"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:29271fbd4eeee0f723f93c5081535644892fb4929adbcbf692a8f1afc18d7fb0"
+  },
+  "sources": [
+    {
+      "sourceId": "core.trellis2-upsample-stage-source",
+      "title": "Trellis2UpsampleStage: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L315-L418",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.trellis2-upsample-stage-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

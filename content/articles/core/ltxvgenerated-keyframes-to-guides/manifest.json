@@ -1,0 +1,73 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxvgenerated-keyframes-to-guides",
+  "kind": "core",
+  "locale": "ru",
+  "title": "LTXV Generated Keyframes to Guides: закрепление кадров следующего этапа",
+  "summary": "Использует извлечённые generated keyframes как guides на новом video-latent. В отличие от повторного Add Generated Keyframes предназначена для закрепления ранее полученного содержания.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "LTXVGeneratedKeyframesToGuides",
+    "pythonModule": "comfy_extras.nodes_lt_keyframes",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.ltxvseparate-generated-keyframes",
+      "core.ltxvadd-generated-keyframes",
+      "core.ltxvadd-latent-guide"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/ltxv",
+    "LTXVGeneratedKeyframesToGuides"
+  ],
+  "searchAliases": [
+    "LTXVGeneratedKeyframesToGuides",
+    "LTXV Generated Keyframes to Guides",
+    "detailing",
+    "dfr",
+    "keyframe guides"
+  ],
+  "concepts": [
+    "закрепление кадров следующего этапа"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:25879dba3e8818e90659a3c6de9d6b31285ac7fca463537bc0d2e350c960f87a"
+  },
+  "sources": [
+    {
+      "sourceId": "core.ltxvgenerated-keyframes-to-guides-source",
+      "title": "LTXVGeneratedKeyframesToGuides: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_lt_keyframes.py#L779-L981",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

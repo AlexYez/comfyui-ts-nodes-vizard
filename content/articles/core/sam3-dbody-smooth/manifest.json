@@ -1,0 +1,83 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sam3-dbody-smooth",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Smooth SAM3D Body Pose Data: уменьшение дрожания позы",
+  "summary": "Сглаживает временные колебания параметров и геометрии MHR-позы. Полезна после предсказания видео, когда соседние кадры немного дрожат при плавном движении человека.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "SAM3DBody_Smooth",
+    "pythonModule": "comfy_extras.nodes_sam3d_body",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.sam3-dbody-predict",
+      "core.sam3-dbody-face-expression",
+      "core.sam3-dbody-render",
+      "core.build-pose-file"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "image/detection",
+    "SAM3DBody_Smooth"
+  ],
+  "searchAliases": [
+    "SAM3DBody_Smooth",
+    "Smooth SAM3D Body Pose Data"
+  ],
+  "concepts": [
+    "уменьшение дрожания позы"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:3e887ba843c45af8737d18b95f52b94762d38152911956c52a2f293c83c2761e"
+  },
+  "sources": [
+    {
+      "sourceId": "core.sam3-dbody-smooth-source",
+      "title": "SAM3DBody_Smooth: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sam3d_body.py#L434-L600",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.sam3-dbody-smooth-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

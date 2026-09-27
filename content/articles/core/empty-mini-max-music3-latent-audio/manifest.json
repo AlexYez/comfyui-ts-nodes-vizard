@@ -1,0 +1,81 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.empty-mini-max-music3-latent-audio",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Empty MiniMax Music 3 Latent Audio: заготовка звука",
+  "summary": "Создаёт пустой аудио-latent нужной длительности для MiniMax Music 3. Это начальная структура для sampler, а не тишина в формате AUDIO и не готовая музыка.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "EmptyMiniMaxMusic3LatentAudio",
+    "pythonModule": "comfy_extras.nodes_minimax_music",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.mini-max-music3-text-encode",
+      "core.empty-yu-e2-latent-audio"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/latent/minimax music",
+    "EmptyMiniMaxMusic3LatentAudio"
+  ],
+  "searchAliases": [
+    "EmptyMiniMaxMusic3LatentAudio",
+    "Empty MiniMax Music3 Latent Audio"
+  ],
+  "concepts": [
+    "заготовка звука"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:994dff1e192e6f157f54410961c417e9012250238a1ee226673bd7c9a0c3ab0c"
+  },
+  "sources": [
+    {
+      "sourceId": "core.empty-mini-max-music3-latent-audio-source",
+      "title": "EmptyMiniMaxMusic3LatentAudio: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_minimax_music.py#L44-L67",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.empty-mini-max-music3-latent-audio-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

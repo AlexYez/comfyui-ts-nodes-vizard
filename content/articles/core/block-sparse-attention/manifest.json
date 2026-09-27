@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.block-sparse-attention",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Block Sparse Attention: разреженное внимание совместимой модели",
+  "summary": "Подключает экспериментальное блочно-разреженное внимание к копии MODEL. Может сократить часть вычислений на длинных последовательностях, но требует подходящей модели, устройства и ядра.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "BlockSparseAttention",
+    "pythonModule": "comfy_extras.nodes_sparse_attention",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": true,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.mini-max-h3-fun-control-net-apply",
+      "core.qwen-image21-cache"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/patch",
+    "BlockSparseAttention"
+  ],
+  "searchAliases": [
+    "BlockSparseAttention",
+    "Model Sparse Attention",
+    "Block Sparse Attention"
+  ],
+  "concepts": [
+    "разреженное внимание совместимой модели"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:55cb7f325d14a2376b708dab20dda5f1ad4790dea6aba38c675d9c38eb90ff6c"
+  },
+  "sources": [
+    {
+      "sourceId": "core.block-sparse-attention-source",
+      "title": "BlockSparseAttention: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sparse_attention.py#L353-L430",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.block-sparse-attention-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

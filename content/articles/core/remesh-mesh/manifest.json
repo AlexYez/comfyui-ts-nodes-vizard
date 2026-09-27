@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.remesh-mesh",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Remesh Mesh: перестроение поверхности через поле расстояний",
+  "summary": "Заново извлекает поверхность сетки через narrow-band distance field и Dual Contouring. Это меняет топологию и плотность, а не только сокращает существующие треугольники.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "RemeshMesh",
+    "pythonModule": "comfy_extras.nodes_mesh_postprocess",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.decimate-mesh",
+      "core.unwrap-mesh",
+      "core.get-mesh-info"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/mesh",
+    "RemeshMesh"
+  ],
+  "searchAliases": [
+    "RemeshMesh",
+    "Remesh Mesh (Narrow-Band DC)"
+  ],
+  "concepts": [
+    "перестроение поверхности через поле расстояний"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:9fa38f20d99727f21e58bdb81893a2f24baef2fad3bc6cdc7725fefd9b91c003"
+  },
+  "sources": [
+    {
+      "sourceId": "core.remesh-mesh-source",
+      "title": "RemeshMesh: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L2373-L2486",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.remesh-mesh-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

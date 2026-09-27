@@ -1,0 +1,83 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.decimate-mesh",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Decimate Mesh: сокращение числа граней",
+  "summary": "Упрощает треугольную сетку до целевого числа граней методом квадратичной ошибки. Применяется, когда подробный результат генерации слишком тяжёл для последующих операций или экспорта.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "DecimateMesh",
+    "pythonModule": "comfy_extras.nodes_mesh_postprocess",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.get-mesh-info",
+      "core.remesh-mesh",
+      "core.unwrap-mesh",
+      "core.bake-normal-map-from-mesh"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/mesh",
+    "DecimateMesh"
+  ],
+  "searchAliases": [
+    "DecimateMesh",
+    "Decimate Mesh"
+  ],
+  "concepts": [
+    "сокращение числа граней"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:72f564fa611c06faf511d85a35fea25b943a73d4472827622529070d84a08874"
+  },
+  "sources": [
+    {
+      "sourceId": "core.decimate-mesh-source",
+      "title": "DecimateMesh: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L2289-L2370",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.decimate-mesh-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

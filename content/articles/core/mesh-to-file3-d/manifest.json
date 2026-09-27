@@ -1,0 +1,85 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mesh-to-file3-d",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Create 3D File: сериализация MESH в GLB",
+  "summary": "Преобразует MESH в объект FILE_3D с данными GLB. Сохраняет доступные UV, цвета, нормали и материал, чтобы сетку можно было показать или записать нодами работы с 3D-файлами.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "MeshToFile3D",
+    "pythonModule": "comfy_extras.nodes_save_3d",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.get3-dcomponents",
+      "core.apply-texture-to-mesh",
+      "core.get-mesh-info"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d",
+    "MeshToFile3D"
+  ],
+  "searchAliases": [
+    "MeshToFile3D",
+    "Create 3D File (from Mesh)",
+    "mesh to glb",
+    "mesh to file",
+    "export mesh"
+  ],
+  "concepts": [
+    "сериализация MESH в GLB"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:f5732b6313aeafff75607495ae564b94874d2c605c2d55dc764982257c900a3e"
+  },
+  "sources": [
+    {
+      "sourceId": "core.mesh-to-file3-d-source",
+      "title": "MeshToFile3D: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_save_3d.py#L608-L631",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.mesh-to-file3-d-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

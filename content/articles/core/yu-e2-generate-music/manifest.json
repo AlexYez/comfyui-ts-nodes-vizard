@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.yu-e2-generate-music",
+  "kind": "core",
+  "locale": "ru",
+  "title": "YuE2 Generate Music: conditioning по стилю, словам и ABC",
+  "summary": "Подготавливает музыкальное conditioning YuE2. Может опираться на нотный план ABC или работать без него; возвращает conditioning и фактическую длительность, а не AUDIO.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "YuE2GenerateMusic",
+    "pythonModule": "comfy_extras.nodes_yue2",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.yu-e2-generate-abc",
+      "core.empty-yu-e2-latent-audio",
+      "core.sheet-sage2-audio-to-abc"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/yue2",
+    "YuE2GenerateMusic"
+  ],
+  "searchAliases": [
+    "YuE2GenerateMusic",
+    "YuE2 Generate Music"
+  ],
+  "concepts": [
+    "conditioning по стилю, словам и ABC"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:96924d47f2c6c6ee9e7fbdb93c2016f88af07b97dcb14b54fe04924b2b18dd16"
+  },
+  "sources": [
+    {
+      "sourceId": "core.yu-e2-generate-music-source",
+      "title": "YuE2GenerateMusic: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_yue2.py#L41-L76",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.yu-e2-generate-music-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

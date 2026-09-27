@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.paint-mesh",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Paint Mesh: цвет вершин из вокселей",
+  "summary": "Назначает каждой вершине цвет ближайшего вокселя из VOXEL. Результат хранится в vertex_colors; UV-развёртка и двумерная текстура не создаются.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "PaintMesh",
+    "pythonModule": "comfy_extras.nodes_mesh_postprocess",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.vae-decode-texture-trellis",
+      "core.bake-texture-from-voxel",
+      "core.render-mesh"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/mesh",
+    "PaintMesh"
+  ],
+  "searchAliases": [
+    "PaintMesh",
+    "Paint Mesh"
+  ],
+  "concepts": [
+    "цвет вершин из вокселей"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:9318af87842b76d0e2fce419c8b1e9b7ef572a5f53de21f30060e7234d3a974f"
+  },
+  "sources": [
+    {
+      "sourceId": "core.paint-mesh-source",
+      "title": "PaintMesh: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L84-L142",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.paint-mesh-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

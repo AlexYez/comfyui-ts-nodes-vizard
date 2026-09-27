@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.pixal3-dmulti-view-conditioning",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Pixal3D MultiView Conditioning: согласованные ракурсы объекта",
+  "summary": "Собирает визуальное conditioning Pixal3D из одного или нескольких видов одного объекта. Ракурсы привязаны к фиксированным направлениям, а не определяются автоматически по изображениям.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "Pixal3DMultiViewConditioning",
+    "pythonModule": "comfy_extras.nodes_trellis2",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.pixal3-dconditioning",
+      "core.trellis2-shape-stage",
+      "core.trellis2-texture-stage"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/trellis",
+    "Pixal3DMultiViewConditioning"
+  ],
+  "searchAliases": [
+    "Pixal3DMultiViewConditioning",
+    "Pixal3D Multi-View Conditioning"
+  ],
+  "concepts": [
+    "согласованные ракурсы объекта"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:ed3ce1e937b0a9a8944f363a3a0ba0d39dcb3cad2970f9d4b8d188200d978783"
+  },
+  "sources": [
+    {
+      "sourceId": "core.pixal3-dmulti-view-conditioning-source",
+      "title": "Pixal3DMultiViewConditioning: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L821-L872",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.pixal3-dmulti-view-conditioning-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

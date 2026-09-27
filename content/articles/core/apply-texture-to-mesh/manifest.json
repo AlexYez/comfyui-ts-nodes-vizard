@@ -1,0 +1,83 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.apply-texture-to-mesh",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Apply Texture to Mesh: прикрепление карт материала",
+  "summary": "Прикрепляет изображения материала к MESH с готовыми UV. Обязателен base_color; металлическость, шероховатость, затенение и карта нормалей подключаются отдельно.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "ApplyTextureToMesh",
+    "pythonModule": "comfy_extras.nodes_mesh_postprocess",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.bake-texture-from-voxel",
+      "core.bake-ambient-occlusion",
+      "core.bake-normal-map-from-mesh",
+      "core.mesh-to-file3-d"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/texturing",
+    "ApplyTextureToMesh"
+  ],
+  "searchAliases": [
+    "ApplyTextureToMesh",
+    "Apply Texture to Mesh"
+  ],
+  "concepts": [
+    "прикрепление карт материала"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:a2f34fc82c363e6261ae4c85c1c2536d0974300d9e8fdd89474383965424f378"
+  },
+  "sources": [
+    {
+      "sourceId": "core.apply-texture-to-mesh-source",
+      "title": "ApplyTextureToMesh: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L1558-L1648",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.apply-texture-to-mesh-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

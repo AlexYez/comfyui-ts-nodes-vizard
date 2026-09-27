@@ -1,0 +1,80 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.conditioning-loader",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Load Conditioning: условия генерации из файла",
+  "summary": "Загружает сохранённое conditioning из safetensors в каталоге embeddings. Это повторное использование уже вычисленных условий, а не кодирование нового текста.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "ConditioningLoader",
+    "pythonModule": "comfy_extras.nodes_cond",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.save-conditioning"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/loaders",
+    "ConditioningLoader"
+  ],
+  "searchAliases": [
+    "ConditioningLoader",
+    "Load Conditioning"
+  ],
+  "concepts": [
+    "условия генерации из файла"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:844760fe1ee0fdc7f2bd8cf0c51a0e02628a846752bcc381a09f49a9a58885e0"
+  },
+  "sources": [
+    {
+      "sourceId": "core.conditioning-loader-source",
+      "title": "ConditioningLoader: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_cond.py#L67-L94",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.conditioning-loader-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

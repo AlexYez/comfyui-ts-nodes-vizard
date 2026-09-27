@@ -1,0 +1,81 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.end-loop",
+  "kind": "core",
+  "locale": "ru",
+  "title": "End Loop: результат и перенос данных между итерациями",
+  "summary": "Завершает штатный цикл ComfyUI и определяет, что вернуть наружу и что передать на следующий шаг. Выход оформляется как список, даже когда нужен только последний результат.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "EndLoop",
+    "pythonModule": "comfy_extras.nodes_loop",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.start-loop",
+      "core.get-item-from-list"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "utilities/looping",
+    "EndLoop"
+  ],
+  "searchAliases": [
+    "EndLoop",
+    "End Loop"
+  ],
+  "concepts": [
+    "результат и перенос данных между итерациями"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:da1a06ca6e7ab23b846dd2c5d66c3c5e55256df41851de5567e402421b3b9cea"
+  },
+  "sources": [
+    {
+      "sourceId": "core.end-loop-source",
+      "title": "EndLoop: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_loop.py#L339-L398",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.end-loop-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

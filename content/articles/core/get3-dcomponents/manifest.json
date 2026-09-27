@@ -1,0 +1,78 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.get3-dcomponents",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Get 3D Components: из файла в редактируемую сетку",
+  "summary": "Разбирает GLB, GLTF, OBJ или STL и возвращает MESH — геометрию, которую можно передать в ноды обработки сетки. Объекты сцены объединяются с учётом их преобразований.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "Get3DComponents",
+    "pythonModule": "comfy_extras.nodes_mesh_io",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": true,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.mesh-to-file3-d",
+      "core.get-mesh-info",
+      "core.decimate-mesh",
+      "core.mesh-smooth-normals"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d",
+    "Get3DComponents"
+  ],
+  "searchAliases": [
+    "Get3DComponents",
+    "Get 3D Components",
+    "file 3d to mesh",
+    "extract mesh",
+    "convert 3d",
+    "parse glb",
+    "import mesh",
+    "load mesh from file",
+    "file to mesh"
+  ],
+  "concepts": [
+    "из файла в редактируемую сетку"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:afc458dc5e2073fa4e6da4ea242d60608d731f7d6cae306392c71bcc4d64d27b"
+  },
+  "sources": [
+    {
+      "sourceId": "core.get3-dcomponents-source",
+      "title": "Get3DComponents: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_io.py#L67-L153",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

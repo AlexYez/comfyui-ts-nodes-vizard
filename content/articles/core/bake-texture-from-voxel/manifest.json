@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.bake-texture-from-voxel",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Bake Texture From Voxel: запекание PBR-карт",
+  "summary": "Переносит цвет и PBR-данные из разреженного поля вокселей на существующую UV-развёртку сетки. Возвращает три IMAGE: base_color, metallic и roughness.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "BakeTextureFromVoxel",
+    "pythonModule": "comfy_extras.nodes_mesh_postprocess",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.unwrap-mesh",
+      "core.apply-texture-to-mesh",
+      "core.vae-decode-texture-trellis"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/texturing",
+    "BakeTextureFromVoxel"
+  ],
+  "searchAliases": [
+    "BakeTextureFromVoxel",
+    "Bake Texture From Voxel"
+  ],
+  "concepts": [
+    "запекание PBR-карт"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:4342c6573647ea6f0db4af4b9a7729a6b87f4a8e313d822dcd0187414c0ac959"
+  },
+  "sources": [
+    {
+      "sourceId": "core.bake-texture-from-voxel-source",
+      "title": "BakeTextureFromVoxel: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L1383-L1497",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.bake-texture-from-voxel-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxvseparate-generated-keyframes",
+  "kind": "core",
+  "locale": "ru",
+  "title": "LTXV Separate Generated Keyframes: отделение кадров детализации",
+  "summary": "Извлекает служебные generated keyframes из sampled video-latent и удаляет их метаданные из conditioning. Возвращает отдельно основной ролик и ключевые кадры с записанными позициями.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "LTXVSeparateGeneratedKeyframes",
+    "pythonModule": "comfy_extras.nodes_lt_keyframes",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.ltxvadd-generated-keyframes",
+      "core.ltxvgenerated-keyframes-to-guides",
+      "core.ltxvadd-latent-guide"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/ltxv",
+    "LTXVSeparateGeneratedKeyframes"
+  ],
+  "searchAliases": [
+    "LTXVSeparateGeneratedKeyframes",
+    "LTXV Separate Generated Keyframes",
+    "detailing",
+    "dfr",
+    "peel keyframes"
+  ],
+  "concepts": [
+    "отделение кадров детализации"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:f00a1e76bfbab75d1c9e9d8621f50170afa2c620a0b253e6905cca4014a68288"
+  },
+  "sources": [
+    {
+      "sourceId": "core.ltxvseparate-generated-keyframes-source",
+      "title": "LTXVSeparateGeneratedKeyframes: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_lt_keyframes.py#L617-L776",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

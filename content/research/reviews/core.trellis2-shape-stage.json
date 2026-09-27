@@ -1,0 +1,55 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.trellis2-shape-stage",
+  "node": {
+    "classType": "Trellis2ShapeStage",
+    "pythonModule": "comfy_extras.nodes_trellis2",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.37.0",
+    "frontend": "1.52.7",
+    "sourceCommit": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d",
+    "embeddedDocs": "0.5.12 (available; implementation is primary)",
+    "workflowTemplatesJson": "0.1.92"
+  },
+  "state": "source_reviewed",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.37.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L497-L562",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "497-562"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "3d_pixal3d_multi_views",
+        "role": "Граф: main (root). Входящие связи: `Pixal3DMultiViewConditioning`, `VaeDecodeStructureTrellis2`. Исходящие связи: `KSampler`, `Trellis2UpsampleStage`."
+      },
+      {
+        "id": "3d_pixal3d_trellis2_image_to_model",
+        "role": "Граф: main (root). Входящие связи: `ComfySwitchNode`, `VaeDecodeStructureTrellis2`. Исходящие связи: `KSampler`, `Trellis2UpsampleStage`."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": false,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Human editorial approval pending",
+    "Full model workflow execution not performed",
+    "Worked example is explanatory, not an executable validated recipe"
+  ],
+  "updatedAt": "2026-09-27"
+}

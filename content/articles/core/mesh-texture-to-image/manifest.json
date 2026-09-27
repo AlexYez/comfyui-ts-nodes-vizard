@@ -1,0 +1,70 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mesh-texture-to-image",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Mesh Texture to Image: извлечение карт материала",
+  "summary": "Возвращает текстуры MESH отдельными IMAGE: основной цвет, металлическость, шероховатость, occlusion и normal_map. Удобна для просмотра и обработки уже прикреплённых карт.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "MeshTextureToImage",
+    "pythonModule": "comfy_extras.nodes_mesh_postprocess",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.apply-texture-to-mesh",
+      "core.paint-mesh",
+      "core.bake-texture-from-voxel"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/texturing",
+    "MeshTextureToImage"
+  ],
+  "searchAliases": [
+    "MeshTextureToImage",
+    "Mesh Texture to Image"
+  ],
+  "concepts": [
+    "извлечение карт материала"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:3ce8d8fc9662b79b66aa1906b08f77836603fb797558457d8e3aad8c9e0311e7"
+  },
+  "sources": [
+    {
+      "sourceId": "core.mesh-texture-to-image-source",
+      "title": "MeshTextureToImage: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L1500-L1555",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

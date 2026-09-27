@@ -1,0 +1,81 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mini-max-music3-text-encode",
+  "kind": "core",
+  "locale": "ru",
+  "title": "MiniMax Music 3 Text Encode: описание и слова песни",
+  "summary": "Создаёт музыкальное conditioning из описания звучания и текста песни. Внутри работает авторегрессионная часть MiniMax Music 3; на выходе ещё не готовая звуковая дорожка.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "MiniMaxMusic3TextEncode",
+    "pythonModule": "comfy_extras.nodes_minimax_music",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.empty-mini-max-music3-latent-audio",
+      "core.yu-e2-generate-music"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/minimax music",
+    "MiniMaxMusic3TextEncode"
+  ],
+  "searchAliases": [
+    "MiniMaxMusic3TextEncode",
+    "MiniMax Music3 Text Encode"
+  ],
+  "concepts": [
+    "описание и слова песни"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:6f60a197152896496a798ce23a1b55f5be4449fea78c61d9644946fe954e29d7"
+  },
+  "sources": [
+    {
+      "sourceId": "core.mini-max-music3-text-encode-source",
+      "title": "MiniMaxMusic3TextEncode: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_minimax_music.py#L10-L41",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.mini-max-music3-text-encode-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

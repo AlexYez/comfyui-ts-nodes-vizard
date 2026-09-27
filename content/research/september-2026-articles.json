@@ -1,0 +1,6163 @@
+{
+  "schemaVersion": "1.0",
+  "comfyui": "0.37.0",
+  "frontend": "1.52.7",
+  "sourceCommit": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d",
+  "inventorySha256": "30315be7700143006e35eb050696c1efb459691db5dac4d350d4441e6ca0efb6",
+  "workflowTemplatesJson": "0.1.92",
+  "workflowWheelSha256": "680dd90525faeeb41dbcd6724c6006513d607b7c3a418ab173fa850c83dc91b1",
+  "articles": {
+    "ApplyTextureToMesh": {
+      "articleId": "core.apply-texture-to-mesh",
+      "schemaHash": "sha256:a2f34fc82c363e6261ae4c85c1c2536d0974300d9e8fdd89474383965424f378",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L1558-L1648",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "1558-1648",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 5
+            },
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "MeshSmoothNormals",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 210,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 5
+            },
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "MeshSmoothNormals",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 210,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "BakeAmbientOcclusion": {
+      "articleId": "core.bake-ambient-occlusion",
+      "schemaHash": "sha256:ef234c85d642c2edc4c1feec0ca21a12fc7a552516810ee95cc80598838cf1e7",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L1732-L1807",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "1732-1807",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "RemeshMesh",
+              "links": 1
+            },
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 233,
+              "widgets": [
+                1024,
+                64,
+                0.71,
+                1,
+                0.01
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "RemeshMesh",
+              "links": 1
+            },
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 233,
+              "widgets": [
+                1024,
+                64,
+                0.71,
+                1,
+                0.01
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "BakeNormalMapFromMesh": {
+      "articleId": "core.bake-normal-map-from-mesh",
+      "schemaHash": "sha256:d2272192b16b6617c5a8e591b85d1f58bc9087dd5c3bf7f1636581f3a25cf91a",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L1651-L1729",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "1651-1729",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "RemeshMesh",
+              "links": 1
+            },
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 224,
+              "widgets": [
+                2048,
+                0.05,
+                true
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "RemeshMesh",
+              "links": 1
+            },
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 224,
+              "widgets": [
+                2048,
+                0.05,
+                true
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "BakeTextureFromVoxel": {
+      "articleId": "core.bake-texture-from-voxel",
+      "schemaHash": "sha256:4342c6573647ea6f0db4af4b9a7729a6b87f4a8e313d822dcd0187414c0ac959",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L1383-L1497",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "1383-1497",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "PrimitiveInt",
+              "links": 1
+            },
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            },
+            {
+              "classType": "VaeDecodeShapeTrellis",
+              "links": 1
+            },
+            {
+              "classType": "VaeDecodeTextureTrellis",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 3
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 147,
+              "widgets": [
+                2048
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "PrimitiveInt",
+              "links": 1
+            },
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            },
+            {
+              "classType": "VaeDecodeShapeTrellis",
+              "links": 1
+            },
+            {
+              "classType": "VaeDecodeTextureTrellis",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 3
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 147,
+              "widgets": [
+                2048
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "BlockSparseAttention": {
+      "articleId": "core.block-sparse-attention",
+      "schemaHash": "sha256:55cb7f325d14a2376b708dab20dda5f1ad4790dea6aba38c675d9c38eb90ff6c",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sparse_attention.py#L353-L430",
+        "path": "comfy_extras/nodes_sparse_attention.py",
+        "lines": "353-430",
+        "fileSha256": "de202f2b5eb753a5748e1c6452cdc10cdf28834ffd8f8bb6acfaf6f643de9692"
+      },
+      "workflows": [
+        {
+          "workflowId": "video_fastvideo_fasth3_i2v",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "First Last Frame to Video (FastVideo FastH3)",
+          "upstream": [
+            {
+              "classType": "ModelAttentionBackend",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BasicGuider",
+              "links": 1
+            },
+            {
+              "classType": "BasicScheduler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 127,
+              "widgets": [
+                "vsa",
+                10,
+                0.2,
+                1,
+                "",
+                12288,
+                256,
+                "exact_kv_and_rows",
+                false
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/video_fastvideo_fasth3_i2v.json",
+          "sha256": "sha256:20a49bf0346dd7af28b182b69ac4fab754d771955c77b18dc1fbee86a272c49f",
+          "nodeTypes": [
+            "4c314f31-ecda-4b08-ae98-faaba1bf613f",
+            "BasicGuider",
+            "BasicScheduler",
+            "BlockSparseAttention",
+            "CLIPLoader",
+            "ComfyMathExpression",
+            "CreateVideo",
+            "GetImageSize",
+            "ImageScaleToTotalPixels",
+            "KSamplerSelect",
+            "LoadImage",
+            "MarkdownNote",
+            "MiniMaxH3ImageToVideo",
+            "MiniMaxH3SigmaShift",
+            "ModelAttentionBackend",
+            "PrimitiveFloat",
+            "RandomNoise",
+            "SamplerCustomAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "VAEDecode",
+            "VAEDecodeAudio",
+            "VAELoader"
+          ],
+          "bytes": 67854
+        },
+        {
+          "workflowId": "video_fastvideo_fasth3_t2v",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "First Last Frame to Video (FastVideo FastH3)",
+          "upstream": [
+            {
+              "classType": "ModelAttentionBackend",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BasicGuider",
+              "links": 1
+            },
+            {
+              "classType": "BasicScheduler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 127,
+              "widgets": [
+                "vsa",
+                10,
+                0.2,
+                1,
+                "",
+                12288,
+                256,
+                "exact_kv_and_rows",
+                false
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/video_fastvideo_fasth3_t2v.json",
+          "sha256": "sha256:fdbd427725de816235a7217e6d55edd2d3a4208b8a2e7a3d4df6779c5cec7aa4",
+          "nodeTypes": [
+            "4c314f31-ecda-4b08-ae98-faaba1bf613f",
+            "BasicGuider",
+            "BasicScheduler",
+            "BlockSparseAttention",
+            "CLIPLoader",
+            "ComfyMathExpression",
+            "CreateVideo",
+            "KSamplerSelect",
+            "MarkdownNote",
+            "MiniMaxH3ImageToVideo",
+            "MiniMaxH3SigmaShift",
+            "ModelAttentionBackend",
+            "PrimitiveFloat",
+            "RandomNoise",
+            "ResolutionSelector",
+            "SamplerCustomAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "VAEDecode",
+            "VAEDecodeAudio",
+            "VAELoader"
+          ],
+          "bytes": 59478
+        }
+      ]
+    },
+    "BuildPoseFile": {
+      "articleId": "core.build-pose-file",
+      "schemaHash": "sha256:22ac315db1ad2f1493725a46f72e813ff182805d25d574dfdff97014cfcf3926",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sam3d_body.py#L1105-L1458",
+        "path": "comfy_extras/nodes_sam3d_body.py",
+        "lines": "1105-1458",
+        "fileSha256": "069eca90f8ddbca87f441219d4a00647746c18ffdb1249f78998b4e0d94f31ee"
+      },
+      "workflows": [
+        {
+          "workflowId": "utility_sam3d_body",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "SAM3DBody_Loader",
+              "links": 1
+            },
+            {
+              "classType": "SAM3DBody_Smooth",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "Save3DAdvanced",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 127,
+              "widgets": [
+                "glb",
+                "scail",
+                0.022,
+                0,
+                0.3,
+                false,
+                0.005,
+                0.003,
+                "full",
+                0,
+                24,
+                "off",
+                -1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/utility_sam3d_body.json",
+          "sha256": "sha256:9afd90a041273fa38eea23d4035ef0cf28d325e0a84003b7489175394b4e75a0",
+          "nodeTypes": [
+            "BuildPoseFile",
+            "CLIPTextEncode",
+            "CheckpointLoaderSimple",
+            "CreateVideo",
+            "GetVideoComponents",
+            "LoadMoGeModel",
+            "LoadVideo",
+            "MarkdownNote",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "Note",
+            "RTDETR_detect",
+            "SAM3DBody_FaceExpression",
+            "SAM3DBody_Loader",
+            "SAM3DBody_Predict",
+            "SAM3DBody_Render",
+            "SAM3DBody_Smooth",
+            "SAM3_VideoTrack",
+            "Save3DAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "Video Slice"
+          ],
+          "bytes": 33349
+        }
+      ]
+    },
+    "ConcatenateVideo": {
+      "articleId": "core.concatenate-video",
+      "schemaHash": "sha256:8127f4f9b7b7c297ca422aa9045c0a589a1dd3bf717e558f3ec9783a7054b3fa",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_video.py#L264-L306",
+        "path": "comfy_extras/nodes_video.py",
+        "lines": "264-306",
+        "fileSha256": "0d4b52774965c84f6ce8ba5bc37eb8eb7a5028a31a315ccb7aefc1cda30914ae"
+      },
+      "workflows": []
+    },
+    "ConditioningLoader": {
+      "articleId": "core.conditioning-loader",
+      "schemaHash": "sha256:844760fe1ee0fdc7f2bd8cf0c51a0e02628a846752bcc381a09f49a9a58885e0",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_cond.py#L67-L94",
+        "path": "comfy_extras/nodes_cond.py",
+        "lines": "67-94",
+        "fileSha256": "56344e64a20692a0f64521bf4de78c0a9c040e23c3499a00491b5243ca39f898"
+      },
+      "workflows": [
+        {
+          "workflowId": "image_marigold_v2_albedo_estimation",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Image Albedo Estimation (Marigold V2)",
+          "upstream": [
+            {
+              "classType": "SubgraphInput",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BasicGuider",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 9,
+              "widgets": [
+                "marigold_v2_albedo_conditioning.safetensors"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_marigold_v2_albedo_estimation.json",
+          "sha256": "sha256:11a0a600efc274c1312abbd1bbfe4852eafe3d504219bf0f4a782d5a265ece80",
+          "nodeTypes": [
+            "790255fa-100b-4dda-9ab5-e5e1731951db",
+            "BasicGuider",
+            "ConditioningLoader",
+            "DisableNoise",
+            "ImageCompare",
+            "KSamplerSelect",
+            "LoadImage",
+            "LoraLoaderModelOnly",
+            "ManualSigmas",
+            "MarigoldV2PostProcess",
+            "MarkdownNote",
+            "ModelSamplingAuraFlow",
+            "SamplerCustomAdvanced",
+            "SaveImageAdvanced",
+            "UNETLoader",
+            "VAEDecode",
+            "VAEEncode",
+            "VAELoader"
+          ],
+          "bytes": 34257
+        },
+        {
+          "workflowId": "image_marigold_v2_depth_estimation",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Image Depth Estimation (Marigold V2)",
+          "upstream": [
+            {
+              "classType": "SubgraphInput",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BasicGuider",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 9,
+              "widgets": [
+                "marigold_v2_depth_conditioning.safetensors"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_marigold_v2_depth_estimation.json",
+          "sha256": "sha256:2104cdd234ae579aa7ed5fa60c796ea30680b0100871d4f3cd898df80d319ce1",
+          "nodeTypes": [
+            "790255fa-100b-4dda-9ab5-e5e1731951db",
+            "BasicGuider",
+            "ConditioningLoader",
+            "DisableNoise",
+            "ImageCompare",
+            "KSamplerSelect",
+            "LoadImage",
+            "LoraLoaderModelOnly",
+            "ManualSigmas",
+            "MarigoldV2PostProcess",
+            "MarkdownNote",
+            "ModelSamplingAuraFlow",
+            "SamplerCustomAdvanced",
+            "SaveImageAdvanced",
+            "UNETLoader",
+            "VAEDecode",
+            "VAEEncode",
+            "VAELoader"
+          ],
+          "bytes": 34528
+        }
+      ]
+    },
+    "DecimateMesh": {
+      "articleId": "core.decimate-mesh",
+      "schemaHash": "sha256:72f564fa611c06faf511d85a35fea25b943a73d4472827622529070d84a08874",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L2289-L2370",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "2289-2370",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "RemeshMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "MeshSmoothNormals",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 186,
+              "widgets": [
+                700000,
+                "midpoint"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "RemeshMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "MeshSmoothNormals",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 186,
+              "widgets": [
+                700000,
+                "midpoint"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "EmptyMiniMaxMusic3LatentAudio": {
+      "articleId": "core.empty-mini-max-music3-latent-audio",
+      "schemaHash": "sha256:994dff1e192e6f157f54410961c417e9012250238a1ee226673bd7c9a0c3ab0c",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_minimax_music.py#L44-L67",
+        "path": "comfy_extras/nodes_minimax_music.py",
+        "lines": "44-67",
+        "fileSha256": "9092e677941bd4df4cae0ce2f535f9da5440dae8dfd0b72d9b755e49cfc84a97"
+      },
+      "workflows": [
+        {
+          "workflowId": "audio_minimax_music_3",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Text to Music (MiniMax Music 3)",
+          "upstream": [
+            {
+              "classType": "MiniMaxMusic3TextEncode",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 15,
+              "widgets": [
+                120,
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_minimax_music_3.json",
+          "sha256": "sha256:0322153265b3e785961511b7849f6659f46a8fa7e8cb66976e5279ff1774b228",
+          "nodeTypes": [
+            "CLIPLoader",
+            "ComfySwitchNode",
+            "ConditioningZeroOut",
+            "EmptyMiniMaxMusic3LatentAudio",
+            "KSampler",
+            "MarkdownNote",
+            "MiniMaxMusic3TextEncode",
+            "SaveAudioAdvanced",
+            "SeedNode",
+            "UNETLoader",
+            "VAEDecodeAudio",
+            "VAEDecodeAudioTiled",
+            "VAELoader",
+            "ac99f841-a3de-4329-9564-953b81cf9e16"
+          ],
+          "bytes": 32927
+        }
+      ]
+    },
+    "EmptyTrellis2LatentStructure": {
+      "articleId": "core.empty-trellis2-latent-structure",
+      "schemaHash": "sha256:4300ca5648305afc598ad93fe895f9729522889bd23d1e29748d2f2ac320d2ef",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L627-L646",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "627-646",
+        "fileSha256": "fc55a13cf2962136761ffc1becbc7d53fce243b310a5b54768671f08e76aa662"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 87,
+              "widgets": [
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 87,
+              "widgets": [
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "EmptyYuE2LatentAudio": {
+      "articleId": "core.empty-yu-e2-latent-audio",
+      "schemaHash": "sha256:578cf6a246f251385d0547cb0175e6b15ee699ea33d76a3d5f9a3939279fa631",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_yue2.py#L79-L97",
+        "path": "comfy_extras/nodes_yue2.py",
+        "lines": "79-97",
+        "fileSha256": "4eeab7b1bf75dc1b78bfe104a84b4f960aa835b907629d0449bc238159540ac3"
+      },
+      "workflows": [
+        {
+          "workflowId": "audio_yue2_music_cover",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Music Cover (YuE2)",
+          "upstream": [
+            {
+              "classType": "YuE2GenerateMusic",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 5,
+              "widgets": [
+                120,
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_yue2_music_cover.json",
+          "sha256": "sha256:10af34cf21bfdedbf7bf3535857d1ed211f9bcba7be18b02530c4c69243f0602",
+          "nodeTypes": [
+            "59dddde1-2d83-4b6e-9c71-1e5cb2d823d6",
+            "AudioEncoderLoader",
+            "CheckpointLoaderSimple",
+            "ConditioningZeroOut",
+            "EmptyYuE2LatentAudio",
+            "KSampler",
+            "LoadAudio",
+            "MarkdownNote",
+            "PreviewAny",
+            "SaveAudioAdvanced",
+            "SeedNode",
+            "SheetSage2AudioToABC",
+            "VAEDecodeAudio",
+            "YuE2GenerateMusic"
+          ],
+          "bytes": 39508
+        },
+        {
+          "workflowId": "audio_yue2_text2music",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Text to Music (YuE2)",
+          "upstream": [
+            {
+              "classType": "YuE2GenerateMusic",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 5,
+              "widgets": [
+                120,
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_yue2_text2music.json",
+          "sha256": "sha256:08100f87f1d7d3b3bc65b89b83af63f41a41116881eb5524040a054cf019577e",
+          "nodeTypes": [
+            "59dddde1-2d83-4b6e-9c71-1e5cb2d823d6",
+            "CheckpointLoaderSimple",
+            "ComfySwitchNode",
+            "ConditioningZeroOut",
+            "EmptyYuE2LatentAudio",
+            "KSampler",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveBoolean",
+            "PrimitiveString",
+            "PrimitiveStringMultiline",
+            "SaveAudioAdvanced",
+            "SeedNode",
+            "VAEDecodeAudio",
+            "YuE2GenerateABC",
+            "YuE2GenerateMusic"
+          ],
+          "bytes": 47408
+        }
+      ]
+    },
+    "EndLoop": {
+      "articleId": "core.end-loop",
+      "schemaHash": "sha256:da1a06ca6e7ab23b846dd2c5d66c3c5e55256df41851de5567e402421b3b9cea",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_loop.py#L339-L398",
+        "path": "comfy_extras/nodes_loop.py",
+        "lines": "339-398",
+        "fileSha256": "3868bf8e1e4cc0897c2792d0c4242d42f7e9a89b66a4dad7ae24f759eeb67f22"
+      },
+      "workflows": [
+        {
+          "workflowId": "video_wan_animate2",
+          "graphScope": "root/definitions/subgraphs/1",
+          "graphName": "Motion Transfer (Wan Animate 2)",
+          "upstream": [
+            {
+              "classType": "ComfySwitchNode",
+              "links": 1
+            },
+            {
+              "classType": "CreateList",
+              "links": 1
+            },
+            {
+              "classType": "WanAnimate2ToVideo",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "RebatchImages",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 647,
+              "widgets": [
+                true
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/video_wan_animate2.json",
+          "sha256": "sha256:f9907c332e7b2c48e9378797f8952ed90391efd6924a4ff162208d369fb52563",
+          "nodeTypes": [
+            "04554b7f-9d5a-4160-a710-20673bc4782d",
+            "79280513-53b2-4417-93f8-f3e116bb6736",
+            "BasicScheduler",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "CLIPVisionEncode",
+            "CLIPVisionLoader",
+            "ComfyMathExpression",
+            "ComfySwitchNode",
+            "ContextWindowsManual",
+            "CreateList",
+            "CreateVideo",
+            "EndLoop",
+            "GetImageSize",
+            "GetItemFromList",
+            "GetVideoComponents",
+            "ImageFromBatch",
+            "ImageStitch",
+            "KSamplerSelect",
+            "LoadImage",
+            "LoadVideo",
+            "LoraLoaderModelOnly",
+            "MarkdownNote",
+            "ModelSamplingSD3",
+            "PrimitiveInt",
+            "RebatchImages",
+            "ResizeImageMaskNode",
+            "SamplerCustom",
+            "SaveVideo",
+            "StartLoop",
+            "TrimVideoLatent",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader",
+            "WanAnimate2Cache",
+            "WanAnimate2ToVideo"
+          ],
+          "bytes": 164226
+        }
+      ]
+    },
+    "FillHoles": {
+      "articleId": "core.fill-holes",
+      "schemaHash": "sha256:961981c52d0942163619052d40a92df4501aafd04032666227f6ea0bf30eb905",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L2988-L3025",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "2988-3025",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": []
+    },
+    "Get3DComponents": {
+      "articleId": "core.get3-dcomponents",
+      "schemaHash": "sha256:afc458dc5e2073fa4e6da4ea242d60608d731f7d6cae306392c71bcc4d64d27b",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_io.py#L67-L153",
+        "path": "comfy_extras/nodes_mesh_io.py",
+        "lines": "67-153",
+        "fileSha256": "ead4c7f00bd34ee110cc18e5ebca6ed8da8f52eb005edf5753c3c4fd225a8391"
+      },
+      "workflows": []
+    },
+    "GetItemFromList": {
+      "articleId": "core.get-item-from-list",
+      "schemaHash": "sha256:c16fa02c181b3aa31595a10c77d8b22f882f4dfbf0ea39117569521c02a75df2",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_toolkit.py#L35-L52",
+        "path": "comfy_extras/nodes_toolkit.py",
+        "lines": "35-52",
+        "fileSha256": "210b6569b655d31f849a3259b284c71857fda404ea8deb6ad700513b8699046e"
+      },
+      "workflows": [
+        {
+          "workflowId": "video_wan_animate2",
+          "graphScope": "root/definitions/subgraphs/1",
+          "graphName": "Motion Transfer (Wan Animate 2)",
+          "upstream": [
+            {
+              "classType": "StartLoop",
+              "links": 2
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ComfySwitchNode",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 649,
+              "widgets": [
+                0
+              ]
+            },
+            {
+              "nodeId": 653,
+              "widgets": [
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/video_wan_animate2.json",
+          "sha256": "sha256:f9907c332e7b2c48e9378797f8952ed90391efd6924a4ff162208d369fb52563",
+          "nodeTypes": [
+            "04554b7f-9d5a-4160-a710-20673bc4782d",
+            "79280513-53b2-4417-93f8-f3e116bb6736",
+            "BasicScheduler",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "CLIPVisionEncode",
+            "CLIPVisionLoader",
+            "ComfyMathExpression",
+            "ComfySwitchNode",
+            "ContextWindowsManual",
+            "CreateList",
+            "CreateVideo",
+            "EndLoop",
+            "GetImageSize",
+            "GetItemFromList",
+            "GetVideoComponents",
+            "ImageFromBatch",
+            "ImageStitch",
+            "KSamplerSelect",
+            "LoadImage",
+            "LoadVideo",
+            "LoraLoaderModelOnly",
+            "MarkdownNote",
+            "ModelSamplingSD3",
+            "PrimitiveInt",
+            "RebatchImages",
+            "ResizeImageMaskNode",
+            "SamplerCustom",
+            "SaveVideo",
+            "StartLoop",
+            "TrimVideoLatent",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader",
+            "WanAnimate2Cache",
+            "WanAnimate2ToVideo"
+          ],
+          "bytes": 164226
+        }
+      ]
+    },
+    "GetMeshInfo": {
+      "articleId": "core.get-mesh-info",
+      "schemaHash": "sha256:193e2a80aaa5581e15c20b1ff5b342284f832c2d4232a1155e8400730379a657",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_save_3d.py#L810-L876",
+        "path": "comfy_extras/nodes_save_3d.py",
+        "lines": "810-876",
+        "fileSha256": "3ea6f2728e2514a182c3dc2aea232d6a910ab54e8db38198bfb290259f214330"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "VaeDecodeShapeTrellis",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "RemeshMesh",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 202,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "VaeDecodeShapeTrellis",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "RemeshMesh",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 202,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "ImageColorSpace": {
+      "articleId": "core.image-color-space",
+      "schemaHash": "sha256:f299a363a4bc3d2f7c7a1c646029efc1ac237ef745a171e0498b2e9cf4763567",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_images.py#L1111-L1179",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "1111-1179",
+        "fileSha256": "35f289727897b7bfe7fb04a4b9fe420b61bbd8b55227f92198b6dd34a9be5e51"
+      },
+      "workflows": []
+    },
+    "ImageCropToMask": {
+      "articleId": "core.image-crop-to-mask",
+      "schemaHash": "sha256:65d7ed924545cecbfaeb490ec577f5441d2891f0ee824daaa75fdcc249342ad3",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_images.py#L185-L236",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "185-236",
+        "fileSha256": "35f289727897b7bfe7fb04a4b9fe420b61bbd8b55227f92198b6dd34a9be5e51"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "ImageCropV2",
+              "links": 4
+            },
+            {
+              "classType": "RemoveBackground",
+              "links": 4
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "SaveImageAdvanced",
+              "links": 4
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 312,
+              "widgets": [
+                1024,
+                1024,
+                1.1,
+                0,
+                "#000000"
+              ]
+            },
+            {
+              "nodeId": 349,
+              "widgets": [
+                1024,
+                1024,
+                1.1,
+                0,
+                "#000000"
+              ]
+            },
+            {
+              "nodeId": 350,
+              "widgets": [
+                1024,
+                1024,
+                1.1,
+                0,
+                "#000000"
+              ]
+            },
+            {
+              "nodeId": 352,
+              "widgets": [
+                1024,
+                1024,
+                1.1,
+                0,
+                "#000000"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "LoadImage",
+              "links": 1
+            },
+            {
+              "classType": "MaskPreview",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 312,
+              "widgets": [
+                1024,
+                1024,
+                1.1,
+                0,
+                "#000000"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "LTXVAddGeneratedKeyframes": {
+      "articleId": "core.ltxvadd-generated-keyframes",
+      "schemaHash": "sha256:15204d0df372ed5b1f81747848410d023dce66b95ebb8045bb3e73a9469bb884",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_lt_keyframes.py#L304-L614",
+        "path": "comfy_extras/nodes_lt_keyframes.py",
+        "lines": "304-614",
+        "fileSha256": "020a5b04277e4aea3df5999fc022e5f631620fc207be21cea4c544e3bfe02394"
+      },
+      "workflows": []
+    },
+    "LTXVAddLatentGuide": {
+      "articleId": "core.ltxvadd-latent-guide",
+      "schemaHash": "sha256:a7856f4cf3b2163c3bca25d78fb4b15ee0103616393eb284e81914b564c83a00",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_lt.py#L525-L646",
+        "path": "comfy_extras/nodes_lt.py",
+        "lines": "525-646",
+        "fileSha256": "16424483d3b62cfff03dd5c06c52356693af1e22e204cdd3c48008321b610a00"
+      },
+      "workflows": []
+    },
+    "LTXVFreezeLatent": {
+      "articleId": "core.ltxvfreeze-latent",
+      "schemaHash": "sha256:a2a2a03aca7349737da5eba941216e47b08b49350a8f9168b25606e5591c4c44",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_lt_keyframes.py#L984-L1036",
+        "path": "comfy_extras/nodes_lt_keyframes.py",
+        "lines": "984-1036",
+        "fileSha256": "020a5b04277e4aea3df5999fc022e5f631620fc207be21cea4c544e3bfe02394"
+      },
+      "workflows": []
+    },
+    "LTXVGeneratedKeyframesToGuides": {
+      "articleId": "core.ltxvgenerated-keyframes-to-guides",
+      "schemaHash": "sha256:25879dba3e8818e90659a3c6de9d6b31285ac7fca463537bc0d2e350c960f87a",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_lt_keyframes.py#L779-L981",
+        "path": "comfy_extras/nodes_lt_keyframes.py",
+        "lines": "779-981",
+        "fileSha256": "020a5b04277e4aea3df5999fc022e5f631620fc207be21cea4c544e3bfe02394"
+      },
+      "workflows": []
+    },
+    "LTXVSeparateGeneratedKeyframes": {
+      "articleId": "core.ltxvseparate-generated-keyframes",
+      "schemaHash": "sha256:f00a1e76bfbab75d1c9e9d8621f50170afa2c620a0b253e6905cca4014a68288",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_lt_keyframes.py#L617-L776",
+        "path": "comfy_extras/nodes_lt_keyframes.py",
+        "lines": "617-776",
+        "fileSha256": "020a5b04277e4aea3df5999fc022e5f631620fc207be21cea4c544e3bfe02394"
+      },
+      "workflows": []
+    },
+    "MarigoldV2PostProcess": {
+      "articleId": "core.marigold-v2-post-process",
+      "schemaHash": "sha256:9afeac4e3a6aa0c9abb3ab3407467cd770bbe4043ddaec5115ce21ee1dabb8c8",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_marigold.py#L9-L33",
+        "path": "comfy_extras/nodes_marigold.py",
+        "lines": "9-33",
+        "fileSha256": "d792543da9eed525cbe31af004f13d74a6ab518890d3aa70b6c733764f0ad6a3"
+      },
+      "workflows": [
+        {
+          "workflowId": "image_marigold_v2_albedo_estimation",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Image Albedo Estimation (Marigold V2)",
+          "upstream": [
+            {
+              "classType": "SubgraphInput",
+              "links": 1
+            },
+            {
+              "classType": "VAEDecode",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "SubgraphOutput",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 17,
+              "widgets": [
+                "depth"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_marigold_v2_albedo_estimation.json",
+          "sha256": "sha256:11a0a600efc274c1312abbd1bbfe4852eafe3d504219bf0f4a782d5a265ece80",
+          "nodeTypes": [
+            "790255fa-100b-4dda-9ab5-e5e1731951db",
+            "BasicGuider",
+            "ConditioningLoader",
+            "DisableNoise",
+            "ImageCompare",
+            "KSamplerSelect",
+            "LoadImage",
+            "LoraLoaderModelOnly",
+            "ManualSigmas",
+            "MarigoldV2PostProcess",
+            "MarkdownNote",
+            "ModelSamplingAuraFlow",
+            "SamplerCustomAdvanced",
+            "SaveImageAdvanced",
+            "UNETLoader",
+            "VAEDecode",
+            "VAEEncode",
+            "VAELoader"
+          ],
+          "bytes": 34257
+        },
+        {
+          "workflowId": "image_marigold_v2_depth_estimation",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Image Depth Estimation (Marigold V2)",
+          "upstream": [
+            {
+              "classType": "SubgraphInput",
+              "links": 1
+            },
+            {
+              "classType": "VAEDecode",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "SubgraphOutput",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 17,
+              "widgets": [
+                "depth"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_marigold_v2_depth_estimation.json",
+          "sha256": "sha256:2104cdd234ae579aa7ed5fa60c796ea30680b0100871d4f3cd898df80d319ce1",
+          "nodeTypes": [
+            "790255fa-100b-4dda-9ab5-e5e1731951db",
+            "BasicGuider",
+            "ConditioningLoader",
+            "DisableNoise",
+            "ImageCompare",
+            "KSamplerSelect",
+            "LoadImage",
+            "LoraLoaderModelOnly",
+            "ManualSigmas",
+            "MarigoldV2PostProcess",
+            "MarkdownNote",
+            "ModelSamplingAuraFlow",
+            "SamplerCustomAdvanced",
+            "SaveImageAdvanced",
+            "UNETLoader",
+            "VAEDecode",
+            "VAEEncode",
+            "VAELoader"
+          ],
+          "bytes": 34528
+        }
+      ]
+    },
+    "MergeMeshes": {
+      "articleId": "core.merge-meshes",
+      "schemaHash": "sha256:a807bd3b1ee2adf685e66b248887ad254f1ac78b826cd4f9d6a64d0da71b7bfc",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_save_3d.py#L738-L807",
+        "path": "comfy_extras/nodes_save_3d.py",
+        "lines": "738-807",
+        "fileSha256": "3ea6f2728e2514a182c3dc2aea232d6a910ab54e8db38198bfb290259f214330"
+      },
+      "workflows": []
+    },
+    "MeshSmoothNormals": {
+      "articleId": "core.mesh-smooth-normals",
+      "schemaHash": "sha256:76f03ca055696c4c13c69abe428f46a851091d7a4dbf653d1c5882439a99bd84",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L3062-L3140",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "3062-3140",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "ApplyTextureToMesh",
+              "links": 1
+            },
+            {
+              "classType": "DecimateMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "MeshToFile3D",
+              "links": 1
+            },
+            {
+              "classType": "PaintMesh",
+              "links": 1
+            },
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 238,
+              "widgets": [
+                180
+              ]
+            },
+            {
+              "nodeId": 260,
+              "widgets": [
+                180
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "ApplyTextureToMesh",
+              "links": 1
+            },
+            {
+              "classType": "DecimateMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "MeshToFile3D",
+              "links": 1
+            },
+            {
+              "classType": "PaintMesh",
+              "links": 1
+            },
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 238,
+              "widgets": [
+                180
+              ]
+            },
+            {
+              "nodeId": 260,
+              "widgets": [
+                180
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "MeshTextureToImage": {
+      "articleId": "core.mesh-texture-to-image",
+      "schemaHash": "sha256:3ce8d8fc9662b79b66aa1906b08f77836603fb797558457d8e3aad8c9e0311e7",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L1500-L1555",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "1500-1555",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": []
+    },
+    "MeshToFile3D": {
+      "articleId": "core.mesh-to-file3-d",
+      "schemaHash": "sha256:f5732b6313aeafff75607495ae564b94874d2c605c2d55dc764982257c900a3e",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_save_3d.py#L608-L631",
+        "path": "comfy_extras/nodes_save_3d.py",
+        "lines": "608-631",
+        "fileSha256": "3ea6f2728e2514a182c3dc2aea232d6a910ab54e8db38198bfb290259f214330"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "MeshSmoothNormals",
+              "links": 1
+            },
+            {
+              "classType": "PaintMesh",
+              "links": 1
+            },
+            {
+              "classType": "VoxelToMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "Preview3DAdvanced",
+              "links": 2
+            },
+            {
+              "classType": "Save3DAdvanced",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 247,
+              "widgets": null
+            },
+            {
+              "nodeId": 282,
+              "widgets": null
+            },
+            {
+              "nodeId": 285,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "MeshSmoothNormals",
+              "links": 1
+            },
+            {
+              "classType": "PaintMesh",
+              "links": 1
+            },
+            {
+              "classType": "VoxelToMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "Preview3DAdvanced",
+              "links": 2
+            },
+            {
+              "classType": "Save3DAdvanced",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 247,
+              "widgets": null
+            },
+            {
+              "nodeId": 282,
+              "widgets": null
+            },
+            {
+              "nodeId": 285,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "MiniMaxH3AddGuide": {
+      "articleId": "core.mini-max-h3-add-guide",
+      "schemaHash": "sha256:dea9545ba2791e9c07ba13114ad78bfefab6207a3c355efe046b07af530fb427",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_minimax_h3.py#L165-L239",
+        "path": "comfy_extras/nodes_minimax_h3.py",
+        "lines": "165-239",
+        "fileSha256": "e652875d4ae8a7043d537a2ecc8a6dbc75dcb819a669e1806e9ef0510af143d0"
+      },
+      "workflows": [
+        {
+          "workflowId": "video_minimax_h3_multiframe_reference",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "ComfyMathExpression",
+              "links": 3
+            },
+            {
+              "classType": "LoadImage",
+              "links": 3
+            },
+            {
+              "classType": "MiniMaxH3AddGuide",
+              "links": 2
+            },
+            {
+              "classType": "MiniMaxH3ReferenceToVideo",
+              "links": 4
+            },
+            {
+              "classType": "VAELoader",
+              "links": 6
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BasicGuider",
+              "links": 1
+            },
+            {
+              "classType": "MiniMaxH3AddGuide",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 147,
+              "widgets": [
+                0
+              ]
+            },
+            {
+              "nodeId": 162,
+              "widgets": [
+                0
+              ]
+            },
+            {
+              "nodeId": 169,
+              "widgets": [
+                0
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/video_minimax_h3_multiframe_reference.json",
+          "sha256": "sha256:f6a30c36fbb1adedc9a0e141ff95b9cf043d08c15350591fab2ddf3a6a90a126",
+          "nodeTypes": [
+            "BasicGuider",
+            "BasicScheduler",
+            "CLIPLoader",
+            "ComfyMathExpression",
+            "ComfySwitchNode",
+            "CreateVideo",
+            "KSamplerSelect",
+            "LoadImage",
+            "LoraLoaderModelOnly",
+            "MarkdownNote",
+            "MiniMaxH3AddGuide",
+            "MiniMaxH3ReferenceToVideo",
+            "PrimitiveBoolean",
+            "PrimitiveFloat",
+            "PrimitiveInt",
+            "PrimitiveStringMultiline",
+            "RandomNoise",
+            "ResolutionSelector",
+            "SamplerCustomAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "VAEDecode",
+            "VAEDecodeAudio",
+            "VAELoader"
+          ],
+          "bytes": 75939
+        }
+      ]
+    },
+    "MiniMaxH3FunControlNetApply": {
+      "articleId": "core.mini-max-h3-fun-control-net-apply",
+      "schemaHash": "sha256:327265383bf044643f5510bdb328c5522b2b333baa94267a6fc384aa43cd547e",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_minimax_h3.py#L573-L615",
+        "path": "comfy_extras/nodes_minimax_h3.py",
+        "lines": "573-615",
+        "fileSha256": "e652875d4ae8a7043d537a2ecc8a6dbc75dcb819a669e1806e9ef0510af143d0"
+      },
+      "workflows": [
+        {
+          "workflowId": "video_minimax_h3_fun_controlnet_union",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "ComfySwitchNode",
+              "links": 1
+            },
+            {
+              "classType": "ModelPatchLoader",
+              "links": 1
+            },
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BasicGuider",
+              "links": 1
+            },
+            {
+              "classType": "BasicScheduler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 172,
+              "widgets": [
+                1,
+                0,
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/video_minimax_h3_fun_controlnet_union.json",
+          "sha256": "sha256:ec82867872aaf4c28901fafaf4e3fed3081e0c74c1968c34e4194878c5c0c0af",
+          "nodeTypes": [
+            "622cceeb-7ba3-4dd9-b0e8-00066c5222a4",
+            "BasicGuider",
+            "BasicScheduler",
+            "CLIPLoader",
+            "CheckpointLoaderSimple",
+            "ComfyMathExpression",
+            "ComfySwitchNode",
+            "CreateVideo",
+            "GetImageSize",
+            "GetVideoComponents",
+            "KSamplerSelect",
+            "LoadVideo",
+            "LoraLoaderModelOnly",
+            "MarkdownNote",
+            "MiniMaxH3FunControlNetApply",
+            "MiniMaxH3ReferenceToVideo",
+            "ModelPatchLoader",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveFloat",
+            "PrimitiveInt",
+            "PrimitiveStringMultiline",
+            "RTDETR_detect",
+            "RandomNoise",
+            "ResizeImageMaskNode",
+            "ResolutionSelector",
+            "SDPoseDrawKeypoints",
+            "SDPoseKeypointExtractor",
+            "SamplerCustomAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "VAEDecode",
+            "VAEDecodeAudio",
+            "VAELoader",
+            "Video Slice"
+          ],
+          "bytes": 90262
+        }
+      ]
+    },
+    "MiniMaxMusic3TextEncode": {
+      "articleId": "core.mini-max-music3-text-encode",
+      "schemaHash": "sha256:6f60a197152896496a798ce23a1b55f5be4449fea78c61d9644946fe954e29d7",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_minimax_music.py#L10-L41",
+        "path": "comfy_extras/nodes_minimax_music.py",
+        "lines": "10-41",
+        "fileSha256": "9092e677941bd4df4cae0ce2f535f9da5440dae8dfd0b72d9b755e49cfc84a97"
+      },
+      "workflows": [
+        {
+          "workflowId": "audio_minimax_music_3",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Text to Music (MiniMax Music 3)",
+          "upstream": [
+            {
+              "classType": "CLIPLoader",
+              "links": 1
+            },
+            {
+              "classType": "SeedNode",
+              "links": 1
+            },
+            {
+              "classType": "SubgraphInput",
+              "links": 3
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ConditioningZeroOut",
+              "links": 1
+            },
+            {
+              "classType": "EmptyMiniMaxMusic3LatentAudio",
+              "links": 1
+            },
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 13,
+              "widgets": [
+                "",
+                "",
+                222,
+                "fixed",
+                60,
+                1.7,
+                50
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_minimax_music_3.json",
+          "sha256": "sha256:0322153265b3e785961511b7849f6659f46a8fa7e8cb66976e5279ff1774b228",
+          "nodeTypes": [
+            "CLIPLoader",
+            "ComfySwitchNode",
+            "ConditioningZeroOut",
+            "EmptyMiniMaxMusic3LatentAudio",
+            "KSampler",
+            "MarkdownNote",
+            "MiniMaxMusic3TextEncode",
+            "SaveAudioAdvanced",
+            "SeedNode",
+            "UNETLoader",
+            "VAEDecodeAudio",
+            "VAEDecodeAudioTiled",
+            "VAELoader",
+            "ac99f841-a3de-4329-9564-953b81cf9e16"
+          ],
+          "bytes": 32927
+        }
+      ]
+    },
+    "MoGeGeometryToFOV": {
+      "articleId": "core.mo-ge-geometry-to-fov",
+      "schemaHash": "sha256:8749e307334ad81c2a01340654a7800bd02d4f6c4f2d02fa3144f5d843c88db4",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_moge.py#L401-L445",
+        "path": "comfy_extras/nodes_moge.py",
+        "lines": "401-445",
+        "fileSha256": "2727baf40f2616acb543a4d8738ea9ec7ea1a4397d309d68060ade1126041779"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "MoGeInference",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "Pixal3DConditioning",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 242,
+              "widgets": [
+                "horizontal",
+                "degrees"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        },
+        {
+          "workflowId": "utility_sam3d_body",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "MoGeInference",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "SAM3DBody_Predict",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 126,
+              "widgets": [
+                "vertical",
+                "degrees"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/utility_sam3d_body.json",
+          "sha256": "sha256:9afd90a041273fa38eea23d4035ef0cf28d325e0a84003b7489175394b4e75a0",
+          "nodeTypes": [
+            "BuildPoseFile",
+            "CLIPTextEncode",
+            "CheckpointLoaderSimple",
+            "CreateVideo",
+            "GetVideoComponents",
+            "LoadMoGeModel",
+            "LoadVideo",
+            "MarkdownNote",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "Note",
+            "RTDETR_detect",
+            "SAM3DBody_FaceExpression",
+            "SAM3DBody_Loader",
+            "SAM3DBody_Predict",
+            "SAM3DBody_Render",
+            "SAM3DBody_Smooth",
+            "SAM3_VideoTrack",
+            "Save3DAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "Video Slice"
+          ],
+          "bytes": 33349
+        }
+      ]
+    },
+    "PaintMesh": {
+      "articleId": "core.paint-mesh",
+      "schemaHash": "sha256:9318af87842b76d0e2fce419c8b1e9b7ef572a5f53de21f30060e7234d3a974f",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L84-L142",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "84-142",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "MeshSmoothNormals",
+              "links": 1
+            },
+            {
+              "classType": "VaeDecodeTextureTrellis",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "MeshToFile3D",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 252,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "MeshSmoothNormals",
+              "links": 1
+            },
+            {
+              "classType": "VaeDecodeTextureTrellis",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "MeshToFile3D",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 252,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "Pixal3DConditioning": {
+      "articleId": "core.pixal3-dconditioning",
+      "schemaHash": "sha256:b399606046ddf91e83a67d0c2c974dcdd0a34aca3f157e6e9fdbe820a53e1719",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L768-L802",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "768-802",
+        "fileSha256": "fc55a13cf2962136761ffc1becbc7d53fce243b310a5b54768671f08e76aa662"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CLIPVisionLoader",
+              "links": 1
+            },
+            {
+              "classType": "MoGeGeometryToFOV",
+              "links": 1
+            },
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ComfySwitchNode",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 298,
+              "widgets": [
+                49.13
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "Pixal3DMultiViewConditioning": {
+      "articleId": "core.pixal3-dmulti-view-conditioning",
+      "schemaHash": "sha256:ed3ce1e937b0a9a8944f363a3a0ba0d39dcb3cad2970f9d4b8d188200d978783",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L821-L872",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "821-872",
+        "fileSha256": "fc55a13cf2962136761ffc1becbc7d53fce243b310a5b54768671f08e76aa662"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CLIPVisionLoader",
+              "links": 1
+            },
+            {
+              "classType": "SaveImageAdvanced",
+              "links": 4
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 2
+            },
+            {
+              "classType": "Trellis2ShapeStage",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 324,
+              "widgets": [
+                20
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        }
+      ]
+    },
+    "QwenImage21Cache": {
+      "articleId": "core.qwen-image21-cache",
+      "schemaHash": "sha256:fb5d3adb1be303d80cde894eaaa20cf6528588b0530e621906556d7e446741e7",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_qwen.py#L185-L210",
+        "path": "comfy_extras/nodes_qwen.py",
+        "lines": "185-210",
+        "fileSha256": "61a5e27f90bb786cd4f6e76ee86920582ffef2ee3e65cde7b2278c7171c559e8"
+      },
+      "workflows": [
+        {
+          "workflowId": "image_qwen_image_2_1_background_removal",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Image Edit (Qwen Image 2.1)",
+          "upstream": [
+            {
+              "classType": "SubgraphInput",
+              "links": 2
+            },
+            {
+              "classType": "UNETLoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 469,
+              "widgets": [
+                "auto",
+                "default"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_qwen_image_2_1_background_removal.json",
+          "sha256": "sha256:642e700e358fd47911d35f61c545945821fd516c898b793e9f58f5a92439aa72",
+          "nodeTypes": [
+            "CLIPLoader",
+            "ComfySwitchNode",
+            "EmptyLatentImage",
+            "ImageCompare",
+            "KSampler",
+            "LoadImage",
+            "MarkdownNote",
+            "QwenImage21Cache",
+            "SaveImageAdvanced",
+            "TextEncodeQwenImage21",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader",
+            "bc1c967a-7f6a-4be9-a372-dad16e4f28e3"
+          ],
+          "bytes": 51562
+        },
+        {
+          "workflowId": "image_qwen_image_2_1_image_edit",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Image Edit (Qwen Image 2.1)",
+          "upstream": [
+            {
+              "classType": "SubgraphInput",
+              "links": 2
+            },
+            {
+              "classType": "UNETLoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 469,
+              "widgets": [
+                "auto",
+                "default"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_qwen_image_2_1_image_edit.json",
+          "sha256": "sha256:d6dd8695469c20ca5e77b4bddf981b898ee0e034f0cfc5840c86f15b812ca081",
+          "nodeTypes": [
+            "CLIPLoader",
+            "ComfySwitchNode",
+            "EmptyLatentImage",
+            "ImageCompare",
+            "KSampler",
+            "LoadImage",
+            "MarkdownNote",
+            "QwenImage21Cache",
+            "ResolutionSelector",
+            "SaveImageAdvanced",
+            "TextEncodeQwenImage21",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader",
+            "bc1c967a-7f6a-4be9-a372-dad16e4f28e3"
+          ],
+          "bytes": 54962
+        }
+      ]
+    },
+    "RemeshMesh": {
+      "articleId": "core.remesh-mesh",
+      "schemaHash": "sha256:9fa38f20d99727f21e58bdb81893a2f24baef2fad3bc6cdc7725fefd9b91c003",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L2373-L2486",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "2373-2486",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "GetMeshInfo",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BakeAmbientOcclusion",
+              "links": 1
+            },
+            {
+              "classType": "BakeNormalMapFromMesh",
+              "links": 1
+            },
+            {
+              "classType": "DecimateMesh",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 241,
+              "widgets": [
+                768,
+                "udf",
+                false,
+                false,
+                false,
+                1,
+                0,
+                false,
+                20,
+                0.01,
+                20000000
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "GetMeshInfo",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BakeAmbientOcclusion",
+              "links": 1
+            },
+            {
+              "classType": "BakeNormalMapFromMesh",
+              "links": 1
+            },
+            {
+              "classType": "DecimateMesh",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 241,
+              "widgets": [
+                768,
+                "udf",
+                false,
+                false,
+                false,
+                1,
+                0,
+                false,
+                20,
+                0.01,
+                20000000
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "RenderMesh": {
+      "articleId": "core.render-mesh",
+      "schemaHash": "sha256:7f205d52526d00820edd2ed977562247d6c4fecfa3d16b022f005f12ee4fcd37",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L1810-L1920",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "1810-1920",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": []
+    },
+    "RenderUVAtlas": {
+      "articleId": "core.render-uvatlas",
+      "schemaHash": "sha256:dd0894f2bb93bf41d2e40c1923d757f23d98555146c23579a17546408956d089",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L2953-L2985",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "2953-2985",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 261,
+              "widgets": [
+                1024
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "UnwrapMesh",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 261,
+              "widgets": [
+                1024
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "RotateMesh": {
+      "articleId": "core.rotate-mesh",
+      "schemaHash": "sha256:368181b8031141cd14851ed26889873caed7d0fd0914da7371073564b1647328",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_save_3d.py#L634-L735",
+        "path": "comfy_extras/nodes_save_3d.py",
+        "lines": "634-735",
+        "fileSha256": "3ea6f2728e2514a182c3dc2aea232d6a910ab54e8db38198bfb290259f214330"
+      },
+      "workflows": []
+    },
+    "SAM3DBody_FaceExpression": {
+      "articleId": "core.sam3-dbody-face-expression",
+      "schemaHash": "sha256:15db851fadd418a15801dadecdc4dee8fc669b9141af4e89efe286f5775a9103",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sam3d_body.py#L244-L431",
+        "path": "comfy_extras/nodes_sam3d_body.py",
+        "lines": "244-431",
+        "fileSha256": "069eca90f8ddbca87f441219d4a00647746c18ffdb1249f78998b4e0d94f31ee"
+      },
+      "workflows": [
+        {
+          "workflowId": "utility_sam3d_body",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "GetVideoComponents",
+              "links": 1
+            },
+            {
+              "classType": "SAM3DBody_Loader",
+              "links": 1
+            },
+            {
+              "classType": "SAM3DBody_Predict",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "SAM3DBody_Smooth",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 128,
+              "widgets": [
+                1,
+                1,
+                2,
+                2,
+                0.02,
+                7
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/utility_sam3d_body.json",
+          "sha256": "sha256:9afd90a041273fa38eea23d4035ef0cf28d325e0a84003b7489175394b4e75a0",
+          "nodeTypes": [
+            "BuildPoseFile",
+            "CLIPTextEncode",
+            "CheckpointLoaderSimple",
+            "CreateVideo",
+            "GetVideoComponents",
+            "LoadMoGeModel",
+            "LoadVideo",
+            "MarkdownNote",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "Note",
+            "RTDETR_detect",
+            "SAM3DBody_FaceExpression",
+            "SAM3DBody_Loader",
+            "SAM3DBody_Predict",
+            "SAM3DBody_Render",
+            "SAM3DBody_Smooth",
+            "SAM3_VideoTrack",
+            "Save3DAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "Video Slice"
+          ],
+          "bytes": 33349
+        }
+      ]
+    },
+    "SAM3DBody_Loader": {
+      "articleId": "core.sam3-dbody-loader",
+      "schemaHash": "sha256:c8411acf5190f4a1bdca8dfc6e6094921bf41cde839425b4a7c742b915481710",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sam3d_body.py#L47-L100",
+        "path": "comfy_extras/nodes_sam3d_body.py",
+        "lines": "47-100",
+        "fileSha256": "069eca90f8ddbca87f441219d4a00647746c18ffdb1249f78998b4e0d94f31ee"
+      },
+      "workflows": [
+        {
+          "workflowId": "utility_sam3d_body",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [],
+          "downstream": [
+            {
+              "classType": "BuildPoseFile",
+              "links": 1
+            },
+            {
+              "classType": "SAM3DBody_FaceExpression",
+              "links": 1
+            },
+            {
+              "classType": "SAM3DBody_Predict",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 119,
+              "widgets": [
+                "sam_3d_body_dinov3_bf16.safetensors"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/utility_sam3d_body.json",
+          "sha256": "sha256:9afd90a041273fa38eea23d4035ef0cf28d325e0a84003b7489175394b4e75a0",
+          "nodeTypes": [
+            "BuildPoseFile",
+            "CLIPTextEncode",
+            "CheckpointLoaderSimple",
+            "CreateVideo",
+            "GetVideoComponents",
+            "LoadMoGeModel",
+            "LoadVideo",
+            "MarkdownNote",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "Note",
+            "RTDETR_detect",
+            "SAM3DBody_FaceExpression",
+            "SAM3DBody_Loader",
+            "SAM3DBody_Predict",
+            "SAM3DBody_Render",
+            "SAM3DBody_Smooth",
+            "SAM3_VideoTrack",
+            "Save3DAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "Video Slice"
+          ],
+          "bytes": 33349
+        }
+      ]
+    },
+    "SAM3DBody_Predict": {
+      "articleId": "core.sam3-dbody-predict",
+      "schemaHash": "sha256:06920df4ebb5426b4a28f5e820ea72bbccb1dff27d8a921a70137de95d716451",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sam3d_body.py#L130-L241",
+        "path": "comfy_extras/nodes_sam3d_body.py",
+        "lines": "130-241",
+        "fileSha256": "069eca90f8ddbca87f441219d4a00647746c18ffdb1249f78998b4e0d94f31ee"
+      },
+      "workflows": [
+        {
+          "workflowId": "utility_sam3d_body",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "GetVideoComponents",
+              "links": 1
+            },
+            {
+              "classType": "MoGeGeometryToFOV",
+              "links": 1
+            },
+            {
+              "classType": "RTDETR_detect",
+              "links": 1
+            },
+            {
+              "classType": "SAM3DBody_Loader",
+              "links": 1
+            },
+            {
+              "classType": "SAM3_VideoTrack",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "SAM3DBody_FaceExpression",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 129,
+              "widgets": [
+                true,
+                0,
+                64
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/utility_sam3d_body.json",
+          "sha256": "sha256:9afd90a041273fa38eea23d4035ef0cf28d325e0a84003b7489175394b4e75a0",
+          "nodeTypes": [
+            "BuildPoseFile",
+            "CLIPTextEncode",
+            "CheckpointLoaderSimple",
+            "CreateVideo",
+            "GetVideoComponents",
+            "LoadMoGeModel",
+            "LoadVideo",
+            "MarkdownNote",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "Note",
+            "RTDETR_detect",
+            "SAM3DBody_FaceExpression",
+            "SAM3DBody_Loader",
+            "SAM3DBody_Predict",
+            "SAM3DBody_Render",
+            "SAM3DBody_Smooth",
+            "SAM3_VideoTrack",
+            "Save3DAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "Video Slice"
+          ],
+          "bytes": 33349
+        }
+      ]
+    },
+    "SAM3DBody_Render": {
+      "articleId": "core.sam3-dbody-render",
+      "schemaHash": "sha256:d72ea314c69a479e43d026a9771f24aeebfd0397ee2a288ef109e576f001d8db",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sam3d_body.py#L855-L1087",
+        "path": "comfy_extras/nodes_sam3d_body.py",
+        "lines": "855-1087",
+        "fileSha256": "069eca90f8ddbca87f441219d4a00647746c18ffdb1249f78998b4e0d94f31ee"
+      },
+      "workflows": [
+        {
+          "workflowId": "utility_sam3d_body",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "GetVideoComponents",
+              "links": 1
+            },
+            {
+              "classType": "SAM3DBody_Smooth",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "CreateVideo",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 131,
+              "widgets": [
+                0,
+                0,
+                "mesh",
+                "default",
+                1,
+                0.6,
+                "full_body"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/utility_sam3d_body.json",
+          "sha256": "sha256:9afd90a041273fa38eea23d4035ef0cf28d325e0a84003b7489175394b4e75a0",
+          "nodeTypes": [
+            "BuildPoseFile",
+            "CLIPTextEncode",
+            "CheckpointLoaderSimple",
+            "CreateVideo",
+            "GetVideoComponents",
+            "LoadMoGeModel",
+            "LoadVideo",
+            "MarkdownNote",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "Note",
+            "RTDETR_detect",
+            "SAM3DBody_FaceExpression",
+            "SAM3DBody_Loader",
+            "SAM3DBody_Predict",
+            "SAM3DBody_Render",
+            "SAM3DBody_Smooth",
+            "SAM3_VideoTrack",
+            "Save3DAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "Video Slice"
+          ],
+          "bytes": 33349
+        }
+      ]
+    },
+    "SAM3DBody_Smooth": {
+      "articleId": "core.sam3-dbody-smooth",
+      "schemaHash": "sha256:3e887ba843c45af8737d18b95f52b94762d38152911956c52a2f293c83c2761e",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sam3d_body.py#L434-L600",
+        "path": "comfy_extras/nodes_sam3d_body.py",
+        "lines": "434-600",
+        "fileSha256": "069eca90f8ddbca87f441219d4a00647746c18ffdb1249f78998b4e0d94f31ee"
+      },
+      "workflows": [
+        {
+          "workflowId": "utility_sam3d_body",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "SAM3DBody_FaceExpression",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BuildPoseFile",
+              "links": 1
+            },
+            {
+              "classType": "SAM3DBody_Render",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 130,
+              "widgets": [
+                1,
+                "gaussian",
+                7,
+                15
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/utility_sam3d_body.json",
+          "sha256": "sha256:9afd90a041273fa38eea23d4035ef0cf28d325e0a84003b7489175394b4e75a0",
+          "nodeTypes": [
+            "BuildPoseFile",
+            "CLIPTextEncode",
+            "CheckpointLoaderSimple",
+            "CreateVideo",
+            "GetVideoComponents",
+            "LoadMoGeModel",
+            "LoadVideo",
+            "MarkdownNote",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "Note",
+            "RTDETR_detect",
+            "SAM3DBody_FaceExpression",
+            "SAM3DBody_Loader",
+            "SAM3DBody_Predict",
+            "SAM3DBody_Render",
+            "SAM3DBody_Smooth",
+            "SAM3_VideoTrack",
+            "Save3DAdvanced",
+            "SaveVideo",
+            "UNETLoader",
+            "Video Slice"
+          ],
+          "bytes": 33349
+        }
+      ]
+    },
+    "SaveConditioning": {
+      "articleId": "core.save-conditioning",
+      "schemaHash": "sha256:fe784df7c03bc1af8c643cb27c0b4c2a935f5d9eee0c6cf8edd0a0d309d5c0ee",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_cond.py#L97-L134",
+        "path": "comfy_extras/nodes_cond.py",
+        "lines": "97-134",
+        "fileSha256": "56344e64a20692a0f64521bf4de78c0a9c040e23c3499a00491b5243ca39f898"
+      },
+      "workflows": []
+    },
+    "SenseNovaSamplingOptions": {
+      "articleId": "core.sense-nova-sampling-options",
+      "schemaHash": "sha256:cf85e3e0da3f0e37f4a0800f7b693f8d1495d487c4fa32d7ea2e777e22c6fc86",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sensenova.py#L7-L28",
+        "path": "comfy_extras/nodes_sensenova.py",
+        "lines": "7-28",
+        "fileSha256": "114b463cdcb2f17a95964bf121914b177c135c23d67347be9bb990ce8409cfc4"
+      },
+      "workflows": []
+    },
+    "SheetSage2AudioToABC": {
+      "articleId": "core.sheet-sage2-audio-to-abc",
+      "schemaHash": "sha256:71fa90d5bc6f5327906d0623868a9ec9ea3bb1934474569d83c81d42a6e0a721",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_audio_encoder.py#L53-L71",
+        "path": "comfy_extras/nodes_audio_encoder.py",
+        "lines": "53-71",
+        "fileSha256": "75a798136d259a4919309b3c075082dd509643370ef69a4a2f4ad26d5f6c800f"
+      },
+      "workflows": [
+        {
+          "workflowId": "audio_yue2_music_cover",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Music Cover (YuE2)",
+          "upstream": [
+            {
+              "classType": "AudioEncoderLoader",
+              "links": 1
+            },
+            {
+              "classType": "SubgraphInput",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 41,
+              "widgets": [
+                "melody"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_yue2_music_cover.json",
+          "sha256": "sha256:10af34cf21bfdedbf7bf3535857d1ed211f9bcba7be18b02530c4c69243f0602",
+          "nodeTypes": [
+            "59dddde1-2d83-4b6e-9c71-1e5cb2d823d6",
+            "AudioEncoderLoader",
+            "CheckpointLoaderSimple",
+            "ConditioningZeroOut",
+            "EmptyYuE2LatentAudio",
+            "KSampler",
+            "LoadAudio",
+            "MarkdownNote",
+            "PreviewAny",
+            "SaveAudioAdvanced",
+            "SeedNode",
+            "SheetSage2AudioToABC",
+            "VAEDecodeAudio",
+            "YuE2GenerateMusic"
+          ],
+          "bytes": 39508
+        }
+      ]
+    },
+    "StartLoop": {
+      "articleId": "core.start-loop",
+      "schemaHash": "sha256:3fc3c3b2a8156a8bded3103a5f45568794ff6dc70ef7fde3b05b38de196cb9d6",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_loop.py#L105-L237",
+        "path": "comfy_extras/nodes_loop.py",
+        "lines": "105-237",
+        "fileSha256": "3868bf8e1e4cc0897c2792d0c4242d42f7e9a89b66a4dad7ae24f759eeb67f22"
+      },
+      "workflows": [
+        {
+          "workflowId": "video_wan_animate2",
+          "graphScope": "root/definitions/subgraphs/1",
+          "graphName": "Motion Transfer (Wan Animate 2)",
+          "upstream": [
+            {
+              "classType": "ComfyMathExpression",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ComfySwitchNode",
+              "links": 4
+            },
+            {
+              "classType": "GetItemFromList",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 642,
+              "widgets": [
+                "simple",
+                4,
+                false
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/video_wan_animate2.json",
+          "sha256": "sha256:f9907c332e7b2c48e9378797f8952ed90391efd6924a4ff162208d369fb52563",
+          "nodeTypes": [
+            "04554b7f-9d5a-4160-a710-20673bc4782d",
+            "79280513-53b2-4417-93f8-f3e116bb6736",
+            "BasicScheduler",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "CLIPVisionEncode",
+            "CLIPVisionLoader",
+            "ComfyMathExpression",
+            "ComfySwitchNode",
+            "ContextWindowsManual",
+            "CreateList",
+            "CreateVideo",
+            "EndLoop",
+            "GetImageSize",
+            "GetItemFromList",
+            "GetVideoComponents",
+            "ImageFromBatch",
+            "ImageStitch",
+            "KSamplerSelect",
+            "LoadImage",
+            "LoadVideo",
+            "LoraLoaderModelOnly",
+            "MarkdownNote",
+            "ModelSamplingSD3",
+            "PrimitiveInt",
+            "RebatchImages",
+            "ResizeImageMaskNode",
+            "SamplerCustom",
+            "SaveVideo",
+            "StartLoop",
+            "TrimVideoLatent",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader",
+            "WanAnimate2Cache",
+            "WanAnimate2ToVideo"
+          ],
+          "bytes": 164226
+        }
+      ]
+    },
+    "TextEncodeQwenImage21": {
+      "articleId": "core.text-encode-qwen-image21",
+      "schemaHash": "sha256:5bdcc76a21ed2f2ef166b3b6c90721cb0185b9268e8cf8dbcef3994431f569e5",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_qwen.py#L111-L182",
+        "path": "comfy_extras/nodes_qwen.py",
+        "lines": "111-182",
+        "fileSha256": "61a5e27f90bb786cd4f6e76ee86920582ffef2ee3e65cde7b2278c7171c559e8"
+      },
+      "workflows": [
+        {
+          "workflowId": "image_qwen_image_2_1_background_removal",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Image Edit (Qwen Image 2.1)",
+          "upstream": [
+            {
+              "classType": "CLIPLoader",
+              "links": 1
+            },
+            {
+              "classType": "SubgraphInput",
+              "links": 13
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ComfySwitchNode",
+              "links": 1
+            },
+            {
+              "classType": "KSampler",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 474,
+              "widgets": [
+                "",
+                "",
+                1024
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_qwen_image_2_1_background_removal.json",
+          "sha256": "sha256:642e700e358fd47911d35f61c545945821fd516c898b793e9f58f5a92439aa72",
+          "nodeTypes": [
+            "CLIPLoader",
+            "ComfySwitchNode",
+            "EmptyLatentImage",
+            "ImageCompare",
+            "KSampler",
+            "LoadImage",
+            "MarkdownNote",
+            "QwenImage21Cache",
+            "SaveImageAdvanced",
+            "TextEncodeQwenImage21",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader",
+            "bc1c967a-7f6a-4be9-a372-dad16e4f28e3"
+          ],
+          "bytes": 51562
+        },
+        {
+          "workflowId": "image_qwen_image_2_1_image_edit",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Image Edit (Qwen Image 2.1)",
+          "upstream": [
+            {
+              "classType": "CLIPLoader",
+              "links": 1
+            },
+            {
+              "classType": "SubgraphInput",
+              "links": 13
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ComfySwitchNode",
+              "links": 1
+            },
+            {
+              "classType": "KSampler",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 474,
+              "widgets": [
+                "",
+                "",
+                1024
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_qwen_image_2_1_image_edit.json",
+          "sha256": "sha256:d6dd8695469c20ca5e77b4bddf981b898ee0e034f0cfc5840c86f15b812ca081",
+          "nodeTypes": [
+            "CLIPLoader",
+            "ComfySwitchNode",
+            "EmptyLatentImage",
+            "ImageCompare",
+            "KSampler",
+            "LoadImage",
+            "MarkdownNote",
+            "QwenImage21Cache",
+            "ResolutionSelector",
+            "SaveImageAdvanced",
+            "TextEncodeQwenImage21",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader",
+            "bc1c967a-7f6a-4be9-a372-dad16e4f28e3"
+          ],
+          "bytes": 54962
+        }
+      ]
+    },
+    "Trellis2Conditioning": {
+      "articleId": "core.trellis2-conditioning",
+      "schemaHash": "sha256:c1fa56405f94bd3f8af07f0b1ca904eb8a466aec0b8a53e61e0122866562b462",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L441-L468",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "441-468",
+        "fileSha256": "fc55a13cf2962136761ffc1becbc7d53fce243b310a5b54768671f08e76aa662"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CLIPVisionLoader",
+              "links": 1
+            },
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ComfySwitchNode",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 299,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "Trellis2ShapeStage": {
+      "articleId": "core.trellis2-shape-stage",
+      "schemaHash": "sha256:85218b84dc3e5460dbc67556b528cd5744d07eb9cf1860a8f1e63a735da71cd5",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L497-L562",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "497-562",
+        "fileSha256": "fc55a13cf2962136761ffc1becbc7d53fce243b310a5b54768671f08e76aa662"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "Pixal3DMultiViewConditioning",
+              "links": 2
+            },
+            {
+              "classType": "VaeDecodeStructureTrellis2",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 3
+            },
+            {
+              "classType": "Trellis2UpsampleStage",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 91,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "ComfySwitchNode",
+              "links": 2
+            },
+            {
+              "classType": "VaeDecodeStructureTrellis2",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 3
+            },
+            {
+              "classType": "Trellis2UpsampleStage",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 91,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "Trellis2TextureStage": {
+      "articleId": "core.trellis2-texture-stage",
+      "schemaHash": "sha256:d65e3181639a3fd3288399e38859a95812a1664642a5b5a79a61aac1e4143906",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L565-L624",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "565-624",
+        "fileSha256": "fc55a13cf2962136761ffc1becbc7d53fce243b310a5b54768671f08e76aa662"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "Trellis2UpsampleStage",
+              "links": 2
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 3
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 98,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "Trellis2UpsampleStage",
+              "links": 2
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 3
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 98,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "Trellis2UpsampleStage": {
+      "articleId": "core.trellis2-upsample-stage",
+      "schemaHash": "sha256:29271fbd4eeee0f723f93c5081535644892fb4929adbcbf692a8f1afc18d7fb0",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L315-L418",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "315-418",
+        "fileSha256": "fc55a13cf2962136761ffc1becbc7d53fce243b310a5b54768671f08e76aa662"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "Trellis2ShapeStage",
+              "links": 2
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 3
+            },
+            {
+              "classType": "Trellis2TextureStage",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 94,
+              "widgets": [
+                "1536"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "Trellis2ShapeStage",
+              "links": 2
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 3
+            },
+            {
+              "classType": "Trellis2TextureStage",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 94,
+              "widgets": [
+                "1536"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "UnwrapMesh": {
+      "articleId": "core.unwrap-mesh",
+      "schemaHash": "sha256:7f8f6f1165ed614add3524ebe46c5b12b32e695ad84b7e48d394aba1e5d2f4ca",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L2718-L2797",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "2718-2797",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "MeshSmoothNormals",
+              "links": 1
+            },
+            {
+              "classType": "PrimitiveInt",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ApplyTextureToMesh",
+              "links": 1
+            },
+            {
+              "classType": "BakeAmbientOcclusion",
+              "links": 1
+            },
+            {
+              "classType": "BakeNormalMapFromMesh",
+              "links": 1
+            },
+            {
+              "classType": "BakeTextureFromVoxel",
+              "links": 1
+            },
+            {
+              "classType": "RenderUVAtlas",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 196,
+              "widgets": [
+                "pec",
+                2048,
+                1,
+                0.0002
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "MeshSmoothNormals",
+              "links": 1
+            },
+            {
+              "classType": "PrimitiveInt",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ApplyTextureToMesh",
+              "links": 1
+            },
+            {
+              "classType": "BakeAmbientOcclusion",
+              "links": 1
+            },
+            {
+              "classType": "BakeNormalMapFromMesh",
+              "links": 1
+            },
+            {
+              "classType": "BakeTextureFromVoxel",
+              "links": 1
+            },
+            {
+              "classType": "RenderUVAtlas",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 196,
+              "widgets": [
+                "pec",
+                2048,
+                1,
+                0.0002
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "VaeDecodeShapeTrellis": {
+      "articleId": "core.vae-decode-shape-trellis",
+      "schemaHash": "sha256:9860abc3486a3f10b532df1230de1c0414a3b2cc8930c2b6587f20047bd87ed2",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L116-L193",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "116-193",
+        "fileSha256": "fc55a13cf2962136761ffc1becbc7d53fce243b310a5b54768671f08e76aa662"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BakeTextureFromVoxel",
+              "links": 1
+            },
+            {
+              "classType": "GetMeshInfo",
+              "links": 1
+            },
+            {
+              "classType": "VaeDecodeTextureTrellis",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 92,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BakeTextureFromVoxel",
+              "links": 1
+            },
+            {
+              "classType": "GetMeshInfo",
+              "links": 1
+            },
+            {
+              "classType": "VaeDecodeTextureTrellis",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 92,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "VaeDecodeStructureTrellis2": {
+      "articleId": "core.vae-decode-structure-trellis2",
+      "schemaHash": "sha256:c46f6faf085207f637086fc84b0a6c8a27c423fadd92b7b9a789d2cb25374c26",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L277-L313",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "277-313",
+        "fileSha256": "fc55a13cf2962136761ffc1becbc7d53fce243b310a5b54768671f08e76aa662"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "Trellis2ShapeStage",
+              "links": 1
+            },
+            {
+              "classType": "VoxelToMesh",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 119,
+              "widgets": [
+                "32"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "Trellis2ShapeStage",
+              "links": 1
+            },
+            {
+              "classType": "VoxelToMesh",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 119,
+              "widgets": [
+                "32"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "VaeDecodeTextureTrellis": {
+      "articleId": "core.vae-decode-texture-trellis",
+      "schemaHash": "sha256:ef103c0f9b5e0f74ffd732a323326cde3709c64be75377b7d0c114635df54cc5",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_trellis2.py#L195-L275",
+        "path": "comfy_extras/nodes_trellis2.py",
+        "lines": "195-275",
+        "fileSha256": "fc55a13cf2962136761ffc1becbc7d53fce243b310a5b54768671f08e76aa662"
+      },
+      "workflows": [
+        {
+          "workflowId": "3d_pixal3d_multi_views",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            },
+            {
+              "classType": "VaeDecodeShapeTrellis",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BakeTextureFromVoxel",
+              "links": 1
+            },
+            {
+              "classType": "PaintMesh",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 93,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_multi_views.json",
+          "sha256": "sha256:88bb9780c39275d650c087086dcd53361a7e67fab68be4f30ea76c81e598c930",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "ImageCropV2",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DMultiViewConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "SaveImageAdvanced",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 85624
+        },
+        {
+          "workflowId": "3d_pixal3d_trellis2_image_to_model",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            },
+            {
+              "classType": "VaeDecodeShapeTrellis",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "BakeTextureFromVoxel",
+              "links": 1
+            },
+            {
+              "classType": "PaintMesh",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 93,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_pixal3d_trellis2_image_to_model.json",
+          "sha256": "sha256:594295ae20490b4ed990655686f2d0c15ba06732df5553bc22bda98966c40a97",
+          "nodeTypes": [
+            "ApplyTextureToMesh",
+            "BakeAmbientOcclusion",
+            "BakeNormalMapFromMesh",
+            "BakeTextureFromVoxel",
+            "CFGOverride",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "DecimateMesh",
+            "EmptyTrellis2LatentStructure",
+            "GetMeshInfo",
+            "ImageCropToMask",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "LoadMoGeModel",
+            "MarkdownNote",
+            "MaskPreview",
+            "MeshSmoothNormals",
+            "MeshToFile3D",
+            "MoGeGeometryToFOV",
+            "MoGeInference",
+            "ModelSamplingSD3",
+            "Note",
+            "PaintMesh",
+            "Pixal3DConditioning",
+            "Preview3DAdvanced",
+            "PreviewImage",
+            "PrimitiveBoolean",
+            "PrimitiveInt",
+            "RemeshMesh",
+            "RemoveBackground",
+            "RenderUVAtlas",
+            "RescaleCFG",
+            "Save3DAdvanced",
+            "Trellis2Conditioning",
+            "Trellis2ShapeStage",
+            "Trellis2TextureStage",
+            "Trellis2UpsampleStage",
+            "UNETLoader",
+            "UnwrapMesh",
+            "VAELoader",
+            "VaeDecodeShapeTrellis",
+            "VaeDecodeStructureTrellis2",
+            "VaeDecodeTextureTrellis",
+            "VoxelToMesh"
+          ],
+          "bytes": 79521
+        }
+      ]
+    },
+    "VideoCrop": {
+      "articleId": "core.video-crop",
+      "schemaHash": "sha256:c1b7e6cdf071b6cd44048a6cfabd45cd62ce242de60ae8fcc7c6c6cefe9abef0",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_video.py#L528-L556",
+        "path": "comfy_extras/nodes_video.py",
+        "lines": "528-556",
+        "fileSha256": "0d4b52774965c84f6ce8ba5bc37eb8eb7a5028a31a315ccb7aefc1cda30914ae"
+      },
+      "workflows": []
+    },
+    "VideoTrim": {
+      "articleId": "core.video-trim",
+      "schemaHash": "sha256:0effa0fbcb1a1db85fddb60fe3133d9452c41b374e8e931452c4db7a99276482",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_video.py#L491-L525",
+        "path": "comfy_extras/nodes_video.py",
+        "lines": "491-525",
+        "fileSha256": "0d4b52774965c84f6ce8ba5bc37eb8eb7a5028a31a315ccb7aefc1cda30914ae"
+      },
+      "workflows": []
+    },
+    "WeldVertices": {
+      "articleId": "core.weld-vertices",
+      "schemaHash": "sha256:aabd4a767bd06f6bcd36c73e1c7e39a6a02302dcb8007df25e3605e9b1f91b27",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_mesh_postprocess.py#L3028-L3059",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "3028-3059",
+        "fileSha256": "49767c93f9e5a677d43f40bb3f9caadf9146851e8a9b9c39d657f184ab2ba10c"
+      },
+      "workflows": []
+    },
+    "YuE2GenerateABC": {
+      "articleId": "core.yu-e2-generate-abc",
+      "schemaHash": "sha256:52c457276c441117e340f0b30d0c1838f8d2d42efd3171207f02676e17a94d0f",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_yue2.py#L9-L38",
+        "path": "comfy_extras/nodes_yue2.py",
+        "lines": "9-38",
+        "fileSha256": "4eeab7b1bf75dc1b78bfe104a84b4f960aa835b907629d0449bc238159540ac3"
+      },
+      "workflows": [
+        {
+          "workflowId": "audio_yue2_text2music",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Text to Music (YuE2)",
+          "upstream": [
+            {
+              "classType": "CheckpointLoaderSimple",
+              "links": 1
+            },
+            {
+              "classType": "PrimitiveStringMultiline",
+              "links": 2
+            },
+            {
+              "classType": "SeedNode",
+              "links": 1
+            },
+            {
+              "classType": "SubgraphInput",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ComfySwitchNode",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 24,
+              "widgets": [
+                "",
+                "",
+                429124050625962,
+                "randomize",
+                "full",
+                8192,
+                0.7,
+                0.9,
+                30,
+                1.005,
+                100
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_yue2_text2music.json",
+          "sha256": "sha256:08100f87f1d7d3b3bc65b89b83af63f41a41116881eb5524040a054cf019577e",
+          "nodeTypes": [
+            "59dddde1-2d83-4b6e-9c71-1e5cb2d823d6",
+            "CheckpointLoaderSimple",
+            "ComfySwitchNode",
+            "ConditioningZeroOut",
+            "EmptyYuE2LatentAudio",
+            "KSampler",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveBoolean",
+            "PrimitiveString",
+            "PrimitiveStringMultiline",
+            "SaveAudioAdvanced",
+            "SeedNode",
+            "VAEDecodeAudio",
+            "YuE2GenerateABC",
+            "YuE2GenerateMusic"
+          ],
+          "bytes": 47408
+        }
+      ]
+    },
+    "YuE2GenerateMusic": {
+      "articleId": "core.yu-e2-generate-music",
+      "schemaHash": "sha256:96924d47f2c6c6ee9e7fbdb93c2016f88af07b97dcb14b54fe04924b2b18dd16",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_yue2.py#L41-L76",
+        "path": "comfy_extras/nodes_yue2.py",
+        "lines": "41-76",
+        "fileSha256": "4eeab7b1bf75dc1b78bfe104a84b4f960aa835b907629d0449bc238159540ac3"
+      },
+      "workflows": [
+        {
+          "workflowId": "audio_yue2_music_cover",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Music Cover (YuE2)",
+          "upstream": [
+            {
+              "classType": "CheckpointLoaderSimple",
+              "links": 1
+            },
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            },
+            {
+              "classType": "SeedNode",
+              "links": 1
+            },
+            {
+              "classType": "SubgraphInput",
+              "links": 3
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ConditioningZeroOut",
+              "links": 1
+            },
+            {
+              "classType": "EmptyYuE2LatentAudio",
+              "links": 1
+            },
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 25,
+              "widgets": [
+                "",
+                "",
+                "",
+                530976807293994,
+                "randomize",
+                "melody",
+                360,
+                1,
+                0.95,
+                100,
+                1.2
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_yue2_music_cover.json",
+          "sha256": "sha256:10af34cf21bfdedbf7bf3535857d1ed211f9bcba7be18b02530c4c69243f0602",
+          "nodeTypes": [
+            "59dddde1-2d83-4b6e-9c71-1e5cb2d823d6",
+            "AudioEncoderLoader",
+            "CheckpointLoaderSimple",
+            "ConditioningZeroOut",
+            "EmptyYuE2LatentAudio",
+            "KSampler",
+            "LoadAudio",
+            "MarkdownNote",
+            "PreviewAny",
+            "SaveAudioAdvanced",
+            "SeedNode",
+            "SheetSage2AudioToABC",
+            "VAEDecodeAudio",
+            "YuE2GenerateMusic"
+          ],
+          "bytes": 39508
+        },
+        {
+          "workflowId": "audio_yue2_text2music",
+          "graphScope": "root/definitions/subgraphs/0",
+          "graphName": "Text to Music (YuE2)",
+          "upstream": [
+            {
+              "classType": "CheckpointLoaderSimple",
+              "links": 1
+            },
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            },
+            {
+              "classType": "PrimitiveStringMultiline",
+              "links": 2
+            },
+            {
+              "classType": "SeedNode",
+              "links": 1
+            },
+            {
+              "classType": "SubgraphInput",
+              "links": 2
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "ConditioningZeroOut",
+              "links": 1
+            },
+            {
+              "classType": "EmptyYuE2LatentAudio",
+              "links": 1
+            },
+            {
+              "classType": "KSampler",
+              "links": 1
+            },
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 25,
+              "widgets": [
+                "",
+                "",
+                "",
+                530976807293994,
+                "randomize",
+                "full",
+                360,
+                1,
+                0.95,
+                100,
+                1.2
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_yue2_text2music.json",
+          "sha256": "sha256:08100f87f1d7d3b3bc65b89b83af63f41a41116881eb5524040a054cf019577e",
+          "nodeTypes": [
+            "59dddde1-2d83-4b6e-9c71-1e5cb2d823d6",
+            "CheckpointLoaderSimple",
+            "ComfySwitchNode",
+            "ConditioningZeroOut",
+            "EmptyYuE2LatentAudio",
+            "KSampler",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveBoolean",
+            "PrimitiveString",
+            "PrimitiveStringMultiline",
+            "SaveAudioAdvanced",
+            "SeedNode",
+            "VAEDecodeAudio",
+            "YuE2GenerateABC",
+            "YuE2GenerateMusic"
+          ],
+          "bytes": 47408
+        }
+      ]
+    }
+  }
+}

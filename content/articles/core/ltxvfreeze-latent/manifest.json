@@ -1,0 +1,72 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ltxvfreeze-latent",
+  "kind": "core",
+  "locale": "ru",
+  "title": "LTXV Freeze Latent: оставить аудио или видео неизменным при сэмплировании",
+  "summary": "Устанавливает нулевую noise_mask, чтобы совместимый sampler сохранял содержимое latent чистым. Например, готовое аудио может направлять генерацию видео, не генерируясь заново.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "LTXVFreezeLatent",
+    "pythonModule": "comfy_extras.nodes_lt_keyframes",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.ltxvadd-generated-keyframes",
+      "core.ltxvadd-latent-guide"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/latent/ltxv",
+    "LTXVFreezeLatent"
+  ],
+  "searchAliases": [
+    "LTXVFreezeLatent",
+    "LTXV Freeze Latent",
+    "noise mask",
+    "freeze audio",
+    "freeze video"
+  ],
+  "concepts": [
+    "оставить аудио или видео неизменным при сэмплировании"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:a2a2a03aca7349737da5eba941216e47b08b49350a8f9168b25606e5591c4c44"
+  },
+  "sources": [
+    {
+      "sourceId": "core.ltxvfreeze-latent-source",
+      "title": "LTXVFreezeLatent: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_lt_keyframes.py#L984-L1036",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

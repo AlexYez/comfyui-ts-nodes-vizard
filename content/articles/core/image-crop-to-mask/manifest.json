@@ -1,0 +1,89 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-crop-to-mask",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Image Crop To Mask: подготовка объекта по маске",
+  "summary": "Вырезает область объекта, заменяет фон и приводит результат к заданному размеру. Подходит для подготовки изображения к 3D-генерации, когда важны силуэт и масштаб объекта.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "ImageCropToMask",
+    "pythonModule": "comfy_extras.nodes_images",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.trellis2-conditioning",
+      "core.pixal3-dconditioning",
+      "core.pixal3-dmulti-view-conditioning"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "image/transform",
+    "ImageCropToMask"
+  ],
+  "searchAliases": [
+    "ImageCropToMask",
+    "Crop Image to Mask",
+    "crop to mask",
+    "mask crop",
+    "crop mask",
+    "mask crop resize",
+    "crop mask resize",
+    "trellis2",
+    "pixal3d"
+  ],
+  "concepts": [
+    "подготовка объекта по маске"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:65d7ed924545cecbfaeb490ec577f5441d2891f0ee824daaa75fdcc249342ad3"
+  },
+  "sources": [
+    {
+      "sourceId": "core.image-crop-to-mask-source",
+      "title": "ImageCropToMask: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_images.py#L185-L236",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.image-crop-to-mask-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

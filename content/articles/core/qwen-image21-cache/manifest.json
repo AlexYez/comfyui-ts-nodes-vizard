@@ -1,0 +1,80 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.qwen-image21-cache",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Qwen Image 2.1 Cache: память для повторно используемых данных",
+  "summary": "Настраивает кэширование Qwen Image 2.1 в копии MODEL. Это модельная оптимизация выполнения, а не кэш браузера или ускорение интерфейса ComfyUI.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "QwenImage21Cache",
+    "pythonModule": "comfy_extras.nodes_qwen",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": true,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.text-encode-qwen-image21"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/qwen image",
+    "QwenImage21Cache"
+  ],
+  "searchAliases": [
+    "QwenImage21Cache",
+    "Qwen Image 2.1 Cache"
+  ],
+  "concepts": [
+    "память для повторно используемых данных"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:fb5d3adb1be303d80cde894eaaa20cf6528588b0530e621906556d7e446741e7"
+  },
+  "sources": [
+    {
+      "sourceId": "core.qwen-image21-cache-source",
+      "title": "QwenImage21Cache: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_qwen.py#L185-L210",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.qwen-image21-cache-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

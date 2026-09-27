@@ -1,0 +1,71 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.save-conditioning",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Save Conditioning: сохранение вычисленных условий",
+  "summary": "Записывает conditioning в safetensors и одновременно пропускает его дальше. Полезно для повторного использования дорогостоящего кодирования при неизменных условиях генерации.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "SaveConditioning",
+    "pythonModule": "comfy_extras.nodes_cond",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.conditioning-loader"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning",
+    "SaveConditioning"
+  ],
+  "searchAliases": [
+    "SaveConditioning",
+    "Save Conditioning",
+    "save conditioning",
+    "export conditioning",
+    "cache text encoder output"
+  ],
+  "concepts": [
+    "сохранение вычисленных условий"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:fe784df7c03bc1af8c643cb27c0b4c2a935f5d9eee0c6cf8edd0a0d309d5c0ee"
+  },
+  "sources": [
+    {
+      "sourceId": "core.save-conditioning-source",
+      "title": "SaveConditioning: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_cond.py#L97-L134",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

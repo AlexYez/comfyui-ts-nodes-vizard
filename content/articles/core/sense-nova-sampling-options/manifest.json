@@ -1,0 +1,68 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sense-nova-sampling-options",
+  "kind": "core",
+  "locale": "ru",
+  "title": "SenseNova Sampling Options: временное расписание модели",
+  "summary": "Настраивает model_sampling для SenseNova в копии MODEL. Меняет интерпретацию временного расписания сэмплирования, а не текстовое conditioning.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "SenseNovaSamplingOptions",
+    "pythonModule": "comfy_extras.nodes_sensenova",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.block-sparse-attention"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/patch/sensenova",
+    "SenseNovaSamplingOptions"
+  ],
+  "searchAliases": [
+    "SenseNovaSamplingOptions",
+    "SenseNova Sampling Options"
+  ],
+  "concepts": [
+    "временное расписание модели"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:cf85e3e0da3f0e37f4a0800f7b693f8d1495d487c4fa32d7ea2e777e22c6fc86"
+  },
+  "sources": [
+    {
+      "sourceId": "core.sense-nova-sampling-options-source",
+      "title": "SenseNovaSamplingOptions: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sensenova.py#L7-L28",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

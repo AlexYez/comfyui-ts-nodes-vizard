@@ -1,0 +1,83 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.sam3-dbody-predict",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Run SAM3D Body Prediction: поза человека из кадров",
+  "summary": "Восстанавливает геометрию и позу людей по IMAGE или последовательности кадров. Возвращает MHR_POSE_DATA с геометрией, параметрами тела и оценкой камеры для дальнейшего рендера и экспорта.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "SAM3DBody_Predict",
+    "pythonModule": "comfy_extras.nodes_sam3d_body",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.sam3-dbody-loader",
+      "core.sam3-dbody-smooth",
+      "core.sam3-dbody-render",
+      "core.build-pose-file"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "image/detection",
+    "SAM3DBody_Predict"
+  ],
+  "searchAliases": [
+    "SAM3DBody_Predict",
+    "Run SAM3D Body Prediction"
+  ],
+  "concepts": [
+    "поза человека из кадров"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:06920df4ebb5426b4a28f5e820ea72bbccb1dff27d8a921a70137de95d716451"
+  },
+  "sources": [
+    {
+      "sourceId": "core.sam3-dbody-predict-source",
+      "title": "SAM3DBody_Predict: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sam3d_body.py#L130-L241",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    },
+    {
+      "sourceId": "core.sam3-dbody-predict-workflow",
+      "title": "Официальные workflow, пакет 0.1.92",
+      "url": "https://pypi.org/project/comfyui-workflow-templates-json/0.1.92/",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "реальные связи в шаблоне",
+        "порядок этапов"
+      ]
+    }
+  ]
+}

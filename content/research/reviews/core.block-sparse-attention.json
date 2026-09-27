@@ -1,0 +1,55 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.block-sparse-attention",
+  "node": {
+    "classType": "BlockSparseAttention",
+    "pythonModule": "comfy_extras.nodes_sparse_attention",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.37.0",
+    "frontend": "1.52.7",
+    "sourceCommit": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d",
+    "embeddedDocs": "0.5.12 (available; implementation is primary)",
+    "workflowTemplatesJson": "0.1.92"
+  },
+  "state": "source_reviewed",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.37.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_sparse_attention.py#L353-L430",
+        "path": "comfy_extras/nodes_sparse_attention.py",
+        "lines": "353-430"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": [
+      {
+        "id": "video_fastvideo_fasth3_i2v",
+        "role": "Граф: First Last Frame to Video (FastVideo FastH3) (root/definitions/subgraphs/0). Входящие связи: `ModelAttentionBackend`. Исходящие связи: `BasicGuider`, `BasicScheduler`."
+      },
+      {
+        "id": "video_fastvideo_fasth3_t2v",
+        "role": "Граф: First Last Frame to Video (FastVideo FastH3) (root/definitions/subgraphs/0). Входящие связи: `ModelAttentionBackend`. Исходящие связи: `BasicGuider`, `BasicScheduler`."
+      }
+    ]
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": true,
+    "exampleSchemaValidated": false,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Human editorial approval pending",
+    "Full model workflow execution not performed",
+    "Worked example is explanatory, not an executable validated recipe"
+  ],
+  "updatedAt": "2026-09-27"
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.merge-meshes",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Merge Meshes: объединение нескольких сеток",
+  "summary": "Собирает несколько MESH в один объект, соединяя массивы вершин и граней. Совпадающие поверхности остаются отдельной геометрией: булева объединения и сварки здесь нет.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "MergeMeshes",
+    "pythonModule": "comfy_extras.nodes_save_3d",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.37.0",
+    "frontend": ">=1.52.7",
+    "verifiedOn": "2026-09-27",
+    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+  },
+  "relations": {
+    "related": [
+      "core.rotate-mesh",
+      "core.weld-vertices",
+      "core.unwrap-mesh",
+      "core.get-mesh-info"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d/mesh",
+    "MergeMeshes"
+  ],
+  "searchAliases": [
+    "MergeMeshes",
+    "Merge Meshes"
+  ],
+  "concepts": [
+    "объединение нескольких сеток"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27",
+    "schemaHash": "sha256:a807bd3b1ee2adf685e66b248887ad254f1ac78b826cd4f9d6a64d0da71b7bfc"
+  },
+  "sources": [
+    {
+      "sourceId": "core.merge-meshes-source",
+      "title": "MergeMeshes: реализация ComfyUI 0.37.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_save_3d.py#L738-L807",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-09-27",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

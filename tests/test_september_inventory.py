@@ -15,15 +15,13 @@ class SeptemberInventoryTests(unittest.TestCase):
             self.assertEqual(len(data), expected["size"])
             self.assertEqual(hashlib.sha256(data).hexdigest(), expected["sha256"])
 
-    def test_new_nodes_remain_explicit_editorial_debt(self):
+    def test_new_nodes_have_articles_but_old_schema_debt_stays_visible(self):
         report = json.loads((RUNTIME / "comfyui-0.37.0.inventory-report.json").read_text())
         coverage = report["coverage"]
         self.assertEqual(coverage["runtimeNodeCount"], 665)
-        self.assertEqual(len(coverage["missingArticles"]), 64)
+        self.assertEqual(coverage["missingArticles"], [])
         self.assertEqual(len(coverage["staleArticles"]), 31)
         self.assertEqual(coverage["articlesMissingRuntimeNode"], [])
-        self.assertIn("StartLoop", coverage["missingArticles"])
-        self.assertIn("MiniMaxH3AddGuide", coverage["missingArticles"])
 
     def test_latest_frontend_types_match_the_exact_registry(self):
         inventory = json.loads((RUNTIME / "comfyui-frontend-1.52.7.frontend-inventory.json").read_text())
