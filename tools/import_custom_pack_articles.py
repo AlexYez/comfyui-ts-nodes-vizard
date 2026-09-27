@@ -209,7 +209,7 @@ def article_and_review(pack: dict[str, str], node: dict[str, object], repo_path:
         "$schema": "../../../../schemas/article.schema.v1.json", "schemaVersion": "1.0", "articleId": article_id,
         "kind": "custom", "locale": "ru", "title": display_name, "summary": summary, "body": "ru.md",
         "runtimeIdentity": {"classType": class_type, "pythonModule": node["pythonModule"], "packageId": pack["slug"], "origin": "backend", "aliases": []},
-        "status": "draft", "experimental": False,
+        "status": "draft", "experimental": pack["slug"] == "comfyui-timesaver" and class_type == "TS_NAG",
         "compatibility": {"comfyui": ">=0.32.0", "frontend": ">=1.48.7", "verifiedOn": ACCESSED, "sourceRevision": f"{pack['slug']} {pack['version']} @ {pack['commit']}"},
         "relations": {"related": STUDIO_RELATED.get(class_type, (["custom.comfyui-timesaver.ts-imagestudio"] if class_type.startswith("TS_Studio") else [])), "alternatives": [], "replacedBy": None},
         "tags": ["custom nodes", pack["slug"], class_type], "searchAliases": list(dict.fromkeys([class_type, display_name])),

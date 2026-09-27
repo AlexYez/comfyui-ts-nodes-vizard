@@ -50,6 +50,16 @@ class CustomPackCatalogTests(unittest.TestCase):
             self.assertTrue(article["sources"])
             self.assertTrue(article["editorial"]["reviewedBy"].endswith("pending"))
 
+    def test_september_timesaver_revision_and_experimental_flag(self):
+        inventory = load(CONTENT / "inventory/custom/comfyui-timesaver.json")
+        self.assertEqual(inventory["version"], "12.11.7")
+        self.assertEqual(inventory["sourceCommit"], "c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f")
+        nag = next(item for item in custom_manifests() if item["runtimeIdentity"]["classType"] == "TS_NAG")
+        self.assertTrue(nag["experimental"])
+        body = (CONTENT / "articles/custom/comfyui-timesaver/ts-nag/ru.md").read_text(encoding="utf-8")
+        for parameter in ("nag_scale", "nag_alpha", "nag_tau"):
+            self.assertIn(parameter, body)
+
     def test_frontend_only_artius_is_not_misrepresented_as_a_canvas_node(self):
         article = load(CONTENT / "articles" / "custom" / "comfyui-artius-browser" / "artius-browser" / "manifest.json")
         self.assertEqual(article["kind"], "concept")

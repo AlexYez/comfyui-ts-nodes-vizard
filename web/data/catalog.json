@@ -150615,7 +150615,7 @@
           "aliases": []
         },
         "status": "draft",
-        "experimental": false,
+        "experimental": true,
         "compatibility": {
           "comfyui": ">=0.32.0",
           "frontend": ">=1.48.7",
