@@ -1,0 +1,10 @@
+# Runtime allowlist; sources remain available in the public Git repository.
+*
+!/__init__.py
+!/pyproject.toml
+!/README.md
+!/LICENSE
+!/LICENSE-CONTENT
+!/icon.png
+!/web/
+!/web/**

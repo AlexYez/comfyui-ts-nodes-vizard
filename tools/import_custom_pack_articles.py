@@ -15,20 +15,21 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from september_timesaver_guides import GUIDES
 
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
-ACCESSED = "2026-09-01"
+ACCESSED = "2026-09-27"
 BASELINE_COMFY = "0.32.0"
 BASELINE_FRONTEND = "1.48.7"
 
 PACKS = {
     "timesaver": {
         "slug": "comfyui-timesaver",
-        "commit": "29b0e730f19a1147cab29399652265f946663194",
+        "commit": "c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f",
         "repo": "AlexYez/comfyui-timesaver",
-        "version": "12.4.0",
+        "version": "12.11.7",
     },
     "cosyvoice": {
         "slug": "comfyui-ts-cosyvoice",
@@ -88,6 +89,8 @@ def literal_string_dict(node: ast.AST) -> dict[str, str]:
 def timesaver_nodes(repo: Path) -> list[dict[str, object]]:
     nodes: list[dict[str, object]] = []
     for path in sorted((repo / "nodes").rglob("ts_*.py")):
+        if any(part.startswith("_") for part in path.relative_to(repo / "nodes").parts):
+            continue
         tree = ast.parse(path.read_text(encoding="utf-8-sig"))
         mappings: list[str] = []
         displays: dict[str, str] = {}
@@ -145,7 +148,7 @@ def clean_body(text: str, title: str, source_url: str, pack_title: str) -> str:
     return (
         text
         + "\n\n## Проверка и происхождение материала\n\n"
-        + f"Описание сверено с реализацией `{pack_title}` и встроенной справкой пака на {ACCESSED}. "
+        + f"Материал импортирован из встроенной справки `{pack_title}` на {ACCESSED}; регистрация ноды проверена по исходнику. "
         + "Статья имеет статус черновика до отдельной ручной редакционной проверки в Wizard. "
         + "Если установлена другая версия пака, ориентируйтесь также на живые входы и выходы в панели.\n\n"
         + f"- [Закреплённый исходник ноды]({source_url})\n"
@@ -154,7 +157,9 @@ def clean_body(text: str, title: str, source_url: str, pack_title: str) -> str:
 
 def fallback_body(node: dict[str, object], source_url: str, pack_title: str) -> str:
     title = str(node["displayName"])
-    purpose, usage = STUDIO_GUIDES.get(str(node["classType"]), ("выполняет служебную роль в backend-графе TS Image Studio", "Используйте её только в закреплённых шаблонах студии и сверяйте живые порты установленной версии."))
+    if str(node["classType"]) not in STUDIO_GUIDES:
+        raise ValueError(f"No documentation or reviewed guide for {node['classType']}")
+    purpose, usage = STUDIO_GUIDES[str(node["classType"])]
     return f"""# {title}
 
 ## Что делает нода
@@ -196,10 +201,12 @@ def article_and_review(pack: dict[str, str], node: dict[str, object], repo_path:
         body = clean_body((repo_path / str(docs_path)).read_text(encoding="utf-8-sig"), display_name, source_url, pack["slug"])
     else:
         body = fallback_body(node, source_url, pack["slug"])
+    if pack["slug"] == "comfyui-timesaver" and class_type in GUIDES:
+        body = f"# {display_name}\n\n{GUIDES[class_type]}\n\n## Источники и границы проверки\n\nОписание подготовлено по исходнику и справке TimeSaver 12.11.7. Полное выполнение с моделями и человеческое утверждение ещё не проведены.\n\n- [Реализация ноды]({source_url})\n- [Справка автора пака](https://github.com/{pack['repo']}/blob/{pack['commit']}/{docs_path})\n"
     first_paragraph = next((re.sub(r"[`*_]", "", p).replace("\n", " ") for p in body.split("\n\n") if p and not p.startswith("#")), "")
     summary = first_paragraph[:357].rstrip() + ("…" if len(first_paragraph) > 357 else "")
     manifest = {
-        "$schema": "../../../schemas/article.schema.v1.json", "schemaVersion": "1.0", "articleId": article_id,
+        "$schema": "../../../../schemas/article.schema.v1.json", "schemaVersion": "1.0", "articleId": article_id,
         "kind": "custom", "locale": "ru", "title": display_name, "summary": summary, "body": "ru.md",
         "runtimeIdentity": {"classType": class_type, "pythonModule": node["pythonModule"], "packageId": pack["slug"], "origin": "backend", "aliases": []},
         "status": "draft", "experimental": False,
@@ -220,7 +227,7 @@ def article_and_review(pack: dict[str, str], node: dict[str, object], repo_path:
         "baseline": {"comfyui": BASELINE_COMFY, "frontend": BASELINE_FRONTEND, "sourceCommit": pack["commit"], "embeddedDocs": f"{pack['slug']} built-in docs", "workflowTemplatesJson": f"{pack['slug']} examples at pinned commit"},
         "state": "source_reviewed", "reviewMode": "automated_assisted",
         "evidence": {"runtimeInventory": f"content/inventory/custom/{pack['slug']}.json", "sourceLocations": [{"url": source_url, "path": source_path, "lines": f"{line}+"}], "embeddedDocs": ([{"locale": "ru", "archivePath": str(docs_path), "assessment": "Primary pack documentation imported and attributed"}] if docs_path else []), "workflows": []},
-        "checks": {"implementationRead": True, "runtimeCompared": False, "officialCasesInspected": bool(docs_path) or class_type in STUDIO_GUIDES, "exampleSchemaValidated": False, "exampleExecuted": False, "russianEdited": bool(docs_path) or class_type in STUDIO_GUIDES, "factsRecheckedAfterEditing": True},
+        "checks": {"implementationRead": False, "runtimeCompared": False, "officialCasesInspected": False, "exampleSchemaValidated": False, "exampleExecuted": False, "russianEdited": False, "factsRecheckedAfterEditing": False},
         "knownGaps": ["Human editorial approval pending"] + ([] if docs_path else ["No dedicated upstream article or verified standalone recipe"]), "updatedAt": ACCESSED,
     }
     return manifest, body, review
@@ -240,16 +247,23 @@ def write_pack(pack_key: str, repo: Path, nodes: list[dict[str, object]]) -> Non
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--timesaver", type=Path, required=True)
-    parser.add_argument("--cosyvoice", type=Path, required=True)
+    parser.add_argument("--timesaver", type=Path)
+    parser.add_argument("--cosyvoice", type=Path)
     args = parser.parse_args()
-    timesaver = timesaver_nodes(args.timesaver)
-    cosyvoice = cosyvoice_nodes(args.cosyvoice)
-    if len(timesaver) < 60 or len(cosyvoice) != 7:
-        raise SystemExit(f"Unexpected inventory size: timesaver={len(timesaver)}, cosyvoice={len(cosyvoice)}")
-    write_pack("timesaver", args.timesaver, timesaver)
-    write_pack("cosyvoice", args.cosyvoice, cosyvoice)
-    print(f"Imported {len(timesaver)} Timesaver and {len(cosyvoice)} CosyVoice articles")
+    if not args.timesaver and not args.cosyvoice:
+        parser.error("Select at least one source repository")
+    for key, repo, extract, count in (("timesaver", args.timesaver, timesaver_nodes, 89), ("cosyvoice", args.cosyvoice, cosyvoice_nodes, 7)):
+        if repo is None:
+            continue
+        import subprocess
+        commit = subprocess.check_output(["git", "-c", f"safe.directory={repo.resolve().as_posix()}", "-C", str(repo), "rev-parse", "HEAD"], text=True).strip()
+        if commit != PACKS[key]["commit"]:
+            raise SystemExit(f"{key}: checkout does not match pinned source commit")
+        nodes = extract(repo)
+        if len(nodes) != count:
+            raise SystemExit(f"Unexpected {key} inventory size: {len(nodes)} != {count}")
+        write_pack(key, repo, nodes)
+        print(f"Imported {len(nodes)} {key} articles")
 
 
 if __name__ == "__main__":

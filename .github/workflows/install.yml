@@ -1,0 +1,48 @@
+name: Clean ComfyUI installation
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        comfyui: [v0.36.0, v0.37.0]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: wizard
+      - uses: actions/checkout@v4
+        with:
+          repository: Comfy-Org/ComfyUI
+          ref: ${{ matrix.comfyui }}
+          path: comfyui
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install clean CPU runtime
+        run: |
+          python -m pip install pathspec==0.12.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision torchaudio
+          python -m pip install -r comfyui/requirements.txt
+      - name: Install the prebuilt archive without Node.js or npm
+        run: python wizard/tools/qualify_install.py --install-dir comfyui/custom_nodes/comfyui-ts-nodes-vizard
+      - name: Verify Python discovery, HTTP assets and module MIME types
+        run: python wizard/tools/test_comfy_install.py --comfy-root comfyui
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: install-${{ matrix.comfyui }}
+          path: comfyui/wizard-install.log
+          if-no-files-found: ignore

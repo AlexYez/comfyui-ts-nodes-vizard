@@ -20,7 +20,7 @@
 
 ## Проверка и происхождение материала
 
-Регистрация подтверждена статическим разбором `NODE_CLASS_MAPPINGS` на commit пака от 2026-09-01. Ручная редакционная проверка и отдельный практический кейс ещё нужны.
+Регистрация подтверждена статическим разбором `NODE_CLASS_MAPPINGS` на commit пака от 2026-09-27. Ручная редакционная проверка и отдельный практический кейс ещё нужны.
 
-- [Закреплённый исходник ноды](https://github.com/AlexYez/comfyui-timesaver/blob/29b0e730f19a1147cab29399652265f946663194/nodes/image/studio/markers/ts_studio_output.py#L98)
-- [Архитектура TS Image Studio](https://github.com/AlexYez/comfyui-timesaver/blob/29b0e730f19a1147cab29399652265f946663194/nodes/image/studio/ARCHITECTURE.md)
+- [Закреплённый исходник ноды](https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/nodes/image/studio/markers/ts_studio_output.py#L98)
+- [Архитектура TS Image Studio](https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/nodes/image/studio/ARCHITECTURE.md)

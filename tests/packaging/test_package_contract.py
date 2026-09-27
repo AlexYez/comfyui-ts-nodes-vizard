@@ -27,7 +27,10 @@ class PackageContractTests(unittest.TestCase):
             metadata = tomllib.load(stream)
 
         self.assertEqual(metadata["project"]["name"], "comfyui-ts-nodes-vizard")
-        self.assertEqual(metadata["project"]["version"], "0.2.0-alpha.2")
+        self.assertEqual(metadata["project"]["version"], "0.3.0")
+        # Manager's StrictVersion parses each of the first three parts as int.
+        # Keep editorial alpha status in the catalog, not in the Registry version.
+        self.assertRegex(metadata["project"]["version"], r"^\d+\.\d+\.\d+$")
         self.assertEqual(metadata["project"]["dependencies"], [])
         self.assertEqual(
             metadata["project"]["urls"]["Repository"],

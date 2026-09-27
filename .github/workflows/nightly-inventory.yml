@@ -151,7 +151,7 @@ jobs:
         run: |
           set -euo pipefail
           report_dir="$RUNNER_TEMP/nodes-wizard-inventory"
-          baseline="$(find wizard/content/runtime -type f -name '*.object-info*.json' | sort | tail -n 1)"
+          baseline="wizard/content/runtime/comfyui-0.37.0.object-info.json"
           if [[ -z "$baseline" ]]; then
             echo "No checked-in object_info baseline found" >&2
             exit 1

@@ -1,0 +1,915 @@
+{
+  "schemaVersion": "1.0",
+  "inventory": {
+    "path": "content/runtime/comfyui-0.37.0.object-info.json",
+    "sha256": "30315be7700143006e35eb050696c1efb459691db5dac4d350d4441e6ca0efb6",
+    "nodeCount": 956
+  },
+  "systemStats": {
+    "system": {
+      "os": "linux",
+      "ram_total": 16766414848,
+      "ram_free": 15237935104,
+      "comfyui_version": "0.37.0",
+      "required_frontend_version": "1.52.7",
+      "installed_templates_version": "0.11.66",
+      "required_templates_version": "0.11.66",
+      "comfy_package_versions": [
+        {
+          "name": "comfyui-frontend-package",
+          "installed": "1.52.7",
+          "required": "1.52.7"
+        },
+        {
+          "name": "comfyui-workflow-templates",
+          "installed": "0.11.66",
+          "required": "0.11.66"
+        },
+        {
+          "name": "comfyui-embedded-docs",
+          "installed": "0.5.12",
+          "required": "0.5.12"
+        },
+        {
+          "name": "comfy-kitchen",
+          "installed": "0.2.35",
+          "required": "0.2.35"
+        },
+        {
+          "name": "comfy-aimdo",
+          "installed": "0.5.5",
+          "required": "0.5.5"
+        }
+      ],
+      "python_version": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+      "pytorch_version": "2.14.0+cpu",
+      "embedded_python": false,
+      "deploy_environment": "local-git",
+      "argv": [
+        "main.py",
+        "--cpu",
+        "--disable-all-custom-nodes",
+        "--disable-auto-launch",
+        "--listen",
+        "127.0.0.1",
+        "--port",
+        "8188"
+      ]
+    },
+    "devices": [
+      {
+        "name": "cpu",
+        "type": "cpu",
+        "index": null,
+        "vram_total": 16766414848,
+        "vram_free": 15237861376,
+        "torch_vram_total": 16766414848,
+        "torch_vram_free": 15237861376
+      }
+    ]
+  },
+  "replacements": {
+    "ConditioningAverage ": "ConditioningAverage",
+    "ImageBatch": "BatchImagesNode",
+    "ImageScaleBy": "ResizeImageMaskNode",
+    "Load3DAnimation": "Load3D",
+    "Preview3DAnimation": "Preview3D",
+    "ResizeImagesByLongerEdge": "ImageScaleToMaxDimension",
+    "SDV_img2vid_Conditioning": "SVD_img2vid_Conditioning",
+    "T2IAdapterLoader": "ControlNetLoader"
+  },
+  "coverage": {
+    "schemaVersion": "1.0",
+    "runtimeNodeCount": 665,
+    "backendArticleCount": 601,
+    "coveredNodeCount": 601,
+    "coverageRatio": 0.903759,
+    "missingArticles": [
+      "ApplyTextureToMesh",
+      "BakeAmbientOcclusion",
+      "BakeNormalMapFromMesh",
+      "BakeTextureFromVoxel",
+      "BlockSparseAttention",
+      "BuildPoseFile",
+      "ConcatenateVideo",
+      "ConditioningLoader",
+      "DecimateMesh",
+      "EmptyMiniMaxMusic3LatentAudio",
+      "EmptyTrellis2LatentStructure",
+      "EmptyYuE2LatentAudio",
+      "EndLoop",
+      "FillHoles",
+      "Get3DComponents",
+      "GetItemFromList",
+      "GetMeshInfo",
+      "ImageColorSpace",
+      "ImageCropToMask",
+      "LTXVAddGeneratedKeyframes",
+      "LTXVAddLatentGuide",
+      "LTXVFreezeLatent",
+      "LTXVGeneratedKeyframesToGuides",
+      "LTXVSeparateGeneratedKeyframes",
+      "MarigoldV2PostProcess",
+      "MergeMeshes",
+      "MeshSmoothNormals",
+      "MeshTextureToImage",
+      "MeshToFile3D",
+      "MiniMaxH3AddGuide",
+      "MiniMaxH3FunControlNetApply",
+      "MiniMaxMusic3TextEncode",
+      "MoGeGeometryToFOV",
+      "PaintMesh",
+      "Pixal3DConditioning",
+      "Pixal3DMultiViewConditioning",
+      "QwenImage21Cache",
+      "RemeshMesh",
+      "RenderMesh",
+      "RenderUVAtlas",
+      "RotateMesh",
+      "SAM3DBody_FaceExpression",
+      "SAM3DBody_Loader",
+      "SAM3DBody_Predict",
+      "SAM3DBody_Render",
+      "SAM3DBody_Smooth",
+      "SaveConditioning",
+      "SenseNovaSamplingOptions",
+      "SheetSage2AudioToABC",
+      "StartLoop",
+      "TextEncodeQwenImage21",
+      "Trellis2Conditioning",
+      "Trellis2ShapeStage",
+      "Trellis2TextureStage",
+      "Trellis2UpsampleStage",
+      "UnwrapMesh",
+      "VaeDecodeShapeTrellis",
+      "VaeDecodeStructureTrellis2",
+      "VaeDecodeTextureTrellis",
+      "VideoCrop",
+      "VideoTrim",
+      "WeldVertices",
+      "YuE2GenerateABC",
+      "YuE2GenerateMusic"
+    ],
+    "articlesMissingRuntimeNode": [],
+    "staleArticles": [
+      {
+        "articleId": "core.add-text-prefix",
+        "nodeId": "AddTextPrefix",
+        "expected": "sha256:011507fe0631aee062f38fd0991ca3da3144a8ae8edba592016cb1b9868d731d",
+        "actual": "sha256:f35926015bc71a646e4704052022c856912428b27003aae1dff0f88185233097"
+      },
+      {
+        "articleId": "core.add-text-suffix",
+        "nodeId": "AddTextSuffix",
+        "expected": "sha256:fd0c6f384b67e53c02e9e123b47cfc87c9cbfef64e8d2bdb71fd10064df945f3",
+        "actual": "sha256:4f499c3d0f6df2351977eccc1fac7676dbf1e1bce4a69e1e31f3beb48baf260d"
+      },
+      {
+        "articleId": "core.comfy-switch-node",
+        "nodeId": "ComfySwitchNode",
+        "expected": "sha256:5b1b6bfa1169b017578109479557bd7f550d587fea84e9be5dd9883f8ff95d1d",
+        "actual": "sha256:7fce86c03ae9c782c491d8316748fce02b8f6a5940018b29019e9fd189597a17"
+      },
+      {
+        "articleId": "core.create-list",
+        "nodeId": "CreateList",
+        "expected": "sha256:e03ee260911345ec3d0e0ae5a91a707717966c72ff2540f423404c7e9f1e72fa",
+        "actual": "sha256:afb0a34987d7da540bb5a8d12491a485398a20a86461c008300d94852537a1ca"
+      },
+      {
+        "articleId": "core.create-video",
+        "nodeId": "CreateVideo",
+        "expected": "sha256:83a49dfffa5293faddb8ed1287f5d1a487cfd3c2676bb46857276b354b1eb1b7",
+        "actual": "sha256:61bbbdaf435b355f8ef399580c6292a58c9ff24ee1c2b0ac0bb99bc96027e21d"
+      },
+      {
+        "articleId": "core.empty-latent-image",
+        "nodeId": "EmptyLatentImage",
+        "expected": "sha256:998118ee8c2b152a5a932c4c2bf40bf44c6722826585da6acd6ad469bdaaffe3",
+        "actual": "sha256:df64b971975732cc72b14af3db7d0024eeb5ed6bd4f40a631fe39f3b555c5901"
+      },
+      {
+        "articleId": "core.get-video-components",
+        "nodeId": "GetVideoComponents",
+        "expected": "sha256:a9170e381913f3f62f44ce98fcc8749eda141bbf63217660f71846a4ebbed7b9",
+        "actual": "sha256:912051ceafdd1b10ed619328881aef7dc7672338445b3a6d7f5b9625ff42f002"
+      },
+      {
+        "articleId": "core.hidream-o1-reference-images",
+        "nodeId": "HiDreamO1ReferenceImages",
+        "expected": "sha256:cea480a0a9551d7a5d07ef1b9746200945cbfe0ca8e188908cac71884c8bf893",
+        "actual": "sha256:96d55194e4b0e5d1a0330df2a90f9ac7e0f35fb6840eb9119ca69acbbe0769ff"
+      },
+      {
+        "articleId": "core.image-compare",
+        "nodeId": "ImageCompare",
+        "expected": "sha256:d59234d40e68653cd5ecd8f0c1c445df414a6e58c56803d9b9d51125e1211ed3",
+        "actual": "sha256:3f6a918da6bc98a6799760b8ba60eb8e6a8a2286e26150b6d1608af074d851fb"
+      },
+      {
+        "articleId": "core.load-3d-advanced",
+        "nodeId": "Load3DAdvanced",
+        "expected": "sha256:f99a6a4f8ac0adfb5a94e3f333016f58e73eac54fc60e21cad45fd0641f9a492",
+        "actual": "sha256:ab1f55d9b0534c4b254c010e58f934c3f7655a9bf059b019ad08870e66161b0c"
+      },
+      {
+        "articleId": "core.merge-image-lists",
+        "nodeId": "MergeImageLists",
+        "expected": "sha256:9c83a6ff9cc25dfe2c84cd0e33ec932bf2e7c9182f4e011eff2e9b5a96f0600f",
+        "actual": "sha256:6b7abbb2faf4fbd4db19bb421203dd8e79e72793775f1a78152b0e3badf041e5"
+      },
+      {
+        "articleId": "core.merge-text-lists",
+        "nodeId": "MergeTextLists",
+        "expected": "sha256:4e0814b665dbe8f92ca6762a25ad1d54e1d356f414bbfc670abc9d7a14fe99bc",
+        "actual": "sha256:4c714b60106ffbe446262c09aeca478dc5064794c3d71ef290e066f69959ad89"
+      },
+      {
+        "articleId": "core.minimax-h3-reference-to-video",
+        "nodeId": "MiniMaxH3ReferenceToVideo",
+        "expected": "sha256:f985c8fd12dc1dae1b6943640f9c4aae821a6e5bab6eebcf4c524752bbecdeaf",
+        "actual": "sha256:5d0e16d1bc97764bc06d5c0d69a1380c2953419d0b58c45ea0e0318cd17f834e"
+      },
+      {
+        "articleId": "core.moge-inference",
+        "nodeId": "MoGeInference",
+        "expected": "sha256:02570908441df36e149535a10622c1c80b257bb56aad228e18cdb305ba0b538f",
+        "actual": "sha256:55c1fc0996c8c1bd5425fd50ecc14022f227db8d286485a60bab04f4e37ebf57"
+      },
+      {
+        "articleId": "core.moge-panorama-inference",
+        "nodeId": "MoGePanoramaInference",
+        "expected": "sha256:61eba3ef7f520cb950b27a56d6d1c0ae832eb871fa4432679856a10fa89748f8",
+        "actual": "sha256:4ebf6bead7bc8b37b7c9edccde81a56d9d63f2d0cd39ac342fe4ba8ff19202bd"
+      },
+      {
+        "articleId": "core.model-attention-backend",
+        "nodeId": "ModelAttentionBackend",
+        "expected": "sha256:ec8a3bcba2a453a35961251adf73c2581c02f4c5ec7dac1c54bc3ce2f32ea3a7",
+        "actual": "sha256:62f625e5073a6e2a250b5a0939194b38f6d3339d3f1a74be61b7a43cbbb1c28e"
+      },
+      {
+        "articleId": "core.model-sampling-aura-flow",
+        "nodeId": "ModelSamplingAuraFlow",
+        "expected": "sha256:653af937b5cbd5bf4fdea1b4c95785f9b34b6a1a4b12340b4caff9cd0043d1d1",
+        "actual": "sha256:42bc34b82818ffd58937ee436209c091607ca3336efc0060f6dbd1773028717e"
+      },
+      {
+        "articleId": "core.normalize-images",
+        "nodeId": "NormalizeImages",
+        "expected": "sha256:085c249e4e520cf1f10164e7ab8bd702e92e35fb67054c53d4d498f4c1b7d51b",
+        "actual": "sha256:206539fa8d76935ad48ac0868af5984fc3530c74c1567e529926224e9ec4972b"
+      },
+      {
+        "articleId": "core.preview-3d",
+        "nodeId": "Preview3D",
+        "expected": "sha256:0aa642e7ab751be5a8f4a764592433bf0e87c71b1ed00ccfa60ed31585acc190",
+        "actual": "sha256:0be95c75e7c3ec7f216fec0c9cdf4d51d3aa51482c85c13693b23dd51b426c7e"
+      },
+      {
+        "articleId": "core.preview-3d-advanced",
+        "nodeId": "Preview3DAdvanced",
+        "expected": "sha256:83609406f3a8a1b6d13b5a1f4b0f814887c6eda5e84c35416063ac8b948870d8",
+        "actual": "sha256:be6f219b5b7ad2df520297b9a059f42887f89957328c92f9aa6e3b49f5be85df"
+      },
+      {
+        "articleId": "core.replace-text",
+        "nodeId": "ReplaceText",
+        "expected": "sha256:6984fddec80d7fac480bed86b95d0600a03a8b03e178a501e80bd6c6ff48527f",
+        "actual": "sha256:8e2812d4647b88e68296d2110e3e0ccf13f160fc295fd4bb8f722ef2c3b325af"
+      },
+      {
+        "articleId": "core.resize-images-by-longer-edge",
+        "nodeId": "ResizeImagesByLongerEdge",
+        "expected": "sha256:1de4b694c61fe14d8a37f28e67f0fff5cd21fa61335b20fcac4fa57107dcd8e8",
+        "actual": "sha256:47d37c42647ac69018591fad036c8448cf09dde96584058a70f10027aa095b14"
+      },
+      {
+        "articleId": "core.resize-images-by-shorter-edge",
+        "nodeId": "ResizeImagesByShorterEdge",
+        "expected": "sha256:0ee355f08a404527c9bcb23e7c228f56d9bde76185e1966bb581bdc29761cb30",
+        "actual": "sha256:0100eacf47fae3ba6c48307c98be2c19f9715e99c955b81fb7eff03502c6e090"
+      },
+      {
+        "articleId": "core.resolution-selector",
+        "nodeId": "ResolutionSelector",
+        "expected": "sha256:9336a2b2bcf3cbb2db5f271afcaaf5a78e9dbae893a4d821de68c878029aad2a",
+        "actual": "sha256:ec91e3682a0c28cf4f34da550e52b06f0b9ba2caab4ef3a7b5ca30f11dc1bc3f"
+      },
+      {
+        "articleId": "core.save-3d-advanced",
+        "nodeId": "Save3DAdvanced",
+        "expected": "sha256:9fd5832dfd489f2549aef43574b13f09f2e91dcd72ae3dd0bdb8a847845d9fdb",
+        "actual": "sha256:15d2126990a442214add50ca62665fe6bc9ff723c3892791b9678a55659d9957"
+      },
+      {
+        "articleId": "core.save-video",
+        "nodeId": "SaveVideo",
+        "expected": "sha256:b421568a0299771758de4877730b9027faa4ece7f7085b5097eb4181b5487006",
+        "actual": "sha256:7f40e2d9bafca7e423a9ad2c21a04d6821361e4e5f2f4ca6c503029a595ae92d"
+      },
+      {
+        "articleId": "core.strip-whitespace",
+        "nodeId": "StripWhitespace",
+        "expected": "sha256:3b3a0f287cf2892d6a1457b10f194d0f81fb96d98558370925f840872017cff3",
+        "actual": "sha256:67c926f1d554d2ac8e3bc8822299a2c6f7c2b9889ee4e4aefcbe08c74963a898"
+      },
+      {
+        "articleId": "core.text-generate",
+        "nodeId": "TextGenerate",
+        "expected": "sha256:6b4c83043530f7a2dd1bdbd89f130465f17ef4fc9e02ce15b6c63607955c3c92",
+        "actual": "sha256:67394af456b743a167ceac00aa56421a5502eba5229d1216c1d0eb7c5dcf3a68"
+      },
+      {
+        "articleId": "core.text-generate-ltx2-prompt",
+        "nodeId": "TextGenerateLTX2Prompt",
+        "expected": "sha256:b1360b6b6f8f2030d707f3ef8be8a922139709bd7cc508f57b1a6d01ee26405d",
+        "actual": "sha256:5e3a572a5b6d7e5162afe9f82d283d25644a51a5e2d680d1489b4d64bba10bd6"
+      },
+      {
+        "articleId": "core.text-to-lowercase",
+        "nodeId": "TextToLowercase",
+        "expected": "sha256:1a945d2dbe351d8451ed4355ad5a9e46835bddb61af38a68028eb27703e73873",
+        "actual": "sha256:13f1b5ba3081a90d1ad640234f25749727361b3691b10d6c989edaa936cef36d"
+      },
+      {
+        "articleId": "core.text-to-uppercase",
+        "nodeId": "TextToUppercase",
+        "expected": "sha256:86a8e2fdd26c62bebbe03426b56891294975d1a932e876388c1524022d6d1b71",
+        "actual": "sha256:cd4f3b54829aaf627777d9e00f9e0714a62b64a4b896c2b3f928ef4a612cd747"
+      }
+    ],
+    "frontendArticleIds": [
+      "frontend.markdown-note",
+      "frontend.note",
+      "frontend.primitive-node",
+      "frontend.reroute"
+    ]
+  },
+  "diff": {
+    "schemaVersion": "1.0",
+    "added": [
+      "ApplyTextureToMesh",
+      "BakeAmbientOcclusion",
+      "BakeNormalMapFromMesh",
+      "BakeTextureFromVoxel",
+      "BlockSparseAttention",
+      "BriaAddObject",
+      "BriaEraseByText",
+      "BriaEraseForeground",
+      "BriaEraser",
+      "BriaExpandImage",
+      "BriaGenFill",
+      "BriaIncreaseResolution",
+      "BriaRelight",
+      "BriaReplaceImageBackground",
+      "BriaReplaceObject",
+      "BriaReseason",
+      "BriaRestorePhoto",
+      "BriaVideoEraser",
+      "BuildPoseFile",
+      "ByteDance2ReferenceNodeV2",
+      "ByteDanceSeedreamNodeV3",
+      "ByteDanceVideoEnhanceNode",
+      "ComfyCloudFlux2TextToImageNode",
+      "ComfyCloudMageFlowTextToImageNode",
+      "ComfyCloudMageFlowTurboTextToImageNode",
+      "ComfyCloudMiniMaxH3FirstLastFrameToVideoNode",
+      "ComfyCloudMiniMaxH3ImageToVideoNode",
+      "ComfyCloudMiniMaxH3TextToVideoNode",
+      "ComfyCloudMiniMaxMusic3TextToAudioNode",
+      "ComfyCloudZImageTurboNode",
+      "ConcatenateVideo",
+      "ConditioningLoader",
+      "DecimateMesh",
+      "EmptyMiniMaxMusic3LatentAudio",
+      "EmptyTrellis2LatentStructure",
+      "EmptyYuE2LatentAudio",
+      "EndLoop",
+      "FillHoles",
+      "FishAudioInstantVoiceClone",
+      "FishAudioSpeechToText",
+      "FishAudioTextToSpeech",
+      "FishAudioVoiceSelector",
+      "FluxVideoEditNode",
+      "FluxVideoUpscaleNode",
+      "GeminiNodeV3",
+      "GeminiVideoOmniV2",
+      "Get3DComponents",
+      "GetItemFromList",
+      "GetMeshInfo",
+      "ImageColorSpace",
+      "ImageCropToMask",
+      "LTXVAddGeneratedKeyframes",
+      "LTXVAddLatentGuide",
+      "LTXVFreezeLatent",
+      "LTXVGeneratedKeyframesToGuides",
+      "LTXVSeparateGeneratedKeyframes",
+      "MarigoldV2PostProcess",
+      "MergeMeshes",
+      "MeshSmoothNormals",
+      "MeshTextureToImage",
+      "MeshToFile3D",
+      "MeshyTextureMultiViewNode",
+      "MetaMuseImageEditApi",
+      "MetaMuseImageTextToImageApi",
+      "MiniMaxH3AddGuide",
+      "MiniMaxH3FunControlNetApply",
+      "MiniMaxMusic3TextEncode",
+      "MinimaxHailuo03ContextIRNode",
+      "MinimaxHailuo03RegenerateNode",
+      "MoGeGeometryToFOV",
+      "OpenRouterImageNode",
+      "PaintMesh",
+      "Pixal3DConditioning",
+      "Pixal3DMultiViewConditioning",
+      "PixverseV6ExtendVideoNode",
+      "PixverseV6FirstLastFrameNode",
+      "PixverseV6FusionVideoNode",
+      "PixverseV6ImageToVideoNode",
+      "PixverseV6TextToVideoNode",
+      "PrunaImageToVideoNode",
+      "PrunaTextToVideoNode",
+      "QwenImage21Cache",
+      "RecraftV4CreateStyleNode",
+      "RemeshMesh",
+      "RenderMesh",
+      "RenderUVAtlas",
+      "RotateMesh",
+      "SAM3DBody_FaceExpression",
+      "SAM3DBody_Loader",
+      "SAM3DBody_Predict",
+      "SAM3DBody_Render",
+      "SAM3DBody_Smooth",
+      "SaveConditioning",
+      "SenseNovaSamplingOptions",
+      "SheetSage2AudioToABC",
+      "StartLoop",
+      "TextEncodeQwenImage21",
+      "Trellis2Conditioning",
+      "Trellis2ShapeStage",
+      "Trellis2TextureStage",
+      "Trellis2UpsampleStage",
+      "TripoEditMultiviewNode",
+      "TripoImageToModelNodeV2",
+      "TripoImageToMultiviewNode",
+      "TripoMeshCompleteNode",
+      "TripoPSeriesImageToModelNode",
+      "TripoPSeriesMultiviewToModelNode",
+      "TripoPSeriesTextToModelNode",
+      "TripoRetopologyNode",
+      "TripoRigCheckNode",
+      "TripoSegmentNode",
+      "TripoSmartSegmentNode",
+      "TripoTextToModelNodeV2",
+      "TripoTextureNodeV2",
+      "UnwrapMesh",
+      "VaeDecodeShapeTrellis",
+      "VaeDecodeStructureTrellis2",
+      "VaeDecodeTextureTrellis",
+      "VideoCrop",
+      "VideoTrim",
+      "Wan3ImageToVideoApi",
+      "Wan3ReferenceToVideoApi",
+      "WeldVertices",
+      "YuE2GenerateABC",
+      "YuE2GenerateMusic"
+    ],
+    "removed": [
+      {
+        "nodeId": "ByteDanceImageNode"
+      },
+      {
+        "nodeId": "ByteDanceImageReferenceNode"
+      },
+      {
+        "nodeId": "KlingVideoExtendNode"
+      },
+      {
+        "nodeId": "LtxvApiImageToVideo"
+      },
+      {
+        "nodeId": "LtxvApiTextToVideo"
+      },
+      {
+        "nodeId": "OpenAIDalle2"
+      },
+      {
+        "nodeId": "OpenAIDalle3"
+      },
+      {
+        "nodeId": "TripoRefineNode"
+      },
+      {
+        "nodeId": "VeoVideoGenerationNode"
+      }
+    ],
+    "changed": [
+      {
+        "nodeId": "AddTextPrefix",
+        "before": "sha256:011507fe0631aee062f38fd0991ca3da3144a8ae8edba592016cb1b9868d731d",
+        "after": "sha256:f35926015bc71a646e4704052022c856912428b27003aae1dff0f88185233097"
+      },
+      {
+        "nodeId": "AddTextSuffix",
+        "before": "sha256:fd0c6f384b67e53c02e9e123b47cfc87c9cbfef64e8d2bdb71fd10064df945f3",
+        "after": "sha256:4f499c3d0f6df2351977eccc1fac7676dbf1e1bce4a69e1e31f3beb48baf260d"
+      },
+      {
+        "nodeId": "ByteDance2ReferenceNode",
+        "before": "sha256:7333cf8de1fcbf1a6a848234629e282432d54eacaa9930b76bd67b5a5ec3c3e6",
+        "after": "sha256:e0cd61be0ab9b09c514c832493b10aa43d76afc8c62b29f25d148364575fbb79"
+      },
+      {
+        "nodeId": "ByteDanceSeedreamNodeV2",
+        "before": "sha256:bdb311b723bc9beb65e9c69ab11db9cce35e69f702302fee2dbbd965ea8bf2c5",
+        "after": "sha256:cd94ff71314e91bde238643c1a2f9886402d9df7b38a976498b1dcce68221022"
+      },
+      {
+        "nodeId": "ComfySwitchNode",
+        "before": "sha256:5b1b6bfa1169b017578109479557bd7f550d587fea84e9be5dd9883f8ff95d1d",
+        "after": "sha256:7fce86c03ae9c782c491d8316748fce02b8f6a5940018b29019e9fd189597a17"
+      },
+      {
+        "nodeId": "CreateList",
+        "before": "sha256:e03ee260911345ec3d0e0ae5a91a707717966c72ff2540f423404c7e9f1e72fa",
+        "after": "sha256:afb0a34987d7da540bb5a8d12491a485398a20a86461c008300d94852537a1ca"
+      },
+      {
+        "nodeId": "CreateVideo",
+        "before": "sha256:83a49dfffa5293faddb8ed1287f5d1a487cfd3c2676bb46857276b354b1eb1b7",
+        "after": "sha256:61bbbdaf435b355f8ef399580c6292a58c9ff24ee1c2b0ac0bb99bc96027e21d"
+      },
+      {
+        "nodeId": "EmptyLatentImage",
+        "before": "sha256:998118ee8c2b152a5a932c4c2bf40bf44c6722826585da6acd6ad469bdaaffe3",
+        "after": "sha256:df64b971975732cc72b14af3db7d0024eeb5ed6bd4f40a631fe39f3b555c5901"
+      },
+      {
+        "nodeId": "GeminiNodeV2",
+        "before": "sha256:a7f859171055ebf3a43e5a9e0eb0a313e742090517808b4d843d24ef7db0e776",
+        "after": "sha256:3060ad5a6af9dc2880982d5247fb4acfdc03d7055ba0fd8bc6729c99b635e2a1"
+      },
+      {
+        "nodeId": "GeminiVideoOmni",
+        "before": "sha256:8a3e632505fde0f43d5977873753be333a4a0519c59bc3fe639ff841928f016e",
+        "after": "sha256:f406633ed39c4d97a54aed9b078f065fcf65b947a96aa54dde05089137a1b12b"
+      },
+      {
+        "nodeId": "GetVideoComponents",
+        "before": "sha256:a9170e381913f3f62f44ce98fcc8749eda141bbf63217660f71846a4ebbed7b9",
+        "after": "sha256:912051ceafdd1b10ed619328881aef7dc7672338445b3a6d7f5b9625ff42f002"
+      },
+      {
+        "nodeId": "HiDreamO1ReferenceImages",
+        "before": "sha256:cea480a0a9551d7a5d07ef1b9746200945cbfe0ca8e188908cac71884c8bf893",
+        "after": "sha256:96d55194e4b0e5d1a0330df2a90f9ac7e0f35fb6840eb9119ca69acbbe0769ff"
+      },
+      {
+        "nodeId": "ImageCompare",
+        "before": "sha256:d59234d40e68653cd5ecd8f0c1c445df414a6e58c56803d9b9d51125e1211ed3",
+        "after": "sha256:3f6a918da6bc98a6799760b8ba60eb8e6a8a2286e26150b6d1608af074d851fb"
+      },
+      {
+        "nodeId": "Load3DAdvanced",
+        "before": "sha256:f99a6a4f8ac0adfb5a94e3f333016f58e73eac54fc60e21cad45fd0641f9a492",
+        "after": "sha256:ab1f55d9b0534c4b254c010e58f934c3f7655a9bf059b019ad08870e66161b0c"
+      },
+      {
+        "nodeId": "MergeImageLists",
+        "before": "sha256:9c83a6ff9cc25dfe2c84cd0e33ec932bf2e7c9182f4e011eff2e9b5a96f0600f",
+        "after": "sha256:6b7abbb2faf4fbd4db19bb421203dd8e79e72793775f1a78152b0e3badf041e5"
+      },
+      {
+        "nodeId": "MergeTextLists",
+        "before": "sha256:4e0814b665dbe8f92ca6762a25ad1d54e1d356f414bbfc670abc9d7a14fe99bc",
+        "after": "sha256:4c714b60106ffbe446262c09aeca478dc5064794c3d71ef290e066f69959ad89"
+      },
+      {
+        "nodeId": "MeshyImageToModelNode",
+        "before": "sha256:288971e5abd9ead1a793e34d8814f17692afdb57dac460bdf61552703f563f10",
+        "after": "sha256:f4cfa57f2fb5fe789325c6cfe394cfb9e86a5995296f69e01e2fa3c714e510c6"
+      },
+      {
+        "nodeId": "MeshyMultiImageToModelNode",
+        "before": "sha256:67f7e100e46eeedc145073eda1a8ec2c77b962b3f4aedebad2aa498fc5e99058",
+        "after": "sha256:84297021ef95284ef694825680f8ff645168deea43798986a11f8cb1c036edf2"
+      },
+      {
+        "nodeId": "MeshyRefineNode",
+        "before": "sha256:1c6bd524e87a4c263d68818ae2cd526edfe151573ff84ab01effdd0f9ce98e3c",
+        "after": "sha256:da5bf0deed8fd34730be35d1f69c75f0c372ec1af5a46f9a9dc2392573281298"
+      },
+      {
+        "nodeId": "MeshyTextToModelNode",
+        "before": "sha256:e604fa300e24f1cf222923102c930ab2f5a94274fbd4c9abcfbfa49f0cb18839",
+        "after": "sha256:acd11c6b3ee1b84f80270234ad4995dab5430ce64422b0228bb7ffdce30b3a29"
+      },
+      {
+        "nodeId": "MeshyTextureNode",
+        "before": "sha256:983a8c54113c8bb1a2eae10733fb8fe5b45d6a952ce69c7da31360fbed449d73",
+        "after": "sha256:26f4f135521391073b99972c98f6dda5926d003e8397e63900abffbd4717cd23"
+      },
+      {
+        "nodeId": "MiniMaxH3ReferenceToVideo",
+        "before": "sha256:f985c8fd12dc1dae1b6943640f9c4aae821a6e5bab6eebcf4c524752bbecdeaf",
+        "after": "sha256:5d0e16d1bc97764bc06d5c0d69a1380c2953419d0b58c45ea0e0318cd17f834e"
+      },
+      {
+        "nodeId": "MoGeInference",
+        "before": "sha256:02570908441df36e149535a10622c1c80b257bb56aad228e18cdb305ba0b538f",
+        "after": "sha256:55c1fc0996c8c1bd5425fd50ecc14022f227db8d286485a60bab04f4e37ebf57"
+      },
+      {
+        "nodeId": "MoGePanoramaInference",
+        "before": "sha256:61eba3ef7f520cb950b27a56d6d1c0ae832eb871fa4432679856a10fa89748f8",
+        "after": "sha256:4ebf6bead7bc8b37b7c9edccde81a56d9d63f2d0cd39ac342fe4ba8ff19202bd"
+      },
+      {
+        "nodeId": "ModelAttentionBackend",
+        "before": "sha256:ec8a3bcba2a453a35961251adf73c2581c02f4c5ec7dac1c54bc3ce2f32ea3a7",
+        "after": "sha256:62f625e5073a6e2a250b5a0939194b38f6d3339d3f1a74be61b7a43cbbb1c28e"
+      },
+      {
+        "nodeId": "ModelSamplingAuraFlow",
+        "before": "sha256:653af937b5cbd5bf4fdea1b4c95785f9b34b6a1a4b12340b4caff9cd0043d1d1",
+        "after": "sha256:42bc34b82818ffd58937ee436209c091607ca3336efc0060f6dbd1773028717e"
+      },
+      {
+        "nodeId": "NormalizeImages",
+        "before": "sha256:085c249e4e520cf1f10164e7ab8bd702e92e35fb67054c53d4d498f4c1b7d51b",
+        "after": "sha256:206539fa8d76935ad48ac0868af5984fc3530c74c1567e529926224e9ec4972b"
+      },
+      {
+        "nodeId": "OpenAIChatConfig",
+        "before": "sha256:8a7763d145deff92db925d16d010158800c204c83fc7cba2c1ecf20ff41a58ff",
+        "after": "sha256:e74254cac371f3dbaf0297093839aae2d0381a27a0b3a13e8ffb91c517b6017e"
+      },
+      {
+        "nodeId": "OpenAIVideoSora2",
+        "before": "sha256:caf833be5cc2890958e285829a5b191eb34c6f0dc5bbc57b286c5b4f0c9df034",
+        "after": "sha256:efb2d5abab0ec404553acf210a453b49c69874544a39f2843a7a086c4e09692c"
+      },
+      {
+        "nodeId": "Preview3D",
+        "before": "sha256:0aa642e7ab751be5a8f4a764592433bf0e87c71b1ed00ccfa60ed31585acc190",
+        "after": "sha256:0be95c75e7c3ec7f216fec0c9cdf4d51d3aa51482c85c13693b23dd51b426c7e"
+      },
+      {
+        "nodeId": "Preview3DAdvanced",
+        "before": "sha256:83609406f3a8a1b6d13b5a1f4b0f814887c6eda5e84c35416063ac8b948870d8",
+        "after": "sha256:be6f219b5b7ad2df520297b9a059f42887f89957328c92f9aa6e3b49f5be85df"
+      },
+      {
+        "nodeId": "RecraftV4TextToImageNode",
+        "before": "sha256:1fc1d56221f51d130efcc3804a41b9f130e80e910ba24c19b7a856cb555525cb",
+        "after": "sha256:dce56258b8de357c6e52582d1ce3c343eb6c175f6d7dc2974961b48adecad958"
+      },
+      {
+        "nodeId": "RecraftV4TextToVectorNode",
+        "before": "sha256:c9c21a9cb6a1f5ef531924bc5abb038a796a137c8faabe0e3bd96278c51b25cc",
+        "after": "sha256:7f405dcfbb74be8cffabdbcf8499818b91d2a1b2ef88b86693ce7b162f4da04f"
+      },
+      {
+        "nodeId": "ReplaceText",
+        "before": "sha256:6984fddec80d7fac480bed86b95d0600a03a8b03e178a501e80bd6c6ff48527f",
+        "after": "sha256:8e2812d4647b88e68296d2110e3e0ccf13f160fc295fd4bb8f722ef2c3b325af"
+      },
+      {
+        "nodeId": "ResizeImagesByLongerEdge",
+        "before": "sha256:1de4b694c61fe14d8a37f28e67f0fff5cd21fa61335b20fcac4fa57107dcd8e8",
+        "after": "sha256:47d37c42647ac69018591fad036c8448cf09dde96584058a70f10027aa095b14"
+      },
+      {
+        "nodeId": "ResizeImagesByShorterEdge",
+        "before": "sha256:0ee355f08a404527c9bcb23e7c228f56d9bde76185e1966bb581bdc29761cb30",
+        "after": "sha256:0100eacf47fae3ba6c48307c98be2c19f9715e99c955b81fb7eff03502c6e090"
+      },
+      {
+        "nodeId": "ResolutionSelector",
+        "before": "sha256:9336a2b2bcf3cbb2db5f271afcaaf5a78e9dbae893a4d821de68c878029aad2a",
+        "after": "sha256:ec91e3682a0c28cf4f34da550e52b06f0b9ba2caab4ef3a7b5ca30f11dc1bc3f"
+      },
+      {
+        "nodeId": "Save3DAdvanced",
+        "before": "sha256:9fd5832dfd489f2549aef43574b13f09f2e91dcd72ae3dd0bdb8a847845d9fdb",
+        "after": "sha256:15d2126990a442214add50ca62665fe6bc9ff723c3892791b9678a55659d9957"
+      },
+      {
+        "nodeId": "SaveVideo",
+        "before": "sha256:b421568a0299771758de4877730b9027faa4ece7f7085b5097eb4181b5487006",
+        "after": "sha256:7f40e2d9bafca7e423a9ad2c21a04d6821361e4e5f2f4ca6c503029a595ae92d"
+      },
+      {
+        "nodeId": "StripWhitespace",
+        "before": "sha256:3b3a0f287cf2892d6a1457b10f194d0f81fb96d98558370925f840872017cff3",
+        "after": "sha256:67c926f1d554d2ac8e3bc8822299a2c6f7c2b9889ee4e4aefcbe08c74963a898"
+      },
+      {
+        "nodeId": "TextGenerate",
+        "before": "sha256:6b4c83043530f7a2dd1bdbd89f130465f17ef4fc9e02ce15b6c63607955c3c92",
+        "after": "sha256:67394af456b743a167ceac00aa56421a5502eba5229d1216c1d0eb7c5dcf3a68"
+      },
+      {
+        "nodeId": "TextGenerateLTX2Prompt",
+        "before": "sha256:b1360b6b6f8f2030d707f3ef8be8a922139709bd7cc508f57b1a6d01ee26405d",
+        "after": "sha256:5e3a572a5b6d7e5162afe9f82d283d25644a51a5e2d680d1489b4d64bba10bd6"
+      },
+      {
+        "nodeId": "TextToLowercase",
+        "before": "sha256:1a945d2dbe351d8451ed4355ad5a9e46835bddb61af38a68028eb27703e73873",
+        "after": "sha256:13f1b5ba3081a90d1ad640234f25749727361b3691b10d6c989edaa936cef36d"
+      },
+      {
+        "nodeId": "TextToUppercase",
+        "before": "sha256:86a8e2fdd26c62bebbe03426b56891294975d1a932e876388c1524022d6d1b71",
+        "after": "sha256:cd4f3b54829aaf627777d9e00f9e0714a62b64a4b896c2b3f928ef4a612cd747"
+      },
+      {
+        "nodeId": "TripoConversionNode",
+        "before": "sha256:acc3d1f0680382a01c1c2543678ef3c478b8230d4866751236d94acb62c7f317",
+        "after": "sha256:280bc00251b727d0519575c44155ace37eed2ac7d8b9b47a5ce2347debfbe3fc"
+      },
+      {
+        "nodeId": "TripoImageToModelNode",
+        "before": "sha256:a052ba40f5d003ccbea4e1586ff14e53e3d00370b8ae3e9d9577a4c0fd76b8de",
+        "after": "sha256:6ba1c1516985064296101c9a70122c98ea4460d9b4d280db0bd17405a418c198"
+      },
+      {
+        "nodeId": "TripoMultiviewToModelNode",
+        "before": "sha256:15d7ed6c168c32c861273661cc3644ec59cf970ef24f49df2f28f0e5337e5e81",
+        "after": "sha256:e274bb0e74713d22b2e41ecdee39b7e699746cf921aa42922acf32a236116890"
+      },
+      {
+        "nodeId": "TripoP1ImageToModelNode",
+        "before": "sha256:e08ea79f246ce52228de778a07120d8eb7a464694db5c325181eda36e6cbf27b",
+        "after": "sha256:05c94f6bef871b81a5490cd962756677b342491c841bf944c5887c3627d29faa"
+      },
+      {
+        "nodeId": "TripoP1MultiviewToModelNode",
+        "before": "sha256:460730c27d49e99e9a2f4a5b5d617813f3c1b86944a9bf499435a08ea13f1067",
+        "after": "sha256:971a508b0c1df981e4300e4436a0b49568b171b21bb207414e1ea6789e962ec6"
+      },
+      {
+        "nodeId": "TripoP1TextToModelNode",
+        "before": "sha256:ff6a5629eb19de4759402c2109af5d779ac7305e731874a156d06b0bff525fbe",
+        "after": "sha256:94ce876a6c33fc79e2262d1c95e5f6c60bf6b00f6c1a8ff0044919c3fffd8435"
+      },
+      {
+        "nodeId": "TripoRetargetNode",
+        "before": "sha256:2bc620c7b197f863494919d3c339211b0d0605619447f286758fc25468d0c9dd",
+        "after": "sha256:e7872b128c2ca5556dc0cae97ea388edac8047799af9dc2d6dcb1df2d8820b8a"
+      },
+      {
+        "nodeId": "TripoRigNode",
+        "before": "sha256:f57127cb35b68e6013382908f2b8cc86494ffef762f797397bbf6b8dc95fde30",
+        "after": "sha256:f718ed4f2a11dce494ab50a28bdf860822078abbe8f0b756936d266ee90cfa12"
+      },
+      {
+        "nodeId": "TripoTextToModelNode",
+        "before": "sha256:215a42f497d17e7dc14e8ed963ce9f3f0690d7d5f8d03046dcbe593684712b2f",
+        "after": "sha256:feab2e7908a8539e4dad9898725177c89ccdd8d3b3c3a5ab5309389832417b28"
+      },
+      {
+        "nodeId": "TripoTextureNode",
+        "before": "sha256:d6135c980d47e473ca3397d5c9759f1ee36e10490957d483cdd0e309a0127b8d",
+        "after": "sha256:a8c0dec03dd6f6d3174b339aab86603e05ec81f7457cc8d9fac6f92ad70dbc63"
+      }
+    ],
+    "statusChanged": [
+      {
+        "nodeId": "AddTextPrefix",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "AddTextSuffix",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "ByteDance2ReferenceNode",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "ByteDanceSeedreamNodeV2",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "GeminiNodeV2",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "GeminiVideoOmni",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "ImageCompare",
+        "flag": "experimental",
+        "before": true,
+        "after": false
+      },
+      {
+        "nodeId": "MergeImageLists",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "MergeTextLists",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "ModelAttentionBackend",
+        "flag": "experimental",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "OpenAIVideoSora2",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "Preview3D",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "ReplaceText",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "ResizeImagesByLongerEdge",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "ResizeImagesByShorterEdge",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "StripWhitespace",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "TextToLowercase",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "TextToUppercase",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "TripoImageToModelNode",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "TripoTextToModelNode",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      },
+      {
+        "nodeId": "TripoTextureNode",
+        "flag": "deprecated",
+        "before": false,
+        "after": true
+      }
+    ],
+    "unchangedCount": 777,
+    "beforeCount": 840,
+    "afterCount": 956
+  },
+  "baseline": {
+    "path": "content/runtime/comfyui-0.32.0.object-info.json",
+    "sha256": "ee3818989fc5dfe7e8888a704f64e2c449b4c582cf1ca70417c85fb6b051b700"
+  }
+}

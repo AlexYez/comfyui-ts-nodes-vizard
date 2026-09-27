@@ -38,7 +38,7 @@ class CustomPackCatalogTests(unittest.TestCase):
         timesaver = load(CONTENT / "inventory" / "custom" / "comfyui-timesaver.json")
         cosyvoice = load(CONTENT / "inventory" / "custom" / "comfyui-ts-cosyvoice.json")
         artius = load(CONTENT / "inventory" / "custom" / "comfyui-artius-browser.json")
-        self.assertEqual(len(timesaver["nodes"]), 79)
+        self.assertEqual(len(timesaver["nodes"]), 89)
         self.assertEqual(len(cosyvoice["nodes"]), 7)
         self.assertEqual(artius["nodes"], [])
         self.assertEqual(artius["frontendExtensions"][0]["extensionId"], "timesaver-artius-browser")

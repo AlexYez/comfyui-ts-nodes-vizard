@@ -76,7 +76,8 @@ jobs:
       - name: Qualify lazy loading and worker lifecycle in Chromium
         run: |
           npx playwright install --with-deps chromium
-          npm run test:browser
+          python tools/qualify_install.py --install-dir "$RUNNER_TEMP/wizard-install"
+          WIZARD_WEB_ROOT="$RUNNER_TEMP/wizard-install/web" npm run test:browser
 
       - name: Verify required release files
         shell: bash

@@ -15,6 +15,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  installation:
+    uses: ./.github/workflows/install.yml
+
   qualify:
     name: Qualify release artifact
     runs-on: ubuntu-latest
@@ -91,11 +94,12 @@ jobs:
       - name: Qualify browser performance behavior
         run: |
           npx playwright install --with-deps chromium
-          npm run test:browser
+          python tools/qualify_install.py --install-dir "$RUNNER_TEMP/wizard-install"
+          WIZARD_WEB_ROOT="$RUNNER_TEMP/wizard-install/web" npm run test:browser
 
   publish:
     name: Publish package
-    needs: qualify
+    needs: [qualify, installation]
     runs-on: ubuntu-latest
     environment: comfyui-registry
     steps:

@@ -7,11 +7,14 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import path from "node:path";
 
 const root = fileURLToPath(new URL("../../", import.meta.url));
+const webRoot = path.resolve(process.env.WIZARD_WEB_ROOT || path.join(root, "web"));
 const { chromium } = await import(process.env.WIZARD_PLAYWRIGHT_MODULE
   ? pathToFileURL(process.env.WIZARD_PLAYWRIGHT_MODULE).href : "playwright");
 const prefix = "/extensions/renamed-wizard";
 const requests = [];
-const runtime = await readFile(path.join(root, "content/runtime/comfyui-0.32.0.object-info.json"));
+const runtime = await readFile(process.env.WIZARD_RUNTIME_INVENTORY || path.join(root, "content/runtime/comfyui-0.32.0.object-info.json"));
+const systemStats = process.env.WIZARD_SYSTEM_STATS ? await readFile(process.env.WIZARD_SYSTEM_STATS)
+  : JSON.stringify({system:{comfyui_version:"0.32.0",comfy_package_versions:[{name:"comfyui-frontend-package",installed:"1.48.7"}]}});
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, "http://localhost").pathname;
   requests.push(url);
@@ -32,11 +35,11 @@ const server = createServer(async (req, res) => {
         document.body.dataset.ready='true';
       }};`;
     } else if (url === "/object_info") { body = runtime; mime = "application/json"; }
-    else if (url === "/system_stats") { body = JSON.stringify({system:{comfyui_version:"0.32.0",comfyui_frontend_version:"1.48.7"}}); mime = "application/json"; }
+    else if (url === "/system_stats") { body = systemStats; mime = "application/json"; }
     else if (url.startsWith(`${prefix}/`)) {
       const relative = url.slice(prefix.length + 1);
-      const target = path.resolve(root, "web", relative);
-      if (!target.startsWith(path.join(root, "web") + path.sep)) throw new Error("Invalid path");
+      const target = path.resolve(webRoot, relative);
+      if (!target.startsWith(webRoot + path.sep)) throw new Error("Invalid path");
       body = await readFile(target);
       if (target.endsWith(".json")) mime = "application/json";
     } else { res.writeHead(404); res.end(); return; }
