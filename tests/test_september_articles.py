@@ -10,7 +10,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from build_september_articles import ARTICLES, COMMIT, input_rows, schema_table, slug, workflow_census
-from catalog import compile_catalog, local_generation_nodes, schema_fingerprint
+from catalog import compile_catalog, local_generation_nodes, schema_fingerprint, release_gate_reasons, object_info_nodes
 
 
 class SeptemberArticlesTests(unittest.TestCase):
@@ -54,6 +54,13 @@ class SeptemberArticlesTests(unittest.TestCase):
                 self.assertEqual(review["baseline"]["sourceCommit"], COMMIT)
                 self.assertEqual(review["checks"]["officialCasesInspected"], bool(review["evidence"]["workflows"]))
                 self.assertTrue(review["knownGaps"])
+
+    def test_stable_gate_still_blocks_unapproved_new_guides_without_verified_recipes(self):
+        reasons = release_gate_reasons(object_info_nodes(self.inventory))
+        for node_id in ARTICLES:
+            article_id = "core." + slug(node_id)
+            self.assertIn(f"article {article_id} has no verified recipe or workflow example", reasons)
+            self.assertTrue(any(f"article {article_id} is not editorially approved" in r for r in reasons))
 
     def test_pinned_case_provenance(self):
         self.assertEqual(sum(bool(x["workflows"]) for x in self.evidence["articles"].values()), 46)
