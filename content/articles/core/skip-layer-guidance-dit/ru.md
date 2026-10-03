@@ -64,7 +64,7 @@ Fragment `recipe.skip-layer-guidance-dit-wan` сохраняет этот лок
 
 ## Совместимость и источники
 
-Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `SkipLayerGuidanceDiT`, модуле `comfy_extras.nodes_slg`. Fingerprint: `sha256:517c17fc845775855aafce528a4483011f11e6a13fa057e6177a358ec808354e`. Runtime flags: experimental true; deprecated, dev_only и api_node false. Replacements и execution aliases отсутствуют.
+Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `SkipLayerGuidanceDiT`, модуле `comfy_extras.nodes_slg`. Fingerprint: `sha256:517c17fc845775855aafce528a4483011f11e6a13fa057e6177a358ec808354e`. Флаги ноды: experimental true; deprecated, dev_only и api_node false. Replacements и execution aliases отсутствуют.
 
 Embedded docs 0.5.9 правильно перечисляют диапазоны и no-op при двух пустых списках, но русская страница переводит runtime-имена портов, а обе страницы называют дополнительный проход negative CFG. В этой статье механизм сверялся с исходником, а документация использовалась только как вторичный источник.
 

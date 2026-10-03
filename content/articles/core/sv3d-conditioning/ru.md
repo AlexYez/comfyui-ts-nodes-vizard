@@ -82,7 +82,7 @@ CLIP Vision и VAE кодируют опорное изображение оди
 
 ## Совместимость, изменения и устаревание
 
-Материал привязан к ComfyUI 0.32.0 и frontend 1.48.7. Runtime flags: `deprecated: false`, `experimental: false`, `api_node: false`, `dev_only: false`. Replacement API не содержит `SV3D_Conditioning` ни как старый, ни как новый ID.
+Материал привязан к ComfyUI 0.32.0 и frontend 1.48.7. Флаги ноды: `deprecated: false`, `experimental: false`, `api_node: false`, `dev_only: false`. Replacement API не содержит `SV3D_Conditioning` ни как старый, ни как новый ID.
 
 Schema fingerprint: `sha256:bcf423ac3af14c084e58691891d2159fee629a5b1f035e7ffda7ea3e343f21d5`.
 

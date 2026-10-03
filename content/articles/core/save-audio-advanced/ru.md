@@ -36,7 +36,7 @@ Fragment «Сохранить AUDIO как MP3 с настройкой V0» пр
 - `mp3` предлагает `V0` по умолчанию, `128k` и `320k`;
 - `opus` предлагает `64k`, `96k`, `128k` по умолчанию, `192k` и `320k`.
 
-Выход `audio` имеет тип `AUDIO` и не является list-output. UI-result отдельно содержит имена файлов, подкаталог и `type: output`. Embedded docs 0.5.9 перечисляют только UI, но runtime и исходник подтверждают подключаемый passthrough.
+Выход `audio` имеет тип `AUDIO` и не является списковый выход. UI-result отдельно содержит имена файлов, подкаталог и `type: output`. Embedded docs 0.5.9 перечисляют только UI, но runtime и исходник подтверждают подключаемый passthrough.
 
 ## Типовые связки
 
@@ -80,7 +80,7 @@ FLAC использует codec `flac`; MP3 — `libmp3lame`; Opus — `libopus`
 
 Статья относится к ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `SaveAudioAdvanced` и модулю `comfy_extras.nodes_audio`. Fingerprint: `sha256:4161e0e67516eb2cda31011008c8602f0ef4cad7d9b3b6e8e5edcbd9b64d4940`.
 
-Нода не experimental и не deprecated; runtime помечает её как output node. Формат сериализуется новым `COMFY_DYNAMICCOMBO_V3`, поэтому старый frontend без поддержки dynamic combo может не показать вложенный `quality` корректно.
+Нода не experimental и не deprecated; runtime помечает её как выходную ноду. Формат сериализуется новым `COMFY_DYNAMICCOMBO_V3`, поэтому старый frontend без поддержки dynamic combo может не показать вложенный `quality` корректно.
 
 Embedded docs подтверждают список форматов и вариантов качества, но пропускают AUDIO passthrough, batch-файлы, точные правила Opus sample rate и ограничение каналов. Эти части основаны на pinned helper и изолированном файловом прогоне.
 

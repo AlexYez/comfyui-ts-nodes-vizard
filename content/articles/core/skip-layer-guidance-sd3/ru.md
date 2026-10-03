@@ -62,7 +62,7 @@ Source-derived fragment использует `MODEL → ModelSamplingSD3 (shift 
 
 ## Совместимость и источники
 
-Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `SkipLayerGuidanceSD3`, модуле `comfy_extras.nodes_sd3`. Fingerprint: `sha256:1ec2296cddaf0b1af19cabf4341fab23974bdd65e67589273c697abe280c2ee9`. Runtime flags: experimental true; deprecated, dev_only и api_node false. Replacements и execution aliases отсутствуют.
+Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `SkipLayerGuidanceSD3`, модуле `comfy_extras.nodes_sd3`. Fingerprint: `sha256:1ec2296cddaf0b1af19cabf4341fab23974bdd65e67589273c697abe280c2ee9`. Флаги ноды: experimental true; deprecated, dev_only и api_node false. Replacements и execution aliases отсутствуют.
 
 Embedded docs 0.5.9 описывают дополнительный negative-conditioning pass, хотя обёртка делегирует generic-коду с `cond`. Русская страница содержит шаблонную строку «Вот перевод…» и переводит runtime-имена входов. Механика статьи опирается на pinned source.
 

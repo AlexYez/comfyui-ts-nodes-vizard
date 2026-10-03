@@ -1,1 +1,77 @@
-{"$schema":"../../../../schemas/article.schema.v1.json","schemaVersion":"1.0","articleId":"custom.comfyui-timesaver.ts-freevram","kind":"custom","locale":"ru","title":"TS Free VRAM","summary":"Выгружает модель с GPU в выбранной точке выполнения графа и передаёт passthrough без изменения. Не увеличивает физическую память видеокарты и не уменьшает размер результата.","body":"ru.md","runtimeIdentity":{"classType":"TS_FreeVRAM","pythonModule":"custom_nodes.comfyui-timesaver","packageId":"comfyui-timesaver","origin":"backend","aliases":[]},"status":"draft","experimental":false,"compatibility":{"comfyui":">=0.32.0","frontend":">=1.48.7","verifiedOn":"2026-09-27","sourceRevision":"comfyui-timesaver 12.11.7 @ c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f"},"relations":{"related":[],"alternatives":[],"replacedBy":null},"tags":["custom nodes","comfyui-timesaver","TS_FreeVRAM"],"searchAliases":["TS_FreeVRAM","TS Free VRAM"],"concepts":["сторонняя нода ComfyUI"],"assets":[],"editorial":{"state":"in_review","owner":"TS Nodes Wizard editorial","reviewedBy":"Pinned upstream source and embedded Russian documentation; human approval pending","reviewedAt":"2026-09-27","factsReviewedAt":"2026-09-27"},"sources":[{"sourceId":"custom.comfyui-timesaver.ts-freevram-source-1","title":"TS Free VRAM in comfyui-timesaver 12.11.7","url":"https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/nodes/utils/ts_free_vram.py#L125","publisher":"AlexYez","kind":"source","accessedAt":"2026-09-27","supports":["runtime registration","implementation"]},{"sourceId":"custom.comfyui-timesaver.ts-freevram-source-2","title":"Embedded Russian documentation for TS Free VRAM","url":"https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/js/docs/TS_FreeVRAM/ru.md","publisher":"AlexYez","kind":"documentation","accessedAt":"2026-09-27","supports":["usage","parameters","limitations"]}]}
+{
+  "$schema": "../../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "custom.comfyui-timesaver.ts-freevram",
+  "kind": "custom",
+  "locale": "ru",
+  "title": "TS Free VRAM",
+  "summary": "Выгружает модель с GPU в выбранной точке выполнения графа и передаёт passthrough без изменения. Не увеличивает физическую память видеокарты и не уменьшает размер результата.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "TS_FreeVRAM",
+    "pythonModule": "custom_nodes.comfyui-timesaver",
+    "packageId": "comfyui-timesaver",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.32.0",
+    "frontend": ">=1.48.7",
+    "verifiedOn": "2026-10-03",
+    "sourceRevision": "comfyui-timesaver 12.12.3 @ 819d4e573a266fbc2aafb10554943f1e781c351a"
+  },
+  "relations": {
+    "related": [],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "custom nodes",
+    "comfyui-timesaver",
+    "TS_FreeVRAM"
+  ],
+  "searchAliases": [
+    "TS_FreeVRAM",
+    "TS Free VRAM"
+  ],
+  "concepts": [
+    "сторонняя нода ComfyUI"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned upstream source and embedded Russian documentation; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27"
+  },
+  "sources": [
+    {
+      "sourceId": "custom.comfyui-timesaver.ts-freevram-source-1",
+      "title": "TS Free VRAM in comfyui-timesaver 12.11.7",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/utils/ts_free_vram.py#L125",
+      "publisher": "AlexYez",
+      "kind": "source",
+      "accessedAt": "2026-10-03",
+      "supports": [
+        "runtime registration",
+        "implementation"
+      ]
+    },
+    {
+      "sourceId": "custom.comfyui-timesaver.ts-freevram-source-2",
+      "title": "Embedded Russian documentation for TS Free VRAM",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_FreeVRAM/ru.md",
+      "publisher": "AlexYez",
+      "kind": "documentation",
+      "accessedAt": "2026-10-03",
+      "supports": [
+        "usage",
+        "parameters",
+        "limitations"
+      ]
+    }
+  ]
+}

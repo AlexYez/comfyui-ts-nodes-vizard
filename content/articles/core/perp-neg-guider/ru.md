@@ -20,7 +20,7 @@
 
 ## Выходы
 
-Единственный выход — `GUIDER`, экземпляр специализированного класса `Guider_PerpNeg`. Это не MODEL, CONDITIONING или LATENT и не list-output.
+Единственный выход — `GUIDER`, экземпляр специализированного класса `Guider_PerpNeg`. Это не MODEL, CONDITIONING или LATENT и не списковый выход.
 
 Объект хранит подготовленные условия, cfg и neg_scale. Реальные tensor predictions вычисляются позже, когда `SamplerCustomAdvanced` вызывает guider на каждом sigma.
 

@@ -8,66 +8,49 @@
     "origin": "backend"
   },
   "baseline": {
-    "comfyui": "0.32.0",
-    "frontend": "1.48.7",
-    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
-    "embeddedDocs": "0.5.9",
-    "workflowTemplatesJson": "0.1.42"
+    "comfyui": "0.38.0",
+    "frontend": "1.53.6",
+    "sourceCommit": "6b747c0428c343e1417219641db93a4fb7cb69ae",
+    "embeddedDocs": "0.5.12 (available; implementation is primary)",
+    "workflowTemplatesJson": "0.1.96"
   },
-  "state": "fact_checked",
+  "state": "source_reviewed",
   "reviewMode": "automated_assisted",
   "evidence": {
-    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "runtimeInventory": "runtime/comfyui-0.38.0.object-info.json",
     "sourceLocations": [
       {
-        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy_extras/nodes_upscale_model.py#L52-L100",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/6b747c0428c343e1417219641db93a4fb7cb69ae/comfy_extras/nodes_upscale_model.py#L53-L111",
         "path": "comfy_extras/nodes_upscale_model.py",
-        "lines": "52-100"
-      },
-      {
-        "url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.32.0/comfy/utils.py#L1103-L1226",
-        "path": "comfy/utils.py",
-        "lines": "1103-1226"
+        "lines": "53-111"
       }
     ],
-    "embeddedDocs": [
-      {
-        "locale": "ru",
-        "archivePath": "comfyui_embedded_docs/docs/ImageUpscaleWithModel/ru.md",
-        "assessment": "Упоминает tiled-проход и оптимизацию памяти, но не фиксирует tile 512, overlap 32, ступени OOM 256/128, force_full_load, приблизительную формулу памяти, batch-обход, feather blending, output_device, clamp и dtype."
-      }
-    ],
+    "embeddedDocs": [],
     "workflows": [
       {
-        "id": "utility-gan_upscaler",
-        "role": "GetVideoComponents передаёт frames в ImageUpscaleWithModel, RealESRGAN x4 приходит из loader, результат собирается с исходными audio и fps."
-      },
-      {
         "id": "template_rob_realistic_2k_images_quick_variations",
-        "role": "В subgraph вход сначала ограничен ImageScaleToTotalPixels, затем увеличен RealESRGAN x4 и уменьшен ImageScaleBy."
+        "role": "Saved wiring in Image Upscale(Z-image-Turbo) (root/definitions/subgraphs/0); not model execution"
       },
       {
         "id": "templates_rob_realistic_2k_images_quick_variations.app",
-        "role": "App-дубликат содержит ту же model-upscale топологию внутри определения subgraph."
-      },
-      {
-        "id": "utility_z_image_turbo_2k_upscaler.app",
-        "role": "Subgraph использует ImageScaleToTotalPixels → ImageUpscaleWithModel → ImageScaleBy с RealESRGAN x4."
+        "role": "Saved wiring in Image Upscale(Z-image-Turbo) (root/definitions/subgraphs/0); not model execution"
       }
     ]
   },
   "checks": {
     "implementationRead": true,
     "runtimeCompared": true,
-    "officialCasesInspected": true,
-    "exampleSchemaValidated": true,
+    "officialCasesInspected": false,
+    "exampleSchemaValidated": false,
     "exampleExecuted": false,
     "russianEdited": true,
     "factsRecheckedAfterEditing": true
   },
   "knownGaps": [
-    "Fragment структурно проверен, но tiled upscale не исполнен с реальной моделью, поэтому seams, время и пик памяти не измерялись.",
-    "Человеческое редакционное утверждение не выполнено."
+    "Требуется человеческое утверждение",
+    "Full model workflow execution not performed",
+    "Worked example is explanatory, not an executable validated recipe",
+    "Automatically extracted workflow wiring still needs manual case review"
   ],
-  "updatedAt": "2026-08-13"
+  "updatedAt": "2026-10-03"
 }

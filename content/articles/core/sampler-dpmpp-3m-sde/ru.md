@@ -24,7 +24,7 @@
 
 ## 4. Выход
 
-Единственный выход — `SAMPLER`, не list-output. Внутри находится функция `sample_dpmpp_3m_sde` либо её GPU-wrapper и словарь `{"eta": …, "s_noise": …}`.
+Единственный выход — `SAMPLER`, не списковый выход. Внутри находится функция `sample_dpmpp_3m_sde` либо её GPU-wrapper и словарь `{"eta": …, "s_noise": …}`.
 
 Слово `gpu` относится к Brownian noise sampler, а не к отдельному запуску diffusion model. Модель исполняется на устройстве, которое определяет её обычный ComfyUI lifecycle.
 
@@ -69,7 +69,7 @@ Brownian tree добавляет вычисления и при CPU-вариан
 
 ## 10. Совместимость и источники
 
-Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, commit `c2bcbecd82ec5ae66594340b395c24ef0217b238`, embedded docs `0.5.9` и workflow templates `0.1.42`. Runtime ID — `SamplerDPMPP_3M_SDE`; нода не deprecated, не experimental, не API-only и не output node. Replacement и execution aliases отсутствуют.
+Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, commit `c2bcbecd82ec5ae66594340b395c24ef0217b238`, embedded docs `0.5.9` и workflow templates `0.1.42`. Runtime ID — `SamplerDPMPP_3M_SDE`; нода не deprecated, не experimental, не API-only и не выходная нода. Replacement и execution aliases отсутствуют.
 
 Embedded docs верно называют третий порядок, multistep и три входа, но не объясняют разогрев 2M→3M, terminal branch, `model_sampling.noise_scale` и точный смысл `noise_device`. Их формулировка про «вычисления шума на GPU или CPU» уточнена по реализации Brownian tree.
 

@@ -20,7 +20,7 @@
 
 ## Выходы
 
-Выход один: клонированный `MODEL` с пользовательской CFG-функцией. Это не list-output и не готовый `GUIDER`.
+Выход один: клонированный `MODEL` с пользовательской CFG-функцией. Это не списковый выход и не готовый `GUIDER`.
 
 Подключённые conditioning и latent нода не видит. Их принимает downstream sampler, который вычисляет conditional и unconditional tensors и передаёт их функции вместе с `cond_scale`.
 

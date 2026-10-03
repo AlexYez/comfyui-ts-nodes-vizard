@@ -1,1 +1,77 @@
-{"$schema":"../../../../schemas/article.schema.v1.json","schemaVersion":"1.0","articleId":"custom.comfyui-timesaver.ts-lockeddiffusionmodel","kind":"custom","locale":"ru","title":"TS Load Diffusion Model","summary":"Загружает диффузионную модель из .tsmodel и возвращает MODEL. Текстовый кодировщик и VAE в этот выход не входят: их нужно загрузить отдельно.","body":"ru.md","runtimeIdentity":{"classType":"TS_LockedDiffusionModel","pythonModule":"custom_nodes.comfyui-timesaver","packageId":"comfyui-timesaver","origin":"backend","aliases":[]},"status":"draft","experimental":false,"compatibility":{"comfyui":">=0.32.0","frontend":">=1.48.7","verifiedOn":"2026-09-27","sourceRevision":"comfyui-timesaver 12.11.7 @ c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f"},"relations":{"related":[],"alternatives":[],"replacedBy":null},"tags":["custom nodes","comfyui-timesaver","TS_LockedDiffusionModel"],"searchAliases":["TS_LockedDiffusionModel","TS Load Diffusion Model"],"concepts":["сторонняя нода ComfyUI"],"assets":[],"editorial":{"state":"in_review","owner":"TS Nodes Wizard editorial","reviewedBy":"Pinned upstream source and embedded Russian documentation; human approval pending","reviewedAt":"2026-09-27","factsReviewedAt":"2026-09-27"},"sources":[{"sourceId":"custom.comfyui-timesaver.ts-lockeddiffusionmodel-source-1","title":"TS Load Diffusion Model in comfyui-timesaver 12.11.7","url":"https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/nodes/loaders/ts_locked_diffusion_model.py#L97","publisher":"AlexYez","kind":"source","accessedAt":"2026-09-27","supports":["runtime registration","implementation"]},{"sourceId":"custom.comfyui-timesaver.ts-lockeddiffusionmodel-source-2","title":"Embedded Russian documentation for TS Load Diffusion Model","url":"https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/js/docs/TS_LockedDiffusionModel/ru.md","publisher":"AlexYez","kind":"documentation","accessedAt":"2026-09-27","supports":["usage","parameters","limitations"]}]}
+{
+  "$schema": "../../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "custom.comfyui-timesaver.ts-lockeddiffusionmodel",
+  "kind": "custom",
+  "locale": "ru",
+  "title": "TS Load Diffusion Model",
+  "summary": "Загружает диффузионную модель из .tsmodel и возвращает MODEL. Текстовый кодировщик и VAE в этот выход не входят: их нужно загрузить отдельно.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "TS_LockedDiffusionModel",
+    "pythonModule": "custom_nodes.comfyui-timesaver",
+    "packageId": "comfyui-timesaver",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.32.0",
+    "frontend": ">=1.48.7",
+    "verifiedOn": "2026-10-03",
+    "sourceRevision": "comfyui-timesaver 12.12.3 @ 819d4e573a266fbc2aafb10554943f1e781c351a"
+  },
+  "relations": {
+    "related": [],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "custom nodes",
+    "comfyui-timesaver",
+    "TS_LockedDiffusionModel"
+  ],
+  "searchAliases": [
+    "TS_LockedDiffusionModel",
+    "TS Load Diffusion Model"
+  ],
+  "concepts": [
+    "сторонняя нода ComfyUI"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned upstream source and embedded Russian documentation; human approval pending",
+    "reviewedAt": "2026-09-27",
+    "factsReviewedAt": "2026-09-27"
+  },
+  "sources": [
+    {
+      "sourceId": "custom.comfyui-timesaver.ts-lockeddiffusionmodel-source-1",
+      "title": "TS Load Diffusion Model in comfyui-timesaver 12.11.7",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/loaders/ts_locked_diffusion_model.py#L97",
+      "publisher": "AlexYez",
+      "kind": "source",
+      "accessedAt": "2026-10-03",
+      "supports": [
+        "runtime registration",
+        "implementation"
+      ]
+    },
+    {
+      "sourceId": "custom.comfyui-timesaver.ts-lockeddiffusionmodel-source-2",
+      "title": "Embedded Russian documentation for TS Load Diffusion Model",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_LockedDiffusionModel/ru.md",
+      "publisher": "AlexYez",
+      "kind": "documentation",
+      "accessedAt": "2026-10-03",
+      "supports": [
+        "usage",
+        "parameters",
+        "limitations"
+      ]
+    }
+  ]
+}

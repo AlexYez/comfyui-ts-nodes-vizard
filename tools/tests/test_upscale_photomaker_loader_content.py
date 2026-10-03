@@ -9,6 +9,7 @@ from collections import Counter
 from typing import Any, Iterator
 
 from tools import catalog
+from tools.tests.editorial_sections import expected_sections
 
 
 SPECS = {
@@ -48,7 +49,7 @@ class UpscalePhotoMakerLoaderContentTests(unittest.TestCase):
             self.assertEqual([], catalog.json_schema_errors(article, schemas["article.schema.v1.json"]), article_id)
             catalog.validate_article(path, article, errors)
             self.assertEqual(("draft", "in_review"), (article["status"], article["editorial"]["state"]))
-            self.assertEqual(10, len(re.findall(r"^## ", (path.parent / article["body"]).read_text(encoding="utf-8"), re.MULTILINE)))
+            self.assertEqual(expected_sections(article), len(re.findall(r"^## ", (path.parent / article["body"]).read_text(encoding="utf-8"), re.MULTILINE)))
             ledger = catalog.load_json(catalog.CONTENT / "research" / "reviews" / f"{article_id}.json")
             self.assertEqual([], catalog.json_schema_errors(ledger, schemas["article-research.schema.v1.json"]), article_id)
             self.assertFalse(ledger["checks"]["exampleExecuted"])

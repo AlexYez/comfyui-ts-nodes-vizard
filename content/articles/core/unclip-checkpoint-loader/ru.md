@@ -30,7 +30,7 @@ Fragment «Разобрать unCLIP-checkpoint и добавить рефере
 
 `ckpt_name` — обязательный динамический список файлов группы `checkpoints`. В чистом runtime snapshot он пуст, поэтому имена локальных моделей не входят в fingerprint.
 
-Выходы строго упорядочены: `MODEL`, `CLIP`, `VAE`, `CLIP_VISION`; ни один не является list-output. Внутренний общий загрузчик сначала определяет model config. `CLIP_VISION` строится только когда config задаёт `clip_vision_prefix`. `CLIP` создаётся только при найденной text-encoder цели и наличии соответствующих весов.
+Выходы строго упорядочены: `MODEL`, `CLIP`, `VAE`, `CLIP_VISION`; ни один не является списковый выход. Внутренний общий загрузчик сначала определяет model config. `CLIP_VISION` строится только когда config задаёт `clip_vision_prefix`. `CLIP` создаётся только при найденной text-encoder цели и наличии соответствующих весов.
 
 Аргументы Python-метода `output_vae` и `output_clip` не являются входами `/object_info`. В реализации ноды они игнорируются при dispatch: вниз всегда передаются значения `True`.
 
@@ -74,7 +74,7 @@ Model patcher выбирает load/offload device по общей полити�
 
 Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `unCLIPCheckpointLoader`, модуле `nodes`. Fingerprint: `sha256:12837b6dd3fec9e42756ef88636e7f56f51508093951fc5b435717cd5c4d2b67`.
 
-Runtime не выставляет deprecated, experimental, dev-only или API-node flags; нода не является output node. Две подтверждённые закреплённым исходником конфигурации SD 2.1 unCLIP — L с `adm_in_channels = 1536` и H с `2048`.
+Runtime не выставляет deprecated, experimental, dev-only или API-node flags; нода не является выходной нодой. Две подтверждённые закреплённым исходником конфигурации SD 2.1 unCLIP — L с `adm_in_channels = 1536` и H с `2048`.
 
 У самого loader нет whitelist по семейству. Он может вернуть vision-компонент и для иной конфигурации с `clip_vision_prefix`, однако это не превращает её в `SD21UnclipL/H` и не доказывает совместимость четырёх выходов в одном графе.
 

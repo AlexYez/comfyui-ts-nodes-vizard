@@ -79,6 +79,7 @@ jobs:
           python tools/qualify_install.py --install-dir "$RUNNER_TEMP/wizard-install"
           WIZARD_WEB_ROOT="$RUNNER_TEMP/wizard-install/web" npm run test:browser
           WIZARD_WEB_ROOT="$RUNNER_TEMP/wizard-install/web" WIZARD_RUNTIME_INVENTORY=content/runtime/comfyui-0.37.0.object-info.json WIZARD_SYSTEM_STATS=content/runtime/comfyui-0.37.0.system-stats.json npm run test:browser
+          WIZARD_WEB_ROOT="$RUNNER_TEMP/wizard-install/web" WIZARD_RUNTIME_INVENTORY=content/runtime/comfyui-0.38.0.object-info.json WIZARD_SYSTEM_STATS=content/runtime/comfyui-0.38.0.system-stats.json npm run test:browser
 
       - name: Verify required release files
         shell: bash

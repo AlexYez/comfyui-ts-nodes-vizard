@@ -30,7 +30,7 @@ Fragment «Dual CFG regular: 5 и 2» повторяет проверенные 
 
 Обязательны `model: MODEL`, `cond1`, `cond2`, `negative: CONDITIONING`. `cfg_conds` и `cfg_cond2_negative` — FLOAT с default 8, диапазоном 0–100, шагом 0,1 и round 0,01.
 
-`style` — COMBO с двумя exact options: `regular` и `nested`. Выход — один `GUIDER`, не list-output. Runtime search alias `dual prompt guidance` записан в `searchAliases`, но не является execution ID.
+`style` — COMBO с двумя exact options: `regular` и `nested`. Выход — один `GUIDER`, не списковый выход. Runtime search alias `dual prompt guidance` записан в `searchAliases`, но не является execution ID.
 
 Параметр `cfg_conds` относится к разности cond1–cond2. `cfg_cond2_negative` относится к cond2–negative в regular и ко всему внутреннему результату относительно negative в nested.
 
@@ -74,7 +74,7 @@ Fragment «Dual CFG regular: 5 и 2» повторяет проверенные 
 
 Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `DualCFGGuider`, модуле `comfy_extras.nodes_custom_sampler`. Fingerprint: `sha256:f7494f04202bf60700ef80108f6e0ec370b656a9d4e1a3bc4781b363a53aaa1a`.
 
-Runtime не помечает ноду deprecated, experimental, dev-only или API-only; это не output node. Replacements для ID нет. Единственный runtime search alias — `dual prompt guidance`; execution aliases пусты.
+Runtime не помечает ноду deprecated, experimental, dev-only или API-only; это не выходная нода. Replacements для ID нет. Единственный runtime search alias — `dual prompt guidance`; execution aliases пусты.
 
 Embedded docs 0.5.9 перечисляют две шкалы и styles, но не приводят формулы, metadata `prompt_type`, regular cfg=1 optimization и отсутствие nested в официальных workflows.
 

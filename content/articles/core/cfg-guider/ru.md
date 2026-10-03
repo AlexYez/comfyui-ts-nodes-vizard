@@ -30,7 +30,7 @@ Fragment «CFGGuider с cfg 3,5» повторяет топологию Chroma: 
 
 Обязательные входы: `model: MODEL`, `positive: CONDITIONING`, `negative: CONDITIONING`. `cfg` — `FLOAT` с default 8, диапазоном 0–100, шагом 0,1 и округлением widget до 0,01.
 
-Выход один: `GUIDER`, не list-output. Нода не выдаёт denoised LATENT и не меняет входные conditioning при создании объекта.
+Выход один: `GUIDER`, не списковый выход. Нода не выдаёт denoised LATENT и не меняет входные conditioning при создании объекта.
 
 Positive и negative — названия ролей, а не проверка содержимого. Пустой текст, `ConditioningZeroOut`, area metadata или control hooks остаются частью переданного CONDITIONING.
 
@@ -74,7 +74,7 @@ Positive и negative — названия ролей, а не проверка �
 
 Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `CFGGuider`, модуле `comfy_extras.nodes_custom_sampler`. Fingerprint: `sha256:d530e8a2677744e82d15018b1a3e4642acce83a73ff385811960dd66fa4d701b`.
 
-Runtime flags deprecated, experimental, dev-only и API node равны false; это не output node. В списке replacements ID отсутствует, execution aliases не зафиксированы.
+Флаги ноды deprecated, experimental, dev-only и API node равны false; это не выходная нода. В списке replacements ID отсутствует, execution aliases не зафиксированы.
 
 Embedded docs 0.5.9 верно перечисляют параметры, но описывают negative как «избегание нежелательного», не показывают формулу, cfg=0/1 и hook overrides.
 

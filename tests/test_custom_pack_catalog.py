@@ -20,7 +20,7 @@ class CustomPackCatalogTests(unittest.TestCase):
         manifests = custom_manifests()
         identities = {
             (item["runtimeIdentity"].get("packageId"), item["runtimeIdentity"].get("pythonModule"), item["runtimeIdentity"]["classType"]): item
-            for item in manifests if item["runtimeIdentity"]["origin"] == "backend"
+            for item in manifests if item["runtimeIdentity"]["origin"] == "backend" and item["status"] != "removed"
         }
         expected = set()
         for inventory_path in sorted((CONTENT / "inventory" / "custom").glob("*.json")):
@@ -38,22 +38,22 @@ class CustomPackCatalogTests(unittest.TestCase):
         timesaver = load(CONTENT / "inventory" / "custom" / "comfyui-timesaver.json")
         cosyvoice = load(CONTENT / "inventory" / "custom" / "comfyui-ts-cosyvoice.json")
         artius = load(CONTENT / "inventory" / "custom" / "comfyui-artius-browser.json")
-        self.assertEqual(len(timesaver["nodes"]), 89)
+        self.assertEqual(len(timesaver["nodes"]), 82)
         self.assertEqual(len(cosyvoice["nodes"]), 7)
         self.assertEqual(artius["nodes"], [])
         self.assertEqual(artius["frontendExtensions"][0]["extensionId"], "timesaver-artius-browser")
 
     def test_every_owned_node_article_is_a_reviewable_draft(self):
         for article in custom_manifests():
-            self.assertEqual(article["status"], "draft")
+            self.assertIn(article["status"], {"draft", "removed"})
             self.assertEqual(article["editorial"]["state"], "in_review")
             self.assertTrue(article["sources"])
             self.assertTrue(article["editorial"]["reviewedBy"].endswith("pending"))
 
-    def test_september_timesaver_revision_and_experimental_flag(self):
+    def test_october_timesaver_revision_and_experimental_flag(self):
         inventory = load(CONTENT / "inventory/custom/comfyui-timesaver.json")
-        self.assertEqual(inventory["version"], "12.11.7")
-        self.assertEqual(inventory["sourceCommit"], "c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f")
+        self.assertEqual(inventory["version"], "12.12.3")
+        self.assertEqual(inventory["sourceCommit"], "819d4e573a266fbc2aafb10554943f1e781c351a")
         nag = next(item for item in custom_manifests() if item["runtimeIdentity"]["classType"] == "TS_NAG")
         self.assertTrue(nag["experimental"])
         body = (CONTENT / "articles/custom/comfyui-timesaver/ts-nag/ru.md").read_text(encoding="utf-8")

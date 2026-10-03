@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        comfyui: [v0.36.0, v0.37.0]
+        comfyui: [v0.37.0, v0.38.0]
     steps:
       - uses: actions/checkout@v4
         with:

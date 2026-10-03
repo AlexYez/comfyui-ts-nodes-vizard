@@ -498,6 +498,10 @@ class ReleaseGateTests(unittest.TestCase):
                     else "active"
                 )
                 article["editorial"]["state"] = "approved"
+                # This fixture simulates approval against its pinned 0.32
+                # runtime, not against the live articles' newer schemas.
+                if runtime:
+                    article["editorial"]["schemaHash"] = catalog.schema_fingerprint(article["runtimeIdentity"]["classType"], runtime)
         for _, recipe in self.recipes:
             recipe["editorial"]["state"] = "approved"
 

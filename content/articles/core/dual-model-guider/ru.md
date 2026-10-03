@@ -30,7 +30,7 @@ Fragment «Две модели и CFG 7» повторяет official topology I
 
 Обязательны `model: MODEL`, `positive: CONDITIONING`, `cfg: FLOAT`. У основного model есть tooltip «positive (conditional) pass». `cfg` имеет default 4, диапазон 0–100, step 0,1 и round 0,01.
 
-Optional-входы: `model_negative: MODEL` и `negative: CONDITIONING`. Tooltip прямо разрешает не подключать negative для text-free unconditional pass. Выход один — `GUIDER`, не list-output.
+Optional-входы: `model_negative: MODEL` и `negative: CONDITIONING`. Tooltip прямо разрешает не подключать negative для text-free unconditional pass. Выход один — `GUIDER`, не списковый выход.
 
 Если подключён negative, но не model_negative, обе ветви считает основной model через обычный CFGGuider. Если подключена model_negative, но negative пуст, вторая модель работает без text cross-attention.
 
@@ -74,7 +74,7 @@ Optional-входы: `model_negative: MODEL` и `negative: CONDITIONING`. Toolti
 
 Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `DualModelGuider`, модуле `comfy_extras.nodes_custom_sampler`. Fingerprint: `sha256:376e3f9392576aa4e52f9aaa9baeb8f6e6d3165b622f1ec914d97ddd3a4323e3`.
 
-Runtime выставляет `experimental: true`; deprecated, dev-only и API-node flags равны false. Это не output node, replacement для ID отсутствует, execution aliases не зафиксированы.
+Runtime выставляет `experimental: true`; deprecated, dev-only и API-node flags равны false. Это не выходная нода, replacement для ID отсутствует, execution aliases не зафиксированы.
 
 Embedded docs 0.5.9 хорошо отражают optional inputs и text-free pass, но не раскрывают cfg=1 ранний skip, separate lifecycle, fallback class и compatibility risks.
 

@@ -4,8 +4,8 @@
   "articleId": "core.image-color-space",
   "kind": "core",
   "locale": "ru",
-  "title": "Image Color Space: преобразование цвета SDR, HDR и linear",
-  "summary": "Пересчитывает значения RGB между поддерживаемыми цветовыми пространствами. Используется при согласовании изображений, линейных данных и HDR, а не для произвольного изменения насыщенности.",
+  "title": "Цветовые пространства: SDR, HDR, LogC3 и ACEScct",
+  "summary": "Пересчитывает значения RGB между явно выбранными цветовыми пространствами. Не определяет профиль изображения автоматически и не восстанавливает утраченные светлые участки.",
   "body": "ru.md",
   "runtimeIdentity": {
     "classType": "ImageColorSpace",
@@ -17,14 +17,15 @@
   "status": "draft",
   "experimental": false,
   "compatibility": {
-    "comfyui": ">=0.37.0",
-    "frontend": ">=1.52.7",
-    "verifiedOn": "2026-09-27",
-    "sourceRevision": "ComfyUI 0.37.0 @ 73c9bad4d21e7addbe1d13bc92eee0f1431b017d; frontend 1.52.7"
+    "comfyui": ">=0.38.0",
+    "frontend": ">=1.53.6",
+    "verifiedOn": "2026-10-03",
+    "sourceRevision": "ComfyUI 0.38.0 @ 6b747c0428c343e1417219641db93a4fb7cb69ae; frontend 1.53.6"
   },
   "relations": {
     "related": [
-      "core.marigold-v2-post-process"
+      "core.marigold-v2-post-process",
+      "custom.comfyui-timesaver.ts-ltxhdrguide"
     ],
     "alternatives": [],
     "replacedBy": null
@@ -46,18 +47,18 @@
     "state": "in_review",
     "owner": "TS Nodes Wizard editorial",
     "reviewedBy": "Source and runtime review; human approval pending",
-    "reviewedAt": "2026-09-27",
-    "factsReviewedAt": "2026-09-27",
+    "reviewedAt": "2026-10-03",
+    "factsReviewedAt": "2026-10-03",
     "schemaHash": "sha256:f299a363a4bc3d2f7c7a1c646029efc1ac237ef745a171e0498b2e9cf4763567"
   },
   "sources": [
     {
-      "sourceId": "core.image-color-space-source",
-      "title": "ImageColorSpace: реализация ComfyUI 0.37.0",
-      "url": "https://github.com/Comfy-Org/ComfyUI/blob/73c9bad4d21e7addbe1d13bc92eee0f1431b017d/comfy_extras/nodes_images.py#L1111-L1179",
+      "sourceId": "core.image-color-space-october-source",
+      "title": "ImageColorSpace: ComfyUI 0.38.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/6b747c0428c343e1417219641db93a4fb7cb69ae/comfy_extras/nodes_images.py#L1133-L1223",
       "publisher": "Comfy-Org",
       "kind": "source",
-      "accessedAt": "2026-09-27",
+      "accessedAt": "2026-10-03",
       "supports": [
         "назначение",
         "параметры",

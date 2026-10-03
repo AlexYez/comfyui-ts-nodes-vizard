@@ -25,7 +25,7 @@ Widget помечен как advanced. Входов CFG, seed, scheduler и step
 
 ## 4. Выход
 
-Единственный выход имеет тип `SAMPLER` и не является list-output. `regular` возвращает `KSAMPLER`, связанный с именем `euler_cfg_pp`; `alternative` возвращает `KSAMPLER` с прямой ссылкой на `sample_euler_pp`.
+Единственный выход имеет тип `SAMPLER` и не является списковый выход. `regular` возвращает `KSAMPLER`, связанный с именем `euler_cfg_pp`; `alternative` возвращает `KSAMPLER` с прямой ссылкой на `sample_euler_pp`.
 
 Не путайте этот classType с `SamplerEulerAncestralCFGPP`. У ancestral-ноды другой модуль, входы `eta` и `s_noise` и отдельный runtime ID. Текущая нода помечена experimental, ancestral-вариант — нет.
 

@@ -1,1 +1,51 @@
-{"$schema":"../../schemas/article-research.schema.v1.json","schemaVersion":"1.0","articleId":"custom.comfyui-timesaver.ts-dlssupscaler","node":{"classType":"TS_DLSSUpscaler","pythonModule":"custom_nodes.comfyui-timesaver","origin":"backend"},"baseline":{"comfyui":"0.32.0","frontend":"1.48.7","sourceCommit":"c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f","embeddedDocs":"comfyui-timesaver built-in docs","workflowTemplatesJson":"comfyui-timesaver examples at pinned commit"},"state":"source_reviewed","reviewMode":"automated_assisted","evidence":{"runtimeInventory":"content/inventory/custom/comfyui-timesaver.json","sourceLocations":[{"url":"https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/nodes/video/dlss/ts_dlss_upscaler.py#L545","path":"nodes/video/dlss/ts_dlss_upscaler.py","lines":"545+"}],"embeddedDocs":[{"locale":"ru","archivePath":"js/docs/TS_DLSSUpscaler/ru.md","assessment":"Primary pack documentation imported and attributed"}],"workflows":[]},"checks":{"implementationRead":false,"runtimeCompared":false,"officialCasesInspected":false,"exampleSchemaValidated":false,"exampleExecuted":false,"russianEdited":false,"factsRecheckedAfterEditing":false},"knownGaps":["Human editorial approval pending"],"updatedAt":"2026-09-27"}
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "custom.comfyui-timesaver.ts-dlssupscaler",
+  "node": {
+    "classType": "TS_DLSSUpscaler",
+    "pythonModule": "custom_nodes.comfyui-timesaver",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.32.0",
+    "frontend": "1.48.7",
+    "sourceCommit": "819d4e573a266fbc2aafb10554943f1e781c351a",
+    "embeddedDocs": "comfyui-timesaver built-in docs",
+    "workflowTemplatesJson": "comfyui-timesaver examples at pinned commit"
+  },
+  "state": "source_reviewed",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "content/inventory/custom/comfyui-timesaver.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/video/dlss/ts_dlss_upscaler.py#L549",
+        "path": "nodes/video/dlss/ts_dlss_upscaler.py",
+        "lines": "549+"
+      }
+    ],
+    "embeddedDocs": [
+      {
+        "locale": "ru",
+        "archivePath": "js/docs/TS_DLSSUpscaler/ru.md",
+        "assessment": "Primary pack documentation imported and attributed"
+      }
+    ],
+    "workflows": []
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": false,
+    "officialCasesInspected": false,
+    "exampleSchemaValidated": false,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Требуется человеческое утверждение",
+    "Live custom-pack runtime and full model workflow execution not verified"
+  ],
+  "updatedAt": "2026-10-03"
+}

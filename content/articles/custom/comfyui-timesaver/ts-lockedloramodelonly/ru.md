@@ -1,18 +1,9 @@
 # TS Load LoRA, model only
 
-Применяет LoRA из `.tsmodel` только к `MODEL`. Текстовый кодировщик не изменяет, поэтому не заменяет загрузчик LoRA с отдельным выходом CLIP.
+Загружает защищённую модельную LoRA формата TimeSaver и применяет её к `MODEL`. По роли соответствует LoraLoaderModelOnly; CLIP не изменяет. При силе 0 возвращает модель без применения LoRA.
 
-## Пример применения
+Используйте с совместимой моделью и разрешённым доступом к защищённому файлу. Формат `.tsmodel` не делает LoRA совместимой с другой архитектурой. Для обычных незашифрованных LoRA достаточно штатного загрузчика или TS LoRA Loader.
 
-Положите LoRA в `models/loras` и включите ноду между загрузчиком модели и sampler. Выбирайте LoRA для того же семейства модели. Начните со значения силы, рекомендованного её автором.
+## Источники
 
-## Ограничения
-
-При `strength_model = 0` возвращается исходная модель без применения LoRA. Совпадения расширения `.tsmodel` недостаточно: архитектура LoRA должна подходить модели. Если эффект ожидается именно от изменения CLIP, этот загрузчик его не даст.
-
-## Источники и границы проверки
-
-Описание подготовлено по исходнику и справке TimeSaver 12.11.7. Полное выполнение с моделями и человеческое утверждение ещё не проведены.
-
-- [Реализация ноды](https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/nodes/loaders/ts_locked_lora_model_only.py#L72)
-- [Справка автора пака](https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/js/docs/TS_LockedLoraModelOnly/ru.md)
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/loaders/ts_locked_lora_model_only.py#L72); [справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_LockedLoraModelOnly/ru.md). Проверено по исходнику и справке TimeSaver 12.12.3; выполнение с моделями и человеческое утверждение ещё нужны.

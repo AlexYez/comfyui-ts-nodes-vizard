@@ -30,7 +30,7 @@ Fragment «Добавить текстовую область 256×256» пок�
 
 `gligen_name` — обязательный динамический список файлов из группы `gligen`. Чистый `/object_info` содержит пустой массив, потому что repository snapshot не включает модели. Значения списка исключены из schema fingerprint.
 
-Выход один: `GLIGEN`, не list-output. Это `CoreModelPatcher` вокруг внутренней `Gligen` с fuser-модулями и position network. Интерфейс ноды не содержит device, dtype, strength или координат: device/dtype выбираются общей политикой, а прямоугольники задаёт `GLIGENTextBoxApply`.
+Выход один: `GLIGEN`, не списковый выход. Это `CoreModelPatcher` вокруг внутренней `Gligen` с fuser-модулями и position network. Интерфейс ноды не содержит device, dtype, strength или координат: device/dtype выбираются общей политикой, а прямоугольники задаёт `GLIGENTextBoxApply`.
 
 Loader не возвращает `MODEL`. GLIGEN работает как дополнительная модель, которую sampler извлекает из conditioning metadata.
 
@@ -74,7 +74,7 @@ Fragment использует явную подсказку `выберите с
 
 Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `GLIGENLoader`, модуле `nodes`. Fingerprint: `sha256:d87968d9c43ce26992edd9757b34ce0469e91be1dec348875cb151df645401ac`.
 
-Runtime не ставит deprecated, experimental, dev-only или API-node flags; это не output node. В pinned wheel официальных workflow GLIGEN отсутствует, поэтому статья остаётся draft/in_review.
+Runtime не ставит deprecated, experimental, dev-only или API-node flags; это не выходная нода. В pinned wheel официальных workflow GLIGEN отсутствует, поэтому статья остаётся draft/in_review.
 
 Embedded docs 0.5.9 указывают каталог и общий смысл выхода, но не раскрывают структуру checkpoint, fp16-ветвь, device/offload и sampler lifecycle.
 

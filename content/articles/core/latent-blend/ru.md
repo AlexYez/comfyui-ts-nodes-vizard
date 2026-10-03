@@ -28,7 +28,7 @@ Fragment «Смешать 25% первого LATENT и 75% второго» со
 
 ## Входы, выходы и параметры
 
-`samples1` и `samples2` принимают `LATENT`. `blend_factor` — обязательный `FLOAT` от `0` до `1`, default `0,5`, шаг `0,01`. Выход — один `LATENT`, не list-output.
+`samples1` и `samples2` принимают `LATENT`. `blend_factor` — обязательный `FLOAT` от `0` до `1`, default `0,5`, шаг `0,01`. Выход — один `LATENT`, не списковый выход.
 
 При полном совпадении формы операция сразу применяет формулу. Если формы различаются, `common_upscale` меняет у `samples2` только пространственные размеры до `[H,W]` первого tensor, используя `bicubic` и `center`. Batch и каналы специально не выравниваются: PyTorch либо распространит совместимую размерность, либо выдаст ошибку.
 
@@ -74,7 +74,7 @@ Fragment «Смешать 25% первого LATENT и 75% второго» со
 
 Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `LatentBlend`, модуле `nodes`. Fingerprint: `sha256:ee52b8e747be6889e59c0d99f59acd0c996e1d7002e4d2ca6d7d6f798c534913`.
 
-Runtime не ставит `deprecated`, `experimental`, `dev_only` или `api_node`; нода не является output node. Сервер добавляет `experimental: true` только при истинном атрибуте класса `EXPERIMENTAL`. У `LatentBlend` такого атрибута нет: в source задана лишь `CATEGORY = "experimental"`.
+Runtime не ставит `deprecated`, `experimental`, `dev_only` или `api_node`; нода не является выходной нодой. Сервер добавляет `experimental: true` только при истинном атрибуте класса `EXPERIMENTAL`. У `LatentBlend` такого атрибута нет: в source задана лишь `CATEGORY = "experimental"`.
 
 Embedded docs 0.5.9 правильно описывают направление коэффициента и resize второго входа, но не раскрывают batch/channel broadcasting, происхождение метаданных и различие категории со статусным флагом. После изменения класса или server serialization эти выводы нужно сверить заново.
 

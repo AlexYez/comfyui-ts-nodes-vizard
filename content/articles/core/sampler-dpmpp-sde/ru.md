@@ -68,7 +68,7 @@ Recipe «DPM++ SDE с r 0,5 для SamplerCustomAdvanced» повторяет co
 
 ## 10. Совместимость и источники
 
-Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, commit `c2bcbecd82ec5ae66594340b395c24ef0217b238`, embedded docs `0.5.9` и workflows `0.1.42`. Нода имеет exact ID `SamplerDPMPP_SDE`, не помечена deprecated/experimental/dev-only/API-only и не является output node. Replacement и aliases отсутствуют.
+Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, commit `c2bcbecd82ec5ae66594340b395c24ef0217b238`, embedded docs `0.5.9` и workflows `0.1.42`. Нода имеет exact ID `SamplerDPMPP_SDE`, не помечена deprecated/experimental/dev-only/API-only и не является выходной нодой. Replacement и aliases отсутствуют.
 
 Embedded docs оставляют `r` неопределённым «параметром, влияющим на поведение». Source показывает его точную роль в промежуточной lambda и делитель `1/(2r)`. Docs также не предупреждают, что разрешённый интерфейсом ноль недопустим для вычисления.
 

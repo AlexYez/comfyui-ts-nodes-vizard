@@ -64,7 +64,7 @@ Signed square roots, cosine similarity и смешение дешевле model 
 
 ## Совместимость и источники
 
-Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `Mahiro`, модуле `comfy_extras.nodes_mahiro`. Fingerprint: `sha256:a657e6ea447319c013397d0720c331a88ca4a3d4d319416208508dff5f02a32a`. Runtime flags: experimental true; deprecated, dev_only и api_node false. Replacement и execution aliases отсутствуют.
+Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `Mahiro`, модуле `comfy_extras.nodes_mahiro`. Fingerprint: `sha256:a657e6ea447319c013397d0720c331a88ca4a3d4d319416208508dff5f02a32a`. Флаги ноды: experimental true; deprecated, dev_only и api_node false. Replacement и execution aliases отсутствуют.
 
 Embedded docs 0.5.9 неточно называют сравниваемые tensors «normalized conditional and unconditional outputs» и обещают более точное направление генерации без benchmark. Русский файл дополнительно содержит постороннюю эмоциональную фразу в заголовке. Эти формулировки не перенесены в статью.
 

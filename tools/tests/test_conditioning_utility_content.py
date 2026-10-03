@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any, Iterator
 
 from tools import catalog
+from tools.tests.editorial_sections import expected_sections
 
 
 ARTICLE_SPECS = {
@@ -233,7 +234,7 @@ class ConditioningUtilityContentTests(unittest.TestCase):
 
             body = (path.parent / article["body"]).read_text(encoding="utf-8")
             self.assertEqual(
-                10,
+                expected_sections(article),
                 len(re.findall(r"^## .+$", body, flags=re.MULTILINE)),
                 article_id,
             )
@@ -253,10 +254,10 @@ class ConditioningUtilityContentTests(unittest.TestCase):
             self.assertEqual(article_id, record["articleId"])
             self.assertEqual(spec["classType"], record["node"]["classType"])
             self.assertEqual(spec["pythonModule"], record["node"]["pythonModule"])
-            self.assertEqual("fact_checked", record["state"])
+            self.assertEqual("source_reviewed" if record["baseline"]["comfyui"] == "0.38.0" else "fact_checked", record["state"])
             self.assertEqual("automated_assisted", record["reviewMode"])
             self.assertFalse(record["checks"]["exampleExecuted"])
-            self.assertTrue(record["checks"]["officialCasesInspected"])
+            self.assertEqual(record["baseline"]["comfyui"] != "0.38.0", record["checks"]["officialCasesInspected"])
             self.assertTrue(record["knownGaps"])
             self.assertNotEqual("human_approved", record["state"])
 

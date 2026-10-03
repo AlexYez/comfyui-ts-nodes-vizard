@@ -1,8 +1,8 @@
 {
   "$schema": "schemas/update-manifest.schema.v1.json",
   "schemaVersion": "1.0",
-  "catalogVersion": "0.3.1",
-  "publishedAt": "2026-09-27T00:00:00Z",
+  "catalogVersion": "0.3.2",
+  "publishedAt": "2026-10-03T00:00:00Z",
   "canonicalization": "comfy-nodes-wizard-json-v1",
   "signatureScope": "top-level-manifest-excluding-signature",
   "compatibility": {

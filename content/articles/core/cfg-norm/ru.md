@@ -66,7 +66,7 @@ Tooltip связывает `pre_cfg = true` с моделями вроде Lens,
 
 ## Совместимость и источники
 
-Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `CFGNorm`, модуле `comfy_extras.nodes_cfg`. Fingerprint: `sha256:86e72419cab85ab8535177b18a883e6bf81d7b2d8eaba29408543f7afc9cc8f8`. Runtime flags: experimental true; deprecated, dev_only и api_node false. Replacement и execution aliases отсутствуют.
+Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `CFGNorm`, модуле `comfy_extras.nodes_cfg`. Fingerprint: `sha256:86e72419cab85ab8535177b18a883e6bf81d7b2d8eaba29408543f7afc9cc8f8`. Флаги ноды: experimental true; deprecated, dev_only и api_node false. Replacement и execution aliases отсутствуют.
 
 Embedded docs 0.5.9 не знают `pre_cfg`, называют сравниваемые tensors conditional и unconditional и обещают стабилизацию. Закреплённый default-source сравнивает `cond_denoised` с уже смешанным `denoised`; доказательства общей «стабилизации» в реализации нет.
 

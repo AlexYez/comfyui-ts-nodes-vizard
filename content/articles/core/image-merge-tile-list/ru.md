@@ -6,7 +6,7 @@
 
 Runtime задаёт `is_input_list = true`, хотя тип сокета остаётся `IMAGE`. В `execute` приходит Python-список тензоров; первый элемент читается сразу как `image_list[0]`.
 
-Обычный IMAGE-бэтч и list-output — разные формы передачи данных. Надёжная пара — `SplitImageToTileList.IMAGE` с `output_is_list = true` прямо в `image_list` этой ноды.
+Обычный IMAGE-бэтч и списковый выход — разные формы передачи данных. Надёжная пара — `SplitImageToTileList.IMAGE` с `output_is_list = true` прямо в `image_list` этой ноды.
 
 Список не может быть пустым: реализация сразу обращается к `image_list[0]`. Если upstream отфильтровал все элементы, выполнение завершится ошибкой до создания холста.
 

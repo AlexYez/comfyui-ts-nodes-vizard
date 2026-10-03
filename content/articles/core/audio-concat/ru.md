@@ -32,7 +32,7 @@ Fragment Wizard создаёт одну `AudioConcat` с `direction = after` и 
 
 `direction` — COMBO со значениями `after` и `before`, default `after`. При `after` backend вызывает `torch.cat((waveform_1, waveform_2), dim=2)`, при `before` — ту же операцию в обратном порядке.
 
-Выход `AUDIO` не является list-output. Если оба входа подключены, возвращается новый словарь только с `waveform` и `sample_rate`. Дополнительные поля входных словарей не переносятся.
+Выход `AUDIO` не является списковый выход. Если оба входа подключены, возвращается новый словарь только с `waveform` и `sample_rate`. Дополнительные поля входных словарей не переносятся.
 
 ## Типовые связки
 

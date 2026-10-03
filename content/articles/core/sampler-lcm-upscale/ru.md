@@ -24,7 +24,7 @@
 
 ## 4. Выход
 
-Единственный выход — `SAMPLER`, не list-output. В его `extra_options` находятся `total_upscale = scale_ratio`, нормализованный `upscale_steps` и выбранный метод. При отрицательном `scale_steps` конструктор передаёт `None`.
+Единственный выход — `SAMPLER`, не списковый выход. В его `extra_options` находятся `total_upscale = scale_ratio`, нормализованный `upscale_steps` и выбранный метод. При отрицательном `scale_steps` конструктор передаёт `None`.
 
 Нода не выдаёт увеличенный LATENT сразу. Форма изменится только после того, как внешний sampler-runner вызовет сохранённую функцию с model, исходным tensor и `SIGMAS`.
 

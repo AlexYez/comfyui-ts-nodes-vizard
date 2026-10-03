@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from build_september_articles import ARTICLES, COMMIT, input_rows, schema_table, slug, workflow_census
 from catalog import compile_catalog, local_generation_nodes, schema_fingerprint, release_gate_reasons, object_info_nodes
+from october_content import CORE as OCTOBER_CORRECTIONS
 
 
 class SeptemberArticlesTests(unittest.TestCase):
@@ -33,6 +34,13 @@ class SeptemberArticlesTests(unittest.TestCase):
                 directory = ROOT / "content/articles/core" / slug(node_id)
                 manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
                 body = (directory / "ru.md").read_text(encoding="utf-8")
+                if node_id in OCTOBER_CORRECTIONS:
+                    # The old evidence stays pinned, but the live article is
+                    # checked against its newer schema in test_october_catalog.
+                    current = json.loads((ROOT / "content/runtime/comfyui-0.38.0.object-info.json").read_text(encoding="utf-8"))
+                    self.assertIn(OCTOBER_CORRECTIONS[node_id][1].strip(), body)
+                    self.assertEqual(manifest["editorial"]["schemaHash"], schema_fingerprint(node_id, current[node_id]))
+                    continue
                 for section in record[:5]:
                     self.assertIn(section, body)
                 self.assertGreater(len(record[2].split()), 25)
@@ -51,7 +59,8 @@ class SeptemberArticlesTests(unittest.TestCase):
                 self.assertFalse(review["checks"]["exampleExecuted"])
                 self.assertFalse(review["checks"]["exampleSchemaValidated"])
                 self.assertNotEqual(review["state"], "human_approved")
-                self.assertEqual(review["baseline"]["sourceCommit"], COMMIT)
+                expected_commit = "6b747c0428c343e1417219641db93a4fb7cb69ae" if node_id in OCTOBER_CORRECTIONS else COMMIT
+                self.assertEqual(review["baseline"]["sourceCommit"], expected_commit)
                 self.assertEqual(review["checks"]["officialCasesInspected"], bool(review["evidence"]["workflows"]))
                 self.assertTrue(review["knownGaps"])
 
@@ -77,12 +86,12 @@ class SeptemberArticlesTests(unittest.TestCase):
 
     def test_compiled_catalog_has_articles_not_only_autocards(self):
         articles = self.compiled["articles"]
-        self.assertEqual(len(articles), 766)
+        self.assertEqual(len(articles), 771)
         by_node = {a["manifest"]["node"]["nodeId"]: a for a in articles if a["manifest"]["node"]["packageId"] == "comfy-core"}
         for node_id in ARTICLES:
             with self.subTest(node=node_id):
                 article = by_node[node_id]
-                self.assertIn("## Пример подключения", article["body"])
+                self.assertIn("## Пример" if node_id in OCTOBER_CORRECTIONS else "## Пример подключения", article["body"])
                 self.assertIn("neurosaver.ru/", article["body"])
                 self.assertIn("timesavervfx.com/comfyui/", article["body"])
                 self.assertEqual(article["manifest"]["compatibility"]["schemaFingerprint"], schema_fingerprint(node_id, self.inventory[node_id]))

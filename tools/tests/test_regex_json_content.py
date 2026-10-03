@@ -3,6 +3,7 @@ import hashlib,json,re,subprocess,sys,unittest,zipfile
 from pathlib import Path
 from typing import Any,Iterator
 from tools import catalog
+from tools.tests.editorial_sections import expected_sections
 SPECS={'core.regex-match':('regex-match','RegexMatch','sha256:24a465edf3c6c384600d459890b1e95a3f399b119abeb8222365626856784d14','regex-match-error-line'),'core.regex-extract':('regex-extract','RegexExtract','sha256:eb12903dc704cae05422cbb38775b779dccd8e7a50f8f0003116e35c99aa7dac','regex-extract-after-separator'),'core.regex-replace':('regex-replace','RegexReplace','sha256:efe42d9447d88e8da40217452315154dadd0434fb95dfa2aa8550990073f7c88','regex-strip-code-fence'),'core.json-extract-string':('json-extract-string','JsonExtractString','sha256:885c782fb93f5226ad487d08048e640839327a32a53bafd44b26eb75bcdcde41','json-extract-positive-prompt')}
 DOCS={'RegexMatch':('d55b6cca8a9accaa1130976ae779262172f2409d063360883a3330830fbeaceb','22cfd806e8c692c43bd0c6e0a1f2f16e52a440ec218d435ddd7d4a08adfce478'),'RegexExtract':('7a61615ae5166ff9fecefd5b603db142bac6fa5ecb4fa528dca1087fd607f771','636e5071dfd08d144c33c820160f17ec494ebf287a129a4b2f0330fec31c9422'),'RegexReplace':('84cc193be8d7f642bae20858b3e3d5ae9b56e4daa4836c9cfaed236c61f7ba39','86eb075ba6a07120cf898e67a5e1ee7ea2387168979b02b9a564c1817decc8fe'),'JsonExtractString':('039e5cdcb895e05c0a7db1775af398397ac3cdc4b82ad03ec8f1d02f98fd4e35','b11309fb145f9c1723c006ac43d9a790f8133e1e3fbf9baca9cda6904412c91b')}
 def graphs(x:Any)->Iterator[dict[str,Any]]:
@@ -17,7 +18,7 @@ class RegexJsonContentTests(unittest.TestCase):
  def test_schemas_status_honesty_and_sections(self):
   sch={n:catalog.load_json(catalog.CONTENT/f'schemas/{n}.schema.v1.json') for n in ['article','recipe','recipe-fragment','article-research']};ids={catalog.load_json(p)['articleId'] for p in (catalog.CONTENT/'articles').rglob('manifest.json')};errors=[]
   for aid,(d,ct,fp,rdir) in SPECS.items():
-   ap=catalog.CONTENT/'articles/core'/d/'manifest.json';a=catalog.load_json(ap);self.assertEqual([],catalog.json_schema_errors(a,sch['article']));catalog.validate_article(ap,a,errors);self.assertEqual(('draft','in_review'),(a['status'],a['editorial']['state']));self.assertEqual(10,len(re.findall(r'^## ',(ap.parent/'ru.md').read_text(encoding='utf8'),re.M)))
+   ap=catalog.CONTENT/'articles/core'/d/'manifest.json';a=catalog.load_json(ap);self.assertEqual([],catalog.json_schema_errors(a,sch['article']));catalog.validate_article(ap,a,errors);self.assertEqual(('draft','in_review'),(a['status'],a['editorial']['state']));self.assertEqual(expected_sections(a),len(re.findall(r'^## ',(ap.parent/'ru.md').read_text(encoding='utf8'),re.M)))
    led=catalog.load_json(catalog.CONTENT/'research/reviews'/f'{aid}.json');self.assertEqual([],catalog.json_schema_errors(led,sch['article-research']));self.assertFalse(led['checks']['exampleExecuted'])
    rp=catalog.CONTENT/'recipes'/rdir/'recipe.json';rec=catalog.load_json(rp);self.assertEqual([],catalog.json_schema_errors(rec,sch['recipe']));catalog.validate_recipe(rp,rec,ids,errors);self.assertNotIn('workflow',rec);self.assertEqual([],catalog.json_schema_errors(catalog.load_json(rp.parent/'fragment.json'),sch['recipe-fragment']))
   self.assertEqual([],errors)

@@ -23,7 +23,7 @@
 - `prompt: PROMPT` — скрытый prompt-граф.
 - `extra_pnginfo: EXTRA_PNGINFO` — скрытые дополнительные данные, обычно workflow.
 
-Перед чтением state dict нода вызывает `clip.load_model()`. Затем `clip.state_dict_for_saving()` объединяет состояние model patcher с состоянием tokenizer. Поэтому сохранённый набор ключей шире, чем простой вызов `cond_stage_model.state_dict()`.
+Перед чтением state dict нода вызывает `clip.load_model()`. Затем `clip.state_dict_for_saving()` объединяет состояние объекта управления моделью с состоянием tokenizer. Поэтому сохранённый набор ключей шире, чем простой вызов `cond_stage_model.state_dict()`.
 
 Runtime не принимает настройку формата, dtype или список групп. Схема разделения зафиксирована в коде ComfyUI 0.32.0.
 

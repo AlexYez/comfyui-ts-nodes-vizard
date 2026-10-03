@@ -28,7 +28,7 @@ Fragment «Добавить style-токены одного референса»
 
 ## Входы, выходы и параметры
 
-`conditioning` принимает `CONDITIONING`; `style_model` — `STYLE_MODEL`; `clip_vision_output` — `CLIP_VISION_OUTPUT`. `strength` — `FLOAT` от `0` до `10`, default `1`, шаг интерфейса `0.001`. `strength_type` допускает только `multiply` и `attn_bias`. Выход — один `CONDITIONING`, не list-output.
+`conditioning` принимает `CONDITIONING`; `style_model` — `STYLE_MODEL`; `clip_vision_output` — `CLIP_VISION_OUTPUT`. `strength` — `FLOAT` от `0` до `10`, default `1`, шаг интерфейса `0.001`. `strength_type` допускает только `multiply` и `attn_bias`. Выход — один `CONDITIONING`, не списковый выход.
 
 `StyleModel.get_cond` передаёт в модель поле `last_hidden_state`. Результат имеет форму наподобие `[B_ref, N_style, D]`. Нода объединяет первые две оси через `flatten(0, 1)` и добавляет ось batch: получается `[1, B_ref × N_style, D]`. Таким образом, пакет референсов превращается в одну общую последовательность style-токенов.
 

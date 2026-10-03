@@ -30,7 +30,7 @@ Fragment «BasicGuider перед SamplerCustomAdvanced» повторяет о�
 
 `model: MODEL` и `conditioning: CONDITIONING` обязательны. Настраиваемого `cfg` и negative-входа нет. Дескрипторы обоих входов не добавляют числовых ограничений или widgets.
 
-Выход один: `GUIDER`, не list-output. Это Python-объект с model patcher и подготовленным условием; он не является LATENT или MODEL и подключается только к нодам custom sampling, которые принимают `GUIDER`.
+Выход один: `GUIDER`, не списковый выход. Это Python-объект с объектом управления моделью и подготовленным условием; он не является LATENT или MODEL и подключается только к нодам custom sampling, которые принимают `GUIDER`.
 
 Runtime ID — `BasicGuider`, а не имя внутреннего класса `Guider_Basic`. Исторических execution aliases не зафиксировано.
 
@@ -74,7 +74,7 @@ Runtime ID — `BasicGuider`, а не имя внутреннего класса
 
 Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `BasicGuider`, модуле `comfy_extras.nodes_custom_sampler`. Fingerprint: `sha256:0683f804654dbd15bdb740dc4f39c976b85b4fbe388d6e21310926d1855525be`.
 
-Runtime flags `deprecated`, `experimental`, `dev_only` и `api_node` равны false; нода не является output node. В `node-replacements` 0.32.0 её ID отсутствует.
+Флаги ноды `deprecated`, `experimental`, `dev_only` и `api_node` равны false; нода не является выходной нодой. В `node-replacements` 0.32.0 её ID отсутствует.
 
 Embedded docs 0.5.9 перечисляют два входа и GUIDER, но не объясняют наследуемый cfg=1, отсутствие unconditional condition и реальную экономию прохода. Эти детали сверены с исходником.
 

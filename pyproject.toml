@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "comfyui-ts-nodes-vizard"
-version = "0.3.1"
+version = "0.3.2"
 description = "Client-side Russian reference for ComfyUI nodes"
 readme = "README.md"
 requires-python = ">=3.10"

@@ -16,6 +16,8 @@ const runtime = await readFile(process.env.WIZARD_RUNTIME_INVENTORY || path.join
 const runtimeNodes = JSON.parse(runtime);
 const septemberEvidence = JSON.parse(await readFile(path.join(root, "content/research/september-2026-articles.json"), "utf8"));
 const septemberNodes = Object.keys(septemberEvidence.articles).filter(id => runtimeNodes[id]);
+const octoberEvidence = JSON.parse(await readFile(path.join(root, "content/research/october-2026-update.json"), "utf8"));
+const articleNodes = [...new Set([...septemberNodes, ...Object.keys(octoberEvidence.officialWorkflowOccurrences).filter(id => runtimeNodes[id])])];
 const systemStats = process.env.WIZARD_SYSTEM_STATS ? await readFile(process.env.WIZARD_SYSTEM_STATS)
   : JSON.stringify({system:{comfyui_version:"0.32.0",comfy_package_versions:[{name:"comfyui-frontend-package",installed:"1.48.7"}]}});
 const server = createServer(async (req, res) => {
@@ -112,19 +114,19 @@ try {
   await frontendPage.locator(".nw-title").waitFor();
   assert.equal(await frontendPage.locator(".nw-kicker").first().textContent(), "Note");
   await frontendPage.close();
-  for (const nodeId of septemberNodes) {
+  for (const nodeId of articleNodes) {
     await page.locator('#node-id').fill(nodeId);
     await page.locator('#new-node').click();
     await page.waitForFunction(id => document.querySelector('#comfyui-ts-nodes-vizard-host').shadowRoot.querySelector('.nw-kicker')?.textContent === id, nodeId);
     const markdown = page.locator('.nw-markdown');
-    assert.ok((await markdown.textContent()).includes('Пример подключения'), nodeId);
-    assert.ok((await markdown.textContent()).includes('Ограничения и частые ошибки'), nodeId);
+    assert.match(await markdown.textContent(), /пример/iu, nodeId);
+    assert.match(await markdown.textContent(), /ограничения/iu, nodeId);
     await page.getByRole('button', { name: 'Закрыть', exact: true }).click();
     await waitForWorkersToStop();
   }
   assert.deepEqual(errors, []);
   console.log(JSON.stringify({ initialRequests, catalogRequests: requests.filter(url => url.endsWith("catalog.json")).length,
-    septemberArticlesOpened: septemberNodes.length, finalWorkers: workers.size, longTasksMs: await page.evaluate(() => window.longTasks), errors }, null, 2));
+    articlesOpened: articleNodes.length, finalWorkers: workers.size, longTasksMs: await page.evaluate(() => window.longTasks), errors }, null, 2));
 } finally {
   await browser?.close();
   await new Promise(resolve => server.close(resolve));

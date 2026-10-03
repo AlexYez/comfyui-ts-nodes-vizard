@@ -917,7 +917,9 @@ def validate_article(path: Path, article: dict[str, Any], errors: list[str]) -> 
         require_exact_keys(editorial, {"state", "owner", "reviewedBy", "reviewedAt", "factsReviewedAt", "schemaHash"}, {"state", "owner", "reviewedBy", "reviewedAt", "factsReviewedAt"}, f"{label}.editorial", errors)
         state = editorial.get("state")
         require(state in EDITORIAL_STATES, f"{label}: invalid editorial state", errors)
-        if article.get("status") != "draft":
+        # Removal is a lifecycle fact, not editorial approval. An unapproved
+        # draft must be archivable without claiming a human signed it off.
+        if article.get("status") not in {"draft", "removed"}:
             require(state == "approved", f"{label}: published article must be approved", errors)
         require_string(editorial.get("owner"), f"{label}.editorial.owner", errors, 2)
         require_string(editorial.get("reviewedBy"), f"{label}.editorial.reviewedBy", errors, 2)
@@ -1318,6 +1320,24 @@ def compile_recipe(recipe_path: Path, recipe: Mapping[str, Any]) -> dict[str, An
     return compiled_recipe
 
 
+def select_related_reading(article: Mapping[str, Any], reading: Mapping[str, Any]) -> Mapping[str, Any]:
+    """Prefer the node's subject, not incidental words in its description.
+
+    A longer matched term wins within a tier. General terms in tags/summary
+    must never displace a specific subject in the node ID or title.
+    """
+    node_subject = article["runtimeIdentity"]["classType"].casefold()
+    title_subject = article["title"].casefold()
+    secondary = " ".join([article["summary"], *article["tags"], *article["concepts"]]).casefold()
+    for haystack in (node_subject, title_subject, secondary):
+        candidates = [(max((len(k) for k in rule["keywords"] if k.casefold() in haystack), default=0), -i, rule)
+                      for i, rule in enumerate(reading["rules"])]
+        score, _, rule = max(candidates, key=lambda item: item[:2], default=(0, 0, reading["fallback"]))
+        if score:
+            return rule
+    return reading["fallback"]
+
+
 def compile_catalog(path: Path = CATALOG_MANIFEST, inventory_path: Path | None = None) -> tuple[dict[str, Any], dict[str, Any]]:
     errors = validate_catalog(path)
     if errors:
@@ -1342,7 +1362,11 @@ def compile_catalog(path: Path = CATALOG_MANIFEST, inventory_path: Path | None =
         body_path = relative_content_path(article_path.parent, article["body"], f"{article_path}.body")
         identity = article["runtimeIdentity"]
         node_id = identity["classType"]
-        schema_hash = schema_fingerprint(node_id, inventory[node_id]) if identity.get("origin") == "backend" and node_id in inventory else article["editorial"].get("schemaHash")
+        # A reviewed article may describe a newer schema than the historical
+        # inventory used to build the catalog. Never replace its evidence hash.
+        schema_hash = article["editorial"].get("schemaHash")
+        if schema_hash is None and identity.get("origin") == "backend" and node_id in inventory:
+            schema_hash = schema_fingerprint(node_id, inventory[node_id])
         compatibility = copy.deepcopy(article["compatibility"])
         compatibility["schemaFingerprint"] = schema_hash
         relation_array = _relations_for_compiled(article["relations"])
@@ -1372,14 +1396,7 @@ def compile_catalog(path: Path = CATALOG_MANIFEST, inventory_path: Path | None =
             "searchAliases": copy.deepcopy(article["searchAliases"]),
             "assets": copy.deepcopy(article["assets"]),
         }
-        reading_haystack = " ".join([
-            article["articleId"], article["title"], article["summary"], node_id,
-            identity.get("pythonModule") or "", *article["tags"], *article["concepts"],
-        ]).casefold()
-        selected_reading = next(
-            (rule for rule in related_reading["rules"] if any(keyword.casefold() in reading_haystack for keyword in rule["keywords"])),
-            related_reading["fallback"],
-        )
+        selected_reading = select_related_reading(article, related_reading)
         reading_items = [selected_reading, *related_reading["common"]]
         reading_markdown = "\n\n## Связанные материалы\n\n" + "\n".join(
             f"- [{entry['title']}]({entry['url']}) — {entry['context']}" for entry in reading_items

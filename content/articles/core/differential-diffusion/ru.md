@@ -62,7 +62,7 @@ Bundle 0.1.42 содержит четыре экземпляра в трёх ф�
 
 ## Совместимость и источники
 
-Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `DifferentialDiffusion`, модуле `comfy_extras.nodes_differential_diffusion`. Fingerprint: `sha256:99e5950eb9d8e119e5bcf78dc7167fcbdfd2f2d92d7c03730757fad9368cbb66`. Runtime flags: experimental true; deprecated, dev_only и api_node false. Replacements и execution aliases отсутствуют.
+Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `DifferentialDiffusion`, модуле `comfy_extras.nodes_differential_diffusion`. Fingerprint: `sha256:99e5950eb9d8e119e5bcf78dc7167fcbdfd2f2d92d7c03730757fad9368cbb66`. Флаги ноды: experimental true; deprecated, dev_only и api_node false. Replacements и execution aliases отсутствуют.
 
 Embedded docs 0.5.9 правильно указывают threshold mask и диапазон strength, но не описывают разрыв при strength 0. Русская страница переводит runtime-имена портов и содержит шаблонную строку о переводе. Граничная ветвь в статье зафиксирована по исходнику.
 

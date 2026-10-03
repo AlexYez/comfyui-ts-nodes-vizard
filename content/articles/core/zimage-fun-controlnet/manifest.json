@@ -1,1 +1,73 @@
-{"$schema":"../../../schemas/article.schema.v1.json","schemaVersion":"1.0","articleId":"core.zimage-fun-controlnet","kind":"core","locale":"ru","title":"ZImageFunControlnet: image/inpaint patch Z-Image","summary":"Расширяет DiffSynth apply optional image, inpaint_image и mask для Z-Image Control MODEL_PATCH.","body":"ru.md","runtimeIdentity":{"classType":"ZImageFunControlnet","pythonModule":"comfy_extras.nodes_model_patch","packageId":"comfy-core","origin":"backend","aliases":[]},"status":"draft","experimental":true,"compatibility":{"comfyui":">=0.32.0","frontend":">=1.48.7","verifiedOn":"2026-08-20","sourceRevision":"ComfyUI v0.32.0 @ c2bcbecd82ec5ae66594340b395c24ef0217b238"},"relations":{"related":["core.qwen-image-diffsynth-controlnet","core.model-patch-loader"],"alternatives":[],"replacedBy":null},"tags":["Z-Image","ControlNet","inpaint"],"searchAliases":["ZImage Fun ControlNet"],"concepts":["noise refiner"],"assets":[{"type":"recipe","id":"recipe.zimage-fun-controlnet-local-check","label":"Проверочная заготовка локального графа"}],"editorial":{"state":"in_review","owner":"TS Nodes Wizard editorial","reviewedBy":"Автоматизированная сверка исходника и runtime; человеческое утверждение ожидается","reviewedAt":"2026-08-20","factsReviewedAt":"2026-08-20","schemaHash":"sha256:31a6b6a894e3ba524586c4fb9313902eeb191f96d98ebfc11bfeef48983668dc"},"sources":[{"sourceId":"core.zimage-fun-controlnet-source-1","title":"Model patch source","url":"https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_model_patch.py#L552-L603","publisher":"Comfy-Org","kind":"source","accessedAt":"2026-08-20","supports":["Z-Image apply"]}]}
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.zimage-fun-controlnet",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Z-Image / Qwen 2.1: Fun ControlNet",
+  "summary": "Применяет совместимый Fun ControlNet к копии модели. В ComfyUI 0.38.0 публичное описание включает Z-Image и Qwen Image 2.1; это не универсальная управляющая нода для любых моделей.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "ZImageFunControlnet",
+    "pythonModule": "comfy_extras.nodes_model_patch",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": true,
+  "compatibility": {
+    "comfyui": ">=0.38.0",
+    "frontend": ">=1.53.6",
+    "verifiedOn": "2026-10-03",
+    "sourceRevision": "ComfyUI 0.38.0 @ 6b747c0428c343e1417219641db93a4fb7cb69ae; frontend 1.53.6"
+  },
+  "relations": {
+    "related": [
+      "core.qwen-image-diffsynth-controlnet"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "Z-Image",
+    "ControlNet",
+    "inpaint"
+  ],
+  "searchAliases": [
+    "ZImage Fun ControlNet"
+  ],
+  "concepts": [
+    "noise refiner"
+  ],
+  "assets": [
+    {
+      "type": "recipe",
+      "id": "recipe.zimage-fun-controlnet-local-check",
+      "label": "Проверочная заготовка локального графа"
+    }
+  ],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source and runtime review; human approval pending",
+    "reviewedAt": "2026-10-03",
+    "factsReviewedAt": "2026-10-03",
+    "schemaHash": "sha256:74e935c22959885db37b202adb5f59e85a7b7eaaebb710c2e0b37569fbe364ac"
+  },
+  "sources": [
+    {
+      "sourceId": "core.zimage-fun-controlnet-october-source",
+      "title": "ZImageFunControlnet: ComfyUI 0.38.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/6b747c0428c343e1417219641db93a4fb7cb69ae/comfy_extras/nodes_model_patch.py#L811-L825",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-10-03",
+      "supports": [
+        "назначение",
+        "параметры",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

@@ -1,16 +1,9 @@
 # TS Image Batch to Image List
 
-<table>
-<tr>
-<td><img src="doc/screenshots/ts_image_batch_to_list.png" alt="Batch to List" width="300" /></td>
-<td><img src="doc/screenshots/ts_image_list_to_batch.png" alt="List to Batch" width="300" /></td>
-</tr>
-</table>
+Разделяет пакет `IMAGE` на список одиночных изображений для поэлементной обработки. Пакет — один тензор с осью кадров; список — несколько отдельных элементов, которые ComfyUI может передать следующей ноде по очереди.
 
-Конвертация между `IMAGE` (один батчевый тензор) и `IMAGE`-list (Python-список одиночных тензоров). Нужно, когда одна нода ожидает батч, а следующая хочет покадровую итерацию.
+Используйте перед нодой, рассчитанной на одно изображение за вызов. Не путайте это с независимыми запусками очереди: порядок исполнения и объединение результатов зависят от следующей ноды. Для обратного преобразования используйте TS Image List to Image Batch.
 
-## Проверка и происхождение материала
+## Источники
 
-Материал импортирован из встроенной справки `comfyui-timesaver` на 2026-09-27; регистрация ноды проверена по исходнику. Статья имеет статус черновика до отдельной ручной редакционной проверки в Wizard. Если установлена другая версия пака, ориентируйтесь также на живые входы и выходы в панели.
-
-- [Закреплённый исходник ноды](https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/nodes/image/ts_image_batch_to_list.py#L91)
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/image/ts_image_batch_to_list.py#L91); [справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_ImageBatchToImageList/ru.md). Проверено по исходнику и справке TimeSaver 12.12.3; выполнение с моделями и человеческое утверждение ещё нужны.

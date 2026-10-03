@@ -28,7 +28,7 @@ Fragment «Смешать два совместимых CLIP с явным ко�
 
 ## Входы, выходы и параметры
 
-`clip1` и `clip2` принимают `CLIP`. `ratio` — `FLOAT` от `0` до `1`, default `1`, шаг интерфейса `0.01`. Выход — один `CLIP`, не list-output.
+`clip1` и `clip2` принимают `CLIP`. `ratio` — `FLOAT` от `0` до `1`, default `1`, шаг интерфейса `0.01`. Выход — один `CLIP`, не списковый выход.
 
 Для каждого неслужебного ключа `clip2` нода вызывает `add_patches` с `strength_patch = 1 − ratio` и `strength_model = ratio`. Model patcher сначала умножает текущий вес клона на `strength_model`, затем добавляет вес второго encoder с `strength_patch`. Отсюда следует точная ориентация коэффициента.
 

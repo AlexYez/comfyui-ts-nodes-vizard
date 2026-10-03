@@ -66,7 +66,7 @@ Default noise sampler создаёт случайный tensor на устрой
 
 ## 10. Совместимость и источники
 
-Материал проверен на ComfyUI `0.32.0`, frontend `1.48.7`, commit `c2bcbecd82ec5ae66594340b395c24ef0217b238`, docs `0.5.9` и workflows `0.1.42`. Exact ID — `SamplerDPMPP_2S_Ancestral`; runtime flags deprecated, experimental, dev-only, API-node и output-node равны false. Replacement и execution aliases отсутствуют.
+Материал проверен на ComfyUI `0.32.0`, frontend `1.48.7`, commit `c2bcbecd82ec5ae66594340b395c24ef0217b238`, docs `0.5.9` и workflows `0.1.42`. Exact ID — `SamplerDPMPP_2S_Ancestral`; флаги ноды deprecated, experimental, dev-only, API-node и output-node равны false. Replacement и execution aliases отсутствуют.
 
 Embedded docs дают общий смысл eta/s_noise, но не разделяют `sigma_down` и `sigma_up`, не описывают второй model call, terminal branch и RF/CONST dispatch. Фраза о «разнообразии при сохранении согласованности» не используется как техническая гарантия: закреплённый source её не измеряет.
 

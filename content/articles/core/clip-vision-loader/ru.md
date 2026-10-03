@@ -30,7 +30,7 @@ Fragment «Загрузить clip_vision_g и закодировать изоб
 
 `clip_name` — обязательный динамический список файлов из группы `clip_vision`. В чистом snapshot `/object_info` список пуст: модельные имена зависят от локальной установки и поэтому не входят в fingerprint.
 
-Выход один: `CLIP_VISION`, не list-output. Он содержит модель, настройки preprocessing и patcher для загрузки и offload. Это ещё не признаки изображения. `CLIPVisionEncode` создаёт отдельный `CLIP_VISION_OUTPUT` с `last_hidden_state`, `image_embeds`, размерами входа и, в зависимости от семейства, дополнительными hidden states.
+Выход один: `CLIP_VISION`, не списковый выход. Он содержит модель, настройки preprocessing и patcher для загрузки и offload. Это ещё не признаки изображения. `CLIPVisionEncode` создаёт отдельный `CLIP_VISION_OUTPUT` с `last_hidden_state`, `image_embeds`, размерами входа и, в зависимости от семейства, дополнительными hidden states.
 
 У `CLIPVisionLoader` нет параметра crop. `center` и `none` принадлежат `CLIPVisionEncode`; переносить этот выбор на загрузчик нельзя.
 
@@ -74,7 +74,7 @@ Preprocessing приводит изображение к размеру, mean и
 
 Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `CLIPVisionLoader`, модуле `nodes`. Fingerprint: `sha256:51c6657ce101c57646f468509b8f221478c86942f23486b67838bb59319c0d41`.
 
-Runtime не помечает ноду как deprecated, experimental, dev-only или API node; она не является output node. Динамические значения `clip_name` исключены из fingerprint, поэтому установка другого набора моделей не создаёт ложный schema drift.
+Runtime не помечает ноду как deprecated, experimental, dev-only или API node; она не является выходной нодой. Динамические значения `clip_name` исключены из fingerprint, поэтому установка другого набора моделей не создаёт ложный schema drift.
 
 Embedded docs 0.5.9 правильно указывают каталог и тип выхода, но не отделяют загрузку от crop/preprocessing и не перечисляют сигнатуры распознаваемых семейств. Технические выводы здесь сверены с закреплённым исходником.
 

@@ -22,7 +22,7 @@
 
 ## 4. Выход
 
-Единственный выход — `SAMPLER`, не list-output. Он хранит зарегистрированную функцию `sample_ar_video` и `num_frame_per_block` в `extra_options`.
+Единственный выход — `SAMPLER`, не списковый выход. Он хранит зарегистрированную функцию `sample_ar_video` и `num_frame_per_block` в `extra_options`.
 
 Объект не содержит checkpoint и video frames. Совместимость проверяется позже, когда sampler-runner передаст model wrapper, tensor и `SIGMAS` в алгоритм.
 

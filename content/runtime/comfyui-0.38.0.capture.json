@@ -1,0 +1,23 @@
+{
+  "capturedAt": "2026-10-03",
+  "checkedThrough": "2026-10-03",
+  "sourceCommit": "6b747c0428c343e1417219641db93a4fb7cb69ae",
+  "artifactRun": "https://github.com/AlexYez/comfyui-ts-nodes-vizard/actions/runs/37108641550",
+  "customNodes": "disabled",
+  "device": "cpu",
+  "files": {
+    "comfyui-0.38.0.object-info.json": {
+      "sha256": "0af00af582debbabab9744fef4ce04a8802ce4c4189f381ac1d7c60b29fc27e9",
+      "size": 1891883
+    },
+    "comfyui-0.38.0.node-replacements.json": {
+      "sha256": "4d9e22176cbddd8c309707d434f011854cd768f92146586bf9e17c01e93ae5b6",
+      "size": 1920
+    },
+    "comfyui-0.38.0.system-stats.json": {
+      "sha256": "e7618dc3c2823d93a48a631316363f25a1e7059e0ba8e2b951572ef32256b092",
+      "size": 1119
+    }
+  },
+  "qualification": "Inventory only; no GPU workflow execution or platform compatibility approval"
+}

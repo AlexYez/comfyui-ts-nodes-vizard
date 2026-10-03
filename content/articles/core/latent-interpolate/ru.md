@@ -28,7 +28,7 @@ Fragment `Смешать два одиночных LATENT при ratio 0,5` со
 
 ## Входы, выходы и параметры
 
-`samples1` и `samples2` принимают `LATENT`. `ratio` — `FLOAT` от `0` до `1`, default `1`, шаг `0,01`. Выход — один `LATENT`, не list-output.
+`samples1` и `samples2` принимают `LATENT`. `ratio` — `FLOAT` от `0` до `1`, default `1`, шаг `0,01`. Выход — один `LATENT`, не списковый выход.
 
 Сначала `samples2` проходит через тот же `reshape_latent_to`, что в Add/Subtract. Пространственная форма приводится к `samples1` через bilinear resize и center crop. Короткий batch циклически повторяется, длинный обрезается до длины первого.
 

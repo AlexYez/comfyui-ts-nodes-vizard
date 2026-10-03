@@ -62,7 +62,7 @@
 
 ## Совместимость и источники
 
-Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `SkipLayerGuidanceDiTSimple`, модуле `comfy_extras.nodes_slg`. Fingerprint: `sha256:d67fd781f6a8b675040a3f81ae1f53e3b0c3f53c827feacfe2c571c850765148`. Runtime flags: experimental true; deprecated, dev_only и api_node false. Replacements и execution aliases отсутствуют.
+Статья закреплена на ComfyUI `0.32.0`, frontend `1.48.7`, runtime ID `SkipLayerGuidanceDiTSimple`, модуле `comfy_extras.nodes_slg`. Fingerprint: `sha256:d67fd781f6a8b675040a3f81ae1f53e3b0c3f53c827feacfe2c571c850765148`. Флаги ноды: experimental true; deprecated, dev_only и api_node false. Replacements и execution aliases отсутствуют.
 
 Embedded docs верно отделяют unconditional-проход, но ошибаются в required-статусе входов и в условии «оба списка содержат индексы». Русская страница также переводит имена runtime-портов. Эти места исправлены по source и `/object_info`.
 

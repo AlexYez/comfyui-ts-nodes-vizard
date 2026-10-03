@@ -8,67 +8,49 @@
     "origin": "backend"
   },
   "baseline": {
-    "comfyui": "0.32.0",
-    "frontend": "1.48.7",
-    "sourceCommit": "c2bcbecd82ec5ae66594340b395c24ef0217b238",
-    "embeddedDocs": "0.5.9",
-    "workflowTemplatesJson": "0.1.42"
+    "comfyui": "0.38.0",
+    "frontend": "1.53.6",
+    "sourceCommit": "6b747c0428c343e1417219641db93a4fb7cb69ae",
+    "embeddedDocs": "0.5.12 (available; implementation is primary)",
+    "workflowTemplatesJson": "0.1.96"
   },
-  "state": "fact_checked",
+  "state": "source_reviewed",
   "reviewMode": "automated_assisted",
   "evidence": {
-    "runtimeInventory": "runtime/comfyui-0.32.0.object-info.json",
+    "runtimeInventory": "runtime/comfyui-0.38.0.object-info.json",
     "sourceLocations": [
       {
-        "url": "https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/nodes.py#L272-L295",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/6b747c0428c343e1417219641db93a4fb7cb69ae/nodes.py#L273-L302",
         "path": "nodes.py",
-        "lines": "272-295"
+        "lines": "273-302"
       }
     ],
-    "embeddedDocs": [
-      {
-        "locale": "en",
-        "archivePath": "comfyui_embedded_docs/docs/ConditioningZeroOut/en.md",
-        "assessment": "Документ помечен как AI-generated и неполон: он упоминает pooled output, но не фиксирует обязательное обнуление основного тензора и отдельную обработку conditioning_lyrics. Статья следует исходнику."
-      }
-    ],
+    "embeddedDocs": [],
     "workflows": [
       {
-        "id": "workflow-templates-json-0.1.42-full-scan",
-        "role": "Проверены все 512 JSON-файлов и definitions.subgraphs[*].nodes: 53 экземпляра ConditioningZeroOut в 47 файлах, из них 17 в корневых графах и 36 в subgraphs; у всех widgets_values пусты."
+        "id": "audio_ace_step1_5_xl_base",
+        "role": "Saved wiring in main (root); not model execution"
       },
       {
-        "id": "908d0bfb-e192-4627-9b57-147496e6e2dd",
-        "role": "flux_schnell_full_text_to_image: CLIPTextEncodeFlux #41 → ConditioningZeroOut #42 → negative KSampler #31."
-      },
-      {
-        "id": "88ac5dad-efd7-40bb-84fe-fbaefdee1fa9",
-        "role": "audio_ace_step1_5_xl_base: TextEncodeAceStepAudio1.5 #94 → ConditioningZeroOut #47 → negative KSampler #3."
-      },
-      {
-        "id": "90469c7e-4751-418c-9bd5-e43b3745a118",
-        "role": "flux_canny_model_example: CLIPTextEncode #23 → ConditioningZeroOut #37 → negative InstructPixToPixConditioning #35."
-      },
-      {
-        "id": "30235234-3bb4-42cc-9e1c-33ad1bba0192",
-        "role": "basic_switch_node, subgraph 0: CLIPTextEncode #56 → ConditioningZeroOut #54 → negative KSampler #58; его topology и KSampler widgets перенесены в fragment без model-dependent значений."
+        "id": "audio_ace_step1_5_xl_sft",
+        "role": "Saved wiring in main (root); not model execution"
       }
     ]
   },
   "checks": {
     "implementationRead": true,
     "runtimeCompared": true,
-    "officialCasesInspected": true,
-    "exampleSchemaValidated": true,
+    "officialCasesInspected": false,
+    "exampleSchemaValidated": false,
     "exampleExecuted": false,
     "russianEdited": true,
     "factsRecheckedAfterEditing": true
   },
   "knownGaps": [
-    "Fragment структурно воспроизводит официальную topology, но не исполнялся в ComfyUI с конкретными MODEL, CLIP и LATENT.",
-    "В fragment не зафиксированы checkpoint и разрешение latent, поэтому визуальный результат официального шаблона не воспроизводится целиком.",
-    "Отдельно не измерялись память и время для больших CONDITIONING-списков.",
-    "Текст ожидает человеческого редакционного одобрения."
+    "Требуется человеческое утверждение",
+    "Full model workflow execution not performed",
+    "Worked example is explanatory, not an executable validated recipe",
+    "Automatically extracted workflow wiring still needs manual case review"
   ],
-  "updatedAt": "2026-08-13"
+  "updatedAt": "2026-10-03"
 }
