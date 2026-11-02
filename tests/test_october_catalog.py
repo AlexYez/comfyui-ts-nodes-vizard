@@ -17,8 +17,11 @@ class OctoberCatalogTests(unittest.TestCase):
                       for _, m in articles if m["runtimeIdentity"].get("packageId") == "comfy-core"}
         inventory = {k: v for k, v in catalog.local_generation_nodes(catalog.load_json(ROOT / "content/runtime/comfyui-0.38.0.object-info.json")).items() if not v.get("dev_only")}
         self.assertEqual(len(inventory), 666)
+        moves = catalog.load_json(ROOT / "content/research/november-2026-update.json")["moduleRelocations"]
+        relocations = {(m["nodeId"], m["oldModule"]): m["newModule"] for m in moves}
         for node_id, definition in inventory.items():
-            self.assertIn((definition["python_module"], node_id), identities)
+            module = relocations.get((node_id, definition["python_module"]), definition["python_module"])
+            self.assertIn((module, node_id), identities)
 
     def test_current_fingerprints_survive_historical_default_compilation(self):
         compiled, _ = catalog.compile_catalog()
@@ -81,16 +84,19 @@ class OctoberCatalogTests(unittest.TestCase):
 
     def test_timesaver_corrections_have_exact_authored_text_and_honest_evidence(self):
         from october_content import CUSTOM
+        from november_content import CUSTOM as CURRENT, DELTAS
         _, articles, _, _ = catalog.load_source_catalog()
         for path, article in articles:
             node_id = article["runtimeIdentity"]["classType"]
             if node_id not in CUSTOM:
                 continue
-            self.assertIn(CUSTOM[node_id].strip(), (path.parent / article["body"]).read_text(encoding="utf-8"))
+            expected = CURRENT[node_id][1] if node_id in CURRENT else CUSTOM[node_id]
+            self.assertIn(expected.strip(), (path.parent / article["body"]).read_text(encoding="utf-8"))
             review = catalog.load_json(ROOT / "content/research/reviews" / (article["articleId"] + ".json"))
-            self.assertEqual(review["baseline"]["sourceCommit"], "819d4e573a266fbc2aafb10554943f1e781c351a")
-            self.assertTrue(review["checks"]["implementationRead"])
-            self.assertTrue(review["checks"]["factsRecheckedAfterEditing"])
+            updated = node_id in CURRENT or node_id in DELTAS
+            self.assertEqual(review["baseline"]["sourceCommit"], "0e1aa5540cb95b8d5d932d4a082ec01d517cd03a" if updated else "819d4e573a266fbc2aafb10554943f1e781c351a")
+            self.assertEqual(review["checks"]["implementationRead"], node_id not in DELTAS)
+            self.assertEqual(review["checks"]["factsRecheckedAfterEditing"], node_id not in DELTAS)
             self.assertFalse(review["checks"]["runtimeCompared"])
             self.assertFalse(review["checks"]["exampleExecuted"])
 

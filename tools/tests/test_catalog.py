@@ -441,7 +441,7 @@ class PinnedBackendInventoryTests(unittest.TestCase):
         expected = catalog.schema_fingerprint("SaveImage", self.snapshot["SaveImage"])
         self.assertEqual(expected, save_image["manifest"]["compatibility"]["schemaFingerprint"])
         update_manifest = catalog.load_json(catalog.CONTENT / "update-manifest.json")
-        self.assertEqual("runtime/comfyui-0.32.0.object-info.json", update_manifest["inventory"]["source"])
+        self.assertEqual("runtime/comfyui-0.43.0.object-info.json", update_manifest["inventory"]["source"])
 
 
 class ReleaseGateTests(unittest.TestCase):
@@ -502,6 +502,7 @@ class ReleaseGateTests(unittest.TestCase):
                 # runtime, not against the live articles' newer schemas.
                 if runtime:
                     article["editorial"]["schemaHash"] = catalog.schema_fingerprint(article["runtimeIdentity"]["classType"], runtime)
+                    article["runtimeIdentity"]["pythonModule"] = runtime["python_module"]
         for _, recipe in self.recipes:
             recipe["editorial"]["state"] = "approved"
 
@@ -513,6 +514,7 @@ class ReleaseGateTests(unittest.TestCase):
             self.workflows,
             self.nodes,
             frontend_inventory=self.frontend_inventory,
+            target_release_manifest={"inventory": {"frontendVersion": "1.48.7"}},
         )
 
     def test_current_alpha_fails_for_explicit_human_approval(self) -> None:

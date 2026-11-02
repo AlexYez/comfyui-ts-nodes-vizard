@@ -4,8 +4,8 @@
   "articleId": "custom.comfyui-timesaver.ts-dlssupscaler",
   "kind": "custom",
   "locale": "ru",
-  "title": "TS DLSS Upscaler",
-  "summary": "Увеличивает изображение или последовательность кадров через NVIDIA DLSS Neural Rendering. Принимает и возвращает IMAGE. Работает только на Windows с совместимой NVIDIA RTX и драйвером D3D12; поддержка RTX 30 экспериментальная.",
+  "title": "TS DLSS Upscaler: увеличение через NVIDIA DLSSNR",
+  "summary": "Увеличивает изображения и последовательности кадров через отдельный DLSSNR-рантайм. Требует Windows, совместимой NVIDIA RTX и рабочего Direct3D 12; другие платформы не становятся поддерживаемыми из-за наличия IMAGE-входа.",
   "body": "ru.md",
   "runtimeIdentity": {
     "classType": "TS_DLSSUpscaler",
@@ -17,13 +17,17 @@
   "status": "draft",
   "experimental": false,
   "compatibility": {
-    "comfyui": ">=0.32.0",
-    "frontend": ">=1.48.7",
-    "verifiedOn": "2026-10-03",
-    "sourceRevision": "comfyui-timesaver 12.12.3 @ 819d4e573a266fbc2aafb10554943f1e781c351a"
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "comfyui-timesaver 12.13.5 @ 0e1aa5540cb95b8d5d932d4a082ec01d517cd03a (source inventory, not live qualification)"
   },
   "relations": {
-    "related": [],
+    "related": [
+      "custom.comfyui-timesaver.ts-modelresize",
+      "core.image-upscale-with-model",
+      "custom.comfyui-timesaver.ts-compare"
+    ],
     "alternatives": [],
     "replacedBy": null
   },
@@ -43,34 +47,21 @@
   "editorial": {
     "state": "in_review",
     "owner": "TS Nodes Wizard editorial",
-    "reviewedBy": "Pinned upstream source and embedded Russian documentation; human approval pending",
-    "reviewedAt": "2026-10-03",
-    "factsReviewedAt": "2026-10-03"
+    "reviewedBy": "Source-backed November update; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02"
   },
   "sources": [
     {
-      "sourceId": "custom.comfyui-timesaver.ts-dlssupscaler-source-1",
-      "title": "TS DLSS Upscaler in comfyui-timesaver 12.11.7",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/video/dlss/ts_dlss_upscaler.py#L549",
+      "sourceId": "custom.comfyui-timesaver.ts-dlssupscaler-november-source",
+      "title": "TS_DLSSUpscaler: TimeSaver 12.13.5",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/video/dlss/ts_dlss_upscaler.py#L579",
       "publisher": "AlexYez",
       "kind": "source",
-      "accessedAt": "2026-10-03",
+      "accessedAt": "2026-11-02",
       "supports": [
-        "runtime registration",
-        "implementation"
-      ]
-    },
-    {
-      "sourceId": "custom.comfyui-timesaver.ts-dlssupscaler-source-2",
-      "title": "Embedded Russian documentation for TS DLSS Upscaler",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_DLSSUpscaler/ru.md",
-      "publisher": "AlexYez",
-      "kind": "documentation",
-      "accessedAt": "2026-10-03",
-      "supports": [
-        "usage",
-        "parameters",
-        "limitations"
+        "регистрация ноды",
+        "реализация"
       ]
     }
   ]

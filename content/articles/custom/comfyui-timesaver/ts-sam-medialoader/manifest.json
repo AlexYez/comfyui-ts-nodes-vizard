@@ -20,7 +20,7 @@
     "comfyui": ">=0.32.0",
     "frontend": ">=1.48.7",
     "verifiedOn": "2026-10-03",
-    "sourceRevision": "comfyui-timesaver 12.12.3 @ 819d4e573a266fbc2aafb10554943f1e781c351a"
+    "sourceRevision": "comfyui-timesaver 12.13.5 @ 0e1aa5540cb95b8d5d932d4a082ec01d517cd03a (source inventory, not live qualification)"
   },
   "relations": {
     "related": [],
@@ -49,28 +49,15 @@
   },
   "sources": [
     {
-      "sourceId": "custom.comfyui-timesaver.ts-sam-medialoader-source-1",
-      "title": "TS SAM Media Loader in comfyui-timesaver 12.11.7",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/image/sam_media_loader/ts_sam_media_loader.py#L422",
+      "sourceId": "custom.comfyui-timesaver.ts-sam-medialoader-november-source",
+      "title": "TS_SAM_MediaLoader: TimeSaver 12.13.5",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/image/sam_media_loader/ts_sam_media_loader.py#L422",
       "publisher": "AlexYez",
       "kind": "source",
-      "accessedAt": "2026-10-03",
+      "accessedAt": "2026-11-02",
       "supports": [
-        "runtime registration",
-        "implementation"
-      ]
-    },
-    {
-      "sourceId": "custom.comfyui-timesaver.ts-sam-medialoader-source-2",
-      "title": "Embedded Russian documentation for TS SAM Media Loader",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_SAM_MediaLoader/ru.md",
-      "publisher": "AlexYez",
-      "kind": "documentation",
-      "accessedAt": "2026-10-03",
-      "supports": [
-        "usage",
-        "parameters",
-        "limitations"
+        "регистрация ноды",
+        "реализация"
       ]
     }
   ]

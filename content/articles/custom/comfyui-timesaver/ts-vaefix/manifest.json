@@ -1,0 +1,68 @@
+{
+  "$schema": "../../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "custom.comfyui-timesaver.ts-vaefix",
+  "kind": "custom",
+  "locale": "ru",
+  "title": "TS VAE Fix: подавление двухпиксельной решётки",
+  "summary": "Измеряет и подавляет слабую решётку с периодом два пикселя, которую могут оставлять некоторые VAE. Работает с декодированным IMAGE, не исправляет веса VAE и не удаляет любые артефакты генерации.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "TS_VAEFix",
+    "pythonModule": "custom_nodes.comfyui-timesaver",
+    "packageId": "comfyui-timesaver",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "comfyui-timesaver 12.13.5 @ 0e1aa5540cb95b8d5d932d4a082ec01d517cd03a (source inventory, not live qualification)"
+  },
+  "relations": {
+    "related": [
+      "core.vae-decode",
+      "custom.comfyui-timesaver.ts-editalign",
+      "custom.comfyui-timesaver.ts-compare"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "custom nodes",
+    "comfyui-timesaver",
+    "TS_VAEFix"
+  ],
+  "searchAliases": [
+    "TS_VAEFix",
+    "TS VAE Fix"
+  ],
+  "concepts": [
+    "сторонняя нода ComfyUI"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source-backed November update; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02"
+  },
+  "sources": [
+    {
+      "sourceId": "custom.comfyui-timesaver.ts-vaefix-november-source",
+      "title": "TS_VAEFix: TimeSaver 12.13.5",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/image/ts_vae_fix.py#L373",
+      "publisher": "AlexYez",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "регистрация ноды",
+        "реализация"
+      ]
+    }
+  ]
+}

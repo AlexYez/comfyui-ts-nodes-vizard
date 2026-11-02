@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.image-sdrto-hdr",
+  "node": {
+    "classType": "ImageSDRToHDR",
+    "pythonModule": "comfy_extras.nodes_images",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.43.0",
+    "frontend": "1.57.4",
+    "sourceCommit": "426f5eea52a7ece1dd599fff4cb6cd1f352ddd24",
+    "embeddedDocs": "Implementation and pinned pack documentation; no human approval",
+    "workflowTemplatesJson": "0.1.123"
+  },
+  "state": "source_reviewed",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.43.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L1370-L1404",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "1370-1404"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": []
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": false,
+    "exampleSchemaValidated": false,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Требуется человеческое утверждение",
+    "Full model workflow execution not performed",
+    "Official workflow wiring census is not manual case validation"
+  ],
+  "updatedAt": "2026-11-02"
+}

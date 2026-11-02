@@ -1,5 +1,11 @@
 # FluxKontextMultiReferenceLatentMethod
 
+<!-- november-core:start -->
+**Изменения в ComfyUI 0.43.0.** К reference_latents_method добавлены index_timestep_zero_isolated и index_timestep_zero_text_start. Они нужны совместимым моделям редактирования, в частности разным форматам MOSS edit-LoRA. Назначение метода должно совпадать с обучением модели; выбор нового значения сам по себе не делает старую модель совместимой.
+
+[Закреплённая реализация](https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_flux.py#L154-L182). Ниже сохранено описание предыдущей проверенной версии; перечисленные изменения имеют приоритет. Полная повторная проверка старого текста и примеров не заявляется.
+<!-- november-core:end -->
+
 ## Назначение
 `FluxKontextMultiReferenceLatentMethod` сообщает модели редактирования, как интерпретировать несколько опорных latent. Сама нода не добавляет изображения и не меняет тензор conditioning: она записывает служебное поле `reference_latents_method`.
 

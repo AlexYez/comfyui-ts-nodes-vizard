@@ -1634,6 +1634,7 @@ def release_policy_reasons(
     nodes: Mapping[str, Mapping[str, Any]],
     replacements: Mapping[str, str] | None = None,
     frontend_inventory: Mapping[str, Any] | None = None,
+    target_release_manifest: Mapping[str, Any] | None = None,
 ) -> list[str]:
     """Return deterministic reasons why this snapshot cannot ship as stable."""
 
@@ -1733,7 +1734,7 @@ def release_policy_reasons(
         reasons.append("frontend inventory missing: full user-visible frontend node coverage cannot be proven")
     else:
         try:
-            release_manifest = load_json(CONTENT / "update-manifest.json")
+            release_manifest = target_release_manifest if target_release_manifest is not None else load_json(CONTENT / "update-manifest.json")
             expected_frontend_version = release_manifest.get("inventory", {}).get("frontendVersion")
         except CatalogError:
             expected_frontend_version = None

@@ -1,0 +1,68 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.model-merge-mossimage",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Поблочное смешивание моделей MOSS-Image",
+  "summary": "Смешивает совместимые веса двух MOSS-Image с отдельными коэффициентами для эмбеддеров, текстовых блоков, временных модулей, 42 основных слоёв и выходной части. Это работа с весами MODEL, не смешивание изображений и не загрузка LoRA.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "ModelMergeMOSSImage",
+    "pythonModule": "comfy_extras.nodes_model_merging_model_specific",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "ComfyUI 0.43.0 @ 426f5eea52a7ece1dd599fff4cb6cd1f352ddd24; frontend 1.57.4"
+  },
+  "relations": {
+    "related": [
+      "core.model-merge-simple",
+      "core.model-save"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/merging/model specific",
+    "ModelMergeMOSSImage"
+  ],
+  "searchAliases": [
+    "ModelMergeMOSSImage"
+  ],
+  "concepts": [
+    "Поблочное смешивание моделей MOSS-Image"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned source and runtime review; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02",
+    "schemaHash": "sha256:e721902e7d08a7dd6d205d475c85af49032918ea4aad5fe4f1938ebc0d328376"
+  },
+  "sources": [
+    {
+      "sourceId": "core.model-merge-mossimage-november-source",
+      "title": "ModelMergeMOSSImage: ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_model_merging_model_specific.py#L370-L396",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

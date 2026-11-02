@@ -12,6 +12,8 @@ from pathlib import Path
 from typing import Any, Iterator
 
 from tools import catalog
+from tools.tests.editorial_sections import expected_sections
+from tools.november_content import CORE as NOVEMBER
 
 
 ARTICLE_SPECS: dict[str, dict[str, Any]] = {
@@ -150,7 +152,7 @@ class LatentOperationApplyContentTests(unittest.TestCase):
             self.assertTrue(targets.issubset(article_ids), (article_id, targets - article_ids))
 
             body = (path.parent / article["body"]).read_text(encoding="utf-8")
-            self.assertEqual(10, len(re.findall(r"^## .+$", body, flags=re.MULTILINE)), article_id)
+            self.assertEqual(expected_sections(article), len(re.findall(r"^## .+$", body, flags=re.MULTILINE)), article_id)
             self.assertNotIn("\ufffd", body)
             self.assertNotRegex(
                 body.lower(),
@@ -165,12 +167,13 @@ class LatentOperationApplyContentTests(unittest.TestCase):
             self.assertEqual(article_id, research["articleId"])
             self.assertEqual(spec["classType"], research["node"]["classType"])
             self.assertEqual("comfy_extras.nodes_latent", research["node"]["pythonModule"])
-            self.assertEqual("fact_checked", research["state"])
+            current = spec["classType"] in NOVEMBER
+            self.assertEqual("source_reviewed" if current else "fact_checked", research["state"])
             self.assertEqual("automated_assisted", research["reviewMode"])
-            self.assertTrue(research["checks"]["exampleSchemaValidated"])
+            self.assertEqual(not current, research["checks"]["exampleSchemaValidated"])
             self.assertFalse(research["checks"]["exampleExecuted"])
             self.assertTrue(research["knownGaps"])
-            self.assertTrue(any("Редактор пока" in gap for gap in research["knownGaps"]))
+            self.assertTrue(any(("Требуется человеческое утверждение" if current else "Редактор пока") in gap for gap in research["knownGaps"]))
             target_class_types.append(spec["classType"])
             target_article_ids.append(article_id)
 
@@ -218,7 +221,9 @@ class LatentOperationApplyContentTests(unittest.TestCase):
             self.assertFalse(runtime["dev_only"])
             self.assertFalse(runtime["api_node"])
             self.assertEqual(spec["fingerprint"], catalog.schema_fingerprint(spec["classType"], runtime), article_id)
-            self.assertEqual(spec["fingerprint"], article["editorial"]["schemaHash"])
+            current = spec["classType"] in NOVEMBER
+            expected_hash = catalog.schema_fingerprint(spec["classType"], catalog.load_json(catalog.CONTENT / "runtime/comfyui-0.43.0.object-info.json")[spec["classType"]]) if current else spec["fingerprint"]
+            self.assertEqual(expected_hash, article["editorial"]["schemaHash"])
 
         tonemap = nodes["LatentOperationTonemapReinhard"]["input"]["required"]["multiplier"]
         self.assertEqual(["FLOAT", {"default": 1.0, "min": 0.0, "max": 100.0, "step": 0.01}], tonemap)

@@ -1,0 +1,69 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mossimage-control",
+  "kind": "core",
+  "locale": "ru",
+  "title": "MOSS-Image: управление областями и глубиной",
+  "summary": "Добавляет управляющие карты областей и глубины к положительным и отрицательным условиям MOSS-Image. Для работы нужен совместимый color/depth-адаптер, загруженный в модель через LoRA loader; эта нода веса не загружает.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "MOSSImageControl",
+    "pythonModule": "comfy_extras.nodes_moss_image",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": true,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "ComfyUI 0.43.0 @ 426f5eea52a7ece1dd599fff4cb6cd1f352ddd24; frontend 1.57.4"
+  },
+  "relations": {
+    "related": [
+      "core.mossimage-layout-prompt",
+      "core.load-lora-model"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/moss_image",
+    "MOSSImageControl"
+  ],
+  "searchAliases": [
+    "MOSSImageControl",
+    "MOSS-Image Color/Depth Control"
+  ],
+  "concepts": [
+    "MOSS-Image: управление областями и глубиной"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned source and runtime review; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02",
+    "schemaHash": "sha256:cdc55968f10afe6121ac9e1b68a366ec7049ebca9717e4bb3adff1ee57cac1f1"
+  },
+  "sources": [
+    {
+      "sourceId": "core.mossimage-control-november-source",
+      "title": "MOSSImageControl: ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_moss_image.py#L55-L91",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

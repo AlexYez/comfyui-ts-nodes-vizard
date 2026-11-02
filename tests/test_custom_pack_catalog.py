@@ -38,7 +38,7 @@ class CustomPackCatalogTests(unittest.TestCase):
         timesaver = load(CONTENT / "inventory" / "custom" / "comfyui-timesaver.json")
         cosyvoice = load(CONTENT / "inventory" / "custom" / "comfyui-ts-cosyvoice.json")
         artius = load(CONTENT / "inventory" / "custom" / "comfyui-artius-browser.json")
-        self.assertEqual(len(timesaver["nodes"]), 82)
+        self.assertEqual(len(timesaver["nodes"]), 88)
         self.assertEqual(len(cosyvoice["nodes"]), 7)
         self.assertEqual(artius["nodes"], [])
         self.assertEqual(artius["frontendExtensions"][0]["extensionId"], "timesaver-artius-browser")
@@ -50,10 +50,10 @@ class CustomPackCatalogTests(unittest.TestCase):
             self.assertTrue(article["sources"])
             self.assertTrue(article["editorial"]["reviewedBy"].endswith("pending"))
 
-    def test_october_timesaver_revision_and_experimental_flag(self):
+    def test_november_timesaver_revision_and_experimental_flag(self):
         inventory = load(CONTENT / "inventory/custom/comfyui-timesaver.json")
-        self.assertEqual(inventory["version"], "12.12.3")
-        self.assertEqual(inventory["sourceCommit"], "819d4e573a266fbc2aafb10554943f1e781c351a")
+        self.assertEqual(inventory["version"], "12.13.5")
+        self.assertEqual(inventory["sourceCommit"], "0e1aa5540cb95b8d5d932d4a082ec01d517cd03a")
         nag = next(item for item in custom_manifests() if item["runtimeIdentity"]["classType"] == "TS_NAG")
         self.assertTrue(nag["experimental"])
         body = (CONTENT / "articles/custom/comfyui-timesaver/ts-nag/ru.md").read_text(encoding="utf-8")

@@ -12,7 +12,8 @@ except ModuleNotFoundError:  # Running as ``python tools/review_queue.py``.
 
 
 def load_queue() -> dict[str, Any]:
-    inventory = catalog.object_info_nodes(catalog.load_json(catalog.CONTENT / "runtime" / "comfyui-0.32.0.object-info.json"))
+    source = catalog.load_json(catalog.CONTENT / "update-manifest.json")["inventory"]["source"]
+    inventory = catalog.local_generation_nodes(catalog.object_info_nodes(catalog.load_json(catalog.CONTENT / source)))
     recipes = {recipe["recipeId"]: recipe for path in (catalog.CONTENT / "recipes").rglob("recipe.json") for recipe in [catalog.load_json(path)]}
     rows: list[dict[str, Any]] = []
     for path in sorted((catalog.CONTENT / "articles").rglob("manifest.json")):
@@ -39,7 +40,7 @@ def load_queue() -> dict[str, Any]:
             "sourceCount": len(article.get("sources", [])), "recipes": recipe_rows,
         })
     states = Counter(row["editorialState"] for row in rows)
-    return {"schemaVersion": "1.0", "localArticleCount": len(rows), "editorialStates": dict(sorted(states.items(), key=lambda item: str(item[0]))), "articles": rows}
+    return {"schemaVersion": "1.0", "inventorySource": source, "localArticleCount": len(rows), "editorialStates": dict(sorted(states.items(), key=lambda item: str(item[0]))), "articles": rows}
 
 
 def markdown(report: dict[str, Any], article_id: str | None = None) -> str:

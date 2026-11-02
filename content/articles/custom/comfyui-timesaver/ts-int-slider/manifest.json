@@ -4,8 +4,8 @@
   "articleId": "custom.comfyui-timesaver.ts-int-slider",
   "kind": "custom",
   "locale": "ru",
-  "title": "TS Int Slider",
-  "summary": "Чистый integer-слайдер, возвращающий INT. Кастомный UI оптимизирован под ручки разрешения / количества.",
+  "title": "TS Int Slider: целочисленный параметр",
+  "summary": "Возвращает INT из слайдера для количества шагов, размера или другого целочисленного входа.",
   "body": "ru.md",
   "runtimeIdentity": {
     "classType": "TS_Int_Slider",
@@ -17,13 +17,15 @@
   "status": "draft",
   "experimental": false,
   "compatibility": {
-    "comfyui": ">=0.32.0",
-    "frontend": ">=1.48.7",
-    "verifiedOn": "2026-10-03",
-    "sourceRevision": "comfyui-timesaver 12.12.3 @ 819d4e573a266fbc2aafb10554943f1e781c351a"
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "comfyui-timesaver 12.13.5 @ 0e1aa5540cb95b8d5d932d4a082ec01d517cd03a (source inventory, not live qualification)"
   },
   "relations": {
-    "related": [],
+    "related": [
+      "custom.comfyui-timesaver.ts-floatslider"
+    ],
     "alternatives": [],
     "replacedBy": null
   },
@@ -43,34 +45,21 @@
   "editorial": {
     "state": "in_review",
     "owner": "TS Nodes Wizard editorial",
-    "reviewedBy": "Pinned upstream source and embedded Russian documentation; human approval pending",
-    "reviewedAt": "2026-09-27",
-    "factsReviewedAt": "2026-09-27"
+    "reviewedBy": "Source-backed November update; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02"
   },
   "sources": [
     {
-      "sourceId": "custom.comfyui-timesaver.ts-int-slider-source-1",
-      "title": "TS Int Slider in comfyui-timesaver 12.11.7",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/utils/ts_int_slider.py#L44",
+      "sourceId": "custom.comfyui-timesaver.ts-int-slider-november-source",
+      "title": "TS_Int_Slider: TimeSaver 12.13.5",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/utils/ts_int_slider.py#L49",
       "publisher": "AlexYez",
       "kind": "source",
-      "accessedAt": "2026-10-03",
+      "accessedAt": "2026-11-02",
       "supports": [
-        "runtime registration",
-        "implementation"
-      ]
-    },
-    {
-      "sourceId": "custom.comfyui-timesaver.ts-int-slider-source-2",
-      "title": "Embedded Russian documentation for TS Int Slider",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_Int_Slider/ru.md",
-      "publisher": "AlexYez",
-      "kind": "documentation",
-      "accessedAt": "2026-10-03",
-      "supports": [
-        "usage",
-        "parameters",
-        "limitations"
+        "регистрация ноды",
+        "реализация"
       ]
     }
   ]

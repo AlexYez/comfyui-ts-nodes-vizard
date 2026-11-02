@@ -2,10 +2,14 @@
 import re
 from tools import catalog
 from tools.october_content import CORE
+from tools.november_content import CORE as NOVEMBER
 
 
 def expected_sections(article):
     node = article["runtimeIdentity"]["classType"]
+    if node in NOVEMBER:
+        evidence = catalog.load_json(catalog.CONTENT / "research/november-2026-update.json")
+        return len(re.findall(r"^## ", NOVEMBER[node][1], re.M)) + 3 + bool(evidence["coreArticles"][node]["workflowOccurrences"])
     if node not in CORE:
         return 10
     evidence = catalog.load_json(catalog.CONTENT / "research/october-2026-update.json")

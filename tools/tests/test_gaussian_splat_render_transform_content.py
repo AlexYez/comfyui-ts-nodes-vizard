@@ -8,6 +8,8 @@ import zipfile
 from typing import Any, Iterator
 
 from tools import catalog
+from tools.tests.editorial_sections import expected_sections
+from tools.november_content import CORE as NOVEMBER
 from tools.tests.gaussian_splat_render_transform_synthetic_probe import run_probe
 
 
@@ -68,16 +70,18 @@ class GaussianSplatRenderTransformContentTests(unittest.TestCase):
             self.assertEqual(class_type, article["runtimeIdentity"]["classType"])
             self.assertEqual("draft", article["status"])
             self.assertEqual("in_review", article["editorial"]["state"])
-            self.assertEqual(fingerprint, article["editorial"]["schemaHash"])
+            current = class_type in NOVEMBER
+            expected_hash = catalog.schema_fingerprint(class_type, catalog.load_json(CONTENT / "runtime/comfyui-0.43.0.object-info.json")[class_type]) if current else fingerprint
+            self.assertEqual(expected_hash, article["editorial"]["schemaHash"])
             self.assertIn(recipe_id, [asset["id"] for asset in article["assets"]])
             self.assertTrue(set(article["relations"]["related"]).issubset(ids))
             body = (path.parent / "ru.md").read_text(encoding="utf-8")
-            self.assertEqual(10, len(re.findall(r"^## ", body, flags=re.MULTILINE)))
-            self.assertIn("Редактор пока не проверил материал вручную.", body)
+            self.assertEqual(expected_sections(article), len(re.findall(r"^## ", body, flags=re.MULTILINE)))
+            self.assertIn("Человеческое утверждение ещё нужно." if current else "Редактор пока не проверил материал вручную.", body)
             self.assertNotRegex(body.lower(), r"важно отметить|стоит отметить|в современном мире|революционн|данная нода|давайте разбер|подводя итог|мощный инструмент")
             ledger = catalog.load_json(CONTENT / "research" / "reviews" / f"{article_id}.json")
             self.assertEqual([], catalog.json_schema_errors(ledger, schemas["article-research.schema.v1.json"]))
-            self.assertEqual("fact_checked", ledger["state"])
+            self.assertEqual("source_reviewed" if current else "fact_checked", ledger["state"])
             self.assertEqual("automated_assisted", ledger["reviewMode"])
             self.assertFalse(ledger["checks"]["exampleExecuted"])
 

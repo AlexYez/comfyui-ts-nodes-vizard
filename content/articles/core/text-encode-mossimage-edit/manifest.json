@@ -1,0 +1,70 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.text-encode-mossimage-edit",
+  "kind": "core",
+  "locale": "ru",
+  "title": "MOSS-Image Edit: инструкция и референсы",
+  "summary": "Кодирует инструкцию редактирования и опорные изображения для edit-LoRA MOSS-Image. Тот же тип энкодера используется отдельно для отрицательного промпта. Нода экспериментальная.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "TextEncodeMOSSImageEdit",
+    "pythonModule": "comfy_extras.nodes_moss_image",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": true,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "ComfyUI 0.43.0 @ 426f5eea52a7ece1dd599fff4cb6cd1f352ddd24; frontend 1.57.4"
+  },
+  "relations": {
+    "related": [
+      "core.reference-multi-latent",
+      "core.load-lora-model",
+      "core.mossimage-layout-prompt"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/moss_image",
+    "TextEncodeMOSSImageEdit"
+  ],
+  "searchAliases": [
+    "TextEncodeMOSSImageEdit",
+    "Text Encode MOSS-Image Edit"
+  ],
+  "concepts": [
+    "MOSS-Image Edit: инструкция и референсы"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned source and runtime review; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02",
+    "schemaHash": "sha256:8af3b417e2c765c970f60a7dbd116caf3d55be994f01a2c24b93c39aca8c1217"
+  },
+  "sources": [
+    {
+      "sourceId": "core.text-encode-mossimage-edit-november-source",
+      "title": "TextEncodeMOSSImageEdit: ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_moss_image.py#L102-L149",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

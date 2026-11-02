@@ -1,0 +1,73 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.get-latent-size",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Размер латента изображения или видео",
+  "summary": "Возвращает ширину, высоту, число временных позиций и размер пакета по тензору LATENT. Эти числа описывают латентную сетку: они не равны разрешению и числу кадров декодированного видео.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "GetLatentSize",
+    "pythonModule": "comfy_extras.nodes_images",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "ComfyUI 0.43.0 @ 426f5eea52a7ece1dd599fff4cb6cd1f352ddd24; frontend 1.57.4"
+  },
+  "relations": {
+    "related": [
+      "core.get-audio-latent-size",
+      "core.vae-decode"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "latent",
+    "GetLatentSize"
+  ],
+  "searchAliases": [
+    "GetLatentSize",
+    "Get Image/Video Latent Size",
+    "dimensions",
+    "resolution",
+    "latent info",
+    "video latent size"
+  ],
+  "concepts": [
+    "Размер латента изображения или видео"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned source and runtime review; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02",
+    "schemaHash": "sha256:c641b50ca3d7860c69c37cfad7580ab8f2142dc3fe544df70ef423d7ccee2235"
+  },
+  "sources": [
+    {
+      "sourceId": "core.get-latent-size-november-source",
+      "title": "GetLatentSize: ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L901-L937",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

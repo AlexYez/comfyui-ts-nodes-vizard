@@ -9,10 +9,11 @@ from tools import catalog
 class ReviewQueueTests(unittest.TestCase):
     def test_queue_matches_complete_local_inventory(self) -> None:
         report = review_queue.load_queue()
-        self.assertEqual(601, report["localArticleCount"])
-        self.assertEqual(601, len(report["articles"]))
-        self.assertEqual(601, len({row["articleId"] for row in report["articles"]}))
-        self.assertEqual(601, len({row["classType"] for row in report["articles"]}))
+        self.assertEqual("runtime/comfyui-0.43.0.object-info.json", report["inventorySource"])
+        self.assertEqual(682, report["localArticleCount"])
+        self.assertEqual(682, len(report["articles"]))
+        self.assertEqual(682, len({row["articleId"] for row in report["articles"]}))
+        self.assertEqual(682, len({row["classType"] for row in report["articles"]}))
         self.assertTrue(all(row["sourceCount"] > 0 for row in report["articles"]))
         self.assertTrue(all(row["editorialState"] == "in_review" for row in report["articles"]))
         for row in report["articles"]:
@@ -20,9 +21,10 @@ class ReviewQueueTests(unittest.TestCase):
             self.assertEqual(ledger["state"], row["researchState"])
             self.assertIn(row["researchState"], {"fact_checked", "source_reviewed"})
             if row["researchState"] == "source_reviewed":
-                self.assertEqual("0.38.0", ledger["baseline"]["comfyui"])
+                commits = {"0.37.0": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d", "0.38.0": "6b747c0428c343e1417219641db93a4fb7cb69ae", "0.43.0": "426f5eea52a7ece1dd599fff4cb6cd1f352ddd24"}
+                self.assertEqual(commits[ledger["baseline"]["comfyui"]], ledger["baseline"]["sourceCommit"])
                 self.assertFalse(ledger["checks"]["exampleExecuted"])
-                self.assertIn("Требуется человеческое утверждение", ledger["knownGaps"])
+                self.assertTrue(any("human" in gap.lower() or "человеческое утверждение" in gap for gap in ledger["knownGaps"]))
 
     def test_single_article_markdown_exposes_honest_review_state(self) -> None:
         text = review_queue.markdown(review_queue.load_queue(), "core.ksampler-advanced")

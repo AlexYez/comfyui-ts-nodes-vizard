@@ -64,6 +64,17 @@
         "параметры",
         "ограничения реализации"
       ]
+    },
+    {
+      "sourceId": "core.image-color-space-november-delta",
+      "title": "Изменения ImageColorSpace в ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L1407-L1501",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "ноябрьское дополнение; не полная повторная проверка"
+      ]
     }
   ]
 }

@@ -1,0 +1,2348 @@
+{
+  "checkedThrough": "2026-11-02",
+  "comfyui": "0.43.0",
+  "frontend": "1.57.4",
+  "sourceCommit": "426f5eea52a7ece1dd599fff4cb6cd1f352ddd24",
+  "inventoryCaptureRun": "41421387267",
+  "localCoreCount": 682,
+  "newCoreNodes": [
+    "BranchNode",
+    "CameraAngle",
+    "Flux3LayoutPrompt",
+    "GetAudioLatentSize",
+    "GetLatentSize",
+    "ImageSDRToHDR",
+    "LatentOperationBlend",
+    "LoadLoraModel",
+    "LoadLoraTextEncoder",
+    "MOSSImageControl",
+    "MOSSImageLayoutPrompt",
+    "ModelMergeMOSSImage",
+    "PadImageNode",
+    "ReferenceMultiLatent",
+    "TextEncodeFibo2",
+    "TextEncodeMOSSImageEdit"
+  ],
+  "removedCoreNodes": [],
+  "changedCoreSchemas": [
+    "CreateCameraInfo",
+    "LatentApplyOperationCFG"
+  ],
+  "moduleRelocations": [
+    {
+      "nodeId": "CreateCameraInfo",
+      "oldModule": "comfy_extras.nodes_gaussian_splat",
+      "newModule": "comfy_extras.nodes_camera"
+    }
+  ],
+  "coreArticles": {
+    "BranchNode": {
+      "articleId": "core.branch-node",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_logic.py#L86-L122",
+        "path": "comfy_extras/nodes_logic.py",
+        "lines": "86-122",
+        "sha256": "bfdd11004738b9dad221b22ebfd580cf82c03fc601acda4f7731b073d18a55a0"
+      },
+      "schemaHash": "sha256:722ed3c11d568b6622e33592f414817145ef1f7203665664ef60870f6b0adcf9",
+      "workflowOccurrences": []
+    },
+    "CameraAngle": {
+      "articleId": "core.camera-angle",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_camera_angle.py#L77-L113",
+        "path": "comfy_extras/nodes_camera_angle.py",
+        "lines": "77-113",
+        "sha256": "ea4a231c204c9716a0ae5e8a34859298db7d1e21c0e6bd304e18361b19bb8302"
+      },
+      "schemaHash": "sha256:d433422cea08ec61d2c083765077a5823a1465c90c17547d3b54ab44e095107e",
+      "workflowOccurrences": [
+        {
+          "workflowId": "template_qwen_multiangle.app",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "LoadImage",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "6ac722f6-a021-4a23-809c-054361a86ea7",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 221,
+              "widgets": [
+                333,
+                17,
+                5,
+                "camera"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/template_qwen_multiangle.app.json",
+          "sha256": "sha256:ee47cfe4a9a7885bd6a99bccb468a5e8b6595477e30a2849114d35657ecd5847",
+          "nodeTypes": [
+            "6ac722f6-a021-4a23-809c-054361a86ea7",
+            "CFGNorm",
+            "CLIPLoader",
+            "CameraAngle",
+            "ComfySwitchNode",
+            "FluxKontextImageScale",
+            "FluxKontextMultiReferenceLatentMethod",
+            "KSampler",
+            "LoadImage",
+            "LoraLoaderModelOnly",
+            "MarkdownNote",
+            "ModelSamplingAuraFlow",
+            "Note",
+            "PrimitiveBoolean",
+            "PrimitiveFloat",
+            "PrimitiveInt",
+            "SaveImage",
+            "TextEncodeQwenImageEditPlus",
+            "UNETLoader",
+            "VAEDecode",
+            "VAEEncode",
+            "VAELoader"
+          ],
+          "bytes": 68041
+        }
+      ]
+    },
+    "Flux3LayoutPrompt": {
+      "articleId": "core.flux3-layout-prompt",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_flux.py#L304-L331",
+        "path": "comfy_extras/nodes_flux.py",
+        "lines": "304-331",
+        "sha256": "e6fe6d10e7b538c6bb8d1edbba6688242e2f9b0cb69b9a06bfbde3c4e51d14e6"
+      },
+      "schemaHash": "sha256:05907ddd74be3b77f7609f3df97af9696ad3831c896c858e484a29857a679ba1",
+      "workflowOccurrences": [
+        {
+          "workflowId": "image_flux3_klein_distilled_image_edit",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CreateBoundingBoxes",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 49,
+              "widgets": [
+                "In <ref_image_0>, replace the earring <obj_1> with a single large openwork metal statement earring, one bold curved pendant, intricate hollow metal cutouts, layered metal wires, polished warm bronze finish, structured artistic shape, keep it attached to the correct ear position. Match the character's existing lighting, shadows and skin tone. No pearls, no pearl beads, no scattered small beads. Keep all other parts of the image completely unchanged."
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_flux3_klein_distilled_image_edit.json",
+          "sha256": "sha256:75037b9482769ab98f9d00ac304899c48b9b46b9238686eca19ede42c40924cc",
+          "nodeTypes": [
+            "BatchImagesNode",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "ComfySwitchNode",
+            "ConditioningZeroOut",
+            "CreateBoundingBoxes",
+            "EmptyFlux2LatentImage",
+            "Flux3LayoutPrompt",
+            "ImageCompare",
+            "KSampler",
+            "LoadImage",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveStringMultiline",
+            "ReferenceMultiLatent",
+            "SaveImage",
+            "TextGenerate",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 38045
+        },
+        {
+          "workflowId": "image_flux3_klein_distilled_t2i",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CreateBoundingBoxes",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 25,
+              "widgets": [
+                ""
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_flux3_klein_distilled_t2i.json",
+          "sha256": "sha256:253fa4e783da734acd03b804a8731d0a7a8c564b73961837762800eb5cf85388",
+          "nodeTypes": [
+            "3301b744-2960-415a-83b0-fe8a89d99fdb",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "ComfySwitchNode",
+            "CreateBoundingBoxes",
+            "EmptyFlux2LatentImage",
+            "Flux3LayoutPrompt",
+            "KSampler",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveStringMultiline",
+            "ResolutionSelector",
+            "SaveImage",
+            "TextGenerate",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 55478
+        },
+        {
+          "workflowId": "image_flux3_klein_image_edit",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CreateBoundingBoxes",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 49,
+              "widgets": [
+                "In <ref_image_0>, change the dress color <obj_1> to red"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_flux3_klein_image_edit.json",
+          "sha256": "sha256:479b4ae80ae3d892ebaf19bb8a9a9d1a8fdbf4045152f1679173625b577f5c61",
+          "nodeTypes": [
+            "BatchImagesNode",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "ComfySwitchNode",
+            "CreateBoundingBoxes",
+            "EmptyFlux2LatentImage",
+            "Flux3LayoutPrompt",
+            "ImageCompare",
+            "KSampler",
+            "LoadImage",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveStringMultiline",
+            "ReferenceMultiLatent",
+            "SaveImage",
+            "TextGenerate",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 37686
+        },
+        {
+          "workflowId": "image_flux3_klein_t2i",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CreateBoundingBoxes",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 27,
+              "widgets": [
+                ""
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_flux3_klein_t2i.json",
+          "sha256": "sha256:42235cc535b9db5631374b2fc3d40e14a0d2689ae2f46214f6b0bd95b32aa670",
+          "nodeTypes": [
+            "3301b744-2960-415a-83b0-fe8a89d99fdb",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "ComfySwitchNode",
+            "CreateBoundingBoxes",
+            "EmptyFlux2LatentImage",
+            "Flux3LayoutPrompt",
+            "KSampler",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveStringMultiline",
+            "ResolutionSelector",
+            "SaveImage",
+            "TextGenerate",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 57035
+        }
+      ]
+    },
+    "GetLatentSize": {
+      "articleId": "core.get-latent-size",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L901-L937",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "901-937",
+        "sha256": "fffbcd588848f747a1ef275baa47c015c6f04b2f5e1ba2ea304bca19ca005450"
+      },
+      "schemaHash": "sha256:c641b50ca3d7860c69c37cfad7580ab8f2142dc3fe544df70ef423d7ccee2235",
+      "workflowOccurrences": []
+    },
+    "GetAudioLatentSize": {
+      "articleId": "core.get-audio-latent-size",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_audio.py#L138-L173",
+        "path": "comfy_extras/nodes_audio.py",
+        "lines": "138-173",
+        "sha256": "37352d586a50845f1cb0375652583aa7c662f759298de0f904f56d107d709267"
+      },
+      "schemaHash": "sha256:378dba4c7d3c1e9ee5a8758c2a6b57564d1e51e149262558f54e59f88fdd6ec9",
+      "workflowOccurrences": []
+    },
+    "ImageSDRToHDR": {
+      "articleId": "core.image-sdrto-hdr",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L1370-L1404",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "1370-1404",
+        "sha256": "fffbcd588848f747a1ef275baa47c015c6f04b2f5e1ba2ea304bca19ca005450"
+      },
+      "schemaHash": "sha256:0f4764aece19f900798c6b828d606b2a9115a3a96c863b50e3627f47c8547b42",
+      "workflowOccurrences": []
+    },
+    "PadImageNode": {
+      "articleId": "core.pad-image-node",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L710-L791",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "710-791",
+        "sha256": "fffbcd588848f747a1ef275baa47c015c6f04b2f5e1ba2ea304bca19ca005450"
+      },
+      "schemaHash": "sha256:f4b2795b0275177ab818bb1710bd1276aaa15bf63ab814e099e6183667c5d2c4",
+      "workflowOccurrences": []
+    },
+    "LatentOperationBlend": {
+      "articleId": "core.latent-operation-blend",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_latent.py#L381-L412",
+        "path": "comfy_extras/nodes_latent.py",
+        "lines": "381-412",
+        "sha256": "4d0cdaddb82bcd24df340a301bbcf39405be03e72e8e4519f963d65c20d063fe"
+      },
+      "schemaHash": "sha256:79ce756fd1a89a053406c22eb5ab86011fac61bf6b8078a16777c180f6b51d17",
+      "workflowOccurrences": []
+    },
+    "LoadLoraModel": {
+      "articleId": "core.load-lora-model",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_lora_stack.py#L26-L59",
+        "path": "comfy_extras/nodes_lora_stack.py",
+        "lines": "26-59",
+        "sha256": "47e5b20bc1b6be11be02469feaa4269509b19358963f2f3aae28f29e3f22f98a"
+      },
+      "schemaHash": "sha256:ef1a1dff05951ee0f76a2f7c881b721309f18e9910b3c1b59d4e476a0ef4f882",
+      "workflowOccurrences": []
+    },
+    "LoadLoraTextEncoder": {
+      "articleId": "core.load-lora-text-encoder",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_lora_stack.py#L62-L95",
+        "path": "comfy_extras/nodes_lora_stack.py",
+        "lines": "62-95",
+        "sha256": "47e5b20bc1b6be11be02469feaa4269509b19358963f2f3aae28f29e3f22f98a"
+      },
+      "schemaHash": "sha256:a0c8ab67612dea196b497c797b761946dbfaf25c12a545c5a866cf6044fff7b2",
+      "workflowOccurrences": []
+    },
+    "ReferenceMultiLatent": {
+      "articleId": "core.reference-multi-latent",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_edit_model.py#L34-L90",
+        "path": "comfy_extras/nodes_edit_model.py",
+        "lines": "34-90",
+        "sha256": "16b8081748c33b3f94de59e0aaa3d7b090437fdda451850f330aec6aa08a190e"
+      },
+      "schemaHash": "sha256:9c56b1287635c337a29365e18d144bb85a5e0d082573657edad5263fadda4f4e",
+      "workflowOccurrences": [
+        {
+          "workflowId": "image_flux3_klein_distilled_image_edit",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CLIPTextEncode",
+              "links": 1
+            },
+            {
+              "classType": "ConditioningZeroOut",
+              "links": 1
+            },
+            {
+              "classType": "LoadImage",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 3
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 17,
+              "widgets": [
+                "resize",
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_flux3_klein_distilled_image_edit.json",
+          "sha256": "sha256:75037b9482769ab98f9d00ac304899c48b9b46b9238686eca19ede42c40924cc",
+          "nodeTypes": [
+            "BatchImagesNode",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "ComfySwitchNode",
+            "ConditioningZeroOut",
+            "CreateBoundingBoxes",
+            "EmptyFlux2LatentImage",
+            "Flux3LayoutPrompt",
+            "ImageCompare",
+            "KSampler",
+            "LoadImage",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveStringMultiline",
+            "ReferenceMultiLatent",
+            "SaveImage",
+            "TextGenerate",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 38045
+        },
+        {
+          "workflowId": "image_flux3_klein_image_edit",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CLIPTextEncode",
+              "links": 2
+            },
+            {
+              "classType": "LoadImage",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 3
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 17,
+              "widgets": [
+                "resize",
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_flux3_klein_image_edit.json",
+          "sha256": "sha256:479b4ae80ae3d892ebaf19bb8a9a9d1a8fdbf4045152f1679173625b577f5c61",
+          "nodeTypes": [
+            "BatchImagesNode",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "ComfySwitchNode",
+            "CreateBoundingBoxes",
+            "EmptyFlux2LatentImage",
+            "Flux3LayoutPrompt",
+            "ImageCompare",
+            "KSampler",
+            "LoadImage",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveStringMultiline",
+            "ReferenceMultiLatent",
+            "SaveImage",
+            "TextGenerate",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 37686
+        }
+      ]
+    },
+    "MOSSImageLayoutPrompt": {
+      "articleId": "core.mossimage-layout-prompt",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_moss_image.py#L14-L52",
+        "path": "comfy_extras/nodes_moss_image.py",
+        "lines": "14-52",
+        "sha256": "8bf3f34e3dfbfd870f9f3205fc675ae848f94813bbce41972497c28f4d00eb5e"
+      },
+      "schemaHash": "sha256:c071932296fcea61f79aab9301ec999ae30d6aa3b7c26e7bd2f19efb8c83a23c",
+      "workflowOccurrences": [
+        {
+          "workflowId": "image_moss_image_base_t2i_bboxes",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CreateBoundingBoxes",
+              "links": 1
+            },
+            {
+              "classType": "ResolutionSelector",
+              "links": 2
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 36,
+              "widgets": [
+                "Premium 3D render on a dark olive gradient background: a floating weathered bark fragment covered in velvet moss, pale pink peonies and tiny white umbel flowers, clusters of translucent quartz crystals growing out of the wood, cinematic rim light, soft shadow, ultra realistic product photography. Bottom right the word MOSS is set in a lime-green geometric display face stacked on two rows, a small block of white monospaced text sits in the top left, and a thin white plus mark in the bottom left corner. 4k, no watermark.",
+                1024,
+                1024,
+                "1"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_moss_image_base_t2i_bboxes.json",
+          "sha256": "sha256:dd7d84d565854ae184fa02f2a3dbd6d78e956acec9a746ec0e0ba1622a862000",
+          "nodeTypes": [
+            "3301b744-2960-415a-83b0-fe8a89d99fdb",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "ComfySwitchNode",
+            "CreateBoundingBoxes",
+            "EmptyFlux2LatentImage",
+            "KSampler",
+            "MOSSImageLayoutPrompt",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveStringMultiline",
+            "ResolutionSelector",
+            "SaveImage",
+            "SkipLayerGuidanceDiTSimple",
+            "TextGenerate",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 86752
+        },
+        {
+          "workflowId": "image_moss_image_t2i_bboxes",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CreateBoundingBoxes",
+              "links": 1
+            },
+            {
+              "classType": "ResolutionSelector",
+              "links": 2
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 27,
+              "widgets": [
+                "Dark fantasy editorial poster in a lush overgrown ruin: a knight in moss-covered plate armour in a heroic kneeling pose, torso upright and head lifted, one hand gripping a massive greatsword planted point-down beside him, the other forearm on his raised knee, a dense bouquet of daisies and pink roses growing out of the open helmet instead of a face, ivy and crumbling columns behind, petals drifting in the air, soft volumetric light from above, deep green and moss palette with muted cream type.",
+                1024,
+                1024,
+                "2"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_moss_image_t2i_bboxes.json",
+          "sha256": "sha256:225aa1c2831bc24083971099d1d6e756f6930e4e7a225268ee95b9ec808fad2c",
+          "nodeTypes": [
+            "3301b744-2960-415a-83b0-fe8a89d99fdb",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "ComfySwitchNode",
+            "CreateBoundingBoxes",
+            "EmptyFlux2LatentImage",
+            "KSampler",
+            "MOSSImageLayoutPrompt",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveStringMultiline",
+            "ResolutionSelector",
+            "SaveImage",
+            "SkipLayerGuidanceDiTSimple",
+            "TextGenerate",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 93273
+        }
+      ]
+    },
+    "MOSSImageControl": {
+      "articleId": "core.mossimage-control",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_moss_image.py#L55-L91",
+        "path": "comfy_extras/nodes_moss_image.py",
+        "lines": "55-91",
+        "sha256": "8bf3f34e3dfbfd870f9f3205fc675ae848f94813bbce41972497c28f4d00eb5e"
+      },
+      "schemaHash": "sha256:cdc55968f10afe6121ac9e1b68a366ec7049ebca9717e4bb3adff1ee57cac1f1",
+      "workflowOccurrences": [
+        {
+          "workflowId": "image_moss_image_color_depth_control",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CLIPTextEncode",
+              "links": 2
+            },
+            {
+              "classType": "PreviewImage",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "SamplerCustom",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 53,
+              "widgets": [
+                1,
+                0,
+                0.6
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_moss_image_color_depth_control.json",
+          "sha256": "sha256:4440497316a674bcd704cd08fe5534f26ca91d222b3c24aa5c1d5d18a93c57ec",
+          "nodeTypes": [
+            "BasicScheduler",
+            "CLIPLoader",
+            "CLIPTextEncode",
+            "EmptyLatentImage",
+            "GetImageSize",
+            "ImageCompare",
+            "ImageScaleToTotalPixels",
+            "LoadImage",
+            "LoadMoGeModel",
+            "LoraLoaderModelOnly",
+            "MOSSImageControl",
+            "MarkdownNote",
+            "MoGeInference",
+            "MoGeRender",
+            "ModelSamplingAuraFlow",
+            "Painter",
+            "PreviewImage",
+            "SamplerCustom",
+            "SamplerER_SDE",
+            "SaveImage",
+            "SkipLayerGuidanceDiTSimple",
+            "TemporalScoreRescaling",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader",
+            "bd7417be-5473-468c-99f1-78759bff8966"
+          ],
+          "bytes": 34361
+        }
+      ]
+    },
+    "TextEncodeMOSSImageEdit": {
+      "articleId": "core.text-encode-mossimage-edit",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_moss_image.py#L102-L149",
+        "path": "comfy_extras/nodes_moss_image.py",
+        "lines": "102-149",
+        "sha256": "8bf3f34e3dfbfd870f9f3205fc675ae848f94813bbce41972497c28f4d00eb5e"
+      },
+      "schemaHash": "sha256:8af3b417e2c765c970f60a7dbd116caf3d55be994f01a2c24b93c39aca8c1217",
+      "workflowOccurrences": [
+        {
+          "workflowId": "image_moss_image_edit",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CLIPLoader",
+              "links": 2
+            },
+            {
+              "classType": "ImageScaleToTotalPixels",
+              "links": 2
+            },
+            {
+              "classType": "VAELoader",
+              "links": 2
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 2
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 36,
+              "widgets": [
+                "nsfw, worst quality, bad anatomy, watermark, jpeg artifact",
+                "Moss-Image-Edit",
+                1
+              ]
+            },
+            {
+              "nodeId": 39,
+              "widgets": [
+                "Change only the pink floral blazer to a plain black wool coat. Keep both women, their faces, glasses, berets, poses, the embroidered cardigan and the concrete wall background unchanged.",
+                "Moss-Image-Edit",
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_moss_image_edit.json",
+          "sha256": "sha256:4435084ff63b43d4074828b4b190d93cc0edc607dd71d66b1dd6f94d15ce9583",
+          "nodeTypes": [
+            "CLIPLoader",
+            "EmptyFlux2LatentImage",
+            "GetImageSize",
+            "ImageCompare",
+            "ImageScaleToTotalPixels",
+            "KSampler",
+            "LoadImage",
+            "LoraLoaderModelOnly",
+            "MarkdownNote",
+            "SaveImage",
+            "SkipLayerGuidanceDiTSimple",
+            "TextEncodeMOSSImageEdit",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 25517
+        }
+      ]
+    },
+    "TextEncodeFibo2": {
+      "articleId": "core.text-encode-fibo2",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_fibo2.py#L28-L89",
+        "path": "comfy_extras/nodes_fibo2.py",
+        "lines": "28-89",
+        "sha256": "6ae6ea50f06eecc0996815e2b91ea4ba0906e0175f3aa37519b32797120c3e70"
+      },
+      "schemaHash": "sha256:be2530a7280d23433ed85749489ed22e7057e6543209387ca9aa15ea3b770ca7",
+      "workflowOccurrences": [
+        {
+          "workflowId": "image_fibo2_edit_dev_pe",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CLIPLoader",
+              "links": 1
+            },
+            {
+              "classType": "LoadImage",
+              "links": 1
+            },
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 3
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 4,
+              "widgets": [
+                "Turn the coat into black leather with fine silver floral embroidery.",
+                "{\"short_description\":\"\",\"objects\":[{\"description\":\"the main subject\",\"texture\":\"smooth, featureless, plastic-like, airbrushed, no fine surface detail\",\"appearance_details\":\"soft blurred edges, simplified shapes, no fine detail\",\"skin_tone_and_texture\":\"waxy airbrushed skin, poreless, plastic smooth\"}],\"background_setting\":\"a plain seamless studio backdrop, perfectly smooth gradient, blurred and featureless, no visible texture\",\"lighting\":{},\"aesthetics\":{\"artifacts\":[\"oversaturated colours\",\"neon colour cast\",\"overexposed highlights\",\"lens flare\",\"slight blur\",\"motion blur\",\"haze\"]},\"photographic_characteristics\":{\"depth_of_field\":\"shallow, heavy bokeh obscuring most of the frame\",\"focus\":\"soft, slightly out of focus, lacking fine texture\"},\"style_medium\":\"\",\"context\":\"\",\"artistic_style\":\"\"}",
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_fibo2_edit_dev_pe.json",
+          "sha256": "sha256:24be29c7dfdf05aef158fb14754c51cf01f346861a02e1e4914b0c7e1e782aae",
+          "nodeTypes": [
+            "BatchImagesNode",
+            "CLIPLoader",
+            "ComfySwitchNode",
+            "ImageCompare",
+            "KSampler",
+            "LoadImage",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveStringMultiline",
+            "SaveImage",
+            "TextEncodeFibo2",
+            "TextGenerate",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 76524
+        },
+        {
+          "workflowId": "image_fibo2_edit_turbo_pe",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "CLIPLoader",
+              "links": 1
+            },
+            {
+              "classType": "LoadImage",
+              "links": 1
+            },
+            {
+              "classType": "PreviewAny",
+              "links": 1
+            },
+            {
+              "classType": "VAELoader",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 3
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 4,
+              "widgets": [
+                "Turn the coat into black leather with fine silver floral embroidery.",
+                "",
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/image_fibo2_edit_turbo_pe.json",
+          "sha256": "sha256:d39c6e6b9228e6186683f60864b39f237d5c09ff7f31f5049b04006309791de8",
+          "nodeTypes": [
+            "BatchImagesNode",
+            "CLIPLoader",
+            "ComfySwitchNode",
+            "ImageCompare",
+            "KSampler",
+            "LoadImage",
+            "MarkdownNote",
+            "PreviewAny",
+            "PrimitiveStringMultiline",
+            "SaveImage",
+            "TextEncodeFibo2",
+            "TextGenerate",
+            "UNETLoader",
+            "VAEDecode",
+            "VAELoader"
+          ],
+          "bytes": 75032
+        }
+      ]
+    },
+    "ModelMergeMOSSImage": {
+      "articleId": "core.model-merge-mossimage",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_model_merging_model_specific.py#L370-L396",
+        "path": "comfy_extras/nodes_model_merging_model_specific.py",
+        "lines": "370-396",
+        "sha256": "69159ed41309b0741355393a13409451e458ff8de6df00be580652ceddbc3fff"
+      },
+      "schemaHash": "sha256:e721902e7d08a7dd6d205d475c85af49032918ea4aad5fe4f1938ebc0d328376",
+      "workflowOccurrences": []
+    },
+    "CreateCameraInfo": {
+      "articleId": "core.create-camera-info",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_camera.py#L10-L81",
+        "path": "comfy_extras/nodes_camera.py",
+        "lines": "10-81",
+        "sha256": "d1ae27d3025e50b438122d1d377521ae998843eedc7daf8b21af087b6ba3a1ec"
+      },
+      "schemaHash": "sha256:134b0f2a0bc115ebdf717efab06d6777ab86aed083770589b09274120b3f5a1f",
+      "workflowOccurrences": [
+        {
+          "workflowId": "3d_triposplat_image_to_gaussian_splat",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [],
+          "downstream": [
+            {
+              "classType": "RenderSplat",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 79,
+              "widgets": [
+                "orbit",
+                35,
+                30,
+                2.5,
+                0,
+                0,
+                0,
+                0,
+                35,
+                1,
+                "perspective"
+              ]
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/3d_triposplat_image_to_gaussian_splat.json",
+          "sha256": "sha256:25d9256b082e2eed19d686e0e9d3108cef6e8a90fb5b5213e369af5a8380e390",
+          "nodeTypes": [
+            "3a670214-a2de-4768-bdf7-dc627efc7de9",
+            "CLIPVisionLoader",
+            "ComfySwitchNode",
+            "CreateCameraInfo",
+            "CreateVideo",
+            "InvertMask",
+            "JoinImageWithAlpha",
+            "KSampler",
+            "LoadBackgroundRemovalModel",
+            "LoadImage",
+            "MarkdownNote",
+            "PreviewImage",
+            "RemoveBackground",
+            "RenderSplat",
+            "SaveGLB",
+            "SaveVideo",
+            "SplatToFile3D",
+            "SplatToMesh",
+            "TripoSplatConditioning",
+            "TripoSplatPreprocessImage",
+            "TripoSplatSamplingPreview",
+            "UNETLoader",
+            "VAEDecodeTripoSplat",
+            "VAELoader",
+            "b64333d5-4e6f-4e99-9506-2ec4f63259fe"
+          ],
+          "bytes": 64423
+        }
+      ]
+    },
+    "LatentApplyOperationCFG": {
+      "articleId": "core.latent-apply-operation-cfg",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_latent.py#L342-L379",
+        "path": "comfy_extras/nodes_latent.py",
+        "lines": "342-379",
+        "sha256": "4d0cdaddb82bcd24df340a301bbcf39405be03e72e8e4519f963d65c20d063fe"
+      },
+      "schemaHash": "sha256:6715bdb745619781029f6c066d17362c71f27e824e9d155b5772e0a866c4930d",
+      "workflowOccurrences": [
+        {
+          "workflowId": "audio_ace_step_1_m2m_editing",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "LatentOperationTonemapReinhard",
+              "links": 1
+            },
+            {
+              "classType": "ModelSamplingSD3",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 49,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_ace_step_1_m2m_editing.json",
+          "sha256": "sha256:0559213d99dc6208aeca714b125983bd4d1044c900fe19ef936a0d2ab08aabdb",
+          "nodeTypes": [
+            "CheckpointLoaderSimple",
+            "ConditioningZeroOut",
+            "KSampler",
+            "LatentApplyOperationCFG",
+            "LatentOperationTonemapReinhard",
+            "LoadAudio",
+            "MarkdownNote",
+            "ModelSamplingSD3",
+            "SaveAudioAdvanced",
+            "TextEncodeAceStepAudio",
+            "VAEDecodeAudio",
+            "VAEEncodeAudio"
+          ],
+          "bytes": 18149
+        },
+        {
+          "workflowId": "audio_ace_step_1_t2a_instrumentals",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "LatentOperationTonemapReinhard",
+              "links": 1
+            },
+            {
+              "classType": "ModelSamplingSD3",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 49,
+              "widgets": []
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_ace_step_1_t2a_instrumentals.json",
+          "sha256": "sha256:ef0d26e72ea758828d5dd7c48bc2829e3e5c41f912fcd740f88c361c0f00e488",
+          "nodeTypes": [
+            "CheckpointLoaderSimple",
+            "ConditioningZeroOut",
+            "EmptyAceStepLatentAudio",
+            "KSampler",
+            "LatentApplyOperationCFG",
+            "LatentOperationTonemapReinhard",
+            "MarkdownNote",
+            "ModelSamplingSD3",
+            "Note",
+            "SaveAudioMP3",
+            "TextEncodeAceStepAudio",
+            "VAEDecodeAudio"
+          ],
+          "bytes": 13794
+        },
+        {
+          "workflowId": "audio_ace_step_1_t2a_song",
+          "graphScope": "root",
+          "graphName": "main",
+          "upstream": [
+            {
+              "classType": "LatentOperationTonemapReinhard",
+              "links": 1
+            },
+            {
+              "classType": "ModelSamplingSD3",
+              "links": 1
+            }
+          ],
+          "downstream": [
+            {
+              "classType": "KSampler",
+              "links": 1
+            }
+          ],
+          "instances": [
+            {
+              "nodeId": 49,
+              "widgets": null
+            }
+          ],
+          "archivePath": "comfyui_workflow_templates_json/templates/audio_ace_step_1_t2a_song.json",
+          "sha256": "sha256:a34afdb8af60fd383248b17fa0dbf0a9452dea7f562cb30a6aa03a2608143cb5",
+          "nodeTypes": [
+            "CheckpointLoaderSimple",
+            "ConditioningZeroOut",
+            "EmptyAceStepLatentAudio",
+            "KSampler",
+            "LatentApplyOperationCFG",
+            "LatentOperationTonemapReinhard",
+            "MarkdownNote",
+            "ModelSamplingSD3",
+            "SaveAudioAdvanced",
+            "TextEncodeAceStepAudio",
+            "VAEDecodeAudio"
+          ],
+          "bytes": 17187
+        }
+      ]
+    }
+  },
+  "coreTargetedUpdates": {
+    "CLIPLoader": {
+      "articleId": "core.clip-loader",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/nodes.py#L1017-L1042",
+        "path": "nodes.py",
+        "lines": "1017-1042",
+        "sha256": "776f549a05fc068eca20a9edc1602c6f1b80cfbbf5153bc44ba371a55fbb13be"
+      },
+      "note": "В списке type появились flux3, moss_image и fibo2. Выбирайте тип под архитектуру энкодера, а не только по расширению файла. Для FLUX 3 и Fibo 2.0 описание загрузчика указывает Qwen3-VL 4B; произвольные веса с похожим именем не гарантируют совместимость. Старый перечень типов в статье не исчерпывает новую версию.",
+      "fullReview": false
+    },
+    "CreateBoundingBoxes": {
+      "articleId": "core.create-bounding-boxes",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_bounding_boxes.py#L309-L373",
+        "path": "comfy_extras/nodes_bounding_boxes.py",
+        "lines": "309-373",
+        "sha256": "fad12d2d30dbee5a4c59219ba8dab59da1bf203fd22d1bb005c43a8419d4f7d3"
+      },
+      "note": "Первое изображение background теперь сохраняется как отдельное превью и передаётся frontend для фона редактора рамок. Это изменение отображения, а не автоматическая генерация рамок или включение фона в промпт. Массив element можно передать новым FLUX 3 Layout Prompt и MOSS-Image Layout Prompt; их форматы различаются.",
+      "fullReview": false
+    },
+    "DecimateMesh": {
+      "articleId": "core.decimate-mesh",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_mesh_postprocess.py#L2278-L2359",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "2278-2359",
+        "sha256": "bda7e814fa798d36e6607dc59f7773c524f1a25cd51df757991025cfa6b7de3c"
+      },
+      "note": "В реализации используется обновлённая функция qem_simplify. Входы и выходы этой ноды не изменились, однако совпадение результата по треугольникам с прежней версией не заявляется. Перед экспортом проверяйте силуэт, тонкие участки и цвет после упрощения.",
+      "fullReview": false
+    },
+    "FluxKontextMultiReferenceLatentMethod": {
+      "articleId": "core.flux-kontext-multi-reference-latent-method",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_flux.py#L154-L182",
+        "path": "comfy_extras/nodes_flux.py",
+        "lines": "154-182",
+        "sha256": "e6fe6d10e7b538c6bb8d1edbba6688242e2f9b0cb69b9a06bfbde3c4e51d14e6"
+      },
+      "note": "К reference_latents_method добавлены index_timestep_zero_isolated и index_timestep_zero_text_start. Они нужны совместимым моделям редактирования, в частности разным форматам MOSS edit-LoRA. Назначение метода должно совпадать с обучением модели; выбор нового значения сам по себе не делает старую модель совместимой.",
+      "fullReview": false
+    },
+    "ImageColorSpace": {
+      "articleId": "core.image-color-space",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L1407-L1501",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "1407-1501",
+        "sha256": "fffbcd588848f747a1ef275baa47c015c6f04b2f5e1ba2ea304bca19ca005450"
+      },
+      "note": "Добавлено linear ACEScg: сценически линейное пространство AP1 с белой точкой D60. Оно отличается от прежнего linear с первичными Rec.709. ACEScct — логарифмическое кодирование ACEScg. Для сохранения ACEScg EXR преобразуйте LogC3/ACEScct в linear ACEScg и выберите то же пространство в Save Image Advanced; для Rec.709 EXR используйте linear. ACEScg 1.0 соответствует опорному белому 203 нит, преобразования между AP1/D60 и Rec.2020/D65 учитывают адаптацию белой точки. Расширенные линейные значения сохраняются. Новый SDR to HDR отдельно расширяет яркость; обычное изменение пространства не выполняет такую же операцию.",
+      "fullReview": false
+    },
+    "Preview3DAdvanced": {
+      "articleId": "core.preview-3d-advanced",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_load_3d.py#L132-L189",
+        "path": "comfy_extras/nodes_load_3d.py",
+        "lines": "132-189",
+        "sha256": "075d7e73332ba650455037411c5ade3b7183af7dbfd17be77fe8dbf75af21ffd"
+      },
+      "note": "Превью передаётся через официальный UI.Saved3DModels, а не прежний PreviewUI3DAdvanced. Выходные данные ноды не меняются только из-за смены UI-обёртки. При проблемах отображения после обновления проверяйте согласованность backend/frontend и обновите страницу, прежде чем менять сам 3D-файл.",
+      "fullReview": false
+    },
+    "PreviewGaussianSplat": {
+      "articleId": "core.preview-gaussian-splat",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_load_3d.py#L192-L260",
+        "path": "comfy_extras/nodes_load_3d.py",
+        "lines": "192-260",
+        "sha256": "075d7e73332ba650455037411c5ade3b7183af7dbfd17be77fe8dbf75af21ffd"
+      },
+      "note": "Frontend-превью передаётся через UI.Saved3DModels. Это не преобразование splat в mesh и не изменение числа точек; сам временный файл остаётся источником просмотра. Старое описание внутреннего формата UI-сообщения относится к предыдущей версии.",
+      "fullReview": false
+    },
+    "PreviewPointCloud": {
+      "articleId": "core.preview-point-cloud",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_load_3d.py#L263-L322",
+        "path": "comfy_extras/nodes_load_3d.py",
+        "lines": "263-322",
+        "sha256": "075d7e73332ba650455037411c5ade3b7183af7dbfd17be77fe8dbf75af21ffd"
+      },
+      "note": "Для вывода превью используется UI.Saved3DModels. Внутренняя UI-обёртка изменилась, но нода не превращает облако точек в сетку из-за этой замены. Старый формат UI-сообщения из предыдущей версии не следует использовать как текущий контракт сторонней интеграции.",
+      "fullReview": false
+    },
+    "RemeshMesh": {
+      "articleId": "core.remesh-mesh",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_mesh_postprocess.py#L2362-L2488",
+        "path": "comfy_extras/nodes_mesh_postprocess.py",
+        "lines": "2362-2488",
+        "sha256": "bda7e814fa798d36e6607dc59f7773c524f1a25cd51df757991025cfa6b7de3c"
+      },
+      "note": "Добавлен режим solid: глобальное разделение внутренней и внешней области через CelloCut для получения замкнутого тела из сложного исходника. fill задаёт относительную стоимость закрытия отверстия: меньшее значение закрывает более крупные проёмы; при 0 может закрыться и верх чашки. band в solid задаёт радиус закрытия и сглаживания щелей, а не только прежнюю узкую полосу UDF. Режим медленнее; проверяйте, не исчезли ли нужные отверстия и тонкие детали. QEF полезен для резких технических граней, но может давать неровные складки на органической поверхности.",
+      "fullReview": false
+    },
+    "SaveGLB": {
+      "articleId": "core.save-glb",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_save_3d.py#L530-L597",
+        "path": "comfy_extras/nodes_save_3d.py",
+        "lines": "530-597",
+        "sha256": "f0f51ca8e934e4babb07321ced48c9224740d48760fdb4dc2ebbf0270ed6dc11"
+      },
+      "note": "Сохранённые результаты передаются frontend через UI.Saved3DModels и типизированные UI.SavedResult вместо ручного словаря 3d. Это изменение служебного ответа, не новый формат модели и не обещание исправить геометрию при сохранении.",
+      "fullReview": false
+    },
+    "SaveImageAdvanced": {
+      "articleId": "core.save-image-advanced",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L2101-L2268",
+        "path": "comfy_extras/nodes_images.py",
+        "lines": "2101-2268",
+        "sha256": "fffbcd588848f747a1ef275baa47c015c6f04b2f5e1ba2ea304bca19ca005450"
+      },
+      "note": "EXR теперь поддерживает 16-bit float и 32-bit float; по умолчанию выбран 16-bit float. Половинная точность занимает меньше места для значений, но имеет меньшую точность и диапазон, чем float32. Добавлен input_color_space = linear ACEScg с AP1/D60-хроматичностями; это не прежний linear Rec.709. LogC3 и ACEScct сначала преобразуйте в нужное линейное пространство через Convert Image Color Space. Для EXR при включённом asset manager может создаваться отдельное превью; его вид не подтверждает точность всех HDR-значений файла.",
+      "fullReview": false
+    },
+    "TextGenerate": {
+      "articleId": "core.text-generate",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_textgen.py#L4-L93",
+        "path": "comfy_extras/nodes_textgen.py",
+        "lines": "4-93",
+        "sha256": "f6078f3429c994181f26c83c809c74441ce48877be6fb9ae319027e255c2af21"
+      },
+      "note": "В mtp добавлены tree2s1, tree2s2, tree3s1 и tree4s1m8: эти режимы фиксируют ширину и глубину дерева предположений. auto адаптирует обе величины с учётом совпадений и стоимости вычислений. Нужны MTP-веса; одинаковый seed не обещает совпадения текста с режимом off. Разделение thinking теперь учитывает </think> и открывающий маркер, в том числе добавленный шаблоном токенизатора. При обрыве незакрытого рассуждения generated_text может остаться пустым; это не автоматически ошибка второго выхода. Остальные правила system_prompt и use_default_template сохраняются.",
+      "fullReview": false
+    },
+    "WebcamCapture": {
+      "articleId": "core.webcam-capture",
+      "source": {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_webcam.py#L6-L28",
+        "path": "comfy_extras/nodes_webcam.py",
+        "lines": "6-28",
+        "sha256": "60ae9df6332f7614fa34022bd36033f38092200dda7e44f0ef8d779c4541f764"
+      },
+      "note": "При загрузке сохранённого кадра WebcamCapture теперь передаёт исходное имя файла в штатный загрузчик, без предварительного повторного разрешения annotated-пути. Это исправление загрузки захваченного файла, не обход разрешения браузера на камеру и не потоковая видеозапись.",
+      "fullReview": false
+    }
+  },
+  "timesaverVersion": "12.13.5",
+  "timesaverCommit": "0e1aa5540cb95b8d5d932d4a082ec01d517cd03a",
+  "timesaverNodes": {
+    "TS_AudioLoader": {
+      "new": false,
+      "sourceSha256": "1c68b36519d1af18f7a940cc7667c3640c5aa4e9bf686d0c221a42397d81517f",
+      "docsSha256": "ef955384531eb2e66eb9eab866b150e4ba511484ba67e4fa4e6a2c38fd4d7a28",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_AudioPreview": {
+      "new": false,
+      "sourceSha256": "86aaf90795b525391f0aaa4806fdbcafcae7f6004f0a800629560c19fae8f72d",
+      "docsSha256": "5f6db47547a9361079df1aabc00db1dabd934c4016f9f0b59536e3e88fc8774e",
+      "sourceChanged": false,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_MusicStems": {
+      "new": false,
+      "sourceSha256": "cf95bd5480aa09f6a5299cb63aa7175fa0cfdd44f40626db62daadc75bb6d9f2",
+      "docsSha256": "b3f23838314a72b9100576e1ce45aff92c2d8f9c8f41918c14ae21d607ce8a8c",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_AudioVisualizer": {
+      "new": false,
+      "sourceSha256": "0a7984728a2612d3b2e3e31b83bfa0ead0068a420585d8da21b1589598e17b7e",
+      "docsSha256": "8c8778e8549473a5fc9309bc4aea22d9e5f3d698f1e6fc9904984386e8da8f8c",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_SileroTTS": {
+      "new": false,
+      "sourceSha256": "d4085a78e5436c61b52c76f8f3c4c4d6e3f719240da82aba552a226a1873a4a3",
+      "docsSha256": "e9306e49211873b22aa8c458a334a67f6357cf00f95d564ed65273ee49c12131",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TSWhisper": {
+      "new": false,
+      "sourceSha256": "760db43a97e39b33462b7caf63835a6efd527a0c0325f60cfd22600a7339dad6",
+      "docsSha256": "f14f6983740a1e2e055d60a8738b274e2cde25b64a6d9e3aa0927070414807f0",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_MultiReference": {
+      "new": false,
+      "sourceSha256": "39223d696d0ad6b3b32976af42f2e5e95077a388b32eb4bd737839beb2cc9a91",
+      "docsSha256": "019cbfc872b4747e516fff0e153b25db8f17b90cb42b5ce6232a23dc88a5ec2a",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_BatchWrite": {
+      "new": false,
+      "sourceSha256": "758dd6565927b53630f77e53016b434ad76eb5814058b8dc6412cb69cd6b0357",
+      "docsSha256": "d43a5f445161f24bcbd34c232f33f177fc7349f53dc464b64f84eeb213f02fb5",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS Files Downloader": {
+      "new": false,
+      "sourceSha256": "085c624822bbed7328e5646a8314cdb0a0eca25e653aa3faada084b4e0c61029",
+      "docsSha256": "679d9471f82935e5574644405b1f92c3306146eab35aa4a02aecfeb36524457c",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS Youtube Chapters": {
+      "new": false,
+      "sourceSha256": "283a08a72e14e3e114cb0286cef2fe9f4c7cd63da0e6d41ee4f27d36f673f9b3",
+      "docsSha256": "5fb960a21769dd1bd67f5ec532a693fc43e0b9fa3384f30fdb3fab11debe5b43",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_IdeogramDesigner": {
+      "new": false,
+      "sourceSha256": "282515dc82f32d1a592b98ea3b945a62e68e484061059f47394b85eab217c0ca",
+      "docsSha256": "284ed0dd9270a58d2f9350f0881e5a1140fb136655b17e70c95c1e2bd94ff51e",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_Film_Emulation": {
+      "new": false,
+      "sourceSha256": "10fd1626bd05d9831077bb4a12b55a2048c81145d38b0f7832b238920a294ebf",
+      "docsSha256": "b08dd01e14b4f91cb0b2053eabc9500c26bae2c572c3af29f71440a44034dd2e",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_LamaCleanup": {
+      "new": false,
+      "sourceSha256": "b6384c0742c9b5a63f4f3e62dd6324c7a7e9fe9f2a4656faa4eedb0a47cd58bd",
+      "docsSha256": "df45d05cdd25ad09ffff7cfa9e2542a38a3bcb3e413c2ea40c9930f80a4e0ee3",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_SAM_MediaLoader": {
+      "new": false,
+      "sourceSha256": "b7e991aa1c9842fd581b15ad5a5e10e8249314061d7202e2321885bc2df3d81e",
+      "docsSha256": "7073536edb17bd3cda73df2dce9dc8eb31fbbb0fbbda9cb66bc277a6d468afbc",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TSAutoTileSize": {
+      "new": false,
+      "sourceSha256": "0794e65d5ee965b1067b9be2dee12bfe00f80c2afc1b8fc4e03967d5430215cd",
+      "docsSha256": "1b8b38565ffd9b1497b41b635f95b0a17a23323d5c1f896937ce1a87b63c0399",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_BatchLoadImage": {
+      "new": false,
+      "sourceSha256": "e73203815eab39aeb4324c8a03e41940d35baab84cd3c9586b0e65209f2594ed",
+      "docsSha256": "05605a61a47f0784843d6d5d9cd77ab890e0c168254fc07fe23812cf82d446c9",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_BGRM_BiRefNet": {
+      "new": false,
+      "sourceSha256": "084d5a538cfdf54f49f0015b87160426fc113ed13414eafa7974975ca4a9bdad",
+      "docsSha256": "b26bc3acc164fd748d5c338367823c443a443bc6f59fdc4a7bdca52656370a0a",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_Color_Match": {
+      "new": false,
+      "sourceSha256": "f7e5b9cb52b149846d745ed501aae66a8bab34283f5be36c81089ef07e83867c",
+      "docsSha256": "99ac90b6ac58e2db836c1a93d84bdd651a1dc106c2d78b0906af3b9196649e39",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TSCropToMask": {
+      "new": false,
+      "sourceSha256": "841e09e03b4bab9c0f014a932db7ba23608726f1b67c6d994861b01320198fcc",
+      "docsSha256": "00dc31007e9e3c1d42e9bc375b23667dd31fa2d249bdd685f5cd6316e542918b",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_EditAlign": {
+      "new": true,
+      "sourceSha256": "9afb9f740324b5a974acb91be1aa683d97683674264739c3fce5a5d9e997bdae",
+      "docsSha256": "3589ca5597bf83e6137797b435cfb10d88dc189f051fbf4947af12a41f0453cf",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_GetImageMegapixels": {
+      "new": false,
+      "sourceSha256": "a3cccb51d67fccafa5e566422aa54f4426cbce2c539ecb18117877f99add8eb1",
+      "docsSha256": "8c53524eb1d5ec855bce64a58b2431bcc1c1962672a97db644150273ececc3b5",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_GetImageSizeSide": {
+      "new": false,
+      "sourceSha256": "cae10547e965cfba7f551f6af7d01cab1403ea02845478a5008352dc7e35a501",
+      "docsSha256": "da20828d0b55253be1f075780173d68afcf1941d9d6104d08b6dd2b28ad72951",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_ImageBatchCut": {
+      "new": false,
+      "sourceSha256": "8c67af45163c23b69a3402dc8fa14049cd24480825d0fde2868c4c7fe5743ae5",
+      "docsSha256": "531b010fa1140c4a18ad211765b73ff70004e5420df5ff2032061ea3d61d0191",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_ImageBatchToImageList": {
+      "new": false,
+      "sourceSha256": "638e5057463d7c9599383f85fe5be027eb2604f39964a6b4d79ae90b16db1e9d",
+      "docsSha256": "b0e14c9c349d45731b9576cc0b1f0aaf81e0a0eb339f2887a9d7c5c133bf581a",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_ImageDepth": {
+      "new": false,
+      "sourceSha256": "6de51a270a32e92b5150b4aa8fcc9df3e3a59fb6dbcf5b36ff61ade7278e6c92",
+      "docsSha256": "bb270ed8fe9e6e5fd38fe70a041c4aa815468306db1d6fd87ed13a5bd59f6075",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_ImageListToImageBatch": {
+      "new": false,
+      "sourceSha256": "31ee2d7d2583809ccb96e77765f2a7aa18766cd6699597187d67239c485ae633",
+      "docsSha256": "768dd0cdb261dfa3059e39f5cb0be172baf81a92496e7797148432a46d489a3b",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_ImagePromptInjector": {
+      "new": false,
+      "sourceSha256": "df508d4deb9089c5a09c33aac5b21b07feaf8c2cd0092a592a11453ae2d2c173",
+      "docsSha256": "eaa3b44e0126d0c3868fea3d2f8a224f677838f5a9603d05c71e94e5eea56f0a",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_ImageResize": {
+      "new": false,
+      "sourceSha256": "1df85e7d07384a058d1b82b6363e6f30cf4c6c34facb12ad152262e19df0a324",
+      "docsSha256": "e4123cdf74e5c6e9e27233a49e8552bf792e89c35622b235cb47f7b152362277",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_ImageTileMerger": {
+      "new": false,
+      "sourceSha256": "72ed7cdcb58cc205bd49fb53a91b4c7a0c0e1a5dcb8f7a6a593c30f0fb148020",
+      "docsSha256": "f9a2491d9545fdeb7f40b09b21775cd950f52c1d5c45dca2b19945a20f12205b",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_ImageTileSplitter": {
+      "new": false,
+      "sourceSha256": "cd47a1e6f3dde84999e7915f4c5a0557c101abac40a7edf072e94ed2dff5be6e",
+      "docsSha256": "0d8cfdfe6044951cff51fbddce400c6cfac22670e07ffaf02cf7b6ad5682a581",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LangevinInpaint": {
+      "new": false,
+      "sourceSha256": "f6828c5e93e23a10afff68bd8940352e8d6f113bb2f6bf2b08689f57c20ac541",
+      "docsSha256": "adfe5c3ad2840bd588c4fbcd8ffb0f734dd9990296c60f64012a9579760f0e33",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_Matting_ViTMatte": {
+      "new": false,
+      "sourceSha256": "d5efba7e2c758addc7e8f3c14cffcd190fd9ca67657acea547590ec94aad9f69",
+      "docsSha256": "918c56d948f891e2739b7184640c4516918cbb13cb59f25233dc418c9012c216",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_ModelResize": {
+      "new": true,
+      "sourceSha256": "129ae7096e12a186ddc6178f5cc282e5aba39275fe2b2b6e56278ff71544805d",
+      "docsSha256": "91550158320607f889907deea7bd0570799b03ddb8bf3d8d1d86ec3ab7096195",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_ResolutionSelector": {
+      "new": false,
+      "sourceSha256": "eea65c1f3008ca78d2f29a97c5bfeb7249e7ce1d9a6a6db3ad43def81918d243",
+      "docsSha256": "f1f0661e6681be89b512fe3e851af221b836e47df0920908192379cac1683d0f",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TSRestoreFromCrop": {
+      "new": false,
+      "sourceSha256": "62eb1407f722fc88dbd1cff86d11bfd84e43bc021a5f1da43dd0774d1d6f09bb",
+      "docsSha256": "f96fec28f9c4fd893f1cc2fe4fa868aa4c12fa217d42ae086350cafa75518211",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_SmartBatch": {
+      "new": false,
+      "sourceSha256": "d91f4a21b7e5177c6c789e155d9d6a5f8d2b1cfcae63be680fe47ec4bdcd379a",
+      "docsSha256": "2ba0bcca80aba3f0983ea09ba6e31234c59250ba7e4bb282171bc1a3068e7b94",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TSSmartInpaint": {
+      "new": false,
+      "sourceSha256": "692b60cc71b8b42768485cfce5951490cae8c4ba9bbe7001d2f9072bfadc037a",
+      "docsSha256": "3bb76e99e3f42dd81a16b8e024dd6ab56e9142e84ddff58d16d23b14db69b334",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_UniversalInpaintSampler": {
+      "new": false,
+      "sourceSha256": "ca0d7db21fe4619e5df8266099c0b55671017c24fff20287a2b747ef4f7efdca",
+      "docsSha256": "408899e1d32b686f6e9d4595ab3ee3a3b4202f031cdbcc8d472cd7d2a814ffbe",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_VAEFix": {
+      "new": true,
+      "sourceSha256": "3018d6e44dc371f0fdc8da90a624f19113c9451e3cbb6b236dc272b0d6702693",
+      "docsSha256": "e2e548a02595b21ea7c9cc1b12b96204234e585584bafd92027814b179d56171",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_SuperPrompt": {
+      "new": false,
+      "sourceSha256": "ec53db2741adf4242759031da176050931110f8e2a1b01e939e89feb6aa517be",
+      "docsSha256": "3477b3b8d198af1186cede725a76f940657ccf588bf7ab8dbd7d7f208d1cb709",
+      "sourceChanged": false,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_SuperPromptRT": {
+      "new": false,
+      "sourceSha256": "3bd16eca94705312d3401c064b6168240dbef1dc8ed93726015a82381ee2f435",
+      "docsSha256": "be8719c2c35986611474ada6682aac0e401b2d3bd801d096ffd0954c42704b7b",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_Qwen3_VL_V3": {
+      "new": false,
+      "sourceSha256": "bd845bc1fd0cdd7ab9557629de5149fa87c78913ac6aef922e6d9c479c7259bd",
+      "docsSha256": "f261907743b81d981b03a7b5e7fc392f4fea9cd9f1a26e614d39983ff7af03e0",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_RTPromptEnhancer": {
+      "new": false,
+      "sourceSha256": "ab1cecee985a3ee572e05d01a81656b626cf426ce02ced5115dccfd4c53ca02a",
+      "docsSha256": "390061e3e154120c2f84105ed165370ea90a39518f85453f3338b56a9efaf137",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LockedCheckpoint": {
+      "new": false,
+      "sourceSha256": "8f82f2b84853bd6c05a2c2d0dd7d6882a26138ed9cb0f70828501e8823b96421",
+      "docsSha256": "26c84530ff8c1889475b36077f6dc3dcca69d8b2b29aa58af21519a340580c4e",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LockedDiffusionModel": {
+      "new": false,
+      "sourceSha256": "d3a33bbd0441b4926b19392d30c57249089048a51f8afc18c00a23f717ddd77b",
+      "docsSha256": "ff813b37c88ac330ade364ca6b21dd8067f5957f05e2fb190041711a7d9bfdd1",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LockedLoraModelOnly": {
+      "new": false,
+      "sourceSha256": "350c09fa7dba635c1ee06afeff868345aae6fc77cc6dd108daa538052c4b1a82",
+      "docsSha256": "5b53d11697fc8469e86a81ab1535f6e6bb2a237fe8ce0900790f334e63b1ed45",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_AngleSelect": {
+      "new": false,
+      "sourceSha256": "852ad2f953a32de84371c2d8089e0a76ab4e58656c34970f5ee87df3e2263544",
+      "docsSha256": "ea855e62b05b0eec68fd5d5c6eb8770e31521fdb3fbf1610d82b1a28f315f6b0",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_BatchPromptLoader": {
+      "new": false,
+      "sourceSha256": "c9887deacbafb8223c89618c2635046c9c178c77ee6f6c8489a4c640f17f5e65",
+      "docsSha256": "e47ddde89b39562701538cae28132073ae117f4605fed0f934868a7a7d1307d2",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_PromptBuilder": {
+      "new": false,
+      "sourceSha256": "861c356b4e3bb848e0f291c423c00abbc533c7f11d6c914c00857800b48a4478",
+      "docsSha256": "1a27a4249798f74b194d006066e1de3e729201e497ce2700f3cbd173582c1e93",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_PromptLibrary": {
+      "new": false,
+      "sourceSha256": "99d51a116e6a6a6a308c335545ca00ba90f09be52ad623e273aa8413571c4d47",
+      "docsSha256": "271279c68840121c2582d0015969528692b773c3993e8a147bfc6828e52a7ae4",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_SileroStress": {
+      "new": false,
+      "sourceSha256": "c3c6ffbbad1f3026ace825f8c9a3746adb078dfe36e62d334f0327913dbeba72",
+      "docsSha256": "1a32eb5f1bec3b7b3d1183616ba6a1aa20ad07cfe6b48a0e834d9b31cb0ad1ea",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_SongCreator": {
+      "new": false,
+      "sourceSha256": "7c0ef574b18aaf0a288f7f3b233617eb8a96780fc44a602e1387aeb23fc3fd3d",
+      "docsSha256": "cb07113a9afcca73ba4d4aadfaf635b35ee4fea70c6f84368319638085a35c05",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_StylePromptSelector": {
+      "new": false,
+      "sourceSha256": "48bc43560da1517a3997bf804f227f568d669d9b43e0c0a638a65352cdc4ec53",
+      "docsSha256": "895d531b0b2f7af951325f76cc8f01817126e87ae74fae434c149c271b45cf2b",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_BatchSource": {
+      "new": false,
+      "sourceSha256": "67bd54af223d2711c7ef6ab97591ef4f6a0bfeebfb61d196ecaaa8bde7d60f64",
+      "docsSha256": "f2b9d0a3aca8aa20700e2be33e88aab3860d12386a9a940180080be02c5c2885",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_Compare": {
+      "new": false,
+      "sourceSha256": "d32ba9384d333f13ea5356bda402a07d11f94c8318119b03a6c1ecadf61f2851",
+      "docsSha256": "71134a842432531661a2cf8848291f7aff5fecee9bc4ee1852f94245d90a35b8",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_FloatSlider": {
+      "new": false,
+      "sourceSha256": "9781e3fc25930d89db8bb738e455629d47f6691b2d333a05b8e017f3dfe90928",
+      "docsSha256": "d5eda37eda19376fb03e06544f417f82ac59dc1049512778394e7cb727e34e3d",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_FreeVRAM": {
+      "new": false,
+      "sourceSha256": "a10907c86609141272bdd0eb6ecb5c371925f7ac758e82a6605feabd00a38aa9",
+      "docsSha256": "2cc4fe3890789e65d9e93df2419bd2db03305747076839883235c9df55e53d7b",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_GroupBypasser": {
+      "new": false,
+      "sourceSha256": "25d5902871b691ff32195bd687d42c88e73810a3c8470028b20406f2f641b1d1",
+      "docsSha256": "c0923460b0c6293888ecc331d534357dcbd113e609443e784484aeb90c8becc7",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_Int_Slider": {
+      "new": false,
+      "sourceSha256": "65c7c5b496fe9970b5a5dc060aaab5bca62ae97570da24bfdddeb49bafe26ac5",
+      "docsSha256": "4d5a51f460359248d0f2c23197ba4d701c72fa6cded66aa97c31e6739dcdbd83",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_Krea2TextFusion": {
+      "new": false,
+      "sourceSha256": "2331b98d62959c33d7bf295a1278fa543201bf81a2742231265ad3c127c6bf4e",
+      "docsSha256": "8eedec3e9019e79ca790a4e78bcc2d2ef9a2a89411c6e5b1b7f9e6adc4c400ab",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LoraLoader": {
+      "new": false,
+      "sourceSha256": "8519043d4afeb6356a92c4f889b8d809e9a44f3b7f83de1a2d5c0beb3fb8a143",
+      "docsSha256": "14fb2534fdf13226f0d3ff824c12186f9c1c5cb88728aa6adc8c0909e8be260d",
+      "sourceChanged": false,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LoraUnmerged": {
+      "new": false,
+      "sourceSha256": "e14d8776a737c89e51421d40c9bd2b12e9da130acecdd520b6900e8b2e0af55c",
+      "docsSha256": "e59a430d05b2e37a5b946a7fe4dc6797bd0b44f6e99c13af6accd6c127b26593",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_Math_Int": {
+      "new": false,
+      "sourceSha256": "9f5d28a4a8821276f8d93d8eb8e7002a0578e97b38f240ee9868be175eedbf88",
+      "docsSha256": "80d3d9ee12a801b5f5fb6375fab9dcf564147558fe83e09b980dcbe2c3f5f205",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_NAG": {
+      "new": false,
+      "sourceSha256": "b39986d56a3a2fb45ef2f3a07edace38c122b91e11608834583ce158f1422bef",
+      "docsSha256": "ebf30961aedc56a7afa8bffd2d4d5c9b579d64758780d0acefd3d216a839b8d3",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_ShiftedSigmas": {
+      "new": false,
+      "sourceSha256": "ed5088ca1e9c293cb5c874bb8691f1787548378fa494af2755b28db0fe254b90",
+      "docsSha256": "6b309dadf05883a80d464a65992ff3f4317d0d6a8ed528ccf62206e3e3b91428",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_Smart_Switch": {
+      "new": false,
+      "sourceSha256": "f8bfcb9445e12d425935f38f28c2b19abc10289688616b85769e34c247cfba25",
+      "docsSha256": "2495398e64eaf4b073da0e1adc1ae15332f9d74668113576dbf908d74b63604e",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_DLSSUpscaler": {
+      "new": false,
+      "sourceSha256": "21e29ec7cfeb3c472db571fa69cefca791b53871c0f303c67795c1ec0af5d1af",
+      "docsSha256": "747d5b9636a14abd9bb25f1bd464da792ca2b3429f40be2deffd6f34d536ed5d",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_LTXFinalLatentSelector": {
+      "new": false,
+      "sourceSha256": "b9e55d91b6cfd750ef888cf7c216fac2307964f4b7716792378d14b5f4cc9908",
+      "docsSha256": "2354db1e94d15c8b341ad71b335b511b9e1d13d07025e7b93e763bdb1f0918a2",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LTXHDRDecode": {
+      "new": false,
+      "sourceSha256": "bf4e078b78004bd1a3b6d7c9a6c45cb130487052dcb6ea93a9e5c003f57ac6fb",
+      "docsSha256": "c98a02a6802edf96c8010b1fe31866ae0cf54fa057c73a0c5d6a800d4d9d02cd",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LTXHDRGuide": {
+      "new": false,
+      "sourceSha256": "faa07885e049cf02d965fb9c563d604bbece0d13a84ecb86678b35ab3128119f",
+      "docsSha256": "12c0e5c8ae62465a8e491f913a0c928040243e7a863c39b6d172746debdcb9c6",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LTXHDRLoadEXR": {
+      "new": false,
+      "sourceSha256": "a32c818b4338e20c5f00678da53debfb4a8fb46bfaab3a6972999edb7b386059",
+      "docsSha256": "a788354954a769ca47ed248023915c1b64fb15ebfc4d3e247753a252e5bb61bd",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LTXHDRSettings": {
+      "new": false,
+      "sourceSha256": "d0dd942aed6fce91ed91ff86b11feacc7731996f4ac1c021436b1ba5cba435ce",
+      "docsSha256": "269bc505aa98f1faead0ba0acabe808720c20e51c61529958caa749f743260c8",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LTXHDRStats": {
+      "new": false,
+      "sourceSha256": "3408d0a3533cbf5ac39dfe68508b4401f5d478577aa0be1e20fb358dd2d3bbb0",
+      "docsSha256": "5ebd80b79259d6c10a5e1229c47392e053da20d0117efe6b4a542b62e26a6a42",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LTXHDRVAE": {
+      "new": false,
+      "sourceSha256": "c3533de40ba6e63e91819e1ad079ea3da29968d21e00d8251fd1c9d8df9faa99",
+      "docsSha256": "c3a4cdcd365135c32f026aefeb348834019c5192e573e0d24ef0981cd7011b02",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_H3FastVAEDecode": {
+      "new": true,
+      "sourceSha256": "d4b2cb22e75842099bf5e72087b621ceb4e0adcf5b7d1425d4ef8a6c620081d2",
+      "docsSha256": "2ca8662bb604eb3319142fdb99d3f4d8571c1e55cba99fd222875d0e2d0ea9cf",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_H3RegenerateModel": {
+      "new": true,
+      "sourceSha256": "7644db6d6e44eb44500c51f1b55bd29c10d9b1c82cc7f02cbda87a08a0611c60",
+      "docsSha256": "63cc6c076028c27143a6b4160f12741526f988639797bded84068f5268ffeb55",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_H3Regenerate": {
+      "new": true,
+      "sourceSha256": "7644db6d6e44eb44500c51f1b55bd29c10d9b1c82cc7f02cbda87a08a0611c60",
+      "docsSha256": "ab1962b97f42f7385df6d2212de580c2ee804c9339ad6cc9449a4853a1f0f06f",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": true,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": false,
+      "needsImplementationReview": false
+    },
+    "TS_LatentUpscale": {
+      "new": false,
+      "sourceSha256": "9d13415fcb26355d441f4e2d4d31c11faecfff9153c9948b826f2b49ad821a30",
+      "docsSha256": "0ea3ff14dd1083737a6fa9e147fbe3f839db97eb852ee18e61e5e1c8f5189037",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_VideoInfo": {
+      "new": false,
+      "sourceSha256": "28bd43f4acfd0109bc7d546d435eac24bd3d147650627ca6f9eb06ee3612cde8",
+      "docsSha256": "65a34f9ffbeda6f36833f84cbd7c7043fa58c59595271c203c3c90ccf74d7e92",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_VideoLoader": {
+      "new": false,
+      "sourceSha256": "4de88b2eb020464aa11e2477f3b38acbebafd3bfc92b2fcfb40d086ebc8098de",
+      "docsSha256": "6228d95bd9628d73c22b7e6285a1357d3505fb2a3a4f8f7f7c5e584a1ef72873",
+      "sourceChanged": true,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_VideoSaver": {
+      "new": false,
+      "sourceSha256": "ee4bee1ab1ef5179dadbe048f86f489c9b2704a4027793fa34912c8d0e91bc0c",
+      "docsSha256": "a6871a0ac8f63dc80c3d075f405d0453d25d1755b53ea6ad936372e91c776e1e",
+      "sourceChanged": false,
+      "docsChanged": true,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_Animation_Preview": {
+      "new": false,
+      "sourceSha256": "0ed7b4a44c33b9018e030e50e677bab0a7bbd0cc94fddb4626945655c97b34a5",
+      "docsSha256": "8576761921bb743ae1a1cc86bf0adea269cf4f29a0aa0a81529b427cb1a13a7c",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_Frame_Interpolation": {
+      "new": false,
+      "sourceSha256": "d4e40e490ebb1b3da2fef07fdf9e57259f521f6376a987cd16eac6ec8e3fca6b",
+      "docsSha256": "6c93e9ad33fd1746eac344477d50b07258d68730afbdf971a0ca7f7673425d17",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_H3AudioInject": {
+      "new": false,
+      "sourceSha256": "b180aec2a1eb97e989738fcd62980b4a3e14f8b4883765b751266db9200d5d7b",
+      "docsSha256": "7d554a9bd1f5251c28fc5a057115c80d18447493f58d6a57a0a75f27017eb838",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_LTX_FirstLastFrame": {
+      "new": false,
+      "sourceSha256": "0f1c963a51cd02c263f5d28bd7845959b55878093ad3ec04fd41ba81d41bbc17",
+      "docsSha256": "1b5c3309ad09166d0eb9575f6fdb5b07128cd1e899e771c4da5a08cdc0cee1b1",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_RTX_Upscaler": {
+      "new": false,
+      "sourceSha256": "21dc16dcff0b33a61af0b67763eb13b1eed91e1ff3def1c7cefc742bdeb39a2e",
+      "docsSha256": "b94dc6a6359c1c1db8a6e39b79730d7ad1266b0a5d871a10fd04ff072b34bf14",
+      "sourceChanged": true,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": true,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_VideoCut": {
+      "new": false,
+      "sourceSha256": "b4fb1dbebc17f006b315008df63ad0be3704f8cbfd80affa51e5119fd96a6a02",
+      "docsSha256": "7ae9517c5179cbfb7045b93a77d0410d3d0326ccac556745e8517cfe556a1080",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    },
+    "TS_VideoDepthNode": {
+      "new": false,
+      "sourceSha256": "5c4845351009cafb0efc4c5134c50455de44a6dcf253d6b28565e97d76c9681f",
+      "docsSha256": "0a77fe3db4704ff0307a2b00fd114e3cb1fb3aaf18e26f026f34ae4f1c34bf54",
+      "sourceChanged": false,
+      "docsChanged": false,
+      "fullRewrite": false,
+      "targetedUpdate": false,
+      "needsFullEditorialRead": true,
+      "needsImplementationReview": false
+    }
+  },
+  "workflowTemplatesJson": "0.1.123",
+  "workflowWheelSha256": "fc321960cfc4f52dddc3ee111f33489b167eb7958028eb5b6a7f3fa8865a385e",
+  "scope": "New guides, changed schemas and targeted pack updates. Historical editorial debt not silently approved.",
+  "sourceProbes": {
+    "branch_lazy": {
+      "name": "BranchNode.check_lazy_status",
+      "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_logic.py#L110-L116",
+      "code": "def check_lazy_status(cls, branch, branch_names, autogrow):\n    if branch not in branch_names:\n        raise ValueError(f\"{branch} is not included in available inputs: {branch_names}\")\n    key = f\"branch{branch_names.index(branch)}\"\n    if key not in autogrow:\n        raise ValueError(f\"Selected input {branch} is not connected\")\n    return ['autogrow.' + key]",
+      "codeSha256": "15ee05741bfedb5503b8a4a923efb5ce2ccb9edd8a8d0802af4afcaac58bb490",
+      "fileSha256": "bfdd11004738b9dad221b22ebfd580cf82c03fc601acda4f7731b073d18a55a0"
+    },
+    "branch_execute": {
+      "name": "BranchNode.execute",
+      "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_logic.py#L119-L122",
+      "code": "def execute(cls, branch, branch_names, autogrow) -> io.NodeOutput:\n    if branch not in branch_names:\n        raise ValueError(f\"{branch} is not included in available inputs: {branch_names}\")\n    return autogrow[f\"branch{branch_names.index(branch)}\"],",
+      "codeSha256": "38177df7bf84c0b9e606aaac539b1c8118b2b52104c6a39854adcd06920e5ff6",
+      "fileSha256": "bfdd11004738b9dad221b22ebfd580cf82c03fc601acda4f7731b073d18a55a0"
+    },
+    "latent_size": {
+      "name": "GetLatentSize.execute",
+      "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L923-L937",
+      "code": "def execute(cls, latent) -> IO.NodeOutput:\n    samples = latent[\"samples\"]\n    if samples.is_nested:\n        samples = samples.unbind()[0]\n\n    if samples.ndim == 5:\n        batch_size, _, frames, height, width = samples.shape\n    else:\n        batch_size, _, height, width = samples.shape\n        frames = 1\n\n    if cls.hidden.unique_id:\n        PromptServer.instance.send_progress_text(f\"width: {width}, height: {height}\\n frames: {frames}, batch size: {batch_size}\", cls.hidden.unique_id)\n\n    return IO.NodeOutput(width, height, frames, batch_size)",
+      "codeSha256": "53e8aad9c36a2a15035baf24dbca1278dc21273151f8fe4d4af3e1de1214ae0d",
+      "fileSha256": "fffbcd588848f747a1ef275baa47c015c6f04b2f5e1ba2ea304bca19ca005450"
+    },
+    "audio_size": {
+      "name": "GetAudioLatentSize.execute",
+      "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_audio.py#L159-L173",
+      "code": "def execute(cls, latent) -> IO.NodeOutput:\n    samples = latent[\"samples\"]\n    if samples.is_nested:\n        samples = samples.unbind()[-1]\n\n    if samples.ndim == 4:\n        batch_size, _, audio_channels, length = samples.shape\n    else:\n        batch_size, _, length = samples.shape\n        audio_channels = 1\n\n    if cls.hidden.unique_id:\n        PromptServer.instance.send_progress_text(f\"length: {length}, audio channels: {audio_channels}\\n batch size: {batch_size}\", cls.hidden.unique_id)\n\n    return IO.NodeOutput(length, audio_channels, batch_size)",
+      "codeSha256": "6e26bd32f85876363ea11a6b94358c3f9b1c2eb42656e040699013585f739e65",
+      "fileSha256": "37352d586a50845f1cb0375652583aa7c662f759298de0f904f56d107d709267"
+    },
+    "split_padding": {
+      "name": "split_padding",
+      "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L664-L665",
+      "code": "def split_padding(total: int) -> tuple[int, int]:\n    return total // 2, total - total // 2",
+      "codeSha256": "e2d8c19ddcf15a5aee4d6f4b4dd54ec6f6d033400c334f11165ebd8e8d588ae9",
+      "fileSha256": "fffbcd588848f747a1ef275baa47c015c6f04b2f5e1ba2ea304bca19ca005450"
+    },
+    "lora_model": {
+      "name": "LoadLoraModel.execute",
+      "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_lora_stack.py#L51-L59",
+      "code": "def execute(cls, model, loras: list[dict]) -> io.NodeOutput:\n    for row in loras:\n        lora_name = row.get(\"lora_name\")\n        strength = row[\"strength\"]\n        if not lora_name or not row[\"enabled\"] or strength == 0:\n            continue\n        lora, metadata = _load_lora_file(lora_name)\n        model, _ = comfy.sd.load_lora_for_models(model, None, lora, strength, 0, lora_metadata=metadata)\n    return io.NodeOutput(model)",
+      "codeSha256": "2b0217d63868671ab710970046d1089285e267aab0f46b4f0595e0f412b9c17a",
+      "fileSha256": "47e5b20bc1b6be11be02469feaa4269509b19358963f2f3aae28f29e3f22f98a"
+    },
+    "lora_clip": {
+      "name": "LoadLoraTextEncoder.execute",
+      "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_lora_stack.py#L87-L95",
+      "code": "def execute(cls, clip, loras: list[dict]) -> io.NodeOutput:\n    for row in loras:\n        lora_name = row.get(\"lora_name\")\n        strength = row[\"strength\"]\n        if not lora_name or not row[\"enabled\"] or strength == 0:\n            continue\n        lora, metadata = _load_lora_file(lora_name)\n        _, clip = comfy.sd.load_lora_for_models(None, clip, lora, 0, strength, lora_metadata=metadata)\n    return io.NodeOutput(clip)",
+      "codeSha256": "f94e4def5fb1b3793b4b2a3f7195779ba4c06b3e8103ca8aac79847edac84ac0",
+      "fileSha256": "47e5b20bc1b6be11be02469feaa4269509b19358963f2f3aae28f29e3f22f98a"
+    },
+    "batch_name": {
+      "name": "_safe_name",
+      "sourceUrl": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/files/ts_batch_write.py#L43-L61",
+      "code": "def _safe_name(name: str, index: int, *, for_file: bool = False) -> str:\n    \"\"\"Preserve file names exactly; reject unsafe ones instead of collapsing them.\"\"\"\n    if for_file:\n        raw = str(name)\n        if not raw.strip():\n            return f\"item_{index:05d}\"\n        # Use portable basenames, including on cloud hosts. Stripping punctuation\n        # (e.g. parentheses) silently merges unrelated dataset captions.\n        stem = raw.split(\".\", 1)[0].upper()\n        reserved = {\"CON\", \"PRN\", \"AUX\", \"NUL\"} | {\n            f\"{prefix}{number}\" for prefix in (\"COM\", \"LPT\") for number in range(1, 10)\n        }\n        if (any(ord(ch) < 32 or ch in '<>:\"/\\\\|?*' for ch in raw)\n                or raw.endswith((\" \", \".\")) or stem in reserved):\n            raise ValueError(f\"{LOG_PREFIX} Unsafe item name: {raw!r}. Supply a unique file basename.\")\n        return raw\n    # One-file labels are text, so retain their existing display convention.\n    cleaned = \"\".join(ch for ch in str(name).strip() if ch.isalnum() or ch in \" ._-\").strip()\n    return cleaned or f\"item_{index:05d}\"",
+      "codeSha256": "665c6126c877970e0f8fdf4a69ea3e09b658a0cec7719eea4ca9557e6cade897",
+      "fileSha256": "758dd6565927b53630f77e53016b434ad76eb5814058b8dc6412cb69cd6b0357"
+    }
+  },
+  "humanApproved": false,
+  "exampleExecuted": false
+}

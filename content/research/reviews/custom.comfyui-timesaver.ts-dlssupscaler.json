@@ -8,30 +8,24 @@
     "origin": "backend"
   },
   "baseline": {
-    "comfyui": "0.32.0",
-    "frontend": "1.48.7",
-    "sourceCommit": "819d4e573a266fbc2aafb10554943f1e781c351a",
-    "embeddedDocs": "comfyui-timesaver built-in docs",
-    "workflowTemplatesJson": "comfyui-timesaver examples at pinned commit"
+    "comfyui": "0.43.0",
+    "frontend": "1.57.4",
+    "sourceCommit": "0e1aa5540cb95b8d5d932d4a082ec01d517cd03a",
+    "embeddedDocs": "Implementation and pinned pack documentation; no human approval",
+    "workflowTemplatesJson": "0.1.123"
   },
   "state": "source_reviewed",
   "reviewMode": "automated_assisted",
   "evidence": {
-    "runtimeInventory": "content/inventory/custom/comfyui-timesaver.json",
+    "runtimeInventory": "inventory/custom/comfyui-timesaver.json",
     "sourceLocations": [
       {
-        "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/video/dlss/ts_dlss_upscaler.py#L549",
+        "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/video/dlss/ts_dlss_upscaler.py#L579",
         "path": "nodes/video/dlss/ts_dlss_upscaler.py",
-        "lines": "549+"
+        "lines": "579+"
       }
     ],
-    "embeddedDocs": [
-      {
-        "locale": "ru",
-        "archivePath": "js/docs/TS_DLSSUpscaler/ru.md",
-        "assessment": "Primary pack documentation imported and attributed"
-      }
-    ],
+    "embeddedDocs": [],
     "workflows": []
   },
   "checks": {
@@ -45,7 +39,9 @@
   },
   "knownGaps": [
     "Требуется человеческое утверждение",
-    "Live custom-pack runtime and full model workflow execution not verified"
+    "Full model workflow execution not performed",
+    "Official workflow wiring census is not manual case validation",
+    "Custom pack inventory is static source registration, not a live /object_info capture"
   ],
-  "updatedAt": "2026-10-03"
+  "updatedAt": "2026-11-02"
 }

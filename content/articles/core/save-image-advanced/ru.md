@@ -1,5 +1,11 @@
 # Save Image Advanced: PNG 8/16-bit и scene-linear EXR
 
+<!-- november-core:start -->
+**Изменения в ComfyUI 0.43.0.** EXR теперь поддерживает 16-bit float и 32-bit float; по умолчанию выбран 16-bit float. Половинная точность занимает меньше места для значений, но имеет меньшую точность и диапазон, чем float32. Добавлен input_color_space = linear ACEScg с AP1/D60-хроматичностями; это не прежний linear Rec.709. LogC3 и ACEScct сначала преобразуйте в нужное линейное пространство через Convert Image Color Space. Для EXR при включённом asset manager может создаваться отдельное превью; его вид не подтверждает точность всех HDR-значений файла.
+
+[Закреплённая реализация](https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L2101-L2268). Ниже сохранено описание предыдущей проверенной версии; перечисленные изменения имеют приоритет. Полная повторная проверка старого текста и примеров не заявляется.
+<!-- november-core:end -->
+
 `SaveImageAdvanced` сохраняет каждый элемент IMAGE-бэтча отдельным файлом и даёт две ветки формата: PNG с 8 или 16 битами и EXR с 32-bit float. Параметры `bit_depth` и `input_color_space` появляются внутри dynamic combo выбранного формата.
 
 ## PNG и EXR имеют разные наборы настроек

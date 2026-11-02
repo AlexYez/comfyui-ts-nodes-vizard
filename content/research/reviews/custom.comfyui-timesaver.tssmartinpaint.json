@@ -1,1 +1,48 @@
-{"$schema":"../../schemas/article-research.schema.v1.json","schemaVersion":"1.0","articleId":"custom.comfyui-timesaver.tssmartinpaint","node":{"classType":"TSSmartInpaint","pythonModule":"custom_nodes.comfyui-timesaver","origin":"backend"},"baseline":{"comfyui":"0.32.0","frontend":"1.48.7","sourceCommit":"c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f","embeddedDocs":"comfyui-timesaver built-in docs","workflowTemplatesJson":"comfyui-timesaver examples at pinned commit"},"state":"source_reviewed","reviewMode":"automated_assisted","evidence":{"runtimeInventory":"content/inventory/custom/comfyui-timesaver.json","sourceLocations":[{"url":"https://github.com/AlexYez/comfyui-timesaver/blob/c1668b3cfa2161e36bf9b9fa91288b949b4b0b1f/nodes/image/ts_smart_inpaint.py#L705","path":"nodes/image/ts_smart_inpaint.py","lines":"705+"}],"embeddedDocs":[{"locale":"ru","archivePath":"js/docs/TSSmartInpaint/ru.md","assessment":"Primary pack documentation imported and attributed"}],"workflows":[]},"checks":{"implementationRead":false,"runtimeCompared":false,"officialCasesInspected":false,"exampleSchemaValidated":false,"exampleExecuted":false,"russianEdited":false,"factsRecheckedAfterEditing":false},"knownGaps":["Human editorial approval pending"],"updatedAt":"2026-09-27"}
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "custom.comfyui-timesaver.tssmartinpaint",
+  "node": {
+    "classType": "TSSmartInpaint",
+    "pythonModule": "custom_nodes.comfyui-timesaver",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.43.0",
+    "frontend": "1.57.4",
+    "sourceCommit": "0e1aa5540cb95b8d5d932d4a082ec01d517cd03a",
+    "embeddedDocs": "Implementation and pinned pack documentation; no human approval",
+    "workflowTemplatesJson": "0.1.123"
+  },
+  "state": "source_reviewed",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "inventory/custom/comfyui-timesaver.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/image/ts_smart_inpaint.py#L720",
+        "path": "nodes/image/ts_smart_inpaint.py",
+        "lines": "720+"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": []
+  },
+  "checks": {
+    "implementationRead": false,
+    "runtimeCompared": false,
+    "officialCasesInspected": false,
+    "exampleSchemaValidated": false,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": false
+  },
+  "knownGaps": [
+    "Требуется человеческое утверждение",
+    "Full model workflow execution not performed",
+    "Official workflow wiring census is not manual case validation",
+    "Targeted update section only; historical article is not fully re-reviewed",
+    "Custom pack inventory is static source registration, not a live /object_info capture"
+  ],
+  "updatedAt": "2026-11-02"
+}

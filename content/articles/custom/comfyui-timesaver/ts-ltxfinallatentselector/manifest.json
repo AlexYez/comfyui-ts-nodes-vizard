@@ -20,7 +20,7 @@
     "comfyui": ">=0.32.0",
     "frontend": ">=1.48.7",
     "verifiedOn": "2026-10-03",
-    "sourceRevision": "comfyui-timesaver 12.12.3 @ 819d4e573a266fbc2aafb10554943f1e781c351a"
+    "sourceRevision": "comfyui-timesaver 12.13.5 @ 0e1aa5540cb95b8d5d932d4a082ec01d517cd03a (source inventory, not live qualification)"
   },
   "relations": {
     "related": [],
@@ -49,28 +49,15 @@
   },
   "sources": [
     {
-      "sourceId": "custom.comfyui-timesaver.ts-ltxfinallatentselector-source-1",
-      "title": "TS LTX Final Latent Selector in comfyui-timesaver 12.11.7",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/video/hdr/ts_ltx_final_latent_selector.py#L88",
+      "sourceId": "custom.comfyui-timesaver.ts-ltxfinallatentselector-november-source",
+      "title": "TS_LTXFinalLatentSelector: TimeSaver 12.13.5",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/video/hdr/ts_ltx_final_latent_selector.py#L88",
       "publisher": "AlexYez",
       "kind": "source",
-      "accessedAt": "2026-10-03",
+      "accessedAt": "2026-11-02",
       "supports": [
-        "runtime registration",
-        "implementation"
-      ]
-    },
-    {
-      "sourceId": "custom.comfyui-timesaver.ts-ltxfinallatentselector-source-2",
-      "title": "Embedded Russian documentation for TS LTX Final Latent Selector",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_LTXFinalLatentSelector/ru.md",
-      "publisher": "AlexYez",
-      "kind": "documentation",
-      "accessedAt": "2026-10-03",
-      "supports": [
-        "usage",
-        "parameters",
-        "limitations"
+        "регистрация ноды",
+        "реализация"
       ]
     }
   ]

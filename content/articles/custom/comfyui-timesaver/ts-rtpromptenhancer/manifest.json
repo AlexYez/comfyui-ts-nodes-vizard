@@ -20,7 +20,7 @@
     "comfyui": ">=0.32.0",
     "frontend": ">=1.48.7",
     "verifiedOn": "2026-10-03",
-    "sourceRevision": "comfyui-timesaver 12.12.3 @ 819d4e573a266fbc2aafb10554943f1e781c351a"
+    "sourceRevision": "comfyui-timesaver 12.13.5 @ 0e1aa5540cb95b8d5d932d4a082ec01d517cd03a (source inventory, not live qualification)"
   },
   "relations": {
     "related": [
@@ -46,34 +46,21 @@
   "editorial": {
     "state": "in_review",
     "owner": "TS Nodes Wizard editorial",
-    "reviewedBy": "Pinned upstream source and embedded Russian documentation; human approval pending",
-    "reviewedAt": "2026-10-03",
+    "reviewedBy": "Source-backed November update; human approval pending",
+    "reviewedAt": "2026-11-02",
     "factsReviewedAt": "2026-10-03"
   },
   "sources": [
     {
-      "sourceId": "custom.comfyui-timesaver.ts-rtpromptenhancer-source-1",
-      "title": "TS RT Prompt Enhancer in comfyui-timesaver 12.12.3",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/llm/ts_rt_prompt_enhancer.py#L414",
+      "sourceId": "custom.comfyui-timesaver.ts-rtpromptenhancer-november-source",
+      "title": "TS_RTPromptEnhancer: TimeSaver 12.13.5",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/llm/ts_rt_prompt_enhancer.py#L416",
       "publisher": "AlexYez",
       "kind": "source",
-      "accessedAt": "2026-10-03",
+      "accessedAt": "2026-11-02",
       "supports": [
-        "runtime registration",
-        "implementation"
-      ]
-    },
-    {
-      "sourceId": "custom.comfyui-timesaver.ts-rtpromptenhancer-source-2",
-      "title": "Embedded Russian documentation for TS RT Prompt Enhancer",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_RTPromptEnhancer/ru.md",
-      "publisher": "AlexYez",
-      "kind": "documentation",
-      "accessedAt": "2026-10-03",
-      "supports": [
-        "usage",
-        "parameters",
-        "limitations"
+        "регистрация ноды",
+        "реализация"
       ]
     }
   ]

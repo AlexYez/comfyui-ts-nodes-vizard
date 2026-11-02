@@ -17,7 +17,14 @@ const runtimeNodes = JSON.parse(runtime);
 const septemberEvidence = JSON.parse(await readFile(path.join(root, "content/research/september-2026-articles.json"), "utf8"));
 const septemberNodes = Object.keys(septemberEvidence.articles).filter(id => runtimeNodes[id]);
 const octoberEvidence = JSON.parse(await readFile(path.join(root, "content/research/october-2026-update.json"), "utf8"));
-const articleNodes = [...new Set([...septemberNodes, ...Object.keys(octoberEvidence.officialWorkflowOccurrences).filter(id => runtimeNodes[id])])];
+const novemberEvidence = JSON.parse(await readFile(path.join(root, "content/research/november-2026-update.json"), "utf8"));
+const movedRuntimeNodes = novemberEvidence.moduleRelocations
+  .filter(move => runtimeNodes[move.nodeId] && runtimeNodes[move.nodeId].python_module !== move.newModule)
+  .map(move => move.nodeId);
+const articleNodes = [...new Set([...septemberNodes,
+  ...Object.keys(octoberEvidence.officialWorkflowOccurrences).filter(id => runtimeNodes[id]),
+  ...Object.keys(novemberEvidence.coreArticles).filter(id => runtimeNodes[id])])]
+  .filter(id => !movedRuntimeNodes.includes(id));
 const systemStats = process.env.WIZARD_SYSTEM_STATS ? await readFile(process.env.WIZARD_SYSTEM_STATS)
   : JSON.stringify({system:{comfyui_version:"0.32.0",comfy_package_versions:[{name:"comfyui-frontend-package",installed:"1.48.7"}]}});
 const server = createServer(async (req, res) => {
@@ -124,9 +131,20 @@ try {
     await page.getByRole('button', { name: 'Закрыть', exact: true }).click();
     await waitForWorkersToStop();
   }
+  // A verified module relocation must not turn nodeId-only lookup into a
+  // provenance bypass on old snapshots or on third-party collisions.
+  for (const nodeId of movedRuntimeNodes) {
+    await page.locator('#node-id').fill(nodeId);
+    await page.locator('#new-node').click();
+    await page.waitForFunction(id => document.querySelector('#comfyui-ts-nodes-vizard-host').shadowRoot.querySelector('.nw-kicker')?.textContent === id, nodeId);
+    assert.match(await page.locator('.nw-summary').textContent(), /Автоматическая карточка/u);
+    await page.getByRole('button', { name: 'Закрыть', exact: true }).click();
+    await waitForWorkersToStop();
+  }
   assert.deepEqual(errors, []);
   console.log(JSON.stringify({ initialRequests, catalogRequests: requests.filter(url => url.endsWith("catalog.json")).length,
-    articlesOpened: articleNodes.length, finalWorkers: workers.size, longTasksMs: await page.evaluate(() => window.longTasks), errors }, null, 2));
+    articlesOpened: articleNodes.length, provenanceFallbacksChecked: movedRuntimeNodes.length,
+    finalWorkers: workers.size, longTasksMs: await page.evaluate(() => window.longTasks), errors }, null, 2));
 } finally {
   await browser?.close();
   await new Promise(resolve => server.close(resolve));

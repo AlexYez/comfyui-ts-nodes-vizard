@@ -1,0 +1,70 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.mossimage-layout-prompt",
+  "kind": "core",
+  "locale": "ru",
+  "title": "MOSS-Image: промпт с планом композиции",
+  "summary": "Собирает структурированный JSON-промпт MOSS-Image из общего описания и рамок Create Bounding Boxes. Это экспериментальное форматирование STRING, не выполнение генерации.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "MOSSImageLayoutPrompt",
+    "pythonModule": "comfy_extras.nodes_moss_image",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": true,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "ComfyUI 0.43.0 @ 426f5eea52a7ece1dd599fff4cb6cd1f352ddd24; frontend 1.57.4"
+  },
+  "relations": {
+    "related": [
+      "core.create-bounding-boxes",
+      "core.flux3-layout-prompt",
+      "core.mossimage-control"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/conditioning/moss_image",
+    "MOSSImageLayoutPrompt"
+  ],
+  "searchAliases": [
+    "MOSSImageLayoutPrompt",
+    "MOSS-Image Layout Prompt"
+  ],
+  "concepts": [
+    "MOSS-Image: промпт с планом композиции"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned source and runtime review; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02",
+    "schemaHash": "sha256:c071932296fcea61f79aab9301ec999ae30d6aa3b7c26e7bd2f19efb8c83a23c"
+  },
+  "sources": [
+    {
+      "sourceId": "core.mossimage-layout-prompt-november-source",
+      "title": "MOSSImageLayoutPrompt: ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_moss_image.py#L14-L52",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

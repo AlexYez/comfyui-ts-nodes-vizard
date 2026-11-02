@@ -1,0 +1,72 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.branch-node",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Branch: выбор ветки по имени",
+  "summary": "Передаёт на выход значение одного из подключённых входов. В отличие от переключателя с булевым условием, ветка выбирается по имени. Нода экспериментальная.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "BranchNode",
+    "pythonModule": "comfy_extras.nodes_logic",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": true,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "ComfyUI 0.43.0 @ 426f5eea52a7ece1dd599fff4cb6cd1f352ddd24; frontend 1.57.4"
+  },
+  "relations": {
+    "related": [
+      "core.comfy-switch-node",
+      "core.preview-image"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "utilities/logic",
+    "BranchNode"
+  ],
+  "searchAliases": [
+    "BranchNode",
+    "Branch",
+    "switch",
+    "choice",
+    "pick"
+  ],
+  "concepts": [
+    "Branch: выбор ветки по имени"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned source and runtime review; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02",
+    "schemaHash": "sha256:722ed3c11d568b6622e33592f414817145ef1f7203665664ef60870f6b0adcf9"
+  },
+  "sources": [
+    {
+      "sourceId": "core.branch-node-november-source",
+      "title": "BranchNode: ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_logic.py#L86-L122",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,13 @@
 # TS RTX Upscaler
 
+<!-- november-update:start -->
+## Изменения в TimeSaver 12.13.5
+
+Одноканальный серый IMAGE разворачивается в три одинаковых канала перед RTX Video Super Resolution. Это не снимает требования NVIDIA-рантайма и совместимого оборудования и не добавляет цвет исходному материалу.
+
+[Закреплённая реализация](https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/video/ts_rtx_upscaler.py#L408). Этот раздел обновлён по изменениям; последующий исторический текст не считается полностью повторно проверенным.
+<!-- november-update:end -->
+
 Аппаратный апскейл через NVIDIA RTX Video Super Resolution (`nvvfx`). Четыре
 уровня качества (LOW/MEDIUM/HIGH/ULTRA), батчевая обработка. **Требуется
 RTX-видеокарта.**

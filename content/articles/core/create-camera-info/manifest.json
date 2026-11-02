@@ -1,1 +1,79 @@
-{"$schema":"../../../schemas/article.schema.v1.json","schemaVersion":"1.0","articleId":"core.create-camera-info","kind":"core","locale":"ru","title":"CreateCameraInfo: камера для 3D-рендера","summary":"Создаёт LOAD3D_CAMERA в режимах orbit, look_at или quaternion с perspective/orthographic проекцией.","body":"ru.md","runtimeIdentity":{"classType":"CreateCameraInfo","pythonModule":"comfy_extras.nodes_gaussian_splat","packageId":"comfy-core","origin":"backend","aliases":[]},"status":"draft","experimental":false,"compatibility":{"comfyui":"0.32.0","frontend":">=1.48.7","verifiedOn":"2026-08-14","sourceRevision":"ComfyUI v0.32.0 (c2bcbecd82ec5ae66594340b395c24ef0217b238)"},"relations":{"related":["core.render-splat","core.transform-splat"],"alternatives":[],"replacedBy":null},"tags":["LOAD3D_CAMERA","camera","orbit","look_at","quaternion","3D"],"searchAliases":["CreateCameraInfo","Create Camera Info","orbit camera","камера 3D"],"concepts":["right-handed Y-up world","look-at quaternion","perspective projection","orthographic projection"],"assets":[{"type":"recipe","id":"recipe.render-splat-official-turntable","label":"Официальный turntable: камера orbit и 75 кадров"}],"editorial":{"state":"in_review","owner":"TS Nodes Wizard editorial","reviewedBy":"Automated pinned source/runtime/docs and exhaustive workflow review, official topology trace and exact camera helper probe; human approval pending","reviewedAt":"2026-08-14","factsReviewedAt":"2026-08-14","schemaHash":"sha256:969f82b2711d7417f9236ffc7f0c9cf340093ab1f985a4584102cbb674b65cd3"},"sources":[{"sourceId":"core.create-camera-info-source-1","title":"CreateCameraInfo in ComfyUI v0.32.0","url":"https://github.com/Comfy-Org/ComfyUI/blob/c2bcbecd82ec5ae66594340b395c24ef0217b238/comfy_extras/nodes_gaussian_splat.py#L1017-L1087","publisher":"Comfy-Org","kind":"source","accessedAt":"2026-08-14","supports":["dynamic modes","coordinate system","projection settings","camera output"]},{"sourceId":"core.create-camera-info-source-2","title":"Pinned workflow 3d_triposplat_image_to_gaussian_splat","url":"https://pypi.org/project/comfyui-workflow-templates-json/0.1.42/","publisher":"Comfy-Org","kind":"documentation","accessedAt":"2026-08-14","supports":["orbit 35/30/2.5","connection to RenderSplat"]},{"sourceId":"core.create-camera-info-source-3","title":"Pinned embedded documentation 0.5.9: CreateCameraInfo","url":"https://pypi.org/project/comfyui-embedded-docs/0.5.9/","publisher":"Comfy-Org","kind":"documentation","accessedAt":"2026-08-14","supports":["secondary parameter terminology"]}]}
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.create-camera-info",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Create Camera Info: камера для 3D-рендера",
+  "summary": "Создаёт LOAD3DCAMERA для совместимых 3D-нод в правой системе координат с вертикальной осью Y. Не генерирует изображение и не оценивает камеру по фотографии. В ComfyUI 0.43.0 реализация находится в comfyextras.nodescamera, а не в прежнем модуле Gaussian Splat.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "CreateCameraInfo",
+    "pythonModule": "comfy_extras.nodes_camera",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "ComfyUI 0.43.0 @ 426f5eea52a7ece1dd599fff4cb6cd1f352ddd24; frontend 1.57.4"
+  },
+  "relations": {
+    "related": [
+      "core.render-splat",
+      "core.camera-angle"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "3d",
+    "CreateCameraInfo"
+  ],
+  "searchAliases": [
+    "CreateCameraInfo",
+    "Create Camera Info",
+    "camera position",
+    "make camera info",
+    "orbit camera",
+    "look at camera"
+  ],
+  "concepts": [
+    "Create Camera Info: камера для 3D-рендера"
+  ],
+  "assets": [
+    {
+      "type": "recipe",
+      "id": "recipe.render-splat-official-turntable",
+      "label": "Официальный turntable: камера orbit и 75 кадров"
+    }
+  ],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned source and runtime review; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02",
+    "schemaHash": "sha256:134b0f2a0bc115ebdf717efab06d6777ab86aed083770589b09274120b3f5a1f"
+  },
+  "sources": [
+    {
+      "sourceId": "core.create-camera-info-november-source",
+      "title": "CreateCameraInfo: ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_camera.py#L10-L81",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

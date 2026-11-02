@@ -133,6 +133,9 @@ def input_rows(inputs, prefix=""):
                     rows.extend(input_rows(branch["inputs"], f"{prefix}{name}={branch['key']} → "))
             if "input" in template:
                 rows.extend(input_rows(template["input"], f"{prefix}{name} → "))
+            elif "required" in template or "optional" in template:
+                # V3 DynamicGroup stores one row's ports directly in template.
+                rows.extend(input_rows(template, f"{prefix}{name} → "))
     return rows
 
 

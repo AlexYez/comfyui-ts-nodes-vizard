@@ -77,6 +77,17 @@
         "реальные связи в шаблоне",
         "порядок этапов"
       ]
+    },
+    {
+      "sourceId": "core.remesh-mesh-november-delta",
+      "title": "Изменения RemeshMesh в ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_mesh_postprocess.py#L2362-L2488",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "ноябрьское дополнение; не полная повторная проверка"
+      ]
     }
   ]
 }

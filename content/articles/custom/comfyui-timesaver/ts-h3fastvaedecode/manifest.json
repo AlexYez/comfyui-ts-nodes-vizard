@@ -1,0 +1,67 @@
+{
+  "$schema": "../../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "custom.comfyui-timesaver.ts-h3fastvaedecode",
+  "kind": "custom",
+  "locale": "ru",
+  "title": "TS H3 Fast VAE Decode: декодирование H3",
+  "summary": "Декодирует видеолатент H3 отдельным NVIDIA StreamRender-H3 noncausal 24-layer VAE. Принимает также составной аудио-видеолатент, но использует только видео. Возвращает пакет IMAGE и текстовый отчёт, не аудио и не готовый видеофайл.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "TS_H3FastVAEDecode",
+    "pythonModule": "custom_nodes.comfyui-timesaver",
+    "packageId": "comfyui-timesaver",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "comfyui-timesaver 12.13.5 @ 0e1aa5540cb95b8d5d932d4a082ec01d517cd03a (source inventory, not live qualification)"
+  },
+  "relations": {
+    "related": [
+      "custom.comfyui-timesaver.ts-h3regenerate",
+      "core.vae-decode"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "custom nodes",
+    "comfyui-timesaver",
+    "TS_H3FastVAEDecode"
+  ],
+  "searchAliases": [
+    "TS_H3FastVAEDecode",
+    "TS H3 Fast VAE Decode"
+  ],
+  "concepts": [
+    "сторонняя нода ComfyUI"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Source-backed November update; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02"
+  },
+  "sources": [
+    {
+      "sourceId": "custom.comfyui-timesaver.ts-h3fastvaedecode-november-source",
+      "title": "TS_H3FastVAEDecode: TimeSaver 12.13.5",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/video/latent_upscale/ts_h3_fast_vae.py#L115",
+      "publisher": "AlexYez",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "регистрация ноды",
+        "реализация"
+      ]
+    }
+  ]
+}

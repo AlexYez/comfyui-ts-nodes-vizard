@@ -2,16 +2,16 @@
   "schemaVersion": "1.0",
   "packageId": "comfyui-timesaver",
   "repository": "https://github.com/AlexYez/comfyui-timesaver",
-  "sourceCommit": "819d4e573a266fbc2aafb10554943f1e781c351a",
-  "version": "12.12.3",
-  "capturedAt": "2026-10-03",
+  "sourceCommit": "0e1aa5540cb95b8d5d932d4a082ec01d517cd03a",
+  "version": "12.13.5",
+  "capturedAt": "2026-11-02",
   "nodes": [
     {
       "classType": "TS_AudioLoader",
       "displayName": "TS Audio Loader",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/audio/loader/ts_audio_loader.py",
-      "sourceLine": 125,
+      "sourceLine": 163,
       "documentationPath": "js/docs/TS_AudioLoader/ru.md"
     },
     {
@@ -67,7 +67,7 @@
       "displayName": "TS Batch Write",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/files/ts_batch_write.py",
-      "sourceLine": 222,
+      "sourceLine": 239,
       "documentationPath": "js/docs/TS_BatchWrite/ru.md"
     },
     {
@@ -75,7 +75,7 @@
       "displayName": "TS Files Downloader",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/files/ts_downloader.py",
-      "sourceLine": 2468,
+      "sourceLine": 2613,
       "documentationPath": "js/docs/TS Files Downloader/ru.md"
     },
     {
@@ -91,8 +91,16 @@
       "displayName": "TS Ideogram Designer",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/ideogram/ts_ideogram_designer.py",
-      "sourceLine": 218,
+      "sourceLine": 316,
       "documentationPath": "js/docs/TS_IdeogramDesigner/ru.md"
+    },
+    {
+      "classType": "TS_Film_Emulation",
+      "displayName": "TS Film Emulation",
+      "pythonModule": "custom_nodes.comfyui-timesaver",
+      "sourcePath": "nodes/image/film_emulation/ts_film_emulation.py",
+      "sourceLine": 503,
+      "documentationPath": "js/docs/TS_Film_Emulation/ru.md"
     },
     {
       "classType": "TS_LamaCleanup",
@@ -131,7 +139,7 @@
       "displayName": "TS Remove Background",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/image/ts_bgrm_birefnet.py",
-      "sourceLine": 1100,
+      "sourceLine": 1104,
       "documentationPath": "js/docs/TS_BGRM_BiRefNet/ru.md"
     },
     {
@@ -139,7 +147,7 @@
       "displayName": "TS Color Match",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/image/ts_color_match.py",
-      "sourceLine": 661,
+      "sourceLine": 677,
       "documentationPath": "js/docs/TS_Color_Match/ru.md"
     },
     {
@@ -151,12 +159,12 @@
       "documentationPath": "js/docs/TSCropToMask/ru.md"
     },
     {
-      "classType": "TS_Film_Emulation",
-      "displayName": "TS Film Emulation",
+      "classType": "TS_EditAlign",
+      "displayName": "TS Edit Align",
       "pythonModule": "custom_nodes.comfyui-timesaver",
-      "sourcePath": "nodes/image/ts_film_emulation.py",
-      "sourceLine": 443,
-      "documentationPath": "js/docs/TS_Film_Emulation/ru.md"
+      "sourcePath": "nodes/image/ts_edit_align.py",
+      "sourceLine": 264,
+      "documentationPath": "js/docs/TS_EditAlign/ru.md"
     },
     {
       "classType": "TS_GetImageMegapixels",
@@ -203,7 +211,7 @@
       "displayName": "TS Image List to Image Batch",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/image/ts_image_list_to_batch.py",
-      "sourceLine": 145,
+      "sourceLine": 151,
       "documentationPath": "js/docs/TS_ImageListToImageBatch/ru.md"
     },
     {
@@ -251,15 +259,23 @@
       "displayName": "TS Matting (ViTMatte)",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/image/ts_matting_vitmatte.py",
-      "sourceLine": 1011,
+      "sourceLine": 1015,
       "documentationPath": "js/docs/TS_Matting_ViTMatte/ru.md"
+    },
+    {
+      "classType": "TS_ModelResize",
+      "displayName": "TS Model Resize",
+      "pythonModule": "custom_nodes.comfyui-timesaver",
+      "sourcePath": "nodes/image/ts_model_resize.py",
+      "sourceLine": 248,
+      "documentationPath": "js/docs/TS_ModelResize/ru.md"
     },
     {
       "classType": "TS_ResolutionSelector",
       "displayName": "TS Resolution Selector",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/image/ts_resolution_selector.py",
-      "sourceLine": 303,
+      "sourceLine": 314,
       "documentationPath": "js/docs/TS_ResolutionSelector/ru.md"
     },
     {
@@ -283,7 +299,7 @@
       "displayName": "TS Smart Inpaint",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/image/ts_smart_inpaint.py",
-      "sourceLine": 705,
+      "sourceLine": 720,
       "documentationPath": "js/docs/TSSmartInpaint/ru.md"
     },
     {
@@ -293,6 +309,14 @@
       "sourcePath": "nodes/image/ts_universal_inpaint.py",
       "sourceLine": 143,
       "documentationPath": "js/docs/TS_UniversalInpaintSampler/ru.md"
+    },
+    {
+      "classType": "TS_VAEFix",
+      "displayName": "TS VAE Fix",
+      "pythonModule": "custom_nodes.comfyui-timesaver",
+      "sourcePath": "nodes/image/ts_vae_fix.py",
+      "sourceLine": 373,
+      "documentationPath": "js/docs/TS_VAEFix/ru.md"
     },
     {
       "classType": "TS_SuperPrompt",
@@ -307,7 +331,7 @@
       "displayName": "TS Super Prompt RT",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/llm/super_prompt_rt/ts_super_prompt_rt.py",
-      "sourceLine": 624,
+      "sourceLine": 627,
       "documentationPath": "js/docs/TS_SuperPromptRT/ru.md"
     },
     {
@@ -315,7 +339,7 @@
       "displayName": "TS Qwen 3",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/llm/ts_qwen3_vl.py",
-      "sourceLine": 626,
+      "sourceLine": 634,
       "documentationPath": "js/docs/TS_Qwen3_VL_V3/ru.md"
     },
     {
@@ -323,7 +347,7 @@
       "displayName": "TS RT Prompt Enhancer",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/llm/ts_rt_prompt_enhancer.py",
-      "sourceLine": 414,
+      "sourceLine": 416,
       "documentationPath": "js/docs/TS_RTPromptEnhancer/ru.md"
     },
     {
@@ -411,7 +435,7 @@
       "displayName": "TS Batch Source",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/utils/ts_batch_source.py",
-      "sourceLine": 320,
+      "sourceLine": 779,
       "documentationPath": "js/docs/TS_BatchSource/ru.md"
     },
     {
@@ -419,7 +443,7 @@
       "displayName": "TS Compare",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/utils/ts_compare.py",
-      "sourceLine": 307,
+      "sourceLine": 309,
       "documentationPath": "js/docs/TS_Compare/ru.md"
     },
     {
@@ -427,7 +451,7 @@
       "displayName": "TS Float Slider",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/utils/ts_float_slider.py",
-      "sourceLine": 45,
+      "sourceLine": 50,
       "documentationPath": "js/docs/TS_FloatSlider/ru.md"
     },
     {
@@ -451,7 +475,7 @@
       "displayName": "TS Int Slider",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/utils/ts_int_slider.py",
-      "sourceLine": 44,
+      "sourceLine": 49,
       "documentationPath": "js/docs/TS_Int_Slider/ru.md"
     },
     {
@@ -475,7 +499,7 @@
       "displayName": "TS LoRA Unmerged",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/utils/ts_lora_unmerged.py",
-      "sourceLine": 614,
+      "sourceLine": 628,
       "documentationPath": "js/docs/TS_LoraUnmerged/ru.md"
     },
     {
@@ -515,7 +539,7 @@
       "displayName": "TS DLSS Upscaler",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/video/dlss/ts_dlss_upscaler.py",
-      "sourceLine": 549,
+      "sourceLine": 579,
       "documentationPath": "js/docs/TS_DLSSUpscaler/ru.md"
     },
     {
@@ -539,7 +563,7 @@
       "displayName": "TS LTX HDR Guide",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/video/hdr/ts_ltx_hdr_guide.py",
-      "sourceLine": 280,
+      "sourceLine": 284,
       "documentationPath": "js/docs/TS_LTXHDRGuide/ru.md"
     },
     {
@@ -575,11 +599,35 @@
       "documentationPath": "js/docs/TS_LTXHDRVAE/ru.md"
     },
     {
+      "classType": "TS_H3FastVAEDecode",
+      "displayName": "TS H3 Fast VAE Decode",
+      "pythonModule": "custom_nodes.comfyui-timesaver",
+      "sourcePath": "nodes/video/latent_upscale/ts_h3_fast_vae.py",
+      "sourceLine": 115,
+      "documentationPath": "js/docs/TS_H3FastVAEDecode/ru.md"
+    },
+    {
+      "classType": "TS_H3RegenerateModel",
+      "displayName": "TS H3 Regenerate Model",
+      "pythonModule": "custom_nodes.comfyui-timesaver",
+      "sourcePath": "nodes/video/latent_upscale/ts_h3_regenerate.py",
+      "sourceLine": 261,
+      "documentationPath": "js/docs/TS_H3RegenerateModel/ru.md"
+    },
+    {
+      "classType": "TS_H3Regenerate",
+      "displayName": "TS H3 Regenerate",
+      "pythonModule": "custom_nodes.comfyui-timesaver",
+      "sourcePath": "nodes/video/latent_upscale/ts_h3_regenerate.py",
+      "sourceLine": 261,
+      "documentationPath": "js/docs/TS_H3Regenerate/ru.md"
+    },
+    {
       "classType": "TS_LatentUpscale",
       "displayName": "TS Latent Upscale",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/video/latent_upscale/ts_latent_upscale.py",
-      "sourceLine": 434,
+      "sourceLine": 456,
       "documentationPath": "js/docs/TS_LatentUpscale/ru.md"
     },
     {
@@ -595,7 +643,7 @@
       "displayName": "TS Video Loader",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/video/media/ts_video_loader.py",
-      "sourceLine": 369,
+      "sourceLine": 407,
       "documentationPath": "js/docs/TS_VideoLoader/ru.md"
     },
     {
@@ -619,7 +667,7 @@
       "displayName": "TS Frame Interpolation",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/video/ts_frame_interpolation.py",
-      "sourceLine": 810,
+      "sourceLine": 813,
       "documentationPath": "js/docs/TS_Frame_Interpolation/ru.md"
     },
     {
@@ -643,7 +691,7 @@
       "displayName": "TS RTX Upscaler",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/video/ts_rtx_upscaler.py",
-      "sourceLine": 405,
+      "sourceLine": 408,
       "documentationPath": "js/docs/TS_RTX_Upscaler/ru.md"
     },
     {

@@ -1,0 +1,72 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.get-audio-latent-size",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Размер аудиолатента",
+  "summary": "Возвращает длину аудиолатента, число его аудиоканалов и размер пакета. Длина измеряется позициями латентной последовательности, не секундами и не отсчётами WAV.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "GetAudioLatentSize",
+    "pythonModule": "comfy_extras.nodes_audio",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "ComfyUI 0.43.0 @ 426f5eea52a7ece1dd599fff4cb6cd1f352ddd24; frontend 1.57.4"
+  },
+  "relations": {
+    "related": [
+      "core.get-latent-size",
+      "core.vae-decode-audio"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/latent",
+    "GetAudioLatentSize"
+  ],
+  "searchAliases": [
+    "GetAudioLatentSize",
+    "Get Audio Latent Size",
+    "dimensions",
+    "audio latent info",
+    "audio latent length"
+  ],
+  "concepts": [
+    "Размер аудиолатента"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned source and runtime review; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02",
+    "schemaHash": "sha256:378dba4c7d3c1e9ee5a8758c2a6b57564d1e51e149262558f54e59f88fdd6ec9"
+  },
+  "sources": [
+    {
+      "sourceId": "core.get-audio-latent-size-november-source",
+      "title": "GetAudioLatentSize: ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_audio.py#L138-L173",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

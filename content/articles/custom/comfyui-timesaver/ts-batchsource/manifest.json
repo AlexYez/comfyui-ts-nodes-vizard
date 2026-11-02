@@ -4,8 +4,8 @@
   "articleId": "custom.comfyui-timesaver.ts-batchsource",
   "kind": "custom",
   "locale": "ru",
-  "title": "TS Batch Source",
-  "summary": "Создаёт задания из файлов изображений, строк текстового файла или заданного количества итераций. Возвращает item, index, total и производный seed. В режиме папки item содержит путь, а не изображение; для чтения нужен TS Batch Load Image.",
+  "title": "TS Batch Source: задания из файлов и промптов",
+  "summary": "Создаёт список заданий и возвращает item, исходный index, количество выбранных заданий total и производный seed. Сам источник не загружает изображения, видео или модели.",
   "body": "ru.md",
   "runtimeIdentity": {
     "classType": "TS_BatchSource",
@@ -17,13 +17,18 @@
   "status": "draft",
   "experimental": false,
   "compatibility": {
-    "comfyui": ">=0.32.0",
-    "frontend": ">=1.48.7",
-    "verifiedOn": "2026-10-03",
-    "sourceRevision": "comfyui-timesaver 12.12.3 @ 819d4e573a266fbc2aafb10554943f1e781c351a"
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "comfyui-timesaver 12.13.5 @ 0e1aa5540cb95b8d5d932d4a082ec01d517cd03a (source inventory, not live qualification)"
   },
   "relations": {
-    "related": [],
+    "related": [
+      "custom.comfyui-timesaver.ts-audioloader",
+      "custom.comfyui-timesaver.ts-videoloader",
+      "custom.comfyui-timesaver.ts-batchloadimage",
+      "custom.comfyui-timesaver.ts-batchwrite"
+    ],
     "alternatives": [],
     "replacedBy": null
   },
@@ -43,34 +48,21 @@
   "editorial": {
     "state": "in_review",
     "owner": "TS Nodes Wizard editorial",
-    "reviewedBy": "Pinned upstream source and embedded Russian documentation; human approval pending",
-    "reviewedAt": "2026-10-03",
-    "factsReviewedAt": "2026-10-03"
+    "reviewedBy": "Source-backed November update; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02"
   },
   "sources": [
     {
-      "sourceId": "custom.comfyui-timesaver.ts-batchsource-source-1",
-      "title": "TS Batch Source in comfyui-timesaver 12.11.7",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/utils/ts_batch_source.py#L320",
+      "sourceId": "custom.comfyui-timesaver.ts-batchsource-november-source",
+      "title": "TS_BatchSource: TimeSaver 12.13.5",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/utils/ts_batch_source.py#L779",
       "publisher": "AlexYez",
       "kind": "source",
-      "accessedAt": "2026-10-03",
+      "accessedAt": "2026-11-02",
       "supports": [
-        "runtime registration",
-        "implementation"
-      ]
-    },
-    {
-      "sourceId": "custom.comfyui-timesaver.ts-batchsource-source-2",
-      "title": "Embedded Russian documentation for TS Batch Source",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_BatchSource/ru.md",
-      "publisher": "AlexYez",
-      "kind": "documentation",
-      "accessedAt": "2026-10-03",
-      "supports": [
-        "usage",
-        "parameters",
-        "limitations"
+        "регистрация ноды",
+        "реализация"
       ]
     }
   ]

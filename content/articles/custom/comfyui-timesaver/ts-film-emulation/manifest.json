@@ -4,8 +4,8 @@
   "articleId": "custom.comfyui-timesaver.ts-film-emulation",
   "kind": "custom",
   "locale": "ru",
-  "title": "TS Film Emulation",
-  "summary": "Встроенные пресеты плёнки (Kodak Portra/Vision3, Fuji, Cineon-style, …) плюс возможность подгрузить свой .cube LUT из models/luts/. Гамма-коррекция, кривая контраста и регулируемая lutstrength.",
+  "title": "TS Film Emulation: плёночный цвет и LUT",
+  "summary": "Применяет смоделированный плёночный образ или .cube LUT, затем тональные, цветовые настройки и зерно. В TimeSaver 12.13 изменились и интерфейс, и математика; прежняя статья о LUT в models/luts и влиянии gammacorrection больше не описывает текущую реализацию.",
   "body": "ru.md",
   "runtimeIdentity": {
     "classType": "TS_Film_Emulation",
@@ -17,13 +17,16 @@
   "status": "draft",
   "experimental": false,
   "compatibility": {
-    "comfyui": ">=0.32.0",
-    "frontend": ">=1.48.7",
-    "verifiedOn": "2026-10-03",
-    "sourceRevision": "comfyui-timesaver 12.12.3 @ 819d4e573a266fbc2aafb10554943f1e781c351a"
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "comfyui-timesaver 12.13.5 @ 0e1aa5540cb95b8d5d932d4a082ec01d517cd03a (source inventory, not live qualification)"
   },
   "relations": {
-    "related": [],
+    "related": [
+      "core.image-color-space",
+      "custom.comfyui-timesaver.ts-compare"
+    ],
     "alternatives": [],
     "replacedBy": null
   },
@@ -43,34 +46,21 @@
   "editorial": {
     "state": "in_review",
     "owner": "TS Nodes Wizard editorial",
-    "reviewedBy": "Pinned upstream source and embedded Russian documentation; human approval pending",
-    "reviewedAt": "2026-09-27",
-    "factsReviewedAt": "2026-09-27"
+    "reviewedBy": "Source-backed November update; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02"
   },
   "sources": [
     {
-      "sourceId": "custom.comfyui-timesaver.ts-film-emulation-source-1",
-      "title": "TS Film Emulation in comfyui-timesaver 12.11.7",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/nodes/image/ts_film_emulation.py#L443",
+      "sourceId": "custom.comfyui-timesaver.ts-film-emulation-november-source",
+      "title": "TS_Film_Emulation: TimeSaver 12.13.5",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/image/film_emulation/ts_film_emulation.py#L503",
       "publisher": "AlexYez",
       "kind": "source",
-      "accessedAt": "2026-10-03",
+      "accessedAt": "2026-11-02",
       "supports": [
-        "runtime registration",
-        "implementation"
-      ]
-    },
-    {
-      "sourceId": "custom.comfyui-timesaver.ts-film-emulation-source-2",
-      "title": "Embedded Russian documentation for TS Film Emulation",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/819d4e573a266fbc2aafb10554943f1e781c351a/js/docs/TS_Film_Emulation/ru.md",
-      "publisher": "AlexYez",
-      "kind": "documentation",
-      "accessedAt": "2026-10-03",
-      "supports": [
-        "usage",
-        "parameters",
-        "limitations"
+        "регистрация ноды",
+        "реализация"
       ]
     }
   ]

@@ -1,0 +1,77 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.pad-image-node",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Pad Image: расширение холста",
+  "summary": "Добавляет поля вокруг изображения, заполняя их цветом или зеркальным продолжением краёв. Исходная картинка не масштабируется. Это подготовка холста, а не генеративная дорисовка.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "PadImageNode",
+    "pythonModule": "comfy_extras.nodes_images",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "ComfyUI 0.43.0 @ 426f5eea52a7ece1dd599fff4cb6cd1f352ddd24; frontend 1.57.4"
+  },
+  "relations": {
+    "related": [
+      "core.image-pad-for-outpaint",
+      "core.image-scale"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "image/transform",
+    "PadImageNode"
+  ],
+  "searchAliases": [
+    "PadImageNode",
+    "Pad Image",
+    "pad",
+    "pad image",
+    "padding",
+    "reflect",
+    "mirror",
+    "extend canvas",
+    "expand image",
+    "border"
+  ],
+  "concepts": [
+    "Pad Image: расширение холста"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned source and runtime review; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02",
+    "schemaHash": "sha256:f4b2795b0275177ab818bb1710bd1276aaa15bf63ab814e099e6183667c5d2c4"
+  },
+  "sources": [
+    {
+      "sourceId": "core.pad-image-node-november-source",
+      "title": "PadImageNode: ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_images.py#L710-L791",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.load-lora-text-encoder",
+  "kind": "core",
+  "locale": "ru",
+  "title": "Загрузка нескольких LoRA для текстового энкодера",
+  "summary": "Применяет список LoRA к объекту CLIP и возвращает изменённый текстовый энкодер. Диффузионную MODEL эта нода не принимает и не модифицирует.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "LoadLoraTextEncoder",
+    "pythonModule": "comfy_extras.nodes_lora_stack",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.43.0",
+    "frontend": ">=1.57.4",
+    "verifiedOn": "2026-11-02",
+    "sourceRevision": "ComfyUI 0.43.0 @ 426f5eea52a7ece1dd599fff4cb6cd1f352ddd24; frontend 1.57.4"
+  },
+  "relations": {
+    "related": [
+      "core.load-lora-model",
+      "core.lora-loader",
+      "core.clip-text-encode"
+    ],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "ComfyUI",
+    "model/loaders",
+    "LoadLoraTextEncoder"
+  ],
+  "searchAliases": [
+    "LoadLoraTextEncoder",
+    "Load LoRA (Text Encoder)",
+    "lora",
+    "load lora",
+    "apply lora",
+    "clip lora",
+    "lora stack"
+  ],
+  "concepts": [
+    "Загрузка нескольких LoRA для текстового энкодера"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned source and runtime review; human approval pending",
+    "reviewedAt": "2026-11-02",
+    "factsReviewedAt": "2026-11-02",
+    "schemaHash": "sha256:a0c8ab67612dea196b497c797b761946dbfaf25c12a545c5a866cf6044fff7b2"
+  },
+  "sources": [
+    {
+      "sourceId": "core.load-lora-text-encoder-november-source",
+      "title": "LoadLoraTextEncoder: ComfyUI 0.43.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/426f5eea52a7ece1dd599fff4cb6cd1f352ddd24/comfy_extras/nodes_lora_stack.py#L62-L95",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-02",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}
