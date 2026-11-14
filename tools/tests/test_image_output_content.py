@@ -277,6 +277,11 @@ class ImageOutputContentTests(unittest.TestCase):
             for source in article["sources"]:
                 url = source["url"]
                 if "github.com/Comfy-Org/ComfyUI/" in url:
+                    if source["sourceId"].endswith("-november-delta"):
+                        evidence = catalog.load_json(catalog.CONTENT / "research/november-2026-update.json")
+                        current = evidence["coreTargetedUpdates"][spec["classType"]]["source"]["url"]
+                        self.assertEqual(current, url)
+                        continue
                     self.assertIn(
                         "c2bcbecd82ec5ae66594340b395c24ef0217b238", url
                     )
