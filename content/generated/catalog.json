@@ -132530,6 +132530,10 @@
           {
             "type": "related",
             "articleId": "core.json-extract-string"
+          },
+          {
+            "type": "replacedBy",
+            "articleId": "core.text-generate-v2"
           }
         ],
         "recipes": [

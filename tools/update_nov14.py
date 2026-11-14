@@ -89,6 +89,11 @@ def main():
         m["relations"]["related"] = ["core." + t.slug(b if a == key else a) for a, b in pairs if key in (a, b)]
         c.write_json(path, m)
     repo = c.ROOT / ".upstream-cache/timesaver-nov14"
+    replacements = c.load_json(cap / "node-replacements.json")
+    assert any(x.get("new_node_id") == "TextGenerateV2" for x in replacements.get("TextGenerate", []))
+    old_path, old_article = existing["TextGenerate"]
+    old_article["relations"]["replacedBy"] = "core." + t.slug("TextGenerateV2")
+    c.write_json(old_path, old_article)
     nodes = p.timesaver_nodes(repo)
     for n in nodes:
         path = c.CONTENT / "articles/custom/comfyui-timesaver" / p.slugify(n["classType"]) / "manifest.json"

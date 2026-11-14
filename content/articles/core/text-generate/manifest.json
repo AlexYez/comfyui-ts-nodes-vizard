@@ -29,7 +29,7 @@
       "core.json-extract-string"
     ],
     "alternatives": [],
-    "replacedBy": null
+    "replacedBy": "core.text-generate-v2"
   },
   "tags": [
     "LLM",
