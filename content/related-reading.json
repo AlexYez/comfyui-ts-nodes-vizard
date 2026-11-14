@@ -5,6 +5,12 @@
     "url": "https://neurosaver.ru/ai-library/comfyui/",
     "context": "Краткое объяснение основных понятий ComfyUI — если нужно освежить общий контекст перед работой с нодой."
   },
+  "specificRules": [
+    {"keywords": ["minimaxh3", "ts_h3", "ph3image", "ts_latentupscale"], "title": "MiniMax H3: референсы и управление видео", "url": "https://neurosaver.ru/guide/minimax-h3-istoriya-first-last-frame-reference/", "context": "Как устроены опорные кадры и медиареференсы H3. Параметры конкретной ноды сверяйте с её текущей схемой."},
+    {"keywords": ["ltx"], "title": "LTX-2.5: модель, LoRA и видеопроцесс", "url": "https://neurosaver.ru/guide/ltx-video-istoriya-ltx-2-5-lora/", "context": "История семейства LTX и роль официальных адаптеров. Материал даёт контекст, но не делает версии LTX взаимозаменяемыми."},
+    {"keywords": ["mossimage", "moss_image"], "title": "MOSS-Image: устройство модели и композиция", "url": "https://neurosaver.ru/news/moss-image-bez-tsenzury-5b/", "context": "Разбор основы MOSS-Image и формата layout. Материал о первоначальном релизе не является инструкцией к более поздним edit-LoRA."},
+    {"keywords": ["qwen"], "title": "Qwen: языковые и мультимодальные модели", "url": "https://neurosaver.ru/ai-library/qwen/", "context": "Различия моделей Qwen и роль визуальных входов. Qwen Image и языковой энкодер — разные компоненты."}
+  ],
   "rules": [
     { "keywords": ["ksampler", "sampler", "sampling"], "title": "KSampler и семплирование в ComfyUI", "url": "https://neurosaver.ru/guide/ksampler-comfyui-nastroiki/", "context": "Разбор семплера, шагов, CFG и seed помогает понять, как настройки этой ноды влияют на результат." },
     { "keywords": ["scheduler", "sigma", "noise schedule"], "title": "Scheduler", "url": "https://neurosaver.ru/ai-library/scheduler/", "context": "Справка о расписании шума и его роли в процессе генерации." },
@@ -21,7 +27,7 @@
     { "keywords": ["modelmerge", "model merge", "слияние моделей", "checkpointmerge"], "title": "Слияние моделей", "url": "https://neurosaver.ru/ai-library/model-merge/", "context": "Объяснение смешивания весов моделей и ограничений такого подхода." },
     { "keywords": ["textual inversion", "текстовая инверсия"], "title": "Embedding", "url": "https://neurosaver.ru/ai-library/embedding/", "context": "Справка о текстовых инверсиях и их использовании в промптах. Не все признаки, называемые embedding, являются текстовой инверсией." },
     { "keywords": ["ipadapter", "ip adapter"], "title": "IP-Adapter", "url": "https://neurosaver.ru/ai-library/ip-adapter/", "context": "Объяснение визуального референса как дополнительного условия генерации." },
-    { "keywords": ["canny", "edge"], "title": "Canny Edge", "url": "https://neurosaver.ru/ai-library/canny-edge/", "context": "Справка о карте границ, которую можно использовать для контроля структуры кадра." },
+    { "keywords": ["canny"], "title": "Canny Edge", "url": "https://neurosaver.ru/ai-library/canny-edge/", "context": "Справка о карте границ, которую можно использовать для контроля структуры кадра." },
     { "keywords": ["depth"], "title": "Карта глубины", "url": "https://neurosaver.ru/ai-library/depth-map/", "context": "Объяснение карты глубины и её применения для сохранения пространственной структуры." },
     { "keywords": ["openpose", "pose", "sam3dbody"], "title": "OpenPose", "url": "https://neurosaver.ru/ai-library/openpose/", "context": "Общее введение в скелетную разметку позы. SAM 3D Body и другие системы используют собственные модели и форматы; материал не является инструкцией к их параметрам." },
     { "keywords": ["video", "ltxv", "wan", "hunyuanvideo", "cosmos"], "title": "Генерация видео из текста", "url": "https://neurosaver.ru/ai-library/text-to-video/", "context": "Базовые понятия видеогенерации: кадры, длительность, согласованность движения и вычислительная нагрузка." },

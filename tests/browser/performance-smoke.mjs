@@ -18,10 +18,14 @@ const septemberEvidence = JSON.parse(await readFile(path.join(root, "content/res
 const septemberNodes = Object.keys(septemberEvidence.articles).filter(id => runtimeNodes[id]);
 const octoberEvidence = JSON.parse(await readFile(path.join(root, "content/research/october-2026-update.json"), "utf8"));
 const novemberEvidence = JSON.parse(await readFile(path.join(root, "content/research/november-2026-update.json"), "utf8"));
+const nov14 = JSON.parse(await readFile(path.join(root, "content/research/nov14-2026-update.json"), "utf8"));
+const packed = JSON.parse(await readFile(path.join(webRoot, "data/catalog.json"), "utf8"));
+const nov14Nodes = packed.articles.filter(a => nov14.addedArticles.includes(a.manifest.articleId))
+  .map(a => a.manifest.node.nodeId).filter(id => runtimeNodes[id]);
 const movedRuntimeNodes = novemberEvidence.moduleRelocations
   .filter(move => runtimeNodes[move.nodeId] && runtimeNodes[move.nodeId].python_module !== move.newModule)
   .map(move => move.nodeId);
-const articleNodes = [...new Set([...septemberNodes,
+const articleNodes = [...new Set([...septemberNodes, ...nov14Nodes,
   ...Object.keys(octoberEvidence.officialWorkflowOccurrences).filter(id => runtimeNodes[id]),
   ...Object.keys(novemberEvidence.coreArticles).filter(id => runtimeNodes[id])])]
   .filter(id => !movedRuntimeNodes.includes(id));

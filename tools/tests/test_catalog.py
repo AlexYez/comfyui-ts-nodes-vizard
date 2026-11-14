@@ -441,7 +441,7 @@ class PinnedBackendInventoryTests(unittest.TestCase):
         expected = catalog.schema_fingerprint("SaveImage", self.snapshot["SaveImage"])
         self.assertEqual(expected, save_image["manifest"]["compatibility"]["schemaFingerprint"])
         update_manifest = catalog.load_json(catalog.CONTENT / "update-manifest.json")
-        self.assertEqual("runtime/comfyui-0.43.0.object-info.json", update_manifest["inventory"]["source"])
+        self.assertEqual("runtime/comfyui-0.45.0.object-info.json", update_manifest["inventory"]["source"])
 
 
 class ReleaseGateTests(unittest.TestCase):

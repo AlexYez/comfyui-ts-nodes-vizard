@@ -1,5 +1,11 @@
 # TS H3 Fast VAE Decode: декодирование H3
 
+<!-- nov14:start -->
+**TimeSaver 12.13.12.** Поддержан Fast V2 и режимы auto, fast, low VRAM. В auto при нехватке памяти используется подключённый fallback VAE, а без него пробуется low VRAM. Low VRAM ограничивает одновременно хранимые Q/K/V, не сокращая число кадров. Отдельный Fast-декодер по-прежнему не кодирует картинки; объединённый файл с классическим энкодером и Fast V2 можно использовать через штатный Load VAE. Проверяйте яркость на границах 17-кадровых блоков.
+
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/nodes/video/latent_upscale/ts_h3_fast_vae.py) · [Текущая справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/js/docs/TS_H3FastVAEDecode/ru.md). Дополнение не означает полного повторного утверждения старого текста.
+<!-- nov14:end -->
+
 Декодирует видеолатент H3 отдельным NVIDIA StreamRender-H3 noncausal 24-layer VAE. Принимает также составной аудио-видеолатент, но использует только видео. Возвращает пакет IMAGE и текстовый отчёт, не аудио и не готовый видеофайл.
 
 ## Файлы и подключение

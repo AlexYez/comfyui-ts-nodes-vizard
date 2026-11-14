@@ -1,5 +1,11 @@
 # TS RTX Upscaler
 
+<!-- nov14:start -->
+**TimeSaver 12.13.12.** Для новой установки используется NVIDIA VFX 0.2 из индекса NVIDIA; на обычном PyPI может находиться пакет-заглушка. Дополнительная зависимость rtx-upscaler ограничивает версию диапазоном >=0.2.0.0,<0.3. Адаптер понимает старый API 0.1, но совместимость SDK и драйвера проверяйте для своего окружения. Измерения ускорения автора относятся к его оборудованию.
+
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/nodes/video/ts_rtx_upscaler.py) · [Текущая справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/js/docs/TS_RTX_Upscaler/ru.md). Дополнение не означает полного повторного утверждения старого текста.
+<!-- nov14:end -->
+
 <!-- november-update:start -->
 ## Изменения в TimeSaver 12.13.5
 

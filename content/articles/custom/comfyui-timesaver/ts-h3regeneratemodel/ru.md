@@ -1,5 +1,11 @@
 # TS H3 Regenerate Model: подготовка модели уточнения
 
+<!-- nov14:start -->
+**TimeSaver 12.13.12.** Текущий загрузчик Standard принимает чистую pruned H3 и один complete-файл open_h3_regenerate_2k_lora_complete.safetensors. Он уже содержит LoRA, 50 веток Sharp и проверенную таблицу AdaLN; отдельные sharp_name и reference_checkpoint больше не требуются в пользовательской ноде. При переносе старого графа заново выберите complete-файл. Обычный LoRA Loader не заменяет этот загрузчик, поскольку не применяет специальные Sharp-ветки. Веса не входят в пак; инструкция сборки из исходных файлов приведена в текущей справке автора.
+
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/nodes/video/latent_upscale/ts_h3_regenerate.py) · [Текущая справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/js/docs/TS_H3RegenerateModel/ru.md). Дополнение не означает полного повторного утверждения старого текста.
+<!-- nov14:end -->
+
 Готовит отдельную ветку чистой pruned H3 FL2VA для Open-H3-Regenerate-2K: применяет объединённую LoRA и ветки Sharp. Возвращает MODEL и текстовый отчёт; увеличение видео выполняет следующая TS H3 Regenerate.
 
 ## Подключение и файлы

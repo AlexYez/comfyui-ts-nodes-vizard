@@ -52,8 +52,8 @@ class CustomPackCatalogTests(unittest.TestCase):
 
     def test_november_timesaver_revision_and_experimental_flag(self):
         inventory = load(CONTENT / "inventory/custom/comfyui-timesaver.json")
-        self.assertEqual(inventory["version"], "12.13.5")
-        self.assertEqual(inventory["sourceCommit"], "0e1aa5540cb95b8d5d932d4a082ec01d517cd03a")
+        self.assertEqual(inventory["version"], "12.13.12")
+        self.assertEqual(inventory["sourceCommit"], "18c863d206a537c8d60c8db6d1c7dbdf4a29721a")
         nag = next(item for item in custom_manifests() if item["runtimeIdentity"]["classType"] == "TS_NAG")
         self.assertTrue(nag["experimental"])
         body = (CONTENT / "articles/custom/comfyui-timesaver/ts-nag/ru.md").read_text(encoding="utf-8")

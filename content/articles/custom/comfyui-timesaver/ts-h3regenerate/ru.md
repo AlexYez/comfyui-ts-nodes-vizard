@@ -1,5 +1,11 @@
 # TS H3 Regenerate: увеличение и уточнение видео
 
+<!-- nov14:start -->
+**TimeSaver 12.13.12.** Шум теперь подаётся отдельным NOISE от Random Noise, seed задаётся там. Появились режимы first and last frames, connected frames (auto) и экспериментальный full reference (Ref2VA). Последний использует уже закодированные референсы positive и требует чистую pruned Ref2VA через Regenerate Model. При denoise 0 референсы отключены. В continue (blend overlap) часть перекрытия фиксируется, оставшаяся пересчитывается и смешивается; проверяйте швы и накопление изменений. Подробные условия текущих режимов приведены в закреплённой справке автора ниже; прежний перечень режимов неполон.
+
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/nodes/video/latent_upscale/ts_h3_regenerate.py) · [Текущая справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/js/docs/TS_H3Regenerate/ru.md). Дополнение не означает полного повторного утверждения старого текста.
+<!-- nov14:end -->
+
 Увеличивает готовый латент MiniMax H3 и уточняет его за два или три шага Эйлера по схеме Open-H3-Regenerate-2K. Требует отдельной модели от TS H3 Regenerate Model, исходного текстового conditioning и совместимого латентного апскейлера.
 
 ## Размер и степень перерисовки

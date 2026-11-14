@@ -1,0 +1,42 @@
+{
+  "checkedThrough": "2026-11-14",
+  "comfyui": "0.45.0",
+  "frontend": "1.58.5",
+  "sourceCommit": "989d93d0d968e704c589ce0146bb18c77f6b50cc",
+  "timesaver": "12.13.12",
+  "timesaverCommit": "18c863d206a537c8d60c8db6d1c7dbdf4a29721a",
+  "addedArticles": [
+    "core.batch-cameras",
+    "core.create-camera-orbit",
+    "core.bake-texture-from-views",
+    "core.ultra-tex-conditioning",
+    "core.mini-max-h3-context-windows",
+    "core.mini-max-h3-image-conditioning",
+    "core.ph3-image-conditioning",
+    "core.mini-max-h3-latent-upscale-with-model",
+    "core.relay-vsrconditioning",
+    "core.vsrdecode",
+    "core.text-generate-v2",
+    "core.vaecompute-dtype",
+    "core.we-vis-one-detect"
+  ],
+  "timesaverNewNodes": [],
+  "targetedTimesaverNotes": [
+    "TS_BatchSource",
+    "TS_Compare",
+    "TS_DLSSUpscaler",
+    "TS_EditAlign",
+    "TS_H3FastVAEDecode",
+    "TS_H3Regenerate",
+    "TS_H3RegenerateModel",
+    "TS_PromptBuilder",
+    "TS_RTPromptEnhancer",
+    "TS_RTX_Upscaler",
+    "TS_ResolutionSelector",
+    "TS_SuperPromptRT",
+    "TS_VideoLoader"
+  ],
+  "scope": "13 new guides; targeted warnings and additions. Not full review of historical content or all changed pack implementations.",
+  "exampleExecuted": false,
+  "humanApproved": false
+}

@@ -20,7 +20,7 @@
     "comfyui": ">=0.32.0",
     "frontend": ">=1.48.7",
     "verifiedOn": "2026-10-03",
-    "sourceRevision": "comfyui-timesaver 12.13.5 @ 0e1aa5540cb95b8d5d932d4a082ec01d517cd03a (source inventory, not live qualification)"
+    "sourceRevision": "TimeSaver 12.13.12 @ 18c863d206a537c8d60c8db6d1c7dbdf4a29721a; source inventory only"
   },
   "relations": {
     "related": [],
@@ -51,7 +51,7 @@
     {
       "sourceId": "custom.comfyui-timesaver.ts-stylepromptselector-november-source",
       "title": "TS_StylePromptSelector: TimeSaver 12.13.5",
-      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/0e1aa5540cb95b8d5d932d4a082ec01d517cd03a/nodes/text/ts_style_prompt_selector.py#L212",
+      "url": "https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/nodes/text/ts_style_prompt_selector.py#L212",
       "publisher": "AlexYez",
       "kind": "source",
       "accessedAt": "2026-11-02",

@@ -2,9 +2,9 @@
   "schemaVersion": "1.0",
   "packageId": "comfyui-timesaver",
   "repository": "https://github.com/AlexYez/comfyui-timesaver",
-  "sourceCommit": "0e1aa5540cb95b8d5d932d4a082ec01d517cd03a",
-  "version": "12.13.5",
-  "capturedAt": "2026-11-02",
+  "sourceCommit": "18c863d206a537c8d60c8db6d1c7dbdf4a29721a",
+  "version": "12.13.12",
+  "capturedAt": "2026-11-14",
   "nodes": [
     {
       "classType": "TS_AudioLoader",
@@ -275,7 +275,7 @@
       "displayName": "TS Resolution Selector",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/image/ts_resolution_selector.py",
-      "sourceLine": 314,
+      "sourceLine": 322,
       "documentationPath": "js/docs/TS_ResolutionSelector/ru.md"
     },
     {
@@ -347,7 +347,7 @@
       "displayName": "TS RT Prompt Enhancer",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/llm/ts_rt_prompt_enhancer.py",
-      "sourceLine": 416,
+      "sourceLine": 417,
       "documentationPath": "js/docs/TS_RTPromptEnhancer/ru.md"
     },
     {
@@ -395,7 +395,7 @@
       "displayName": "TS Prompt Builder",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/text/ts_prompt_builder.py",
-      "sourceLine": 343,
+      "sourceLine": 365,
       "documentationPath": "js/docs/TS_PromptBuilder/ru.md"
     },
     {
@@ -435,7 +435,7 @@
       "displayName": "TS Batch Source",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/utils/ts_batch_source.py",
-      "sourceLine": 779,
+      "sourceLine": 806,
       "documentationPath": "js/docs/TS_BatchSource/ru.md"
     },
     {
@@ -539,7 +539,7 @@
       "displayName": "TS DLSS Upscaler",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/video/dlss/ts_dlss_upscaler.py",
-      "sourceLine": 579,
+      "sourceLine": 647,
       "documentationPath": "js/docs/TS_DLSSUpscaler/ru.md"
     },
     {
@@ -603,7 +603,7 @@
       "displayName": "TS H3 Fast VAE Decode",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/video/latent_upscale/ts_h3_fast_vae.py",
-      "sourceLine": 115,
+      "sourceLine": 147,
       "documentationPath": "js/docs/TS_H3FastVAEDecode/ru.md"
     },
     {
@@ -611,7 +611,7 @@
       "displayName": "TS H3 Regenerate Model",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/video/latent_upscale/ts_h3_regenerate.py",
-      "sourceLine": 261,
+      "sourceLine": 363,
       "documentationPath": "js/docs/TS_H3RegenerateModel/ru.md"
     },
     {
@@ -619,7 +619,7 @@
       "displayName": "TS H3 Regenerate",
       "pythonModule": "custom_nodes.comfyui-timesaver",
       "sourcePath": "nodes/video/latent_upscale/ts_h3_regenerate.py",
-      "sourceLine": 261,
+      "sourceLine": 363,
       "documentationPath": "js/docs/TS_H3Regenerate/ru.md"
     },
     {

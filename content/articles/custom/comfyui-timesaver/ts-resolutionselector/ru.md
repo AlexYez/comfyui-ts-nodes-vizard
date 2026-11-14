@@ -1,5 +1,11 @@
 # TS Resolution Selector
 
+<!-- nov14:start -->
+**TimeSaver 12.13.12.** Начальное значение — 1,5 Мп, текущий рабочий диапазон по умолчанию 0,1–4 Мп. max_megapixels задаётся в Properties отдельно для ноды и сохраняется в workflow. Выход остаётся IMAGE с размерами, кратными 32; для LATENT нужен VAE Encode. Рабочий диапазон интерфейса не является обещанием, что выбранная модель поместится в память.
+
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/nodes/image/ts_resolution_selector.py) · [Текущая справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/js/docs/TS_ResolutionSelector/ru.md). Дополнение не означает полного повторного утверждения старого текста.
+<!-- nov14:end -->
+
 <!-- november-update:start -->
 ## Изменения в TimeSaver 12.13.5
 

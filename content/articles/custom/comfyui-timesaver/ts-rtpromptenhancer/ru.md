@@ -1,5 +1,11 @@
 # TS RT Prompt Enhancer
 
+<!-- nov14:start -->
+**TimeSaver 12.13.12.** Анализ нескольких кадров не равен просмотру видео с точной временной шкалой: модель может ошибаться в направлении движения. В аудио распознавание речи не означает надёжного распознавания инструментов, невербальных звуков или числа событий. Для точной расшифровки выбирайте transcribe и сверяйте названия с записью; инструкция пресета не устраняет ограничений модели.
+
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/nodes/llm/ts_rt_prompt_enhancer.py) · [Текущая справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/js/docs/TS_RTPromptEnhancer/ru.md). Дополнение не означает полного повторного утверждения старого текста.
+<!-- nov14:end -->
+
 <!-- november-update:start -->
 ## Изменения в TimeSaver 12.13.5
 

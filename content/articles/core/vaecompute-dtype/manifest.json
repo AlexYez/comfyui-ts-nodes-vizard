@@ -1,0 +1,65 @@
+{
+  "$schema": "../../../schemas/article.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.vaecompute-dtype",
+  "kind": "core",
+  "locale": "ru",
+  "title": "VAE Compute Dtype: точность вычислений VAE",
+  "summary": "Клонирует VAE и задаёт точность кодирования и декодирования в этой ветке: fp32, fp16 или bf16. default сохраняет тип вычислений входного VAE.",
+  "body": "ru.md",
+  "runtimeIdentity": {
+    "classType": "VAEComputeDtype",
+    "pythonModule": "comfy_extras.nodes_model_advanced",
+    "packageId": "comfy-core",
+    "origin": "backend",
+    "aliases": []
+  },
+  "status": "draft",
+  "experimental": false,
+  "compatibility": {
+    "comfyui": ">=0.45.0",
+    "frontend": ">=1.58.5",
+    "verifiedOn": "2026-11-14",
+    "sourceRevision": "ComfyUI 0.45.0 @ 989d93d0d968e704c589ce0146bb18c77f6b50cc"
+  },
+  "relations": {
+    "related": [],
+    "alternatives": [],
+    "replacedBy": null
+  },
+  "tags": [
+    "VAEComputeDtype",
+    "advanced/debug"
+  ],
+  "searchAliases": [
+    "VAEComputeDtype",
+    "VAE Compute Dtype: точность вычислений VAE"
+  ],
+  "concepts": [
+    "VAE Compute Dtype: точность вычислений VAE"
+  ],
+  "assets": [],
+  "editorial": {
+    "state": "in_review",
+    "owner": "TS Nodes Wizard editorial",
+    "reviewedBy": "Pinned implementation review; human approval pending",
+    "reviewedAt": "2026-11-14",
+    "factsReviewedAt": "2026-11-14",
+    "schemaHash": "sha256:b78883aff2855726262005c8a7161f0f2c7a356252c9a082a65205f8ef3bb41f"
+  },
+  "sources": [
+    {
+      "sourceId": "core.vaecompute-dtype-source",
+      "title": "VAEComputeDtype in ComfyUI 0.45.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/989d93d0d968e704c589ce0146bb18c77f6b50cc/comfy_extras/nodes_model_advanced.py#L374-L398",
+      "publisher": "Comfy-Org",
+      "kind": "source",
+      "accessedAt": "2026-11-14",
+      "supports": [
+        "назначение",
+        "входы и выходы",
+        "ограничения реализации"
+      ]
+    }
+  ]
+}

@@ -26,7 +26,7 @@ class NovemberCatalogTests(unittest.TestCase):
     def test_exact_current_coverage_and_module_relocation(self):
         local = {k: v for k, v in c.local_generation_nodes(self.runtime).items() if not v.get("dev_only")}
         self.assertEqual(682, len(local))
-        self.assertEqual(793, len(self.articles))
+        self.assertEqual(806, len(self.articles))
         for key, definition in local.items():
             self.assertEqual(definition["python_module"], self.by_node[key][1]["runtimeIdentity"]["pythonModule"])
         self.assertEqual([{"nodeId": "CreateCameraInfo", "oldModule": "comfy_extras.nodes_gaussian_splat", "newModule": "comfy_extras.nodes_camera"}], self.report["moduleRelocations"])
@@ -102,8 +102,8 @@ class NovemberCatalogTests(unittest.TestCase):
         self.assertEqual([], now["missingArticles"])
         self.assertEqual({x["articleId"] for x in before["staleArticles"]}, {x["articleId"] for x in now["staleArticles"]})
         update = c.load_json(c.CONTENT / "update-manifest.json")
-        self.assertEqual("0.3.3", update["catalogVersion"])
-        self.assertEqual(22, len(update["changes"]["added"]))
+        self.assertEqual("0.3.4", update["catalogVersion"])
+        self.assertEqual(35, len(update["changes"]["added"]))
         self.assertEqual(31 + len(CORE_DELTAS), len(update["changes"]["updated"]))
         self.assertIsNone(update["signature"])
         self.assertFalse(self.report["humanApproved"])

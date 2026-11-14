@@ -1,5 +1,11 @@
 # TS Super Prompt RT
 
+<!-- nov14:start -->
+**TimeSaver 12.13.12.** Рекомендуемый API рантайма обновлён до litert-lm-api 0.19.0. Старый CLI 0.16.1 может конфликтовать с ним; не удаляйте CLI, если он нужен другим задачам. Проверяйте окружение тем Python, которым запускается ComfyUI. MTP остаётся выключенным по умолчанию: результаты прежней проверки 0.16.1 нельзя переносить на 0.19.0 как универсальное свойство.
+
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/nodes/llm/super_prompt_rt/ts_super_prompt_rt.py) · [Текущая справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/js/docs/TS_SuperPromptRT/ru.md). Дополнение не означает полного повторного утверждения старого текста.
+<!-- nov14:end -->
+
 <!-- november-update:start -->
 ## Изменения в TimeSaver 12.13.5
 

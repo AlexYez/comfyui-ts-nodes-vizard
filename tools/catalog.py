@@ -1327,6 +1327,9 @@ def select_related_reading(article: Mapping[str, Any], reading: Mapping[str, Any
     must never displace a specific subject in the node ID or title.
     """
     node_subject = article["runtimeIdentity"]["classType"].casefold()
+    for rule in reading.get("specificRules", []):
+        if any(keyword.casefold() in node_subject for keyword in rule["keywords"]):
+            return rule
     title_subject = article["title"].casefold()
     secondary = " ".join([article["summary"], *article["tags"], *article["concepts"]]).casefold()
     for haystack in (node_subject, title_subject, secondary):

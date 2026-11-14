@@ -1,0 +1,20 @@
+{
+  "capturedAt": "2026-11-14",
+  "sourceCommit": "989d93d0d968e704c589ce0146bb18c77f6b50cc",
+  "artifactRun": "https://github.com/AlexYez/comfyui-ts-nodes-vizard/actions/runs/43578336810",
+  "files": {
+    "comfyui-0.45.0.object-info.json": {
+      "sha256": "72a66cc151853afaeab0994ed4ed56cf0ddb8d59979682d88c9d38d3edb66e26",
+      "size": 2202914
+    },
+    "comfyui-0.45.0.system-stats.json": {
+      "sha256": "74410adb7423e381a87533ee81e99cef082f4b46da0b336397651ff999850533",
+      "size": 1123
+    },
+    "comfyui-0.45.0.node-replacements.json": {
+      "sha256": "ffb4cfe580e7c2f01715f64c3604abb7b470f55e2f5aabd0b080e5514cc30547",
+      "size": 3477
+    }
+  },
+  "qualification": "Clean CPU inventory, not model workflow execution"
+}

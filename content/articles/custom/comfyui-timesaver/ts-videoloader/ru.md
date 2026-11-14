@@ -1,5 +1,11 @@
 # TS Video Loader
 
+<!-- nov14:start -->
+**TimeSaver 12.13.12.** Предпросмотр через копию используется для кодеков вне поддерживаемого браузером набора H.264, VP8, VP9 и AV1. Выходные кадры и обрезка берутся из оригинала, не из копии H.264. На сетевом сервере доступ к превью ограничивается разрешёнными корнями; изменение TS_MEDIA_ALLOW_ANY_PATH расширяет доступ и требует осознанной настройки владельцем сервера. Не публикуйте ComfyUI в интернете без отдельной защиты доступа.
+
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/nodes/video/media/ts_video_loader.py) · [Текущая справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/js/docs/TS_VideoLoader/ru.md). Дополнение не означает полного повторного утверждения старого текста.
+<!-- nov14:end -->
+
 <!-- november-update:start -->
 ## Изменения в TimeSaver 12.13.5
 

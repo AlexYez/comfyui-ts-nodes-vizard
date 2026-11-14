@@ -86,7 +86,7 @@ class SeptemberArticlesTests(unittest.TestCase):
 
     def test_compiled_catalog_has_articles_not_only_autocards(self):
         articles = self.compiled["articles"]
-        self.assertEqual(len(articles), 793)
+        self.assertEqual(len(articles), 806)
         by_node = {a["manifest"]["node"]["nodeId"]: a for a in articles if a["manifest"]["node"]["packageId"] == "comfy-core"}
         for node_id in ARTICLES:
             with self.subTest(node=node_id):

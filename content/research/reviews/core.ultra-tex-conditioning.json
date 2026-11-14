@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/article-research.schema.v1.json",
+  "schemaVersion": "1.0",
+  "articleId": "core.ultra-tex-conditioning",
+  "node": {
+    "classType": "UltraTexConditioning",
+    "pythonModule": "comfy_extras.nodes_ultratex",
+    "origin": "backend"
+  },
+  "baseline": {
+    "comfyui": "0.45.0",
+    "frontend": "1.58.5",
+    "sourceCommit": "989d93d0d968e704c589ce0146bb18c77f6b50cc",
+    "embeddedDocs": "implementation primary",
+    "workflowTemplatesJson": "not inspected in this update"
+  },
+  "state": "source_reviewed",
+  "reviewMode": "automated_assisted",
+  "evidence": {
+    "runtimeInventory": "runtime/comfyui-0.45.0.object-info.json",
+    "sourceLocations": [
+      {
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/989d93d0d968e704c589ce0146bb18c77f6b50cc/comfy_extras/nodes_ultratex.py#L17-L89",
+        "path": "comfy_extras/nodes_ultratex.py",
+        "lines": "17-89"
+      }
+    ],
+    "embeddedDocs": [],
+    "workflows": []
+  },
+  "checks": {
+    "implementationRead": true,
+    "runtimeCompared": true,
+    "officialCasesInspected": false,
+    "exampleSchemaValidated": false,
+    "exampleExecuted": false,
+    "russianEdited": true,
+    "factsRecheckedAfterEditing": true
+  },
+  "knownGaps": [
+    "Требуется человеческое утверждение",
+    "Full model workflow execution not performed",
+    "Official workflow wiring census is not manual case validation"
+  ],
+  "updatedAt": "2026-11-14"
+}

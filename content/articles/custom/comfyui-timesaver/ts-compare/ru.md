@@ -1,5 +1,11 @@
 # TS Compare
 
+<!-- nov14:start -->
+**TimeSaver 12.13.12.** Ручка, подписи и кнопки сравнения показываются после загрузки обеих картинок или первого кадра видео. Пустое превью остаётся без контроллеров, в том числе если временные файлы прошлого результата недоступны. Это не означает, что прежний файл сохранён в постоянном output.
+
+[Реализация](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/nodes/utils/ts_compare.py) · [Текущая справка автора](https://github.com/AlexYez/comfyui-timesaver/blob/18c863d206a537c8d60c8db6d1c7dbdf4a29721a/js/docs/TS_Compare/ru.md). Дополнение не означает полного повторного утверждения старого текста.
+<!-- nov14:end -->
+
 <!-- november-update:start -->
 ## Изменения в TimeSaver 12.13.5
 
